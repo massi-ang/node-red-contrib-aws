@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -30,7 +44,15 @@
 		
 			<option value="AcceptReservedNodeExchange">AcceptReservedNodeExchange</option>
 		
+			<option value="AddPartner">AddPartner</option>
+		
+			<option value="AssociateDataShareConsumer">AssociateDataShareConsumer</option>
+		
 			<option value="AuthorizeClusterSecurityGroupIngress">AuthorizeClusterSecurityGroupIngress</option>
+		
+			<option value="AuthorizeDataShare">AuthorizeDataShare</option>
+		
+			<option value="AuthorizeEndpointAccess">AuthorizeEndpointAccess</option>
 		
 			<option value="AuthorizeSnapshotAccess">AuthorizeSnapshotAccess</option>
 		
@@ -42,6 +64,8 @@
 		
 			<option value="CopyClusterSnapshot">CopyClusterSnapshot</option>
 		
+			<option value="CreateAuthenticationProfile">CreateAuthenticationProfile</option>
+		
 			<option value="CreateCluster">CreateCluster</option>
 		
 			<option value="CreateClusterParameterGroup">CreateClusterParameterGroup</option>
@@ -51,6 +75,8 @@
 			<option value="CreateClusterSnapshot">CreateClusterSnapshot</option>
 		
 			<option value="CreateClusterSubnetGroup">CreateClusterSubnetGroup</option>
+		
+			<option value="CreateEndpointAccess">CreateEndpointAccess</option>
 		
 			<option value="CreateEventSubscription">CreateEventSubscription</option>
 		
@@ -68,6 +94,10 @@
 		
 			<option value="CreateUsageLimit">CreateUsageLimit</option>
 		
+			<option value="DeauthorizeDataShare">DeauthorizeDataShare</option>
+		
+			<option value="DeleteAuthenticationProfile">DeleteAuthenticationProfile</option>
+		
 			<option value="DeleteCluster">DeleteCluster</option>
 		
 			<option value="DeleteClusterParameterGroup">DeleteClusterParameterGroup</option>
@@ -78,11 +108,15 @@
 		
 			<option value="DeleteClusterSubnetGroup">DeleteClusterSubnetGroup</option>
 		
+			<option value="DeleteEndpointAccess">DeleteEndpointAccess</option>
+		
 			<option value="DeleteEventSubscription">DeleteEventSubscription</option>
 		
 			<option value="DeleteHsmClientCertificate">DeleteHsmClientCertificate</option>
 		
 			<option value="DeleteHsmConfiguration">DeleteHsmConfiguration</option>
+		
+			<option value="DeletePartner">DeletePartner</option>
 		
 			<option value="DeleteScheduledAction">DeleteScheduledAction</option>
 		
@@ -95,6 +129,8 @@
 			<option value="DeleteUsageLimit">DeleteUsageLimit</option>
 		
 			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
+		
+			<option value="DescribeAuthenticationProfiles">DescribeAuthenticationProfiles</option>
 		
 			<option value="DescribeClusterDbRevisions">DescribeClusterDbRevisions</option>
 		
@@ -114,7 +150,17 @@
 		
 			<option value="DescribeClusters">DescribeClusters</option>
 		
+			<option value="DescribeDataShares">DescribeDataShares</option>
+		
+			<option value="DescribeDataSharesForConsumer">DescribeDataSharesForConsumer</option>
+		
+			<option value="DescribeDataSharesForProducer">DescribeDataSharesForProducer</option>
+		
 			<option value="DescribeDefaultClusterParameters">DescribeDefaultClusterParameters</option>
+		
+			<option value="DescribeEndpointAccess">DescribeEndpointAccess</option>
+		
+			<option value="DescribeEndpointAuthorization">DescribeEndpointAuthorization</option>
 		
 			<option value="DescribeEventCategories">DescribeEventCategories</option>
 		
@@ -131,6 +177,8 @@
 			<option value="DescribeNodeConfigurationOptions">DescribeNodeConfigurationOptions</option>
 		
 			<option value="DescribeOrderableClusterOptions">DescribeOrderableClusterOptions</option>
+		
+			<option value="DescribePartners">DescribePartners</option>
 		
 			<option value="DescribeReservedNodeOfferings">DescribeReservedNodeOfferings</option>
 		
@@ -156,6 +204,8 @@
 		
 			<option value="DisableSnapshotCopy">DisableSnapshotCopy</option>
 		
+			<option value="DisassociateDataShareConsumer">DisassociateDataShareConsumer</option>
+		
 			<option value="EnableLogging">EnableLogging</option>
 		
 			<option value="EnableSnapshotCopy">EnableSnapshotCopy</option>
@@ -163,6 +213,10 @@
 			<option value="GetClusterCredentials">GetClusterCredentials</option>
 		
 			<option value="GetReservedNodeExchangeOfferings">GetReservedNodeExchangeOfferings</option>
+		
+			<option value="ModifyAquaConfiguration">ModifyAquaConfiguration</option>
+		
+			<option value="ModifyAuthenticationProfile">ModifyAuthenticationProfile</option>
 		
 			<option value="ModifyCluster">ModifyCluster</option>
 		
@@ -180,6 +234,8 @@
 		
 			<option value="ModifyClusterSubnetGroup">ModifyClusterSubnetGroup</option>
 		
+			<option value="ModifyEndpointAccess">ModifyEndpointAccess</option>
+		
 			<option value="ModifyEventSubscription">ModifyEventSubscription</option>
 		
 			<option value="ModifyScheduledAction">ModifyScheduledAction</option>
@@ -196,6 +252,8 @@
 		
 			<option value="RebootCluster">RebootCluster</option>
 		
+			<option value="RejectDataShare">RejectDataShare</option>
+		
 			<option value="ResetClusterParameterGroup">ResetClusterParameterGroup</option>
 		
 			<option value="ResizeCluster">ResizeCluster</option>
@@ -208,9 +266,13 @@
 		
 			<option value="RevokeClusterSecurityGroupIngress">RevokeClusterSecurityGroupIngress</option>
 		
+			<option value="RevokeEndpointAccess">RevokeEndpointAccess</option>
+		
 			<option value="RevokeSnapshotAccess">RevokeSnapshotAccess</option>
 		
 			<option value="RotateEncryptionKey">RotateEncryptionKey</option>
+		
+			<option value="UpdatePartnerStatus">UpdatePartnerStatus</option>
 		;
 		</select>
 	</div>
@@ -229,9 +291,21 @@
 		<label for="node-input-TargetReservedNodeOfferingId"><i class="fa fa-tag"></i>TargetReservedNodeOfferingId</label>
 		<input type="text" id="node-input-TargetReservedNodeOfferingId" placeholder="TargetReservedNodeOfferingId"></input>
 	</div> 
+	<div class="form-row" id='DataShareArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DataShareArn"><i class="fa fa-tag"></i>DataShareArn</label>
+		<input type="text" id="node-input-DataShareArn" placeholder="DataShareArn"></input>
+	</div> 
 	<div class="form-row" id='ClusterSecurityGroupNameAttr' class='hiddenAttrs'>
 		<label for="node-input-ClusterSecurityGroupName"><i class="fa fa-tag"></i>ClusterSecurityGroupName</label>
 		<input type="text" id="node-input-ClusterSecurityGroupName" placeholder="ClusterSecurityGroupName"></input>
+	</div> 
+	<div class="form-row" id='ConsumerIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsumerIdentifier"><i class="fa fa-tag"></i>ConsumerIdentifier</label>
+		<input type="text" id="node-input-ConsumerIdentifier" placeholder="ConsumerIdentifier"></input>
+	</div> 
+	<div class="form-row" id='AccountAttr' class='hiddenAttrs'>
+		<label for="node-input-Account"><i class="fa fa-tag"></i>Account</label>
+		<input type="text" id="node-input-Account" placeholder="Account"></input>
 	</div> 
 	<div class="form-row" id='SnapshotIdentifierAttr' class='hiddenAttrs'>
 		<label for="node-input-SnapshotIdentifier"><i class="fa fa-tag"></i>SnapshotIdentifier</label>
@@ -260,6 +334,14 @@
 	<div class="form-row" id='TargetSnapshotIdentifierAttr' class='hiddenAttrs'>
 		<label for="node-input-TargetSnapshotIdentifier"><i class="fa fa-tag"></i>TargetSnapshotIdentifier</label>
 		<input type="text" id="node-input-TargetSnapshotIdentifier" placeholder="TargetSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationProfileName"><i class="fa fa-tag"></i>AuthenticationProfileName</label>
+		<input type="text" id="node-input-AuthenticationProfileName" placeholder="AuthenticationProfileName"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationProfileContentAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationProfileContent"><i class="fa fa-tag"></i>AuthenticationProfileContent</label>
+		<input type="text" id="node-input-AuthenticationProfileContent" placeholder="AuthenticationProfileContent"></input>
 	</div> 
 	<div class="form-row" id='NodeTypeAttr' class='hiddenAttrs'>
 		<label for="node-input-NodeType"><i class="fa fa-tag"></i>NodeType</label>
@@ -292,6 +374,14 @@
 	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
 		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
 		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='EndpointNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointName"><i class="fa fa-tag"></i>EndpointName</label>
+		<input type="text" id="node-input-EndpointName" placeholder="EndpointName"></input>
+	</div> 
+	<div class="form-row" id='SubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetGroupName"><i class="fa fa-tag"></i>SubnetGroupName</label>
+		<input type="text" id="node-input-SubnetGroupName" placeholder="SubnetGroupName"></input>
 	</div> 
 	<div class="form-row" id='SubscriptionNameAttr' class='hiddenAttrs'>
 		<label for="node-input-SubscriptionName"><i class="fa fa-tag"></i>SubscriptionName</label>
@@ -381,6 +471,10 @@
 		<label for="node-input-ActionType"><i class="fa fa-tag"></i>ActionType</label>
 		<input type="text" id="node-input-ActionType" placeholder="ActionType"></input>
 	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i>AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
 	<div class="form-row" id='BucketNameAttr' class='hiddenAttrs'>
 		<label for="node-input-BucketName"><i class="fa fa-tag"></i>BucketName</label>
 		<input type="text" id="node-input-BucketName" placeholder="BucketName"></input>
@@ -425,6 +519,18 @@
 		<label for="node-input-NewTableName"><i class="fa fa-tag"></i>NewTableName</label>
 		<input type="text" id="node-input-NewTableName" placeholder="NewTableName"></input>
 	</div> 
+	<div class="form-row" id='DatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DatabaseName"><i class="fa fa-tag"></i>DatabaseName</label>
+		<input type="text" id="node-input-DatabaseName" placeholder="DatabaseName"></input>
+	</div> 
+	<div class="form-row" id='PartnerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PartnerName"><i class="fa fa-tag"></i>PartnerName</label>
+		<input type="text" id="node-input-PartnerName" placeholder="PartnerName"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i>Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
 	</div>
 
  <script>
@@ -433,8 +539,20 @@
 				AcceptReservedNodeExchange:[
 					'#ReservedNodeIdAttr','#TargetReservedNodeOfferingIdAttr'
 					],
+				AddPartner:[
+					
+					],
+				AssociateDataShareConsumer:[
+					'#DataShareArnAttr'
+					],
 				AuthorizeClusterSecurityGroupIngress:[
 					'#ClusterSecurityGroupNameAttr'
+					],
+				AuthorizeDataShare:[
+					'#DataShareArnAttr','#ConsumerIdentifierAttr'
+					],
+				AuthorizeEndpointAccess:[
+					'#AccountAttr'
 					],
 				AuthorizeSnapshotAccess:[
 					'#SnapshotIdentifierAttr','#AccountWithRestoreAccessAttr'
@@ -451,6 +569,9 @@
 				CopyClusterSnapshot:[
 					'#SourceSnapshotIdentifierAttr','#TargetSnapshotIdentifierAttr'
 					],
+				CreateAuthenticationProfile:[
+					'#AuthenticationProfileNameAttr','#AuthenticationProfileContentAttr'
+					],
 				CreateCluster:[
 					'#ClusterIdentifierAttr','#NodeTypeAttr','#MasterUsernameAttr','#MasterUserPasswordAttr'
 					],
@@ -465,6 +586,9 @@
 					],
 				CreateClusterSubnetGroup:[
 					'#ClusterSubnetGroupNameAttr','#DescriptionAttr','#SubnetIdsAttr'
+					],
+				CreateEndpointAccess:[
+					'#EndpointNameAttr','#SubnetGroupNameAttr'
 					],
 				CreateEventSubscription:[
 					'#SubscriptionNameAttr','#SnsTopicArnAttr'
@@ -490,6 +614,12 @@
 				CreateUsageLimit:[
 					'#ClusterIdentifierAttr','#FeatureTypeAttr','#LimitTypeAttr','#AmountAttr'
 					],
+				DeauthorizeDataShare:[
+					'#DataShareArnAttr','#ConsumerIdentifierAttr'
+					],
+				DeleteAuthenticationProfile:[
+					'#AuthenticationProfileNameAttr'
+					],
 				DeleteCluster:[
 					'#ClusterIdentifierAttr'
 					],
@@ -505,6 +635,9 @@
 				DeleteClusterSubnetGroup:[
 					'#ClusterSubnetGroupNameAttr'
 					],
+				DeleteEndpointAccess:[
+					'#EndpointNameAttr'
+					],
 				DeleteEventSubscription:[
 					'#SubscriptionNameAttr'
 					],
@@ -513,6 +646,9 @@
 					],
 				DeleteHsmConfiguration:[
 					'#HsmConfigurationIdentifierAttr'
+					],
+				DeletePartner:[
+					
 					],
 				DeleteScheduledAction:[
 					'#ScheduledActionNameAttr'
@@ -530,6 +666,9 @@
 					'#UsageLimitIdAttr'
 					],
 				DescribeAccountAttributes:[
+					
+					],
+				DescribeAuthenticationProfiles:[
 					
 					],
 				DescribeClusterDbRevisions:[
@@ -559,8 +698,23 @@
 				DescribeClusters:[
 					
 					],
+				DescribeDataShares:[
+					
+					],
+				DescribeDataSharesForConsumer:[
+					
+					],
+				DescribeDataSharesForProducer:[
+					
+					],
 				DescribeDefaultClusterParameters:[
 					'#ParameterGroupFamilyAttr'
+					],
+				DescribeEndpointAccess:[
+					
+					],
+				DescribeEndpointAuthorization:[
+					
 					],
 				DescribeEventCategories:[
 					
@@ -585,6 +739,9 @@
 					],
 				DescribeOrderableClusterOptions:[
 					
+					],
+				DescribePartners:[
+					'#AccountIdAttr','#ClusterIdentifierAttr'
 					],
 				DescribeReservedNodeOfferings:[
 					
@@ -622,6 +779,9 @@
 				DisableSnapshotCopy:[
 					'#ClusterIdentifierAttr'
 					],
+				DisassociateDataShareConsumer:[
+					'#DataShareArnAttr'
+					],
 				EnableLogging:[
 					'#ClusterIdentifierAttr','#BucketNameAttr'
 					],
@@ -633,6 +793,12 @@
 					],
 				GetReservedNodeExchangeOfferings:[
 					'#ReservedNodeIdAttr'
+					],
+				ModifyAquaConfiguration:[
+					'#ClusterIdentifierAttr'
+					],
+				ModifyAuthenticationProfile:[
+					'#AuthenticationProfileNameAttr','#AuthenticationProfileContentAttr'
 					],
 				ModifyCluster:[
 					'#ClusterIdentifierAttr'
@@ -658,6 +824,9 @@
 				ModifyClusterSubnetGroup:[
 					'#ClusterSubnetGroupNameAttr','#SubnetIdsAttr'
 					],
+				ModifyEndpointAccess:[
+					'#EndpointNameAttr'
+					],
 				ModifyEventSubscription:[
 					'#SubscriptionNameAttr'
 					],
@@ -682,6 +851,9 @@
 				RebootCluster:[
 					'#ClusterIdentifierAttr'
 					],
+				RejectDataShare:[
+					'#DataShareArnAttr'
+					],
 				ResetClusterParameterGroup:[
 					'#ParameterGroupNameAttr'
 					],
@@ -700,11 +872,17 @@
 				RevokeClusterSecurityGroupIngress:[
 					'#ClusterSecurityGroupNameAttr'
 					],
+				RevokeEndpointAccess:[
+					
+					],
 				RevokeSnapshotAccess:[
 					'#SnapshotIdentifierAttr','#AccountWithRestoreAccessAttr'
 					],
 				RotateEncryptionKey:[
 					'#ClusterIdentifierAttr'
+					],
+				UpdatePartnerStatus:[
+					'#AccountIdAttr','#ClusterIdentifierAttr','#DatabaseNameAttr','#PartnerNameAttr','#StatusAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -716,17 +894,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon Redshift">
+<script type="text/x-red" data-help-name="AWS Redshift">
 <p>
-AWS Amazon Redshift
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS Redshift
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Redshift.html">Redshift</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -739,7 +917,10 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 			
 				ReservedNodeId: { value: ""} ,
 				TargetReservedNodeOfferingId: { value: ""} ,
+				DataShareArn: { value: ""} ,
 				ClusterSecurityGroupName: { value: ""} ,
+				ConsumerIdentifier: { value: ""} ,
+				Account: { value: ""} ,
 				SnapshotIdentifier: { value: ""} ,
 				AccountWithRestoreAccess: { value: ""} ,
 				Identifiers: { value: ""} ,
@@ -747,6 +928,8 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				ClusterIdentifier: { value: ""} ,
 				SourceSnapshotIdentifier: { value: ""} ,
 				TargetSnapshotIdentifier: { value: ""} ,
+				AuthenticationProfileName: { value: ""} ,
+				AuthenticationProfileContent: { value: ""} ,
 				NodeType: { value: ""} ,
 				MasterUsername: { value: ""} ,
 				MasterUserPassword: { value: ""} ,
@@ -755,6 +938,8 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				Description: { value: ""} ,
 				ClusterSubnetGroupName: { value: ""} ,
 				SubnetIds: { value: ""} ,
+				EndpointName: { value: ""} ,
+				SubnetGroupName: { value: ""} ,
 				SubscriptionName: { value: ""} ,
 				SnsTopicArn: { value: ""} ,
 				HsmClientCertificateIdentifier: { value: ""} ,
@@ -777,6 +962,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				TagKeys: { value: ""} ,
 				UsageLimitId: { value: ""} ,
 				ActionType: { value: ""} ,
+				AccountId: { value: ""} ,
 				BucketName: { value: ""} ,
 				DestinationRegion: { value: ""} ,
 				DbUser: { value: ""} ,
@@ -788,6 +974,9 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				SourceDatabaseName: { value: ""} ,
 				SourceTableName: { value: ""} ,
 				NewTableName: { value: ""} ,
+				DatabaseName: { value: ""} ,
+				PartnerName: { value: ""} ,
+				Status: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

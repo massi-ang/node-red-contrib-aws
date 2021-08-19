@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -62,6 +76,8 @@
 		
 			<option value="AssociateIamInstanceProfile">AssociateIamInstanceProfile</option>
 		
+			<option value="AssociateInstanceEventWindow">AssociateInstanceEventWindow</option>
+		
 			<option value="AssociateRouteTable">AssociateRouteTable</option>
 		
 			<option value="AssociateSubnetCidrBlock">AssociateSubnetCidrBlock</option>
@@ -69,6 +85,8 @@
 			<option value="AssociateTransitGatewayMulticastDomain">AssociateTransitGatewayMulticastDomain</option>
 		
 			<option value="AssociateTransitGatewayRouteTable">AssociateTransitGatewayRouteTable</option>
+		
+			<option value="AssociateTrunkInterface">AssociateTrunkInterface</option>
 		
 			<option value="AssociateVpcCidrBlock">AssociateVpcCidrBlock</option>
 		
@@ -140,6 +158,8 @@
 		
 			<option value="CreateImage">CreateImage</option>
 		
+			<option value="CreateInstanceEventWindow">CreateInstanceEventWindow</option>
+		
 			<option value="CreateInstanceExportTask">CreateInstanceExportTask</option>
 		
 			<option value="CreateInternetGateway">CreateInternetGateway</option>
@@ -170,7 +190,11 @@
 		
 			<option value="CreatePlacementGroup">CreatePlacementGroup</option>
 		
+			<option value="CreateReplaceRootVolumeTask">CreateReplaceRootVolumeTask</option>
+		
 			<option value="CreateReservedInstancesListing">CreateReservedInstancesListing</option>
+		
+			<option value="CreateRestoreImageTask">CreateRestoreImageTask</option>
 		
 			<option value="CreateRoute">CreateRoute</option>
 		
@@ -184,7 +208,11 @@
 		
 			<option value="CreateSpotDatafeedSubscription">CreateSpotDatafeedSubscription</option>
 		
+			<option value="CreateStoreImageTask">CreateStoreImageTask</option>
+		
 			<option value="CreateSubnet">CreateSubnet</option>
+		
+			<option value="CreateSubnetCidrReservation">CreateSubnetCidrReservation</option>
 		
 			<option value="CreateTags">CreateTags</option>
 		
@@ -250,6 +278,8 @@
 		
 			<option value="DeleteFpgaImage">DeleteFpgaImage</option>
 		
+			<option value="DeleteInstanceEventWindow">DeleteInstanceEventWindow</option>
+		
 			<option value="DeleteInternetGateway">DeleteInternetGateway</option>
 		
 			<option value="DeleteKeyPair">DeleteKeyPair</option>
@@ -293,6 +323,8 @@
 			<option value="DeleteSpotDatafeedSubscription">DeleteSpotDatafeedSubscription</option>
 		
 			<option value="DeleteSubnet">DeleteSubnet</option>
+		
+			<option value="DeleteSubnetCidrReservation">DeleteSubnetCidrReservation</option>
 		
 			<option value="DeleteTags">DeleteTags</option>
 		
@@ -353,6 +385,8 @@
 			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
 		
 			<option value="DescribeAddresses">DescribeAddresses</option>
+		
+			<option value="DescribeAddressesAttribute">DescribeAddressesAttribute</option>
 		
 			<option value="DescribeAggregateIdFormat">DescribeAggregateIdFormat</option>
 		
@@ -434,6 +468,8 @@
 		
 			<option value="DescribeInstanceEventNotificationAttributes">DescribeInstanceEventNotificationAttributes</option>
 		
+			<option value="DescribeInstanceEventWindows">DescribeInstanceEventWindows</option>
+		
 			<option value="DescribeInstanceStatus">DescribeInstanceStatus</option>
 		
 			<option value="DescribeInstanceTypeOfferings">DescribeInstanceTypeOfferings</option>
@@ -492,6 +528,8 @@
 		
 			<option value="DescribeRegions">DescribeRegions</option>
 		
+			<option value="DescribeReplaceRootVolumeTasks">DescribeReplaceRootVolumeTasks</option>
+		
 			<option value="DescribeReservedInstances">DescribeReservedInstances</option>
 		
 			<option value="DescribeReservedInstancesListings">DescribeReservedInstancesListings</option>
@@ -507,6 +545,8 @@
 			<option value="DescribeScheduledInstances">DescribeScheduledInstances</option>
 		
 			<option value="DescribeSecurityGroupReferences">DescribeSecurityGroupReferences</option>
+		
+			<option value="DescribeSecurityGroupRules">DescribeSecurityGroupRules</option>
 		
 			<option value="DescribeSecurityGroups">DescribeSecurityGroups</option>
 		
@@ -527,6 +567,8 @@
 			<option value="DescribeSpotPriceHistory">DescribeSpotPriceHistory</option>
 		
 			<option value="DescribeStaleSecurityGroups">DescribeStaleSecurityGroups</option>
+		
+			<option value="DescribeStoreImageTasks">DescribeStoreImageTasks</option>
 		
 			<option value="DescribeSubnets">DescribeSubnets</option>
 		
@@ -553,6 +595,8 @@
 			<option value="DescribeTransitGatewayVpcAttachments">DescribeTransitGatewayVpcAttachments</option>
 		
 			<option value="DescribeTransitGateways">DescribeTransitGateways</option>
+		
+			<option value="DescribeTrunkInterfaceAssociations">DescribeTrunkInterfaceAssociations</option>
 		
 			<option value="DescribeVolumeAttribute">DescribeVolumeAttribute</option>
 		
@@ -602,6 +646,10 @@
 		
 			<option value="DisableFastSnapshotRestores">DisableFastSnapshotRestores</option>
 		
+			<option value="DisableImageDeprecation">DisableImageDeprecation</option>
+		
+			<option value="DisableSerialConsoleAccess">DisableSerialConsoleAccess</option>
+		
 			<option value="DisableTransitGatewayRouteTablePropagation">DisableTransitGatewayRouteTablePropagation</option>
 		
 			<option value="DisableVgwRoutePropagation">DisableVgwRoutePropagation</option>
@@ -618,6 +666,8 @@
 		
 			<option value="DisassociateIamInstanceProfile">DisassociateIamInstanceProfile</option>
 		
+			<option value="DisassociateInstanceEventWindow">DisassociateInstanceEventWindow</option>
+		
 			<option value="DisassociateRouteTable">DisassociateRouteTable</option>
 		
 			<option value="DisassociateSubnetCidrBlock">DisassociateSubnetCidrBlock</option>
@@ -626,11 +676,17 @@
 		
 			<option value="DisassociateTransitGatewayRouteTable">DisassociateTransitGatewayRouteTable</option>
 		
+			<option value="DisassociateTrunkInterface">DisassociateTrunkInterface</option>
+		
 			<option value="DisassociateVpcCidrBlock">DisassociateVpcCidrBlock</option>
 		
 			<option value="EnableEbsEncryptionByDefault">EnableEbsEncryptionByDefault</option>
 		
 			<option value="EnableFastSnapshotRestores">EnableFastSnapshotRestores</option>
+		
+			<option value="EnableImageDeprecation">EnableImageDeprecation</option>
+		
+			<option value="EnableSerialConsoleAccess">EnableSerialConsoleAccess</option>
 		
 			<option value="EnableTransitGatewayRouteTablePropagation">EnableTransitGatewayRouteTablePropagation</option>
 		
@@ -668,6 +724,8 @@
 		
 			<option value="GetEbsEncryptionByDefault">GetEbsEncryptionByDefault</option>
 		
+			<option value="GetFlowLogsIntegrationTemplate">GetFlowLogsIntegrationTemplate</option>
+		
 			<option value="GetGroupsForCapacityReservation">GetGroupsForCapacityReservation</option>
 		
 			<option value="GetHostReservationPurchasePreview">GetHostReservationPurchasePreview</option>
@@ -681,6 +739,10 @@
 			<option value="GetPasswordData">GetPasswordData</option>
 		
 			<option value="GetReservedInstancesExchangeQuote">GetReservedInstancesExchangeQuote</option>
+		
+			<option value="GetSerialConsoleAccessStatus">GetSerialConsoleAccessStatus</option>
+		
+			<option value="GetSubnetCidrReservations">GetSubnetCidrReservations</option>
 		
 			<option value="GetTransitGatewayAttachmentPropagations">GetTransitGatewayAttachmentPropagations</option>
 		
@@ -703,6 +765,8 @@
 			<option value="ImportSnapshot">ImportSnapshot</option>
 		
 			<option value="ImportVolume">ImportVolume</option>
+		
+			<option value="ModifyAddressAttribute">ModifyAddressAttribute</option>
 		
 			<option value="ModifyAvailabilityZoneGroup">ModifyAvailabilityZoneGroup</option>
 		
@@ -734,6 +798,8 @@
 		
 			<option value="ModifyInstanceEventStartTime">ModifyInstanceEventStartTime</option>
 		
+			<option value="ModifyInstanceEventWindow">ModifyInstanceEventWindow</option>
+		
 			<option value="ModifyInstanceMetadataOptions">ModifyInstanceMetadataOptions</option>
 		
 			<option value="ModifyInstancePlacement">ModifyInstancePlacement</option>
@@ -745,6 +811,8 @@
 			<option value="ModifyNetworkInterfaceAttribute">ModifyNetworkInterfaceAttribute</option>
 		
 			<option value="ModifyReservedInstances">ModifyReservedInstances</option>
+		
+			<option value="ModifySecurityGroupRules">ModifySecurityGroupRules</option>
 		
 			<option value="ModifySnapshotAttribute">ModifySnapshotAttribute</option>
 		
@@ -843,6 +911,8 @@
 			<option value="RequestSpotFleet">RequestSpotFleet</option>
 		
 			<option value="RequestSpotInstances">RequestSpotInstances</option>
+		
+			<option value="ResetAddressAttribute">ResetAddressAttribute</option>
 		
 			<option value="ResetEbsDefaultKmsKeyId">ResetEbsDefaultKmsKeyId</option>
 		
@@ -971,6 +1041,14 @@
 		<label for="node-input-InstanceId"><i class="fa fa-tag"></i>InstanceId</label>
 		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
 	</div> 
+	<div class="form-row" id='InstanceEventWindowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceEventWindowId"><i class="fa fa-tag"></i>InstanceEventWindowId</label>
+		<input type="text" id="node-input-InstanceEventWindowId" placeholder="InstanceEventWindowId"></input>
+	</div> 
+	<div class="form-row" id='AssociationTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationTarget"><i class="fa fa-tag"></i>AssociationTarget</label>
+		<input type="text" id="node-input-AssociationTarget" placeholder="AssociationTarget"></input>
+	</div> 
 	<div class="form-row" id='RouteTableIdAttr' class='hiddenAttrs'>
 		<label for="node-input-RouteTableId"><i class="fa fa-tag"></i>RouteTableId</label>
 		<input type="text" id="node-input-RouteTableId" placeholder="RouteTableId"></input>
@@ -982,6 +1060,14 @@
 	<div class="form-row" id='TransitGatewayRouteTableIdAttr' class='hiddenAttrs'>
 		<label for="node-input-TransitGatewayRouteTableId"><i class="fa fa-tag"></i>TransitGatewayRouteTableId</label>
 		<input type="text" id="node-input-TransitGatewayRouteTableId" placeholder="TransitGatewayRouteTableId"></input>
+	</div> 
+	<div class="form-row" id='BranchInterfaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BranchInterfaceId"><i class="fa fa-tag"></i>BranchInterfaceId</label>
+		<input type="text" id="node-input-BranchInterfaceId" placeholder="BranchInterfaceId"></input>
+	</div> 
+	<div class="form-row" id='TrunkInterfaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TrunkInterfaceId"><i class="fa fa-tag"></i>TrunkInterfaceId</label>
+		<input type="text" id="node-input-TrunkInterfaceId" placeholder="TrunkInterfaceId"></input>
 	</div> 
 	<div class="form-row" id='GroupsAttr' class='hiddenAttrs'>
 		<label for="node-input-Groups"><i class="fa fa-tag"></i>Groups</label>
@@ -1187,10 +1273,6 @@
 		<label for="node-input-AddressFamily"><i class="fa fa-tag"></i>AddressFamily</label>
 		<input type="text" id="node-input-AddressFamily" placeholder="AddressFamily"></input>
 	</div> 
-	<div class="form-row" id='AllocationIdAttr' class='hiddenAttrs'>
-		<label for="node-input-AllocationId"><i class="fa fa-tag"></i>AllocationId</label>
-		<input type="text" id="node-input-AllocationId" placeholder="AllocationId"></input>
-	</div> 
 	<div class="form-row" id='EgressAttr' class='hiddenAttrs'>
 		<label for="node-input-Egress"><i class="fa fa-tag"></i>Egress</label>
 		<input type="text" id="node-input-Egress" placeholder="Egress"></input>
@@ -1235,6 +1317,14 @@
 		<label for="node-input-ReservedInstancesId"><i class="fa fa-tag"></i>ReservedInstancesId</label>
 		<input type="text" id="node-input-ReservedInstancesId" placeholder="ReservedInstancesId"></input>
 	</div> 
+	<div class="form-row" id='BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-Bucket"><i class="fa fa-tag"></i>Bucket</label>
+		<input type="text" id="node-input-Bucket" placeholder="Bucket"></input>
+	</div> 
+	<div class="form-row" id='ObjectKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectKey"><i class="fa fa-tag"></i>ObjectKey</label>
+		<input type="text" id="node-input-ObjectKey" placeholder="ObjectKey"></input>
+	</div> 
 	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
 		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
 		<input type="text" id="node-input-Description" placeholder="Description"></input>
@@ -1247,13 +1337,17 @@
 		<label for="node-input-InstanceSpecification"><i class="fa fa-tag"></i>InstanceSpecification</label>
 		<input type="text" id="node-input-InstanceSpecification" placeholder="InstanceSpecification"></input>
 	</div> 
-	<div class="form-row" id='BucketAttr' class='hiddenAttrs'>
-		<label for="node-input-Bucket"><i class="fa fa-tag"></i>Bucket</label>
-		<input type="text" id="node-input-Bucket" placeholder="Bucket"></input>
+	<div class="form-row" id='ImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageId"><i class="fa fa-tag"></i>ImageId</label>
+		<input type="text" id="node-input-ImageId" placeholder="ImageId"></input>
 	</div> 
 	<div class="form-row" id='CidrBlockAttr' class='hiddenAttrs'>
 		<label for="node-input-CidrBlock"><i class="fa fa-tag"></i>CidrBlock</label>
 		<input type="text" id="node-input-CidrBlock" placeholder="CidrBlock"></input>
+	</div> 
+	<div class="form-row" id='ReservationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservationType"><i class="fa fa-tag"></i>ReservationType</label>
+		<input type="text" id="node-input-ReservationType" placeholder="ReservationType"></input>
 	</div> 
 	<div class="form-row" id='ResourcesAttr' class='hiddenAttrs'>
 		<label for="node-input-Resources"><i class="fa fa-tag"></i>Resources</label>
@@ -1395,6 +1489,10 @@
 		<label for="node-input-SnapshotId"><i class="fa fa-tag"></i>SnapshotId</label>
 		<input type="text" id="node-input-SnapshotId" placeholder="SnapshotId"></input>
 	</div> 
+	<div class="form-row" id='SubnetCidrReservationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetCidrReservationId"><i class="fa fa-tag"></i>SubnetCidrReservationId</label>
+		<input type="text" id="node-input-SubnetCidrReservationId" placeholder="SubnetCidrReservationId"></input>
+	</div> 
 	<div class="form-row" id='TrafficMirrorFilterRuleIdAttr' class='hiddenAttrs'>
 		<label for="node-input-TrafficMirrorFilterRuleId"><i class="fa fa-tag"></i>TrafficMirrorFilterRuleId</label>
 		<input type="text" id="node-input-TrafficMirrorFilterRuleId" placeholder="TrafficMirrorFilterRuleId"></input>
@@ -1422,10 +1520,6 @@
 	<div class="form-row" id='VpcPeeringConnectionIdAttr' class='hiddenAttrs'>
 		<label for="node-input-VpcPeeringConnectionId"><i class="fa fa-tag"></i>VpcPeeringConnectionId</label>
 		<input type="text" id="node-input-VpcPeeringConnectionId" placeholder="VpcPeeringConnectionId"></input>
-	</div> 
-	<div class="form-row" id='ImageIdAttr' class='hiddenAttrs'>
-		<label for="node-input-ImageId"><i class="fa fa-tag"></i>ImageId</label>
-		<input type="text" id="node-input-ImageId" placeholder="ImageId"></input>
 	</div> 
 	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
 		<label for="node-input-MaxResults"><i class="fa fa-tag"></i>MaxResults</label>
@@ -1479,6 +1573,10 @@
 		<label for="node-input-AssociationId"><i class="fa fa-tag"></i>AssociationId</label>
 		<input type="text" id="node-input-AssociationId" placeholder="AssociationId"></input>
 	</div> 
+	<div class="form-row" id='DeprecateAtAttr' class='hiddenAttrs'>
+		<label for="node-input-DeprecateAt"><i class="fa fa-tag"></i>DeprecateAt</label>
+		<input type="text" id="node-input-DeprecateAt" placeholder="DeprecateAt"></input>
+	</div> 
 	<div class="form-row" id='DiskImageFormatAttr' class='hiddenAttrs'>
 		<label for="node-input-DiskImageFormat"><i class="fa fa-tag"></i>DiskImageFormat</label>
 		<input type="text" id="node-input-DiskImageFormat" placeholder="DiskImageFormat"></input>
@@ -1498,6 +1596,18 @@
 	<div class="form-row" id='InstanceFamilyAttr' class='hiddenAttrs'>
 		<label for="node-input-InstanceFamily"><i class="fa fa-tag"></i>InstanceFamily</label>
 		<input type="text" id="node-input-InstanceFamily" placeholder="InstanceFamily"></input>
+	</div> 
+	<div class="form-row" id='FlowLogIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FlowLogId"><i class="fa fa-tag"></i>FlowLogId</label>
+		<input type="text" id="node-input-FlowLogId" placeholder="FlowLogId"></input>
+	</div> 
+	<div class="form-row" id='ConfigDeliveryS3DestinationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigDeliveryS3DestinationArn"><i class="fa fa-tag"></i>ConfigDeliveryS3DestinationArn</label>
+		<input type="text" id="node-input-ConfigDeliveryS3DestinationArn" placeholder="ConfigDeliveryS3DestinationArn"></input>
+	</div> 
+	<div class="form-row" id='IntegrateServicesAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrateServices"><i class="fa fa-tag"></i>IntegrateServices</label>
+		<input type="text" id="node-input-IntegrateServices" placeholder="IntegrateServices"></input>
 	</div> 
 	<div class="form-row" id='HostIdSetAttr' class='hiddenAttrs'>
 		<label for="node-input-HostIdSet"><i class="fa fa-tag"></i>HostIdSet</label>
@@ -1526,6 +1636,10 @@
 	<div class="form-row" id='VolumeAttr' class='hiddenAttrs'>
 		<label for="node-input-Volume"><i class="fa fa-tag"></i>Volume</label>
 		<input type="text" id="node-input-Volume" placeholder="Volume"></input>
+	</div> 
+	<div class="form-row" id='AllocationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AllocationId"><i class="fa fa-tag"></i>AllocationId</label>
+		<input type="text" id="node-input-AllocationId" placeholder="AllocationId"></input>
 	</div> 
 	<div class="form-row" id='OptInStatusAttr' class='hiddenAttrs'>
 		<label for="node-input-OptInStatus"><i class="fa fa-tag"></i>OptInStatus</label>
@@ -1570,6 +1684,10 @@
 	<div class="form-row" id='TargetConfigurationsAttr' class='hiddenAttrs'>
 		<label for="node-input-TargetConfigurations"><i class="fa fa-tag"></i>TargetConfigurations</label>
 		<input type="text" id="node-input-TargetConfigurations" placeholder="TargetConfigurations"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupRules"><i class="fa fa-tag"></i>SecurityGroupRules</label>
+		<input type="text" id="node-input-SecurityGroupRules" placeholder="SecurityGroupRules"></input>
 	</div> 
 	<div class="form-row" id='VpcEndpointIdAttr' class='hiddenAttrs'>
 		<label for="node-input-VpcEndpointId"><i class="fa fa-tag"></i>VpcEndpointId</label>
@@ -1651,18 +1769,6 @@
 		<label for="node-input-Filters"><i class="fa fa-tag"></i>Filters</label>
 		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
 	</div> 
-	<div class="form-row" id='Ipv6AddressesAttr' class='hiddenAttrs'>
-		<label for="node-input-Ipv6Addresses"><i class="fa fa-tag"></i>Ipv6Addresses</label>
-		<input type="text" id="node-input-Ipv6Addresses" placeholder="Ipv6Addresses"></input>
-	</div> 
-	<div class="form-row" id='PrivateIpAddressesAttr' class='hiddenAttrs'>
-		<label for="node-input-PrivateIpAddresses"><i class="fa fa-tag"></i>PrivateIpAddresses</label>
-		<input type="text" id="node-input-PrivateIpAddresses" placeholder="PrivateIpAddresses"></input>
-	</div> 
-	<div class="form-row" id='IpPermissionsAttr' class='hiddenAttrs'>
-		<label for="node-input-IpPermissions"><i class="fa fa-tag"></i>IpPermissions</label>
-		<input type="text" id="node-input-IpPermissions" placeholder="IpPermissions"></input>
-	</div> 
 	</div>
 
  <script>
@@ -1719,6 +1825,9 @@
 				AssociateIamInstanceProfile:[
 					'#IamInstanceProfileAttr','#InstanceIdAttr'
 					],
+				AssociateInstanceEventWindow:[
+					'#InstanceEventWindowIdAttr','#AssociationTargetAttr'
+					],
 				AssociateRouteTable:[
 					'#RouteTableIdAttr'
 					],
@@ -1730,6 +1839,9 @@
 					],
 				AssociateTransitGatewayRouteTable:[
 					'#TransitGatewayRouteTableIdAttr','#TransitGatewayAttachmentIdAttr'
+					],
+				AssociateTrunkInterface:[
+					'#BranchInterfaceIdAttr','#TrunkInterfaceIdAttr'
 					],
 				AssociateVpcCidrBlock:[
 					'#VpcIdAttr'
@@ -1836,6 +1948,9 @@
 				CreateImage:[
 					'#InstanceIdAttr','#NameAttr'
 					],
+				CreateInstanceEventWindow:[
+					
+					],
 				CreateInstanceExportTask:[
 					'#ExportToS3TaskAttr','#InstanceIdAttr','#TargetEnvironmentAttr'
 					],
@@ -1861,7 +1976,7 @@
 					'#PrefixListNameAttr','#MaxEntriesAttr','#AddressFamilyAttr'
 					],
 				CreateNatGateway:[
-					'#AllocationIdAttr','#SubnetIdAttr'
+					'#SubnetIdAttr'
 					],
 				CreateNetworkAcl:[
 					'#VpcIdAttr'
@@ -1881,8 +1996,14 @@
 				CreatePlacementGroup:[
 					
 					],
+				CreateReplaceRootVolumeTask:[
+					'#InstanceIdAttr'
+					],
 				CreateReservedInstancesListing:[
 					'#ClientTokenAttr','#InstanceCountAttr','#PriceSchedulesAttr','#ReservedInstancesIdAttr'
+					],
+				CreateRestoreImageTask:[
+					'#BucketAttr','#ObjectKeyAttr'
 					],
 				CreateRoute:[
 					'#RouteTableIdAttr'
@@ -1902,8 +2023,14 @@
 				CreateSpotDatafeedSubscription:[
 					'#BucketAttr'
 					],
+				CreateStoreImageTask:[
+					'#ImageIdAttr','#BucketAttr'
+					],
 				CreateSubnet:[
-					'#CidrBlockAttr','#VpcIdAttr'
+					'#VpcIdAttr','#CidrBlockAttr'
+					],
+				CreateSubnetCidrReservation:[
+					'#SubnetIdAttr','#CidrAttr','#ReservationTypeAttr'
 					],
 				CreateTags:[
 					'#ResourcesAttr','#TagsAttr'
@@ -2001,6 +2128,9 @@
 				DeleteFpgaImage:[
 					'#FpgaImageIdAttr'
 					],
+				DeleteInstanceEventWindow:[
+					'#InstanceEventWindowIdAttr'
+					],
 				DeleteInternetGateway:[
 					'#InternetGatewayIdAttr'
 					],
@@ -2066,6 +2196,9 @@
 					],
 				DeleteSubnet:[
 					'#SubnetIdAttr'
+					],
+				DeleteSubnetCidrReservation:[
+					'#SubnetCidrReservationIdAttr'
 					],
 				DeleteTags:[
 					'#ResourcesAttr'
@@ -2155,6 +2288,9 @@
 					
 					],
 				DescribeAddresses:[
+					
+					],
+				DescribeAddressesAttribute:[
 					
 					],
 				DescribeAggregateIdFormat:[
@@ -2277,6 +2413,9 @@
 				DescribeInstanceEventNotificationAttributes:[
 					
 					],
+				DescribeInstanceEventWindows:[
+					
+					],
 				DescribeInstanceStatus:[
 					
 					],
@@ -2364,6 +2503,9 @@
 				DescribeRegions:[
 					
 					],
+				DescribeReplaceRootVolumeTasks:[
+					
+					],
 				DescribeReservedInstances:[
 					
 					],
@@ -2387,6 +2529,9 @@
 					],
 				DescribeSecurityGroupReferences:[
 					'#GroupIdAttr'
+					],
+				DescribeSecurityGroupRules:[
+					
 					],
 				DescribeSecurityGroups:[
 					
@@ -2417,6 +2562,9 @@
 					],
 				DescribeStaleSecurityGroups:[
 					'#VpcIdAttr'
+					],
+				DescribeStoreImageTasks:[
+					
 					],
 				DescribeSubnets:[
 					
@@ -2455,6 +2603,9 @@
 					
 					],
 				DescribeTransitGateways:[
+					
+					],
+				DescribeTrunkInterfaceAssociations:[
 					
 					],
 				DescribeVolumeAttribute:[
@@ -2529,6 +2680,12 @@
 				DisableFastSnapshotRestores:[
 					'#AvailabilityZonesAttr','#SourceSnapshotIdsAttr'
 					],
+				DisableImageDeprecation:[
+					'#ImageIdAttr'
+					],
+				DisableSerialConsoleAccess:[
+					
+					],
 				DisableTransitGatewayRouteTablePropagation:[
 					'#TransitGatewayRouteTableIdAttr','#TransitGatewayAttachmentIdAttr'
 					],
@@ -2553,6 +2710,9 @@
 				DisassociateIamInstanceProfile:[
 					'#AssociationIdAttr'
 					],
+				DisassociateInstanceEventWindow:[
+					'#InstanceEventWindowIdAttr','#AssociationTargetAttr'
+					],
 				DisassociateRouteTable:[
 					'#AssociationIdAttr'
 					],
@@ -2565,6 +2725,9 @@
 				DisassociateTransitGatewayRouteTable:[
 					'#TransitGatewayRouteTableIdAttr','#TransitGatewayAttachmentIdAttr'
 					],
+				DisassociateTrunkInterface:[
+					'#AssociationIdAttr'
+					],
 				DisassociateVpcCidrBlock:[
 					'#AssociationIdAttr'
 					],
@@ -2573,6 +2736,12 @@
 					],
 				EnableFastSnapshotRestores:[
 					'#AvailabilityZonesAttr','#SourceSnapshotIdsAttr'
+					],
+				EnableImageDeprecation:[
+					'#ImageIdAttr','#DeprecateAtAttr'
+					],
+				EnableSerialConsoleAccess:[
+					
 					],
 				EnableTransitGatewayRouteTablePropagation:[
 					'#TransitGatewayRouteTableIdAttr','#TransitGatewayAttachmentIdAttr'
@@ -2628,6 +2797,9 @@
 				GetEbsEncryptionByDefault:[
 					
 					],
+				GetFlowLogsIntegrationTemplate:[
+					'#FlowLogIdAttr','#ConfigDeliveryS3DestinationArnAttr','#IntegrateServicesAttr'
+					],
 				GetGroupsForCapacityReservation:[
 					'#CapacityReservationIdAttr'
 					],
@@ -2648,6 +2820,12 @@
 					],
 				GetReservedInstancesExchangeQuote:[
 					'#ReservedInstanceIdsAttr'
+					],
+				GetSerialConsoleAccessStatus:[
+					
+					],
+				GetSubnetCidrReservations:[
+					'#SubnetIdAttr'
 					],
 				GetTransitGatewayAttachmentPropagations:[
 					'#TransitGatewayAttachmentIdAttr'
@@ -2681,6 +2859,9 @@
 					],
 				ImportVolume:[
 					'#AvailabilityZoneAttr','#ImageAttr','#VolumeAttr'
+					],
+				ModifyAddressAttribute:[
+					'#AllocationIdAttr'
 					],
 				ModifyAvailabilityZoneGroup:[
 					'#GroupNameAttr','#OptInStatusAttr'
@@ -2727,6 +2908,9 @@
 				ModifyInstanceEventStartTime:[
 					'#InstanceIdAttr','#InstanceEventIdAttr','#NotBeforeAttr'
 					],
+				ModifyInstanceEventWindow:[
+					'#InstanceEventWindowIdAttr'
+					],
 				ModifyInstanceMetadataOptions:[
 					'#InstanceIdAttr'
 					],
@@ -2744,6 +2928,9 @@
 					],
 				ModifyReservedInstances:[
 					'#ReservedInstancesIdsAttr','#TargetConfigurationsAttr'
+					],
+				ModifySecurityGroupRules:[
+					'#GroupIdAttr','#SecurityGroupRulesAttr'
 					],
 				ModifySnapshotAttribute:[
 					'#SnapshotIdAttr'
@@ -2892,6 +3079,9 @@
 				RequestSpotInstances:[
 					
 					],
+				ResetAddressAttribute:[
+					'#AllocationIdAttr','#AttributeAttr'
+					],
 				ResetEbsDefaultKmsKeyId:[
 					
 					],
@@ -2962,19 +3152,19 @@
 					'#InstanceIdsAttr'
 					],
 				UnassignIpv6Addresses:[
-					'#Ipv6AddressesAttr','#NetworkInterfaceIdAttr'
+					'#NetworkInterfaceIdAttr'
 					],
 				UnassignPrivateIpAddresses:[
-					'#NetworkInterfaceIdAttr','#PrivateIpAddressesAttr'
+					'#NetworkInterfaceIdAttr'
 					],
 				UnmonitorInstances:[
 					'#InstanceIdsAttr'
 					],
 				UpdateSecurityGroupRuleDescriptionsEgress:[
-					'#IpPermissionsAttr'
+					
 					],
 				UpdateSecurityGroupRuleDescriptionsIngress:[
-					'#IpPermissionsAttr'
+					
 					],
 				WithdrawByoipCidr:[
 					'#CidrAttr'
@@ -2989,17 +3179,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon EC2">
+<script type="text/x-red" data-help-name="AWS EC2">
 <p>
-AWS Amazon Elastic Compute Cloud
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS EC2
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EC2.html">EC2</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -3025,9 +3215,13 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				DhcpOptionsId: { value: ""} ,
 				IamInstanceProfile: { value: ""} ,
 				InstanceId: { value: ""} ,
+				InstanceEventWindowId: { value: ""} ,
+				AssociationTarget: { value: ""} ,
 				RouteTableId: { value: ""} ,
 				Ipv6CidrBlock: { value: ""} ,
 				TransitGatewayRouteTableId: { value: ""} ,
+				BranchInterfaceId: { value: ""} ,
+				TrunkInterfaceId: { value: ""} ,
 				Groups: { value: ""} ,
 				InternetGatewayId: { value: ""} ,
 				DeviceIndex: { value: ""} ,
@@ -3079,7 +3273,6 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				PrefixListName: { value: ""} ,
 				MaxEntries: { value: ""} ,
 				AddressFamily: { value: ""} ,
-				AllocationId: { value: ""} ,
 				Egress: { value: ""} ,
 				NetworkAclId: { value: ""} ,
 				Protocol: { value: ""} ,
@@ -3091,11 +3284,14 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				Permission: { value: ""} ,
 				PriceSchedules: { value: ""} ,
 				ReservedInstancesId: { value: ""} ,
+				Bucket: { value: ""} ,
+				ObjectKey: { value: ""} ,
 				Description: { value: ""} ,
 				GroupName: { value: ""} ,
 				InstanceSpecification: { value: ""} ,
-				Bucket: { value: ""} ,
+				ImageId: { value: ""} ,
 				CidrBlock: { value: ""} ,
+				ReservationType: { value: ""} ,
 				Resources: { value: ""} ,
 				Tags: { value: ""} ,
 				TrafficMirrorFilterId: { value: ""} ,
@@ -3131,6 +3327,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				NetworkInterfacePermissionId: { value: ""} ,
 				ReservedInstancesIds: { value: ""} ,
 				SnapshotId: { value: ""} ,
+				SubnetCidrReservationId: { value: ""} ,
 				TrafficMirrorFilterRuleId: { value: ""} ,
 				TrafficMirrorSessionId: { value: ""} ,
 				TransitGatewayConnectPeerId: { value: ""} ,
@@ -3138,7 +3335,6 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				ConnectionNotificationIds: { value: ""} ,
 				ServiceIds: { value: ""} ,
 				VpcPeeringConnectionId: { value: ""} ,
-				ImageId: { value: ""} ,
 				MaxResults: { value: ""} ,
 				FleetId: { value: ""} ,
 				StartTime: { value: ""} ,
@@ -3152,11 +3348,15 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				SourceSnapshotIds: { value: ""} ,
 				GatewayId: { value: ""} ,
 				AssociationId: { value: ""} ,
+				DeprecateAt: { value: ""} ,
 				DiskImageFormat: { value: ""} ,
 				S3ExportLocation: { value: ""} ,
 				S3Bucket: { value: ""} ,
 				PoolId: { value: ""} ,
 				InstanceFamily: { value: ""} ,
+				FlowLogId: { value: ""} ,
+				ConfigDeliveryS3DestinationArn: { value: ""} ,
+				IntegrateServices: { value: ""} ,
 				HostIdSet: { value: ""} ,
 				OfferingId: { value: ""} ,
 				CertificateRevocationList: { value: ""} ,
@@ -3164,6 +3364,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				PublicKeyMaterial: { value: ""} ,
 				Image: { value: ""} ,
 				Volume: { value: ""} ,
+				AllocationId: { value: ""} ,
 				OptInStatus: { value: ""} ,
 				CpuCredits: { value: ""} ,
 				KmsKeyId: { value: ""} ,
@@ -3175,6 +3376,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				InstanceEventId: { value: ""} ,
 				NotBefore: { value: ""} ,
 				TargetConfigurations: { value: ""} ,
+				SecurityGroupRules: { value: ""} ,
 				VpcEndpointId: { value: ""} ,
 				ConnectionNotificationId: { value: ""} ,
 				InstanceTenancy: { value: ""} ,
@@ -3195,9 +3397,6 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				LaunchSpecification: { value: ""} ,
 				ScheduledInstanceId: { value: ""} ,
 				Filters: { value: ""} ,
-				Ipv6Addresses: { value: ""} ,
-				PrivateIpAddresses: { value: ""} ,
-				IpPermissions: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -587,6 +614,26 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateDBProxyEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyName",params,undefined,false); 
+			copyArg(n,"DBProxyEndpointName",params,undefined,false); 
+			copyArg(n,"VpcSubnetIds",params,undefined,true); 
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"DBProxyEndpointName",params,undefined,false); 
+			copyArg(msg,"VpcSubnetIds",params,undefined,true); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
+			copyArg(msg,"TargetRole",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.createDBProxyEndpoint(params,cb);
+		}
+
+		
 		service.CreateDBSecurityGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -814,6 +861,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteDBProxy(params,cb);
+		}
+
+		
+		service.DeleteDBProxyEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyEndpointName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyEndpointName",params,undefined,false); 
+			
+
+			svc.deleteDBProxyEndpoint(params,cb);
 		}
 
 		
@@ -1194,6 +1254,22 @@ module.exports = function(RED) {
 			
 
 			svc.describeDBProxies(params,cb);
+		}
+
+		
+		service.DescribeDBProxyEndpoints=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DBProxyName",params,undefined,false); 
+			copyArg(msg,"DBProxyEndpointName",params,undefined,false); 
+			copyArg(msg,"Filters",params,undefined,true); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			
+
+			svc.describeDBProxyEndpoints(params,cb);
 		}
 
 		
@@ -1591,6 +1667,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.FailoverGlobalCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(n,"TargetDbClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"GlobalClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"TargetDbClusterIdentifier",params,undefined,false); 
+			
+
+			svc.failoverGlobalCluster(params,cb);
+		}
+
+		
 		service.ImportInstallationMedia=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1789,6 +1880,7 @@ module.exports = function(RED) {
 			copyArg(msg,"CertificateRotationRestart",params,undefined,false); 
 			copyArg(msg,"ReplicaMode",params,undefined,false); 
 			copyArg(msg,"EnableCustomerOwnedIp",params,undefined,false); 
+			copyArg(msg,"AwsBackupRecoveryPointArn",params,undefined,false); 
 			
 
 			svc.modifyDBInstance(params,cb);
@@ -1827,6 +1919,21 @@ module.exports = function(RED) {
 			
 
 			svc.modifyDBProxy(params,cb);
+		}
+
+		
+		service.ModifyDBProxyEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DBProxyEndpointName",params,undefined,false); 
+			
+			copyArg(msg,"DBProxyEndpointName",params,undefined,false); 
+			copyArg(msg,"NewDBProxyEndpointName",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
+			
+
+			svc.modifyDBProxyEndpoint(params,cb);
 		}
 
 		
@@ -2236,6 +2343,8 @@ module.exports = function(RED) {
 			copyArg(msg,"CopyTagsToSnapshot",params,undefined,false); 
 			copyArg(msg,"Domain",params,undefined,false); 
 			copyArg(msg,"DomainIAMRoleName",params,undefined,false); 
+			copyArg(msg,"ScalingConfiguration",params,undefined,true); 
+			copyArg(msg,"EngineMode",params,undefined,false); 
 			
 
 			svc.restoreDBClusterToPointInTime(params,cb);
@@ -2421,6 +2530,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Mode",params,undefined,false); 
 			copyArg(msg,"KmsKeyId",params,undefined,false); 
 			copyArg(msg,"ApplyImmediately",params,undefined,false); 
+			copyArg(msg,"EngineNativeAuditFieldsIncluded",params,undefined,false); 
 			
 
 			svc.startActivityStream(params,cb);

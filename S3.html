@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -217,6 +231,8 @@
 			<option value="UploadPart">UploadPart</option>
 		
 			<option value="UploadPartCopy">UploadPartCopy</option>
+		
+			<option value="WriteGetObjectResponse">WriteGetObjectResponse</option>
 		;
 		</select>
 	</div>
@@ -338,6 +354,14 @@
 	<div class="form-row" id='PartNumberAttr' class='hiddenAttrs'>
 		<label for="node-input-PartNumber"><i class="fa fa-tag"></i>PartNumber</label>
 		<input type="text" id="node-input-PartNumber" placeholder="PartNumber"></input>
+	</div> 
+	<div class="form-row" id='RequestRouteAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestRoute"><i class="fa fa-tag"></i>RequestRoute</label>
+		<input type="text" id="node-input-RequestRoute" placeholder="RequestRoute"></input>
+	</div> 
+	<div class="form-row" id='RequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestToken"><i class="fa fa-tag"></i>RequestToken</label>
+		<input type="text" id="node-input-RequestToken" placeholder="RequestToken"></input>
 	</div> 
 	</div>
 
@@ -628,6 +652,9 @@
 					],
 				UploadPartCopy:[
 					'#BucketAttr','#CopySourceAttr','#KeyAttr','#PartNumberAttr','#UploadIdAttr'
+					],
+				WriteGetObjectResponse:[
+					'#RequestRouteAttr','#RequestTokenAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -639,17 +666,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon S3">
+<script type="text/x-red" data-help-name="AWS S3">
 <p>
-AWS Amazon Simple Storage Service
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS S3
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html">S3</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -688,6 +715,8 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				InputSerialization: { value: ""} ,
 				OutputSerialization: { value: ""} ,
 				PartNumber: { value: ""} ,
+				RequestRoute: { value: ""} ,
+				RequestToken: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

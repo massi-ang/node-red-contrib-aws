@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -420,7 +447,7 @@ module.exports = function(RED) {
 			//copyArgs
 			
 			copyArg(n,"name",params,undefined,false); 
-			copyArg(n,"type",params,undefined,false); 
+			copyArg(n,"_type",params,"type",false); 
 			copyArg(n,"stringValues",params,undefined,true); 
 			copyArg(n,"clientRequestToken",params,undefined,false); 
 			
@@ -492,9 +519,33 @@ module.exports = function(RED) {
 			copyArg(msg,"timeoutConfig",params,undefined,true); 
 			copyArg(msg,"tags",params,undefined,true); 
 			copyArg(msg,"namespaceId",params,undefined,false); 
+			copyArg(msg,"jobTemplateArn",params,undefined,false); 
 			
 
 			svc.createJob(params,cb);
+		}
+
+		
+		service.CreateJobTemplate=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"jobTemplateId",params,undefined,false); 
+			copyArg(n,"description",params,undefined,false); 
+			
+			copyArg(msg,"jobTemplateId",params,undefined,false); 
+			copyArg(msg,"jobArn",params,undefined,false); 
+			copyArg(msg,"documentSource",params,undefined,false); 
+			copyArg(msg,"document",params,undefined,false); 
+			copyArg(msg,"description",params,undefined,false); 
+			copyArg(msg,"presignedUrlConfig",params,undefined,true); 
+			copyArg(msg,"jobExecutionsRolloutConfig",params,undefined,true); 
+			copyArg(msg,"abortConfig",params,undefined,true); 
+			copyArg(msg,"timeoutConfig",params,undefined,true); 
+			copyArg(msg,"tags",params,undefined,true); 
+			
+
+			svc.createJobTemplate(params,cb);
 		}
 
 		
@@ -954,6 +1005,19 @@ module.exports = function(RED) {
 			
 
 			svc.deleteJobExecution(params,cb);
+		}
+
+		
+		service.DeleteJobTemplate=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"jobTemplateId",params,undefined,false); 
+			
+			copyArg(msg,"jobTemplateId",params,undefined,false); 
+			
+
+			svc.deleteJobTemplate(params,cb);
 		}
 
 		
@@ -1443,6 +1507,19 @@ module.exports = function(RED) {
 			
 
 			svc.describeJobExecution(params,cb);
+		}
+
+		
+		service.DescribeJobTemplate=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"jobTemplateId",params,undefined,false); 
+			
+			copyArg(msg,"jobTemplateId",params,undefined,false); 
+			
+
+			svc.describeJobTemplate(params,cb);
 		}
 
 		
@@ -2197,6 +2274,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ListJobTemplates=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"maxResults",params,undefined,false); 
+			copyArg(msg,"nextToken",params,undefined,false); 
+			
+
+			svc.listJobTemplates(params,cb);
+		}
+
+		
 		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -2576,6 +2666,7 @@ module.exports = function(RED) {
 			copyArg(msg,"attributeName",params,undefined,false); 
 			copyArg(msg,"attributeValue",params,undefined,false); 
 			copyArg(msg,"thingTypeName",params,undefined,false); 
+			copyArg(msg,"usePrefixAttributeValue",params,undefined,false); 
 			
 
 			svc.listThings(params,cb);

@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -189,6 +216,7 @@ module.exports = function(RED) {
 			copyArg(msg,"CustomKeyStoreId",params,undefined,false); 
 			copyArg(msg,"BypassPolicyLockoutSafetyCheck",params,undefined,false); 
 			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"MultiRegion",params,undefined,false); 
 			
 
 			svc.createKey(params,cb);
@@ -650,6 +678,25 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ReplicateKey=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"KeyId",params,undefined,false); 
+			copyArg(n,"ReplicaRegion",params,undefined,false); 
+			
+			copyArg(msg,"KeyId",params,undefined,false); 
+			copyArg(msg,"ReplicaRegion",params,undefined,false); 
+			copyArg(msg,"Policy",params,undefined,false); 
+			copyArg(msg,"BypassPolicyLockoutSafetyCheck",params,undefined,false); 
+			copyArg(msg,"Description",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.replicateKey(params,cb);
+		}
+
+		
 		service.RetireGrant=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -785,6 +832,21 @@ module.exports = function(RED) {
 			
 
 			svc.updateKeyDescription(params,cb);
+		}
+
+		
+		service.UpdatePrimaryRegion=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"KeyId",params,undefined,false); 
+			copyArg(n,"PrimaryRegion",params,undefined,false); 
+			
+			copyArg(msg,"KeyId",params,undefined,false); 
+			copyArg(msg,"PrimaryRegion",params,undefined,false); 
+			
+
+			svc.updatePrimaryRegion(params,cb);
 		}
 
 		

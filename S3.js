@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -935,6 +962,7 @@ module.exports = function(RED) {
 			copyArg(msg,"Key",params,undefined,false); 
 			copyArg(msg,"VersionId",params,undefined,false); 
 			copyArg(msg,"ExpectedBucketOwner",params,undefined,false); 
+			copyArg(msg,"RequestPayer",params,undefined,false); 
 			
 
 			svc.getObjectTagging(params,cb);
@@ -1676,6 +1704,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ContentMD5",params,undefined,false); 
 			copyArg(msg,"Tagging",params,undefined,true); 
 			copyArg(msg,"ExpectedBucketOwner",params,undefined,false); 
+			copyArg(msg,"RequestPayer",params,undefined,false); 
 			
 
 			svc.putObjectTagging(params,cb);
@@ -1806,6 +1835,55 @@ module.exports = function(RED) {
 			
 
 			svc.uploadPartCopy(params,cb);
+		}
+
+		
+		service.WriteGetObjectResponse=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"RequestRoute",params,undefined,false); 
+			copyArg(n,"RequestToken",params,undefined,false); 
+			
+			copyArg(msg,"RequestRoute",params,undefined,false); 
+			copyArg(msg,"RequestToken",params,undefined,false); 
+			copyArg(msg,"Body",params,undefined,false); 
+			copyArg(msg,"StatusCode",params,undefined,false); 
+			copyArg(msg,"ErrorCode",params,undefined,false); 
+			copyArg(msg,"ErrorMessage",params,undefined,false); 
+			copyArg(msg,"AcceptRanges",params,undefined,false); 
+			copyArg(msg,"CacheControl",params,undefined,false); 
+			copyArg(msg,"ContentDisposition",params,undefined,false); 
+			copyArg(msg,"ContentEncoding",params,undefined,false); 
+			copyArg(msg,"ContentLanguage",params,undefined,false); 
+			copyArg(msg,"ContentLength",params,undefined,false); 
+			copyArg(msg,"ContentRange",params,undefined,false); 
+			copyArg(msg,"ContentType",params,undefined,false); 
+			copyArg(msg,"DeleteMarker",params,undefined,false); 
+			copyArg(msg,"ETag",params,undefined,false); 
+			copyArg(msg,"Expires",params,undefined,false); 
+			copyArg(msg,"Expiration",params,undefined,false); 
+			copyArg(msg,"LastModified",params,undefined,false); 
+			copyArg(msg,"MissingMeta",params,undefined,false); 
+			copyArg(msg,"Metadata",params,undefined,true); 
+			copyArg(msg,"ObjectLockMode",params,undefined,false); 
+			copyArg(msg,"ObjectLockLegalHoldStatus",params,undefined,false); 
+			copyArg(msg,"ObjectLockRetainUntilDate",params,undefined,true); 
+			copyArg(msg,"PartsCount",params,undefined,false); 
+			copyArg(msg,"ReplicationStatus",params,undefined,false); 
+			copyArg(msg,"RequestCharged",params,undefined,false); 
+			copyArg(msg,"Restore",params,undefined,false); 
+			copyArg(msg,"ServerSideEncryption",params,undefined,false); 
+			copyArg(msg,"SSECustomerAlgorithm",params,undefined,false); 
+			copyArg(msg,"SSEKMSKeyId",params,undefined,true); 
+			copyArg(msg,"SSECustomerKeyMD5",params,undefined,false); 
+			copyArg(msg,"StorageClass",params,undefined,false); 
+			copyArg(msg,"TagCount",params,undefined,false); 
+			copyArg(msg,"VersionId",params,undefined,false); 
+			copyArg(msg,"BucketKeyEnabled",params,undefined,false); 
+			
+
+			svc.writeGetObjectResponse(params,cb);
 		}
 
 		 

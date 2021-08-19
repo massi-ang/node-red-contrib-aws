@@ -1,4 +1,9 @@
+const { lstat } = require('fs');
+
 tools=require('./gen.js');
+fs = require('fs');
+
+
 var files = [
 '../node_modules/aws-sdk/apis/dynamodb-2012-08-10.min.json',
 '../node_modules/aws-sdk/apis/ec2-2016-11-15.min.json',
@@ -20,4 +25,12 @@ var files = [
 '../node_modules/aws-sdk/apis/route53-2013-04-01.min.json',
 '../node_modules/aws-sdk/apis/redshift-2012-12-01.min.json'];
 
+files = fs.readdirSync('../node_modules/aws-sdk/apis/');
+files = files.map(f => '../node_modules/aws-sdk/apis/'+f).filter(f => f.endsWith('.min.json'));
+
 files.map(tools.buildService);
+console.log('\n\n');
+var nodes={}
+fs.readdirSync('build').forEach(f => { if (f.endsWith('.js')) { nodes['AWS '+ f.split('.')[0]] = f }});
+console.log(JSON.stringify(nodes, undefined, 4));
+

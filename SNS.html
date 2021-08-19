@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -38,11 +52,15 @@
 		
 			<option value="CreatePlatformEndpoint">CreatePlatformEndpoint</option>
 		
+			<option value="CreateSMSSandboxPhoneNumber">CreateSMSSandboxPhoneNumber</option>
+		
 			<option value="CreateTopic">CreateTopic</option>
 		
 			<option value="DeleteEndpoint">DeleteEndpoint</option>
 		
 			<option value="DeletePlatformApplication">DeletePlatformApplication</option>
+		
+			<option value="DeleteSMSSandboxPhoneNumber">DeleteSMSSandboxPhoneNumber</option>
 		
 			<option value="DeleteTopic">DeleteTopic</option>
 		
@@ -52,15 +70,21 @@
 		
 			<option value="GetSMSAttributes">GetSMSAttributes</option>
 		
+			<option value="GetSMSSandboxAccountStatus">GetSMSSandboxAccountStatus</option>
+		
 			<option value="GetSubscriptionAttributes">GetSubscriptionAttributes</option>
 		
 			<option value="GetTopicAttributes">GetTopicAttributes</option>
 		
 			<option value="ListEndpointsByPlatformApplication">ListEndpointsByPlatformApplication</option>
 		
+			<option value="ListOriginationNumbers">ListOriginationNumbers</option>
+		
 			<option value="ListPhoneNumbersOptedOut">ListPhoneNumbersOptedOut</option>
 		
 			<option value="ListPlatformApplications">ListPlatformApplications</option>
+		
+			<option value="ListSMSSandboxPhoneNumbers">ListSMSSandboxPhoneNumbers</option>
 		
 			<option value="ListSubscriptions">ListSubscriptions</option>
 		
@@ -93,6 +117,8 @@
 			<option value="Unsubscribe">Unsubscribe</option>
 		
 			<option value="UntagResource">UntagResource</option>
+		
+			<option value="VerifySMSSandboxPhoneNumber">VerifySMSSandboxPhoneNumber</option>
 		;
 		</select>
 	</div>
@@ -143,6 +169,10 @@
 		<label for="node-input-PlatformApplicationArn"><i class="fa fa-tag"></i>PlatformApplicationArn</label>
 		<input type="text" id="node-input-PlatformApplicationArn" placeholder="PlatformApplicationArn"></input>
 	</div> 
+	<div class="form-row" id='PhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumber"><i class="fa fa-tag"></i>PhoneNumber</label>
+		<input type="text" id="node-input-PhoneNumber" placeholder="PhoneNumber"></input>
+	</div> 
 	<div class="form-row" id='EndpointArnAttr' class='hiddenAttrs'>
 		<label for="node-input-EndpointArn"><i class="fa fa-tag"></i>EndpointArn</label>
 		<input type="text" id="node-input-EndpointArn" placeholder="EndpointArn"></input>
@@ -179,6 +209,10 @@
 		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
 		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
 	</div> 
+	<div class="form-row" id='OneTimePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-OneTimePassword"><i class="fa fa-tag"></i>OneTimePassword</label>
+		<input type="text" id="node-input-OneTimePassword" placeholder="OneTimePassword"></input>
+	</div> 
 	</div>
 
  <script>
@@ -199,6 +233,9 @@
 				CreatePlatformEndpoint:[
 					'#PlatformApplicationArnAttr','#TokenAttr'
 					],
+				CreateSMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr'
+					],
 				CreateTopic:[
 					'#NameAttr'
 					],
@@ -207,6 +244,9 @@
 					],
 				DeletePlatformApplication:[
 					'#PlatformApplicationArnAttr'
+					],
+				DeleteSMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr'
 					],
 				DeleteTopic:[
 					'#TopicArnAttr'
@@ -220,6 +260,9 @@
 				GetSMSAttributes:[
 					
 					],
+				GetSMSSandboxAccountStatus:[
+					
+					],
 				GetSubscriptionAttributes:[
 					'#SubscriptionArnAttr'
 					],
@@ -229,10 +272,16 @@
 				ListEndpointsByPlatformApplication:[
 					'#PlatformApplicationArnAttr'
 					],
+				ListOriginationNumbers:[
+					
+					],
 				ListPhoneNumbersOptedOut:[
 					
 					],
 				ListPlatformApplications:[
+					
+					],
+				ListSMSSandboxPhoneNumbers:[
 					
 					],
 				ListSubscriptions:[
@@ -282,6 +331,9 @@
 					],
 				UntagResource:[
 					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				VerifySMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr','#OneTimePasswordAttr'
 					]
 		};
 		$('#node-input-operation').on('change',function(){
@@ -293,17 +345,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon SNS">
+<script type="text/x-red" data-help-name="AWS SNS">
 <p>
-AWS Amazon Simple Notification Service
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS SNS
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html">SNS</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -324,6 +376,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				Platform: { value: ""} ,
 				Attributes: { value: ""} ,
 				PlatformApplicationArn: { value: ""} ,
+				PhoneNumber: { value: ""} ,
 				EndpointArn: { value: ""} ,
 				SubscriptionArn: { value: ""} ,
 				ResourceArn: { value: ""} ,
@@ -333,6 +386,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				Protocol: { value: ""} ,
 				Tags: { value: ""} ,
 				TagKeys: { value: ""} ,
+				OneTimePassword: { value: ""} ,
 			name: { value: "" }
 		},
 		inputs:1,

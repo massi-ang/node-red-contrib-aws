@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -78,6 +92,8 @@
 		
 			<option value="CreateJob">CreateJob</option>
 		
+			<option value="CreateJobTemplate">CreateJobTemplate</option>
+		
 			<option value="CreateKeysAndCertificate">CreateKeysAndCertificate</option>
 		
 			<option value="CreateMitigationAction">CreateMitigationAction</option>
@@ -135,6 +151,8 @@
 			<option value="DeleteJob">DeleteJob</option>
 		
 			<option value="DeleteJobExecution">DeleteJobExecution</option>
+		
+			<option value="DeleteJobTemplate">DeleteJobTemplate</option>
 		
 			<option value="DeleteMitigationAction">DeleteMitigationAction</option>
 		
@@ -209,6 +227,8 @@
 			<option value="DescribeJob">DescribeJob</option>
 		
 			<option value="DescribeJobExecution">DescribeJobExecution</option>
+		
+			<option value="DescribeJobTemplate">DescribeJobTemplate</option>
 		
 			<option value="DescribeMitigationAction">DescribeMitigationAction</option>
 		
@@ -313,6 +333,8 @@
 			<option value="ListJobExecutionsForJob">ListJobExecutionsForJob</option>
 		
 			<option value="ListJobExecutionsForThing">ListJobExecutionsForThing</option>
+		
+			<option value="ListJobTemplates">ListJobTemplates</option>
 		
 			<option value="ListJobs">ListJobs</option>
 		
@@ -586,6 +608,14 @@
 	<div class="form-row" id='queryStringAttr' class='hiddenAttrs'>
 		<label for="node-input-queryString"><i class="fa fa-tag"></i>queryString</label>
 		<input type="text" id="node-input-queryString" placeholder="queryString"></input>
+	</div> 
+	<div class="form-row" id='jobTemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobTemplateId"><i class="fa fa-tag"></i>jobTemplateId</label>
+		<input type="text" id="node-input-jobTemplateId" placeholder="jobTemplateId"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i>description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
 	</div> 
 	<div class="form-row" id='actionNameAttr' class='hiddenAttrs'>
 		<label for="node-input-actionName"><i class="fa fa-tag"></i>actionName</label>
@@ -871,6 +901,9 @@
 				CreateJob:[
 					'#jobIdAttr','#targetsAttr'
 					],
+				CreateJobTemplate:[
+					'#jobTemplateIdAttr','#descriptionAttr'
+					],
 				CreateKeysAndCertificate:[
 					
 					],
@@ -957,6 +990,9 @@
 					],
 				DeleteJobExecution:[
 					'#jobIdAttr','#thingNameAttr','#executionNumberAttr'
+					],
+				DeleteJobTemplate:[
+					'#jobTemplateIdAttr'
 					],
 				DeleteMitigationAction:[
 					'#actionNameAttr'
@@ -1068,6 +1104,9 @@
 					],
 				DescribeJobExecution:[
 					'#jobIdAttr','#thingNameAttr'
+					],
+				DescribeJobTemplate:[
+					'#jobTemplateIdAttr'
 					],
 				DescribeMitigationAction:[
 					'#actionNameAttr'
@@ -1224,6 +1263,9 @@
 					],
 				ListJobExecutionsForThing:[
 					'#thingNameAttr'
+					],
+				ListJobTemplates:[
+					
 					],
 				ListJobs:[
 					
@@ -1475,17 +1517,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon Iot">
+<script type="text/x-red" data-help-name="AWS Iot">
 <p>
-AWS AWS IoT
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS Iot
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html">Iot</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -1517,11 +1559,13 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				metricName: { value: ""} ,
 				metricType: { value: ""} ,
 				name: { value: ""} ,
-				type: { value: ""} ,
+				_type: { value: ""} ,
 				stringValues: { value: ""} ,
 				domainConfigurationName: { value: ""} ,
 				thingGroupName: { value: ""} ,
 				queryString: { value: ""} ,
+				jobTemplateId: { value: ""} ,
+				description: { value: ""} ,
 				actionName: { value: ""} ,
 				roleArn: { value: ""} ,
 				actionParams: { value: ""} ,

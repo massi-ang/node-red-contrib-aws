@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -72,6 +86,8 @@
 		
 			<option value="CreateDBProxy">CreateDBProxy</option>
 		
+			<option value="CreateDBProxyEndpoint">CreateDBProxyEndpoint</option>
+		
 			<option value="CreateDBSecurityGroup">CreateDBSecurityGroup</option>
 		
 			<option value="CreateDBSnapshot">CreateDBSnapshot</option>
@@ -101,6 +117,8 @@
 			<option value="DeleteDBParameterGroup">DeleteDBParameterGroup</option>
 		
 			<option value="DeleteDBProxy">DeleteDBProxy</option>
+		
+			<option value="DeleteDBProxyEndpoint">DeleteDBProxyEndpoint</option>
 		
 			<option value="DeleteDBSecurityGroup">DeleteDBSecurityGroup</option>
 		
@@ -152,6 +170,8 @@
 		
 			<option value="DescribeDBProxies">DescribeDBProxies</option>
 		
+			<option value="DescribeDBProxyEndpoints">DescribeDBProxyEndpoints</option>
+		
 			<option value="DescribeDBProxyTargetGroups">DescribeDBProxyTargetGroups</option>
 		
 			<option value="DescribeDBProxyTargets">DescribeDBProxyTargets</option>
@@ -200,6 +220,8 @@
 		
 			<option value="FailoverDBCluster">FailoverDBCluster</option>
 		
+			<option value="FailoverGlobalCluster">FailoverGlobalCluster</option>
+		
 			<option value="ImportInstallationMedia">ImportInstallationMedia</option>
 		
 			<option value="ListTagsForResource">ListTagsForResource</option>
@@ -221,6 +243,8 @@
 			<option value="ModifyDBParameterGroup">ModifyDBParameterGroup</option>
 		
 			<option value="ModifyDBProxy">ModifyDBProxy</option>
+		
+			<option value="ModifyDBProxyEndpoint">ModifyDBProxyEndpoint</option>
 		
 			<option value="ModifyDBProxyTargetGroup">ModifyDBProxyTargetGroup</option>
 		
@@ -469,6 +493,10 @@
 		<label for="node-input-VpcSubnetIds"><i class="fa fa-tag"></i>VpcSubnetIds</label>
 		<input type="text" id="node-input-VpcSubnetIds" placeholder="VpcSubnetIds"></input>
 	</div> 
+	<div class="form-row" id='DBProxyEndpointNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBProxyEndpointName"><i class="fa fa-tag"></i>DBProxyEndpointName</label>
+		<input type="text" id="node-input-DBProxyEndpointName" placeholder="DBProxyEndpointName"></input>
+	</div> 
 	<div class="form-row" id='DBSecurityGroupDescriptionAttr' class='hiddenAttrs'>
 		<label for="node-input-DBSecurityGroupDescription"><i class="fa fa-tag"></i>DBSecurityGroupDescription</label>
 		<input type="text" id="node-input-DBSecurityGroupDescription" placeholder="DBSecurityGroupDescription"></input>
@@ -524,6 +552,10 @@
 	<div class="form-row" id='LogFileNameAttr' class='hiddenAttrs'>
 		<label for="node-input-LogFileName"><i class="fa fa-tag"></i>LogFileName</label>
 		<input type="text" id="node-input-LogFileName" placeholder="LogFileName"></input>
+	</div> 
+	<div class="form-row" id='TargetDbClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDbClusterIdentifier"><i class="fa fa-tag"></i>TargetDbClusterIdentifier</label>
+		<input type="text" id="node-input-TargetDbClusterIdentifier" placeholder="TargetDbClusterIdentifier"></input>
 	</div> 
 	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
 		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i>EngineVersion</label>
@@ -688,6 +720,9 @@
 				CreateDBProxy:[
 					'#DBProxyNameAttr','#EngineFamilyAttr','#AuthAttr','#RoleArnAttr','#VpcSubnetIdsAttr'
 					],
+				CreateDBProxyEndpoint:[
+					'#DBProxyNameAttr','#DBProxyEndpointNameAttr','#VpcSubnetIdsAttr'
+					],
 				CreateDBSecurityGroup:[
 					'#DBSecurityGroupNameAttr','#DBSecurityGroupDescriptionAttr'
 					],
@@ -732,6 +767,9 @@
 					],
 				DeleteDBProxy:[
 					'#DBProxyNameAttr'
+					],
+				DeleteDBProxyEndpoint:[
+					'#DBProxyEndpointNameAttr'
 					],
 				DeleteDBSecurityGroup:[
 					'#DBSecurityGroupNameAttr'
@@ -808,6 +846,9 @@
 				DescribeDBProxies:[
 					
 					],
+				DescribeDBProxyEndpoints:[
+					
+					],
 				DescribeDBProxyTargetGroups:[
 					'#DBProxyNameAttr'
 					],
@@ -880,6 +921,9 @@
 				FailoverDBCluster:[
 					'#DBClusterIdentifierAttr'
 					],
+				FailoverGlobalCluster:[
+					'#GlobalClusterIdentifierAttr','#TargetDbClusterIdentifierAttr'
+					],
 				ImportInstallationMedia:[
 					'#CustomAvailabilityZoneIdAttr','#EngineAttr','#EngineVersionAttr','#EngineInstallationMediaPathAttr','#OSInstallationMediaPathAttr'
 					],
@@ -912,6 +956,9 @@
 					],
 				ModifyDBProxy:[
 					'#DBProxyNameAttr'
+					],
+				ModifyDBProxyEndpoint:[
+					'#DBProxyEndpointNameAttr'
 					],
 				ModifyDBProxyTargetGroup:[
 					'#TargetGroupNameAttr','#DBProxyNameAttr'
@@ -1028,17 +1075,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon RDS">
+<script type="text/x-red" data-help-name="AWS RDS">
 <p>
-AWS Amazon Relational Database Service
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS RDS
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RDS.html">RDS</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -1091,6 +1138,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				EngineFamily: { value: ""} ,
 				Auth: { value: ""} ,
 				VpcSubnetIds: { value: ""} ,
+				DBProxyEndpointName: { value: ""} ,
 				DBSecurityGroupDescription: { value: ""} ,
 				DBSnapshotIdentifier: { value: ""} ,
 				DBSubnetGroupName: { value: ""} ,
@@ -1105,6 +1153,7 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				GlobalClusterIdentifier: { value: ""} ,
 				InstallationMediaId: { value: ""} ,
 				LogFileName: { value: ""} ,
+				TargetDbClusterIdentifier: { value: ""} ,
 				EngineVersion: { value: ""} ,
 				EngineInstallationMediaPath: { value: ""} ,
 				OSInstallationMediaPath: { value: ""} ,

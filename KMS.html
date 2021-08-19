@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -100,6 +114,8 @@
 		
 			<option value="ReEncrypt">ReEncrypt</option>
 		
+			<option value="ReplicateKey">ReplicateKey</option>
+		
 			<option value="RetireGrant">RetireGrant</option>
 		
 			<option value="RevokeGrant">RevokeGrant</option>
@@ -117,6 +133,8 @@
 			<option value="UpdateCustomKeyStore">UpdateCustomKeyStore</option>
 		
 			<option value="UpdateKeyDescription">UpdateKeyDescription</option>
+		
+			<option value="UpdatePrimaryRegion">UpdatePrimaryRegion</option>
 		
 			<option value="Verify">Verify</option>
 		;
@@ -213,6 +231,10 @@
 		<label for="node-input-DestinationKeyId"><i class="fa fa-tag"></i>DestinationKeyId</label>
 		<input type="text" id="node-input-DestinationKeyId" placeholder="DestinationKeyId"></input>
 	</div> 
+	<div class="form-row" id='ReplicaRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaRegion"><i class="fa fa-tag"></i>ReplicaRegion</label>
+		<input type="text" id="node-input-ReplicaRegion" placeholder="ReplicaRegion"></input>
+	</div> 
 	<div class="form-row" id='GrantIdAttr' class='hiddenAttrs'>
 		<label for="node-input-GrantId"><i class="fa fa-tag"></i>GrantId</label>
 		<input type="text" id="node-input-GrantId" placeholder="GrantId"></input>
@@ -236,6 +258,10 @@
 	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
 		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
 		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='PrimaryRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryRegion"><i class="fa fa-tag"></i>PrimaryRegion</label>
+		<input type="text" id="node-input-PrimaryRegion" placeholder="PrimaryRegion"></input>
 	</div> 
 	<div class="form-row" id='SignatureAttr' class='hiddenAttrs'>
 		<label for="node-input-Signature"><i class="fa fa-tag"></i>Signature</label>
@@ -354,6 +380,9 @@
 				ReEncrypt:[
 					'#CiphertextBlobAttr','#DestinationKeyIdAttr'
 					],
+				ReplicateKey:[
+					'#KeyIdAttr','#ReplicaRegionAttr'
+					],
 				RetireGrant:[
 					
 					],
@@ -381,6 +410,9 @@
 				UpdateKeyDescription:[
 					'#KeyIdAttr','#DescriptionAttr'
 					],
+				UpdatePrimaryRegion:[
+					'#KeyIdAttr','#PrimaryRegionAttr'
+					],
 				Verify:[
 					'#KeyIdAttr','#MessageAttr','#SignatureAttr','#SigningAlgorithmAttr'
 					]
@@ -394,17 +426,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon KMS">
+<script type="text/x-red" data-help-name="AWS KMS">
 <p>
-AWS AWS Key Management Service
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS KMS
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/KMS.html">KMS</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -436,12 +468,14 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				RetiringPrincipal: { value: ""} ,
 				Policy: { value: ""} ,
 				DestinationKeyId: { value: ""} ,
+				ReplicaRegion: { value: ""} ,
 				GrantId: { value: ""} ,
 				Message: { value: ""} ,
 				SigningAlgorithm: { value: ""} ,
 				Tags: { value: ""} ,
 				TagKeys: { value: ""} ,
 				Description: { value: ""} ,
+				PrimaryRegion: { value: ""} ,
 				Signature: { value: ""} ,
 			name: { value: "" }
 		},

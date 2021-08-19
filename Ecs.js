@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -119,6 +146,7 @@ module.exports = function(RED) {
 			copyArg(msg,"clusterName",params,undefined,false); 
 			copyArg(msg,"tags",params,undefined,true); 
 			copyArg(msg,"settings",params,undefined,true); 
+			copyArg(msg,"configuration",params,undefined,true); 
 			copyArg(msg,"capacityProviders",params,undefined,true); 
 			copyArg(msg,"defaultCapacityProviderStrategy",params,undefined,true); 
 			
@@ -154,6 +182,7 @@ module.exports = function(RED) {
 			copyArg(msg,"tags",params,undefined,true); 
 			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
 			copyArg(msg,"propagateTags",params,undefined,false); 
+			copyArg(msg,"enableExecuteCommand",params,undefined,false); 
 			
 
 			svc.createService(params,cb);
@@ -419,6 +448,25 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ExecuteCommand=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"command",params,undefined,false); 
+			copyArg(n,"interactive",params,undefined,false); 
+			copyArg(n,"task",params,undefined,false); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"container",params,undefined,false); 
+			copyArg(msg,"command",params,undefined,false); 
+			copyArg(msg,"interactive",params,undefined,false); 
+			copyArg(msg,"task",params,undefined,false); 
+			
+
+			svc.executeCommand(params,cb);
+		}
+
+		
 		service.ListAccountSettings=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -667,6 +715,7 @@ module.exports = function(RED) {
 			copyArg(msg,"ipcMode",params,undefined,false); 
 			copyArg(msg,"proxyConfiguration",params,undefined,true); 
 			copyArg(msg,"inferenceAccelerators",params,undefined,true); 
+			copyArg(msg,"ephemeralStorage",params,undefined,true); 
 			
 
 			svc.registerTaskDefinition(params,cb);
@@ -683,6 +732,7 @@ module.exports = function(RED) {
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"count",params,undefined,false); 
 			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
+			copyArg(msg,"enableExecuteCommand",params,undefined,false); 
 			copyArg(msg,"group",params,undefined,false); 
 			copyArg(msg,"launchType",params,undefined,false); 
 			copyArg(msg,"networkConfiguration",params,undefined,true); 
@@ -711,6 +761,7 @@ module.exports = function(RED) {
 			copyArg(msg,"cluster",params,undefined,false); 
 			copyArg(msg,"containerInstances",params,undefined,true); 
 			copyArg(msg,"enableECSManagedTags",params,undefined,false); 
+			copyArg(msg,"enableExecuteCommand",params,undefined,false); 
 			copyArg(msg,"group",params,undefined,false); 
 			copyArg(msg,"networkConfiguration",params,undefined,true); 
 			copyArg(msg,"overrides",params,undefined,true); 
@@ -784,6 +835,7 @@ module.exports = function(RED) {
 			copyArg(msg,"reason",params,undefined,false); 
 			copyArg(msg,"containers",params,undefined,false); 
 			copyArg(msg,"attachments",params,undefined,true); 
+			copyArg(msg,"managedAgents",params,undefined,false); 
 			copyArg(msg,"pullStartedAt",params,undefined,false); 
 			copyArg(msg,"pullStoppedAt",params,undefined,false); 
 			copyArg(msg,"executionStoppedAt",params,undefined,false); 
@@ -835,6 +887,21 @@ module.exports = function(RED) {
 			
 
 			svc.updateCapacityProvider(params,cb);
+		}
+
+		
+		service.UpdateCluster=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"cluster",params,undefined,false); 
+			
+			copyArg(msg,"cluster",params,undefined,false); 
+			copyArg(msg,"settings",params,undefined,true); 
+			copyArg(msg,"configuration",params,undefined,true); 
+			
+
+			svc.updateCluster(params,cb);
 		}
 
 		
@@ -901,6 +968,7 @@ module.exports = function(RED) {
 			copyArg(msg,"platformVersion",params,undefined,false); 
 			copyArg(msg,"forceNewDeployment",params,undefined,false); 
 			copyArg(msg,"healthCheckGracePeriodSeconds",params,undefined,false); 
+			copyArg(msg,"enableExecuteCommand",params,undefined,false); 
 			
 
 			svc.updateService(params,cb);

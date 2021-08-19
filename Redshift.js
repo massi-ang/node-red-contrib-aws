@@ -1,5 +1,20 @@
 
 /**
+ * Copyright 2021 Amazon Web Services.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+/**
  * Copyright 2021 Daniel Thomas.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
@@ -21,20 +36,32 @@ module.exports = function(RED) {
 	function AmazonAPINode(n) {
 		RED.nodes.createNode(this,n);
 		this.awsConfig = RED.nodes.getNode(n.aws);
-		this.region = n.region;
+		this.region = n.region || this.awsConfig.region;
 		this.operation = n.operation;
 		this.name = n.name;
-		this.region = this.awsConfig.region;
+		//this.region = this.awsConfig.region;
+		
 		this.accessKey = this.awsConfig.accessKey;
 		this.secretKey = this.awsConfig.secretKey;
 
 		var node = this;
 		var AWS = require("aws-sdk");
-		AWS.config.update({
-			accessKeyId: this.accessKey,
-			secretAccessKey: this.secretKey,
-			region: this.region
-		});
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
 		if (!AWS) {
 			node.warn("Missing AWS credentials");
 			return;
@@ -110,6 +137,36 @@ module.exports = function(RED) {
 		}
 
 		
+		service.AddPartner=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			
+			copyArg(msg,"AccountId",params,undefined,true); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,true); 
+			copyArg(msg,"DatabaseName",params,undefined,true); 
+			copyArg(msg,"PartnerName",params,undefined,true); 
+
+			svc.addPartner(params,cb);
+		}
+
+		
+		service.AssociateDataShareConsumer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DataShareArn",params,undefined,false); 
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			copyArg(msg,"AssociateEntireAccount",params,undefined,false); 
+			copyArg(msg,"ConsumerArn",params,undefined,false); 
+			
+
+			svc.associateDataShareConsumer(params,cb);
+		}
+
+		
 		service.AuthorizeClusterSecurityGroupIngress=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -123,6 +180,36 @@ module.exports = function(RED) {
 			
 
 			svc.authorizeClusterSecurityGroupIngress(params,cb);
+		}
+
+		
+		service.AuthorizeDataShare=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DataShareArn",params,undefined,false); 
+			copyArg(n,"ConsumerIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			copyArg(msg,"ConsumerIdentifier",params,undefined,false); 
+			
+
+			svc.authorizeDataShare(params,cb);
+		}
+
+		
+		service.AuthorizeEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Account",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"Account",params,undefined,false); 
+			copyArg(msg,"VpcIds",params,undefined,true); 
+			
+
+			svc.authorizeEndpointAccess(params,cb);
 		}
 
 		
@@ -200,6 +287,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.CreateAuthenticationProfile=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AuthenticationProfileName",params,undefined,false); 
+			copyArg(n,"AuthenticationProfileContent",params,undefined,false); 
+			
+			copyArg(msg,"AuthenticationProfileName",params,undefined,false); 
+			copyArg(msg,"AuthenticationProfileContent",params,undefined,false); 
+			
+
+			svc.createAuthenticationProfile(params,cb);
+		}
+
+		
 		service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -240,6 +342,7 @@ module.exports = function(RED) {
 			copyArg(msg,"MaintenanceTrackName",params,undefined,false); 
 			copyArg(msg,"SnapshotScheduleIdentifier",params,undefined,false); 
 			copyArg(msg,"AvailabilityZoneRelocation",params,undefined,false); 
+			copyArg(msg,"AquaConfigurationStatus",params,undefined,false); 
 			
 
 			svc.createCluster(params,cb);
@@ -312,6 +415,24 @@ module.exports = function(RED) {
 			
 
 			svc.createClusterSubnetGroup(params,cb);
+		}
+
+		
+		service.CreateEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointName",params,undefined,false); 
+			copyArg(n,"SubnetGroupName",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"ResourceOwner",params,undefined,false); 
+			copyArg(msg,"EndpointName",params,undefined,false); 
+			copyArg(msg,"SubnetGroupName",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
+			
+
+			svc.createEndpointAccess(params,cb);
 		}
 
 		
@@ -466,6 +587,34 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeauthorizeDataShare=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DataShareArn",params,undefined,false); 
+			copyArg(n,"ConsumerIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			copyArg(msg,"ConsumerIdentifier",params,undefined,false); 
+			
+
+			svc.deauthorizeDataShare(params,cb);
+		}
+
+		
+		service.DeleteAuthenticationProfile=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AuthenticationProfileName",params,undefined,false); 
+			
+			copyArg(msg,"AuthenticationProfileName",params,undefined,false); 
+			
+
+			svc.deleteAuthenticationProfile(params,cb);
+		}
+
+		
 		service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -534,6 +683,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DeleteEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointName",params,undefined,false); 
+			
+			copyArg(msg,"EndpointName",params,undefined,false); 
+			
+
+			svc.deleteEndpointAccess(params,cb);
+		}
+
+		
 		service.DeleteEventSubscription=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -570,6 +732,21 @@ module.exports = function(RED) {
 			
 
 			svc.deleteHsmConfiguration(params,cb);
+		}
+
+		
+		service.DeletePartner=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			
+			copyArg(msg,"AccountId",params,undefined,true); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,true); 
+			copyArg(msg,"DatabaseName",params,undefined,true); 
+			copyArg(msg,"PartnerName",params,undefined,true); 
+
+			svc.deletePartner(params,cb);
 		}
 
 		
@@ -649,6 +826,18 @@ module.exports = function(RED) {
 			
 
 			svc.describeAccountAttributes(params,cb);
+		}
+
+		
+		service.DescribeAuthenticationProfiles=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"AuthenticationProfileName",params,undefined,false); 
+			
+
+			svc.describeAuthenticationProfiles(params,cb);
 		}
 
 		
@@ -798,6 +987,50 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DescribeDataShares=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeDataShares(params,cb);
+		}
+
+		
+		service.DescribeDataSharesForConsumer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ConsumerArn",params,undefined,false); 
+			copyArg(msg,"Status",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeDataSharesForConsumer(params,cb);
+		}
+
+		
+		service.DescribeDataSharesForProducer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ProducerArn",params,undefined,false); 
+			copyArg(msg,"Status",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeDataSharesForProducer(params,cb);
+		}
+
+		
 		service.DescribeDefaultClusterParameters=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -810,6 +1043,39 @@ module.exports = function(RED) {
 			
 
 			svc.describeDefaultClusterParameters(params,cb);
+		}
+
+		
+		service.DescribeEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"ResourceOwner",params,undefined,false); 
+			copyArg(msg,"EndpointName",params,undefined,false); 
+			copyArg(msg,"VpcId",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeEndpointAccess(params,cb);
+		}
+
+		
+		service.DescribeEndpointAuthorization=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"Account",params,undefined,false); 
+			copyArg(msg,"Grantee",params,undefined,false); 
+			copyArg(msg,"MaxRecords",params,undefined,false); 
+			copyArg(msg,"Marker",params,undefined,false); 
+			
+
+			svc.describeEndpointAuthorization(params,cb);
 		}
 
 		
@@ -935,6 +1201,23 @@ module.exports = function(RED) {
 			
 
 			svc.describeOrderableClusterOptions(params,cb);
+		}
+
+		
+		service.DescribePartners=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AccountId",params,undefined,false); 
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"AccountId",params,undefined,false); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DatabaseName",params,undefined,false); 
+			copyArg(msg,"PartnerName",params,undefined,false); 
+			
+
+			svc.describePartners(params,cb);
 		}
 
 		
@@ -1118,6 +1401,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.DisassociateDataShareConsumer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DataShareArn",params,undefined,false); 
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			copyArg(msg,"DisassociateEntireAccount",params,undefined,false); 
+			copyArg(msg,"ConsumerArn",params,undefined,false); 
+			
+
+			svc.disassociateDataShareConsumer(params,cb);
+		}
+
+		
 		service.EnableLogging=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1183,6 +1481,35 @@ module.exports = function(RED) {
 			
 
 			svc.getReservedNodeExchangeOfferings(params,cb);
+		}
+
+		
+		service.ModifyAquaConfiguration=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"AquaConfigurationStatus",params,undefined,false); 
+			
+
+			svc.modifyAquaConfiguration(params,cb);
+		}
+
+		
+		service.ModifyAuthenticationProfile=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AuthenticationProfileName",params,undefined,false); 
+			copyArg(n,"AuthenticationProfileContent",params,undefined,false); 
+			
+			copyArg(msg,"AuthenticationProfileName",params,undefined,false); 
+			copyArg(msg,"AuthenticationProfileContent",params,undefined,false); 
+			
+
+			svc.modifyAuthenticationProfile(params,cb);
 		}
 
 		
@@ -1332,6 +1659,20 @@ module.exports = function(RED) {
 		}
 
 		
+		service.ModifyEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointName",params,undefined,false); 
+			
+			copyArg(msg,"EndpointName",params,undefined,false); 
+			copyArg(msg,"VpcSecurityGroupIds",params,undefined,true); 
+			
+
+			svc.modifyEndpointAccess(params,cb);
+		}
+
+		
 		service.ModifyEventSubscription=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1456,6 +1797,19 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RejectDataShare=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DataShareArn",params,undefined,false); 
+			
+			copyArg(msg,"DataShareArn",params,undefined,false); 
+			
+
+			svc.rejectDataShare(params,cb);
+		}
+
+		
 		service.ResetClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1521,6 +1875,7 @@ module.exports = function(RED) {
 			copyArg(msg,"SnapshotScheduleIdentifier",params,undefined,false); 
 			copyArg(msg,"NumberOfNodes",params,undefined,false); 
 			copyArg(msg,"AvailabilityZoneRelocation",params,undefined,false); 
+			copyArg(msg,"AquaConfigurationStatus",params,undefined,false); 
 			
 
 			svc.restoreFromClusterSnapshot(params,cb);
@@ -1545,6 +1900,7 @@ module.exports = function(RED) {
 			copyArg(msg,"TargetDatabaseName",params,undefined,false); 
 			copyArg(msg,"TargetSchemaName",params,undefined,false); 
 			copyArg(msg,"NewTableName",params,undefined,false); 
+			copyArg(msg,"EnableCaseSensitiveIdentifier",params,undefined,false); 
 			
 
 			svc.restoreTableFromClusterSnapshot(params,cb);
@@ -1579,6 +1935,21 @@ module.exports = function(RED) {
 		}
 
 		
+		service.RevokeEndpointAccess=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"Account",params,undefined,false); 
+			copyArg(msg,"VpcIds",params,undefined,true); 
+			copyArg(msg,"Force",params,undefined,false); 
+			
+
+			svc.revokeEndpointAccess(params,cb);
+		}
+
+		
 		service.RevokeSnapshotAccess=function(svc,msg,cb){
 			var params={};
 			//copyArgs
@@ -1605,6 +1976,28 @@ module.exports = function(RED) {
 			
 
 			svc.rotateEncryptionKey(params,cb);
+		}
+
+		
+		service.UpdatePartnerStatus=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"AccountId",params,undefined,false); 
+			copyArg(n,"ClusterIdentifier",params,undefined,false); 
+			copyArg(n,"DatabaseName",params,undefined,false); 
+			copyArg(n,"PartnerName",params,undefined,false); 
+			copyArg(n,"Status",params,undefined,false); 
+			
+			copyArg(msg,"AccountId",params,undefined,false); 
+			copyArg(msg,"ClusterIdentifier",params,undefined,false); 
+			copyArg(msg,"DatabaseName",params,undefined,false); 
+			copyArg(msg,"PartnerName",params,undefined,false); 
+			copyArg(msg,"Status",params,undefined,false); 
+			copyArg(msg,"StatusMessage",params,undefined,false); 
+			
+
+			svc.updatePartnerStatus(params,cb);
 		}
 
 		 

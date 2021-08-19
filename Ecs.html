@@ -1,5 +1,19 @@
 
 <!--
+	Copyright 2021 Amazon Web Services.
+
+	Licensed under the Apache License, Version 2.0 (the "License");
+	you may not use this file except in compliance with the License.
+	You may obtain a copy of the License at
+
+	http://www.apache.org/licenses/LICENSE-2.0
+
+	Unless required by applicable law or agreed to in writing, software
+	distributed under the License is distributed on an "AS IS" BASIS,
+	WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+	See the License for the specific language governing permissions and
+	limitations under the License.
+  
   Copyright 2021 Daniel Thomas.
 
   Licensed under the Apache License, Version 2.0 (the "License");
@@ -68,6 +82,8 @@
 		
 			<option value="DiscoverPollEndpoint">DiscoverPollEndpoint</option>
 		
+			<option value="ExecuteCommand">ExecuteCommand</option>
+		
 			<option value="ListAccountSettings">ListAccountSettings</option>
 		
 			<option value="ListAttributes">ListAttributes</option>
@@ -115,6 +131,8 @@
 			<option value="UntagResource">UntagResource</option>
 		
 			<option value="UpdateCapacityProvider">UpdateCapacityProvider</option>
+		
+			<option value="UpdateCluster">UpdateCluster</option>
 		
 			<option value="UpdateClusterSettings">UpdateClusterSettings</option>
 		
@@ -189,6 +207,18 @@
 		<label for="node-input-tasks"><i class="fa fa-tag"></i>tasks</label>
 		<input type="text" id="node-input-tasks" placeholder="tasks"></input>
 	</div> 
+	<div class="form-row" id='commandAttr' class='hiddenAttrs'>
+		<label for="node-input-command"><i class="fa fa-tag"></i>command</label>
+		<input type="text" id="node-input-command" placeholder="command"></input>
+	</div> 
+	<div class="form-row" id='interactiveAttr' class='hiddenAttrs'>
+		<label for="node-input-interactive"><i class="fa fa-tag"></i>interactive</label>
+		<input type="text" id="node-input-interactive" placeholder="interactive"></input>
+	</div> 
+	<div class="form-row" id='taskAttr' class='hiddenAttrs'>
+		<label for="node-input-task"><i class="fa fa-tag"></i>task</label>
+		<input type="text" id="node-input-task" placeholder="task"></input>
+	</div> 
 	<div class="form-row" id='targetTypeAttr' class='hiddenAttrs'>
 		<label for="node-input-targetType"><i class="fa fa-tag"></i>targetType</label>
 		<input type="text" id="node-input-targetType" placeholder="targetType"></input>
@@ -216,10 +246,6 @@
 	<div class="form-row" id='containerDefinitionsAttr' class='hiddenAttrs'>
 		<label for="node-input-containerDefinitions"><i class="fa fa-tag"></i>containerDefinitions</label>
 		<input type="text" id="node-input-containerDefinitions" placeholder="containerDefinitions"></input>
-	</div> 
-	<div class="form-row" id='taskAttr' class='hiddenAttrs'>
-		<label for="node-input-task"><i class="fa fa-tag"></i>task</label>
-		<input type="text" id="node-input-task" placeholder="task"></input>
 	</div> 
 	<div class="form-row" id='attachmentsAttr' class='hiddenAttrs'>
 		<label for="node-input-attachments"><i class="fa fa-tag"></i>attachments</label>
@@ -314,6 +340,9 @@
 				DiscoverPollEndpoint:[
 					
 					],
+				ExecuteCommand:[
+					'#commandAttr','#interactiveAttr','#taskAttr'
+					],
 				ListAccountSettings:[
 					
 					],
@@ -386,6 +415,9 @@
 				UpdateCapacityProvider:[
 					'#nameAttr','#autoScalingGroupProviderAttr'
 					],
+				UpdateCluster:[
+					'#clusterAttr'
+					],
 				UpdateClusterSettings:[
 					'#clusterAttr','#settingsAttr'
 					],
@@ -414,17 +446,17 @@
 
 </script>
 
-<script type="text/x-red" data-help-name="amazon ECS">
+<script type="text/x-red" data-help-name="AWS ECS">
 <p>
-AWS Amazon EC2 Container Service
-</p>
-<p>
-<b>Descriptions to be added</b<
+AWS ECS
 </p>
 <p>
 NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
 </p>
-
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ECS.html">ECS</a></li>
+</ul>
 </script>
 
 <script type="text/javascript">
@@ -448,6 +480,9 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				containerInstances: { value: ""} ,
 				services: { value: ""} ,
 				tasks: { value: ""} ,
+				command: { value: ""} ,
+				interactive: { value: ""} ,
+				task: { value: ""} ,
 				targetType: { value: ""} ,
 				resourceArn: { value: ""} ,
 				value: { value: ""} ,
@@ -455,7 +490,6 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 				defaultCapacityProviderStrategy: { value: ""} ,
 				family: { value: ""} ,
 				containerDefinitions: { value: ""} ,
-				task: { value: ""} ,
 				attachments: { value: ""} ,
 				tags: { value: ""} ,
 				tagKeys: { value: ""} ,
