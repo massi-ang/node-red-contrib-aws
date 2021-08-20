@@ -1,0 +1,786 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS GameLift">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptMatch">AcceptMatch</option>
+		
+			<option value="ClaimGameServer">ClaimGameServer</option>
+		
+			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateBuild">CreateBuild</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="CreateFleetLocations">CreateFleetLocations</option>
+		
+			<option value="CreateGameServerGroup">CreateGameServerGroup</option>
+		
+			<option value="CreateGameSession">CreateGameSession</option>
+		
+			<option value="CreateGameSessionQueue">CreateGameSessionQueue</option>
+		
+			<option value="CreateMatchmakingConfiguration">CreateMatchmakingConfiguration</option>
+		
+			<option value="CreateMatchmakingRuleSet">CreateMatchmakingRuleSet</option>
+		
+			<option value="CreatePlayerSession">CreatePlayerSession</option>
+		
+			<option value="CreatePlayerSessions">CreatePlayerSessions</option>
+		
+			<option value="CreateScript">CreateScript</option>
+		
+			<option value="CreateVpcPeeringAuthorization">CreateVpcPeeringAuthorization</option>
+		
+			<option value="CreateVpcPeeringConnection">CreateVpcPeeringConnection</option>
+		
+			<option value="DeleteAlias">DeleteAlias</option>
+		
+			<option value="DeleteBuild">DeleteBuild</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DeleteFleetLocations">DeleteFleetLocations</option>
+		
+			<option value="DeleteGameServerGroup">DeleteGameServerGroup</option>
+		
+			<option value="DeleteGameSessionQueue">DeleteGameSessionQueue</option>
+		
+			<option value="DeleteMatchmakingConfiguration">DeleteMatchmakingConfiguration</option>
+		
+			<option value="DeleteMatchmakingRuleSet">DeleteMatchmakingRuleSet</option>
+		
+			<option value="DeleteScalingPolicy">DeleteScalingPolicy</option>
+		
+			<option value="DeleteScript">DeleteScript</option>
+		
+			<option value="DeleteVpcPeeringAuthorization">DeleteVpcPeeringAuthorization</option>
+		
+			<option value="DeleteVpcPeeringConnection">DeleteVpcPeeringConnection</option>
+		
+			<option value="DeregisterGameServer">DeregisterGameServer</option>
+		
+			<option value="DescribeAlias">DescribeAlias</option>
+		
+			<option value="DescribeBuild">DescribeBuild</option>
+		
+			<option value="DescribeEC2InstanceLimits">DescribeEC2InstanceLimits</option>
+		
+			<option value="DescribeFleetAttributes">DescribeFleetAttributes</option>
+		
+			<option value="DescribeFleetCapacity">DescribeFleetCapacity</option>
+		
+			<option value="DescribeFleetEvents">DescribeFleetEvents</option>
+		
+			<option value="DescribeFleetLocationAttributes">DescribeFleetLocationAttributes</option>
+		
+			<option value="DescribeFleetLocationCapacity">DescribeFleetLocationCapacity</option>
+		
+			<option value="DescribeFleetLocationUtilization">DescribeFleetLocationUtilization</option>
+		
+			<option value="DescribeFleetPortSettings">DescribeFleetPortSettings</option>
+		
+			<option value="DescribeFleetUtilization">DescribeFleetUtilization</option>
+		
+			<option value="DescribeGameServer">DescribeGameServer</option>
+		
+			<option value="DescribeGameServerGroup">DescribeGameServerGroup</option>
+		
+			<option value="DescribeGameServerInstances">DescribeGameServerInstances</option>
+		
+			<option value="DescribeGameSessionDetails">DescribeGameSessionDetails</option>
+		
+			<option value="DescribeGameSessionPlacement">DescribeGameSessionPlacement</option>
+		
+			<option value="DescribeGameSessionQueues">DescribeGameSessionQueues</option>
+		
+			<option value="DescribeGameSessions">DescribeGameSessions</option>
+		
+			<option value="DescribeInstances">DescribeInstances</option>
+		
+			<option value="DescribeMatchmaking">DescribeMatchmaking</option>
+		
+			<option value="DescribeMatchmakingConfigurations">DescribeMatchmakingConfigurations</option>
+		
+			<option value="DescribeMatchmakingRuleSets">DescribeMatchmakingRuleSets</option>
+		
+			<option value="DescribePlayerSessions">DescribePlayerSessions</option>
+		
+			<option value="DescribeRuntimeConfiguration">DescribeRuntimeConfiguration</option>
+		
+			<option value="DescribeScalingPolicies">DescribeScalingPolicies</option>
+		
+			<option value="DescribeScript">DescribeScript</option>
+		
+			<option value="DescribeVpcPeeringAuthorizations">DescribeVpcPeeringAuthorizations</option>
+		
+			<option value="DescribeVpcPeeringConnections">DescribeVpcPeeringConnections</option>
+		
+			<option value="GetGameSessionLogUrl">GetGameSessionLogUrl</option>
+		
+			<option value="GetInstanceAccess">GetInstanceAccess</option>
+		
+			<option value="ListAliases">ListAliases</option>
+		
+			<option value="ListBuilds">ListBuilds</option>
+		
+			<option value="ListFleets">ListFleets</option>
+		
+			<option value="ListGameServerGroups">ListGameServerGroups</option>
+		
+			<option value="ListGameServers">ListGameServers</option>
+		
+			<option value="ListScripts">ListScripts</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutScalingPolicy">PutScalingPolicy</option>
+		
+			<option value="RegisterGameServer">RegisterGameServer</option>
+		
+			<option value="RequestUploadCredentials">RequestUploadCredentials</option>
+		
+			<option value="ResolveAlias">ResolveAlias</option>
+		
+			<option value="ResumeGameServerGroup">ResumeGameServerGroup</option>
+		
+			<option value="SearchGameSessions">SearchGameSessions</option>
+		
+			<option value="StartFleetActions">StartFleetActions</option>
+		
+			<option value="StartGameSessionPlacement">StartGameSessionPlacement</option>
+		
+			<option value="StartMatchBackfill">StartMatchBackfill</option>
+		
+			<option value="StartMatchmaking">StartMatchmaking</option>
+		
+			<option value="StopFleetActions">StopFleetActions</option>
+		
+			<option value="StopGameSessionPlacement">StopGameSessionPlacement</option>
+		
+			<option value="StopMatchmaking">StopMatchmaking</option>
+		
+			<option value="SuspendGameServerGroup">SuspendGameServerGroup</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAlias">UpdateAlias</option>
+		
+			<option value="UpdateBuild">UpdateBuild</option>
+		
+			<option value="UpdateFleetAttributes">UpdateFleetAttributes</option>
+		
+			<option value="UpdateFleetCapacity">UpdateFleetCapacity</option>
+		
+			<option value="UpdateFleetPortSettings">UpdateFleetPortSettings</option>
+		
+			<option value="UpdateGameServer">UpdateGameServer</option>
+		
+			<option value="UpdateGameServerGroup">UpdateGameServerGroup</option>
+		
+			<option value="UpdateGameSession">UpdateGameSession</option>
+		
+			<option value="UpdateGameSessionQueue">UpdateGameSessionQueue</option>
+		
+			<option value="UpdateMatchmakingConfiguration">UpdateMatchmakingConfiguration</option>
+		
+			<option value="UpdateRuntimeConfiguration">UpdateRuntimeConfiguration</option>
+		
+			<option value="UpdateScript">UpdateScript</option>
+		
+			<option value="ValidateMatchmakingRuleSet">ValidateMatchmakingRuleSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TicketIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TicketId"><i class="fa fa-tag"></i>TicketId</label>
+		<input type="text" id="node-input-TicketId" placeholder="TicketId"></input>
+	</div> 
+	<div class="form-row" id='PlayerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerIds"><i class="fa fa-tag"></i>PlayerIds</label>
+		<input type="text" id="node-input-PlayerIds" placeholder="PlayerIds"></input>
+	</div> 
+	<div class="form-row" id='AcceptanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptanceType"><i class="fa fa-tag"></i>AcceptanceType</label>
+		<input type="text" id="node-input-AcceptanceType" placeholder="AcceptanceType"></input>
+	</div> 
+	<div class="form-row" id='GameServerGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerGroupName"><i class="fa fa-tag"></i>GameServerGroupName</label>
+		<input type="text" id="node-input-GameServerGroupName" placeholder="GameServerGroupName"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RoutingStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-RoutingStrategy"><i class="fa fa-tag"></i>RoutingStrategy</label>
+		<input type="text" id="node-input-RoutingStrategy" placeholder="RoutingStrategy"></input>
+	</div> 
+	<div class="form-row" id='EC2InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2InstanceType"><i class="fa fa-tag"></i>EC2InstanceType</label>
+		<input type="text" id="node-input-EC2InstanceType" placeholder="EC2InstanceType"></input>
+	</div> 
+	<div class="form-row" id='FleetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetId"><i class="fa fa-tag"></i>FleetId</label>
+		<input type="text" id="node-input-FleetId" placeholder="FleetId"></input>
+	</div> 
+	<div class="form-row" id='LocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Locations"><i class="fa fa-tag"></i>Locations</label>
+		<input type="text" id="node-input-Locations" placeholder="Locations"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i>RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='MinSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MinSize"><i class="fa fa-tag"></i>MinSize</label>
+		<input type="text" id="node-input-MinSize" placeholder="MinSize"></input>
+	</div> 
+	<div class="form-row" id='MaxSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSize"><i class="fa fa-tag"></i>MaxSize</label>
+		<input type="text" id="node-input-MaxSize" placeholder="MaxSize"></input>
+	</div> 
+	<div class="form-row" id='LaunchTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-LaunchTemplate"><i class="fa fa-tag"></i>LaunchTemplate</label>
+		<input type="text" id="node-input-LaunchTemplate" placeholder="LaunchTemplate"></input>
+	</div> 
+	<div class="form-row" id='InstanceDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceDefinitions"><i class="fa fa-tag"></i>InstanceDefinitions</label>
+		<input type="text" id="node-input-InstanceDefinitions" placeholder="InstanceDefinitions"></input>
+	</div> 
+	<div class="form-row" id='MaximumPlayerSessionCountAttr' class='hiddenAttrs'>
+		<label for="node-input-MaximumPlayerSessionCount"><i class="fa fa-tag"></i>MaximumPlayerSessionCount</label>
+		<input type="text" id="node-input-MaximumPlayerSessionCount" placeholder="MaximumPlayerSessionCount"></input>
+	</div> 
+	<div class="form-row" id='RequestTimeoutSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestTimeoutSeconds"><i class="fa fa-tag"></i>RequestTimeoutSeconds</label>
+		<input type="text" id="node-input-RequestTimeoutSeconds" placeholder="RequestTimeoutSeconds"></input>
+	</div> 
+	<div class="form-row" id='AcceptanceRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptanceRequired"><i class="fa fa-tag"></i>AcceptanceRequired</label>
+		<input type="text" id="node-input-AcceptanceRequired" placeholder="AcceptanceRequired"></input>
+	</div> 
+	<div class="form-row" id='RuleSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleSetName"><i class="fa fa-tag"></i>RuleSetName</label>
+		<input type="text" id="node-input-RuleSetName" placeholder="RuleSetName"></input>
+	</div> 
+	<div class="form-row" id='RuleSetBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleSetBody"><i class="fa fa-tag"></i>RuleSetBody</label>
+		<input type="text" id="node-input-RuleSetBody" placeholder="RuleSetBody"></input>
+	</div> 
+	<div class="form-row" id='GameSessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionId"><i class="fa fa-tag"></i>GameSessionId</label>
+		<input type="text" id="node-input-GameSessionId" placeholder="GameSessionId"></input>
+	</div> 
+	<div class="form-row" id='PlayerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerId"><i class="fa fa-tag"></i>PlayerId</label>
+		<input type="text" id="node-input-PlayerId" placeholder="PlayerId"></input>
+	</div> 
+	<div class="form-row" id='GameLiftAwsAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameLiftAwsAccountId"><i class="fa fa-tag"></i>GameLiftAwsAccountId</label>
+		<input type="text" id="node-input-GameLiftAwsAccountId" placeholder="GameLiftAwsAccountId"></input>
+	</div> 
+	<div class="form-row" id='PeerVpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PeerVpcId"><i class="fa fa-tag"></i>PeerVpcId</label>
+		<input type="text" id="node-input-PeerVpcId" placeholder="PeerVpcId"></input>
+	</div> 
+	<div class="form-row" id='PeerVpcAwsAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PeerVpcAwsAccountId"><i class="fa fa-tag"></i>PeerVpcAwsAccountId</label>
+		<input type="text" id="node-input-PeerVpcAwsAccountId" placeholder="PeerVpcAwsAccountId"></input>
+	</div> 
+	<div class="form-row" id='AliasIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AliasId"><i class="fa fa-tag"></i>AliasId</label>
+		<input type="text" id="node-input-AliasId" placeholder="AliasId"></input>
+	</div> 
+	<div class="form-row" id='BuildIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BuildId"><i class="fa fa-tag"></i>BuildId</label>
+		<input type="text" id="node-input-BuildId" placeholder="BuildId"></input>
+	</div> 
+	<div class="form-row" id='ScriptIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ScriptId"><i class="fa fa-tag"></i>ScriptId</label>
+		<input type="text" id="node-input-ScriptId" placeholder="ScriptId"></input>
+	</div> 
+	<div class="form-row" id='VpcPeeringConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcPeeringConnectionId"><i class="fa fa-tag"></i>VpcPeeringConnectionId</label>
+		<input type="text" id="node-input-VpcPeeringConnectionId" placeholder="VpcPeeringConnectionId"></input>
+	</div> 
+	<div class="form-row" id='GameServerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerId"><i class="fa fa-tag"></i>GameServerId</label>
+		<input type="text" id="node-input-GameServerId" placeholder="GameServerId"></input>
+	</div> 
+	<div class="form-row" id='LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-Location"><i class="fa fa-tag"></i>Location</label>
+		<input type="text" id="node-input-Location" placeholder="Location"></input>
+	</div> 
+	<div class="form-row" id='PlacementIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlacementId"><i class="fa fa-tag"></i>PlacementId</label>
+		<input type="text" id="node-input-PlacementId" placeholder="PlacementId"></input>
+	</div> 
+	<div class="form-row" id='TicketIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-TicketIds"><i class="fa fa-tag"></i>TicketIds</label>
+		<input type="text" id="node-input-TicketIds" placeholder="TicketIds"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i>InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='MetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricName"><i class="fa fa-tag"></i>MetricName</label>
+		<input type="text" id="node-input-MetricName" placeholder="MetricName"></input>
+	</div> 
+	<div class="form-row" id='ResumeActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResumeActions"><i class="fa fa-tag"></i>ResumeActions</label>
+		<input type="text" id="node-input-ResumeActions" placeholder="ResumeActions"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i>Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='GameSessionQueueNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionQueueName"><i class="fa fa-tag"></i>GameSessionQueueName</label>
+		<input type="text" id="node-input-GameSessionQueueName" placeholder="GameSessionQueueName"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationName"><i class="fa fa-tag"></i>ConfigurationName</label>
+		<input type="text" id="node-input-ConfigurationName" placeholder="ConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='PlayersAttr' class='hiddenAttrs'>
+		<label for="node-input-Players"><i class="fa fa-tag"></i>Players</label>
+		<input type="text" id="node-input-Players" placeholder="Players"></input>
+	</div> 
+	<div class="form-row" id='SuspendActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-SuspendActions"><i class="fa fa-tag"></i>SuspendActions</label>
+		<input type="text" id="node-input-SuspendActions" placeholder="SuspendActions"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='RuntimeConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RuntimeConfiguration"><i class="fa fa-tag"></i>RuntimeConfiguration</label>
+		<input type="text" id="node-input-RuntimeConfiguration" placeholder="RuntimeConfiguration"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptMatch:[
+					'#TicketIdAttr','#PlayerIdsAttr','#AcceptanceTypeAttr'
+					],
+				ClaimGameServer:[
+					'#GameServerGroupNameAttr'
+					],
+				CreateAlias:[
+					'#NameAttr','#RoutingStrategyAttr'
+					],
+				CreateBuild:[
+					
+					],
+				CreateFleet:[
+					'#NameAttr','#EC2InstanceTypeAttr'
+					],
+				CreateFleetLocations:[
+					'#FleetIdAttr','#LocationsAttr'
+					],
+				CreateGameServerGroup:[
+					'#GameServerGroupNameAttr','#RoleArnAttr','#MinSizeAttr','#MaxSizeAttr','#LaunchTemplateAttr','#InstanceDefinitionsAttr'
+					],
+				CreateGameSession:[
+					'#MaximumPlayerSessionCountAttr'
+					],
+				CreateGameSessionQueue:[
+					'#NameAttr'
+					],
+				CreateMatchmakingConfiguration:[
+					'#NameAttr','#RequestTimeoutSecondsAttr','#AcceptanceRequiredAttr','#RuleSetNameAttr'
+					],
+				CreateMatchmakingRuleSet:[
+					'#NameAttr','#RuleSetBodyAttr'
+					],
+				CreatePlayerSession:[
+					'#GameSessionIdAttr','#PlayerIdAttr'
+					],
+				CreatePlayerSessions:[
+					'#GameSessionIdAttr','#PlayerIdsAttr'
+					],
+				CreateScript:[
+					
+					],
+				CreateVpcPeeringAuthorization:[
+					'#GameLiftAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				CreateVpcPeeringConnection:[
+					'#FleetIdAttr','#PeerVpcAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				DeleteAlias:[
+					'#AliasIdAttr'
+					],
+				DeleteBuild:[
+					'#BuildIdAttr'
+					],
+				DeleteFleet:[
+					'#FleetIdAttr'
+					],
+				DeleteFleetLocations:[
+					'#FleetIdAttr','#LocationsAttr'
+					],
+				DeleteGameServerGroup:[
+					'#GameServerGroupNameAttr'
+					],
+				DeleteGameSessionQueue:[
+					'#NameAttr'
+					],
+				DeleteMatchmakingConfiguration:[
+					'#NameAttr'
+					],
+				DeleteMatchmakingRuleSet:[
+					'#NameAttr'
+					],
+				DeleteScalingPolicy:[
+					'#NameAttr','#FleetIdAttr'
+					],
+				DeleteScript:[
+					'#ScriptIdAttr'
+					],
+				DeleteVpcPeeringAuthorization:[
+					'#GameLiftAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				DeleteVpcPeeringConnection:[
+					'#FleetIdAttr','#VpcPeeringConnectionIdAttr'
+					],
+				DeregisterGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr'
+					],
+				DescribeAlias:[
+					'#AliasIdAttr'
+					],
+				DescribeBuild:[
+					'#BuildIdAttr'
+					],
+				DescribeEC2InstanceLimits:[
+					
+					],
+				DescribeFleetAttributes:[
+					
+					],
+				DescribeFleetCapacity:[
+					
+					],
+				DescribeFleetEvents:[
+					'#FleetIdAttr'
+					],
+				DescribeFleetLocationAttributes:[
+					'#FleetIdAttr'
+					],
+				DescribeFleetLocationCapacity:[
+					'#FleetIdAttr','#LocationAttr'
+					],
+				DescribeFleetLocationUtilization:[
+					'#FleetIdAttr','#LocationAttr'
+					],
+				DescribeFleetPortSettings:[
+					'#FleetIdAttr'
+					],
+				DescribeFleetUtilization:[
+					
+					],
+				DescribeGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr'
+					],
+				DescribeGameServerGroup:[
+					'#GameServerGroupNameAttr'
+					],
+				DescribeGameServerInstances:[
+					'#GameServerGroupNameAttr'
+					],
+				DescribeGameSessionDetails:[
+					
+					],
+				DescribeGameSessionPlacement:[
+					'#PlacementIdAttr'
+					],
+				DescribeGameSessionQueues:[
+					
+					],
+				DescribeGameSessions:[
+					
+					],
+				DescribeInstances:[
+					'#FleetIdAttr'
+					],
+				DescribeMatchmaking:[
+					'#TicketIdsAttr'
+					],
+				DescribeMatchmakingConfigurations:[
+					
+					],
+				DescribeMatchmakingRuleSets:[
+					
+					],
+				DescribePlayerSessions:[
+					
+					],
+				DescribeRuntimeConfiguration:[
+					'#FleetIdAttr'
+					],
+				DescribeScalingPolicies:[
+					'#FleetIdAttr'
+					],
+				DescribeScript:[
+					'#ScriptIdAttr'
+					],
+				DescribeVpcPeeringAuthorizations:[
+					
+					],
+				DescribeVpcPeeringConnections:[
+					
+					],
+				GetGameSessionLogUrl:[
+					'#GameSessionIdAttr'
+					],
+				GetInstanceAccess:[
+					'#FleetIdAttr','#InstanceIdAttr'
+					],
+				ListAliases:[
+					
+					],
+				ListBuilds:[
+					
+					],
+				ListFleets:[
+					
+					],
+				ListGameServerGroups:[
+					
+					],
+				ListGameServers:[
+					'#GameServerGroupNameAttr'
+					],
+				ListScripts:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				PutScalingPolicy:[
+					'#NameAttr','#FleetIdAttr','#MetricNameAttr'
+					],
+				RegisterGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr','#InstanceIdAttr'
+					],
+				RequestUploadCredentials:[
+					'#BuildIdAttr'
+					],
+				ResolveAlias:[
+					'#AliasIdAttr'
+					],
+				ResumeGameServerGroup:[
+					'#GameServerGroupNameAttr','#ResumeActionsAttr'
+					],
+				SearchGameSessions:[
+					
+					],
+				StartFleetActions:[
+					'#FleetIdAttr','#ActionsAttr'
+					],
+				StartGameSessionPlacement:[
+					'#PlacementIdAttr','#GameSessionQueueNameAttr','#MaximumPlayerSessionCountAttr'
+					],
+				StartMatchBackfill:[
+					'#ConfigurationNameAttr','#PlayersAttr'
+					],
+				StartMatchmaking:[
+					'#ConfigurationNameAttr','#PlayersAttr'
+					],
+				StopFleetActions:[
+					'#FleetIdAttr','#ActionsAttr'
+					],
+				StopGameSessionPlacement:[
+					'#PlacementIdAttr'
+					],
+				StopMatchmaking:[
+					'#TicketIdAttr'
+					],
+				SuspendGameServerGroup:[
+					'#GameServerGroupNameAttr','#SuspendActionsAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateAlias:[
+					'#AliasIdAttr'
+					],
+				UpdateBuild:[
+					'#BuildIdAttr'
+					],
+				UpdateFleetAttributes:[
+					'#FleetIdAttr'
+					],
+				UpdateFleetCapacity:[
+					'#FleetIdAttr'
+					],
+				UpdateFleetPortSettings:[
+					'#FleetIdAttr'
+					],
+				UpdateGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr'
+					],
+				UpdateGameServerGroup:[
+					'#GameServerGroupNameAttr'
+					],
+				UpdateGameSession:[
+					'#GameSessionIdAttr'
+					],
+				UpdateGameSessionQueue:[
+					'#NameAttr'
+					],
+				UpdateMatchmakingConfiguration:[
+					'#NameAttr'
+					],
+				UpdateRuntimeConfiguration:[
+					'#FleetIdAttr','#RuntimeConfigurationAttr'
+					],
+				UpdateScript:[
+					'#ScriptIdAttr'
+					],
+				ValidateMatchmakingRuleSet:[
+					'#RuleSetBodyAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS GameLift">
+<p>
+AWS GameLift
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/GameLift.html">GameLift</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS GameLift',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptMatch' },
+			
+				TicketId: { value: ""} ,
+				PlayerIds: { value: ""} ,
+				AcceptanceType: { value: ""} ,
+				GameServerGroupName: { value: ""} ,
+				Name: { value: ""} ,
+				RoutingStrategy: { value: ""} ,
+				EC2InstanceType: { value: ""} ,
+				FleetId: { value: ""} ,
+				Locations: { value: ""} ,
+				RoleArn: { value: ""} ,
+				MinSize: { value: ""} ,
+				MaxSize: { value: ""} ,
+				LaunchTemplate: { value: ""} ,
+				InstanceDefinitions: { value: ""} ,
+				MaximumPlayerSessionCount: { value: ""} ,
+				RequestTimeoutSeconds: { value: ""} ,
+				AcceptanceRequired: { value: ""} ,
+				RuleSetName: { value: ""} ,
+				RuleSetBody: { value: ""} ,
+				GameSessionId: { value: ""} ,
+				PlayerId: { value: ""} ,
+				GameLiftAwsAccountId: { value: ""} ,
+				PeerVpcId: { value: ""} ,
+				PeerVpcAwsAccountId: { value: ""} ,
+				AliasId: { value: ""} ,
+				BuildId: { value: ""} ,
+				ScriptId: { value: ""} ,
+				VpcPeeringConnectionId: { value: ""} ,
+				GameServerId: { value: ""} ,
+				Location: { value: ""} ,
+				PlacementId: { value: ""} ,
+				TicketIds: { value: ""} ,
+				InstanceId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				MetricName: { value: ""} ,
+				ResumeActions: { value: ""} ,
+				Actions: { value: ""} ,
+				GameSessionQueueName: { value: ""} ,
+				ConfigurationName: { value: ""} ,
+				Players: { value: ""} ,
+				SuspendActions: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				RuntimeConfiguration: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "GameLift " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

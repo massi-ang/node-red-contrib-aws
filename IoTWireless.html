@@ -1,0 +1,511 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS IoTWireless">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateAwsAccountWithPartnerAccount">AssociateAwsAccountWithPartnerAccount</option>
+		
+			<option value="AssociateWirelessDeviceWithThing">AssociateWirelessDeviceWithThing</option>
+		
+			<option value="AssociateWirelessGatewayWithCertificate">AssociateWirelessGatewayWithCertificate</option>
+		
+			<option value="AssociateWirelessGatewayWithThing">AssociateWirelessGatewayWithThing</option>
+		
+			<option value="CreateDestination">CreateDestination</option>
+		
+			<option value="CreateDeviceProfile">CreateDeviceProfile</option>
+		
+			<option value="CreateServiceProfile">CreateServiceProfile</option>
+		
+			<option value="CreateWirelessDevice">CreateWirelessDevice</option>
+		
+			<option value="CreateWirelessGateway">CreateWirelessGateway</option>
+		
+			<option value="CreateWirelessGatewayTask">CreateWirelessGatewayTask</option>
+		
+			<option value="CreateWirelessGatewayTaskDefinition">CreateWirelessGatewayTaskDefinition</option>
+		
+			<option value="DeleteDestination">DeleteDestination</option>
+		
+			<option value="DeleteDeviceProfile">DeleteDeviceProfile</option>
+		
+			<option value="DeleteServiceProfile">DeleteServiceProfile</option>
+		
+			<option value="DeleteWirelessDevice">DeleteWirelessDevice</option>
+		
+			<option value="DeleteWirelessGateway">DeleteWirelessGateway</option>
+		
+			<option value="DeleteWirelessGatewayTask">DeleteWirelessGatewayTask</option>
+		
+			<option value="DeleteWirelessGatewayTaskDefinition">DeleteWirelessGatewayTaskDefinition</option>
+		
+			<option value="DisassociateAwsAccountFromPartnerAccount">DisassociateAwsAccountFromPartnerAccount</option>
+		
+			<option value="DisassociateWirelessDeviceFromThing">DisassociateWirelessDeviceFromThing</option>
+		
+			<option value="DisassociateWirelessGatewayFromCertificate">DisassociateWirelessGatewayFromCertificate</option>
+		
+			<option value="DisassociateWirelessGatewayFromThing">DisassociateWirelessGatewayFromThing</option>
+		
+			<option value="GetDestination">GetDestination</option>
+		
+			<option value="GetDeviceProfile">GetDeviceProfile</option>
+		
+			<option value="GetLogLevelsByResourceTypes">GetLogLevelsByResourceTypes</option>
+		
+			<option value="GetPartnerAccount">GetPartnerAccount</option>
+		
+			<option value="GetResourceLogLevel">GetResourceLogLevel</option>
+		
+			<option value="GetServiceEndpoint">GetServiceEndpoint</option>
+		
+			<option value="GetServiceProfile">GetServiceProfile</option>
+		
+			<option value="GetWirelessDevice">GetWirelessDevice</option>
+		
+			<option value="GetWirelessDeviceStatistics">GetWirelessDeviceStatistics</option>
+		
+			<option value="GetWirelessGateway">GetWirelessGateway</option>
+		
+			<option value="GetWirelessGatewayCertificate">GetWirelessGatewayCertificate</option>
+		
+			<option value="GetWirelessGatewayFirmwareInformation">GetWirelessGatewayFirmwareInformation</option>
+		
+			<option value="GetWirelessGatewayStatistics">GetWirelessGatewayStatistics</option>
+		
+			<option value="GetWirelessGatewayTask">GetWirelessGatewayTask</option>
+		
+			<option value="GetWirelessGatewayTaskDefinition">GetWirelessGatewayTaskDefinition</option>
+		
+			<option value="ListDestinations">ListDestinations</option>
+		
+			<option value="ListDeviceProfiles">ListDeviceProfiles</option>
+		
+			<option value="ListPartnerAccounts">ListPartnerAccounts</option>
+		
+			<option value="ListServiceProfiles">ListServiceProfiles</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWirelessDevices">ListWirelessDevices</option>
+		
+			<option value="ListWirelessGatewayTaskDefinitions">ListWirelessGatewayTaskDefinitions</option>
+		
+			<option value="ListWirelessGateways">ListWirelessGateways</option>
+		
+			<option value="PutResourceLogLevel">PutResourceLogLevel</option>
+		
+			<option value="ResetAllResourceLogLevels">ResetAllResourceLogLevels</option>
+		
+			<option value="ResetResourceLogLevel">ResetResourceLogLevel</option>
+		
+			<option value="SendDataToWirelessDevice">SendDataToWirelessDevice</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestWirelessDevice">TestWirelessDevice</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDestination">UpdateDestination</option>
+		
+			<option value="UpdateLogLevelsByResourceTypes">UpdateLogLevelsByResourceTypes</option>
+		
+			<option value="UpdatePartnerAccount">UpdatePartnerAccount</option>
+		
+			<option value="UpdateWirelessDevice">UpdateWirelessDevice</option>
+		
+			<option value="UpdateWirelessGateway">UpdateWirelessGateway</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SidewalkAttr' class='hiddenAttrs'>
+		<label for="node-input-Sidewalk"><i class="fa fa-tag"></i>Sidewalk</label>
+		<input type="text" id="node-input-Sidewalk" placeholder="Sidewalk"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='ThingArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ThingArn"><i class="fa fa-tag"></i>ThingArn</label>
+		<input type="text" id="node-input-ThingArn" placeholder="ThingArn"></input>
+	</div> 
+	<div class="form-row" id='IotCertificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IotCertificateId"><i class="fa fa-tag"></i>IotCertificateId</label>
+		<input type="text" id="node-input-IotCertificateId" placeholder="IotCertificateId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ExpressionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpressionType"><i class="fa fa-tag"></i>ExpressionType</label>
+		<input type="text" id="node-input-ExpressionType" placeholder="ExpressionType"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i>Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i>RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='DestinationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationName"><i class="fa fa-tag"></i>DestinationName</label>
+		<input type="text" id="node-input-DestinationName" placeholder="DestinationName"></input>
+	</div> 
+	<div class="form-row" id='LoRaWANAttr' class='hiddenAttrs'>
+		<label for="node-input-LoRaWAN"><i class="fa fa-tag"></i>LoRaWAN</label>
+		<input type="text" id="node-input-LoRaWAN" placeholder="LoRaWAN"></input>
+	</div> 
+	<div class="form-row" id='WirelessGatewayTaskDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WirelessGatewayTaskDefinitionId"><i class="fa fa-tag"></i>WirelessGatewayTaskDefinitionId</label>
+		<input type="text" id="node-input-WirelessGatewayTaskDefinitionId" placeholder="WirelessGatewayTaskDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='AutoCreateTasksAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoCreateTasks"><i class="fa fa-tag"></i>AutoCreateTasks</label>
+		<input type="text" id="node-input-AutoCreateTasks" placeholder="AutoCreateTasks"></input>
+	</div> 
+	<div class="form-row" id='PartnerAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PartnerAccountId"><i class="fa fa-tag"></i>PartnerAccountId</label>
+		<input type="text" id="node-input-PartnerAccountId" placeholder="PartnerAccountId"></input>
+	</div> 
+	<div class="form-row" id='PartnerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PartnerType"><i class="fa fa-tag"></i>PartnerType</label>
+		<input type="text" id="node-input-PartnerType" placeholder="PartnerType"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdentifier"><i class="fa fa-tag"></i>ResourceIdentifier</label>
+		<input type="text" id="node-input-ResourceIdentifier" placeholder="ResourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i>ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='IdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-Identifier"><i class="fa fa-tag"></i>Identifier</label>
+		<input type="text" id="node-input-Identifier" placeholder="Identifier"></input>
+	</div> 
+	<div class="form-row" id='IdentifierTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentifierType"><i class="fa fa-tag"></i>IdentifierType</label>
+		<input type="text" id="node-input-IdentifierType" placeholder="IdentifierType"></input>
+	</div> 
+	<div class="form-row" id='WirelessDeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WirelessDeviceId"><i class="fa fa-tag"></i>WirelessDeviceId</label>
+		<input type="text" id="node-input-WirelessDeviceId" placeholder="WirelessDeviceId"></input>
+	</div> 
+	<div class="form-row" id='WirelessGatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WirelessGatewayId"><i class="fa fa-tag"></i>WirelessGatewayId</label>
+		<input type="text" id="node-input-WirelessGatewayId" placeholder="WirelessGatewayId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='LogLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-LogLevel"><i class="fa fa-tag"></i>LogLevel</label>
+		<input type="text" id="node-input-LogLevel" placeholder="LogLevel"></input>
+	</div> 
+	<div class="form-row" id='TransmitModeAttr' class='hiddenAttrs'>
+		<label for="node-input-TransmitMode"><i class="fa fa-tag"></i>TransmitMode</label>
+		<input type="text" id="node-input-TransmitMode" placeholder="TransmitMode"></input>
+	</div> 
+	<div class="form-row" id='PayloadDataAttr' class='hiddenAttrs'>
+		<label for="node-input-PayloadData"><i class="fa fa-tag"></i>PayloadData</label>
+		<input type="text" id="node-input-PayloadData" placeholder="PayloadData"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateAwsAccountWithPartnerAccount:[
+					'#SidewalkAttr'
+					],
+				AssociateWirelessDeviceWithThing:[
+					'#IdAttr','#ThingArnAttr'
+					],
+				AssociateWirelessGatewayWithCertificate:[
+					'#IdAttr','#IotCertificateIdAttr'
+					],
+				AssociateWirelessGatewayWithThing:[
+					'#IdAttr','#ThingArnAttr'
+					],
+				CreateDestination:[
+					'#NameAttr','#ExpressionTypeAttr','#ExpressionAttr','#RoleArnAttr'
+					],
+				CreateDeviceProfile:[
+					
+					],
+				CreateServiceProfile:[
+					
+					],
+				CreateWirelessDevice:[
+					'#TypeAttr','#DestinationNameAttr'
+					],
+				CreateWirelessGateway:[
+					'#LoRaWANAttr'
+					],
+				CreateWirelessGatewayTask:[
+					'#IdAttr','#WirelessGatewayTaskDefinitionIdAttr'
+					],
+				CreateWirelessGatewayTaskDefinition:[
+					'#AutoCreateTasksAttr'
+					],
+				DeleteDestination:[
+					'#NameAttr'
+					],
+				DeleteDeviceProfile:[
+					'#IdAttr'
+					],
+				DeleteServiceProfile:[
+					'#IdAttr'
+					],
+				DeleteWirelessDevice:[
+					'#IdAttr'
+					],
+				DeleteWirelessGateway:[
+					'#IdAttr'
+					],
+				DeleteWirelessGatewayTask:[
+					'#IdAttr'
+					],
+				DeleteWirelessGatewayTaskDefinition:[
+					'#IdAttr'
+					],
+				DisassociateAwsAccountFromPartnerAccount:[
+					'#PartnerAccountIdAttr','#PartnerTypeAttr'
+					],
+				DisassociateWirelessDeviceFromThing:[
+					'#IdAttr'
+					],
+				DisassociateWirelessGatewayFromCertificate:[
+					'#IdAttr'
+					],
+				DisassociateWirelessGatewayFromThing:[
+					'#IdAttr'
+					],
+				GetDestination:[
+					'#NameAttr'
+					],
+				GetDeviceProfile:[
+					'#IdAttr'
+					],
+				GetLogLevelsByResourceTypes:[
+					
+					],
+				GetPartnerAccount:[
+					'#PartnerAccountIdAttr','#PartnerTypeAttr'
+					],
+				GetResourceLogLevel:[
+					'#ResourceIdentifierAttr','#ResourceTypeAttr'
+					],
+				GetServiceEndpoint:[
+					
+					],
+				GetServiceProfile:[
+					'#IdAttr'
+					],
+				GetWirelessDevice:[
+					'#IdentifierAttr','#IdentifierTypeAttr'
+					],
+				GetWirelessDeviceStatistics:[
+					'#WirelessDeviceIdAttr'
+					],
+				GetWirelessGateway:[
+					'#IdentifierAttr','#IdentifierTypeAttr'
+					],
+				GetWirelessGatewayCertificate:[
+					'#IdAttr'
+					],
+				GetWirelessGatewayFirmwareInformation:[
+					'#IdAttr'
+					],
+				GetWirelessGatewayStatistics:[
+					'#WirelessGatewayIdAttr'
+					],
+				GetWirelessGatewayTask:[
+					'#IdAttr'
+					],
+				GetWirelessGatewayTaskDefinition:[
+					'#IdAttr'
+					],
+				ListDestinations:[
+					
+					],
+				ListDeviceProfiles:[
+					
+					],
+				ListPartnerAccounts:[
+					
+					],
+				ListServiceProfiles:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListWirelessDevices:[
+					
+					],
+				ListWirelessGatewayTaskDefinitions:[
+					
+					],
+				ListWirelessGateways:[
+					
+					],
+				PutResourceLogLevel:[
+					'#ResourceIdentifierAttr','#ResourceTypeAttr','#LogLevelAttr'
+					],
+				ResetAllResourceLogLevels:[
+					
+					],
+				ResetResourceLogLevel:[
+					'#ResourceIdentifierAttr','#ResourceTypeAttr'
+					],
+				SendDataToWirelessDevice:[
+					'#IdAttr','#TransmitModeAttr','#PayloadDataAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				TestWirelessDevice:[
+					'#IdAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDestination:[
+					'#NameAttr'
+					],
+				UpdateLogLevelsByResourceTypes:[
+					
+					],
+				UpdatePartnerAccount:[
+					'#SidewalkAttr','#PartnerAccountIdAttr','#PartnerTypeAttr'
+					],
+				UpdateWirelessDevice:[
+					'#IdAttr'
+					],
+				UpdateWirelessGateway:[
+					'#IdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS IoTWireless">
+<p>
+AWS IoTWireless
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IoTWireless.html">IoTWireless</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IoTWireless',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateAwsAccountWithPartnerAccount' },
+			
+				Sidewalk: { value: ""} ,
+				Id: { value: ""} ,
+				ThingArn: { value: ""} ,
+				IotCertificateId: { value: ""} ,
+				Name: { value: ""} ,
+				ExpressionType: { value: ""} ,
+				Expression: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Type: { value: ""} ,
+				DestinationName: { value: ""} ,
+				LoRaWAN: { value: ""} ,
+				WirelessGatewayTaskDefinitionId: { value: ""} ,
+				AutoCreateTasks: { value: ""} ,
+				PartnerAccountId: { value: ""} ,
+				PartnerType: { value: ""} ,
+				ResourceIdentifier: { value: ""} ,
+				ResourceType: { value: ""} ,
+				Identifier: { value: ""} ,
+				IdentifierType: { value: ""} ,
+				WirelessDeviceId: { value: ""} ,
+				WirelessGatewayId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				LogLevel: { value: ""} ,
+				TransmitMode: { value: ""} ,
+				PayloadData: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IoTWireless " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,386 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS DataSync">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelTaskExecution">CancelTaskExecution</option>
+		
+			<option value="CreateAgent">CreateAgent</option>
+		
+			<option value="CreateLocationEfs">CreateLocationEfs</option>
+		
+			<option value="CreateLocationFsxWindows">CreateLocationFsxWindows</option>
+		
+			<option value="CreateLocationNfs">CreateLocationNfs</option>
+		
+			<option value="CreateLocationObjectStorage">CreateLocationObjectStorage</option>
+		
+			<option value="CreateLocationS3">CreateLocationS3</option>
+		
+			<option value="CreateLocationSmb">CreateLocationSmb</option>
+		
+			<option value="CreateTask">CreateTask</option>
+		
+			<option value="DeleteAgent">DeleteAgent</option>
+		
+			<option value="DeleteLocation">DeleteLocation</option>
+		
+			<option value="DeleteTask">DeleteTask</option>
+		
+			<option value="DescribeAgent">DescribeAgent</option>
+		
+			<option value="DescribeLocationEfs">DescribeLocationEfs</option>
+		
+			<option value="DescribeLocationFsxWindows">DescribeLocationFsxWindows</option>
+		
+			<option value="DescribeLocationNfs">DescribeLocationNfs</option>
+		
+			<option value="DescribeLocationObjectStorage">DescribeLocationObjectStorage</option>
+		
+			<option value="DescribeLocationS3">DescribeLocationS3</option>
+		
+			<option value="DescribeLocationSmb">DescribeLocationSmb</option>
+		
+			<option value="DescribeTask">DescribeTask</option>
+		
+			<option value="DescribeTaskExecution">DescribeTaskExecution</option>
+		
+			<option value="ListAgents">ListAgents</option>
+		
+			<option value="ListLocations">ListLocations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTaskExecutions">ListTaskExecutions</option>
+		
+			<option value="ListTasks">ListTasks</option>
+		
+			<option value="StartTaskExecution">StartTaskExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAgent">UpdateAgent</option>
+		
+			<option value="UpdateLocationNfs">UpdateLocationNfs</option>
+		
+			<option value="UpdateLocationObjectStorage">UpdateLocationObjectStorage</option>
+		
+			<option value="UpdateLocationSmb">UpdateLocationSmb</option>
+		
+			<option value="UpdateTask">UpdateTask</option>
+		
+			<option value="UpdateTaskExecution">UpdateTaskExecution</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TaskExecutionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskExecutionArn"><i class="fa fa-tag"></i>TaskExecutionArn</label>
+		<input type="text" id="node-input-TaskExecutionArn" placeholder="TaskExecutionArn"></input>
+	</div> 
+	<div class="form-row" id='ActivationKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ActivationKey"><i class="fa fa-tag"></i>ActivationKey</label>
+		<input type="text" id="node-input-ActivationKey" placeholder="ActivationKey"></input>
+	</div> 
+	<div class="form-row" id='EfsFilesystemArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EfsFilesystemArn"><i class="fa fa-tag"></i>EfsFilesystemArn</label>
+		<input type="text" id="node-input-EfsFilesystemArn" placeholder="EfsFilesystemArn"></input>
+	</div> 
+	<div class="form-row" id='Ec2ConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-Ec2Config"><i class="fa fa-tag"></i>Ec2Config</label>
+		<input type="text" id="node-input-Ec2Config" placeholder="Ec2Config"></input>
+	</div> 
+	<div class="form-row" id='FsxFilesystemArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FsxFilesystemArn"><i class="fa fa-tag"></i>FsxFilesystemArn</label>
+		<input type="text" id="node-input-FsxFilesystemArn" placeholder="FsxFilesystemArn"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupArns"><i class="fa fa-tag"></i>SecurityGroupArns</label>
+		<input type="text" id="node-input-SecurityGroupArns" placeholder="SecurityGroupArns"></input>
+	</div> 
+	<div class="form-row" id='UserAttr' class='hiddenAttrs'>
+		<label for="node-input-User"><i class="fa fa-tag"></i>User</label>
+		<input type="text" id="node-input-User" placeholder="User"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i>Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='SubdirectoryAttr' class='hiddenAttrs'>
+		<label for="node-input-Subdirectory"><i class="fa fa-tag"></i>Subdirectory</label>
+		<input type="text" id="node-input-Subdirectory" placeholder="Subdirectory"></input>
+	</div> 
+	<div class="form-row" id='ServerHostnameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerHostname"><i class="fa fa-tag"></i>ServerHostname</label>
+		<input type="text" id="node-input-ServerHostname" placeholder="ServerHostname"></input>
+	</div> 
+	<div class="form-row" id='OnPremConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OnPremConfig"><i class="fa fa-tag"></i>OnPremConfig</label>
+		<input type="text" id="node-input-OnPremConfig" placeholder="OnPremConfig"></input>
+	</div> 
+	<div class="form-row" id='BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BucketName"><i class="fa fa-tag"></i>BucketName</label>
+		<input type="text" id="node-input-BucketName" placeholder="BucketName"></input>
+	</div> 
+	<div class="form-row" id='AgentArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-AgentArns"><i class="fa fa-tag"></i>AgentArns</label>
+		<input type="text" id="node-input-AgentArns" placeholder="AgentArns"></input>
+	</div> 
+	<div class="form-row" id='S3BucketArnAttr' class='hiddenAttrs'>
+		<label for="node-input-S3BucketArn"><i class="fa fa-tag"></i>S3BucketArn</label>
+		<input type="text" id="node-input-S3BucketArn" placeholder="S3BucketArn"></input>
+	</div> 
+	<div class="form-row" id='S3ConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Config"><i class="fa fa-tag"></i>S3Config</label>
+		<input type="text" id="node-input-S3Config" placeholder="S3Config"></input>
+	</div> 
+	<div class="form-row" id='SourceLocationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceLocationArn"><i class="fa fa-tag"></i>SourceLocationArn</label>
+		<input type="text" id="node-input-SourceLocationArn" placeholder="SourceLocationArn"></input>
+	</div> 
+	<div class="form-row" id='DestinationLocationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationLocationArn"><i class="fa fa-tag"></i>DestinationLocationArn</label>
+		<input type="text" id="node-input-DestinationLocationArn" placeholder="DestinationLocationArn"></input>
+	</div> 
+	<div class="form-row" id='AgentArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AgentArn"><i class="fa fa-tag"></i>AgentArn</label>
+		<input type="text" id="node-input-AgentArn" placeholder="AgentArn"></input>
+	</div> 
+	<div class="form-row" id='LocationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-LocationArn"><i class="fa fa-tag"></i>LocationArn</label>
+		<input type="text" id="node-input-LocationArn" placeholder="LocationArn"></input>
+	</div> 
+	<div class="form-row" id='TaskArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskArn"><i class="fa fa-tag"></i>TaskArn</label>
+		<input type="text" id="node-input-TaskArn" placeholder="TaskArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='KeysAttr' class='hiddenAttrs'>
+		<label for="node-input-Keys"><i class="fa fa-tag"></i>Keys</label>
+		<input type="text" id="node-input-Keys" placeholder="Keys"></input>
+	</div> 
+	<div class="form-row" id='OptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Options"><i class="fa fa-tag"></i>Options</label>
+		<input type="text" id="node-input-Options" placeholder="Options"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelTaskExecution:[
+					'#TaskExecutionArnAttr'
+					],
+				CreateAgent:[
+					'#ActivationKeyAttr'
+					],
+				CreateLocationEfs:[
+					'#EfsFilesystemArnAttr','#Ec2ConfigAttr'
+					],
+				CreateLocationFsxWindows:[
+					'#FsxFilesystemArnAttr','#SecurityGroupArnsAttr','#UserAttr','#PasswordAttr'
+					],
+				CreateLocationNfs:[
+					'#SubdirectoryAttr','#ServerHostnameAttr','#OnPremConfigAttr'
+					],
+				CreateLocationObjectStorage:[
+					'#ServerHostnameAttr','#BucketNameAttr','#AgentArnsAttr'
+					],
+				CreateLocationS3:[
+					'#S3BucketArnAttr','#S3ConfigAttr'
+					],
+				CreateLocationSmb:[
+					'#SubdirectoryAttr','#ServerHostnameAttr','#UserAttr','#PasswordAttr','#AgentArnsAttr'
+					],
+				CreateTask:[
+					'#SourceLocationArnAttr','#DestinationLocationArnAttr'
+					],
+				DeleteAgent:[
+					'#AgentArnAttr'
+					],
+				DeleteLocation:[
+					'#LocationArnAttr'
+					],
+				DeleteTask:[
+					'#TaskArnAttr'
+					],
+				DescribeAgent:[
+					'#AgentArnAttr'
+					],
+				DescribeLocationEfs:[
+					'#LocationArnAttr'
+					],
+				DescribeLocationFsxWindows:[
+					'#LocationArnAttr'
+					],
+				DescribeLocationNfs:[
+					'#LocationArnAttr'
+					],
+				DescribeLocationObjectStorage:[
+					'#LocationArnAttr'
+					],
+				DescribeLocationS3:[
+					'#LocationArnAttr'
+					],
+				DescribeLocationSmb:[
+					'#LocationArnAttr'
+					],
+				DescribeTask:[
+					'#TaskArnAttr'
+					],
+				DescribeTaskExecution:[
+					'#TaskExecutionArnAttr'
+					],
+				ListAgents:[
+					
+					],
+				ListLocations:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTaskExecutions:[
+					
+					],
+				ListTasks:[
+					
+					],
+				StartTaskExecution:[
+					'#TaskArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#KeysAttr'
+					],
+				UpdateAgent:[
+					'#AgentArnAttr'
+					],
+				UpdateLocationNfs:[
+					'#LocationArnAttr'
+					],
+				UpdateLocationObjectStorage:[
+					'#LocationArnAttr'
+					],
+				UpdateLocationSmb:[
+					'#LocationArnAttr'
+					],
+				UpdateTask:[
+					'#TaskArnAttr'
+					],
+				UpdateTaskExecution:[
+					'#TaskExecutionArnAttr','#OptionsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS DataSync">
+<p>
+AWS DataSync
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DataSync.html">DataSync</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DataSync',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelTaskExecution' },
+			
+				TaskExecutionArn: { value: ""} ,
+				ActivationKey: { value: ""} ,
+				EfsFilesystemArn: { value: ""} ,
+				Ec2Config: { value: ""} ,
+				FsxFilesystemArn: { value: ""} ,
+				SecurityGroupArns: { value: ""} ,
+				User: { value: ""} ,
+				Password: { value: ""} ,
+				Subdirectory: { value: ""} ,
+				ServerHostname: { value: ""} ,
+				OnPremConfig: { value: ""} ,
+				BucketName: { value: ""} ,
+				AgentArns: { value: ""} ,
+				S3BucketArn: { value: ""} ,
+				S3Config: { value: ""} ,
+				SourceLocationArn: { value: ""} ,
+				DestinationLocationArn: { value: ""} ,
+				AgentArn: { value: ""} ,
+				LocationArn: { value: ""} ,
+				TaskArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				Keys: { value: ""} ,
+				Options: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DataSync " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

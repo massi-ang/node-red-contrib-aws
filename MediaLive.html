@@ -1,0 +1,466 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS MediaLive">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptInputDeviceTransfer">AcceptInputDeviceTransfer</option>
+		
+			<option value="BatchDelete">BatchDelete</option>
+		
+			<option value="BatchStart">BatchStart</option>
+		
+			<option value="BatchStop">BatchStop</option>
+		
+			<option value="BatchUpdateSchedule">BatchUpdateSchedule</option>
+		
+			<option value="CancelInputDeviceTransfer">CancelInputDeviceTransfer</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateInput">CreateInput</option>
+		
+			<option value="CreateInputSecurityGroup">CreateInputSecurityGroup</option>
+		
+			<option value="CreateMultiplex">CreateMultiplex</option>
+		
+			<option value="CreateMultiplexProgram">CreateMultiplexProgram</option>
+		
+			<option value="CreatePartnerInput">CreatePartnerInput</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteInput">DeleteInput</option>
+		
+			<option value="DeleteInputSecurityGroup">DeleteInputSecurityGroup</option>
+		
+			<option value="DeleteMultiplex">DeleteMultiplex</option>
+		
+			<option value="DeleteMultiplexProgram">DeleteMultiplexProgram</option>
+		
+			<option value="DeleteReservation">DeleteReservation</option>
+		
+			<option value="DeleteSchedule">DeleteSchedule</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeInput">DescribeInput</option>
+		
+			<option value="DescribeInputDevice">DescribeInputDevice</option>
+		
+			<option value="DescribeInputDeviceThumbnail">DescribeInputDeviceThumbnail</option>
+		
+			<option value="DescribeInputSecurityGroup">DescribeInputSecurityGroup</option>
+		
+			<option value="DescribeMultiplex">DescribeMultiplex</option>
+		
+			<option value="DescribeMultiplexProgram">DescribeMultiplexProgram</option>
+		
+			<option value="DescribeOffering">DescribeOffering</option>
+		
+			<option value="DescribeReservation">DescribeReservation</option>
+		
+			<option value="DescribeSchedule">DescribeSchedule</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListInputDeviceTransfers">ListInputDeviceTransfers</option>
+		
+			<option value="ListInputDevices">ListInputDevices</option>
+		
+			<option value="ListInputSecurityGroups">ListInputSecurityGroups</option>
+		
+			<option value="ListInputs">ListInputs</option>
+		
+			<option value="ListMultiplexPrograms">ListMultiplexPrograms</option>
+		
+			<option value="ListMultiplexes">ListMultiplexes</option>
+		
+			<option value="ListOfferings">ListOfferings</option>
+		
+			<option value="ListReservations">ListReservations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PurchaseOffering">PurchaseOffering</option>
+		
+			<option value="RejectInputDeviceTransfer">RejectInputDeviceTransfer</option>
+		
+			<option value="StartChannel">StartChannel</option>
+		
+			<option value="StartMultiplex">StartMultiplex</option>
+		
+			<option value="StopChannel">StopChannel</option>
+		
+			<option value="StopMultiplex">StopMultiplex</option>
+		
+			<option value="TransferInputDevice">TransferInputDevice</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateChannelClass">UpdateChannelClass</option>
+		
+			<option value="UpdateInput">UpdateInput</option>
+		
+			<option value="UpdateInputDevice">UpdateInputDevice</option>
+		
+			<option value="UpdateInputSecurityGroup">UpdateInputSecurityGroup</option>
+		
+			<option value="UpdateMultiplex">UpdateMultiplex</option>
+		
+			<option value="UpdateMultiplexProgram">UpdateMultiplexProgram</option>
+		
+			<option value="UpdateReservation">UpdateReservation</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='InputDeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDeviceId"><i class="fa fa-tag"></i>InputDeviceId</label>
+		<input type="text" id="node-input-InputDeviceId" placeholder="InputDeviceId"></input>
+	</div> 
+	<div class="form-row" id='ChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelId"><i class="fa fa-tag"></i>ChannelId</label>
+		<input type="text" id="node-input-ChannelId" placeholder="ChannelId"></input>
+	</div> 
+	<div class="form-row" id='RequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestId"><i class="fa fa-tag"></i>RequestId</label>
+		<input type="text" id="node-input-RequestId" placeholder="RequestId"></input>
+	</div> 
+	<div class="form-row" id='MultiplexSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexSettings"><i class="fa fa-tag"></i>MultiplexSettings</label>
+		<input type="text" id="node-input-MultiplexSettings" placeholder="MultiplexSettings"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZones"><i class="fa fa-tag"></i>AvailabilityZones</label>
+		<input type="text" id="node-input-AvailabilityZones" placeholder="AvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='MultiplexIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexId"><i class="fa fa-tag"></i>MultiplexId</label>
+		<input type="text" id="node-input-MultiplexId" placeholder="MultiplexId"></input>
+	</div> 
+	<div class="form-row" id='MultiplexProgramSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexProgramSettings"><i class="fa fa-tag"></i>MultiplexProgramSettings</label>
+		<input type="text" id="node-input-MultiplexProgramSettings" placeholder="MultiplexProgramSettings"></input>
+	</div> 
+	<div class="form-row" id='ProgramNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProgramName"><i class="fa fa-tag"></i>ProgramName</label>
+		<input type="text" id="node-input-ProgramName" placeholder="ProgramName"></input>
+	</div> 
+	<div class="form-row" id='InputIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputId"><i class="fa fa-tag"></i>InputId</label>
+		<input type="text" id="node-input-InputId" placeholder="InputId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='InputSecurityGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSecurityGroupId"><i class="fa fa-tag"></i>InputSecurityGroupId</label>
+		<input type="text" id="node-input-InputSecurityGroupId" placeholder="InputSecurityGroupId"></input>
+	</div> 
+	<div class="form-row" id='ReservationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservationId"><i class="fa fa-tag"></i>ReservationId</label>
+		<input type="text" id="node-input-ReservationId" placeholder="ReservationId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='AcceptAttr' class='hiddenAttrs'>
+		<label for="node-input-Accept"><i class="fa fa-tag"></i>Accept</label>
+		<input type="text" id="node-input-Accept" placeholder="Accept"></input>
+	</div> 
+	<div class="form-row" id='OfferingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OfferingId"><i class="fa fa-tag"></i>OfferingId</label>
+		<input type="text" id="node-input-OfferingId" placeholder="OfferingId"></input>
+	</div> 
+	<div class="form-row" id='TransferTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TransferType"><i class="fa fa-tag"></i>TransferType</label>
+		<input type="text" id="node-input-TransferType" placeholder="TransferType"></input>
+	</div> 
+	<div class="form-row" id='CountAttr' class='hiddenAttrs'>
+		<label for="node-input-Count"><i class="fa fa-tag"></i>Count</label>
+		<input type="text" id="node-input-Count" placeholder="Count"></input>
+	</div> 
+	<div class="form-row" id='ChannelClassAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelClass"><i class="fa fa-tag"></i>ChannelClass</label>
+		<input type="text" id="node-input-ChannelClass" placeholder="ChannelClass"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				BatchDelete:[
+					
+					],
+				BatchStart:[
+					
+					],
+				BatchStop:[
+					
+					],
+				BatchUpdateSchedule:[
+					'#ChannelIdAttr'
+					],
+				CancelInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				CreateChannel:[
+					
+					],
+				CreateInput:[
+					
+					],
+				CreateInputSecurityGroup:[
+					
+					],
+				CreateMultiplex:[
+					'#RequestIdAttr','#MultiplexSettingsAttr','#AvailabilityZonesAttr','#NameAttr'
+					],
+				CreateMultiplexProgram:[
+					'#MultiplexIdAttr','#RequestIdAttr','#MultiplexProgramSettingsAttr','#ProgramNameAttr'
+					],
+				CreatePartnerInput:[
+					'#InputIdAttr'
+					],
+				CreateTags:[
+					'#ResourceArnAttr'
+					],
+				DeleteChannel:[
+					'#ChannelIdAttr'
+					],
+				DeleteInput:[
+					'#InputIdAttr'
+					],
+				DeleteInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr'
+					],
+				DeleteMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				DeleteMultiplexProgram:[
+					'#MultiplexIdAttr','#ProgramNameAttr'
+					],
+				DeleteReservation:[
+					'#ReservationIdAttr'
+					],
+				DeleteSchedule:[
+					'#ChannelIdAttr'
+					],
+				DeleteTags:[
+					'#TagKeysAttr','#ResourceArnAttr'
+					],
+				DescribeChannel:[
+					'#ChannelIdAttr'
+					],
+				DescribeInput:[
+					'#InputIdAttr'
+					],
+				DescribeInputDevice:[
+					'#InputDeviceIdAttr'
+					],
+				DescribeInputDeviceThumbnail:[
+					'#InputDeviceIdAttr','#AcceptAttr'
+					],
+				DescribeInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr'
+					],
+				DescribeMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				DescribeMultiplexProgram:[
+					'#MultiplexIdAttr','#ProgramNameAttr'
+					],
+				DescribeOffering:[
+					'#OfferingIdAttr'
+					],
+				DescribeReservation:[
+					'#ReservationIdAttr'
+					],
+				DescribeSchedule:[
+					'#ChannelIdAttr'
+					],
+				ListChannels:[
+					
+					],
+				ListInputDeviceTransfers:[
+					'#TransferTypeAttr'
+					],
+				ListInputDevices:[
+					
+					],
+				ListInputSecurityGroups:[
+					
+					],
+				ListInputs:[
+					
+					],
+				ListMultiplexPrograms:[
+					'#MultiplexIdAttr'
+					],
+				ListMultiplexes:[
+					
+					],
+				ListOfferings:[
+					
+					],
+				ListReservations:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PurchaseOffering:[
+					'#OfferingIdAttr','#CountAttr'
+					],
+				RejectInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				StartChannel:[
+					'#ChannelIdAttr'
+					],
+				StartMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				StopChannel:[
+					'#ChannelIdAttr'
+					],
+				StopMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				TransferInputDevice:[
+					'#InputDeviceIdAttr'
+					],
+				UpdateChannel:[
+					'#ChannelIdAttr'
+					],
+				UpdateChannelClass:[
+					'#ChannelIdAttr','#ChannelClassAttr'
+					],
+				UpdateInput:[
+					'#InputIdAttr'
+					],
+				UpdateInputDevice:[
+					'#InputDeviceIdAttr'
+					],
+				UpdateInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr'
+					],
+				UpdateMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				UpdateMultiplexProgram:[
+					'#MultiplexIdAttr','#ProgramNameAttr'
+					],
+				UpdateReservation:[
+					'#ReservationIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS MediaLive">
+<p>
+AWS MediaLive
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaLive.html">MediaLive</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaLive',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptInputDeviceTransfer' },
+			
+				InputDeviceId: { value: ""} ,
+				ChannelId: { value: ""} ,
+				RequestId: { value: ""} ,
+				MultiplexSettings: { value: ""} ,
+				AvailabilityZones: { value: ""} ,
+				Name: { value: ""} ,
+				MultiplexId: { value: ""} ,
+				MultiplexProgramSettings: { value: ""} ,
+				ProgramName: { value: ""} ,
+				InputId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				InputSecurityGroupId: { value: ""} ,
+				ReservationId: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Accept: { value: ""} ,
+				OfferingId: { value: ""} ,
+				TransferType: { value: ""} ,
+				Count: { value: ""} ,
+				ChannelClass: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaLive " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,211 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS HealthLake">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateFHIRDatastore">CreateFHIRDatastore</option>
+		
+			<option value="DeleteFHIRDatastore">DeleteFHIRDatastore</option>
+		
+			<option value="DescribeFHIRDatastore">DescribeFHIRDatastore</option>
+		
+			<option value="DescribeFHIRExportJob">DescribeFHIRExportJob</option>
+		
+			<option value="DescribeFHIRImportJob">DescribeFHIRImportJob</option>
+		
+			<option value="ListFHIRDatastores">ListFHIRDatastores</option>
+		
+			<option value="ListFHIRExportJobs">ListFHIRExportJobs</option>
+		
+			<option value="ListFHIRImportJobs">ListFHIRImportJobs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartFHIRExportJob">StartFHIRExportJob</option>
+		
+			<option value="StartFHIRImportJob">StartFHIRImportJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DatastoreTypeVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-DatastoreTypeVersion"><i class="fa fa-tag"></i>DatastoreTypeVersion</label>
+		<input type="text" id="node-input-DatastoreTypeVersion" placeholder="DatastoreTypeVersion"></input>
+	</div> 
+	<div class="form-row" id='DatastoreIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DatastoreId"><i class="fa fa-tag"></i>DatastoreId</label>
+		<input type="text" id="node-input-DatastoreId" placeholder="DatastoreId"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i>JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='OutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputDataConfig"><i class="fa fa-tag"></i>OutputDataConfig</label>
+		<input type="text" id="node-input-OutputDataConfig" placeholder="OutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='DataAccessRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DataAccessRoleArn"><i class="fa fa-tag"></i>DataAccessRoleArn</label>
+		<input type="text" id="node-input-DataAccessRoleArn" placeholder="DataAccessRoleArn"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i>ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='InputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDataConfig"><i class="fa fa-tag"></i>InputDataConfig</label>
+		<input type="text" id="node-input-InputDataConfig" placeholder="InputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='JobOutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-JobOutputDataConfig"><i class="fa fa-tag"></i>JobOutputDataConfig</label>
+		<input type="text" id="node-input-JobOutputDataConfig" placeholder="JobOutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateFHIRDatastore:[
+					'#DatastoreTypeVersionAttr'
+					],
+				DeleteFHIRDatastore:[
+					
+					],
+				DescribeFHIRDatastore:[
+					
+					],
+				DescribeFHIRExportJob:[
+					'#DatastoreIdAttr','#JobIdAttr'
+					],
+				DescribeFHIRImportJob:[
+					'#DatastoreIdAttr','#JobIdAttr'
+					],
+				ListFHIRDatastores:[
+					
+					],
+				ListFHIRExportJobs:[
+					'#DatastoreIdAttr'
+					],
+				ListFHIRImportJobs:[
+					'#DatastoreIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				StartFHIRExportJob:[
+					'#OutputDataConfigAttr','#DatastoreIdAttr','#DataAccessRoleArnAttr','#ClientTokenAttr'
+					],
+				StartFHIRImportJob:[
+					'#InputDataConfigAttr','#JobOutputDataConfigAttr','#DatastoreIdAttr','#DataAccessRoleArnAttr','#ClientTokenAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS HealthLake">
+<p>
+AWS HealthLake
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/HealthLake.html">HealthLake</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS HealthLake',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateFHIRDatastore' },
+			
+				DatastoreTypeVersion: { value: ""} ,
+				DatastoreId: { value: ""} ,
+				JobId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				OutputDataConfig: { value: ""} ,
+				DataAccessRoleArn: { value: ""} ,
+				ClientToken: { value: ""} ,
+				InputDataConfig: { value: ""} ,
+				JobOutputDataConfig: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "HealthLake " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

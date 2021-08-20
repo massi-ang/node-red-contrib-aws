@@ -1,0 +1,396 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Kendra">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteDocument">BatchDeleteDocument</option>
+		
+			<option value="BatchGetDocumentStatus">BatchGetDocumentStatus</option>
+		
+			<option value="BatchPutDocument">BatchPutDocument</option>
+		
+			<option value="ClearQuerySuggestions">ClearQuerySuggestions</option>
+		
+			<option value="CreateDataSource">CreateDataSource</option>
+		
+			<option value="CreateFaq">CreateFaq</option>
+		
+			<option value="CreateIndex">CreateIndex</option>
+		
+			<option value="CreateQuerySuggestionsBlockList">CreateQuerySuggestionsBlockList</option>
+		
+			<option value="CreateThesaurus">CreateThesaurus</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteFaq">DeleteFaq</option>
+		
+			<option value="DeleteIndex">DeleteIndex</option>
+		
+			<option value="DeletePrincipalMapping">DeletePrincipalMapping</option>
+		
+			<option value="DeleteQuerySuggestionsBlockList">DeleteQuerySuggestionsBlockList</option>
+		
+			<option value="DeleteThesaurus">DeleteThesaurus</option>
+		
+			<option value="DescribeDataSource">DescribeDataSource</option>
+		
+			<option value="DescribeFaq">DescribeFaq</option>
+		
+			<option value="DescribeIndex">DescribeIndex</option>
+		
+			<option value="DescribePrincipalMapping">DescribePrincipalMapping</option>
+		
+			<option value="DescribeQuerySuggestionsBlockList">DescribeQuerySuggestionsBlockList</option>
+		
+			<option value="DescribeQuerySuggestionsConfig">DescribeQuerySuggestionsConfig</option>
+		
+			<option value="DescribeThesaurus">DescribeThesaurus</option>
+		
+			<option value="GetQuerySuggestions">GetQuerySuggestions</option>
+		
+			<option value="ListDataSourceSyncJobs">ListDataSourceSyncJobs</option>
+		
+			<option value="ListDataSources">ListDataSources</option>
+		
+			<option value="ListFaqs">ListFaqs</option>
+		
+			<option value="ListGroupsOlderThanOrderingId">ListGroupsOlderThanOrderingId</option>
+		
+			<option value="ListIndices">ListIndices</option>
+		
+			<option value="ListQuerySuggestionsBlockLists">ListQuerySuggestionsBlockLists</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListThesauri">ListThesauri</option>
+		
+			<option value="PutPrincipalMapping">PutPrincipalMapping</option>
+		
+			<option value="Query">Query</option>
+		
+			<option value="StartDataSourceSyncJob">StartDataSourceSyncJob</option>
+		
+			<option value="StopDataSourceSyncJob">StopDataSourceSyncJob</option>
+		
+			<option value="SubmitFeedback">SubmitFeedback</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateIndex">UpdateIndex</option>
+		
+			<option value="UpdateQuerySuggestionsBlockList">UpdateQuerySuggestionsBlockList</option>
+		
+			<option value="UpdateQuerySuggestionsConfig">UpdateQuerySuggestionsConfig</option>
+		
+			<option value="UpdateThesaurus">UpdateThesaurus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IndexIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexId"><i class="fa fa-tag"></i>IndexId</label>
+		<input type="text" id="node-input-IndexId" placeholder="IndexId"></input>
+	</div> 
+	<div class="form-row" id='DocumentIdListAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentIdList"><i class="fa fa-tag"></i>DocumentIdList</label>
+		<input type="text" id="node-input-DocumentIdList" placeholder="DocumentIdList"></input>
+	</div> 
+	<div class="form-row" id='DocumentInfoListAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentInfoList"><i class="fa fa-tag"></i>DocumentInfoList</label>
+		<input type="text" id="node-input-DocumentInfoList" placeholder="DocumentInfoList"></input>
+	</div> 
+	<div class="form-row" id='DocumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Documents"><i class="fa fa-tag"></i>Documents</label>
+		<input type="text" id="node-input-Documents" placeholder="Documents"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='S3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Path"><i class="fa fa-tag"></i>S3Path</label>
+		<input type="text" id="node-input-S3Path" placeholder="S3Path"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i>RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='SourceS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceS3Path"><i class="fa fa-tag"></i>SourceS3Path</label>
+		<input type="text" id="node-input-SourceS3Path" placeholder="SourceS3Path"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='GroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupId"><i class="fa fa-tag"></i>GroupId</label>
+		<input type="text" id="node-input-GroupId" placeholder="GroupId"></input>
+	</div> 
+	<div class="form-row" id='QueryTextAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryText"><i class="fa fa-tag"></i>QueryText</label>
+		<input type="text" id="node-input-QueryText" placeholder="QueryText"></input>
+	</div> 
+	<div class="form-row" id='OrderingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrderingId"><i class="fa fa-tag"></i>OrderingId</label>
+		<input type="text" id="node-input-OrderingId" placeholder="OrderingId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='GroupMembersAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupMembers"><i class="fa fa-tag"></i>GroupMembers</label>
+		<input type="text" id="node-input-GroupMembers" placeholder="GroupMembers"></input>
+	</div> 
+	<div class="form-row" id='QueryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryId"><i class="fa fa-tag"></i>QueryId</label>
+		<input type="text" id="node-input-QueryId" placeholder="QueryId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteDocument:[
+					'#IndexIdAttr','#DocumentIdListAttr'
+					],
+				BatchGetDocumentStatus:[
+					'#IndexIdAttr','#DocumentInfoListAttr'
+					],
+				BatchPutDocument:[
+					'#IndexIdAttr','#DocumentsAttr'
+					],
+				ClearQuerySuggestions:[
+					'#IndexIdAttr'
+					],
+				CreateDataSource:[
+					'#NameAttr','#IndexIdAttr','#TypeAttr'
+					],
+				CreateFaq:[
+					'#IndexIdAttr','#NameAttr','#S3PathAttr','#RoleArnAttr'
+					],
+				CreateIndex:[
+					'#NameAttr','#RoleArnAttr'
+					],
+				CreateQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#NameAttr','#SourceS3PathAttr','#RoleArnAttr'
+					],
+				CreateThesaurus:[
+					'#IndexIdAttr','#NameAttr','#RoleArnAttr','#SourceS3PathAttr'
+					],
+				DeleteDataSource:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DeleteFaq:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DeleteIndex:[
+					'#IdAttr'
+					],
+				DeletePrincipalMapping:[
+					'#IndexIdAttr','#GroupIdAttr'
+					],
+				DeleteQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr'
+					],
+				DeleteThesaurus:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeDataSource:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeFaq:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeIndex:[
+					'#IdAttr'
+					],
+				DescribePrincipalMapping:[
+					'#IndexIdAttr','#GroupIdAttr'
+					],
+				DescribeQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr'
+					],
+				DescribeQuerySuggestionsConfig:[
+					'#IndexIdAttr'
+					],
+				DescribeThesaurus:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				GetQuerySuggestions:[
+					'#IndexIdAttr','#QueryTextAttr'
+					],
+				ListDataSourceSyncJobs:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				ListDataSources:[
+					'#IndexIdAttr'
+					],
+				ListFaqs:[
+					'#IndexIdAttr'
+					],
+				ListGroupsOlderThanOrderingId:[
+					'#IndexIdAttr','#OrderingIdAttr'
+					],
+				ListIndices:[
+					
+					],
+				ListQuerySuggestionsBlockLists:[
+					'#IndexIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListThesauri:[
+					'#IndexIdAttr'
+					],
+				PutPrincipalMapping:[
+					'#IndexIdAttr','#GroupIdAttr','#GroupMembersAttr'
+					],
+				Query:[
+					'#IndexIdAttr','#QueryTextAttr'
+					],
+				StartDataSourceSyncJob:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				StopDataSourceSyncJob:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				SubmitFeedback:[
+					'#IndexIdAttr','#QueryIdAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateDataSource:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				UpdateIndex:[
+					'#IdAttr'
+					],
+				UpdateQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr'
+					],
+				UpdateQuerySuggestionsConfig:[
+					'#IndexIdAttr'
+					],
+				UpdateThesaurus:[
+					'#IdAttr','#IndexIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Kendra">
+<p>
+AWS Kendra
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kendra.html">Kendra</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Kendra',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteDocument' },
+			
+				IndexId: { value: ""} ,
+				DocumentIdList: { value: ""} ,
+				DocumentInfoList: { value: ""} ,
+				Documents: { value: ""} ,
+				Name: { value: ""} ,
+				Type: { value: ""} ,
+				S3Path: { value: ""} ,
+				RoleArn: { value: ""} ,
+				SourceS3Path: { value: ""} ,
+				Id: { value: ""} ,
+				GroupId: { value: ""} ,
+				QueryText: { value: ""} ,
+				OrderingId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				GroupMembers: { value: ""} ,
+				QueryId: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Kendra " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

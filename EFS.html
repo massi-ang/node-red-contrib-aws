@@ -1,0 +1,291 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS EFS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAccessPoint">CreateAccessPoint</option>
+		
+			<option value="CreateFileSystem">CreateFileSystem</option>
+		
+			<option value="CreateMountTarget">CreateMountTarget</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="DeleteAccessPoint">DeleteAccessPoint</option>
+		
+			<option value="DeleteFileSystem">DeleteFileSystem</option>
+		
+			<option value="DeleteFileSystemPolicy">DeleteFileSystemPolicy</option>
+		
+			<option value="DeleteMountTarget">DeleteMountTarget</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DescribeAccessPoints">DescribeAccessPoints</option>
+		
+			<option value="DescribeAccountPreferences">DescribeAccountPreferences</option>
+		
+			<option value="DescribeBackupPolicy">DescribeBackupPolicy</option>
+		
+			<option value="DescribeFileSystemPolicy">DescribeFileSystemPolicy</option>
+		
+			<option value="DescribeFileSystems">DescribeFileSystems</option>
+		
+			<option value="DescribeLifecycleConfiguration">DescribeLifecycleConfiguration</option>
+		
+			<option value="DescribeMountTargetSecurityGroups">DescribeMountTargetSecurityGroups</option>
+		
+			<option value="DescribeMountTargets">DescribeMountTargets</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyMountTargetSecurityGroups">ModifyMountTargetSecurityGroups</option>
+		
+			<option value="PutAccountPreferences">PutAccountPreferences</option>
+		
+			<option value="PutBackupPolicy">PutBackupPolicy</option>
+		
+			<option value="PutFileSystemPolicy">PutFileSystemPolicy</option>
+		
+			<option value="PutLifecycleConfiguration">PutLifecycleConfiguration</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFileSystem">UpdateFileSystem</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i>ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='FileSystemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemId"><i class="fa fa-tag"></i>FileSystemId</label>
+		<input type="text" id="node-input-FileSystemId" placeholder="FileSystemId"></input>
+	</div> 
+	<div class="form-row" id='CreationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-CreationToken"><i class="fa fa-tag"></i>CreationToken</label>
+		<input type="text" id="node-input-CreationToken" placeholder="CreationToken"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i>SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AccessPointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessPointId"><i class="fa fa-tag"></i>AccessPointId</label>
+		<input type="text" id="node-input-AccessPointId" placeholder="AccessPointId"></input>
+	</div> 
+	<div class="form-row" id='MountTargetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MountTargetId"><i class="fa fa-tag"></i>MountTargetId</label>
+		<input type="text" id="node-input-MountTargetId" placeholder="MountTargetId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i>ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdType"><i class="fa fa-tag"></i>ResourceIdType</label>
+		<input type="text" id="node-input-ResourceIdType" placeholder="ResourceIdType"></input>
+	</div> 
+	<div class="form-row" id='BackupPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupPolicy"><i class="fa fa-tag"></i>BackupPolicy</label>
+		<input type="text" id="node-input-BackupPolicy" placeholder="BackupPolicy"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='LifecyclePoliciesAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecyclePolicies"><i class="fa fa-tag"></i>LifecyclePolicies</label>
+		<input type="text" id="node-input-LifecyclePolicies" placeholder="LifecyclePolicies"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAccessPoint:[
+					'#ClientTokenAttr','#FileSystemIdAttr'
+					],
+				CreateFileSystem:[
+					'#CreationTokenAttr'
+					],
+				CreateMountTarget:[
+					'#FileSystemIdAttr','#SubnetIdAttr'
+					],
+				CreateTags:[
+					'#FileSystemIdAttr','#TagsAttr'
+					],
+				DeleteAccessPoint:[
+					'#AccessPointIdAttr'
+					],
+				DeleteFileSystem:[
+					'#FileSystemIdAttr'
+					],
+				DeleteFileSystemPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DeleteMountTarget:[
+					'#MountTargetIdAttr'
+					],
+				DeleteTags:[
+					'#FileSystemIdAttr','#TagKeysAttr'
+					],
+				DescribeAccessPoints:[
+					
+					],
+				DescribeAccountPreferences:[
+					
+					],
+				DescribeBackupPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DescribeFileSystemPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DescribeFileSystems:[
+					
+					],
+				DescribeLifecycleConfiguration:[
+					'#FileSystemIdAttr'
+					],
+				DescribeMountTargetSecurityGroups:[
+					'#MountTargetIdAttr'
+					],
+				DescribeMountTargets:[
+					
+					],
+				DescribeTags:[
+					'#FileSystemIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceIdAttr'
+					],
+				ModifyMountTargetSecurityGroups:[
+					'#MountTargetIdAttr'
+					],
+				PutAccountPreferences:[
+					'#ResourceIdTypeAttr'
+					],
+				PutBackupPolicy:[
+					'#FileSystemIdAttr','#BackupPolicyAttr'
+					],
+				PutFileSystemPolicy:[
+					'#FileSystemIdAttr','#PolicyAttr'
+					],
+				PutLifecycleConfiguration:[
+					'#FileSystemIdAttr','#LifecyclePoliciesAttr'
+					],
+				TagResource:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				UpdateFileSystem:[
+					'#FileSystemIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS EFS">
+<p>
+AWS EFS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EFS.html">EFS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS EFS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAccessPoint' },
+			
+				ClientToken: { value: ""} ,
+				FileSystemId: { value: ""} ,
+				CreationToken: { value: ""} ,
+				SubnetId: { value: ""} ,
+				Tags: { value: ""} ,
+				AccessPointId: { value: ""} ,
+				MountTargetId: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ResourceId: { value: ""} ,
+				ResourceIdType: { value: ""} ,
+				BackupPolicy: { value: ""} ,
+				Policy: { value: ""} ,
+				LifecyclePolicies: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "EFS " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

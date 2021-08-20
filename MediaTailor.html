@@ -1,0 +1,321 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS MediaTailor">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateProgram">CreateProgram</option>
+		
+			<option value="CreateSourceLocation">CreateSourceLocation</option>
+		
+			<option value="CreateVodSource">CreateVodSource</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteChannelPolicy">DeleteChannelPolicy</option>
+		
+			<option value="DeletePlaybackConfiguration">DeletePlaybackConfiguration</option>
+		
+			<option value="DeleteProgram">DeleteProgram</option>
+		
+			<option value="DeleteSourceLocation">DeleteSourceLocation</option>
+		
+			<option value="DeleteVodSource">DeleteVodSource</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeProgram">DescribeProgram</option>
+		
+			<option value="DescribeSourceLocation">DescribeSourceLocation</option>
+		
+			<option value="DescribeVodSource">DescribeVodSource</option>
+		
+			<option value="GetChannelPolicy">GetChannelPolicy</option>
+		
+			<option value="GetChannelSchedule">GetChannelSchedule</option>
+		
+			<option value="GetPlaybackConfiguration">GetPlaybackConfiguration</option>
+		
+			<option value="ListAlerts">ListAlerts</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListPlaybackConfigurations">ListPlaybackConfigurations</option>
+		
+			<option value="ListSourceLocations">ListSourceLocations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListVodSources">ListVodSources</option>
+		
+			<option value="PutChannelPolicy">PutChannelPolicy</option>
+		
+			<option value="PutPlaybackConfiguration">PutPlaybackConfiguration</option>
+		
+			<option value="StartChannel">StartChannel</option>
+		
+			<option value="StopChannel">StopChannel</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateSourceLocation">UpdateSourceLocation</option>
+		
+			<option value="UpdateVodSource">UpdateVodSource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ChannelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelName"><i class="fa fa-tag"></i>ChannelName</label>
+		<input type="text" id="node-input-ChannelName" placeholder="ChannelName"></input>
+	</div> 
+	<div class="form-row" id='OutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-Outputs"><i class="fa fa-tag"></i>Outputs</label>
+		<input type="text" id="node-input-Outputs" placeholder="Outputs"></input>
+	</div> 
+	<div class="form-row" id='PlaybackModeAttr' class='hiddenAttrs'>
+		<label for="node-input-PlaybackMode"><i class="fa fa-tag"></i>PlaybackMode</label>
+		<input type="text" id="node-input-PlaybackMode" placeholder="PlaybackMode"></input>
+	</div> 
+	<div class="form-row" id='ProgramNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProgramName"><i class="fa fa-tag"></i>ProgramName</label>
+		<input type="text" id="node-input-ProgramName" placeholder="ProgramName"></input>
+	</div> 
+	<div class="form-row" id='VodSourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VodSourceName"><i class="fa fa-tag"></i>VodSourceName</label>
+		<input type="text" id="node-input-VodSourceName" placeholder="VodSourceName"></input>
+	</div> 
+	<div class="form-row" id='ScheduleConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleConfiguration"><i class="fa fa-tag"></i>ScheduleConfiguration</label>
+		<input type="text" id="node-input-ScheduleConfiguration" placeholder="ScheduleConfiguration"></input>
+	</div> 
+	<div class="form-row" id='SourceLocationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceLocationName"><i class="fa fa-tag"></i>SourceLocationName</label>
+		<input type="text" id="node-input-SourceLocationName" placeholder="SourceLocationName"></input>
+	</div> 
+	<div class="form-row" id='HttpConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-HttpConfiguration"><i class="fa fa-tag"></i>HttpConfiguration</label>
+		<input type="text" id="node-input-HttpConfiguration" placeholder="HttpConfiguration"></input>
+	</div> 
+	<div class="form-row" id='HttpPackageConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-HttpPackageConfigurations"><i class="fa fa-tag"></i>HttpPackageConfigurations</label>
+		<input type="text" id="node-input-HttpPackageConfigurations" placeholder="HttpPackageConfigurations"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateChannel:[
+					'#ChannelNameAttr','#OutputsAttr','#PlaybackModeAttr'
+					],
+				CreateProgram:[
+					'#ChannelNameAttr','#ProgramNameAttr','#VodSourceNameAttr','#ScheduleConfigurationAttr','#SourceLocationNameAttr'
+					],
+				CreateSourceLocation:[
+					'#SourceLocationNameAttr','#HttpConfigurationAttr'
+					],
+				CreateVodSource:[
+					'#SourceLocationNameAttr','#VodSourceNameAttr','#HttpPackageConfigurationsAttr'
+					],
+				DeleteChannel:[
+					'#ChannelNameAttr'
+					],
+				DeleteChannelPolicy:[
+					'#ChannelNameAttr'
+					],
+				DeletePlaybackConfiguration:[
+					'#NameAttr'
+					],
+				DeleteProgram:[
+					'#ChannelNameAttr','#ProgramNameAttr'
+					],
+				DeleteSourceLocation:[
+					'#SourceLocationNameAttr'
+					],
+				DeleteVodSource:[
+					'#SourceLocationNameAttr','#VodSourceNameAttr'
+					],
+				DescribeChannel:[
+					'#ChannelNameAttr'
+					],
+				DescribeProgram:[
+					'#ChannelNameAttr','#ProgramNameAttr'
+					],
+				DescribeSourceLocation:[
+					'#SourceLocationNameAttr'
+					],
+				DescribeVodSource:[
+					'#SourceLocationNameAttr','#VodSourceNameAttr'
+					],
+				GetChannelPolicy:[
+					'#ChannelNameAttr'
+					],
+				GetChannelSchedule:[
+					'#ChannelNameAttr'
+					],
+				GetPlaybackConfiguration:[
+					'#NameAttr'
+					],
+				ListAlerts:[
+					'#ResourceArnAttr'
+					],
+				ListChannels:[
+					
+					],
+				ListPlaybackConfigurations:[
+					
+					],
+				ListSourceLocations:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListVodSources:[
+					'#SourceLocationNameAttr'
+					],
+				PutChannelPolicy:[
+					'#ChannelNameAttr','#PolicyAttr'
+					],
+				PutPlaybackConfiguration:[
+					
+					],
+				StartChannel:[
+					'#ChannelNameAttr'
+					],
+				StopChannel:[
+					'#ChannelNameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateChannel:[
+					'#ChannelNameAttr','#OutputsAttr'
+					],
+				UpdateSourceLocation:[
+					'#SourceLocationNameAttr','#HttpConfigurationAttr'
+					],
+				UpdateVodSource:[
+					'#SourceLocationNameAttr','#VodSourceNameAttr','#HttpPackageConfigurationsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS MediaTailor">
+<p>
+AWS MediaTailor
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaTailor.html">MediaTailor</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaTailor',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateChannel' },
+			
+				ChannelName: { value: ""} ,
+				Outputs: { value: ""} ,
+				PlaybackMode: { value: ""} ,
+				ProgramName: { value: ""} ,
+				VodSourceName: { value: ""} ,
+				ScheduleConfiguration: { value: ""} ,
+				SourceLocationName: { value: ""} ,
+				HttpConfiguration: { value: ""} ,
+				HttpPackageConfigurations: { value: ""} ,
+				Name: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Policy: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaTailor " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

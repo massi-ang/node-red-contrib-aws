@@ -1,0 +1,296 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ServiceDiscovery">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateHttpNamespace">CreateHttpNamespace</option>
+		
+			<option value="CreatePrivateDnsNamespace">CreatePrivateDnsNamespace</option>
+		
+			<option value="CreatePublicDnsNamespace">CreatePublicDnsNamespace</option>
+		
+			<option value="CreateService">CreateService</option>
+		
+			<option value="DeleteNamespace">DeleteNamespace</option>
+		
+			<option value="DeleteService">DeleteService</option>
+		
+			<option value="DeregisterInstance">DeregisterInstance</option>
+		
+			<option value="DiscoverInstances">DiscoverInstances</option>
+		
+			<option value="GetInstance">GetInstance</option>
+		
+			<option value="GetInstancesHealthStatus">GetInstancesHealthStatus</option>
+		
+			<option value="GetNamespace">GetNamespace</option>
+		
+			<option value="GetOperation">GetOperation</option>
+		
+			<option value="GetService">GetService</option>
+		
+			<option value="ListInstances">ListInstances</option>
+		
+			<option value="ListNamespaces">ListNamespaces</option>
+		
+			<option value="ListOperations">ListOperations</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterInstance">RegisterInstance</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateHttpNamespace">UpdateHttpNamespace</option>
+		
+			<option value="UpdateInstanceCustomHealthStatus">UpdateInstanceCustomHealthStatus</option>
+		
+			<option value="UpdatePrivateDnsNamespace">UpdatePrivateDnsNamespace</option>
+		
+			<option value="UpdatePublicDnsNamespace">UpdatePublicDnsNamespace</option>
+		
+			<option value="UpdateService">UpdateService</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='VpcAttr' class='hiddenAttrs'>
+		<label for="node-input-Vpc"><i class="fa fa-tag"></i>Vpc</label>
+		<input type="text" id="node-input-Vpc" placeholder="Vpc"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='ServiceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceId"><i class="fa fa-tag"></i>ServiceId</label>
+		<input type="text" id="node-input-ServiceId" placeholder="ServiceId"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i>InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='NamespaceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NamespaceName"><i class="fa fa-tag"></i>NamespaceName</label>
+		<input type="text" id="node-input-NamespaceName" placeholder="NamespaceName"></input>
+	</div> 
+	<div class="form-row" id='ServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceName"><i class="fa fa-tag"></i>ServiceName</label>
+		<input type="text" id="node-input-ServiceName" placeholder="ServiceName"></input>
+	</div> 
+	<div class="form-row" id='OperationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationId"><i class="fa fa-tag"></i>OperationId</label>
+		<input type="text" id="node-input-OperationId" placeholder="OperationId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i>Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='NamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-Namespace"><i class="fa fa-tag"></i>Namespace</label>
+		<input type="text" id="node-input-Namespace" placeholder="Namespace"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i>Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='ServiceAttr' class='hiddenAttrs'>
+		<label for="node-input-Service"><i class="fa fa-tag"></i>Service</label>
+		<input type="text" id="node-input-Service" placeholder="Service"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateHttpNamespace:[
+					'#NameAttr'
+					],
+				CreatePrivateDnsNamespace:[
+					'#NameAttr','#VpcAttr'
+					],
+				CreatePublicDnsNamespace:[
+					'#NameAttr'
+					],
+				CreateService:[
+					'#NameAttr'
+					],
+				DeleteNamespace:[
+					'#IdAttr'
+					],
+				DeleteService:[
+					'#IdAttr'
+					],
+				DeregisterInstance:[
+					'#ServiceIdAttr','#InstanceIdAttr'
+					],
+				DiscoverInstances:[
+					'#NamespaceNameAttr','#ServiceNameAttr'
+					],
+				GetInstance:[
+					'#ServiceIdAttr','#InstanceIdAttr'
+					],
+				GetInstancesHealthStatus:[
+					'#ServiceIdAttr'
+					],
+				GetNamespace:[
+					'#IdAttr'
+					],
+				GetOperation:[
+					'#OperationIdAttr'
+					],
+				GetService:[
+					'#IdAttr'
+					],
+				ListInstances:[
+					'#ServiceIdAttr'
+					],
+				ListNamespaces:[
+					
+					],
+				ListOperations:[
+					
+					],
+				ListServices:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				RegisterInstance:[
+					'#ServiceIdAttr','#InstanceIdAttr','#AttributesAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateHttpNamespace:[
+					'#IdAttr','#NamespaceAttr'
+					],
+				UpdateInstanceCustomHealthStatus:[
+					'#ServiceIdAttr','#InstanceIdAttr','#StatusAttr'
+					],
+				UpdatePrivateDnsNamespace:[
+					'#IdAttr','#NamespaceAttr'
+					],
+				UpdatePublicDnsNamespace:[
+					'#IdAttr','#NamespaceAttr'
+					],
+				UpdateService:[
+					'#IdAttr','#ServiceAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ServiceDiscovery">
+<p>
+AWS ServiceDiscovery
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ServiceDiscovery.html">ServiceDiscovery</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ServiceDiscovery',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateHttpNamespace' },
+			
+				Name: { value: ""} ,
+				Vpc: { value: ""} ,
+				Id: { value: ""} ,
+				ServiceId: { value: ""} ,
+				InstanceId: { value: ""} ,
+				NamespaceName: { value: ""} ,
+				ServiceName: { value: ""} ,
+				OperationId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				Attributes: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Namespace: { value: ""} ,
+				Status: { value: ""} ,
+				Service: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ServiceDiscovery " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

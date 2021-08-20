@@ -1,0 +1,871 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS QuickSight">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelIngestion">CancelIngestion</option>
+		
+			<option value="CreateAccountCustomization">CreateAccountCustomization</option>
+		
+			<option value="CreateAnalysis">CreateAnalysis</option>
+		
+			<option value="CreateDashboard">CreateDashboard</option>
+		
+			<option value="CreateDataSet">CreateDataSet</option>
+		
+			<option value="CreateDataSource">CreateDataSource</option>
+		
+			<option value="CreateFolder">CreateFolder</option>
+		
+			<option value="CreateFolderMembership">CreateFolderMembership</option>
+		
+			<option value="CreateGroup">CreateGroup</option>
+		
+			<option value="CreateGroupMembership">CreateGroupMembership</option>
+		
+			<option value="CreateIAMPolicyAssignment">CreateIAMPolicyAssignment</option>
+		
+			<option value="CreateIngestion">CreateIngestion</option>
+		
+			<option value="CreateNamespace">CreateNamespace</option>
+		
+			<option value="CreateTemplate">CreateTemplate</option>
+		
+			<option value="CreateTemplateAlias">CreateTemplateAlias</option>
+		
+			<option value="CreateTheme">CreateTheme</option>
+		
+			<option value="CreateThemeAlias">CreateThemeAlias</option>
+		
+			<option value="DeleteAccountCustomization">DeleteAccountCustomization</option>
+		
+			<option value="DeleteAnalysis">DeleteAnalysis</option>
+		
+			<option value="DeleteDashboard">DeleteDashboard</option>
+		
+			<option value="DeleteDataSet">DeleteDataSet</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteFolder">DeleteFolder</option>
+		
+			<option value="DeleteFolderMembership">DeleteFolderMembership</option>
+		
+			<option value="DeleteGroup">DeleteGroup</option>
+		
+			<option value="DeleteGroupMembership">DeleteGroupMembership</option>
+		
+			<option value="DeleteIAMPolicyAssignment">DeleteIAMPolicyAssignment</option>
+		
+			<option value="DeleteNamespace">DeleteNamespace</option>
+		
+			<option value="DeleteTemplate">DeleteTemplate</option>
+		
+			<option value="DeleteTemplateAlias">DeleteTemplateAlias</option>
+		
+			<option value="DeleteTheme">DeleteTheme</option>
+		
+			<option value="DeleteThemeAlias">DeleteThemeAlias</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteUserByPrincipalId">DeleteUserByPrincipalId</option>
+		
+			<option value="DescribeAccountCustomization">DescribeAccountCustomization</option>
+		
+			<option value="DescribeAccountSettings">DescribeAccountSettings</option>
+		
+			<option value="DescribeAnalysis">DescribeAnalysis</option>
+		
+			<option value="DescribeAnalysisPermissions">DescribeAnalysisPermissions</option>
+		
+			<option value="DescribeDashboard">DescribeDashboard</option>
+		
+			<option value="DescribeDashboardPermissions">DescribeDashboardPermissions</option>
+		
+			<option value="DescribeDataSet">DescribeDataSet</option>
+		
+			<option value="DescribeDataSetPermissions">DescribeDataSetPermissions</option>
+		
+			<option value="DescribeDataSource">DescribeDataSource</option>
+		
+			<option value="DescribeDataSourcePermissions">DescribeDataSourcePermissions</option>
+		
+			<option value="DescribeFolder">DescribeFolder</option>
+		
+			<option value="DescribeFolderPermissions">DescribeFolderPermissions</option>
+		
+			<option value="DescribeFolderResolvedPermissions">DescribeFolderResolvedPermissions</option>
+		
+			<option value="DescribeGroup">DescribeGroup</option>
+		
+			<option value="DescribeIAMPolicyAssignment">DescribeIAMPolicyAssignment</option>
+		
+			<option value="DescribeIngestion">DescribeIngestion</option>
+		
+			<option value="DescribeNamespace">DescribeNamespace</option>
+		
+			<option value="DescribeTemplate">DescribeTemplate</option>
+		
+			<option value="DescribeTemplateAlias">DescribeTemplateAlias</option>
+		
+			<option value="DescribeTemplatePermissions">DescribeTemplatePermissions</option>
+		
+			<option value="DescribeTheme">DescribeTheme</option>
+		
+			<option value="DescribeThemeAlias">DescribeThemeAlias</option>
+		
+			<option value="DescribeThemePermissions">DescribeThemePermissions</option>
+		
+			<option value="DescribeUser">DescribeUser</option>
+		
+			<option value="GenerateEmbedUrlForAnonymousUser">GenerateEmbedUrlForAnonymousUser</option>
+		
+			<option value="GenerateEmbedUrlForRegisteredUser">GenerateEmbedUrlForRegisteredUser</option>
+		
+			<option value="GetDashboardEmbedUrl">GetDashboardEmbedUrl</option>
+		
+			<option value="GetSessionEmbedUrl">GetSessionEmbedUrl</option>
+		
+			<option value="ListAnalyses">ListAnalyses</option>
+		
+			<option value="ListDashboardVersions">ListDashboardVersions</option>
+		
+			<option value="ListDashboards">ListDashboards</option>
+		
+			<option value="ListDataSets">ListDataSets</option>
+		
+			<option value="ListDataSources">ListDataSources</option>
+		
+			<option value="ListFolderMembers">ListFolderMembers</option>
+		
+			<option value="ListFolders">ListFolders</option>
+		
+			<option value="ListGroupMemberships">ListGroupMemberships</option>
+		
+			<option value="ListGroups">ListGroups</option>
+		
+			<option value="ListIAMPolicyAssignments">ListIAMPolicyAssignments</option>
+		
+			<option value="ListIAMPolicyAssignmentsForUser">ListIAMPolicyAssignmentsForUser</option>
+		
+			<option value="ListIngestions">ListIngestions</option>
+		
+			<option value="ListNamespaces">ListNamespaces</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTemplateAliases">ListTemplateAliases</option>
+		
+			<option value="ListTemplateVersions">ListTemplateVersions</option>
+		
+			<option value="ListTemplates">ListTemplates</option>
+		
+			<option value="ListThemeAliases">ListThemeAliases</option>
+		
+			<option value="ListThemeVersions">ListThemeVersions</option>
+		
+			<option value="ListThemes">ListThemes</option>
+		
+			<option value="ListUserGroups">ListUserGroups</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="RegisterUser">RegisterUser</option>
+		
+			<option value="RestoreAnalysis">RestoreAnalysis</option>
+		
+			<option value="SearchAnalyses">SearchAnalyses</option>
+		
+			<option value="SearchDashboards">SearchDashboards</option>
+		
+			<option value="SearchFolders">SearchFolders</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccountCustomization">UpdateAccountCustomization</option>
+		
+			<option value="UpdateAccountSettings">UpdateAccountSettings</option>
+		
+			<option value="UpdateAnalysis">UpdateAnalysis</option>
+		
+			<option value="UpdateAnalysisPermissions">UpdateAnalysisPermissions</option>
+		
+			<option value="UpdateDashboard">UpdateDashboard</option>
+		
+			<option value="UpdateDashboardPermissions">UpdateDashboardPermissions</option>
+		
+			<option value="UpdateDashboardPublishedVersion">UpdateDashboardPublishedVersion</option>
+		
+			<option value="UpdateDataSet">UpdateDataSet</option>
+		
+			<option value="UpdateDataSetPermissions">UpdateDataSetPermissions</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateDataSourcePermissions">UpdateDataSourcePermissions</option>
+		
+			<option value="UpdateFolder">UpdateFolder</option>
+		
+			<option value="UpdateFolderPermissions">UpdateFolderPermissions</option>
+		
+			<option value="UpdateGroup">UpdateGroup</option>
+		
+			<option value="UpdateIAMPolicyAssignment">UpdateIAMPolicyAssignment</option>
+		
+			<option value="UpdateTemplate">UpdateTemplate</option>
+		
+			<option value="UpdateTemplateAlias">UpdateTemplateAlias</option>
+		
+			<option value="UpdateTemplatePermissions">UpdateTemplatePermissions</option>
+		
+			<option value="UpdateTheme">UpdateTheme</option>
+		
+			<option value="UpdateThemeAlias">UpdateThemeAlias</option>
+		
+			<option value="UpdateThemePermissions">UpdateThemePermissions</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AwsAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AwsAccountId"><i class="fa fa-tag"></i>AwsAccountId</label>
+		<input type="text" id="node-input-AwsAccountId" placeholder="AwsAccountId"></input>
+	</div> 
+	<div class="form-row" id='DataSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSetId"><i class="fa fa-tag"></i>DataSetId</label>
+		<input type="text" id="node-input-DataSetId" placeholder="DataSetId"></input>
+	</div> 
+	<div class="form-row" id='IngestionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestionId"><i class="fa fa-tag"></i>IngestionId</label>
+		<input type="text" id="node-input-IngestionId" placeholder="IngestionId"></input>
+	</div> 
+	<div class="form-row" id='AccountCustomizationAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountCustomization"><i class="fa fa-tag"></i>AccountCustomization</label>
+		<input type="text" id="node-input-AccountCustomization" placeholder="AccountCustomization"></input>
+	</div> 
+	<div class="form-row" id='AnalysisIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AnalysisId"><i class="fa fa-tag"></i>AnalysisId</label>
+		<input type="text" id="node-input-AnalysisId" placeholder="AnalysisId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SourceEntityAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceEntity"><i class="fa fa-tag"></i>SourceEntity</label>
+		<input type="text" id="node-input-SourceEntity" placeholder="SourceEntity"></input>
+	</div> 
+	<div class="form-row" id='DashboardIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardId"><i class="fa fa-tag"></i>DashboardId</label>
+		<input type="text" id="node-input-DashboardId" placeholder="DashboardId"></input>
+	</div> 
+	<div class="form-row" id='PhysicalTableMapAttr' class='hiddenAttrs'>
+		<label for="node-input-PhysicalTableMap"><i class="fa fa-tag"></i>PhysicalTableMap</label>
+		<input type="text" id="node-input-PhysicalTableMap" placeholder="PhysicalTableMap"></input>
+	</div> 
+	<div class="form-row" id='ImportModeAttr' class='hiddenAttrs'>
+		<label for="node-input-ImportMode"><i class="fa fa-tag"></i>ImportMode</label>
+		<input type="text" id="node-input-ImportMode" placeholder="ImportMode"></input>
+	</div> 
+	<div class="form-row" id='DataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceId"><i class="fa fa-tag"></i>DataSourceId</label>
+		<input type="text" id="node-input-DataSourceId" placeholder="DataSourceId"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='FolderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FolderId"><i class="fa fa-tag"></i>FolderId</label>
+		<input type="text" id="node-input-FolderId" placeholder="FolderId"></input>
+	</div> 
+	<div class="form-row" id='MemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberId"><i class="fa fa-tag"></i>MemberId</label>
+		<input type="text" id="node-input-MemberId" placeholder="MemberId"></input>
+	</div> 
+	<div class="form-row" id='MemberTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberType"><i class="fa fa-tag"></i>MemberType</label>
+		<input type="text" id="node-input-MemberType" placeholder="MemberType"></input>
+	</div> 
+	<div class="form-row" id='GroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupName"><i class="fa fa-tag"></i>GroupName</label>
+		<input type="text" id="node-input-GroupName" placeholder="GroupName"></input>
+	</div> 
+	<div class="form-row" id='NamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-Namespace"><i class="fa fa-tag"></i>Namespace</label>
+		<input type="text" id="node-input-Namespace" placeholder="Namespace"></input>
+	</div> 
+	<div class="form-row" id='MemberNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberName"><i class="fa fa-tag"></i>MemberName</label>
+		<input type="text" id="node-input-MemberName" placeholder="MemberName"></input>
+	</div> 
+	<div class="form-row" id='AssignmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentName"><i class="fa fa-tag"></i>AssignmentName</label>
+		<input type="text" id="node-input-AssignmentName" placeholder="AssignmentName"></input>
+	</div> 
+	<div class="form-row" id='AssignmentStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentStatus"><i class="fa fa-tag"></i>AssignmentStatus</label>
+		<input type="text" id="node-input-AssignmentStatus" placeholder="AssignmentStatus"></input>
+	</div> 
+	<div class="form-row" id='IdentityStoreAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityStore"><i class="fa fa-tag"></i>IdentityStore</label>
+		<input type="text" id="node-input-IdentityStore" placeholder="IdentityStore"></input>
+	</div> 
+	<div class="form-row" id='TemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateId"><i class="fa fa-tag"></i>TemplateId</label>
+		<input type="text" id="node-input-TemplateId" placeholder="TemplateId"></input>
+	</div> 
+	<div class="form-row" id='AliasNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AliasName"><i class="fa fa-tag"></i>AliasName</label>
+		<input type="text" id="node-input-AliasName" placeholder="AliasName"></input>
+	</div> 
+	<div class="form-row" id='TemplateVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateVersionNumber"><i class="fa fa-tag"></i>TemplateVersionNumber</label>
+		<input type="text" id="node-input-TemplateVersionNumber" placeholder="TemplateVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='ThemeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ThemeId"><i class="fa fa-tag"></i>ThemeId</label>
+		<input type="text" id="node-input-ThemeId" placeholder="ThemeId"></input>
+	</div> 
+	<div class="form-row" id='BaseThemeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BaseThemeId"><i class="fa fa-tag"></i>BaseThemeId</label>
+		<input type="text" id="node-input-BaseThemeId" placeholder="BaseThemeId"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i>Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='ThemeVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-ThemeVersionNumber"><i class="fa fa-tag"></i>ThemeVersionNumber</label>
+		<input type="text" id="node-input-ThemeVersionNumber" placeholder="ThemeVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i>UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='PrincipalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PrincipalId"><i class="fa fa-tag"></i>PrincipalId</label>
+		<input type="text" id="node-input-PrincipalId" placeholder="PrincipalId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizedResourceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizedResourceArns"><i class="fa fa-tag"></i>AuthorizedResourceArns</label>
+		<input type="text" id="node-input-AuthorizedResourceArns" placeholder="AuthorizedResourceArns"></input>
+	</div> 
+	<div class="form-row" id='ExperienceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ExperienceConfiguration"><i class="fa fa-tag"></i>ExperienceConfiguration</label>
+		<input type="text" id="node-input-ExperienceConfiguration" placeholder="ExperienceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='UserArnAttr' class='hiddenAttrs'>
+		<label for="node-input-UserArn"><i class="fa fa-tag"></i>UserArn</label>
+		<input type="text" id="node-input-UserArn" placeholder="UserArn"></input>
+	</div> 
+	<div class="form-row" id='IdentityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityType"><i class="fa fa-tag"></i>IdentityType</label>
+		<input type="text" id="node-input-IdentityType" placeholder="IdentityType"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='EmailAttr' class='hiddenAttrs'>
+		<label for="node-input-Email"><i class="fa fa-tag"></i>Email</label>
+		<input type="text" id="node-input-Email" placeholder="Email"></input>
+	</div> 
+	<div class="form-row" id='UserRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-UserRole"><i class="fa fa-tag"></i>UserRole</label>
+		<input type="text" id="node-input-UserRole" placeholder="UserRole"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i>Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DefaultNamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultNamespace"><i class="fa fa-tag"></i>DefaultNamespace</label>
+		<input type="text" id="node-input-DefaultNamespace" placeholder="DefaultNamespace"></input>
+	</div> 
+	<div class="form-row" id='VersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionNumber"><i class="fa fa-tag"></i>VersionNumber</label>
+		<input type="text" id="node-input-VersionNumber" placeholder="VersionNumber"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i>Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelIngestion:[
+					'#AwsAccountIdAttr','#DataSetIdAttr','#IngestionIdAttr'
+					],
+				CreateAccountCustomization:[
+					'#AwsAccountIdAttr','#AccountCustomizationAttr'
+					],
+				CreateAnalysis:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr','#NameAttr','#SourceEntityAttr'
+					],
+				CreateDashboard:[
+					'#AwsAccountIdAttr','#DashboardIdAttr','#NameAttr','#SourceEntityAttr'
+					],
+				CreateDataSet:[
+					'#AwsAccountIdAttr','#DataSetIdAttr','#NameAttr','#PhysicalTableMapAttr','#ImportModeAttr'
+					],
+				CreateDataSource:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr','#NameAttr','#TypeAttr'
+					],
+				CreateFolder:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				CreateFolderMembership:[
+					'#AwsAccountIdAttr','#FolderIdAttr','#MemberIdAttr','#MemberTypeAttr'
+					],
+				CreateGroup:[
+					'#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				CreateGroupMembership:[
+					'#MemberNameAttr','#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				CreateIAMPolicyAssignment:[
+					'#AwsAccountIdAttr','#AssignmentNameAttr','#AssignmentStatusAttr','#NamespaceAttr'
+					],
+				CreateIngestion:[
+					'#DataSetIdAttr','#IngestionIdAttr','#AwsAccountIdAttr'
+					],
+				CreateNamespace:[
+					'#AwsAccountIdAttr','#NamespaceAttr','#IdentityStoreAttr'
+					],
+				CreateTemplate:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#SourceEntityAttr'
+					],
+				CreateTemplateAlias:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#AliasNameAttr','#TemplateVersionNumberAttr'
+					],
+				CreateTheme:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#NameAttr','#BaseThemeIdAttr','#ConfigurationAttr'
+					],
+				CreateThemeAlias:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#AliasNameAttr','#ThemeVersionNumberAttr'
+					],
+				DeleteAccountCustomization:[
+					'#AwsAccountIdAttr'
+					],
+				DeleteAnalysis:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr'
+					],
+				DeleteDashboard:[
+					'#AwsAccountIdAttr','#DashboardIdAttr'
+					],
+				DeleteDataSet:[
+					'#AwsAccountIdAttr','#DataSetIdAttr'
+					],
+				DeleteDataSource:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr'
+					],
+				DeleteFolder:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				DeleteFolderMembership:[
+					'#AwsAccountIdAttr','#FolderIdAttr','#MemberIdAttr','#MemberTypeAttr'
+					],
+				DeleteGroup:[
+					'#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DeleteGroupMembership:[
+					'#MemberNameAttr','#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DeleteIAMPolicyAssignment:[
+					'#AwsAccountIdAttr','#AssignmentNameAttr','#NamespaceAttr'
+					],
+				DeleteNamespace:[
+					'#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DeleteTemplate:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				DeleteTemplateAlias:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#AliasNameAttr'
+					],
+				DeleteTheme:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				DeleteThemeAlias:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#AliasNameAttr'
+					],
+				DeleteUser:[
+					'#UserNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DeleteUserByPrincipalId:[
+					'#PrincipalIdAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DescribeAccountCustomization:[
+					'#AwsAccountIdAttr'
+					],
+				DescribeAccountSettings:[
+					'#AwsAccountIdAttr'
+					],
+				DescribeAnalysis:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr'
+					],
+				DescribeAnalysisPermissions:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr'
+					],
+				DescribeDashboard:[
+					'#AwsAccountIdAttr','#DashboardIdAttr'
+					],
+				DescribeDashboardPermissions:[
+					'#AwsAccountIdAttr','#DashboardIdAttr'
+					],
+				DescribeDataSet:[
+					'#AwsAccountIdAttr','#DataSetIdAttr'
+					],
+				DescribeDataSetPermissions:[
+					'#AwsAccountIdAttr','#DataSetIdAttr'
+					],
+				DescribeDataSource:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr'
+					],
+				DescribeDataSourcePermissions:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr'
+					],
+				DescribeFolder:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				DescribeFolderPermissions:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				DescribeFolderResolvedPermissions:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				DescribeGroup:[
+					'#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DescribeIAMPolicyAssignment:[
+					'#AwsAccountIdAttr','#AssignmentNameAttr','#NamespaceAttr'
+					],
+				DescribeIngestion:[
+					'#AwsAccountIdAttr','#DataSetIdAttr','#IngestionIdAttr'
+					],
+				DescribeNamespace:[
+					'#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				DescribeTemplate:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				DescribeTemplateAlias:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#AliasNameAttr'
+					],
+				DescribeTemplatePermissions:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				DescribeTheme:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				DescribeThemeAlias:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#AliasNameAttr'
+					],
+				DescribeThemePermissions:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				DescribeUser:[
+					'#UserNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				GenerateEmbedUrlForAnonymousUser:[
+					'#AwsAccountIdAttr','#NamespaceAttr','#AuthorizedResourceArnsAttr','#ExperienceConfigurationAttr'
+					],
+				GenerateEmbedUrlForRegisteredUser:[
+					'#AwsAccountIdAttr','#UserArnAttr','#ExperienceConfigurationAttr'
+					],
+				GetDashboardEmbedUrl:[
+					'#AwsAccountIdAttr','#DashboardIdAttr','#IdentityTypeAttr'
+					],
+				GetSessionEmbedUrl:[
+					'#AwsAccountIdAttr'
+					],
+				ListAnalyses:[
+					'#AwsAccountIdAttr'
+					],
+				ListDashboardVersions:[
+					'#AwsAccountIdAttr','#DashboardIdAttr'
+					],
+				ListDashboards:[
+					'#AwsAccountIdAttr'
+					],
+				ListDataSets:[
+					'#AwsAccountIdAttr'
+					],
+				ListDataSources:[
+					'#AwsAccountIdAttr'
+					],
+				ListFolderMembers:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				ListFolders:[
+					'#AwsAccountIdAttr'
+					],
+				ListGroupMemberships:[
+					'#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				ListGroups:[
+					'#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				ListIAMPolicyAssignments:[
+					'#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				ListIAMPolicyAssignmentsForUser:[
+					'#AwsAccountIdAttr','#UserNameAttr','#NamespaceAttr'
+					],
+				ListIngestions:[
+					'#DataSetIdAttr','#AwsAccountIdAttr'
+					],
+				ListNamespaces:[
+					'#AwsAccountIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTemplateAliases:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				ListTemplateVersions:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				ListTemplates:[
+					'#AwsAccountIdAttr'
+					],
+				ListThemeAliases:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				ListThemeVersions:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				ListThemes:[
+					'#AwsAccountIdAttr'
+					],
+				ListUserGroups:[
+					'#UserNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				ListUsers:[
+					'#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				RegisterUser:[
+					'#IdentityTypeAttr','#EmailAttr','#UserRoleAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				RestoreAnalysis:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr'
+					],
+				SearchAnalyses:[
+					'#AwsAccountIdAttr','#FiltersAttr'
+					],
+				SearchDashboards:[
+					'#AwsAccountIdAttr','#FiltersAttr'
+					],
+				SearchFolders:[
+					'#AwsAccountIdAttr','#FiltersAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateAccountCustomization:[
+					'#AwsAccountIdAttr','#AccountCustomizationAttr'
+					],
+				UpdateAccountSettings:[
+					'#AwsAccountIdAttr','#DefaultNamespaceAttr'
+					],
+				UpdateAnalysis:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr','#NameAttr','#SourceEntityAttr'
+					],
+				UpdateAnalysisPermissions:[
+					'#AwsAccountIdAttr','#AnalysisIdAttr'
+					],
+				UpdateDashboard:[
+					'#AwsAccountIdAttr','#DashboardIdAttr','#NameAttr','#SourceEntityAttr'
+					],
+				UpdateDashboardPermissions:[
+					'#AwsAccountIdAttr','#DashboardIdAttr'
+					],
+				UpdateDashboardPublishedVersion:[
+					'#AwsAccountIdAttr','#DashboardIdAttr','#VersionNumberAttr'
+					],
+				UpdateDataSet:[
+					'#AwsAccountIdAttr','#DataSetIdAttr','#NameAttr','#PhysicalTableMapAttr','#ImportModeAttr'
+					],
+				UpdateDataSetPermissions:[
+					'#AwsAccountIdAttr','#DataSetIdAttr'
+					],
+				UpdateDataSource:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr','#NameAttr'
+					],
+				UpdateDataSourcePermissions:[
+					'#AwsAccountIdAttr','#DataSourceIdAttr'
+					],
+				UpdateFolder:[
+					'#AwsAccountIdAttr','#FolderIdAttr','#NameAttr'
+					],
+				UpdateFolderPermissions:[
+					'#AwsAccountIdAttr','#FolderIdAttr'
+					],
+				UpdateGroup:[
+					'#GroupNameAttr','#AwsAccountIdAttr','#NamespaceAttr'
+					],
+				UpdateIAMPolicyAssignment:[
+					'#AwsAccountIdAttr','#AssignmentNameAttr','#NamespaceAttr'
+					],
+				UpdateTemplate:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#SourceEntityAttr'
+					],
+				UpdateTemplateAlias:[
+					'#AwsAccountIdAttr','#TemplateIdAttr','#AliasNameAttr','#TemplateVersionNumberAttr'
+					],
+				UpdateTemplatePermissions:[
+					'#AwsAccountIdAttr','#TemplateIdAttr'
+					],
+				UpdateTheme:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#BaseThemeIdAttr'
+					],
+				UpdateThemeAlias:[
+					'#AwsAccountIdAttr','#ThemeIdAttr','#AliasNameAttr','#ThemeVersionNumberAttr'
+					],
+				UpdateThemePermissions:[
+					'#AwsAccountIdAttr','#ThemeIdAttr'
+					],
+				UpdateUser:[
+					'#UserNameAttr','#AwsAccountIdAttr','#NamespaceAttr','#EmailAttr','#RoleAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS QuickSight">
+<p>
+AWS QuickSight
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QuickSight.html">QuickSight</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS QuickSight',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelIngestion' },
+			
+				AwsAccountId: { value: ""} ,
+				DataSetId: { value: ""} ,
+				IngestionId: { value: ""} ,
+				AccountCustomization: { value: ""} ,
+				AnalysisId: { value: ""} ,
+				Name: { value: ""} ,
+				SourceEntity: { value: ""} ,
+				DashboardId: { value: ""} ,
+				PhysicalTableMap: { value: ""} ,
+				ImportMode: { value: ""} ,
+				DataSourceId: { value: ""} ,
+				Type: { value: ""} ,
+				FolderId: { value: ""} ,
+				MemberId: { value: ""} ,
+				MemberType: { value: ""} ,
+				GroupName: { value: ""} ,
+				Namespace: { value: ""} ,
+				MemberName: { value: ""} ,
+				AssignmentName: { value: ""} ,
+				AssignmentStatus: { value: ""} ,
+				IdentityStore: { value: ""} ,
+				TemplateId: { value: ""} ,
+				AliasName: { value: ""} ,
+				TemplateVersionNumber: { value: ""} ,
+				ThemeId: { value: ""} ,
+				BaseThemeId: { value: ""} ,
+				Configuration: { value: ""} ,
+				ThemeVersionNumber: { value: ""} ,
+				UserName: { value: ""} ,
+				PrincipalId: { value: ""} ,
+				AuthorizedResourceArns: { value: ""} ,
+				ExperienceConfiguration: { value: ""} ,
+				UserArn: { value: ""} ,
+				IdentityType: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Email: { value: ""} ,
+				UserRole: { value: ""} ,
+				Filters: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DefaultNamespace: { value: ""} ,
+				VersionNumber: { value: ""} ,
+				Role: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "QuickSight " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

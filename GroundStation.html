@@ -1,0 +1,331 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS GroundStation">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelContact">CancelContact</option>
+		
+			<option value="CreateConfig">CreateConfig</option>
+		
+			<option value="CreateDataflowEndpointGroup">CreateDataflowEndpointGroup</option>
+		
+			<option value="CreateMissionProfile">CreateMissionProfile</option>
+		
+			<option value="DeleteConfig">DeleteConfig</option>
+		
+			<option value="DeleteDataflowEndpointGroup">DeleteDataflowEndpointGroup</option>
+		
+			<option value="DeleteMissionProfile">DeleteMissionProfile</option>
+		
+			<option value="DescribeContact">DescribeContact</option>
+		
+			<option value="GetConfig">GetConfig</option>
+		
+			<option value="GetDataflowEndpointGroup">GetDataflowEndpointGroup</option>
+		
+			<option value="GetMinuteUsage">GetMinuteUsage</option>
+		
+			<option value="GetMissionProfile">GetMissionProfile</option>
+		
+			<option value="GetSatellite">GetSatellite</option>
+		
+			<option value="ListConfigs">ListConfigs</option>
+		
+			<option value="ListContacts">ListContacts</option>
+		
+			<option value="ListDataflowEndpointGroups">ListDataflowEndpointGroups</option>
+		
+			<option value="ListGroundStations">ListGroundStations</option>
+		
+			<option value="ListMissionProfiles">ListMissionProfiles</option>
+		
+			<option value="ListSatellites">ListSatellites</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ReserveContact">ReserveContact</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConfig">UpdateConfig</option>
+		
+			<option value="UpdateMissionProfile">UpdateMissionProfile</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='contactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-contactId"><i class="fa fa-tag"></i>contactId</label>
+		<input type="text" id="node-input-contactId" placeholder="contactId"></input>
+	</div> 
+	<div class="form-row" id='configDataAttr' class='hiddenAttrs'>
+		<label for="node-input-configData"><i class="fa fa-tag"></i>configData</label>
+		<input type="text" id="node-input-configData" placeholder="configData"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='endpointDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-endpointDetails"><i class="fa fa-tag"></i>endpointDetails</label>
+		<input type="text" id="node-input-endpointDetails" placeholder="endpointDetails"></input>
+	</div> 
+	<div class="form-row" id='dataflowEdgesAttr' class='hiddenAttrs'>
+		<label for="node-input-dataflowEdges"><i class="fa fa-tag"></i>dataflowEdges</label>
+		<input type="text" id="node-input-dataflowEdges" placeholder="dataflowEdges"></input>
+	</div> 
+	<div class="form-row" id='minimumViableContactDurationSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-minimumViableContactDurationSeconds"><i class="fa fa-tag"></i>minimumViableContactDurationSeconds</label>
+		<input type="text" id="node-input-minimumViableContactDurationSeconds" placeholder="minimumViableContactDurationSeconds"></input>
+	</div> 
+	<div class="form-row" id='trackingConfigArnAttr' class='hiddenAttrs'>
+		<label for="node-input-trackingConfigArn"><i class="fa fa-tag"></i>trackingConfigArn</label>
+		<input type="text" id="node-input-trackingConfigArn" placeholder="trackingConfigArn"></input>
+	</div> 
+	<div class="form-row" id='configIdAttr' class='hiddenAttrs'>
+		<label for="node-input-configId"><i class="fa fa-tag"></i>configId</label>
+		<input type="text" id="node-input-configId" placeholder="configId"></input>
+	</div> 
+	<div class="form-row" id='configTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-configType"><i class="fa fa-tag"></i>configType</label>
+		<input type="text" id="node-input-configType" placeholder="configType"></input>
+	</div> 
+	<div class="form-row" id='dataflowEndpointGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-dataflowEndpointGroupId"><i class="fa fa-tag"></i>dataflowEndpointGroupId</label>
+		<input type="text" id="node-input-dataflowEndpointGroupId" placeholder="dataflowEndpointGroupId"></input>
+	</div> 
+	<div class="form-row" id='missionProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-missionProfileId"><i class="fa fa-tag"></i>missionProfileId</label>
+		<input type="text" id="node-input-missionProfileId" placeholder="missionProfileId"></input>
+	</div> 
+	<div class="form-row" id='monthAttr' class='hiddenAttrs'>
+		<label for="node-input-month"><i class="fa fa-tag"></i>month</label>
+		<input type="text" id="node-input-month" placeholder="month"></input>
+	</div> 
+	<div class="form-row" id='yearAttr' class='hiddenAttrs'>
+		<label for="node-input-year"><i class="fa fa-tag"></i>year</label>
+		<input type="text" id="node-input-year" placeholder="year"></input>
+	</div> 
+	<div class="form-row" id='satelliteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-satelliteId"><i class="fa fa-tag"></i>satelliteId</label>
+		<input type="text" id="node-input-satelliteId" placeholder="satelliteId"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i>endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i>startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='statusListAttr' class='hiddenAttrs'>
+		<label for="node-input-statusList"><i class="fa fa-tag"></i>statusList</label>
+		<input type="text" id="node-input-statusList" placeholder="statusList"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='groundStationAttr' class='hiddenAttrs'>
+		<label for="node-input-groundStation"><i class="fa fa-tag"></i>groundStation</label>
+		<input type="text" id="node-input-groundStation" placeholder="groundStation"></input>
+	</div> 
+	<div class="form-row" id='missionProfileArnAttr' class='hiddenAttrs'>
+		<label for="node-input-missionProfileArn"><i class="fa fa-tag"></i>missionProfileArn</label>
+		<input type="text" id="node-input-missionProfileArn" placeholder="missionProfileArn"></input>
+	</div> 
+	<div class="form-row" id='satelliteArnAttr' class='hiddenAttrs'>
+		<label for="node-input-satelliteArn"><i class="fa fa-tag"></i>satelliteArn</label>
+		<input type="text" id="node-input-satelliteArn" placeholder="satelliteArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelContact:[
+					'#contactIdAttr'
+					],
+				CreateConfig:[
+					'#configDataAttr','#nameAttr'
+					],
+				CreateDataflowEndpointGroup:[
+					'#endpointDetailsAttr'
+					],
+				CreateMissionProfile:[
+					'#dataflowEdgesAttr','#minimumViableContactDurationSecondsAttr','#nameAttr','#trackingConfigArnAttr'
+					],
+				DeleteConfig:[
+					'#configIdAttr','#configTypeAttr'
+					],
+				DeleteDataflowEndpointGroup:[
+					'#dataflowEndpointGroupIdAttr'
+					],
+				DeleteMissionProfile:[
+					'#missionProfileIdAttr'
+					],
+				DescribeContact:[
+					'#contactIdAttr'
+					],
+				GetConfig:[
+					'#configIdAttr','#configTypeAttr'
+					],
+				GetDataflowEndpointGroup:[
+					'#dataflowEndpointGroupIdAttr'
+					],
+				GetMinuteUsage:[
+					'#monthAttr','#yearAttr'
+					],
+				GetMissionProfile:[
+					'#missionProfileIdAttr'
+					],
+				GetSatellite:[
+					'#satelliteIdAttr'
+					],
+				ListConfigs:[
+					
+					],
+				ListContacts:[
+					'#endTimeAttr','#startTimeAttr','#statusListAttr'
+					],
+				ListDataflowEndpointGroups:[
+					
+					],
+				ListGroundStations:[
+					
+					],
+				ListMissionProfiles:[
+					
+					],
+				ListSatellites:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ReserveContact:[
+					'#endTimeAttr','#groundStationAttr','#missionProfileArnAttr','#satelliteArnAttr','#startTimeAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateConfig:[
+					'#configDataAttr','#configIdAttr','#configTypeAttr','#nameAttr'
+					],
+				UpdateMissionProfile:[
+					'#missionProfileIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS GroundStation">
+<p>
+AWS GroundStation
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/GroundStation.html">GroundStation</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS GroundStation',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelContact' },
+			
+				contactId: { value: ""} ,
+				configData: { value: ""} ,
+				name: { value: ""} ,
+				endpointDetails: { value: ""} ,
+				dataflowEdges: { value: ""} ,
+				minimumViableContactDurationSeconds: { value: ""} ,
+				trackingConfigArn: { value: ""} ,
+				configId: { value: ""} ,
+				configType: { value: ""} ,
+				dataflowEndpointGroupId: { value: ""} ,
+				missionProfileId: { value: ""} ,
+				month: { value: ""} ,
+				year: { value: ""} ,
+				satelliteId: { value: ""} ,
+				endTime: { value: ""} ,
+				startTime: { value: ""} ,
+				statusList: { value: ""} ,
+				resourceArn: { value: ""} ,
+				groundStation: { value: ""} ,
+				missionProfileArn: { value: ""} ,
+				satelliteArn: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "GroundStation " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

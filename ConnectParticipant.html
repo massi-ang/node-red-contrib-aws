@@ -1,0 +1,181 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ConnectParticipant">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CompleteAttachmentUpload">CompleteAttachmentUpload</option>
+		
+			<option value="CreateParticipantConnection">CreateParticipantConnection</option>
+		
+			<option value="DisconnectParticipant">DisconnectParticipant</option>
+		
+			<option value="GetAttachment">GetAttachment</option>
+		
+			<option value="GetTranscript">GetTranscript</option>
+		
+			<option value="SendEvent">SendEvent</option>
+		
+			<option value="SendMessage">SendMessage</option>
+		
+			<option value="StartAttachmentUpload">StartAttachmentUpload</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AttachmentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AttachmentIds"><i class="fa fa-tag"></i>AttachmentIds</label>
+		<input type="text" id="node-input-AttachmentIds" placeholder="AttachmentIds"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i>ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='ConnectionTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionToken"><i class="fa fa-tag"></i>ConnectionToken</label>
+		<input type="text" id="node-input-ConnectionToken" placeholder="ConnectionToken"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='ParticipantTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ParticipantToken"><i class="fa fa-tag"></i>ParticipantToken</label>
+		<input type="text" id="node-input-ParticipantToken" placeholder="ParticipantToken"></input>
+	</div> 
+	<div class="form-row" id='AttachmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AttachmentId"><i class="fa fa-tag"></i>AttachmentId</label>
+		<input type="text" id="node-input-AttachmentId" placeholder="AttachmentId"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i>ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='AttachmentSizeInBytesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttachmentSizeInBytes"><i class="fa fa-tag"></i>AttachmentSizeInBytes</label>
+		<input type="text" id="node-input-AttachmentSizeInBytes" placeholder="AttachmentSizeInBytes"></input>
+	</div> 
+	<div class="form-row" id='AttachmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttachmentName"><i class="fa fa-tag"></i>AttachmentName</label>
+		<input type="text" id="node-input-AttachmentName" placeholder="AttachmentName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CompleteAttachmentUpload:[
+					'#AttachmentIdsAttr','#ClientTokenAttr','#ConnectionTokenAttr'
+					],
+				CreateParticipantConnection:[
+					'#TypeAttr','#ParticipantTokenAttr'
+					],
+				DisconnectParticipant:[
+					'#ConnectionTokenAttr'
+					],
+				GetAttachment:[
+					'#AttachmentIdAttr','#ConnectionTokenAttr'
+					],
+				GetTranscript:[
+					'#ConnectionTokenAttr'
+					],
+				SendEvent:[
+					'#ContentTypeAttr','#ConnectionTokenAttr'
+					],
+				SendMessage:[
+					'#ContentTypeAttr','#ContentAttr','#ConnectionTokenAttr'
+					],
+				StartAttachmentUpload:[
+					'#ContentTypeAttr','#AttachmentSizeInBytesAttr','#AttachmentNameAttr','#ClientTokenAttr','#ConnectionTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ConnectParticipant">
+<p>
+AWS ConnectParticipant
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ConnectParticipant.html">ConnectParticipant</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ConnectParticipant',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CompleteAttachmentUpload' },
+			
+				AttachmentIds: { value: ""} ,
+				ClientToken: { value: ""} ,
+				ConnectionToken: { value: ""} ,
+				Type: { value: ""} ,
+				ParticipantToken: { value: ""} ,
+				AttachmentId: { value: ""} ,
+				ContentType: { value: ""} ,
+				Content: { value: ""} ,
+				AttachmentSizeInBytes: { value: ""} ,
+				AttachmentName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ConnectParticipant " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

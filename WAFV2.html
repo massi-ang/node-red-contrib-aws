@@ -1,0 +1,461 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS WAFV2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateWebACL">AssociateWebACL</option>
+		
+			<option value="CheckCapacity">CheckCapacity</option>
+		
+			<option value="CreateIPSet">CreateIPSet</option>
+		
+			<option value="CreateRegexPatternSet">CreateRegexPatternSet</option>
+		
+			<option value="CreateRuleGroup">CreateRuleGroup</option>
+		
+			<option value="CreateWebACL">CreateWebACL</option>
+		
+			<option value="DeleteFirewallManagerRuleGroups">DeleteFirewallManagerRuleGroups</option>
+		
+			<option value="DeleteIPSet">DeleteIPSet</option>
+		
+			<option value="DeleteLoggingConfiguration">DeleteLoggingConfiguration</option>
+		
+			<option value="DeletePermissionPolicy">DeletePermissionPolicy</option>
+		
+			<option value="DeleteRegexPatternSet">DeleteRegexPatternSet</option>
+		
+			<option value="DeleteRuleGroup">DeleteRuleGroup</option>
+		
+			<option value="DeleteWebACL">DeleteWebACL</option>
+		
+			<option value="DescribeManagedRuleGroup">DescribeManagedRuleGroup</option>
+		
+			<option value="DisassociateWebACL">DisassociateWebACL</option>
+		
+			<option value="GetIPSet">GetIPSet</option>
+		
+			<option value="GetLoggingConfiguration">GetLoggingConfiguration</option>
+		
+			<option value="GetManagedRuleSet">GetManagedRuleSet</option>
+		
+			<option value="GetPermissionPolicy">GetPermissionPolicy</option>
+		
+			<option value="GetRateBasedStatementManagedKeys">GetRateBasedStatementManagedKeys</option>
+		
+			<option value="GetRegexPatternSet">GetRegexPatternSet</option>
+		
+			<option value="GetRuleGroup">GetRuleGroup</option>
+		
+			<option value="GetSampledRequests">GetSampledRequests</option>
+		
+			<option value="GetWebACL">GetWebACL</option>
+		
+			<option value="GetWebACLForResource">GetWebACLForResource</option>
+		
+			<option value="ListAvailableManagedRuleGroupVersions">ListAvailableManagedRuleGroupVersions</option>
+		
+			<option value="ListAvailableManagedRuleGroups">ListAvailableManagedRuleGroups</option>
+		
+			<option value="ListIPSets">ListIPSets</option>
+		
+			<option value="ListLoggingConfigurations">ListLoggingConfigurations</option>
+		
+			<option value="ListManagedRuleSets">ListManagedRuleSets</option>
+		
+			<option value="ListRegexPatternSets">ListRegexPatternSets</option>
+		
+			<option value="ListResourcesForWebACL">ListResourcesForWebACL</option>
+		
+			<option value="ListRuleGroups">ListRuleGroups</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebACLs">ListWebACLs</option>
+		
+			<option value="PutLoggingConfiguration">PutLoggingConfiguration</option>
+		
+			<option value="PutManagedRuleSetVersions">PutManagedRuleSetVersions</option>
+		
+			<option value="PutPermissionPolicy">PutPermissionPolicy</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateIPSet">UpdateIPSet</option>
+		
+			<option value="UpdateManagedRuleSetVersionExpiryDate">UpdateManagedRuleSetVersionExpiryDate</option>
+		
+			<option value="UpdateRegexPatternSet">UpdateRegexPatternSet</option>
+		
+			<option value="UpdateRuleGroup">UpdateRuleGroup</option>
+		
+			<option value="UpdateWebACL">UpdateWebACL</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='WebACLArnAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLArn"><i class="fa fa-tag"></i>WebACLArn</label>
+		<input type="text" id="node-input-WebACLArn" placeholder="WebACLArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='ScopeAttr' class='hiddenAttrs'>
+		<label for="node-input-Scope"><i class="fa fa-tag"></i>Scope</label>
+		<input type="text" id="node-input-Scope" placeholder="Scope"></input>
+	</div> 
+	<div class="form-row" id='RulesAttr' class='hiddenAttrs'>
+		<label for="node-input-Rules"><i class="fa fa-tag"></i>Rules</label>
+		<input type="text" id="node-input-Rules" placeholder="Rules"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='IPAddressVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-IPAddressVersion"><i class="fa fa-tag"></i>IPAddressVersion</label>
+		<input type="text" id="node-input-IPAddressVersion" placeholder="IPAddressVersion"></input>
+	</div> 
+	<div class="form-row" id='AddressesAttr' class='hiddenAttrs'>
+		<label for="node-input-Addresses"><i class="fa fa-tag"></i>Addresses</label>
+		<input type="text" id="node-input-Addresses" placeholder="Addresses"></input>
+	</div> 
+	<div class="form-row" id='RegularExpressionListAttr' class='hiddenAttrs'>
+		<label for="node-input-RegularExpressionList"><i class="fa fa-tag"></i>RegularExpressionList</label>
+		<input type="text" id="node-input-RegularExpressionList" placeholder="RegularExpressionList"></input>
+	</div> 
+	<div class="form-row" id='CapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-Capacity"><i class="fa fa-tag"></i>Capacity</label>
+		<input type="text" id="node-input-Capacity" placeholder="Capacity"></input>
+	</div> 
+	<div class="form-row" id='VisibilityConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-VisibilityConfig"><i class="fa fa-tag"></i>VisibilityConfig</label>
+		<input type="text" id="node-input-VisibilityConfig" placeholder="VisibilityConfig"></input>
+	</div> 
+	<div class="form-row" id='DefaultActionAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultAction"><i class="fa fa-tag"></i>DefaultAction</label>
+		<input type="text" id="node-input-DefaultAction" placeholder="DefaultAction"></input>
+	</div> 
+	<div class="form-row" id='WebACLLockTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLLockToken"><i class="fa fa-tag"></i>WebACLLockToken</label>
+		<input type="text" id="node-input-WebACLLockToken" placeholder="WebACLLockToken"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='LockTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-LockToken"><i class="fa fa-tag"></i>LockToken</label>
+		<input type="text" id="node-input-LockToken" placeholder="LockToken"></input>
+	</div> 
+	<div class="form-row" id='VendorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VendorName"><i class="fa fa-tag"></i>VendorName</label>
+		<input type="text" id="node-input-VendorName" placeholder="VendorName"></input>
+	</div> 
+	<div class="form-row" id='WebACLNameAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLName"><i class="fa fa-tag"></i>WebACLName</label>
+		<input type="text" id="node-input-WebACLName" placeholder="WebACLName"></input>
+	</div> 
+	<div class="form-row" id='WebACLIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLId"><i class="fa fa-tag"></i>WebACLId</label>
+		<input type="text" id="node-input-WebACLId" placeholder="WebACLId"></input>
+	</div> 
+	<div class="form-row" id='RuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleName"><i class="fa fa-tag"></i>RuleName</label>
+		<input type="text" id="node-input-RuleName" placeholder="RuleName"></input>
+	</div> 
+	<div class="form-row" id='WebAclArnAttr' class='hiddenAttrs'>
+		<label for="node-input-WebAclArn"><i class="fa fa-tag"></i>WebAclArn</label>
+		<input type="text" id="node-input-WebAclArn" placeholder="WebAclArn"></input>
+	</div> 
+	<div class="form-row" id='RuleMetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleMetricName"><i class="fa fa-tag"></i>RuleMetricName</label>
+		<input type="text" id="node-input-RuleMetricName" placeholder="RuleMetricName"></input>
+	</div> 
+	<div class="form-row" id='TimeWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeWindow"><i class="fa fa-tag"></i>TimeWindow</label>
+		<input type="text" id="node-input-TimeWindow" placeholder="TimeWindow"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i>MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='LoggingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingConfiguration"><i class="fa fa-tag"></i>LoggingConfiguration</label>
+		<input type="text" id="node-input-LoggingConfiguration" placeholder="LoggingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='VersionToExpireAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionToExpire"><i class="fa fa-tag"></i>VersionToExpire</label>
+		<input type="text" id="node-input-VersionToExpire" placeholder="VersionToExpire"></input>
+	</div> 
+	<div class="form-row" id='ExpiryTimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpiryTimestamp"><i class="fa fa-tag"></i>ExpiryTimestamp</label>
+		<input type="text" id="node-input-ExpiryTimestamp" placeholder="ExpiryTimestamp"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateWebACL:[
+					'#WebACLArnAttr','#ResourceArnAttr'
+					],
+				CheckCapacity:[
+					'#ScopeAttr','#RulesAttr'
+					],
+				CreateIPSet:[
+					'#NameAttr','#ScopeAttr','#IPAddressVersionAttr','#AddressesAttr'
+					],
+				CreateRegexPatternSet:[
+					'#NameAttr','#ScopeAttr','#RegularExpressionListAttr'
+					],
+				CreateRuleGroup:[
+					'#NameAttr','#ScopeAttr','#CapacityAttr','#VisibilityConfigAttr'
+					],
+				CreateWebACL:[
+					'#NameAttr','#ScopeAttr','#DefaultActionAttr','#VisibilityConfigAttr'
+					],
+				DeleteFirewallManagerRuleGroups:[
+					'#WebACLArnAttr','#WebACLLockTokenAttr'
+					],
+				DeleteIPSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr'
+					],
+				DeleteLoggingConfiguration:[
+					'#ResourceArnAttr'
+					],
+				DeletePermissionPolicy:[
+					'#ResourceArnAttr'
+					],
+				DeleteRegexPatternSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr'
+					],
+				DeleteRuleGroup:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr'
+					],
+				DeleteWebACL:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr'
+					],
+				DescribeManagedRuleGroup:[
+					'#VendorNameAttr','#NameAttr','#ScopeAttr'
+					],
+				DisassociateWebACL:[
+					'#ResourceArnAttr'
+					],
+				GetIPSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr'
+					],
+				GetLoggingConfiguration:[
+					'#ResourceArnAttr'
+					],
+				GetManagedRuleSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr'
+					],
+				GetPermissionPolicy:[
+					'#ResourceArnAttr'
+					],
+				GetRateBasedStatementManagedKeys:[
+					'#ScopeAttr','#WebACLNameAttr','#WebACLIdAttr','#RuleNameAttr'
+					],
+				GetRegexPatternSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr'
+					],
+				GetRuleGroup:[
+					
+					],
+				GetSampledRequests:[
+					'#WebAclArnAttr','#RuleMetricNameAttr','#ScopeAttr','#TimeWindowAttr','#MaxItemsAttr'
+					],
+				GetWebACL:[
+					'#NameAttr','#ScopeAttr','#IdAttr'
+					],
+				GetWebACLForResource:[
+					'#ResourceArnAttr'
+					],
+				ListAvailableManagedRuleGroupVersions:[
+					'#VendorNameAttr','#NameAttr','#ScopeAttr'
+					],
+				ListAvailableManagedRuleGroups:[
+					'#ScopeAttr'
+					],
+				ListIPSets:[
+					'#ScopeAttr'
+					],
+				ListLoggingConfigurations:[
+					
+					],
+				ListManagedRuleSets:[
+					'#ScopeAttr'
+					],
+				ListRegexPatternSets:[
+					'#ScopeAttr'
+					],
+				ListResourcesForWebACL:[
+					'#WebACLArnAttr'
+					],
+				ListRuleGroups:[
+					'#ScopeAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListWebACLs:[
+					'#ScopeAttr'
+					],
+				PutLoggingConfiguration:[
+					'#LoggingConfigurationAttr'
+					],
+				PutManagedRuleSetVersions:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr'
+					],
+				PutPermissionPolicy:[
+					'#ResourceArnAttr','#PolicyAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateIPSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#AddressesAttr','#LockTokenAttr'
+					],
+				UpdateManagedRuleSetVersionExpiryDate:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#LockTokenAttr','#VersionToExpireAttr','#ExpiryTimestampAttr'
+					],
+				UpdateRegexPatternSet:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#RegularExpressionListAttr','#LockTokenAttr'
+					],
+				UpdateRuleGroup:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#VisibilityConfigAttr','#LockTokenAttr'
+					],
+				UpdateWebACL:[
+					'#NameAttr','#ScopeAttr','#IdAttr','#DefaultActionAttr','#VisibilityConfigAttr','#LockTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS WAFV2">
+<p>
+AWS WAFV2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WAFV2.html">WAFV2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WAFV2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateWebACL' },
+			
+				WebACLArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Scope: { value: ""} ,
+				Rules: { value: ""} ,
+				Name: { value: ""} ,
+				IPAddressVersion: { value: ""} ,
+				Addresses: { value: ""} ,
+				RegularExpressionList: { value: ""} ,
+				Capacity: { value: ""} ,
+				VisibilityConfig: { value: ""} ,
+				DefaultAction: { value: ""} ,
+				WebACLLockToken: { value: ""} ,
+				Id: { value: ""} ,
+				LockToken: { value: ""} ,
+				VendorName: { value: ""} ,
+				WebACLName: { value: ""} ,
+				WebACLId: { value: ""} ,
+				RuleName: { value: ""} ,
+				WebAclArn: { value: ""} ,
+				RuleMetricName: { value: ""} ,
+				TimeWindow: { value: ""} ,
+				MaxItems: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				LoggingConfiguration: { value: ""} ,
+				Policy: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				VersionToExpire: { value: ""} ,
+				ExpiryTimestamp: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WAFV2 " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

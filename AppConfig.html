@@ -1,0 +1,361 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AppConfig">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateConfigurationProfile">CreateConfigurationProfile</option>
+		
+			<option value="CreateDeploymentStrategy">CreateDeploymentStrategy</option>
+		
+			<option value="CreateEnvironment">CreateEnvironment</option>
+		
+			<option value="CreateHostedConfigurationVersion">CreateHostedConfigurationVersion</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteConfigurationProfile">DeleteConfigurationProfile</option>
+		
+			<option value="DeleteDeploymentStrategy">DeleteDeploymentStrategy</option>
+		
+			<option value="DeleteEnvironment">DeleteEnvironment</option>
+		
+			<option value="DeleteHostedConfigurationVersion">DeleteHostedConfigurationVersion</option>
+		
+			<option value="GetApplication">GetApplication</option>
+		
+			<option value="GetConfiguration">GetConfiguration</option>
+		
+			<option value="GetConfigurationProfile">GetConfigurationProfile</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="GetDeploymentStrategy">GetDeploymentStrategy</option>
+		
+			<option value="GetEnvironment">GetEnvironment</option>
+		
+			<option value="GetHostedConfigurationVersion">GetHostedConfigurationVersion</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="ListConfigurationProfiles">ListConfigurationProfiles</option>
+		
+			<option value="ListDeploymentStrategies">ListDeploymentStrategies</option>
+		
+			<option value="ListDeployments">ListDeployments</option>
+		
+			<option value="ListEnvironments">ListEnvironments</option>
+		
+			<option value="ListHostedConfigurationVersions">ListHostedConfigurationVersions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartDeployment">StartDeployment</option>
+		
+			<option value="StopDeployment">StopDeployment</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateConfigurationProfile">UpdateConfigurationProfile</option>
+		
+			<option value="UpdateDeploymentStrategy">UpdateDeploymentStrategy</option>
+		
+			<option value="UpdateEnvironment">UpdateEnvironment</option>
+		
+			<option value="ValidateConfiguration">ValidateConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationId"><i class="fa fa-tag"></i>ApplicationId</label>
+		<input type="text" id="node-input-ApplicationId" placeholder="ApplicationId"></input>
+	</div> 
+	<div class="form-row" id='LocationUriAttr' class='hiddenAttrs'>
+		<label for="node-input-LocationUri"><i class="fa fa-tag"></i>LocationUri</label>
+		<input type="text" id="node-input-LocationUri" placeholder="LocationUri"></input>
+	</div> 
+	<div class="form-row" id='DeploymentDurationInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentDurationInMinutes"><i class="fa fa-tag"></i>DeploymentDurationInMinutes</label>
+		<input type="text" id="node-input-DeploymentDurationInMinutes" placeholder="DeploymentDurationInMinutes"></input>
+	</div> 
+	<div class="form-row" id='GrowthFactorAttr' class='hiddenAttrs'>
+		<label for="node-input-GrowthFactor"><i class="fa fa-tag"></i>GrowthFactor</label>
+		<input type="text" id="node-input-GrowthFactor" placeholder="GrowthFactor"></input>
+	</div> 
+	<div class="form-row" id='ReplicateToAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicateTo"><i class="fa fa-tag"></i>ReplicateTo</label>
+		<input type="text" id="node-input-ReplicateTo" placeholder="ReplicateTo"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationProfileId"><i class="fa fa-tag"></i>ConfigurationProfileId</label>
+		<input type="text" id="node-input-ConfigurationProfileId" placeholder="ConfigurationProfileId"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i>ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='DeploymentStrategyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentStrategyId"><i class="fa fa-tag"></i>DeploymentStrategyId</label>
+		<input type="text" id="node-input-DeploymentStrategyId" placeholder="DeploymentStrategyId"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentId"><i class="fa fa-tag"></i>EnvironmentId</label>
+		<input type="text" id="node-input-EnvironmentId" placeholder="EnvironmentId"></input>
+	</div> 
+	<div class="form-row" id='VersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionNumber"><i class="fa fa-tag"></i>VersionNumber</label>
+		<input type="text" id="node-input-VersionNumber" placeholder="VersionNumber"></input>
+	</div> 
+	<div class="form-row" id='ApplicationAttr' class='hiddenAttrs'>
+		<label for="node-input-Application"><i class="fa fa-tag"></i>Application</label>
+		<input type="text" id="node-input-Application" placeholder="Application"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Environment"><i class="fa fa-tag"></i>Environment</label>
+		<input type="text" id="node-input-Environment" placeholder="Environment"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i>Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='ClientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientId"><i class="fa fa-tag"></i>ClientId</label>
+		<input type="text" id="node-input-ClientId" placeholder="ClientId"></input>
+	</div> 
+	<div class="form-row" id='DeploymentNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentNumber"><i class="fa fa-tag"></i>DeploymentNumber</label>
+		<input type="text" id="node-input-DeploymentNumber" placeholder="DeploymentNumber"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationVersion"><i class="fa fa-tag"></i>ConfigurationVersion</label>
+		<input type="text" id="node-input-ConfigurationVersion" placeholder="ConfigurationVersion"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApplication:[
+					'#NameAttr'
+					],
+				CreateConfigurationProfile:[
+					'#ApplicationIdAttr','#NameAttr','#LocationUriAttr'
+					],
+				CreateDeploymentStrategy:[
+					'#NameAttr','#DeploymentDurationInMinutesAttr','#GrowthFactorAttr','#ReplicateToAttr'
+					],
+				CreateEnvironment:[
+					'#ApplicationIdAttr','#NameAttr'
+					],
+				CreateHostedConfigurationVersion:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr','#ContentAttr','#ContentTypeAttr'
+					],
+				DeleteApplication:[
+					'#ApplicationIdAttr'
+					],
+				DeleteConfigurationProfile:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr'
+					],
+				DeleteDeploymentStrategy:[
+					'#DeploymentStrategyIdAttr'
+					],
+				DeleteEnvironment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr'
+					],
+				DeleteHostedConfigurationVersion:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr','#VersionNumberAttr'
+					],
+				GetApplication:[
+					'#ApplicationIdAttr'
+					],
+				GetConfiguration:[
+					'#ApplicationAttr','#EnvironmentAttr','#ConfigurationAttr','#ClientIdAttr'
+					],
+				GetConfigurationProfile:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr'
+					],
+				GetDeployment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr','#DeploymentNumberAttr'
+					],
+				GetDeploymentStrategy:[
+					'#DeploymentStrategyIdAttr'
+					],
+				GetEnvironment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr'
+					],
+				GetHostedConfigurationVersion:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr','#VersionNumberAttr'
+					],
+				ListApplications:[
+					
+					],
+				ListConfigurationProfiles:[
+					'#ApplicationIdAttr'
+					],
+				ListDeploymentStrategies:[
+					
+					],
+				ListDeployments:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr'
+					],
+				ListEnvironments:[
+					'#ApplicationIdAttr'
+					],
+				ListHostedConfigurationVersions:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartDeployment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr','#DeploymentStrategyIdAttr','#ConfigurationProfileIdAttr','#ConfigurationVersionAttr'
+					],
+				StopDeployment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr','#DeploymentNumberAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateApplication:[
+					'#ApplicationIdAttr'
+					],
+				UpdateConfigurationProfile:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr'
+					],
+				UpdateDeploymentStrategy:[
+					'#DeploymentStrategyIdAttr'
+					],
+				UpdateEnvironment:[
+					'#ApplicationIdAttr','#EnvironmentIdAttr'
+					],
+				ValidateConfiguration:[
+					'#ApplicationIdAttr','#ConfigurationProfileIdAttr','#ConfigurationVersionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AppConfig">
+<p>
+AWS AppConfig
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppConfig.html">AppConfig</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppConfig',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApplication' },
+			
+				Name: { value: ""} ,
+				ApplicationId: { value: ""} ,
+				LocationUri: { value: ""} ,
+				DeploymentDurationInMinutes: { value: ""} ,
+				GrowthFactor: { value: ""} ,
+				ReplicateTo: { value: ""} ,
+				ConfigurationProfileId: { value: ""} ,
+				Content: { value: ""} ,
+				ContentType: { value: ""} ,
+				DeploymentStrategyId: { value: ""} ,
+				EnvironmentId: { value: ""} ,
+				VersionNumber: { value: ""} ,
+				Application: { value: ""} ,
+				Environment: { value: ""} ,
+				Configuration: { value: ""} ,
+				ClientId: { value: ""} ,
+				DeploymentNumber: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				ConfigurationVersion: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppConfig " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,206 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodeStarNotifications">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateNotificationRule">CreateNotificationRule</option>
+		
+			<option value="DeleteNotificationRule">DeleteNotificationRule</option>
+		
+			<option value="DeleteTarget">DeleteTarget</option>
+		
+			<option value="DescribeNotificationRule">DescribeNotificationRule</option>
+		
+			<option value="ListEventTypes">ListEventTypes</option>
+		
+			<option value="ListNotificationRules">ListNotificationRules</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTargets">ListTargets</option>
+		
+			<option value="Subscribe">Subscribe</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="Unsubscribe">Unsubscribe</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateNotificationRule">UpdateNotificationRule</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='EventTypeIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-EventTypeIds"><i class="fa fa-tag"></i>EventTypeIds</label>
+		<input type="text" id="node-input-EventTypeIds" placeholder="EventTypeIds"></input>
+	</div> 
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i>Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='TargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-Targets"><i class="fa fa-tag"></i>Targets</label>
+		<input type="text" id="node-input-Targets" placeholder="Targets"></input>
+	</div> 
+	<div class="form-row" id='DetailTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DetailType"><i class="fa fa-tag"></i>DetailType</label>
+		<input type="text" id="node-input-DetailType" placeholder="DetailType"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i>Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
+	</div> 
+	<div class="form-row" id='TargetAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetAddress"><i class="fa fa-tag"></i>TargetAddress</label>
+		<input type="text" id="node-input-TargetAddress" placeholder="TargetAddress"></input>
+	</div> 
+	<div class="form-row" id='TargetAttr' class='hiddenAttrs'>
+		<label for="node-input-Target"><i class="fa fa-tag"></i>Target</label>
+		<input type="text" id="node-input-Target" placeholder="Target"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateNotificationRule:[
+					'#NameAttr','#EventTypeIdsAttr','#ResourceAttr','#TargetsAttr','#DetailTypeAttr'
+					],
+				DeleteNotificationRule:[
+					'#ArnAttr'
+					],
+				DeleteTarget:[
+					'#TargetAddressAttr'
+					],
+				DescribeNotificationRule:[
+					'#ArnAttr'
+					],
+				ListEventTypes:[
+					
+					],
+				ListNotificationRules:[
+					
+					],
+				ListTagsForResource:[
+					'#ArnAttr'
+					],
+				ListTargets:[
+					
+					],
+				Subscribe:[
+					'#ArnAttr','#TargetAttr'
+					],
+				TagResource:[
+					'#ArnAttr','#TagsAttr'
+					],
+				Unsubscribe:[
+					'#ArnAttr','#TargetAddressAttr'
+					],
+				UntagResource:[
+					'#ArnAttr','#TagKeysAttr'
+					],
+				UpdateNotificationRule:[
+					'#ArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodeStarNotifications">
+<p>
+AWS CodeStarNotifications
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeStarNotifications.html">CodeStarNotifications</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeStarNotifications',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateNotificationRule' },
+			
+				Name: { value: ""} ,
+				EventTypeIds: { value: ""} ,
+				Resource: { value: ""} ,
+				Targets: { value: ""} ,
+				DetailType: { value: ""} ,
+				Arn: { value: ""} ,
+				TargetAddress: { value: ""} ,
+				Target: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeStarNotifications " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,441 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AppStream">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateFleet">AssociateFleet</option>
+		
+			<option value="BatchAssociateUserStack">BatchAssociateUserStack</option>
+		
+			<option value="BatchDisassociateUserStack">BatchDisassociateUserStack</option>
+		
+			<option value="CopyImage">CopyImage</option>
+		
+			<option value="CreateDirectoryConfig">CreateDirectoryConfig</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="CreateImageBuilder">CreateImageBuilder</option>
+		
+			<option value="CreateImageBuilderStreamingURL">CreateImageBuilderStreamingURL</option>
+		
+			<option value="CreateStack">CreateStack</option>
+		
+			<option value="CreateStreamingURL">CreateStreamingURL</option>
+		
+			<option value="CreateUpdatedImage">CreateUpdatedImage</option>
+		
+			<option value="CreateUsageReportSubscription">CreateUsageReportSubscription</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="DeleteDirectoryConfig">DeleteDirectoryConfig</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DeleteImage">DeleteImage</option>
+		
+			<option value="DeleteImageBuilder">DeleteImageBuilder</option>
+		
+			<option value="DeleteImagePermissions">DeleteImagePermissions</option>
+		
+			<option value="DeleteStack">DeleteStack</option>
+		
+			<option value="DeleteUsageReportSubscription">DeleteUsageReportSubscription</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DescribeDirectoryConfigs">DescribeDirectoryConfigs</option>
+		
+			<option value="DescribeFleets">DescribeFleets</option>
+		
+			<option value="DescribeImageBuilders">DescribeImageBuilders</option>
+		
+			<option value="DescribeImagePermissions">DescribeImagePermissions</option>
+		
+			<option value="DescribeImages">DescribeImages</option>
+		
+			<option value="DescribeSessions">DescribeSessions</option>
+		
+			<option value="DescribeStacks">DescribeStacks</option>
+		
+			<option value="DescribeUsageReportSubscriptions">DescribeUsageReportSubscriptions</option>
+		
+			<option value="DescribeUserStackAssociations">DescribeUserStackAssociations</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="DisableUser">DisableUser</option>
+		
+			<option value="DisassociateFleet">DisassociateFleet</option>
+		
+			<option value="EnableUser">EnableUser</option>
+		
+			<option value="ExpireSession">ExpireSession</option>
+		
+			<option value="ListAssociatedFleets">ListAssociatedFleets</option>
+		
+			<option value="ListAssociatedStacks">ListAssociatedStacks</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartFleet">StartFleet</option>
+		
+			<option value="StartImageBuilder">StartImageBuilder</option>
+		
+			<option value="StopFleet">StopFleet</option>
+		
+			<option value="StopImageBuilder">StopImageBuilder</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDirectoryConfig">UpdateDirectoryConfig</option>
+		
+			<option value="UpdateFleet">UpdateFleet</option>
+		
+			<option value="UpdateImagePermissions">UpdateImagePermissions</option>
+		
+			<option value="UpdateStack">UpdateStack</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FleetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetName"><i class="fa fa-tag"></i>FleetName</label>
+		<input type="text" id="node-input-FleetName" placeholder="FleetName"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i>StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='UserStackAssociationsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserStackAssociations"><i class="fa fa-tag"></i>UserStackAssociations</label>
+		<input type="text" id="node-input-UserStackAssociations" placeholder="UserStackAssociations"></input>
+	</div> 
+	<div class="form-row" id='SourceImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceImageName"><i class="fa fa-tag"></i>SourceImageName</label>
+		<input type="text" id="node-input-SourceImageName" placeholder="SourceImageName"></input>
+	</div> 
+	<div class="form-row" id='DestinationImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationImageName"><i class="fa fa-tag"></i>DestinationImageName</label>
+		<input type="text" id="node-input-DestinationImageName" placeholder="DestinationImageName"></input>
+	</div> 
+	<div class="form-row" id='DestinationRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationRegion"><i class="fa fa-tag"></i>DestinationRegion</label>
+		<input type="text" id="node-input-DestinationRegion" placeholder="DestinationRegion"></input>
+	</div> 
+	<div class="form-row" id='DirectoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryName"><i class="fa fa-tag"></i>DirectoryName</label>
+		<input type="text" id="node-input-DirectoryName" placeholder="DirectoryName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationalUnitDistinguishedNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationalUnitDistinguishedNames"><i class="fa fa-tag"></i>OrganizationalUnitDistinguishedNames</label>
+		<input type="text" id="node-input-OrganizationalUnitDistinguishedNames" placeholder="OrganizationalUnitDistinguishedNames"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceType"><i class="fa fa-tag"></i>InstanceType</label>
+		<input type="text" id="node-input-InstanceType" placeholder="InstanceType"></input>
+	</div> 
+	<div class="form-row" id='ComputeCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputeCapacity"><i class="fa fa-tag"></i>ComputeCapacity</label>
+		<input type="text" id="node-input-ComputeCapacity" placeholder="ComputeCapacity"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i>UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='existingImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-existingImageName"><i class="fa fa-tag"></i>existingImageName</label>
+		<input type="text" id="node-input-existingImageName" placeholder="existingImageName"></input>
+	</div> 
+	<div class="form-row" id='newImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newImageName"><i class="fa fa-tag"></i>newImageName</label>
+		<input type="text" id="node-input-newImageName" placeholder="newImageName"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i>UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationType"><i class="fa fa-tag"></i>AuthenticationType</label>
+		<input type="text" id="node-input-AuthenticationType" placeholder="AuthenticationType"></input>
+	</div> 
+	<div class="form-row" id='SharedAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedAccountId"><i class="fa fa-tag"></i>SharedAccountId</label>
+		<input type="text" id="node-input-SharedAccountId" placeholder="SharedAccountId"></input>
+	</div> 
+	<div class="form-row" id='SessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionId"><i class="fa fa-tag"></i>SessionId</label>
+		<input type="text" id="node-input-SessionId" placeholder="SessionId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ImagePermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ImagePermissions"><i class="fa fa-tag"></i>ImagePermissions</label>
+		<input type="text" id="node-input-ImagePermissions" placeholder="ImagePermissions"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateFleet:[
+					'#FleetNameAttr','#StackNameAttr'
+					],
+				BatchAssociateUserStack:[
+					'#UserStackAssociationsAttr'
+					],
+				BatchDisassociateUserStack:[
+					'#UserStackAssociationsAttr'
+					],
+				CopyImage:[
+					'#SourceImageNameAttr','#DestinationImageNameAttr','#DestinationRegionAttr'
+					],
+				CreateDirectoryConfig:[
+					'#DirectoryNameAttr','#OrganizationalUnitDistinguishedNamesAttr'
+					],
+				CreateFleet:[
+					'#NameAttr','#InstanceTypeAttr','#ComputeCapacityAttr'
+					],
+				CreateImageBuilder:[
+					'#NameAttr','#InstanceTypeAttr'
+					],
+				CreateImageBuilderStreamingURL:[
+					'#NameAttr'
+					],
+				CreateStack:[
+					'#NameAttr'
+					],
+				CreateStreamingURL:[
+					'#StackNameAttr','#FleetNameAttr','#UserIdAttr'
+					],
+				CreateUpdatedImage:[
+					'#existingImageNameAttr','#newImageNameAttr'
+					],
+				CreateUsageReportSubscription:[
+					
+					],
+				CreateUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				DeleteDirectoryConfig:[
+					'#DirectoryNameAttr'
+					],
+				DeleteFleet:[
+					'#NameAttr'
+					],
+				DeleteImage:[
+					'#NameAttr'
+					],
+				DeleteImageBuilder:[
+					'#NameAttr'
+					],
+				DeleteImagePermissions:[
+					'#NameAttr','#SharedAccountIdAttr'
+					],
+				DeleteStack:[
+					'#NameAttr'
+					],
+				DeleteUsageReportSubscription:[
+					
+					],
+				DeleteUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				DescribeDirectoryConfigs:[
+					
+					],
+				DescribeFleets:[
+					
+					],
+				DescribeImageBuilders:[
+					
+					],
+				DescribeImagePermissions:[
+					'#NameAttr'
+					],
+				DescribeImages:[
+					
+					],
+				DescribeSessions:[
+					'#StackNameAttr','#FleetNameAttr'
+					],
+				DescribeStacks:[
+					
+					],
+				DescribeUsageReportSubscriptions:[
+					
+					],
+				DescribeUserStackAssociations:[
+					
+					],
+				DescribeUsers:[
+					'#AuthenticationTypeAttr'
+					],
+				DisableUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				DisassociateFleet:[
+					'#FleetNameAttr','#StackNameAttr'
+					],
+				EnableUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				ExpireSession:[
+					'#SessionIdAttr'
+					],
+				ListAssociatedFleets:[
+					'#StackNameAttr'
+					],
+				ListAssociatedStacks:[
+					'#FleetNameAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartFleet:[
+					'#NameAttr'
+					],
+				StartImageBuilder:[
+					'#NameAttr'
+					],
+				StopFleet:[
+					'#NameAttr'
+					],
+				StopImageBuilder:[
+					'#NameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDirectoryConfig:[
+					'#DirectoryNameAttr'
+					],
+				UpdateFleet:[
+					
+					],
+				UpdateImagePermissions:[
+					'#NameAttr','#SharedAccountIdAttr','#ImagePermissionsAttr'
+					],
+				UpdateStack:[
+					'#NameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AppStream">
+<p>
+AWS AppStream
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppStream.html">AppStream</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppStream',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateFleet' },
+			
+				FleetName: { value: ""} ,
+				StackName: { value: ""} ,
+				UserStackAssociations: { value: ""} ,
+				SourceImageName: { value: ""} ,
+				DestinationImageName: { value: ""} ,
+				DestinationRegion: { value: ""} ,
+				DirectoryName: { value: ""} ,
+				OrganizationalUnitDistinguishedNames: { value: ""} ,
+				Name: { value: ""} ,
+				InstanceType: { value: ""} ,
+				ComputeCapacity: { value: ""} ,
+				UserId: { value: ""} ,
+				existingImageName: { value: ""} ,
+				newImageName: { value: ""} ,
+				UserName: { value: ""} ,
+				AuthenticationType: { value: ""} ,
+				SharedAccountId: { value: ""} ,
+				SessionId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ImagePermissions: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppStream " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

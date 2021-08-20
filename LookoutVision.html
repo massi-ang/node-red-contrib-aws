@@ -1,0 +1,241 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS LookoutVision">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeModel">DescribeModel</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="DetectAnomalies">DetectAnomalies</option>
+		
+			<option value="ListDatasetEntries">ListDatasetEntries</option>
+		
+			<option value="ListModels">ListModels</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartModel">StartModel</option>
+		
+			<option value="StopModel">StopModel</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDatasetEntries">UpdateDatasetEntries</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i>ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='DatasetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetType"><i class="fa fa-tag"></i>DatasetType</label>
+		<input type="text" id="node-input-DatasetType" placeholder="DatasetType"></input>
+	</div> 
+	<div class="form-row" id='OutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputConfig"><i class="fa fa-tag"></i>OutputConfig</label>
+		<input type="text" id="node-input-OutputConfig" placeholder="OutputConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelVersion"><i class="fa fa-tag"></i>ModelVersion</label>
+		<input type="text" id="node-input-ModelVersion" placeholder="ModelVersion"></input>
+	</div> 
+	<div class="form-row" id='BodyAttr' class='hiddenAttrs'>
+		<label for="node-input-Body"><i class="fa fa-tag"></i>Body</label>
+		<input type="text" id="node-input-Body" placeholder="Body"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i>ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='MinInferenceUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-MinInferenceUnits"><i class="fa fa-tag"></i>MinInferenceUnits</label>
+		<input type="text" id="node-input-MinInferenceUnits" placeholder="MinInferenceUnits"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ChangesAttr' class='hiddenAttrs'>
+		<label for="node-input-Changes"><i class="fa fa-tag"></i>Changes</label>
+		<input type="text" id="node-input-Changes" placeholder="Changes"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr'
+					],
+				CreateModel:[
+					'#ProjectNameAttr','#OutputConfigAttr'
+					],
+				CreateProject:[
+					'#ProjectNameAttr'
+					],
+				DeleteDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr'
+					],
+				DeleteModel:[
+					'#ProjectNameAttr','#ModelVersionAttr'
+					],
+				DeleteProject:[
+					'#ProjectNameAttr'
+					],
+				DescribeDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr'
+					],
+				DescribeModel:[
+					'#ProjectNameAttr','#ModelVersionAttr'
+					],
+				DescribeProject:[
+					'#ProjectNameAttr'
+					],
+				DetectAnomalies:[
+					'#ProjectNameAttr','#ModelVersionAttr','#BodyAttr','#ContentTypeAttr'
+					],
+				ListDatasetEntries:[
+					'#ProjectNameAttr','#DatasetTypeAttr'
+					],
+				ListModels:[
+					'#ProjectNameAttr'
+					],
+				ListProjects:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartModel:[
+					'#ProjectNameAttr','#ModelVersionAttr','#MinInferenceUnitsAttr'
+					],
+				StopModel:[
+					'#ProjectNameAttr','#ModelVersionAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDatasetEntries:[
+					'#ProjectNameAttr','#DatasetTypeAttr','#ChangesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS LookoutVision">
+<p>
+AWS LookoutVision
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LookoutVision.html">LookoutVision</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LookoutVision',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDataset' },
+			
+				ProjectName: { value: ""} ,
+				DatasetType: { value: ""} ,
+				OutputConfig: { value: ""} ,
+				ModelVersion: { value: ""} ,
+				Body: { value: ""} ,
+				ContentType: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				MinInferenceUnits: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Changes: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LookoutVision " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

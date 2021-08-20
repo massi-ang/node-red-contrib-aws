@@ -1,0 +1,231 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Honeycode">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchCreateTableRows">BatchCreateTableRows</option>
+		
+			<option value="BatchDeleteTableRows">BatchDeleteTableRows</option>
+		
+			<option value="BatchUpdateTableRows">BatchUpdateTableRows</option>
+		
+			<option value="BatchUpsertTableRows">BatchUpsertTableRows</option>
+		
+			<option value="DescribeTableDataImportJob">DescribeTableDataImportJob</option>
+		
+			<option value="GetScreenData">GetScreenData</option>
+		
+			<option value="InvokeScreenAutomation">InvokeScreenAutomation</option>
+		
+			<option value="ListTableColumns">ListTableColumns</option>
+		
+			<option value="ListTableRows">ListTableRows</option>
+		
+			<option value="ListTables">ListTables</option>
+		
+			<option value="QueryTableRows">QueryTableRows</option>
+		
+			<option value="StartTableDataImportJob">StartTableDataImportJob</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='workbookIdAttr' class='hiddenAttrs'>
+		<label for="node-input-workbookId"><i class="fa fa-tag"></i>workbookId</label>
+		<input type="text" id="node-input-workbookId" placeholder="workbookId"></input>
+	</div> 
+	<div class="form-row" id='tableIdAttr' class='hiddenAttrs'>
+		<label for="node-input-tableId"><i class="fa fa-tag"></i>tableId</label>
+		<input type="text" id="node-input-tableId" placeholder="tableId"></input>
+	</div> 
+	<div class="form-row" id='rowsToCreateAttr' class='hiddenAttrs'>
+		<label for="node-input-rowsToCreate"><i class="fa fa-tag"></i>rowsToCreate</label>
+		<input type="text" id="node-input-rowsToCreate" placeholder="rowsToCreate"></input>
+	</div> 
+	<div class="form-row" id='rowIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-rowIds"><i class="fa fa-tag"></i>rowIds</label>
+		<input type="text" id="node-input-rowIds" placeholder="rowIds"></input>
+	</div> 
+	<div class="form-row" id='rowsToUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-rowsToUpdate"><i class="fa fa-tag"></i>rowsToUpdate</label>
+		<input type="text" id="node-input-rowsToUpdate" placeholder="rowsToUpdate"></input>
+	</div> 
+	<div class="form-row" id='rowsToUpsertAttr' class='hiddenAttrs'>
+		<label for="node-input-rowsToUpsert"><i class="fa fa-tag"></i>rowsToUpsert</label>
+		<input type="text" id="node-input-rowsToUpsert" placeholder="rowsToUpsert"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i>jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='appIdAttr' class='hiddenAttrs'>
+		<label for="node-input-appId"><i class="fa fa-tag"></i>appId</label>
+		<input type="text" id="node-input-appId" placeholder="appId"></input>
+	</div> 
+	<div class="form-row" id='screenIdAttr' class='hiddenAttrs'>
+		<label for="node-input-screenId"><i class="fa fa-tag"></i>screenId</label>
+		<input type="text" id="node-input-screenId" placeholder="screenId"></input>
+	</div> 
+	<div class="form-row" id='screenAutomationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-screenAutomationId"><i class="fa fa-tag"></i>screenAutomationId</label>
+		<input type="text" id="node-input-screenAutomationId" placeholder="screenAutomationId"></input>
+	</div> 
+	<div class="form-row" id='filterFormulaAttr' class='hiddenAttrs'>
+		<label for="node-input-filterFormula"><i class="fa fa-tag"></i>filterFormula</label>
+		<input type="text" id="node-input-filterFormula" placeholder="filterFormula"></input>
+	</div> 
+	<div class="form-row" id='dataSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-dataSource"><i class="fa fa-tag"></i>dataSource</label>
+		<input type="text" id="node-input-dataSource" placeholder="dataSource"></input>
+	</div> 
+	<div class="form-row" id='dataFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-dataFormat"><i class="fa fa-tag"></i>dataFormat</label>
+		<input type="text" id="node-input-dataFormat" placeholder="dataFormat"></input>
+	</div> 
+	<div class="form-row" id='destinationTableIdAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationTableId"><i class="fa fa-tag"></i>destinationTableId</label>
+		<input type="text" id="node-input-destinationTableId" placeholder="destinationTableId"></input>
+	</div> 
+	<div class="form-row" id='importOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-importOptions"><i class="fa fa-tag"></i>importOptions</label>
+		<input type="text" id="node-input-importOptions" placeholder="importOptions"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i>clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchCreateTableRows:[
+					'#workbookIdAttr','#tableIdAttr','#rowsToCreateAttr'
+					],
+				BatchDeleteTableRows:[
+					'#workbookIdAttr','#tableIdAttr','#rowIdsAttr'
+					],
+				BatchUpdateTableRows:[
+					'#workbookIdAttr','#tableIdAttr','#rowsToUpdateAttr'
+					],
+				BatchUpsertTableRows:[
+					'#workbookIdAttr','#tableIdAttr','#rowsToUpsertAttr'
+					],
+				DescribeTableDataImportJob:[
+					'#workbookIdAttr','#tableIdAttr','#jobIdAttr'
+					],
+				GetScreenData:[
+					'#workbookIdAttr','#appIdAttr','#screenIdAttr'
+					],
+				InvokeScreenAutomation:[
+					'#workbookIdAttr','#appIdAttr','#screenIdAttr','#screenAutomationIdAttr'
+					],
+				ListTableColumns:[
+					'#workbookIdAttr','#tableIdAttr'
+					],
+				ListTableRows:[
+					'#workbookIdAttr','#tableIdAttr'
+					],
+				ListTables:[
+					'#workbookIdAttr'
+					],
+				QueryTableRows:[
+					'#workbookIdAttr','#tableIdAttr','#filterFormulaAttr'
+					],
+				StartTableDataImportJob:[
+					'#workbookIdAttr','#dataSourceAttr','#dataFormatAttr','#destinationTableIdAttr','#importOptionsAttr','#clientRequestTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Honeycode">
+<p>
+AWS Honeycode
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Honeycode.html">Honeycode</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Honeycode',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchCreateTableRows' },
+			
+				workbookId: { value: ""} ,
+				tableId: { value: ""} ,
+				rowsToCreate: { value: ""} ,
+				rowIds: { value: ""} ,
+				rowsToUpdate: { value: ""} ,
+				rowsToUpsert: { value: ""} ,
+				jobId: { value: ""} ,
+				appId: { value: ""} ,
+				screenId: { value: ""} ,
+				screenAutomationId: { value: ""} ,
+				filterFormula: { value: ""} ,
+				dataSource: { value: ""} ,
+				dataFormat: { value: ""} ,
+				destinationTableId: { value: ""} ,
+				importOptions: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Honeycode " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

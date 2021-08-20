@@ -1,0 +1,511 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS EMR">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddInstanceFleet">AddInstanceFleet</option>
+		
+			<option value="AddInstanceGroups">AddInstanceGroups</option>
+		
+			<option value="AddJobFlowSteps">AddJobFlowSteps</option>
+		
+			<option value="AddTags">AddTags</option>
+		
+			<option value="CancelSteps">CancelSteps</option>
+		
+			<option value="CreateSecurityConfiguration">CreateSecurityConfiguration</option>
+		
+			<option value="CreateStudio">CreateStudio</option>
+		
+			<option value="CreateStudioSessionMapping">CreateStudioSessionMapping</option>
+		
+			<option value="DeleteSecurityConfiguration">DeleteSecurityConfiguration</option>
+		
+			<option value="DeleteStudio">DeleteStudio</option>
+		
+			<option value="DeleteStudioSessionMapping">DeleteStudioSessionMapping</option>
+		
+			<option value="DescribeCluster">DescribeCluster</option>
+		
+			<option value="DescribeJobFlows">DescribeJobFlows</option>
+		
+			<option value="DescribeNotebookExecution">DescribeNotebookExecution</option>
+		
+			<option value="DescribeReleaseLabel">DescribeReleaseLabel</option>
+		
+			<option value="DescribeSecurityConfiguration">DescribeSecurityConfiguration</option>
+		
+			<option value="DescribeStep">DescribeStep</option>
+		
+			<option value="DescribeStudio">DescribeStudio</option>
+		
+			<option value="GetBlockPublicAccessConfiguration">GetBlockPublicAccessConfiguration</option>
+		
+			<option value="GetManagedScalingPolicy">GetManagedScalingPolicy</option>
+		
+			<option value="GetStudioSessionMapping">GetStudioSessionMapping</option>
+		
+			<option value="ListBootstrapActions">ListBootstrapActions</option>
+		
+			<option value="ListClusters">ListClusters</option>
+		
+			<option value="ListInstanceFleets">ListInstanceFleets</option>
+		
+			<option value="ListInstanceGroups">ListInstanceGroups</option>
+		
+			<option value="ListInstances">ListInstances</option>
+		
+			<option value="ListNotebookExecutions">ListNotebookExecutions</option>
+		
+			<option value="ListReleaseLabels">ListReleaseLabels</option>
+		
+			<option value="ListSecurityConfigurations">ListSecurityConfigurations</option>
+		
+			<option value="ListSteps">ListSteps</option>
+		
+			<option value="ListStudioSessionMappings">ListStudioSessionMappings</option>
+		
+			<option value="ListStudios">ListStudios</option>
+		
+			<option value="ModifyCluster">ModifyCluster</option>
+		
+			<option value="ModifyInstanceFleet">ModifyInstanceFleet</option>
+		
+			<option value="ModifyInstanceGroups">ModifyInstanceGroups</option>
+		
+			<option value="PutAutoScalingPolicy">PutAutoScalingPolicy</option>
+		
+			<option value="PutBlockPublicAccessConfiguration">PutBlockPublicAccessConfiguration</option>
+		
+			<option value="PutManagedScalingPolicy">PutManagedScalingPolicy</option>
+		
+			<option value="RemoveAutoScalingPolicy">RemoveAutoScalingPolicy</option>
+		
+			<option value="RemoveManagedScalingPolicy">RemoveManagedScalingPolicy</option>
+		
+			<option value="RemoveTags">RemoveTags</option>
+		
+			<option value="RunJobFlow">RunJobFlow</option>
+		
+			<option value="SetTerminationProtection">SetTerminationProtection</option>
+		
+			<option value="SetVisibleToAllUsers">SetVisibleToAllUsers</option>
+		
+			<option value="StartNotebookExecution">StartNotebookExecution</option>
+		
+			<option value="StopNotebookExecution">StopNotebookExecution</option>
+		
+			<option value="TerminateJobFlows">TerminateJobFlows</option>
+		
+			<option value="UpdateStudio">UpdateStudio</option>
+		
+			<option value="UpdateStudioSessionMapping">UpdateStudioSessionMapping</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterId"><i class="fa fa-tag"></i>ClusterId</label>
+		<input type="text" id="node-input-ClusterId" placeholder="ClusterId"></input>
+	</div> 
+	<div class="form-row" id='InstanceFleetAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceFleet"><i class="fa fa-tag"></i>InstanceFleet</label>
+		<input type="text" id="node-input-InstanceFleet" placeholder="InstanceFleet"></input>
+	</div> 
+	<div class="form-row" id='InstanceGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceGroups"><i class="fa fa-tag"></i>InstanceGroups</label>
+		<input type="text" id="node-input-InstanceGroups" placeholder="InstanceGroups"></input>
+	</div> 
+	<div class="form-row" id='JobFlowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobFlowId"><i class="fa fa-tag"></i>JobFlowId</label>
+		<input type="text" id="node-input-JobFlowId" placeholder="JobFlowId"></input>
+	</div> 
+	<div class="form-row" id='StepsAttr' class='hiddenAttrs'>
+		<label for="node-input-Steps"><i class="fa fa-tag"></i>Steps</label>
+		<input type="text" id="node-input-Steps" placeholder="Steps"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i>ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='StepIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-StepIds"><i class="fa fa-tag"></i>StepIds</label>
+		<input type="text" id="node-input-StepIds" placeholder="StepIds"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SecurityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityConfiguration"><i class="fa fa-tag"></i>SecurityConfiguration</label>
+		<input type="text" id="node-input-SecurityConfiguration" placeholder="SecurityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='AuthModeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthMode"><i class="fa fa-tag"></i>AuthMode</label>
+		<input type="text" id="node-input-AuthMode" placeholder="AuthMode"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i>VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='ServiceRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceRole"><i class="fa fa-tag"></i>ServiceRole</label>
+		<input type="text" id="node-input-ServiceRole" placeholder="ServiceRole"></input>
+	</div> 
+	<div class="form-row" id='UserRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-UserRole"><i class="fa fa-tag"></i>UserRole</label>
+		<input type="text" id="node-input-UserRole" placeholder="UserRole"></input>
+	</div> 
+	<div class="form-row" id='WorkspaceSecurityGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceSecurityGroupId"><i class="fa fa-tag"></i>WorkspaceSecurityGroupId</label>
+		<input type="text" id="node-input-WorkspaceSecurityGroupId" placeholder="WorkspaceSecurityGroupId"></input>
+	</div> 
+	<div class="form-row" id='EngineSecurityGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineSecurityGroupId"><i class="fa fa-tag"></i>EngineSecurityGroupId</label>
+		<input type="text" id="node-input-EngineSecurityGroupId" placeholder="EngineSecurityGroupId"></input>
+	</div> 
+	<div class="form-row" id='DefaultS3LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultS3Location"><i class="fa fa-tag"></i>DefaultS3Location</label>
+		<input type="text" id="node-input-DefaultS3Location" placeholder="DefaultS3Location"></input>
+	</div> 
+	<div class="form-row" id='StudioIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StudioId"><i class="fa fa-tag"></i>StudioId</label>
+		<input type="text" id="node-input-StudioId" placeholder="StudioId"></input>
+	</div> 
+	<div class="form-row" id='IdentityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityType"><i class="fa fa-tag"></i>IdentityType</label>
+		<input type="text" id="node-input-IdentityType" placeholder="IdentityType"></input>
+	</div> 
+	<div class="form-row" id='SessionPolicyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionPolicyArn"><i class="fa fa-tag"></i>SessionPolicyArn</label>
+		<input type="text" id="node-input-SessionPolicyArn" placeholder="SessionPolicyArn"></input>
+	</div> 
+	<div class="form-row" id='NotebookExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NotebookExecutionId"><i class="fa fa-tag"></i>NotebookExecutionId</label>
+		<input type="text" id="node-input-NotebookExecutionId" placeholder="NotebookExecutionId"></input>
+	</div> 
+	<div class="form-row" id='StepIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StepId"><i class="fa fa-tag"></i>StepId</label>
+		<input type="text" id="node-input-StepId" placeholder="StepId"></input>
+	</div> 
+	<div class="form-row" id='InstanceGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceGroupId"><i class="fa fa-tag"></i>InstanceGroupId</label>
+		<input type="text" id="node-input-InstanceGroupId" placeholder="InstanceGroupId"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingPolicy"><i class="fa fa-tag"></i>AutoScalingPolicy</label>
+		<input type="text" id="node-input-AutoScalingPolicy" placeholder="AutoScalingPolicy"></input>
+	</div> 
+	<div class="form-row" id='BlockPublicAccessConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-BlockPublicAccessConfiguration"><i class="fa fa-tag"></i>BlockPublicAccessConfiguration</label>
+		<input type="text" id="node-input-BlockPublicAccessConfiguration" placeholder="BlockPublicAccessConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ManagedScalingPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-ManagedScalingPolicy"><i class="fa fa-tag"></i>ManagedScalingPolicy</label>
+		<input type="text" id="node-input-ManagedScalingPolicy" placeholder="ManagedScalingPolicy"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='InstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-Instances"><i class="fa fa-tag"></i>Instances</label>
+		<input type="text" id="node-input-Instances" placeholder="Instances"></input>
+	</div> 
+	<div class="form-row" id='JobFlowIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-JobFlowIds"><i class="fa fa-tag"></i>JobFlowIds</label>
+		<input type="text" id="node-input-JobFlowIds" placeholder="JobFlowIds"></input>
+	</div> 
+	<div class="form-row" id='TerminationProtectedAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminationProtected"><i class="fa fa-tag"></i>TerminationProtected</label>
+		<input type="text" id="node-input-TerminationProtected" placeholder="TerminationProtected"></input>
+	</div> 
+	<div class="form-row" id='VisibleToAllUsersAttr' class='hiddenAttrs'>
+		<label for="node-input-VisibleToAllUsers"><i class="fa fa-tag"></i>VisibleToAllUsers</label>
+		<input type="text" id="node-input-VisibleToAllUsers" placeholder="VisibleToAllUsers"></input>
+	</div> 
+	<div class="form-row" id='EditorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EditorId"><i class="fa fa-tag"></i>EditorId</label>
+		<input type="text" id="node-input-EditorId" placeholder="EditorId"></input>
+	</div> 
+	<div class="form-row" id='RelativePathAttr' class='hiddenAttrs'>
+		<label for="node-input-RelativePath"><i class="fa fa-tag"></i>RelativePath</label>
+		<input type="text" id="node-input-RelativePath" placeholder="RelativePath"></input>
+	</div> 
+	<div class="form-row" id='ExecutionEngineAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionEngine"><i class="fa fa-tag"></i>ExecutionEngine</label>
+		<input type="text" id="node-input-ExecutionEngine" placeholder="ExecutionEngine"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddInstanceFleet:[
+					'#ClusterIdAttr','#InstanceFleetAttr'
+					],
+				AddInstanceGroups:[
+					'#InstanceGroupsAttr','#JobFlowIdAttr'
+					],
+				AddJobFlowSteps:[
+					'#JobFlowIdAttr','#StepsAttr'
+					],
+				AddTags:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				CancelSteps:[
+					'#ClusterIdAttr','#StepIdsAttr'
+					],
+				CreateSecurityConfiguration:[
+					'#NameAttr','#SecurityConfigurationAttr'
+					],
+				CreateStudio:[
+					'#NameAttr','#AuthModeAttr','#VpcIdAttr','#SubnetIdsAttr','#ServiceRoleAttr','#UserRoleAttr','#WorkspaceSecurityGroupIdAttr','#EngineSecurityGroupIdAttr','#DefaultS3LocationAttr'
+					],
+				CreateStudioSessionMapping:[
+					'#StudioIdAttr','#IdentityTypeAttr','#SessionPolicyArnAttr'
+					],
+				DeleteSecurityConfiguration:[
+					'#NameAttr'
+					],
+				DeleteStudio:[
+					'#StudioIdAttr'
+					],
+				DeleteStudioSessionMapping:[
+					'#StudioIdAttr','#IdentityTypeAttr'
+					],
+				DescribeCluster:[
+					'#ClusterIdAttr'
+					],
+				DescribeJobFlows:[
+					
+					],
+				DescribeNotebookExecution:[
+					'#NotebookExecutionIdAttr'
+					],
+				DescribeReleaseLabel:[
+					
+					],
+				DescribeSecurityConfiguration:[
+					'#NameAttr'
+					],
+				DescribeStep:[
+					'#ClusterIdAttr','#StepIdAttr'
+					],
+				DescribeStudio:[
+					'#StudioIdAttr'
+					],
+				GetBlockPublicAccessConfiguration:[
+					
+					],
+				GetManagedScalingPolicy:[
+					'#ClusterIdAttr'
+					],
+				GetStudioSessionMapping:[
+					'#StudioIdAttr','#IdentityTypeAttr'
+					],
+				ListBootstrapActions:[
+					'#ClusterIdAttr'
+					],
+				ListClusters:[
+					
+					],
+				ListInstanceFleets:[
+					'#ClusterIdAttr'
+					],
+				ListInstanceGroups:[
+					'#ClusterIdAttr'
+					],
+				ListInstances:[
+					'#ClusterIdAttr'
+					],
+				ListNotebookExecutions:[
+					
+					],
+				ListReleaseLabels:[
+					
+					],
+				ListSecurityConfigurations:[
+					
+					],
+				ListSteps:[
+					'#ClusterIdAttr'
+					],
+				ListStudioSessionMappings:[
+					
+					],
+				ListStudios:[
+					
+					],
+				ModifyCluster:[
+					'#ClusterIdAttr'
+					],
+				ModifyInstanceFleet:[
+					'#ClusterIdAttr','#InstanceFleetAttr'
+					],
+				ModifyInstanceGroups:[
+					
+					],
+				PutAutoScalingPolicy:[
+					'#ClusterIdAttr','#InstanceGroupIdAttr','#AutoScalingPolicyAttr'
+					],
+				PutBlockPublicAccessConfiguration:[
+					'#BlockPublicAccessConfigurationAttr'
+					],
+				PutManagedScalingPolicy:[
+					'#ClusterIdAttr','#ManagedScalingPolicyAttr'
+					],
+				RemoveAutoScalingPolicy:[
+					'#ClusterIdAttr','#InstanceGroupIdAttr'
+					],
+				RemoveManagedScalingPolicy:[
+					'#ClusterIdAttr'
+					],
+				RemoveTags:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				RunJobFlow:[
+					'#NameAttr','#InstancesAttr'
+					],
+				SetTerminationProtection:[
+					'#JobFlowIdsAttr','#TerminationProtectedAttr'
+					],
+				SetVisibleToAllUsers:[
+					'#JobFlowIdsAttr','#VisibleToAllUsersAttr'
+					],
+				StartNotebookExecution:[
+					'#EditorIdAttr','#RelativePathAttr','#ExecutionEngineAttr','#ServiceRoleAttr'
+					],
+				StopNotebookExecution:[
+					'#NotebookExecutionIdAttr'
+					],
+				TerminateJobFlows:[
+					'#JobFlowIdsAttr'
+					],
+				UpdateStudio:[
+					'#StudioIdAttr'
+					],
+				UpdateStudioSessionMapping:[
+					'#StudioIdAttr','#IdentityTypeAttr','#SessionPolicyArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS EMR">
+<p>
+AWS EMR
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EMR.html">EMR</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS EMR',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddInstanceFleet' },
+			
+				ClusterId: { value: ""} ,
+				InstanceFleet: { value: ""} ,
+				InstanceGroups: { value: ""} ,
+				JobFlowId: { value: ""} ,
+				Steps: { value: ""} ,
+				ResourceId: { value: ""} ,
+				Tags: { value: ""} ,
+				StepIds: { value: ""} ,
+				Name: { value: ""} ,
+				SecurityConfiguration: { value: ""} ,
+				AuthMode: { value: ""} ,
+				VpcId: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				ServiceRole: { value: ""} ,
+				UserRole: { value: ""} ,
+				WorkspaceSecurityGroupId: { value: ""} ,
+				EngineSecurityGroupId: { value: ""} ,
+				DefaultS3Location: { value: ""} ,
+				StudioId: { value: ""} ,
+				IdentityType: { value: ""} ,
+				SessionPolicyArn: { value: ""} ,
+				NotebookExecutionId: { value: ""} ,
+				StepId: { value: ""} ,
+				InstanceGroupId: { value: ""} ,
+				AutoScalingPolicy: { value: ""} ,
+				BlockPublicAccessConfiguration: { value: ""} ,
+				ManagedScalingPolicy: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Instances: { value: ""} ,
+				JobFlowIds: { value: ""} ,
+				TerminationProtected: { value: ""} ,
+				VisibleToAllUsers: { value: ""} ,
+				EditorId: { value: ""} ,
+				RelativePath: { value: ""} ,
+				ExecutionEngine: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "EMR " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

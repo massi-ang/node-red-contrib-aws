@@ -1,0 +1,1056 @@
+
+/**
+ * Copyright 2021 Daniel Thomas.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ **/
+
+module.exports = function(RED) {
+	"use strict";
+
+	function AmazonAPINode(n) {
+		RED.nodes.createNode(this,n);
+		this.awsConfig = RED.nodes.getNode(n.aws);
+		this.region = n.region || this.awsConfig.region;
+		this.operation = n.operation;
+		this.name = n.name;
+		//this.region = this.awsConfig.region;
+		
+		this.accessKey = this.awsConfig.accessKey;
+		this.secretKey = this.awsConfig.secretKey;
+
+		var node = this;
+		var AWS = require("aws-sdk");
+		if (this.awsConfig.useEcsCredentials) {
+			AWS.config.update({
+				region: this.region
+			});
+			AWS.config.credentials = new AWS.ECSCredentials({
+				httpOptions: { timeout: 5000 }, // 5 second timeout
+				maxRetries: 10, // retry 10 times
+				retryDelayOptions: { base: 200 } // see AWS.Config for information
+			  });
+		} else {
+			AWS.config.update({
+				accessKeyId: this.accessKey,
+				secretAccessKey: this.secretKey,
+				region: this.region
+			});
+ 	    }
+		if (!AWS) {
+			node.warn("Missing AWS credentials");
+			return;
+		}
+
+        if (this.awsConfig.proxyRequired){
+            var proxy = require('proxy-agent');
+            AWS.config.update({
+                httpOptions: { agent: new proxy(this.awsConfig.proxy) }
+            });
+        }
+
+		var awsService = new AWS.Comprehend( { 'region': node.region } );
+		
+		node.on("input", function(msg) {
+			var aService = msg.AWSConfig?new AWS.Comprehend(msg.AWSConfig) : awsService;
+
+			node.sendMsg = function (err, data, msg) {
+				if (err) {
+				    node.status({fill:"red",shape:"ring",text:"error"});
+                    node.error("failed: " + err.toString(), msg);
+                    node.send([null, { err: err }]);
+    				return;
+				} else {
+				msg.payload = data;
+				node.status({});
+				}
+				node.send([msg,null]);
+			};
+
+			if (typeof service[node.operation] == "function"){
+				node.status({fill:"blue",shape:"dot",text:node.operation});
+				service[node.operation](aService,msg,function(err,data){
+   				node.sendMsg(err, data, msg);
+   			});
+			} else {
+				node.error("failed: Operation node defined - "+node.operation);
+			}
+
+		});
+		var copyArg=function(src,arg,out,outArg,isObject){
+			var tmpValue=src[arg];
+			outArg = (typeof outArg !== 'undefined') ? outArg : arg;
+
+			if (typeof src[arg] !== 'undefined'){
+				if (isObject && typeof src[arg]=="string" && src[arg] != "") {
+					tmpValue=JSON.parse(src[arg]);
+				}
+				out[outArg]=tmpValue;
+			}
+                        //AWS API takes 'Payload' not 'payload' (see Lambda)
+                        if (arg=="Payload" && typeof tmpValue == 'undefined'){
+                                out[arg]=src["payload"];
+                        }
+
+		}
+
+		var service={};
+
+		
+		service.BatchDetectDominantLanguage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TextList",params,undefined,true); 
+			
+			copyArg(msg,"TextList",params,undefined,true); 
+			
+
+			svc.batchDetectDominantLanguage(params,cb);
+		}
+
+		
+		service.BatchDetectEntities=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TextList",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"TextList",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.batchDetectEntities(params,cb);
+		}
+
+		
+		service.BatchDetectKeyPhrases=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TextList",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"TextList",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.batchDetectKeyPhrases(params,cb);
+		}
+
+		
+		service.BatchDetectSentiment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TextList",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"TextList",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.batchDetectSentiment(params,cb);
+		}
+
+		
+		service.BatchDetectSyntax=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"TextList",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"TextList",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.batchDetectSyntax(params,cb);
+		}
+
+		
+		service.ClassifyDocument=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			copyArg(n,"EndpointArn",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			copyArg(msg,"EndpointArn",params,undefined,false); 
+			
+
+			svc.classifyDocument(params,cb);
+		}
+
+		
+		service.ContainsPiiEntities=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.containsPiiEntities(params,cb);
+		}
+
+		
+		service.CreateDocumentClassifier=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DocumentClassifierName",params,undefined,false); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"DocumentClassifierName",params,undefined,false); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			copyArg(msg,"Mode",params,undefined,false); 
+			copyArg(msg,"ModelKmsKeyId",params,undefined,false); 
+			
+
+			svc.createDocumentClassifier(params,cb);
+		}
+
+		
+		service.CreateEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointName",params,undefined,false); 
+			copyArg(n,"ModelArn",params,undefined,false); 
+			copyArg(n,"DesiredInferenceUnits",params,undefined,false); 
+			
+			copyArg(msg,"EndpointName",params,undefined,false); 
+			copyArg(msg,"ModelArn",params,undefined,false); 
+			copyArg(msg,"DesiredInferenceUnits",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			
+
+			svc.createEndpoint(params,cb);
+		}
+
+		
+		service.CreateEntityRecognizer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"RecognizerName",params,undefined,false); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"RecognizerName",params,undefined,false); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			copyArg(msg,"ModelKmsKeyId",params,undefined,false); 
+			
+
+			svc.createEntityRecognizer(params,cb);
+		}
+
+		
+		service.DeleteDocumentClassifier=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DocumentClassifierArn",params,undefined,false); 
+			
+			copyArg(msg,"DocumentClassifierArn",params,undefined,false); 
+			
+
+			svc.deleteDocumentClassifier(params,cb);
+		}
+
+		
+		service.DeleteEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointArn",params,undefined,false); 
+			
+			copyArg(msg,"EndpointArn",params,undefined,false); 
+			
+
+			svc.deleteEndpoint(params,cb);
+		}
+
+		
+		service.DeleteEntityRecognizer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EntityRecognizerArn",params,undefined,false); 
+			
+			copyArg(msg,"EntityRecognizerArn",params,undefined,false); 
+			
+
+			svc.deleteEntityRecognizer(params,cb);
+		}
+
+		
+		service.DescribeDocumentClassificationJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeDocumentClassificationJob(params,cb);
+		}
+
+		
+		service.DescribeDocumentClassifier=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DocumentClassifierArn",params,undefined,false); 
+			
+			copyArg(msg,"DocumentClassifierArn",params,undefined,false); 
+			
+
+			svc.describeDocumentClassifier(params,cb);
+		}
+
+		
+		service.DescribeDominantLanguageDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeDominantLanguageDetectionJob(params,cb);
+		}
+
+		
+		service.DescribeEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointArn",params,undefined,false); 
+			
+			copyArg(msg,"EndpointArn",params,undefined,false); 
+			
+
+			svc.describeEndpoint(params,cb);
+		}
+
+		
+		service.DescribeEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.DescribeEntityRecognizer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EntityRecognizerArn",params,undefined,false); 
+			
+			copyArg(msg,"EntityRecognizerArn",params,undefined,false); 
+			
+
+			svc.describeEntityRecognizer(params,cb);
+		}
+
+		
+		service.DescribeEventsDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeEventsDetectionJob(params,cb);
+		}
+
+		
+		service.DescribeKeyPhrasesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeKeyPhrasesDetectionJob(params,cb);
+		}
+
+		
+		service.DescribePiiEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describePiiEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.DescribeSentimentDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeSentimentDetectionJob(params,cb);
+		}
+
+		
+		service.DescribeTopicsDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.describeTopicsDetectionJob(params,cb);
+		}
+
+		
+		service.DetectDominantLanguage=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			
+
+			svc.detectDominantLanguage(params,cb);
+		}
+
+		
+		service.DetectEntities=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"EndpointArn",params,undefined,false); 
+			
+
+			svc.detectEntities(params,cb);
+		}
+
+		
+		service.DetectKeyPhrases=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.detectKeyPhrases(params,cb);
+		}
+
+		
+		service.DetectPiiEntities=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.detectPiiEntities(params,cb);
+		}
+
+		
+		service.DetectSentiment=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.detectSentiment(params,cb);
+		}
+
+		
+		service.DetectSyntax=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"Text",params,undefined,true); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"Text",params,undefined,true); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			
+
+			svc.detectSyntax(params,cb);
+		}
+
+		
+		service.ListDocumentClassificationJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listDocumentClassificationJobs(params,cb);
+		}
+
+		
+		service.ListDocumentClassifiers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listDocumentClassifiers(params,cb);
+		}
+
+		
+		service.ListDominantLanguageDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listDominantLanguageDetectionJobs(params,cb);
+		}
+
+		
+		service.ListEndpoints=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listEndpoints(params,cb);
+		}
+
+		
+		service.ListEntitiesDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listEntitiesDetectionJobs(params,cb);
+		}
+
+		
+		service.ListEntityRecognizers=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listEntityRecognizers(params,cb);
+		}
+
+		
+		service.ListEventsDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listEventsDetectionJobs(params,cb);
+		}
+
+		
+		service.ListKeyPhrasesDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listKeyPhrasesDetectionJobs(params,cb);
+		}
+
+		
+		service.ListPiiEntitiesDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listPiiEntitiesDetectionJobs(params,cb);
+		}
+
+		
+		service.ListSentimentDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listSentimentDetectionJobs(params,cb);
+		}
+
+		
+		service.ListTagsForResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			
+
+			svc.listTagsForResource(params,cb);
+		}
+
+		
+		service.ListTopicsDetectionJobs=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			
+			copyArg(msg,"Filter",params,undefined,false); 
+			copyArg(msg,"NextToken",params,undefined,false); 
+			copyArg(msg,"MaxResults",params,undefined,false); 
+			
+
+			svc.listTopicsDetectionJobs(params,cb);
+		}
+
+		
+		service.StartDocumentClassificationJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DocumentClassifierArn",params,undefined,false); 
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"DocumentClassifierArn",params,undefined,false); 
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startDocumentClassificationJob(params,cb);
+		}
+
+		
+		service.StartDominantLanguageDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startDominantLanguageDetectionJob(params,cb);
+		}
+
+		
+		service.StartEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"EntityRecognizerArn",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.StartEventsDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			copyArg(n,"TargetEventTypes",params,undefined,true); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"TargetEventTypes",params,undefined,true); 
+			
+
+			svc.startEventsDetectionJob(params,cb);
+		}
+
+		
+		service.StartKeyPhrasesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startKeyPhrasesDetectionJob(params,cb);
+		}
+
+		
+		service.StartPiiEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"Mode",params,undefined,false); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"Mode",params,undefined,false); 
+			copyArg(msg,"RedactionConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			
+
+			svc.startPiiEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.StartSentimentDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(n,"LanguageCode",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"LanguageCode",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startSentimentDetectionJob(params,cb);
+		}
+
+		
+		service.StartTopicsDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"InputDataConfig",params,undefined,true); 
+			copyArg(n,"OutputDataConfig",params,undefined,true); 
+			copyArg(n,"DataAccessRoleArn",params,undefined,false); 
+			
+			copyArg(msg,"InputDataConfig",params,undefined,true); 
+			copyArg(msg,"OutputDataConfig",params,undefined,true); 
+			copyArg(msg,"DataAccessRoleArn",params,undefined,false); 
+			copyArg(msg,"JobName",params,undefined,false); 
+			copyArg(msg,"NumberOfTopics",params,undefined,false); 
+			copyArg(msg,"ClientRequestToken",params,undefined,false); 
+			copyArg(msg,"VolumeKmsKeyId",params,undefined,false); 
+			copyArg(msg,"VpcConfig",params,undefined,true); 
+			
+
+			svc.startTopicsDetectionJob(params,cb);
+		}
+
+		
+		service.StopDominantLanguageDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopDominantLanguageDetectionJob(params,cb);
+		}
+
+		
+		service.StopEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.StopEventsDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopEventsDetectionJob(params,cb);
+		}
+
+		
+		service.StopKeyPhrasesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopKeyPhrasesDetectionJob(params,cb);
+		}
+
+		
+		service.StopPiiEntitiesDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopPiiEntitiesDetectionJob(params,cb);
+		}
+
+		
+		service.StopSentimentDetectionJob=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"JobId",params,undefined,false); 
+			
+			copyArg(msg,"JobId",params,undefined,false); 
+			
+
+			svc.stopSentimentDetectionJob(params,cb);
+		}
+
+		
+		service.StopTrainingDocumentClassifier=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"DocumentClassifierArn",params,undefined,false); 
+			
+			copyArg(msg,"DocumentClassifierArn",params,undefined,false); 
+			
+
+			svc.stopTrainingDocumentClassifier(params,cb);
+		}
+
+		
+		service.StopTrainingEntityRecognizer=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EntityRecognizerArn",params,undefined,false); 
+			
+			copyArg(msg,"EntityRecognizerArn",params,undefined,false); 
+			
+
+			svc.stopTrainingEntityRecognizer(params,cb);
+		}
+
+		
+		service.TagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			copyArg(n,"Tags",params,undefined,true); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"Tags",params,undefined,true); 
+			
+
+			svc.tagResource(params,cb);
+		}
+
+		
+		service.UntagResource=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"ResourceArn",params,undefined,false); 
+			copyArg(n,"TagKeys",params,undefined,false); 
+			
+			copyArg(msg,"ResourceArn",params,undefined,false); 
+			copyArg(msg,"TagKeys",params,undefined,false); 
+			
+
+			svc.untagResource(params,cb);
+		}
+
+		
+		service.UpdateEndpoint=function(svc,msg,cb){
+			var params={};
+			//copyArgs
+			
+			copyArg(n,"EndpointArn",params,undefined,false); 
+			copyArg(n,"DesiredInferenceUnits",params,undefined,false); 
+			
+			copyArg(msg,"EndpointArn",params,undefined,false); 
+			copyArg(msg,"DesiredInferenceUnits",params,undefined,false); 
+			
+
+			svc.updateEndpoint(params,cb);
+		}
+
+		 
+
+	}
+	RED.nodes.registerType("AWS Comprehend", AmazonAPINode);
+
+};

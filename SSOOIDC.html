@@ -1,0 +1,141 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS SSOOIDC">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateToken">CreateToken</option>
+		
+			<option value="RegisterClient">RegisterClient</option>
+		
+			<option value="StartDeviceAuthorization">StartDeviceAuthorization</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='clientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-clientId"><i class="fa fa-tag"></i>clientId</label>
+		<input type="text" id="node-input-clientId" placeholder="clientId"></input>
+	</div> 
+	<div class="form-row" id='clientSecretAttr' class='hiddenAttrs'>
+		<label for="node-input-clientSecret"><i class="fa fa-tag"></i>clientSecret</label>
+		<input type="text" id="node-input-clientSecret" placeholder="clientSecret"></input>
+	</div> 
+	<div class="form-row" id='grantTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-grantType"><i class="fa fa-tag"></i>grantType</label>
+		<input type="text" id="node-input-grantType" placeholder="grantType"></input>
+	</div> 
+	<div class="form-row" id='deviceCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-deviceCode"><i class="fa fa-tag"></i>deviceCode</label>
+		<input type="text" id="node-input-deviceCode" placeholder="deviceCode"></input>
+	</div> 
+	<div class="form-row" id='clientNameAttr' class='hiddenAttrs'>
+		<label for="node-input-clientName"><i class="fa fa-tag"></i>clientName</label>
+		<input type="text" id="node-input-clientName" placeholder="clientName"></input>
+	</div> 
+	<div class="form-row" id='clientTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-clientType"><i class="fa fa-tag"></i>clientType</label>
+		<input type="text" id="node-input-clientType" placeholder="clientType"></input>
+	</div> 
+	<div class="form-row" id='startUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-startUrl"><i class="fa fa-tag"></i>startUrl</label>
+		<input type="text" id="node-input-startUrl" placeholder="startUrl"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateToken:[
+					'#clientIdAttr','#clientSecretAttr','#grantTypeAttr','#deviceCodeAttr'
+					],
+				RegisterClient:[
+					'#clientNameAttr','#clientTypeAttr'
+					],
+				StartDeviceAuthorization:[
+					'#clientIdAttr','#clientSecretAttr','#startUrlAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS SSOOIDC">
+<p>
+AWS SSOOIDC
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SSOOIDC.html">SSOOIDC</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SSOOIDC',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateToken' },
+			
+				clientId: { value: ""} ,
+				clientSecret: { value: ""} ,
+				grantType: { value: ""} ,
+				deviceCode: { value: ""} ,
+				clientName: { value: ""} ,
+				clientType: { value: ""} ,
+				startUrl: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SSOOIDC " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

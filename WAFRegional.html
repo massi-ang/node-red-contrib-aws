@@ -1,0 +1,641 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS WAFRegional">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateWebACL">AssociateWebACL</option>
+		
+			<option value="CreateByteMatchSet">CreateByteMatchSet</option>
+		
+			<option value="CreateGeoMatchSet">CreateGeoMatchSet</option>
+		
+			<option value="CreateIPSet">CreateIPSet</option>
+		
+			<option value="CreateRateBasedRule">CreateRateBasedRule</option>
+		
+			<option value="CreateRegexMatchSet">CreateRegexMatchSet</option>
+		
+			<option value="CreateRegexPatternSet">CreateRegexPatternSet</option>
+		
+			<option value="CreateRule">CreateRule</option>
+		
+			<option value="CreateRuleGroup">CreateRuleGroup</option>
+		
+			<option value="CreateSizeConstraintSet">CreateSizeConstraintSet</option>
+		
+			<option value="CreateSqlInjectionMatchSet">CreateSqlInjectionMatchSet</option>
+		
+			<option value="CreateWebACL">CreateWebACL</option>
+		
+			<option value="CreateWebACLMigrationStack">CreateWebACLMigrationStack</option>
+		
+			<option value="CreateXssMatchSet">CreateXssMatchSet</option>
+		
+			<option value="DeleteByteMatchSet">DeleteByteMatchSet</option>
+		
+			<option value="DeleteGeoMatchSet">DeleteGeoMatchSet</option>
+		
+			<option value="DeleteIPSet">DeleteIPSet</option>
+		
+			<option value="DeleteLoggingConfiguration">DeleteLoggingConfiguration</option>
+		
+			<option value="DeletePermissionPolicy">DeletePermissionPolicy</option>
+		
+			<option value="DeleteRateBasedRule">DeleteRateBasedRule</option>
+		
+			<option value="DeleteRegexMatchSet">DeleteRegexMatchSet</option>
+		
+			<option value="DeleteRegexPatternSet">DeleteRegexPatternSet</option>
+		
+			<option value="DeleteRule">DeleteRule</option>
+		
+			<option value="DeleteRuleGroup">DeleteRuleGroup</option>
+		
+			<option value="DeleteSizeConstraintSet">DeleteSizeConstraintSet</option>
+		
+			<option value="DeleteSqlInjectionMatchSet">DeleteSqlInjectionMatchSet</option>
+		
+			<option value="DeleteWebACL">DeleteWebACL</option>
+		
+			<option value="DeleteXssMatchSet">DeleteXssMatchSet</option>
+		
+			<option value="DisassociateWebACL">DisassociateWebACL</option>
+		
+			<option value="GetByteMatchSet">GetByteMatchSet</option>
+		
+			<option value="GetChangeToken">GetChangeToken</option>
+		
+			<option value="GetChangeTokenStatus">GetChangeTokenStatus</option>
+		
+			<option value="GetGeoMatchSet">GetGeoMatchSet</option>
+		
+			<option value="GetIPSet">GetIPSet</option>
+		
+			<option value="GetLoggingConfiguration">GetLoggingConfiguration</option>
+		
+			<option value="GetPermissionPolicy">GetPermissionPolicy</option>
+		
+			<option value="GetRateBasedRule">GetRateBasedRule</option>
+		
+			<option value="GetRateBasedRuleManagedKeys">GetRateBasedRuleManagedKeys</option>
+		
+			<option value="GetRegexMatchSet">GetRegexMatchSet</option>
+		
+			<option value="GetRegexPatternSet">GetRegexPatternSet</option>
+		
+			<option value="GetRule">GetRule</option>
+		
+			<option value="GetRuleGroup">GetRuleGroup</option>
+		
+			<option value="GetSampledRequests">GetSampledRequests</option>
+		
+			<option value="GetSizeConstraintSet">GetSizeConstraintSet</option>
+		
+			<option value="GetSqlInjectionMatchSet">GetSqlInjectionMatchSet</option>
+		
+			<option value="GetWebACL">GetWebACL</option>
+		
+			<option value="GetWebACLForResource">GetWebACLForResource</option>
+		
+			<option value="GetXssMatchSet">GetXssMatchSet</option>
+		
+			<option value="ListActivatedRulesInRuleGroup">ListActivatedRulesInRuleGroup</option>
+		
+			<option value="ListByteMatchSets">ListByteMatchSets</option>
+		
+			<option value="ListGeoMatchSets">ListGeoMatchSets</option>
+		
+			<option value="ListIPSets">ListIPSets</option>
+		
+			<option value="ListLoggingConfigurations">ListLoggingConfigurations</option>
+		
+			<option value="ListRateBasedRules">ListRateBasedRules</option>
+		
+			<option value="ListRegexMatchSets">ListRegexMatchSets</option>
+		
+			<option value="ListRegexPatternSets">ListRegexPatternSets</option>
+		
+			<option value="ListResourcesForWebACL">ListResourcesForWebACL</option>
+		
+			<option value="ListRuleGroups">ListRuleGroups</option>
+		
+			<option value="ListRules">ListRules</option>
+		
+			<option value="ListSizeConstraintSets">ListSizeConstraintSets</option>
+		
+			<option value="ListSqlInjectionMatchSets">ListSqlInjectionMatchSets</option>
+		
+			<option value="ListSubscribedRuleGroups">ListSubscribedRuleGroups</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebACLs">ListWebACLs</option>
+		
+			<option value="ListXssMatchSets">ListXssMatchSets</option>
+		
+			<option value="PutLoggingConfiguration">PutLoggingConfiguration</option>
+		
+			<option value="PutPermissionPolicy">PutPermissionPolicy</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateByteMatchSet">UpdateByteMatchSet</option>
+		
+			<option value="UpdateGeoMatchSet">UpdateGeoMatchSet</option>
+		
+			<option value="UpdateIPSet">UpdateIPSet</option>
+		
+			<option value="UpdateRateBasedRule">UpdateRateBasedRule</option>
+		
+			<option value="UpdateRegexMatchSet">UpdateRegexMatchSet</option>
+		
+			<option value="UpdateRegexPatternSet">UpdateRegexPatternSet</option>
+		
+			<option value="UpdateRule">UpdateRule</option>
+		
+			<option value="UpdateRuleGroup">UpdateRuleGroup</option>
+		
+			<option value="UpdateSizeConstraintSet">UpdateSizeConstraintSet</option>
+		
+			<option value="UpdateSqlInjectionMatchSet">UpdateSqlInjectionMatchSet</option>
+		
+			<option value="UpdateWebACL">UpdateWebACL</option>
+		
+			<option value="UpdateXssMatchSet">UpdateXssMatchSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='WebACLIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLId"><i class="fa fa-tag"></i>WebACLId</label>
+		<input type="text" id="node-input-WebACLId" placeholder="WebACLId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ChangeTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeToken"><i class="fa fa-tag"></i>ChangeToken</label>
+		<input type="text" id="node-input-ChangeToken" placeholder="ChangeToken"></input>
+	</div> 
+	<div class="form-row" id='MetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricName"><i class="fa fa-tag"></i>MetricName</label>
+		<input type="text" id="node-input-MetricName" placeholder="MetricName"></input>
+	</div> 
+	<div class="form-row" id='RateKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-RateKey"><i class="fa fa-tag"></i>RateKey</label>
+		<input type="text" id="node-input-RateKey" placeholder="RateKey"></input>
+	</div> 
+	<div class="form-row" id='RateLimitAttr' class='hiddenAttrs'>
+		<label for="node-input-RateLimit"><i class="fa fa-tag"></i>RateLimit</label>
+		<input type="text" id="node-input-RateLimit" placeholder="RateLimit"></input>
+	</div> 
+	<div class="form-row" id='DefaultActionAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultAction"><i class="fa fa-tag"></i>DefaultAction</label>
+		<input type="text" id="node-input-DefaultAction" placeholder="DefaultAction"></input>
+	</div> 
+	<div class="form-row" id='S3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-S3BucketName"><i class="fa fa-tag"></i>S3BucketName</label>
+		<input type="text" id="node-input-S3BucketName" placeholder="S3BucketName"></input>
+	</div> 
+	<div class="form-row" id='IgnoreUnsupportedTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IgnoreUnsupportedType"><i class="fa fa-tag"></i>IgnoreUnsupportedType</label>
+		<input type="text" id="node-input-IgnoreUnsupportedType" placeholder="IgnoreUnsupportedType"></input>
+	</div> 
+	<div class="form-row" id='ByteMatchSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ByteMatchSetId"><i class="fa fa-tag"></i>ByteMatchSetId</label>
+		<input type="text" id="node-input-ByteMatchSetId" placeholder="ByteMatchSetId"></input>
+	</div> 
+	<div class="form-row" id='GeoMatchSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GeoMatchSetId"><i class="fa fa-tag"></i>GeoMatchSetId</label>
+		<input type="text" id="node-input-GeoMatchSetId" placeholder="GeoMatchSetId"></input>
+	</div> 
+	<div class="form-row" id='IPSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IPSetId"><i class="fa fa-tag"></i>IPSetId</label>
+		<input type="text" id="node-input-IPSetId" placeholder="IPSetId"></input>
+	</div> 
+	<div class="form-row" id='RuleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleId"><i class="fa fa-tag"></i>RuleId</label>
+		<input type="text" id="node-input-RuleId" placeholder="RuleId"></input>
+	</div> 
+	<div class="form-row" id='RegexMatchSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RegexMatchSetId"><i class="fa fa-tag"></i>RegexMatchSetId</label>
+		<input type="text" id="node-input-RegexMatchSetId" placeholder="RegexMatchSetId"></input>
+	</div> 
+	<div class="form-row" id='RegexPatternSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RegexPatternSetId"><i class="fa fa-tag"></i>RegexPatternSetId</label>
+		<input type="text" id="node-input-RegexPatternSetId" placeholder="RegexPatternSetId"></input>
+	</div> 
+	<div class="form-row" id='RuleGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleGroupId"><i class="fa fa-tag"></i>RuleGroupId</label>
+		<input type="text" id="node-input-RuleGroupId" placeholder="RuleGroupId"></input>
+	</div> 
+	<div class="form-row" id='SizeConstraintSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SizeConstraintSetId"><i class="fa fa-tag"></i>SizeConstraintSetId</label>
+		<input type="text" id="node-input-SizeConstraintSetId" placeholder="SizeConstraintSetId"></input>
+	</div> 
+	<div class="form-row" id='SqlInjectionMatchSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SqlInjectionMatchSetId"><i class="fa fa-tag"></i>SqlInjectionMatchSetId</label>
+		<input type="text" id="node-input-SqlInjectionMatchSetId" placeholder="SqlInjectionMatchSetId"></input>
+	</div> 
+	<div class="form-row" id='XssMatchSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-XssMatchSetId"><i class="fa fa-tag"></i>XssMatchSetId</label>
+		<input type="text" id="node-input-XssMatchSetId" placeholder="XssMatchSetId"></input>
+	</div> 
+	<div class="form-row" id='WebAclIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebAclId"><i class="fa fa-tag"></i>WebAclId</label>
+		<input type="text" id="node-input-WebAclId" placeholder="WebAclId"></input>
+	</div> 
+	<div class="form-row" id='TimeWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeWindow"><i class="fa fa-tag"></i>TimeWindow</label>
+		<input type="text" id="node-input-TimeWindow" placeholder="TimeWindow"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i>MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='LoggingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingConfiguration"><i class="fa fa-tag"></i>LoggingConfiguration</label>
+		<input type="text" id="node-input-LoggingConfiguration" placeholder="LoggingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='UpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-Updates"><i class="fa fa-tag"></i>Updates</label>
+		<input type="text" id="node-input-Updates" placeholder="Updates"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateWebACL:[
+					'#WebACLIdAttr','#ResourceArnAttr'
+					],
+				CreateByteMatchSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateGeoMatchSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateIPSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateRateBasedRule:[
+					'#NameAttr','#MetricNameAttr','#RateKeyAttr','#RateLimitAttr','#ChangeTokenAttr'
+					],
+				CreateRegexMatchSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateRegexPatternSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateRule:[
+					'#NameAttr','#MetricNameAttr','#ChangeTokenAttr'
+					],
+				CreateRuleGroup:[
+					'#NameAttr','#MetricNameAttr','#ChangeTokenAttr'
+					],
+				CreateSizeConstraintSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateSqlInjectionMatchSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				CreateWebACL:[
+					'#NameAttr','#MetricNameAttr','#DefaultActionAttr','#ChangeTokenAttr'
+					],
+				CreateWebACLMigrationStack:[
+					'#WebACLIdAttr','#S3BucketNameAttr','#IgnoreUnsupportedTypeAttr'
+					],
+				CreateXssMatchSet:[
+					'#NameAttr','#ChangeTokenAttr'
+					],
+				DeleteByteMatchSet:[
+					'#ByteMatchSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteGeoMatchSet:[
+					'#GeoMatchSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteIPSet:[
+					'#IPSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteLoggingConfiguration:[
+					'#ResourceArnAttr'
+					],
+				DeletePermissionPolicy:[
+					'#ResourceArnAttr'
+					],
+				DeleteRateBasedRule:[
+					'#RuleIdAttr','#ChangeTokenAttr'
+					],
+				DeleteRegexMatchSet:[
+					'#RegexMatchSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteRegexPatternSet:[
+					'#RegexPatternSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteRule:[
+					'#RuleIdAttr','#ChangeTokenAttr'
+					],
+				DeleteRuleGroup:[
+					'#RuleGroupIdAttr','#ChangeTokenAttr'
+					],
+				DeleteSizeConstraintSet:[
+					'#SizeConstraintSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteSqlInjectionMatchSet:[
+					'#SqlInjectionMatchSetIdAttr','#ChangeTokenAttr'
+					],
+				DeleteWebACL:[
+					'#WebACLIdAttr','#ChangeTokenAttr'
+					],
+				DeleteXssMatchSet:[
+					'#XssMatchSetIdAttr','#ChangeTokenAttr'
+					],
+				DisassociateWebACL:[
+					'#ResourceArnAttr'
+					],
+				GetByteMatchSet:[
+					'#ByteMatchSetIdAttr'
+					],
+				GetChangeToken:[
+					
+					],
+				GetChangeTokenStatus:[
+					'#ChangeTokenAttr'
+					],
+				GetGeoMatchSet:[
+					'#GeoMatchSetIdAttr'
+					],
+				GetIPSet:[
+					'#IPSetIdAttr'
+					],
+				GetLoggingConfiguration:[
+					'#ResourceArnAttr'
+					],
+				GetPermissionPolicy:[
+					'#ResourceArnAttr'
+					],
+				GetRateBasedRule:[
+					'#RuleIdAttr'
+					],
+				GetRateBasedRuleManagedKeys:[
+					'#RuleIdAttr'
+					],
+				GetRegexMatchSet:[
+					'#RegexMatchSetIdAttr'
+					],
+				GetRegexPatternSet:[
+					'#RegexPatternSetIdAttr'
+					],
+				GetRule:[
+					'#RuleIdAttr'
+					],
+				GetRuleGroup:[
+					'#RuleGroupIdAttr'
+					],
+				GetSampledRequests:[
+					'#WebAclIdAttr','#RuleIdAttr','#TimeWindowAttr','#MaxItemsAttr'
+					],
+				GetSizeConstraintSet:[
+					'#SizeConstraintSetIdAttr'
+					],
+				GetSqlInjectionMatchSet:[
+					'#SqlInjectionMatchSetIdAttr'
+					],
+				GetWebACL:[
+					'#WebACLIdAttr'
+					],
+				GetWebACLForResource:[
+					'#ResourceArnAttr'
+					],
+				GetXssMatchSet:[
+					'#XssMatchSetIdAttr'
+					],
+				ListActivatedRulesInRuleGroup:[
+					
+					],
+				ListByteMatchSets:[
+					
+					],
+				ListGeoMatchSets:[
+					
+					],
+				ListIPSets:[
+					
+					],
+				ListLoggingConfigurations:[
+					
+					],
+				ListRateBasedRules:[
+					
+					],
+				ListRegexMatchSets:[
+					
+					],
+				ListRegexPatternSets:[
+					
+					],
+				ListResourcesForWebACL:[
+					'#WebACLIdAttr'
+					],
+				ListRuleGroups:[
+					
+					],
+				ListRules:[
+					
+					],
+				ListSizeConstraintSets:[
+					
+					],
+				ListSqlInjectionMatchSets:[
+					
+					],
+				ListSubscribedRuleGroups:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListWebACLs:[
+					
+					],
+				ListXssMatchSets:[
+					
+					],
+				PutLoggingConfiguration:[
+					'#LoggingConfigurationAttr'
+					],
+				PutPermissionPolicy:[
+					'#ResourceArnAttr','#PolicyAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateByteMatchSet:[
+					'#ByteMatchSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateGeoMatchSet:[
+					'#GeoMatchSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateIPSet:[
+					'#IPSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateRateBasedRule:[
+					'#RuleIdAttr','#ChangeTokenAttr','#UpdatesAttr','#RateLimitAttr'
+					],
+				UpdateRegexMatchSet:[
+					'#RegexMatchSetIdAttr','#UpdatesAttr','#ChangeTokenAttr'
+					],
+				UpdateRegexPatternSet:[
+					'#RegexPatternSetIdAttr','#UpdatesAttr','#ChangeTokenAttr'
+					],
+				UpdateRule:[
+					'#RuleIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateRuleGroup:[
+					'#RuleGroupIdAttr','#UpdatesAttr','#ChangeTokenAttr'
+					],
+				UpdateSizeConstraintSet:[
+					'#SizeConstraintSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateSqlInjectionMatchSet:[
+					'#SqlInjectionMatchSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					],
+				UpdateWebACL:[
+					'#WebACLIdAttr','#ChangeTokenAttr'
+					],
+				UpdateXssMatchSet:[
+					'#XssMatchSetIdAttr','#ChangeTokenAttr','#UpdatesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS WAFRegional">
+<p>
+AWS WAFRegional
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WAFRegional.html">WAFRegional</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WAFRegional',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateWebACL' },
+			
+				WebACLId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Name: { value: ""} ,
+				ChangeToken: { value: ""} ,
+				MetricName: { value: ""} ,
+				RateKey: { value: ""} ,
+				RateLimit: { value: ""} ,
+				DefaultAction: { value: ""} ,
+				S3BucketName: { value: ""} ,
+				IgnoreUnsupportedType: { value: ""} ,
+				ByteMatchSetId: { value: ""} ,
+				GeoMatchSetId: { value: ""} ,
+				IPSetId: { value: ""} ,
+				RuleId: { value: ""} ,
+				RegexMatchSetId: { value: ""} ,
+				RegexPatternSetId: { value: ""} ,
+				RuleGroupId: { value: ""} ,
+				SizeConstraintSetId: { value: ""} ,
+				SqlInjectionMatchSetId: { value: ""} ,
+				XssMatchSetId: { value: ""} ,
+				WebAclId: { value: ""} ,
+				TimeWindow: { value: ""} ,
+				MaxItems: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				LoggingConfiguration: { value: ""} ,
+				Policy: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Updates: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WAFRegional " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

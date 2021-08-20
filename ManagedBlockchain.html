@@ -1,0 +1,296 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ManagedBlockchain">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateMember">CreateMember</option>
+		
+			<option value="CreateNetwork">CreateNetwork</option>
+		
+			<option value="CreateNode">CreateNode</option>
+		
+			<option value="CreateProposal">CreateProposal</option>
+		
+			<option value="DeleteMember">DeleteMember</option>
+		
+			<option value="DeleteNode">DeleteNode</option>
+		
+			<option value="GetMember">GetMember</option>
+		
+			<option value="GetNetwork">GetNetwork</option>
+		
+			<option value="GetNode">GetNode</option>
+		
+			<option value="GetProposal">GetProposal</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListNetworks">ListNetworks</option>
+		
+			<option value="ListNodes">ListNodes</option>
+		
+			<option value="ListProposalVotes">ListProposalVotes</option>
+		
+			<option value="ListProposals">ListProposals</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RejectInvitation">RejectInvitation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateMember">UpdateMember</option>
+		
+			<option value="UpdateNode">UpdateNode</option>
+		
+			<option value="VoteOnProposal">VoteOnProposal</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i>ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='InvitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InvitationId"><i class="fa fa-tag"></i>InvitationId</label>
+		<input type="text" id="node-input-InvitationId" placeholder="InvitationId"></input>
+	</div> 
+	<div class="form-row" id='NetworkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NetworkId"><i class="fa fa-tag"></i>NetworkId</label>
+		<input type="text" id="node-input-NetworkId" placeholder="NetworkId"></input>
+	</div> 
+	<div class="form-row" id='MemberConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberConfiguration"><i class="fa fa-tag"></i>MemberConfiguration</label>
+		<input type="text" id="node-input-MemberConfiguration" placeholder="MemberConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='FrameworkAttr' class='hiddenAttrs'>
+		<label for="node-input-Framework"><i class="fa fa-tag"></i>Framework</label>
+		<input type="text" id="node-input-Framework" placeholder="Framework"></input>
+	</div> 
+	<div class="form-row" id='FrameworkVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-FrameworkVersion"><i class="fa fa-tag"></i>FrameworkVersion</label>
+		<input type="text" id="node-input-FrameworkVersion" placeholder="FrameworkVersion"></input>
+	</div> 
+	<div class="form-row" id='VotingPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-VotingPolicy"><i class="fa fa-tag"></i>VotingPolicy</label>
+		<input type="text" id="node-input-VotingPolicy" placeholder="VotingPolicy"></input>
+	</div> 
+	<div class="form-row" id='NodeConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeConfiguration"><i class="fa fa-tag"></i>NodeConfiguration</label>
+		<input type="text" id="node-input-NodeConfiguration" placeholder="NodeConfiguration"></input>
+	</div> 
+	<div class="form-row" id='MemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberId"><i class="fa fa-tag"></i>MemberId</label>
+		<input type="text" id="node-input-MemberId" placeholder="MemberId"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i>Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='NodeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeId"><i class="fa fa-tag"></i>NodeId</label>
+		<input type="text" id="node-input-NodeId" placeholder="NodeId"></input>
+	</div> 
+	<div class="form-row" id='ProposalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProposalId"><i class="fa fa-tag"></i>ProposalId</label>
+		<input type="text" id="node-input-ProposalId" placeholder="ProposalId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='VoterMemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoterMemberId"><i class="fa fa-tag"></i>VoterMemberId</label>
+		<input type="text" id="node-input-VoterMemberId" placeholder="VoterMemberId"></input>
+	</div> 
+	<div class="form-row" id='VoteAttr' class='hiddenAttrs'>
+		<label for="node-input-Vote"><i class="fa fa-tag"></i>Vote</label>
+		<input type="text" id="node-input-Vote" placeholder="Vote"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateMember:[
+					'#ClientRequestTokenAttr','#InvitationIdAttr','#NetworkIdAttr','#MemberConfigurationAttr'
+					],
+				CreateNetwork:[
+					'#ClientRequestTokenAttr','#NameAttr','#FrameworkAttr','#FrameworkVersionAttr','#VotingPolicyAttr','#MemberConfigurationAttr'
+					],
+				CreateNode:[
+					'#ClientRequestTokenAttr','#NetworkIdAttr','#NodeConfigurationAttr'
+					],
+				CreateProposal:[
+					'#ClientRequestTokenAttr','#NetworkIdAttr','#MemberIdAttr','#ActionsAttr'
+					],
+				DeleteMember:[
+					'#NetworkIdAttr','#MemberIdAttr'
+					],
+				DeleteNode:[
+					'#NetworkIdAttr','#NodeIdAttr'
+					],
+				GetMember:[
+					'#NetworkIdAttr','#MemberIdAttr'
+					],
+				GetNetwork:[
+					'#NetworkIdAttr'
+					],
+				GetNode:[
+					'#NetworkIdAttr','#NodeIdAttr'
+					],
+				GetProposal:[
+					'#NetworkIdAttr','#ProposalIdAttr'
+					],
+				ListInvitations:[
+					
+					],
+				ListMembers:[
+					'#NetworkIdAttr'
+					],
+				ListNetworks:[
+					
+					],
+				ListNodes:[
+					'#NetworkIdAttr'
+					],
+				ListProposalVotes:[
+					'#NetworkIdAttr','#ProposalIdAttr'
+					],
+				ListProposals:[
+					'#NetworkIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RejectInvitation:[
+					'#InvitationIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateMember:[
+					'#NetworkIdAttr','#MemberIdAttr'
+					],
+				UpdateNode:[
+					'#NetworkIdAttr','#NodeIdAttr'
+					],
+				VoteOnProposal:[
+					'#NetworkIdAttr','#ProposalIdAttr','#VoterMemberIdAttr','#VoteAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ManagedBlockchain">
+<p>
+AWS ManagedBlockchain
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ManagedBlockchain.html">ManagedBlockchain</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ManagedBlockchain',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateMember' },
+			
+				ClientRequestToken: { value: ""} ,
+				InvitationId: { value: ""} ,
+				NetworkId: { value: ""} ,
+				MemberConfiguration: { value: ""} ,
+				Name: { value: ""} ,
+				Framework: { value: ""} ,
+				FrameworkVersion: { value: ""} ,
+				VotingPolicy: { value: ""} ,
+				NodeConfiguration: { value: ""} ,
+				MemberId: { value: ""} ,
+				Actions: { value: ""} ,
+				NodeId: { value: ""} ,
+				ProposalId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				VoterMemberId: { value: ""} ,
+				Vote: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ManagedBlockchain " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

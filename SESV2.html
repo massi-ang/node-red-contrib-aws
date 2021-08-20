@@ -1,0 +1,701 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS SESV2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateConfigurationSet">CreateConfigurationSet</option>
+		
+			<option value="CreateConfigurationSetEventDestination">CreateConfigurationSetEventDestination</option>
+		
+			<option value="CreateContact">CreateContact</option>
+		
+			<option value="CreateContactList">CreateContactList</option>
+		
+			<option value="CreateCustomVerificationEmailTemplate">CreateCustomVerificationEmailTemplate</option>
+		
+			<option value="CreateDedicatedIpPool">CreateDedicatedIpPool</option>
+		
+			<option value="CreateDeliverabilityTestReport">CreateDeliverabilityTestReport</option>
+		
+			<option value="CreateEmailIdentity">CreateEmailIdentity</option>
+		
+			<option value="CreateEmailIdentityPolicy">CreateEmailIdentityPolicy</option>
+		
+			<option value="CreateEmailTemplate">CreateEmailTemplate</option>
+		
+			<option value="CreateImportJob">CreateImportJob</option>
+		
+			<option value="DeleteConfigurationSet">DeleteConfigurationSet</option>
+		
+			<option value="DeleteConfigurationSetEventDestination">DeleteConfigurationSetEventDestination</option>
+		
+			<option value="DeleteContact">DeleteContact</option>
+		
+			<option value="DeleteContactList">DeleteContactList</option>
+		
+			<option value="DeleteCustomVerificationEmailTemplate">DeleteCustomVerificationEmailTemplate</option>
+		
+			<option value="DeleteDedicatedIpPool">DeleteDedicatedIpPool</option>
+		
+			<option value="DeleteEmailIdentity">DeleteEmailIdentity</option>
+		
+			<option value="DeleteEmailIdentityPolicy">DeleteEmailIdentityPolicy</option>
+		
+			<option value="DeleteEmailTemplate">DeleteEmailTemplate</option>
+		
+			<option value="DeleteSuppressedDestination">DeleteSuppressedDestination</option>
+		
+			<option value="GetAccount">GetAccount</option>
+		
+			<option value="GetBlacklistReports">GetBlacklistReports</option>
+		
+			<option value="GetConfigurationSet">GetConfigurationSet</option>
+		
+			<option value="GetConfigurationSetEventDestinations">GetConfigurationSetEventDestinations</option>
+		
+			<option value="GetContact">GetContact</option>
+		
+			<option value="GetContactList">GetContactList</option>
+		
+			<option value="GetCustomVerificationEmailTemplate">GetCustomVerificationEmailTemplate</option>
+		
+			<option value="GetDedicatedIp">GetDedicatedIp</option>
+		
+			<option value="GetDedicatedIps">GetDedicatedIps</option>
+		
+			<option value="GetDeliverabilityDashboardOptions">GetDeliverabilityDashboardOptions</option>
+		
+			<option value="GetDeliverabilityTestReport">GetDeliverabilityTestReport</option>
+		
+			<option value="GetDomainDeliverabilityCampaign">GetDomainDeliverabilityCampaign</option>
+		
+			<option value="GetDomainStatisticsReport">GetDomainStatisticsReport</option>
+		
+			<option value="GetEmailIdentity">GetEmailIdentity</option>
+		
+			<option value="GetEmailIdentityPolicies">GetEmailIdentityPolicies</option>
+		
+			<option value="GetEmailTemplate">GetEmailTemplate</option>
+		
+			<option value="GetImportJob">GetImportJob</option>
+		
+			<option value="GetSuppressedDestination">GetSuppressedDestination</option>
+		
+			<option value="ListConfigurationSets">ListConfigurationSets</option>
+		
+			<option value="ListContactLists">ListContactLists</option>
+		
+			<option value="ListContacts">ListContacts</option>
+		
+			<option value="ListCustomVerificationEmailTemplates">ListCustomVerificationEmailTemplates</option>
+		
+			<option value="ListDedicatedIpPools">ListDedicatedIpPools</option>
+		
+			<option value="ListDeliverabilityTestReports">ListDeliverabilityTestReports</option>
+		
+			<option value="ListDomainDeliverabilityCampaigns">ListDomainDeliverabilityCampaigns</option>
+		
+			<option value="ListEmailIdentities">ListEmailIdentities</option>
+		
+			<option value="ListEmailTemplates">ListEmailTemplates</option>
+		
+			<option value="ListImportJobs">ListImportJobs</option>
+		
+			<option value="ListSuppressedDestinations">ListSuppressedDestinations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutAccountDedicatedIpWarmupAttributes">PutAccountDedicatedIpWarmupAttributes</option>
+		
+			<option value="PutAccountDetails">PutAccountDetails</option>
+		
+			<option value="PutAccountSendingAttributes">PutAccountSendingAttributes</option>
+		
+			<option value="PutAccountSuppressionAttributes">PutAccountSuppressionAttributes</option>
+		
+			<option value="PutConfigurationSetDeliveryOptions">PutConfigurationSetDeliveryOptions</option>
+		
+			<option value="PutConfigurationSetReputationOptions">PutConfigurationSetReputationOptions</option>
+		
+			<option value="PutConfigurationSetSendingOptions">PutConfigurationSetSendingOptions</option>
+		
+			<option value="PutConfigurationSetSuppressionOptions">PutConfigurationSetSuppressionOptions</option>
+		
+			<option value="PutConfigurationSetTrackingOptions">PutConfigurationSetTrackingOptions</option>
+		
+			<option value="PutDedicatedIpInPool">PutDedicatedIpInPool</option>
+		
+			<option value="PutDedicatedIpWarmupAttributes">PutDedicatedIpWarmupAttributes</option>
+		
+			<option value="PutDeliverabilityDashboardOption">PutDeliverabilityDashboardOption</option>
+		
+			<option value="PutEmailIdentityConfigurationSetAttributes">PutEmailIdentityConfigurationSetAttributes</option>
+		
+			<option value="PutEmailIdentityDkimAttributes">PutEmailIdentityDkimAttributes</option>
+		
+			<option value="PutEmailIdentityDkimSigningAttributes">PutEmailIdentityDkimSigningAttributes</option>
+		
+			<option value="PutEmailIdentityFeedbackAttributes">PutEmailIdentityFeedbackAttributes</option>
+		
+			<option value="PutEmailIdentityMailFromAttributes">PutEmailIdentityMailFromAttributes</option>
+		
+			<option value="PutSuppressedDestination">PutSuppressedDestination</option>
+		
+			<option value="SendBulkEmail">SendBulkEmail</option>
+		
+			<option value="SendCustomVerificationEmail">SendCustomVerificationEmail</option>
+		
+			<option value="SendEmail">SendEmail</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestRenderEmailTemplate">TestRenderEmailTemplate</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConfigurationSetEventDestination">UpdateConfigurationSetEventDestination</option>
+		
+			<option value="UpdateContact">UpdateContact</option>
+		
+			<option value="UpdateContactList">UpdateContactList</option>
+		
+			<option value="UpdateCustomVerificationEmailTemplate">UpdateCustomVerificationEmailTemplate</option>
+		
+			<option value="UpdateEmailIdentityPolicy">UpdateEmailIdentityPolicy</option>
+		
+			<option value="UpdateEmailTemplate">UpdateEmailTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ConfigurationSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationSetName"><i class="fa fa-tag"></i>ConfigurationSetName</label>
+		<input type="text" id="node-input-ConfigurationSetName" placeholder="ConfigurationSetName"></input>
+	</div> 
+	<div class="form-row" id='EventDestinationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EventDestinationName"><i class="fa fa-tag"></i>EventDestinationName</label>
+		<input type="text" id="node-input-EventDestinationName" placeholder="EventDestinationName"></input>
+	</div> 
+	<div class="form-row" id='EventDestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-EventDestination"><i class="fa fa-tag"></i>EventDestination</label>
+		<input type="text" id="node-input-EventDestination" placeholder="EventDestination"></input>
+	</div> 
+	<div class="form-row" id='ContactListNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactListName"><i class="fa fa-tag"></i>ContactListName</label>
+		<input type="text" id="node-input-ContactListName" placeholder="ContactListName"></input>
+	</div> 
+	<div class="form-row" id='EmailAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailAddress"><i class="fa fa-tag"></i>EmailAddress</label>
+		<input type="text" id="node-input-EmailAddress" placeholder="EmailAddress"></input>
+	</div> 
+	<div class="form-row" id='TemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateName"><i class="fa fa-tag"></i>TemplateName</label>
+		<input type="text" id="node-input-TemplateName" placeholder="TemplateName"></input>
+	</div> 
+	<div class="form-row" id='FromEmailAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-FromEmailAddress"><i class="fa fa-tag"></i>FromEmailAddress</label>
+		<input type="text" id="node-input-FromEmailAddress" placeholder="FromEmailAddress"></input>
+	</div> 
+	<div class="form-row" id='TemplateSubjectAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateSubject"><i class="fa fa-tag"></i>TemplateSubject</label>
+		<input type="text" id="node-input-TemplateSubject" placeholder="TemplateSubject"></input>
+	</div> 
+	<div class="form-row" id='TemplateContentAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateContent"><i class="fa fa-tag"></i>TemplateContent</label>
+		<input type="text" id="node-input-TemplateContent" placeholder="TemplateContent"></input>
+	</div> 
+	<div class="form-row" id='SuccessRedirectionURLAttr' class='hiddenAttrs'>
+		<label for="node-input-SuccessRedirectionURL"><i class="fa fa-tag"></i>SuccessRedirectionURL</label>
+		<input type="text" id="node-input-SuccessRedirectionURL" placeholder="SuccessRedirectionURL"></input>
+	</div> 
+	<div class="form-row" id='FailureRedirectionURLAttr' class='hiddenAttrs'>
+		<label for="node-input-FailureRedirectionURL"><i class="fa fa-tag"></i>FailureRedirectionURL</label>
+		<input type="text" id="node-input-FailureRedirectionURL" placeholder="FailureRedirectionURL"></input>
+	</div> 
+	<div class="form-row" id='PoolNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PoolName"><i class="fa fa-tag"></i>PoolName</label>
+		<input type="text" id="node-input-PoolName" placeholder="PoolName"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='EmailIdentityAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailIdentity"><i class="fa fa-tag"></i>EmailIdentity</label>
+		<input type="text" id="node-input-EmailIdentity" placeholder="EmailIdentity"></input>
+	</div> 
+	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyName"><i class="fa fa-tag"></i>PolicyName</label>
+		<input type="text" id="node-input-PolicyName" placeholder="PolicyName"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='ImportDestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-ImportDestination"><i class="fa fa-tag"></i>ImportDestination</label>
+		<input type="text" id="node-input-ImportDestination" placeholder="ImportDestination"></input>
+	</div> 
+	<div class="form-row" id='ImportDataSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-ImportDataSource"><i class="fa fa-tag"></i>ImportDataSource</label>
+		<input type="text" id="node-input-ImportDataSource" placeholder="ImportDataSource"></input>
+	</div> 
+	<div class="form-row" id='BlacklistItemNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-BlacklistItemNames"><i class="fa fa-tag"></i>BlacklistItemNames</label>
+		<input type="text" id="node-input-BlacklistItemNames" placeholder="BlacklistItemNames"></input>
+	</div> 
+	<div class="form-row" id='IpAttr' class='hiddenAttrs'>
+		<label for="node-input-Ip"><i class="fa fa-tag"></i>Ip</label>
+		<input type="text" id="node-input-Ip" placeholder="Ip"></input>
+	</div> 
+	<div class="form-row" id='ReportIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReportId"><i class="fa fa-tag"></i>ReportId</label>
+		<input type="text" id="node-input-ReportId" placeholder="ReportId"></input>
+	</div> 
+	<div class="form-row" id='CampaignIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CampaignId"><i class="fa fa-tag"></i>CampaignId</label>
+		<input type="text" id="node-input-CampaignId" placeholder="CampaignId"></input>
+	</div> 
+	<div class="form-row" id='DomainAttr' class='hiddenAttrs'>
+		<label for="node-input-Domain"><i class="fa fa-tag"></i>Domain</label>
+		<input type="text" id="node-input-Domain" placeholder="Domain"></input>
+	</div> 
+	<div class="form-row" id='StartDateAttr' class='hiddenAttrs'>
+		<label for="node-input-StartDate"><i class="fa fa-tag"></i>StartDate</label>
+		<input type="text" id="node-input-StartDate" placeholder="StartDate"></input>
+	</div> 
+	<div class="form-row" id='EndDateAttr' class='hiddenAttrs'>
+		<label for="node-input-EndDate"><i class="fa fa-tag"></i>EndDate</label>
+		<input type="text" id="node-input-EndDate" placeholder="EndDate"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i>JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='SubscribedDomainAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscribedDomain"><i class="fa fa-tag"></i>SubscribedDomain</label>
+		<input type="text" id="node-input-SubscribedDomain" placeholder="SubscribedDomain"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='MailTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MailType"><i class="fa fa-tag"></i>MailType</label>
+		<input type="text" id="node-input-MailType" placeholder="MailType"></input>
+	</div> 
+	<div class="form-row" id='WebsiteURLAttr' class='hiddenAttrs'>
+		<label for="node-input-WebsiteURL"><i class="fa fa-tag"></i>WebsiteURL</label>
+		<input type="text" id="node-input-WebsiteURL" placeholder="WebsiteURL"></input>
+	</div> 
+	<div class="form-row" id='UseCaseDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-UseCaseDescription"><i class="fa fa-tag"></i>UseCaseDescription</label>
+		<input type="text" id="node-input-UseCaseDescription" placeholder="UseCaseDescription"></input>
+	</div> 
+	<div class="form-row" id='DestinationPoolNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationPoolName"><i class="fa fa-tag"></i>DestinationPoolName</label>
+		<input type="text" id="node-input-DestinationPoolName" placeholder="DestinationPoolName"></input>
+	</div> 
+	<div class="form-row" id='WarmupPercentageAttr' class='hiddenAttrs'>
+		<label for="node-input-WarmupPercentage"><i class="fa fa-tag"></i>WarmupPercentage</label>
+		<input type="text" id="node-input-WarmupPercentage" placeholder="WarmupPercentage"></input>
+	</div> 
+	<div class="form-row" id='DashboardEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardEnabled"><i class="fa fa-tag"></i>DashboardEnabled</label>
+		<input type="text" id="node-input-DashboardEnabled" placeholder="DashboardEnabled"></input>
+	</div> 
+	<div class="form-row" id='SigningAttributesOriginAttr' class='hiddenAttrs'>
+		<label for="node-input-SigningAttributesOrigin"><i class="fa fa-tag"></i>SigningAttributesOrigin</label>
+		<input type="text" id="node-input-SigningAttributesOrigin" placeholder="SigningAttributesOrigin"></input>
+	</div> 
+	<div class="form-row" id='ReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-Reason"><i class="fa fa-tag"></i>Reason</label>
+		<input type="text" id="node-input-Reason" placeholder="Reason"></input>
+	</div> 
+	<div class="form-row" id='DefaultContentAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultContent"><i class="fa fa-tag"></i>DefaultContent</label>
+		<input type="text" id="node-input-DefaultContent" placeholder="DefaultContent"></input>
+	</div> 
+	<div class="form-row" id='BulkEmailEntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-BulkEmailEntries"><i class="fa fa-tag"></i>BulkEmailEntries</label>
+		<input type="text" id="node-input-BulkEmailEntries" placeholder="BulkEmailEntries"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TemplateDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateData"><i class="fa fa-tag"></i>TemplateData</label>
+		<input type="text" id="node-input-TemplateData" placeholder="TemplateData"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateConfigurationSet:[
+					'#ConfigurationSetNameAttr'
+					],
+				CreateConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationNameAttr','#EventDestinationAttr'
+					],
+				CreateContact:[
+					'#ContactListNameAttr','#EmailAddressAttr'
+					],
+				CreateContactList:[
+					'#ContactListNameAttr'
+					],
+				CreateCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr','#FromEmailAddressAttr','#TemplateSubjectAttr','#TemplateContentAttr','#SuccessRedirectionURLAttr','#FailureRedirectionURLAttr'
+					],
+				CreateDedicatedIpPool:[
+					'#PoolNameAttr'
+					],
+				CreateDeliverabilityTestReport:[
+					'#FromEmailAddressAttr','#ContentAttr'
+					],
+				CreateEmailIdentity:[
+					'#EmailIdentityAttr'
+					],
+				CreateEmailIdentityPolicy:[
+					'#EmailIdentityAttr','#PolicyNameAttr','#PolicyAttr'
+					],
+				CreateEmailTemplate:[
+					'#TemplateNameAttr','#TemplateContentAttr'
+					],
+				CreateImportJob:[
+					'#ImportDestinationAttr','#ImportDataSourceAttr'
+					],
+				DeleteConfigurationSet:[
+					'#ConfigurationSetNameAttr'
+					],
+				DeleteConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationNameAttr'
+					],
+				DeleteContact:[
+					'#ContactListNameAttr','#EmailAddressAttr'
+					],
+				DeleteContactList:[
+					'#ContactListNameAttr'
+					],
+				DeleteCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				DeleteDedicatedIpPool:[
+					'#PoolNameAttr'
+					],
+				DeleteEmailIdentity:[
+					'#EmailIdentityAttr'
+					],
+				DeleteEmailIdentityPolicy:[
+					'#EmailIdentityAttr','#PolicyNameAttr'
+					],
+				DeleteEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				DeleteSuppressedDestination:[
+					'#EmailAddressAttr'
+					],
+				GetAccount:[
+					
+					],
+				GetBlacklistReports:[
+					'#BlacklistItemNamesAttr'
+					],
+				GetConfigurationSet:[
+					'#ConfigurationSetNameAttr'
+					],
+				GetConfigurationSetEventDestinations:[
+					'#ConfigurationSetNameAttr'
+					],
+				GetContact:[
+					'#ContactListNameAttr','#EmailAddressAttr'
+					],
+				GetContactList:[
+					'#ContactListNameAttr'
+					],
+				GetCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				GetDedicatedIp:[
+					'#IpAttr'
+					],
+				GetDedicatedIps:[
+					
+					],
+				GetDeliverabilityDashboardOptions:[
+					
+					],
+				GetDeliverabilityTestReport:[
+					'#ReportIdAttr'
+					],
+				GetDomainDeliverabilityCampaign:[
+					'#CampaignIdAttr'
+					],
+				GetDomainStatisticsReport:[
+					'#DomainAttr','#StartDateAttr','#EndDateAttr'
+					],
+				GetEmailIdentity:[
+					'#EmailIdentityAttr'
+					],
+				GetEmailIdentityPolicies:[
+					'#EmailIdentityAttr'
+					],
+				GetEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				GetImportJob:[
+					'#JobIdAttr'
+					],
+				GetSuppressedDestination:[
+					'#EmailAddressAttr'
+					],
+				ListConfigurationSets:[
+					
+					],
+				ListContactLists:[
+					
+					],
+				ListContacts:[
+					'#ContactListNameAttr'
+					],
+				ListCustomVerificationEmailTemplates:[
+					
+					],
+				ListDedicatedIpPools:[
+					
+					],
+				ListDeliverabilityTestReports:[
+					
+					],
+				ListDomainDeliverabilityCampaigns:[
+					'#StartDateAttr','#EndDateAttr','#SubscribedDomainAttr'
+					],
+				ListEmailIdentities:[
+					
+					],
+				ListEmailTemplates:[
+					
+					],
+				ListImportJobs:[
+					
+					],
+				ListSuppressedDestinations:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutAccountDedicatedIpWarmupAttributes:[
+					
+					],
+				PutAccountDetails:[
+					'#MailTypeAttr','#WebsiteURLAttr','#UseCaseDescriptionAttr'
+					],
+				PutAccountSendingAttributes:[
+					
+					],
+				PutAccountSuppressionAttributes:[
+					
+					],
+				PutConfigurationSetDeliveryOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				PutConfigurationSetReputationOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				PutConfigurationSetSendingOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				PutConfigurationSetSuppressionOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				PutConfigurationSetTrackingOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				PutDedicatedIpInPool:[
+					'#IpAttr','#DestinationPoolNameAttr'
+					],
+				PutDedicatedIpWarmupAttributes:[
+					'#IpAttr','#WarmupPercentageAttr'
+					],
+				PutDeliverabilityDashboardOption:[
+					'#DashboardEnabledAttr'
+					],
+				PutEmailIdentityConfigurationSetAttributes:[
+					'#EmailIdentityAttr'
+					],
+				PutEmailIdentityDkimAttributes:[
+					'#EmailIdentityAttr'
+					],
+				PutEmailIdentityDkimSigningAttributes:[
+					'#EmailIdentityAttr','#SigningAttributesOriginAttr'
+					],
+				PutEmailIdentityFeedbackAttributes:[
+					'#EmailIdentityAttr'
+					],
+				PutEmailIdentityMailFromAttributes:[
+					'#EmailIdentityAttr'
+					],
+				PutSuppressedDestination:[
+					'#EmailAddressAttr','#ReasonAttr'
+					],
+				SendBulkEmail:[
+					'#DefaultContentAttr','#BulkEmailEntriesAttr'
+					],
+				SendCustomVerificationEmail:[
+					'#EmailAddressAttr','#TemplateNameAttr'
+					],
+				SendEmail:[
+					'#ContentAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				TestRenderEmailTemplate:[
+					'#TemplateNameAttr','#TemplateDataAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationNameAttr','#EventDestinationAttr'
+					],
+				UpdateContact:[
+					'#ContactListNameAttr','#EmailAddressAttr'
+					],
+				UpdateContactList:[
+					'#ContactListNameAttr'
+					],
+				UpdateCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr','#FromEmailAddressAttr','#TemplateSubjectAttr','#TemplateContentAttr','#SuccessRedirectionURLAttr','#FailureRedirectionURLAttr'
+					],
+				UpdateEmailIdentityPolicy:[
+					'#EmailIdentityAttr','#PolicyNameAttr','#PolicyAttr'
+					],
+				UpdateEmailTemplate:[
+					'#TemplateNameAttr','#TemplateContentAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS SESV2">
+<p>
+AWS SESV2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SESV2.html">SESV2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SESV2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateConfigurationSet' },
+			
+				ConfigurationSetName: { value: ""} ,
+				EventDestinationName: { value: ""} ,
+				EventDestination: { value: ""} ,
+				ContactListName: { value: ""} ,
+				EmailAddress: { value: ""} ,
+				TemplateName: { value: ""} ,
+				FromEmailAddress: { value: ""} ,
+				TemplateSubject: { value: ""} ,
+				TemplateContent: { value: ""} ,
+				SuccessRedirectionURL: { value: ""} ,
+				FailureRedirectionURL: { value: ""} ,
+				PoolName: { value: ""} ,
+				Content: { value: ""} ,
+				EmailIdentity: { value: ""} ,
+				PolicyName: { value: ""} ,
+				Policy: { value: ""} ,
+				ImportDestination: { value: ""} ,
+				ImportDataSource: { value: ""} ,
+				BlacklistItemNames: { value: ""} ,
+				Ip: { value: ""} ,
+				ReportId: { value: ""} ,
+				CampaignId: { value: ""} ,
+				Domain: { value: ""} ,
+				StartDate: { value: ""} ,
+				EndDate: { value: ""} ,
+				JobId: { value: ""} ,
+				SubscribedDomain: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				MailType: { value: ""} ,
+				WebsiteURL: { value: ""} ,
+				UseCaseDescription: { value: ""} ,
+				DestinationPoolName: { value: ""} ,
+				WarmupPercentage: { value: ""} ,
+				DashboardEnabled: { value: ""} ,
+				SigningAttributesOrigin: { value: ""} ,
+				Reason: { value: ""} ,
+				DefaultContent: { value: ""} ,
+				BulkEmailEntries: { value: ""} ,
+				Tags: { value: ""} ,
+				TemplateData: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SESV2 " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

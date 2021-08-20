@@ -1,0 +1,311 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AccessAnalyzer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ApplyArchiveRule">ApplyArchiveRule</option>
+		
+			<option value="CancelPolicyGeneration">CancelPolicyGeneration</option>
+		
+			<option value="CreateAccessPreview">CreateAccessPreview</option>
+		
+			<option value="CreateAnalyzer">CreateAnalyzer</option>
+		
+			<option value="CreateArchiveRule">CreateArchiveRule</option>
+		
+			<option value="DeleteAnalyzer">DeleteAnalyzer</option>
+		
+			<option value="DeleteArchiveRule">DeleteArchiveRule</option>
+		
+			<option value="GetAccessPreview">GetAccessPreview</option>
+		
+			<option value="GetAnalyzedResource">GetAnalyzedResource</option>
+		
+			<option value="GetAnalyzer">GetAnalyzer</option>
+		
+			<option value="GetArchiveRule">GetArchiveRule</option>
+		
+			<option value="GetFinding">GetFinding</option>
+		
+			<option value="GetGeneratedPolicy">GetGeneratedPolicy</option>
+		
+			<option value="ListAccessPreviewFindings">ListAccessPreviewFindings</option>
+		
+			<option value="ListAccessPreviews">ListAccessPreviews</option>
+		
+			<option value="ListAnalyzedResources">ListAnalyzedResources</option>
+		
+			<option value="ListAnalyzers">ListAnalyzers</option>
+		
+			<option value="ListArchiveRules">ListArchiveRules</option>
+		
+			<option value="ListFindings">ListFindings</option>
+		
+			<option value="ListPolicyGenerations">ListPolicyGenerations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartPolicyGeneration">StartPolicyGeneration</option>
+		
+			<option value="StartResourceScan">StartResourceScan</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateArchiveRule">UpdateArchiveRule</option>
+		
+			<option value="UpdateFindings">UpdateFindings</option>
+		
+			<option value="ValidatePolicy">ValidatePolicy</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='analyzerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-analyzerArn"><i class="fa fa-tag"></i>analyzerArn</label>
+		<input type="text" id="node-input-analyzerArn" placeholder="analyzerArn"></input>
+	</div> 
+	<div class="form-row" id='ruleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ruleName"><i class="fa fa-tag"></i>ruleName</label>
+		<input type="text" id="node-input-ruleName" placeholder="ruleName"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i>jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='configurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-configurations"><i class="fa fa-tag"></i>configurations</label>
+		<input type="text" id="node-input-configurations" placeholder="configurations"></input>
+	</div> 
+	<div class="form-row" id='analyzerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-analyzerName"><i class="fa fa-tag"></i>analyzerName</label>
+		<input type="text" id="node-input-analyzerName" placeholder="analyzerName"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i>type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i>filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='accessPreviewIdAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPreviewId"><i class="fa fa-tag"></i>accessPreviewId</label>
+		<input type="text" id="node-input-accessPreviewId" placeholder="accessPreviewId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i>id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='policyGenerationDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-policyGenerationDetails"><i class="fa fa-tag"></i>policyGenerationDetails</label>
+		<input type="text" id="node-input-policyGenerationDetails" placeholder="policyGenerationDetails"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i>status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='policyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-policyDocument"><i class="fa fa-tag"></i>policyDocument</label>
+		<input type="text" id="node-input-policyDocument" placeholder="policyDocument"></input>
+	</div> 
+	<div class="form-row" id='policyTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-policyType"><i class="fa fa-tag"></i>policyType</label>
+		<input type="text" id="node-input-policyType" placeholder="policyType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ApplyArchiveRule:[
+					'#analyzerArnAttr','#ruleNameAttr'
+					],
+				CancelPolicyGeneration:[
+					'#jobIdAttr'
+					],
+				CreateAccessPreview:[
+					'#analyzerArnAttr','#configurationsAttr'
+					],
+				CreateAnalyzer:[
+					'#analyzerNameAttr','#typeAttr'
+					],
+				CreateArchiveRule:[
+					'#analyzerNameAttr','#filterAttr','#ruleNameAttr'
+					],
+				DeleteAnalyzer:[
+					'#analyzerNameAttr'
+					],
+				DeleteArchiveRule:[
+					'#analyzerNameAttr','#ruleNameAttr'
+					],
+				GetAccessPreview:[
+					'#accessPreviewIdAttr','#analyzerArnAttr'
+					],
+				GetAnalyzedResource:[
+					'#analyzerArnAttr','#resourceArnAttr'
+					],
+				GetAnalyzer:[
+					'#analyzerNameAttr'
+					],
+				GetArchiveRule:[
+					'#analyzerNameAttr','#ruleNameAttr'
+					],
+				GetFinding:[
+					'#analyzerArnAttr','#idAttr'
+					],
+				GetGeneratedPolicy:[
+					'#jobIdAttr'
+					],
+				ListAccessPreviewFindings:[
+					'#accessPreviewIdAttr','#analyzerArnAttr'
+					],
+				ListAccessPreviews:[
+					'#analyzerArnAttr'
+					],
+				ListAnalyzedResources:[
+					'#analyzerArnAttr'
+					],
+				ListAnalyzers:[
+					
+					],
+				ListArchiveRules:[
+					'#analyzerNameAttr'
+					],
+				ListFindings:[
+					'#analyzerArnAttr'
+					],
+				ListPolicyGenerations:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				StartPolicyGeneration:[
+					'#policyGenerationDetailsAttr'
+					],
+				StartResourceScan:[
+					'#analyzerArnAttr','#resourceArnAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateArchiveRule:[
+					'#analyzerNameAttr','#filterAttr','#ruleNameAttr'
+					],
+				UpdateFindings:[
+					'#analyzerArnAttr','#statusAttr'
+					],
+				ValidatePolicy:[
+					'#policyDocumentAttr','#policyTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AccessAnalyzer">
+<p>
+AWS AccessAnalyzer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AccessAnalyzer.html">AccessAnalyzer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AccessAnalyzer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ApplyArchiveRule' },
+			
+				analyzerArn: { value: ""} ,
+				ruleName: { value: ""} ,
+				jobId: { value: ""} ,
+				configurations: { value: ""} ,
+				analyzerName: { value: ""} ,
+				_type: { value: ""} ,
+				filter: { value: ""} ,
+				accessPreviewId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				id: { value: ""} ,
+				policyGenerationDetails: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				status: { value: ""} ,
+				policyDocument: { value: ""} ,
+				policyType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AccessAnalyzer " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,331 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS NetworkManager">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateCustomerGateway">AssociateCustomerGateway</option>
+		
+			<option value="AssociateLink">AssociateLink</option>
+		
+			<option value="AssociateTransitGatewayConnectPeer">AssociateTransitGatewayConnectPeer</option>
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateDevice">CreateDevice</option>
+		
+			<option value="CreateGlobalNetwork">CreateGlobalNetwork</option>
+		
+			<option value="CreateLink">CreateLink</option>
+		
+			<option value="CreateSite">CreateSite</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteDevice">DeleteDevice</option>
+		
+			<option value="DeleteGlobalNetwork">DeleteGlobalNetwork</option>
+		
+			<option value="DeleteLink">DeleteLink</option>
+		
+			<option value="DeleteSite">DeleteSite</option>
+		
+			<option value="DeregisterTransitGateway">DeregisterTransitGateway</option>
+		
+			<option value="DescribeGlobalNetworks">DescribeGlobalNetworks</option>
+		
+			<option value="DisassociateCustomerGateway">DisassociateCustomerGateway</option>
+		
+			<option value="DisassociateLink">DisassociateLink</option>
+		
+			<option value="DisassociateTransitGatewayConnectPeer">DisassociateTransitGatewayConnectPeer</option>
+		
+			<option value="GetConnections">GetConnections</option>
+		
+			<option value="GetCustomerGatewayAssociations">GetCustomerGatewayAssociations</option>
+		
+			<option value="GetDevices">GetDevices</option>
+		
+			<option value="GetLinkAssociations">GetLinkAssociations</option>
+		
+			<option value="GetLinks">GetLinks</option>
+		
+			<option value="GetSites">GetSites</option>
+		
+			<option value="GetTransitGatewayConnectPeerAssociations">GetTransitGatewayConnectPeerAssociations</option>
+		
+			<option value="GetTransitGatewayRegistrations">GetTransitGatewayRegistrations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterTransitGateway">RegisterTransitGateway</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConnection">UpdateConnection</option>
+		
+			<option value="UpdateDevice">UpdateDevice</option>
+		
+			<option value="UpdateGlobalNetwork">UpdateGlobalNetwork</option>
+		
+			<option value="UpdateLink">UpdateLink</option>
+		
+			<option value="UpdateSite">UpdateSite</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CustomerGatewayArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerGatewayArn"><i class="fa fa-tag"></i>CustomerGatewayArn</label>
+		<input type="text" id="node-input-CustomerGatewayArn" placeholder="CustomerGatewayArn"></input>
+	</div> 
+	<div class="form-row" id='GlobalNetworkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalNetworkId"><i class="fa fa-tag"></i>GlobalNetworkId</label>
+		<input type="text" id="node-input-GlobalNetworkId" placeholder="GlobalNetworkId"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceId"><i class="fa fa-tag"></i>DeviceId</label>
+		<input type="text" id="node-input-DeviceId" placeholder="DeviceId"></input>
+	</div> 
+	<div class="form-row" id='LinkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LinkId"><i class="fa fa-tag"></i>LinkId</label>
+		<input type="text" id="node-input-LinkId" placeholder="LinkId"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayConnectPeerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayConnectPeerArn"><i class="fa fa-tag"></i>TransitGatewayConnectPeerArn</label>
+		<input type="text" id="node-input-TransitGatewayConnectPeerArn" placeholder="TransitGatewayConnectPeerArn"></input>
+	</div> 
+	<div class="form-row" id='ConnectedDeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectedDeviceId"><i class="fa fa-tag"></i>ConnectedDeviceId</label>
+		<input type="text" id="node-input-ConnectedDeviceId" placeholder="ConnectedDeviceId"></input>
+	</div> 
+	<div class="form-row" id='BandwidthAttr' class='hiddenAttrs'>
+		<label for="node-input-Bandwidth"><i class="fa fa-tag"></i>Bandwidth</label>
+		<input type="text" id="node-input-Bandwidth" placeholder="Bandwidth"></input>
+	</div> 
+	<div class="form-row" id='SiteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SiteId"><i class="fa fa-tag"></i>SiteId</label>
+		<input type="text" id="node-input-SiteId" placeholder="SiteId"></input>
+	</div> 
+	<div class="form-row" id='ConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionId"><i class="fa fa-tag"></i>ConnectionId</label>
+		<input type="text" id="node-input-ConnectionId" placeholder="ConnectionId"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayArn"><i class="fa fa-tag"></i>TransitGatewayArn</label>
+		<input type="text" id="node-input-TransitGatewayArn" placeholder="TransitGatewayArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateCustomerGateway:[
+					'#CustomerGatewayArnAttr','#GlobalNetworkIdAttr','#DeviceIdAttr'
+					],
+				AssociateLink:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				AssociateTransitGatewayConnectPeer:[
+					'#GlobalNetworkIdAttr','#TransitGatewayConnectPeerArnAttr','#DeviceIdAttr'
+					],
+				CreateConnection:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#ConnectedDeviceIdAttr'
+					],
+				CreateDevice:[
+					'#GlobalNetworkIdAttr'
+					],
+				CreateGlobalNetwork:[
+					
+					],
+				CreateLink:[
+					'#GlobalNetworkIdAttr','#BandwidthAttr','#SiteIdAttr'
+					],
+				CreateSite:[
+					'#GlobalNetworkIdAttr'
+					],
+				DeleteConnection:[
+					'#GlobalNetworkIdAttr','#ConnectionIdAttr'
+					],
+				DeleteDevice:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr'
+					],
+				DeleteGlobalNetwork:[
+					'#GlobalNetworkIdAttr'
+					],
+				DeleteLink:[
+					'#GlobalNetworkIdAttr','#LinkIdAttr'
+					],
+				DeleteSite:[
+					'#GlobalNetworkIdAttr','#SiteIdAttr'
+					],
+				DeregisterTransitGateway:[
+					'#GlobalNetworkIdAttr','#TransitGatewayArnAttr'
+					],
+				DescribeGlobalNetworks:[
+					
+					],
+				DisassociateCustomerGateway:[
+					'#GlobalNetworkIdAttr','#CustomerGatewayArnAttr'
+					],
+				DisassociateLink:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				DisassociateTransitGatewayConnectPeer:[
+					'#GlobalNetworkIdAttr','#TransitGatewayConnectPeerArnAttr'
+					],
+				GetConnections:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetCustomerGatewayAssociations:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetDevices:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetLinkAssociations:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetLinks:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetSites:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetTransitGatewayConnectPeerAssociations:[
+					'#GlobalNetworkIdAttr'
+					],
+				GetTransitGatewayRegistrations:[
+					'#GlobalNetworkIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RegisterTransitGateway:[
+					'#GlobalNetworkIdAttr','#TransitGatewayArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateConnection:[
+					'#GlobalNetworkIdAttr','#ConnectionIdAttr'
+					],
+				UpdateDevice:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr'
+					],
+				UpdateGlobalNetwork:[
+					'#GlobalNetworkIdAttr'
+					],
+				UpdateLink:[
+					'#GlobalNetworkIdAttr','#LinkIdAttr'
+					],
+				UpdateSite:[
+					'#GlobalNetworkIdAttr','#SiteIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS NetworkManager">
+<p>
+AWS NetworkManager
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/NetworkManager.html">NetworkManager</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS NetworkManager',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateCustomerGateway' },
+			
+				CustomerGatewayArn: { value: ""} ,
+				GlobalNetworkId: { value: ""} ,
+				DeviceId: { value: ""} ,
+				LinkId: { value: ""} ,
+				TransitGatewayConnectPeerArn: { value: ""} ,
+				ConnectedDeviceId: { value: ""} ,
+				Bandwidth: { value: ""} ,
+				SiteId: { value: ""} ,
+				ConnectionId: { value: ""} ,
+				TransitGatewayArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "NetworkManager " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

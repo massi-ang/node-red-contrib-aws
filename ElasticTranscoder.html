@@ -1,0 +1,226 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ElasticTranscoder">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="CreatePreset">CreatePreset</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DeletePreset">DeletePreset</option>
+		
+			<option value="ListJobsByPipeline">ListJobsByPipeline</option>
+		
+			<option value="ListJobsByStatus">ListJobsByStatus</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListPresets">ListPresets</option>
+		
+			<option value="ReadJob">ReadJob</option>
+		
+			<option value="ReadPipeline">ReadPipeline</option>
+		
+			<option value="ReadPreset">ReadPreset</option>
+		
+			<option value="TestRole">TestRole</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		
+			<option value="UpdatePipelineNotifications">UpdatePipelineNotifications</option>
+		
+			<option value="UpdatePipelineStatus">UpdatePipelineStatus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='PipelineIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineId"><i class="fa fa-tag"></i>PipelineId</label>
+		<input type="text" id="node-input-PipelineId" placeholder="PipelineId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='InputBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-InputBucket"><i class="fa fa-tag"></i>InputBucket</label>
+		<input type="text" id="node-input-InputBucket" placeholder="InputBucket"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i>Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='ContainerAttr' class='hiddenAttrs'>
+		<label for="node-input-Container"><i class="fa fa-tag"></i>Container</label>
+		<input type="text" id="node-input-Container" placeholder="Container"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i>Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='OutputBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputBucket"><i class="fa fa-tag"></i>OutputBucket</label>
+		<input type="text" id="node-input-OutputBucket" placeholder="OutputBucket"></input>
+	</div> 
+	<div class="form-row" id='TopicsAttr' class='hiddenAttrs'>
+		<label for="node-input-Topics"><i class="fa fa-tag"></i>Topics</label>
+		<input type="text" id="node-input-Topics" placeholder="Topics"></input>
+	</div> 
+	<div class="form-row" id='NotificationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Notifications"><i class="fa fa-tag"></i>Notifications</label>
+		<input type="text" id="node-input-Notifications" placeholder="Notifications"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJob:[
+					'#IdAttr'
+					],
+				CreateJob:[
+					'#PipelineIdAttr'
+					],
+				CreatePipeline:[
+					'#NameAttr','#InputBucketAttr','#RoleAttr'
+					],
+				CreatePreset:[
+					'#NameAttr','#ContainerAttr'
+					],
+				DeletePipeline:[
+					'#IdAttr'
+					],
+				DeletePreset:[
+					'#IdAttr'
+					],
+				ListJobsByPipeline:[
+					'#PipelineIdAttr'
+					],
+				ListJobsByStatus:[
+					'#StatusAttr'
+					],
+				ListPipelines:[
+					
+					],
+				ListPresets:[
+					
+					],
+				ReadJob:[
+					'#IdAttr'
+					],
+				ReadPipeline:[
+					'#IdAttr'
+					],
+				ReadPreset:[
+					'#IdAttr'
+					],
+				TestRole:[
+					'#RoleAttr','#InputBucketAttr','#OutputBucketAttr','#TopicsAttr'
+					],
+				UpdatePipeline:[
+					'#IdAttr'
+					],
+				UpdatePipelineNotifications:[
+					'#IdAttr','#NotificationsAttr'
+					],
+				UpdatePipelineStatus:[
+					'#IdAttr','#StatusAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ElasticTranscoder">
+<p>
+AWS ElasticTranscoder
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticTranscoder.html">ElasticTranscoder</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElasticTranscoder',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJob' },
+			
+				Id: { value: ""} ,
+				PipelineId: { value: ""} ,
+				Name: { value: ""} ,
+				InputBucket: { value: ""} ,
+				Role: { value: ""} ,
+				Container: { value: ""} ,
+				Status: { value: ""} ,
+				OutputBucket: { value: ""} ,
+				Topics: { value: ""} ,
+				Notifications: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElasticTranscoder " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

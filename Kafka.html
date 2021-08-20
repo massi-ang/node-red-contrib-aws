@@ -1,0 +1,346 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Kafka">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchAssociateScramSecret">BatchAssociateScramSecret</option>
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateConfiguration">CreateConfiguration</option>
+		
+			<option value="DeleteCluster">DeleteCluster</option>
+		
+			<option value="DeleteConfiguration">DeleteConfiguration</option>
+		
+			<option value="DescribeCluster">DescribeCluster</option>
+		
+			<option value="DescribeClusterOperation">DescribeClusterOperation</option>
+		
+			<option value="DescribeConfiguration">DescribeConfiguration</option>
+		
+			<option value="DescribeConfigurationRevision">DescribeConfigurationRevision</option>
+		
+			<option value="BatchDisassociateScramSecret">BatchDisassociateScramSecret</option>
+		
+			<option value="GetBootstrapBrokers">GetBootstrapBrokers</option>
+		
+			<option value="GetCompatibleKafkaVersions">GetCompatibleKafkaVersions</option>
+		
+			<option value="ListClusterOperations">ListClusterOperations</option>
+		
+			<option value="ListClusters">ListClusters</option>
+		
+			<option value="ListConfigurationRevisions">ListConfigurationRevisions</option>
+		
+			<option value="ListConfigurations">ListConfigurations</option>
+		
+			<option value="ListKafkaVersions">ListKafkaVersions</option>
+		
+			<option value="ListNodes">ListNodes</option>
+		
+			<option value="ListScramSecrets">ListScramSecrets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RebootBroker">RebootBroker</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateBrokerCount">UpdateBrokerCount</option>
+		
+			<option value="UpdateBrokerType">UpdateBrokerType</option>
+		
+			<option value="UpdateBrokerStorage">UpdateBrokerStorage</option>
+		
+			<option value="UpdateConfiguration">UpdateConfiguration</option>
+		
+			<option value="UpdateClusterConfiguration">UpdateClusterConfiguration</option>
+		
+			<option value="UpdateClusterKafkaVersion">UpdateClusterKafkaVersion</option>
+		
+			<option value="UpdateMonitoring">UpdateMonitoring</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClusterArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterArn"><i class="fa fa-tag"></i>ClusterArn</label>
+		<input type="text" id="node-input-ClusterArn" placeholder="ClusterArn"></input>
+	</div> 
+	<div class="form-row" id='SecretArnListAttr' class='hiddenAttrs'>
+		<label for="node-input-SecretArnList"><i class="fa fa-tag"></i>SecretArnList</label>
+		<input type="text" id="node-input-SecretArnList" placeholder="SecretArnList"></input>
+	</div> 
+	<div class="form-row" id='BrokerNodeGroupInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-BrokerNodeGroupInfo"><i class="fa fa-tag"></i>BrokerNodeGroupInfo</label>
+		<input type="text" id="node-input-BrokerNodeGroupInfo" placeholder="BrokerNodeGroupInfo"></input>
+	</div> 
+	<div class="form-row" id='KafkaVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-KafkaVersion"><i class="fa fa-tag"></i>KafkaVersion</label>
+		<input type="text" id="node-input-KafkaVersion" placeholder="KafkaVersion"></input>
+	</div> 
+	<div class="form-row" id='NumberOfBrokerNodesAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfBrokerNodes"><i class="fa fa-tag"></i>NumberOfBrokerNodes</label>
+		<input type="text" id="node-input-NumberOfBrokerNodes" placeholder="NumberOfBrokerNodes"></input>
+	</div> 
+	<div class="form-row" id='ClusterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterName"><i class="fa fa-tag"></i>ClusterName</label>
+		<input type="text" id="node-input-ClusterName" placeholder="ClusterName"></input>
+	</div> 
+	<div class="form-row" id='ServerPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerProperties"><i class="fa fa-tag"></i>ServerProperties</label>
+		<input type="text" id="node-input-ServerProperties" placeholder="ServerProperties"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i>Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
+	</div> 
+	<div class="form-row" id='ClusterOperationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterOperationArn"><i class="fa fa-tag"></i>ClusterOperationArn</label>
+		<input type="text" id="node-input-ClusterOperationArn" placeholder="ClusterOperationArn"></input>
+	</div> 
+	<div class="form-row" id='RevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-Revision"><i class="fa fa-tag"></i>Revision</label>
+		<input type="text" id="node-input-Revision" placeholder="Revision"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='BrokerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-BrokerIds"><i class="fa fa-tag"></i>BrokerIds</label>
+		<input type="text" id="node-input-BrokerIds" placeholder="BrokerIds"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='CurrentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-CurrentVersion"><i class="fa fa-tag"></i>CurrentVersion</label>
+		<input type="text" id="node-input-CurrentVersion" placeholder="CurrentVersion"></input>
+	</div> 
+	<div class="form-row" id='TargetNumberOfBrokerNodesAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetNumberOfBrokerNodes"><i class="fa fa-tag"></i>TargetNumberOfBrokerNodes</label>
+		<input type="text" id="node-input-TargetNumberOfBrokerNodes" placeholder="TargetNumberOfBrokerNodes"></input>
+	</div> 
+	<div class="form-row" id='TargetInstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetInstanceType"><i class="fa fa-tag"></i>TargetInstanceType</label>
+		<input type="text" id="node-input-TargetInstanceType" placeholder="TargetInstanceType"></input>
+	</div> 
+	<div class="form-row" id='TargetBrokerEBSVolumeInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetBrokerEBSVolumeInfo"><i class="fa fa-tag"></i>TargetBrokerEBSVolumeInfo</label>
+		<input type="text" id="node-input-TargetBrokerEBSVolumeInfo" placeholder="TargetBrokerEBSVolumeInfo"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationInfo"><i class="fa fa-tag"></i>ConfigurationInfo</label>
+		<input type="text" id="node-input-ConfigurationInfo" placeholder="ConfigurationInfo"></input>
+	</div> 
+	<div class="form-row" id='TargetKafkaVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetKafkaVersion"><i class="fa fa-tag"></i>TargetKafkaVersion</label>
+		<input type="text" id="node-input-TargetKafkaVersion" placeholder="TargetKafkaVersion"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchAssociateScramSecret:[
+					'#ClusterArnAttr','#SecretArnListAttr'
+					],
+				CreateCluster:[
+					'#BrokerNodeGroupInfoAttr','#KafkaVersionAttr','#NumberOfBrokerNodesAttr','#ClusterNameAttr'
+					],
+				CreateConfiguration:[
+					'#ServerPropertiesAttr','#NameAttr'
+					],
+				DeleteCluster:[
+					'#ClusterArnAttr'
+					],
+				DeleteConfiguration:[
+					'#ArnAttr'
+					],
+				DescribeCluster:[
+					'#ClusterArnAttr'
+					],
+				DescribeClusterOperation:[
+					'#ClusterOperationArnAttr'
+					],
+				DescribeConfiguration:[
+					'#ArnAttr'
+					],
+				DescribeConfigurationRevision:[
+					'#RevisionAttr','#ArnAttr'
+					],
+				BatchDisassociateScramSecret:[
+					'#ClusterArnAttr','#SecretArnListAttr'
+					],
+				GetBootstrapBrokers:[
+					'#ClusterArnAttr'
+					],
+				GetCompatibleKafkaVersions:[
+					
+					],
+				ListClusterOperations:[
+					'#ClusterArnAttr'
+					],
+				ListClusters:[
+					
+					],
+				ListConfigurationRevisions:[
+					'#ArnAttr'
+					],
+				ListConfigurations:[
+					
+					],
+				ListKafkaVersions:[
+					
+					],
+				ListNodes:[
+					'#ClusterArnAttr'
+					],
+				ListScramSecrets:[
+					'#ClusterArnAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RebootBroker:[
+					'#ClusterArnAttr','#BrokerIdsAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#TagKeysAttr','#ResourceArnAttr'
+					],
+				UpdateBrokerCount:[
+					'#ClusterArnAttr','#CurrentVersionAttr','#TargetNumberOfBrokerNodesAttr'
+					],
+				UpdateBrokerType:[
+					'#ClusterArnAttr','#CurrentVersionAttr','#TargetInstanceTypeAttr'
+					],
+				UpdateBrokerStorage:[
+					'#ClusterArnAttr','#TargetBrokerEBSVolumeInfoAttr','#CurrentVersionAttr'
+					],
+				UpdateConfiguration:[
+					'#ArnAttr','#ServerPropertiesAttr'
+					],
+				UpdateClusterConfiguration:[
+					'#ClusterArnAttr','#CurrentVersionAttr','#ConfigurationInfoAttr'
+					],
+				UpdateClusterKafkaVersion:[
+					'#ClusterArnAttr','#TargetKafkaVersionAttr','#CurrentVersionAttr'
+					],
+				UpdateMonitoring:[
+					'#ClusterArnAttr','#CurrentVersionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Kafka">
+<p>
+AWS Kafka
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kafka.html">Kafka</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Kafka',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchAssociateScramSecret' },
+			
+				ClusterArn: { value: ""} ,
+				SecretArnList: { value: ""} ,
+				BrokerNodeGroupInfo: { value: ""} ,
+				KafkaVersion: { value: ""} ,
+				NumberOfBrokerNodes: { value: ""} ,
+				ClusterName: { value: ""} ,
+				ServerProperties: { value: ""} ,
+				Name: { value: ""} ,
+				Arn: { value: ""} ,
+				ClusterOperationArn: { value: ""} ,
+				Revision: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				BrokerIds: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				CurrentVersion: { value: ""} ,
+				TargetNumberOfBrokerNodes: { value: ""} ,
+				TargetInstanceType: { value: ""} ,
+				TargetBrokerEBSVolumeInfo: { value: ""} ,
+				ConfigurationInfo: { value: ""} ,
+				TargetKafkaVersion: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Kafka " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,196 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodeStarconnections">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateHost">CreateHost</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteHost">DeleteHost</option>
+		
+			<option value="GetConnection">GetConnection</option>
+		
+			<option value="GetHost">GetHost</option>
+		
+			<option value="ListConnections">ListConnections</option>
+		
+			<option value="ListHosts">ListHosts</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateHost">UpdateHost</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ConnectionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionName"><i class="fa fa-tag"></i>ConnectionName</label>
+		<input type="text" id="node-input-ConnectionName" placeholder="ConnectionName"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProviderType"><i class="fa fa-tag"></i>ProviderType</label>
+		<input type="text" id="node-input-ProviderType" placeholder="ProviderType"></input>
+	</div> 
+	<div class="form-row" id='ProviderEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-ProviderEndpoint"><i class="fa fa-tag"></i>ProviderEndpoint</label>
+		<input type="text" id="node-input-ProviderEndpoint" placeholder="ProviderEndpoint"></input>
+	</div> 
+	<div class="form-row" id='ConnectionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionArn"><i class="fa fa-tag"></i>ConnectionArn</label>
+		<input type="text" id="node-input-ConnectionArn" placeholder="ConnectionArn"></input>
+	</div> 
+	<div class="form-row" id='HostArnAttr' class='hiddenAttrs'>
+		<label for="node-input-HostArn"><i class="fa fa-tag"></i>HostArn</label>
+		<input type="text" id="node-input-HostArn" placeholder="HostArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateConnection:[
+					'#ConnectionNameAttr'
+					],
+				CreateHost:[
+					'#NameAttr','#ProviderTypeAttr','#ProviderEndpointAttr'
+					],
+				DeleteConnection:[
+					'#ConnectionArnAttr'
+					],
+				DeleteHost:[
+					'#HostArnAttr'
+					],
+				GetConnection:[
+					'#ConnectionArnAttr'
+					],
+				GetHost:[
+					'#HostArnAttr'
+					],
+				ListConnections:[
+					
+					],
+				ListHosts:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateHost:[
+					'#HostArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodeStarconnections">
+<p>
+AWS CodeStarconnections
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeStarconnections.html">CodeStarconnections</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeStarconnections',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateConnection' },
+			
+				ConnectionName: { value: ""} ,
+				Name: { value: ""} ,
+				ProviderType: { value: ""} ,
+				ProviderEndpoint: { value: ""} ,
+				ConnectionArn: { value: ""} ,
+				HostArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeStarconnections " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

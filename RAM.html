@@ -1,0 +1,256 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS RAM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptResourceShareInvitation">AcceptResourceShareInvitation</option>
+		
+			<option value="AssociateResourceShare">AssociateResourceShare</option>
+		
+			<option value="AssociateResourceSharePermission">AssociateResourceSharePermission</option>
+		
+			<option value="CreateResourceShare">CreateResourceShare</option>
+		
+			<option value="DeleteResourceShare">DeleteResourceShare</option>
+		
+			<option value="DisassociateResourceShare">DisassociateResourceShare</option>
+		
+			<option value="DisassociateResourceSharePermission">DisassociateResourceSharePermission</option>
+		
+			<option value="EnableSharingWithAwsOrganization">EnableSharingWithAwsOrganization</option>
+		
+			<option value="GetPermission">GetPermission</option>
+		
+			<option value="GetResourcePolicies">GetResourcePolicies</option>
+		
+			<option value="GetResourceShareAssociations">GetResourceShareAssociations</option>
+		
+			<option value="GetResourceShareInvitations">GetResourceShareInvitations</option>
+		
+			<option value="GetResourceShares">GetResourceShares</option>
+		
+			<option value="ListPendingInvitationResources">ListPendingInvitationResources</option>
+		
+			<option value="ListPermissions">ListPermissions</option>
+		
+			<option value="ListPrincipals">ListPrincipals</option>
+		
+			<option value="ListResourceSharePermissions">ListResourceSharePermissions</option>
+		
+			<option value="ListResourceTypes">ListResourceTypes</option>
+		
+			<option value="ListResources">ListResources</option>
+		
+			<option value="PromoteResourceShareCreatedFromPolicy">PromoteResourceShareCreatedFromPolicy</option>
+		
+			<option value="RejectResourceShareInvitation">RejectResourceShareInvitation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateResourceShare">UpdateResourceShare</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='resourceShareInvitationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareInvitationArn"><i class="fa fa-tag"></i>resourceShareInvitationArn</label>
+		<input type="text" id="node-input-resourceShareInvitationArn" placeholder="resourceShareInvitationArn"></input>
+	</div> 
+	<div class="form-row" id='resourceShareArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareArn"><i class="fa fa-tag"></i>resourceShareArn</label>
+		<input type="text" id="node-input-resourceShareArn" placeholder="resourceShareArn"></input>
+	</div> 
+	<div class="form-row" id='permissionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-permissionArn"><i class="fa fa-tag"></i>permissionArn</label>
+		<input type="text" id="node-input-permissionArn" placeholder="permissionArn"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='resourceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArns"><i class="fa fa-tag"></i>resourceArns</label>
+		<input type="text" id="node-input-resourceArns" placeholder="resourceArns"></input>
+	</div> 
+	<div class="form-row" id='associationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-associationType"><i class="fa fa-tag"></i>associationType</label>
+		<input type="text" id="node-input-associationType" placeholder="associationType"></input>
+	</div> 
+	<div class="form-row" id='resourceOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceOwner"><i class="fa fa-tag"></i>resourceOwner</label>
+		<input type="text" id="node-input-resourceOwner" placeholder="resourceOwner"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptResourceShareInvitation:[
+					'#resourceShareInvitationArnAttr'
+					],
+				AssociateResourceShare:[
+					'#resourceShareArnAttr'
+					],
+				AssociateResourceSharePermission:[
+					'#resourceShareArnAttr','#permissionArnAttr'
+					],
+				CreateResourceShare:[
+					'#nameAttr'
+					],
+				DeleteResourceShare:[
+					'#resourceShareArnAttr'
+					],
+				DisassociateResourceShare:[
+					'#resourceShareArnAttr'
+					],
+				DisassociateResourceSharePermission:[
+					'#resourceShareArnAttr','#permissionArnAttr'
+					],
+				EnableSharingWithAwsOrganization:[
+					
+					],
+				GetPermission:[
+					'#permissionArnAttr'
+					],
+				GetResourcePolicies:[
+					'#resourceArnsAttr'
+					],
+				GetResourceShareAssociations:[
+					'#associationTypeAttr'
+					],
+				GetResourceShareInvitations:[
+					
+					],
+				GetResourceShares:[
+					'#resourceOwnerAttr'
+					],
+				ListPendingInvitationResources:[
+					'#resourceShareInvitationArnAttr'
+					],
+				ListPermissions:[
+					
+					],
+				ListPrincipals:[
+					'#resourceOwnerAttr'
+					],
+				ListResourceSharePermissions:[
+					'#resourceShareArnAttr'
+					],
+				ListResourceTypes:[
+					
+					],
+				ListResources:[
+					'#resourceOwnerAttr'
+					],
+				PromoteResourceShareCreatedFromPolicy:[
+					'#resourceShareArnAttr'
+					],
+				RejectResourceShareInvitation:[
+					'#resourceShareInvitationArnAttr'
+					],
+				TagResource:[
+					'#resourceShareArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceShareArnAttr','#tagKeysAttr'
+					],
+				UpdateResourceShare:[
+					'#resourceShareArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS RAM">
+<p>
+AWS RAM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RAM.html">RAM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS RAM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptResourceShareInvitation' },
+			
+				resourceShareInvitationArn: { value: ""} ,
+				resourceShareArn: { value: ""} ,
+				permissionArn: { value: ""} ,
+				name: { value: ""} ,
+				resourceArns: { value: ""} ,
+				associationType: { value: ""} ,
+				resourceOwner: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "RAM " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

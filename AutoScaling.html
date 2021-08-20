@@ -1,0 +1,516 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AutoScaling">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AttachInstances">AttachInstances</option>
+		
+			<option value="AttachLoadBalancerTargetGroups">AttachLoadBalancerTargetGroups</option>
+		
+			<option value="AttachLoadBalancers">AttachLoadBalancers</option>
+		
+			<option value="BatchDeleteScheduledAction">BatchDeleteScheduledAction</option>
+		
+			<option value="BatchPutScheduledUpdateGroupAction">BatchPutScheduledUpdateGroupAction</option>
+		
+			<option value="CancelInstanceRefresh">CancelInstanceRefresh</option>
+		
+			<option value="CompleteLifecycleAction">CompleteLifecycleAction</option>
+		
+			<option value="CreateAutoScalingGroup">CreateAutoScalingGroup</option>
+		
+			<option value="CreateLaunchConfiguration">CreateLaunchConfiguration</option>
+		
+			<option value="CreateOrUpdateTags">CreateOrUpdateTags</option>
+		
+			<option value="DeleteAutoScalingGroup">DeleteAutoScalingGroup</option>
+		
+			<option value="DeleteLaunchConfiguration">DeleteLaunchConfiguration</option>
+		
+			<option value="DeleteLifecycleHook">DeleteLifecycleHook</option>
+		
+			<option value="DeleteNotificationConfiguration">DeleteNotificationConfiguration</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DeleteScheduledAction">DeleteScheduledAction</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DeleteWarmPool">DeleteWarmPool</option>
+		
+			<option value="DescribeAccountLimits">DescribeAccountLimits</option>
+		
+			<option value="DescribeAdjustmentTypes">DescribeAdjustmentTypes</option>
+		
+			<option value="DescribeAutoScalingGroups">DescribeAutoScalingGroups</option>
+		
+			<option value="DescribeAutoScalingInstances">DescribeAutoScalingInstances</option>
+		
+			<option value="DescribeAutoScalingNotificationTypes">DescribeAutoScalingNotificationTypes</option>
+		
+			<option value="DescribeInstanceRefreshes">DescribeInstanceRefreshes</option>
+		
+			<option value="DescribeLaunchConfigurations">DescribeLaunchConfigurations</option>
+		
+			<option value="DescribeLifecycleHookTypes">DescribeLifecycleHookTypes</option>
+		
+			<option value="DescribeLifecycleHooks">DescribeLifecycleHooks</option>
+		
+			<option value="DescribeLoadBalancerTargetGroups">DescribeLoadBalancerTargetGroups</option>
+		
+			<option value="DescribeLoadBalancers">DescribeLoadBalancers</option>
+		
+			<option value="DescribeMetricCollectionTypes">DescribeMetricCollectionTypes</option>
+		
+			<option value="DescribeNotificationConfigurations">DescribeNotificationConfigurations</option>
+		
+			<option value="DescribePolicies">DescribePolicies</option>
+		
+			<option value="DescribeScalingActivities">DescribeScalingActivities</option>
+		
+			<option value="DescribeScalingProcessTypes">DescribeScalingProcessTypes</option>
+		
+			<option value="DescribeScheduledActions">DescribeScheduledActions</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="DescribeTerminationPolicyTypes">DescribeTerminationPolicyTypes</option>
+		
+			<option value="DescribeWarmPool">DescribeWarmPool</option>
+		
+			<option value="DetachInstances">DetachInstances</option>
+		
+			<option value="DetachLoadBalancerTargetGroups">DetachLoadBalancerTargetGroups</option>
+		
+			<option value="DetachLoadBalancers">DetachLoadBalancers</option>
+		
+			<option value="DisableMetricsCollection">DisableMetricsCollection</option>
+		
+			<option value="EnableMetricsCollection">EnableMetricsCollection</option>
+		
+			<option value="EnterStandby">EnterStandby</option>
+		
+			<option value="ExecutePolicy">ExecutePolicy</option>
+		
+			<option value="ExitStandby">ExitStandby</option>
+		
+			<option value="GetPredictiveScalingForecast">GetPredictiveScalingForecast</option>
+		
+			<option value="PutLifecycleHook">PutLifecycleHook</option>
+		
+			<option value="PutNotificationConfiguration">PutNotificationConfiguration</option>
+		
+			<option value="PutScalingPolicy">PutScalingPolicy</option>
+		
+			<option value="PutScheduledUpdateGroupAction">PutScheduledUpdateGroupAction</option>
+		
+			<option value="PutWarmPool">PutWarmPool</option>
+		
+			<option value="RecordLifecycleActionHeartbeat">RecordLifecycleActionHeartbeat</option>
+		
+			<option value="ResumeProcesses">ResumeProcesses</option>
+		
+			<option value="SetDesiredCapacity">SetDesiredCapacity</option>
+		
+			<option value="SetInstanceHealth">SetInstanceHealth</option>
+		
+			<option value="SetInstanceProtection">SetInstanceProtection</option>
+		
+			<option value="StartInstanceRefresh">StartInstanceRefresh</option>
+		
+			<option value="SuspendProcesses">SuspendProcesses</option>
+		
+			<option value="TerminateInstanceInAutoScalingGroup">TerminateInstanceInAutoScalingGroup</option>
+		
+			<option value="UpdateAutoScalingGroup">UpdateAutoScalingGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AutoScalingGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingGroupName"><i class="fa fa-tag"></i>AutoScalingGroupName</label>
+		<input type="text" id="node-input-AutoScalingGroupName" placeholder="AutoScalingGroupName"></input>
+	</div> 
+	<div class="form-row" id='TargetGroupARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetGroupARNs"><i class="fa fa-tag"></i>TargetGroupARNs</label>
+		<input type="text" id="node-input-TargetGroupARNs" placeholder="TargetGroupARNs"></input>
+	</div> 
+	<div class="form-row" id='LoadBalancerNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-LoadBalancerNames"><i class="fa fa-tag"></i>LoadBalancerNames</label>
+		<input type="text" id="node-input-LoadBalancerNames" placeholder="LoadBalancerNames"></input>
+	</div> 
+	<div class="form-row" id='ScheduledActionNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledActionNames"><i class="fa fa-tag"></i>ScheduledActionNames</label>
+		<input type="text" id="node-input-ScheduledActionNames" placeholder="ScheduledActionNames"></input>
+	</div> 
+	<div class="form-row" id='ScheduledUpdateGroupActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledUpdateGroupActions"><i class="fa fa-tag"></i>ScheduledUpdateGroupActions</label>
+		<input type="text" id="node-input-ScheduledUpdateGroupActions" placeholder="ScheduledUpdateGroupActions"></input>
+	</div> 
+	<div class="form-row" id='LifecycleHookNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleHookName"><i class="fa fa-tag"></i>LifecycleHookName</label>
+		<input type="text" id="node-input-LifecycleHookName" placeholder="LifecycleHookName"></input>
+	</div> 
+	<div class="form-row" id='LifecycleActionResultAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleActionResult"><i class="fa fa-tag"></i>LifecycleActionResult</label>
+		<input type="text" id="node-input-LifecycleActionResult" placeholder="LifecycleActionResult"></input>
+	</div> 
+	<div class="form-row" id='MinSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MinSize"><i class="fa fa-tag"></i>MinSize</label>
+		<input type="text" id="node-input-MinSize" placeholder="MinSize"></input>
+	</div> 
+	<div class="form-row" id='MaxSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSize"><i class="fa fa-tag"></i>MaxSize</label>
+		<input type="text" id="node-input-MaxSize" placeholder="MaxSize"></input>
+	</div> 
+	<div class="form-row" id='LaunchConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LaunchConfigurationName"><i class="fa fa-tag"></i>LaunchConfigurationName</label>
+		<input type="text" id="node-input-LaunchConfigurationName" placeholder="LaunchConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TopicARNAttr' class='hiddenAttrs'>
+		<label for="node-input-TopicARN"><i class="fa fa-tag"></i>TopicARN</label>
+		<input type="text" id="node-input-TopicARN" placeholder="TopicARN"></input>
+	</div> 
+	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyName"><i class="fa fa-tag"></i>PolicyName</label>
+		<input type="text" id="node-input-PolicyName" placeholder="PolicyName"></input>
+	</div> 
+	<div class="form-row" id='ScheduledActionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledActionName"><i class="fa fa-tag"></i>ScheduledActionName</label>
+		<input type="text" id="node-input-ScheduledActionName" placeholder="ScheduledActionName"></input>
+	</div> 
+	<div class="form-row" id='ShouldDecrementDesiredCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-ShouldDecrementDesiredCapacity"><i class="fa fa-tag"></i>ShouldDecrementDesiredCapacity</label>
+		<input type="text" id="node-input-ShouldDecrementDesiredCapacity" placeholder="ShouldDecrementDesiredCapacity"></input>
+	</div> 
+	<div class="form-row" id='GranularityAttr' class='hiddenAttrs'>
+		<label for="node-input-Granularity"><i class="fa fa-tag"></i>Granularity</label>
+		<input type="text" id="node-input-Granularity" placeholder="Granularity"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i>StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i>EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='NotificationTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationTypes"><i class="fa fa-tag"></i>NotificationTypes</label>
+		<input type="text" id="node-input-NotificationTypes" placeholder="NotificationTypes"></input>
+	</div> 
+	<div class="form-row" id='DesiredCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredCapacity"><i class="fa fa-tag"></i>DesiredCapacity</label>
+		<input type="text" id="node-input-DesiredCapacity" placeholder="DesiredCapacity"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i>InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='HealthStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthStatus"><i class="fa fa-tag"></i>HealthStatus</label>
+		<input type="text" id="node-input-HealthStatus" placeholder="HealthStatus"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceIds"><i class="fa fa-tag"></i>InstanceIds</label>
+		<input type="text" id="node-input-InstanceIds" placeholder="InstanceIds"></input>
+	</div> 
+	<div class="form-row" id='ProtectedFromScaleInAttr' class='hiddenAttrs'>
+		<label for="node-input-ProtectedFromScaleIn"><i class="fa fa-tag"></i>ProtectedFromScaleIn</label>
+		<input type="text" id="node-input-ProtectedFromScaleIn" placeholder="ProtectedFromScaleIn"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AttachInstances:[
+					'#AutoScalingGroupNameAttr'
+					],
+				AttachLoadBalancerTargetGroups:[
+					'#AutoScalingGroupNameAttr','#TargetGroupARNsAttr'
+					],
+				AttachLoadBalancers:[
+					'#AutoScalingGroupNameAttr','#LoadBalancerNamesAttr'
+					],
+				BatchDeleteScheduledAction:[
+					'#AutoScalingGroupNameAttr','#ScheduledActionNamesAttr'
+					],
+				BatchPutScheduledUpdateGroupAction:[
+					'#AutoScalingGroupNameAttr','#ScheduledUpdateGroupActionsAttr'
+					],
+				CancelInstanceRefresh:[
+					'#AutoScalingGroupNameAttr'
+					],
+				CompleteLifecycleAction:[
+					'#LifecycleHookNameAttr','#AutoScalingGroupNameAttr','#LifecycleActionResultAttr'
+					],
+				CreateAutoScalingGroup:[
+					'#AutoScalingGroupNameAttr','#MinSizeAttr','#MaxSizeAttr'
+					],
+				CreateLaunchConfiguration:[
+					'#LaunchConfigurationNameAttr'
+					],
+				CreateOrUpdateTags:[
+					'#TagsAttr'
+					],
+				DeleteAutoScalingGroup:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DeleteLaunchConfiguration:[
+					'#LaunchConfigurationNameAttr'
+					],
+				DeleteLifecycleHook:[
+					'#LifecycleHookNameAttr','#AutoScalingGroupNameAttr'
+					],
+				DeleteNotificationConfiguration:[
+					'#AutoScalingGroupNameAttr','#TopicARNAttr'
+					],
+				DeletePolicy:[
+					'#PolicyNameAttr'
+					],
+				DeleteScheduledAction:[
+					'#AutoScalingGroupNameAttr','#ScheduledActionNameAttr'
+					],
+				DeleteTags:[
+					'#TagsAttr'
+					],
+				DeleteWarmPool:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DescribeAccountLimits:[
+					
+					],
+				DescribeAdjustmentTypes:[
+					
+					],
+				DescribeAutoScalingGroups:[
+					
+					],
+				DescribeAutoScalingInstances:[
+					
+					],
+				DescribeAutoScalingNotificationTypes:[
+					
+					],
+				DescribeInstanceRefreshes:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DescribeLaunchConfigurations:[
+					
+					],
+				DescribeLifecycleHookTypes:[
+					
+					],
+				DescribeLifecycleHooks:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DescribeLoadBalancerTargetGroups:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DescribeLoadBalancers:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DescribeMetricCollectionTypes:[
+					
+					],
+				DescribeNotificationConfigurations:[
+					
+					],
+				DescribePolicies:[
+					
+					],
+				DescribeScalingActivities:[
+					
+					],
+				DescribeScalingProcessTypes:[
+					
+					],
+				DescribeScheduledActions:[
+					
+					],
+				DescribeTags:[
+					
+					],
+				DescribeTerminationPolicyTypes:[
+					
+					],
+				DescribeWarmPool:[
+					'#AutoScalingGroupNameAttr'
+					],
+				DetachInstances:[
+					'#AutoScalingGroupNameAttr','#ShouldDecrementDesiredCapacityAttr'
+					],
+				DetachLoadBalancerTargetGroups:[
+					'#AutoScalingGroupNameAttr','#TargetGroupARNsAttr'
+					],
+				DetachLoadBalancers:[
+					'#AutoScalingGroupNameAttr','#LoadBalancerNamesAttr'
+					],
+				DisableMetricsCollection:[
+					'#AutoScalingGroupNameAttr'
+					],
+				EnableMetricsCollection:[
+					'#AutoScalingGroupNameAttr','#GranularityAttr'
+					],
+				EnterStandby:[
+					'#AutoScalingGroupNameAttr','#ShouldDecrementDesiredCapacityAttr'
+					],
+				ExecutePolicy:[
+					'#PolicyNameAttr'
+					],
+				ExitStandby:[
+					'#AutoScalingGroupNameAttr'
+					],
+				GetPredictiveScalingForecast:[
+					'#AutoScalingGroupNameAttr','#PolicyNameAttr','#StartTimeAttr','#EndTimeAttr'
+					],
+				PutLifecycleHook:[
+					'#LifecycleHookNameAttr','#AutoScalingGroupNameAttr'
+					],
+				PutNotificationConfiguration:[
+					'#AutoScalingGroupNameAttr','#TopicARNAttr','#NotificationTypesAttr'
+					],
+				PutScalingPolicy:[
+					'#AutoScalingGroupNameAttr','#PolicyNameAttr'
+					],
+				PutScheduledUpdateGroupAction:[
+					'#AutoScalingGroupNameAttr','#ScheduledActionNameAttr'
+					],
+				PutWarmPool:[
+					'#AutoScalingGroupNameAttr'
+					],
+				RecordLifecycleActionHeartbeat:[
+					'#LifecycleHookNameAttr','#AutoScalingGroupNameAttr'
+					],
+				ResumeProcesses:[
+					
+					],
+				SetDesiredCapacity:[
+					'#AutoScalingGroupNameAttr','#DesiredCapacityAttr'
+					],
+				SetInstanceHealth:[
+					'#InstanceIdAttr','#HealthStatusAttr'
+					],
+				SetInstanceProtection:[
+					'#InstanceIdsAttr','#AutoScalingGroupNameAttr','#ProtectedFromScaleInAttr'
+					],
+				StartInstanceRefresh:[
+					'#AutoScalingGroupNameAttr'
+					],
+				SuspendProcesses:[
+					
+					],
+				TerminateInstanceInAutoScalingGroup:[
+					'#InstanceIdAttr','#ShouldDecrementDesiredCapacityAttr'
+					],
+				UpdateAutoScalingGroup:[
+					'#AutoScalingGroupNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AutoScaling">
+<p>
+AWS AutoScaling
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AutoScaling.html">AutoScaling</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AutoScaling',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AttachInstances' },
+			
+				AutoScalingGroupName: { value: ""} ,
+				TargetGroupARNs: { value: ""} ,
+				LoadBalancerNames: { value: ""} ,
+				ScheduledActionNames: { value: ""} ,
+				ScheduledUpdateGroupActions: { value: ""} ,
+				LifecycleHookName: { value: ""} ,
+				LifecycleActionResult: { value: ""} ,
+				MinSize: { value: ""} ,
+				MaxSize: { value: ""} ,
+				LaunchConfigurationName: { value: ""} ,
+				Tags: { value: ""} ,
+				TopicARN: { value: ""} ,
+				PolicyName: { value: ""} ,
+				ScheduledActionName: { value: ""} ,
+				ShouldDecrementDesiredCapacity: { value: ""} ,
+				Granularity: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				NotificationTypes: { value: ""} ,
+				DesiredCapacity: { value: ""} ,
+				InstanceId: { value: ""} ,
+				HealthStatus: { value: ""} ,
+				InstanceIds: { value: ""} ,
+				ProtectedFromScaleIn: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AutoScaling " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

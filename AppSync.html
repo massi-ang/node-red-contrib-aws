@@ -1,0 +1,381 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AppSync">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApiCache">CreateApiCache</option>
+		
+			<option value="CreateApiKey">CreateApiKey</option>
+		
+			<option value="CreateDataSource">CreateDataSource</option>
+		
+			<option value="CreateFunction">CreateFunction</option>
+		
+			<option value="CreateGraphqlApi">CreateGraphqlApi</option>
+		
+			<option value="CreateResolver">CreateResolver</option>
+		
+			<option value="CreateType">CreateType</option>
+		
+			<option value="DeleteApiCache">DeleteApiCache</option>
+		
+			<option value="DeleteApiKey">DeleteApiKey</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteFunction">DeleteFunction</option>
+		
+			<option value="DeleteGraphqlApi">DeleteGraphqlApi</option>
+		
+			<option value="DeleteResolver">DeleteResolver</option>
+		
+			<option value="DeleteType">DeleteType</option>
+		
+			<option value="FlushApiCache">FlushApiCache</option>
+		
+			<option value="GetApiCache">GetApiCache</option>
+		
+			<option value="GetDataSource">GetDataSource</option>
+		
+			<option value="GetFunction">GetFunction</option>
+		
+			<option value="GetGraphqlApi">GetGraphqlApi</option>
+		
+			<option value="GetIntrospectionSchema">GetIntrospectionSchema</option>
+		
+			<option value="GetResolver">GetResolver</option>
+		
+			<option value="GetSchemaCreationStatus">GetSchemaCreationStatus</option>
+		
+			<option value="GetType">GetType</option>
+		
+			<option value="ListApiKeys">ListApiKeys</option>
+		
+			<option value="ListDataSources">ListDataSources</option>
+		
+			<option value="ListFunctions">ListFunctions</option>
+		
+			<option value="ListGraphqlApis">ListGraphqlApis</option>
+		
+			<option value="ListResolvers">ListResolvers</option>
+		
+			<option value="ListResolversByFunction">ListResolversByFunction</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTypes">ListTypes</option>
+		
+			<option value="StartSchemaCreation">StartSchemaCreation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApiCache">UpdateApiCache</option>
+		
+			<option value="UpdateApiKey">UpdateApiKey</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateFunction">UpdateFunction</option>
+		
+			<option value="UpdateGraphqlApi">UpdateGraphqlApi</option>
+		
+			<option value="UpdateResolver">UpdateResolver</option>
+		
+			<option value="UpdateType">UpdateType</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='apiIdAttr' class='hiddenAttrs'>
+		<label for="node-input-apiId"><i class="fa fa-tag"></i>apiId</label>
+		<input type="text" id="node-input-apiId" placeholder="apiId"></input>
+	</div> 
+	<div class="form-row" id='ttlAttr' class='hiddenAttrs'>
+		<label for="node-input-ttl"><i class="fa fa-tag"></i>ttl</label>
+		<input type="text" id="node-input-ttl" placeholder="ttl"></input>
+	</div> 
+	<div class="form-row" id='apiCachingBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-apiCachingBehavior"><i class="fa fa-tag"></i>apiCachingBehavior</label>
+		<input type="text" id="node-input-apiCachingBehavior" placeholder="apiCachingBehavior"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i>type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='dataSourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-dataSourceName"><i class="fa fa-tag"></i>dataSourceName</label>
+		<input type="text" id="node-input-dataSourceName" placeholder="dataSourceName"></input>
+	</div> 
+	<div class="form-row" id='functionVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-functionVersion"><i class="fa fa-tag"></i>functionVersion</label>
+		<input type="text" id="node-input-functionVersion" placeholder="functionVersion"></input>
+	</div> 
+	<div class="form-row" id='authenticationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authenticationType"><i class="fa fa-tag"></i>authenticationType</label>
+		<input type="text" id="node-input-authenticationType" placeholder="authenticationType"></input>
+	</div> 
+	<div class="form-row" id='typeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-typeName"><i class="fa fa-tag"></i>typeName</label>
+		<input type="text" id="node-input-typeName" placeholder="typeName"></input>
+	</div> 
+	<div class="form-row" id='fieldNameAttr' class='hiddenAttrs'>
+		<label for="node-input-fieldName"><i class="fa fa-tag"></i>fieldName</label>
+		<input type="text" id="node-input-fieldName" placeholder="fieldName"></input>
+	</div> 
+	<div class="form-row" id='definitionAttr' class='hiddenAttrs'>
+		<label for="node-input-definition"><i class="fa fa-tag"></i>definition</label>
+		<input type="text" id="node-input-definition" placeholder="definition"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i>format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i>id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='functionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-functionId"><i class="fa fa-tag"></i>functionId</label>
+		<input type="text" id="node-input-functionId" placeholder="functionId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApiCache:[
+					'#apiIdAttr','#ttlAttr','#apiCachingBehaviorAttr','#typeAttr'
+					],
+				CreateApiKey:[
+					'#apiIdAttr'
+					],
+				CreateDataSource:[
+					'#apiIdAttr','#nameAttr','#typeAttr'
+					],
+				CreateFunction:[
+					'#apiIdAttr','#nameAttr','#dataSourceNameAttr','#functionVersionAttr'
+					],
+				CreateGraphqlApi:[
+					'#nameAttr','#authenticationTypeAttr'
+					],
+				CreateResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				CreateType:[
+					'#apiIdAttr','#definitionAttr','#formatAttr'
+					],
+				DeleteApiCache:[
+					'#apiIdAttr'
+					],
+				DeleteApiKey:[
+					'#apiIdAttr','#idAttr'
+					],
+				DeleteDataSource:[
+					'#apiIdAttr','#nameAttr'
+					],
+				DeleteFunction:[
+					'#apiIdAttr','#functionIdAttr'
+					],
+				DeleteGraphqlApi:[
+					'#apiIdAttr'
+					],
+				DeleteResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				DeleteType:[
+					'#apiIdAttr','#typeNameAttr'
+					],
+				FlushApiCache:[
+					'#apiIdAttr'
+					],
+				GetApiCache:[
+					'#apiIdAttr'
+					],
+				GetDataSource:[
+					'#apiIdAttr','#nameAttr'
+					],
+				GetFunction:[
+					'#apiIdAttr','#functionIdAttr'
+					],
+				GetGraphqlApi:[
+					'#apiIdAttr'
+					],
+				GetIntrospectionSchema:[
+					'#apiIdAttr','#formatAttr'
+					],
+				GetResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				GetSchemaCreationStatus:[
+					'#apiIdAttr'
+					],
+				GetType:[
+					'#apiIdAttr','#typeNameAttr','#formatAttr'
+					],
+				ListApiKeys:[
+					'#apiIdAttr'
+					],
+				ListDataSources:[
+					'#apiIdAttr'
+					],
+				ListFunctions:[
+					'#apiIdAttr'
+					],
+				ListGraphqlApis:[
+					
+					],
+				ListResolvers:[
+					'#apiIdAttr','#typeNameAttr'
+					],
+				ListResolversByFunction:[
+					'#apiIdAttr','#functionIdAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListTypes:[
+					'#apiIdAttr','#formatAttr'
+					],
+				StartSchemaCreation:[
+					'#apiIdAttr','#definitionAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateApiCache:[
+					'#apiIdAttr','#ttlAttr','#apiCachingBehaviorAttr','#typeAttr'
+					],
+				UpdateApiKey:[
+					'#apiIdAttr','#idAttr'
+					],
+				UpdateDataSource:[
+					'#apiIdAttr','#nameAttr','#typeAttr'
+					],
+				UpdateFunction:[
+					'#apiIdAttr','#nameAttr','#functionIdAttr','#dataSourceNameAttr','#functionVersionAttr'
+					],
+				UpdateGraphqlApi:[
+					'#apiIdAttr','#nameAttr'
+					],
+				UpdateResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				UpdateType:[
+					'#apiIdAttr','#typeNameAttr','#formatAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AppSync">
+<p>
+AWS AppSync
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppSync.html">AppSync</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppSync',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApiCache' },
+			
+				apiId: { value: ""} ,
+				ttl: { value: ""} ,
+				apiCachingBehavior: { value: ""} ,
+				_type: { value: ""} ,
+				name: { value: ""} ,
+				dataSourceName: { value: ""} ,
+				functionVersion: { value: ""} ,
+				authenticationType: { value: ""} ,
+				typeName: { value: ""} ,
+				fieldName: { value: ""} ,
+				definition: { value: ""} ,
+				format: { value: ""} ,
+				id: { value: ""} ,
+				functionId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppSync " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

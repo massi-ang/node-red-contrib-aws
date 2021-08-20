@@ -1,0 +1,226 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ServiceQuotas">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateServiceQuotaTemplate">AssociateServiceQuotaTemplate</option>
+		
+			<option value="DeleteServiceQuotaIncreaseRequestFromTemplate">DeleteServiceQuotaIncreaseRequestFromTemplate</option>
+		
+			<option value="DisassociateServiceQuotaTemplate">DisassociateServiceQuotaTemplate</option>
+		
+			<option value="GetAWSDefaultServiceQuota">GetAWSDefaultServiceQuota</option>
+		
+			<option value="GetAssociationForServiceQuotaTemplate">GetAssociationForServiceQuotaTemplate</option>
+		
+			<option value="GetRequestedServiceQuotaChange">GetRequestedServiceQuotaChange</option>
+		
+			<option value="GetServiceQuota">GetServiceQuota</option>
+		
+			<option value="GetServiceQuotaIncreaseRequestFromTemplate">GetServiceQuotaIncreaseRequestFromTemplate</option>
+		
+			<option value="ListAWSDefaultServiceQuotas">ListAWSDefaultServiceQuotas</option>
+		
+			<option value="ListRequestedServiceQuotaChangeHistory">ListRequestedServiceQuotaChangeHistory</option>
+		
+			<option value="ListRequestedServiceQuotaChangeHistoryByQuota">ListRequestedServiceQuotaChangeHistoryByQuota</option>
+		
+			<option value="ListServiceQuotaIncreaseRequestsInTemplate">ListServiceQuotaIncreaseRequestsInTemplate</option>
+		
+			<option value="ListServiceQuotas">ListServiceQuotas</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutServiceQuotaIncreaseRequestIntoTemplate">PutServiceQuotaIncreaseRequestIntoTemplate</option>
+		
+			<option value="RequestServiceQuotaIncrease">RequestServiceQuotaIncrease</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ServiceCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceCode"><i class="fa fa-tag"></i>ServiceCode</label>
+		<input type="text" id="node-input-ServiceCode" placeholder="ServiceCode"></input>
+	</div> 
+	<div class="form-row" id='QuotaCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-QuotaCode"><i class="fa fa-tag"></i>QuotaCode</label>
+		<input type="text" id="node-input-QuotaCode" placeholder="QuotaCode"></input>
+	</div> 
+	<div class="form-row" id='AwsRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-AwsRegion"><i class="fa fa-tag"></i>AwsRegion</label>
+		<input type="text" id="node-input-AwsRegion" placeholder="AwsRegion"></input>
+	</div> 
+	<div class="form-row" id='RequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestId"><i class="fa fa-tag"></i>RequestId</label>
+		<input type="text" id="node-input-RequestId" placeholder="RequestId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='DesiredValueAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredValue"><i class="fa fa-tag"></i>DesiredValue</label>
+		<input type="text" id="node-input-DesiredValue" placeholder="DesiredValue"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateServiceQuotaTemplate:[
+					
+					],
+				DeleteServiceQuotaIncreaseRequestFromTemplate:[
+					'#ServiceCodeAttr','#QuotaCodeAttr','#AwsRegionAttr'
+					],
+				DisassociateServiceQuotaTemplate:[
+					
+					],
+				GetAWSDefaultServiceQuota:[
+					'#ServiceCodeAttr','#QuotaCodeAttr'
+					],
+				GetAssociationForServiceQuotaTemplate:[
+					
+					],
+				GetRequestedServiceQuotaChange:[
+					'#RequestIdAttr'
+					],
+				GetServiceQuota:[
+					'#ServiceCodeAttr','#QuotaCodeAttr'
+					],
+				GetServiceQuotaIncreaseRequestFromTemplate:[
+					'#ServiceCodeAttr','#QuotaCodeAttr','#AwsRegionAttr'
+					],
+				ListAWSDefaultServiceQuotas:[
+					'#ServiceCodeAttr'
+					],
+				ListRequestedServiceQuotaChangeHistory:[
+					
+					],
+				ListRequestedServiceQuotaChangeHistoryByQuota:[
+					'#ServiceCodeAttr','#QuotaCodeAttr'
+					],
+				ListServiceQuotaIncreaseRequestsInTemplate:[
+					
+					],
+				ListServiceQuotas:[
+					'#ServiceCodeAttr'
+					],
+				ListServices:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				PutServiceQuotaIncreaseRequestIntoTemplate:[
+					'#QuotaCodeAttr','#ServiceCodeAttr','#AwsRegionAttr','#DesiredValueAttr'
+					],
+				RequestServiceQuotaIncrease:[
+					'#ServiceCodeAttr','#QuotaCodeAttr','#DesiredValueAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ServiceQuotas">
+<p>
+AWS ServiceQuotas
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ServiceQuotas.html">ServiceQuotas</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ServiceQuotas',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateServiceQuotaTemplate' },
+			
+				ServiceCode: { value: ""} ,
+				QuotaCode: { value: ""} ,
+				AwsRegion: { value: ""} ,
+				RequestId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				DesiredValue: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ServiceQuotas " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,206 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ServerlessApplicationRepository">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateApplicationVersion">CreateApplicationVersion</option>
+		
+			<option value="CreateCloudFormationChangeSet">CreateCloudFormationChangeSet</option>
+		
+			<option value="CreateCloudFormationTemplate">CreateCloudFormationTemplate</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="GetApplication">GetApplication</option>
+		
+			<option value="GetApplicationPolicy">GetApplicationPolicy</option>
+		
+			<option value="GetCloudFormationTemplate">GetCloudFormationTemplate</option>
+		
+			<option value="ListApplicationDependencies">ListApplicationDependencies</option>
+		
+			<option value="ListApplicationVersions">ListApplicationVersions</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="PutApplicationPolicy">PutApplicationPolicy</option>
+		
+			<option value="UnshareApplication">UnshareApplication</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='AuthorAttr' class='hiddenAttrs'>
+		<label for="node-input-Author"><i class="fa fa-tag"></i>Author</label>
+		<input type="text" id="node-input-Author" placeholder="Author"></input>
+	</div> 
+	<div class="form-row" id='ApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationId"><i class="fa fa-tag"></i>ApplicationId</label>
+		<input type="text" id="node-input-ApplicationId" placeholder="ApplicationId"></input>
+	</div> 
+	<div class="form-row" id='SemanticVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-SemanticVersion"><i class="fa fa-tag"></i>SemanticVersion</label>
+		<input type="text" id="node-input-SemanticVersion" placeholder="SemanticVersion"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i>StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='TemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateId"><i class="fa fa-tag"></i>TemplateId</label>
+		<input type="text" id="node-input-TemplateId" placeholder="TemplateId"></input>
+	</div> 
+	<div class="form-row" id='StatementsAttr' class='hiddenAttrs'>
+		<label for="node-input-Statements"><i class="fa fa-tag"></i>Statements</label>
+		<input type="text" id="node-input-Statements" placeholder="Statements"></input>
+	</div> 
+	<div class="form-row" id='OrganizationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationId"><i class="fa fa-tag"></i>OrganizationId</label>
+		<input type="text" id="node-input-OrganizationId" placeholder="OrganizationId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApplication:[
+					'#DescriptionAttr','#NameAttr','#AuthorAttr'
+					],
+				CreateApplicationVersion:[
+					'#ApplicationIdAttr','#SemanticVersionAttr'
+					],
+				CreateCloudFormationChangeSet:[
+					'#ApplicationIdAttr','#StackNameAttr'
+					],
+				CreateCloudFormationTemplate:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApplication:[
+					'#ApplicationIdAttr'
+					],
+				GetApplication:[
+					'#ApplicationIdAttr'
+					],
+				GetApplicationPolicy:[
+					'#ApplicationIdAttr'
+					],
+				GetCloudFormationTemplate:[
+					'#ApplicationIdAttr','#TemplateIdAttr'
+					],
+				ListApplicationDependencies:[
+					'#ApplicationIdAttr'
+					],
+				ListApplicationVersions:[
+					'#ApplicationIdAttr'
+					],
+				ListApplications:[
+					
+					],
+				PutApplicationPolicy:[
+					'#ApplicationIdAttr','#StatementsAttr'
+					],
+				UnshareApplication:[
+					'#ApplicationIdAttr','#OrganizationIdAttr'
+					],
+				UpdateApplication:[
+					'#ApplicationIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ServerlessApplicationRepository">
+<p>
+AWS ServerlessApplicationRepository
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ServerlessApplicationRepository.html">ServerlessApplicationRepository</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ServerlessApplicationRepository',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApplication' },
+			
+				Description: { value: ""} ,
+				Name: { value: ""} ,
+				Author: { value: ""} ,
+				ApplicationId: { value: ""} ,
+				SemanticVersion: { value: ""} ,
+				StackName: { value: ""} ,
+				TemplateId: { value: ""} ,
+				Statements: { value: ""} ,
+				OrganizationId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ServerlessApplicationRepository " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

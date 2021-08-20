@@ -1,0 +1,351 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CostExplorer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAnomalyMonitor">CreateAnomalyMonitor</option>
+		
+			<option value="CreateAnomalySubscription">CreateAnomalySubscription</option>
+		
+			<option value="CreateCostCategoryDefinition">CreateCostCategoryDefinition</option>
+		
+			<option value="DeleteAnomalyMonitor">DeleteAnomalyMonitor</option>
+		
+			<option value="DeleteAnomalySubscription">DeleteAnomalySubscription</option>
+		
+			<option value="DeleteCostCategoryDefinition">DeleteCostCategoryDefinition</option>
+		
+			<option value="DescribeCostCategoryDefinition">DescribeCostCategoryDefinition</option>
+		
+			<option value="GetAnomalies">GetAnomalies</option>
+		
+			<option value="GetAnomalyMonitors">GetAnomalyMonitors</option>
+		
+			<option value="GetAnomalySubscriptions">GetAnomalySubscriptions</option>
+		
+			<option value="GetCostAndUsage">GetCostAndUsage</option>
+		
+			<option value="GetCostAndUsageWithResources">GetCostAndUsageWithResources</option>
+		
+			<option value="GetCostCategories">GetCostCategories</option>
+		
+			<option value="GetCostForecast">GetCostForecast</option>
+		
+			<option value="GetDimensionValues">GetDimensionValues</option>
+		
+			<option value="GetReservationCoverage">GetReservationCoverage</option>
+		
+			<option value="GetReservationPurchaseRecommendation">GetReservationPurchaseRecommendation</option>
+		
+			<option value="GetReservationUtilization">GetReservationUtilization</option>
+		
+			<option value="GetRightsizingRecommendation">GetRightsizingRecommendation</option>
+		
+			<option value="GetSavingsPlansCoverage">GetSavingsPlansCoverage</option>
+		
+			<option value="GetSavingsPlansPurchaseRecommendation">GetSavingsPlansPurchaseRecommendation</option>
+		
+			<option value="GetSavingsPlansUtilization">GetSavingsPlansUtilization</option>
+		
+			<option value="GetSavingsPlansUtilizationDetails">GetSavingsPlansUtilizationDetails</option>
+		
+			<option value="GetTags">GetTags</option>
+		
+			<option value="GetUsageForecast">GetUsageForecast</option>
+		
+			<option value="ListCostCategoryDefinitions">ListCostCategoryDefinitions</option>
+		
+			<option value="ProvideAnomalyFeedback">ProvideAnomalyFeedback</option>
+		
+			<option value="UpdateAnomalyMonitor">UpdateAnomalyMonitor</option>
+		
+			<option value="UpdateAnomalySubscription">UpdateAnomalySubscription</option>
+		
+			<option value="UpdateCostCategoryDefinition">UpdateCostCategoryDefinition</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AnomalyMonitorAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyMonitor"><i class="fa fa-tag"></i>AnomalyMonitor</label>
+		<input type="text" id="node-input-AnomalyMonitor" placeholder="AnomalyMonitor"></input>
+	</div> 
+	<div class="form-row" id='AnomalySubscriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalySubscription"><i class="fa fa-tag"></i>AnomalySubscription</label>
+		<input type="text" id="node-input-AnomalySubscription" placeholder="AnomalySubscription"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RuleVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleVersion"><i class="fa fa-tag"></i>RuleVersion</label>
+		<input type="text" id="node-input-RuleVersion" placeholder="RuleVersion"></input>
+	</div> 
+	<div class="form-row" id='RulesAttr' class='hiddenAttrs'>
+		<label for="node-input-Rules"><i class="fa fa-tag"></i>Rules</label>
+		<input type="text" id="node-input-Rules" placeholder="Rules"></input>
+	</div> 
+	<div class="form-row" id='MonitorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitorArn"><i class="fa fa-tag"></i>MonitorArn</label>
+		<input type="text" id="node-input-MonitorArn" placeholder="MonitorArn"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionArn"><i class="fa fa-tag"></i>SubscriptionArn</label>
+		<input type="text" id="node-input-SubscriptionArn" placeholder="SubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='CostCategoryArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CostCategoryArn"><i class="fa fa-tag"></i>CostCategoryArn</label>
+		<input type="text" id="node-input-CostCategoryArn" placeholder="CostCategoryArn"></input>
+	</div> 
+	<div class="form-row" id='DateIntervalAttr' class='hiddenAttrs'>
+		<label for="node-input-DateInterval"><i class="fa fa-tag"></i>DateInterval</label>
+		<input type="text" id="node-input-DateInterval" placeholder="DateInterval"></input>
+	</div> 
+	<div class="form-row" id='TimePeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-TimePeriod"><i class="fa fa-tag"></i>TimePeriod</label>
+		<input type="text" id="node-input-TimePeriod" placeholder="TimePeriod"></input>
+	</div> 
+	<div class="form-row" id='GranularityAttr' class='hiddenAttrs'>
+		<label for="node-input-Granularity"><i class="fa fa-tag"></i>Granularity</label>
+		<input type="text" id="node-input-Granularity" placeholder="Granularity"></input>
+	</div> 
+	<div class="form-row" id='MetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-Metrics"><i class="fa fa-tag"></i>Metrics</label>
+		<input type="text" id="node-input-Metrics" placeholder="Metrics"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i>Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='MetricAttr' class='hiddenAttrs'>
+		<label for="node-input-Metric"><i class="fa fa-tag"></i>Metric</label>
+		<input type="text" id="node-input-Metric" placeholder="Metric"></input>
+	</div> 
+	<div class="form-row" id='DimensionAttr' class='hiddenAttrs'>
+		<label for="node-input-Dimension"><i class="fa fa-tag"></i>Dimension</label>
+		<input type="text" id="node-input-Dimension" placeholder="Dimension"></input>
+	</div> 
+	<div class="form-row" id='ServiceAttr' class='hiddenAttrs'>
+		<label for="node-input-Service"><i class="fa fa-tag"></i>Service</label>
+		<input type="text" id="node-input-Service" placeholder="Service"></input>
+	</div> 
+	<div class="form-row" id='SavingsPlansTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SavingsPlansType"><i class="fa fa-tag"></i>SavingsPlansType</label>
+		<input type="text" id="node-input-SavingsPlansType" placeholder="SavingsPlansType"></input>
+	</div> 
+	<div class="form-row" id='TermInYearsAttr' class='hiddenAttrs'>
+		<label for="node-input-TermInYears"><i class="fa fa-tag"></i>TermInYears</label>
+		<input type="text" id="node-input-TermInYears" placeholder="TermInYears"></input>
+	</div> 
+	<div class="form-row" id='PaymentOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PaymentOption"><i class="fa fa-tag"></i>PaymentOption</label>
+		<input type="text" id="node-input-PaymentOption" placeholder="PaymentOption"></input>
+	</div> 
+	<div class="form-row" id='LookbackPeriodInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-LookbackPeriodInDays"><i class="fa fa-tag"></i>LookbackPeriodInDays</label>
+		<input type="text" id="node-input-LookbackPeriodInDays" placeholder="LookbackPeriodInDays"></input>
+	</div> 
+	<div class="form-row" id='AnomalyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyId"><i class="fa fa-tag"></i>AnomalyId</label>
+		<input type="text" id="node-input-AnomalyId" placeholder="AnomalyId"></input>
+	</div> 
+	<div class="form-row" id='FeedbackAttr' class='hiddenAttrs'>
+		<label for="node-input-Feedback"><i class="fa fa-tag"></i>Feedback</label>
+		<input type="text" id="node-input-Feedback" placeholder="Feedback"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAnomalyMonitor:[
+					'#AnomalyMonitorAttr'
+					],
+				CreateAnomalySubscription:[
+					'#AnomalySubscriptionAttr'
+					],
+				CreateCostCategoryDefinition:[
+					'#NameAttr','#RuleVersionAttr','#RulesAttr'
+					],
+				DeleteAnomalyMonitor:[
+					'#MonitorArnAttr'
+					],
+				DeleteAnomalySubscription:[
+					'#SubscriptionArnAttr'
+					],
+				DeleteCostCategoryDefinition:[
+					'#CostCategoryArnAttr'
+					],
+				DescribeCostCategoryDefinition:[
+					'#CostCategoryArnAttr'
+					],
+				GetAnomalies:[
+					'#DateIntervalAttr'
+					],
+				GetAnomalyMonitors:[
+					
+					],
+				GetAnomalySubscriptions:[
+					
+					],
+				GetCostAndUsage:[
+					'#TimePeriodAttr','#GranularityAttr','#MetricsAttr'
+					],
+				GetCostAndUsageWithResources:[
+					'#TimePeriodAttr','#GranularityAttr','#FilterAttr'
+					],
+				GetCostCategories:[
+					'#TimePeriodAttr'
+					],
+				GetCostForecast:[
+					'#TimePeriodAttr','#MetricAttr','#GranularityAttr'
+					],
+				GetDimensionValues:[
+					'#TimePeriodAttr','#DimensionAttr'
+					],
+				GetReservationCoverage:[
+					'#TimePeriodAttr'
+					],
+				GetReservationPurchaseRecommendation:[
+					'#ServiceAttr'
+					],
+				GetReservationUtilization:[
+					'#TimePeriodAttr'
+					],
+				GetRightsizingRecommendation:[
+					'#ServiceAttr'
+					],
+				GetSavingsPlansCoverage:[
+					'#TimePeriodAttr'
+					],
+				GetSavingsPlansPurchaseRecommendation:[
+					'#SavingsPlansTypeAttr','#TermInYearsAttr','#PaymentOptionAttr','#LookbackPeriodInDaysAttr'
+					],
+				GetSavingsPlansUtilization:[
+					'#TimePeriodAttr'
+					],
+				GetSavingsPlansUtilizationDetails:[
+					'#TimePeriodAttr'
+					],
+				GetTags:[
+					'#TimePeriodAttr'
+					],
+				GetUsageForecast:[
+					'#TimePeriodAttr','#MetricAttr','#GranularityAttr'
+					],
+				ListCostCategoryDefinitions:[
+					
+					],
+				ProvideAnomalyFeedback:[
+					'#AnomalyIdAttr','#FeedbackAttr'
+					],
+				UpdateAnomalyMonitor:[
+					'#MonitorArnAttr'
+					],
+				UpdateAnomalySubscription:[
+					'#SubscriptionArnAttr'
+					],
+				UpdateCostCategoryDefinition:[
+					'#CostCategoryArnAttr','#RuleVersionAttr','#RulesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CostExplorer">
+<p>
+AWS CostExplorer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CostExplorer.html">CostExplorer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CostExplorer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAnomalyMonitor' },
+			
+				AnomalyMonitor: { value: ""} ,
+				AnomalySubscription: { value: ""} ,
+				Name: { value: ""} ,
+				RuleVersion: { value: ""} ,
+				Rules: { value: ""} ,
+				MonitorArn: { value: ""} ,
+				SubscriptionArn: { value: ""} ,
+				CostCategoryArn: { value: ""} ,
+				DateInterval: { value: ""} ,
+				TimePeriod: { value: ""} ,
+				Granularity: { value: ""} ,
+				Metrics: { value: ""} ,
+				Filter: { value: ""} ,
+				Metric: { value: ""} ,
+				Dimension: { value: ""} ,
+				Service: { value: ""} ,
+				SavingsPlansType: { value: ""} ,
+				TermInYears: { value: ""} ,
+				PaymentOption: { value: ""} ,
+				LookbackPeriodInDays: { value: ""} ,
+				AnomalyId: { value: ""} ,
+				Feedback: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CostExplorer " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,326 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS NetworkFirewall">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateFirewallPolicy">AssociateFirewallPolicy</option>
+		
+			<option value="AssociateSubnets">AssociateSubnets</option>
+		
+			<option value="CreateFirewall">CreateFirewall</option>
+		
+			<option value="CreateFirewallPolicy">CreateFirewallPolicy</option>
+		
+			<option value="CreateRuleGroup">CreateRuleGroup</option>
+		
+			<option value="DeleteFirewall">DeleteFirewall</option>
+		
+			<option value="DeleteFirewallPolicy">DeleteFirewallPolicy</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteRuleGroup">DeleteRuleGroup</option>
+		
+			<option value="DescribeFirewall">DescribeFirewall</option>
+		
+			<option value="DescribeFirewallPolicy">DescribeFirewallPolicy</option>
+		
+			<option value="DescribeLoggingConfiguration">DescribeLoggingConfiguration</option>
+		
+			<option value="DescribeResourcePolicy">DescribeResourcePolicy</option>
+		
+			<option value="DescribeRuleGroup">DescribeRuleGroup</option>
+		
+			<option value="DisassociateSubnets">DisassociateSubnets</option>
+		
+			<option value="ListFirewallPolicies">ListFirewallPolicies</option>
+		
+			<option value="ListFirewalls">ListFirewalls</option>
+		
+			<option value="ListRuleGroups">ListRuleGroups</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFirewallDeleteProtection">UpdateFirewallDeleteProtection</option>
+		
+			<option value="UpdateFirewallDescription">UpdateFirewallDescription</option>
+		
+			<option value="UpdateFirewallPolicy">UpdateFirewallPolicy</option>
+		
+			<option value="UpdateFirewallPolicyChangeProtection">UpdateFirewallPolicyChangeProtection</option>
+		
+			<option value="UpdateLoggingConfiguration">UpdateLoggingConfiguration</option>
+		
+			<option value="UpdateRuleGroup">UpdateRuleGroup</option>
+		
+			<option value="UpdateSubnetChangeProtection">UpdateSubnetChangeProtection</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FirewallPolicyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FirewallPolicyArn"><i class="fa fa-tag"></i>FirewallPolicyArn</label>
+		<input type="text" id="node-input-FirewallPolicyArn" placeholder="FirewallPolicyArn"></input>
+	</div> 
+	<div class="form-row" id='SubnetMappingsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetMappings"><i class="fa fa-tag"></i>SubnetMappings</label>
+		<input type="text" id="node-input-SubnetMappings" placeholder="SubnetMappings"></input>
+	</div> 
+	<div class="form-row" id='FirewallNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FirewallName"><i class="fa fa-tag"></i>FirewallName</label>
+		<input type="text" id="node-input-FirewallName" placeholder="FirewallName"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i>VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='FirewallPolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FirewallPolicyName"><i class="fa fa-tag"></i>FirewallPolicyName</label>
+		<input type="text" id="node-input-FirewallPolicyName" placeholder="FirewallPolicyName"></input>
+	</div> 
+	<div class="form-row" id='FirewallPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-FirewallPolicy"><i class="fa fa-tag"></i>FirewallPolicy</label>
+		<input type="text" id="node-input-FirewallPolicy" placeholder="FirewallPolicy"></input>
+	</div> 
+	<div class="form-row" id='RuleGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleGroupName"><i class="fa fa-tag"></i>RuleGroupName</label>
+		<input type="text" id="node-input-RuleGroupName" placeholder="RuleGroupName"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='CapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-Capacity"><i class="fa fa-tag"></i>Capacity</label>
+		<input type="text" id="node-input-Capacity" placeholder="Capacity"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DeleteProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteProtection"><i class="fa fa-tag"></i>DeleteProtection</label>
+		<input type="text" id="node-input-DeleteProtection" placeholder="DeleteProtection"></input>
+	</div> 
+	<div class="form-row" id='UpdateTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateToken"><i class="fa fa-tag"></i>UpdateToken</label>
+		<input type="text" id="node-input-UpdateToken" placeholder="UpdateToken"></input>
+	</div> 
+	<div class="form-row" id='FirewallPolicyChangeProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-FirewallPolicyChangeProtection"><i class="fa fa-tag"></i>FirewallPolicyChangeProtection</label>
+		<input type="text" id="node-input-FirewallPolicyChangeProtection" placeholder="FirewallPolicyChangeProtection"></input>
+	</div> 
+	<div class="form-row" id='SubnetChangeProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetChangeProtection"><i class="fa fa-tag"></i>SubnetChangeProtection</label>
+		<input type="text" id="node-input-SubnetChangeProtection" placeholder="SubnetChangeProtection"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateFirewallPolicy:[
+					'#FirewallPolicyArnAttr'
+					],
+				AssociateSubnets:[
+					'#SubnetMappingsAttr'
+					],
+				CreateFirewall:[
+					'#FirewallNameAttr','#FirewallPolicyArnAttr','#VpcIdAttr','#SubnetMappingsAttr'
+					],
+				CreateFirewallPolicy:[
+					'#FirewallPolicyNameAttr','#FirewallPolicyAttr'
+					],
+				CreateRuleGroup:[
+					'#RuleGroupNameAttr','#TypeAttr','#CapacityAttr'
+					],
+				DeleteFirewall:[
+					
+					],
+				DeleteFirewallPolicy:[
+					
+					],
+				DeleteResourcePolicy:[
+					'#ResourceArnAttr'
+					],
+				DeleteRuleGroup:[
+					
+					],
+				DescribeFirewall:[
+					
+					],
+				DescribeFirewallPolicy:[
+					
+					],
+				DescribeLoggingConfiguration:[
+					
+					],
+				DescribeResourcePolicy:[
+					'#ResourceArnAttr'
+					],
+				DescribeRuleGroup:[
+					
+					],
+				DisassociateSubnets:[
+					'#SubnetIdsAttr'
+					],
+				ListFirewallPolicies:[
+					
+					],
+				ListFirewalls:[
+					
+					],
+				ListRuleGroups:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutResourcePolicy:[
+					'#ResourceArnAttr','#PolicyAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateFirewallDeleteProtection:[
+					'#DeleteProtectionAttr'
+					],
+				UpdateFirewallDescription:[
+					
+					],
+				UpdateFirewallPolicy:[
+					'#UpdateTokenAttr','#FirewallPolicyAttr'
+					],
+				UpdateFirewallPolicyChangeProtection:[
+					'#FirewallPolicyChangeProtectionAttr'
+					],
+				UpdateLoggingConfiguration:[
+					
+					],
+				UpdateRuleGroup:[
+					'#UpdateTokenAttr'
+					],
+				UpdateSubnetChangeProtection:[
+					'#SubnetChangeProtectionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS NetworkFirewall">
+<p>
+AWS NetworkFirewall
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/NetworkFirewall.html">NetworkFirewall</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS NetworkFirewall',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateFirewallPolicy' },
+			
+				FirewallPolicyArn: { value: ""} ,
+				SubnetMappings: { value: ""} ,
+				FirewallName: { value: ""} ,
+				VpcId: { value: ""} ,
+				FirewallPolicyName: { value: ""} ,
+				FirewallPolicy: { value: ""} ,
+				RuleGroupName: { value: ""} ,
+				Type: { value: ""} ,
+				Capacity: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				Policy: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DeleteProtection: { value: ""} ,
+				UpdateToken: { value: ""} ,
+				FirewallPolicyChangeProtection: { value: ""} ,
+				SubnetChangeProtection: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "NetworkFirewall " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

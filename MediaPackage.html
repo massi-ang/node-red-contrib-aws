@@ -1,0 +1,236 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS MediaPackage">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ConfigureLogs">ConfigureLogs</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateHarvestJob">CreateHarvestJob</option>
+		
+			<option value="CreateOriginEndpoint">CreateOriginEndpoint</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteOriginEndpoint">DeleteOriginEndpoint</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeHarvestJob">DescribeHarvestJob</option>
+		
+			<option value="DescribeOriginEndpoint">DescribeOriginEndpoint</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListHarvestJobs">ListHarvestJobs</option>
+		
+			<option value="ListOriginEndpoints">ListOriginEndpoints</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RotateChannelCredentials">RotateChannelCredentials</option>
+		
+			<option value="RotateIngestEndpointCredentials">RotateIngestEndpointCredentials</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateOriginEndpoint">UpdateOriginEndpoint</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='S3DestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Destination"><i class="fa fa-tag"></i>S3Destination</label>
+		<input type="text" id="node-input-S3Destination" placeholder="S3Destination"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i>EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='OriginEndpointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginEndpointId"><i class="fa fa-tag"></i>OriginEndpointId</label>
+		<input type="text" id="node-input-OriginEndpointId" placeholder="OriginEndpointId"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i>StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='ChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelId"><i class="fa fa-tag"></i>ChannelId</label>
+		<input type="text" id="node-input-ChannelId" placeholder="ChannelId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='IngestEndpointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestEndpointId"><i class="fa fa-tag"></i>IngestEndpointId</label>
+		<input type="text" id="node-input-IngestEndpointId" placeholder="IngestEndpointId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ConfigureLogs:[
+					'#IdAttr'
+					],
+				CreateChannel:[
+					'#IdAttr'
+					],
+				CreateHarvestJob:[
+					'#S3DestinationAttr','#EndTimeAttr','#OriginEndpointIdAttr','#StartTimeAttr','#IdAttr'
+					],
+				CreateOriginEndpoint:[
+					'#ChannelIdAttr','#IdAttr'
+					],
+				DeleteChannel:[
+					'#IdAttr'
+					],
+				DeleteOriginEndpoint:[
+					'#IdAttr'
+					],
+				DescribeChannel:[
+					'#IdAttr'
+					],
+				DescribeHarvestJob:[
+					'#IdAttr'
+					],
+				DescribeOriginEndpoint:[
+					'#IdAttr'
+					],
+				ListChannels:[
+					
+					],
+				ListHarvestJobs:[
+					
+					],
+				ListOriginEndpoints:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RotateChannelCredentials:[
+					'#IdAttr'
+					],
+				RotateIngestEndpointCredentials:[
+					'#IngestEndpointIdAttr','#IdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#TagKeysAttr','#ResourceArnAttr'
+					],
+				UpdateChannel:[
+					'#IdAttr'
+					],
+				UpdateOriginEndpoint:[
+					'#IdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS MediaPackage">
+<p>
+AWS MediaPackage
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaPackage.html">MediaPackage</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaPackage',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ConfigureLogs' },
+			
+				Id: { value: ""} ,
+				S3Destination: { value: ""} ,
+				EndTime: { value: ""} ,
+				OriginEndpointId: { value: ""} ,
+				StartTime: { value: ""} ,
+				ChannelId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				IngestEndpointId: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaPackage " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

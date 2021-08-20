@@ -1,0 +1,426 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodePipeline">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcknowledgeJob">AcknowledgeJob</option>
+		
+			<option value="AcknowledgeThirdPartyJob">AcknowledgeThirdPartyJob</option>
+		
+			<option value="CreateCustomActionType">CreateCustomActionType</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="DeleteCustomActionType">DeleteCustomActionType</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DeleteWebhook">DeleteWebhook</option>
+		
+			<option value="DeregisterWebhookWithThirdParty">DeregisterWebhookWithThirdParty</option>
+		
+			<option value="DisableStageTransition">DisableStageTransition</option>
+		
+			<option value="EnableStageTransition">EnableStageTransition</option>
+		
+			<option value="GetActionType">GetActionType</option>
+		
+			<option value="GetJobDetails">GetJobDetails</option>
+		
+			<option value="GetPipeline">GetPipeline</option>
+		
+			<option value="GetPipelineExecution">GetPipelineExecution</option>
+		
+			<option value="GetPipelineState">GetPipelineState</option>
+		
+			<option value="GetThirdPartyJobDetails">GetThirdPartyJobDetails</option>
+		
+			<option value="ListActionExecutions">ListActionExecutions</option>
+		
+			<option value="ListActionTypes">ListActionTypes</option>
+		
+			<option value="ListPipelineExecutions">ListPipelineExecutions</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebhooks">ListWebhooks</option>
+		
+			<option value="PollForJobs">PollForJobs</option>
+		
+			<option value="PollForThirdPartyJobs">PollForThirdPartyJobs</option>
+		
+			<option value="PutActionRevision">PutActionRevision</option>
+		
+			<option value="PutApprovalResult">PutApprovalResult</option>
+		
+			<option value="PutJobFailureResult">PutJobFailureResult</option>
+		
+			<option value="PutJobSuccessResult">PutJobSuccessResult</option>
+		
+			<option value="PutThirdPartyJobFailureResult">PutThirdPartyJobFailureResult</option>
+		
+			<option value="PutThirdPartyJobSuccessResult">PutThirdPartyJobSuccessResult</option>
+		
+			<option value="PutWebhook">PutWebhook</option>
+		
+			<option value="RegisterWebhookWithThirdParty">RegisterWebhookWithThirdParty</option>
+		
+			<option value="RetryStageExecution">RetryStageExecution</option>
+		
+			<option value="StartPipelineExecution">StartPipelineExecution</option>
+		
+			<option value="StopPipelineExecution">StopPipelineExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateActionType">UpdateActionType</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i>jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='nonceAttr' class='hiddenAttrs'>
+		<label for="node-input-nonce"><i class="fa fa-tag"></i>nonce</label>
+		<input type="text" id="node-input-nonce" placeholder="nonce"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i>clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='categoryAttr' class='hiddenAttrs'>
+		<label for="node-input-category"><i class="fa fa-tag"></i>category</label>
+		<input type="text" id="node-input-category" placeholder="category"></input>
+	</div> 
+	<div class="form-row" id='providerAttr' class='hiddenAttrs'>
+		<label for="node-input-provider"><i class="fa fa-tag"></i>provider</label>
+		<input type="text" id="node-input-provider" placeholder="provider"></input>
+	</div> 
+	<div class="form-row" id='versionAttr' class='hiddenAttrs'>
+		<label for="node-input-version"><i class="fa fa-tag"></i>version</label>
+		<input type="text" id="node-input-version" placeholder="version"></input>
+	</div> 
+	<div class="form-row" id='inputArtifactDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-inputArtifactDetails"><i class="fa fa-tag"></i>inputArtifactDetails</label>
+		<input type="text" id="node-input-inputArtifactDetails" placeholder="inputArtifactDetails"></input>
+	</div> 
+	<div class="form-row" id='outputArtifactDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-outputArtifactDetails"><i class="fa fa-tag"></i>outputArtifactDetails</label>
+		<input type="text" id="node-input-outputArtifactDetails" placeholder="outputArtifactDetails"></input>
+	</div> 
+	<div class="form-row" id='pipelineAttr' class='hiddenAttrs'>
+		<label for="node-input-pipeline"><i class="fa fa-tag"></i>pipeline</label>
+		<input type="text" id="node-input-pipeline" placeholder="pipeline"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='pipelineNameAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineName"><i class="fa fa-tag"></i>pipelineName</label>
+		<input type="text" id="node-input-pipelineName" placeholder="pipelineName"></input>
+	</div> 
+	<div class="form-row" id='stageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-stageName"><i class="fa fa-tag"></i>stageName</label>
+		<input type="text" id="node-input-stageName" placeholder="stageName"></input>
+	</div> 
+	<div class="form-row" id='transitionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-transitionType"><i class="fa fa-tag"></i>transitionType</label>
+		<input type="text" id="node-input-transitionType" placeholder="transitionType"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i>reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='ownerAttr' class='hiddenAttrs'>
+		<label for="node-input-owner"><i class="fa fa-tag"></i>owner</label>
+		<input type="text" id="node-input-owner" placeholder="owner"></input>
+	</div> 
+	<div class="form-row" id='pipelineExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineExecutionId"><i class="fa fa-tag"></i>pipelineExecutionId</label>
+		<input type="text" id="node-input-pipelineExecutionId" placeholder="pipelineExecutionId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='actionTypeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-actionTypeId"><i class="fa fa-tag"></i>actionTypeId</label>
+		<input type="text" id="node-input-actionTypeId" placeholder="actionTypeId"></input>
+	</div> 
+	<div class="form-row" id='actionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-actionName"><i class="fa fa-tag"></i>actionName</label>
+		<input type="text" id="node-input-actionName" placeholder="actionName"></input>
+	</div> 
+	<div class="form-row" id='actionRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-actionRevision"><i class="fa fa-tag"></i>actionRevision</label>
+		<input type="text" id="node-input-actionRevision" placeholder="actionRevision"></input>
+	</div> 
+	<div class="form-row" id='resultAttr' class='hiddenAttrs'>
+		<label for="node-input-result"><i class="fa fa-tag"></i>result</label>
+		<input type="text" id="node-input-result" placeholder="result"></input>
+	</div> 
+	<div class="form-row" id='tokenAttr' class='hiddenAttrs'>
+		<label for="node-input-token"><i class="fa fa-tag"></i>token</label>
+		<input type="text" id="node-input-token" placeholder="token"></input>
+	</div> 
+	<div class="form-row" id='failureDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-failureDetails"><i class="fa fa-tag"></i>failureDetails</label>
+		<input type="text" id="node-input-failureDetails" placeholder="failureDetails"></input>
+	</div> 
+	<div class="form-row" id='webhookAttr' class='hiddenAttrs'>
+		<label for="node-input-webhook"><i class="fa fa-tag"></i>webhook</label>
+		<input type="text" id="node-input-webhook" placeholder="webhook"></input>
+	</div> 
+	<div class="form-row" id='retryModeAttr' class='hiddenAttrs'>
+		<label for="node-input-retryMode"><i class="fa fa-tag"></i>retryMode</label>
+		<input type="text" id="node-input-retryMode" placeholder="retryMode"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='actionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-actionType"><i class="fa fa-tag"></i>actionType</label>
+		<input type="text" id="node-input-actionType" placeholder="actionType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcknowledgeJob:[
+					'#jobIdAttr','#nonceAttr'
+					],
+				AcknowledgeThirdPartyJob:[
+					'#jobIdAttr','#nonceAttr','#clientTokenAttr'
+					],
+				CreateCustomActionType:[
+					'#categoryAttr','#providerAttr','#versionAttr','#inputArtifactDetailsAttr','#outputArtifactDetailsAttr'
+					],
+				CreatePipeline:[
+					'#pipelineAttr'
+					],
+				DeleteCustomActionType:[
+					'#categoryAttr','#providerAttr','#versionAttr'
+					],
+				DeletePipeline:[
+					'#nameAttr'
+					],
+				DeleteWebhook:[
+					'#nameAttr'
+					],
+				DeregisterWebhookWithThirdParty:[
+					
+					],
+				DisableStageTransition:[
+					'#pipelineNameAttr','#stageNameAttr','#transitionTypeAttr','#reasonAttr'
+					],
+				EnableStageTransition:[
+					'#pipelineNameAttr','#stageNameAttr','#transitionTypeAttr'
+					],
+				GetActionType:[
+					'#categoryAttr','#ownerAttr','#providerAttr','#versionAttr'
+					],
+				GetJobDetails:[
+					'#jobIdAttr'
+					],
+				GetPipeline:[
+					'#nameAttr'
+					],
+				GetPipelineExecution:[
+					'#pipelineNameAttr','#pipelineExecutionIdAttr'
+					],
+				GetPipelineState:[
+					'#nameAttr'
+					],
+				GetThirdPartyJobDetails:[
+					'#jobIdAttr','#clientTokenAttr'
+					],
+				ListActionExecutions:[
+					'#pipelineNameAttr'
+					],
+				ListActionTypes:[
+					
+					],
+				ListPipelineExecutions:[
+					'#pipelineNameAttr'
+					],
+				ListPipelines:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListWebhooks:[
+					
+					],
+				PollForJobs:[
+					'#actionTypeIdAttr'
+					],
+				PollForThirdPartyJobs:[
+					'#actionTypeIdAttr'
+					],
+				PutActionRevision:[
+					'#pipelineNameAttr','#stageNameAttr','#actionNameAttr','#actionRevisionAttr'
+					],
+				PutApprovalResult:[
+					'#pipelineNameAttr','#stageNameAttr','#actionNameAttr','#resultAttr','#tokenAttr'
+					],
+				PutJobFailureResult:[
+					'#jobIdAttr','#failureDetailsAttr'
+					],
+				PutJobSuccessResult:[
+					'#jobIdAttr'
+					],
+				PutThirdPartyJobFailureResult:[
+					'#jobIdAttr','#clientTokenAttr','#failureDetailsAttr'
+					],
+				PutThirdPartyJobSuccessResult:[
+					'#jobIdAttr','#clientTokenAttr'
+					],
+				PutWebhook:[
+					'#webhookAttr'
+					],
+				RegisterWebhookWithThirdParty:[
+					
+					],
+				RetryStageExecution:[
+					'#pipelineNameAttr','#stageNameAttr','#pipelineExecutionIdAttr','#retryModeAttr'
+					],
+				StartPipelineExecution:[
+					'#nameAttr'
+					],
+				StopPipelineExecution:[
+					'#pipelineNameAttr','#pipelineExecutionIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateActionType:[
+					'#actionTypeAttr'
+					],
+				UpdatePipeline:[
+					'#pipelineAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodePipeline">
+<p>
+AWS CodePipeline
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodePipeline.html">CodePipeline</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodePipeline',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcknowledgeJob' },
+			
+				jobId: { value: ""} ,
+				nonce: { value: ""} ,
+				clientToken: { value: ""} ,
+				category: { value: ""} ,
+				provider: { value: ""} ,
+				version: { value: ""} ,
+				inputArtifactDetails: { value: ""} ,
+				outputArtifactDetails: { value: ""} ,
+				pipeline: { value: ""} ,
+				name: { value: ""} ,
+				pipelineName: { value: ""} ,
+				stageName: { value: ""} ,
+				transitionType: { value: ""} ,
+				reason: { value: ""} ,
+				owner: { value: ""} ,
+				pipelineExecutionId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				actionTypeId: { value: ""} ,
+				actionName: { value: ""} ,
+				actionRevision: { value: ""} ,
+				result: { value: ""} ,
+				token: { value: ""} ,
+				failureDetails: { value: ""} ,
+				webhook: { value: ""} ,
+				retryMode: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				actionType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodePipeline " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

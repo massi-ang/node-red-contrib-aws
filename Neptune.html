@@ -1,0 +1,586 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Neptune">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddRoleToDBCluster">AddRoleToDBCluster</option>
+		
+			<option value="AddSourceIdentifierToSubscription">AddSourceIdentifierToSubscription</option>
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="ApplyPendingMaintenanceAction">ApplyPendingMaintenanceAction</option>
+		
+			<option value="CopyDBClusterParameterGroup">CopyDBClusterParameterGroup</option>
+		
+			<option value="CopyDBClusterSnapshot">CopyDBClusterSnapshot</option>
+		
+			<option value="CopyDBParameterGroup">CopyDBParameterGroup</option>
+		
+			<option value="CreateDBCluster">CreateDBCluster</option>
+		
+			<option value="CreateDBClusterEndpoint">CreateDBClusterEndpoint</option>
+		
+			<option value="CreateDBClusterParameterGroup">CreateDBClusterParameterGroup</option>
+		
+			<option value="CreateDBClusterSnapshot">CreateDBClusterSnapshot</option>
+		
+			<option value="CreateDBInstance">CreateDBInstance</option>
+		
+			<option value="CreateDBParameterGroup">CreateDBParameterGroup</option>
+		
+			<option value="CreateDBSubnetGroup">CreateDBSubnetGroup</option>
+		
+			<option value="CreateEventSubscription">CreateEventSubscription</option>
+		
+			<option value="DeleteDBCluster">DeleteDBCluster</option>
+		
+			<option value="DeleteDBClusterEndpoint">DeleteDBClusterEndpoint</option>
+		
+			<option value="DeleteDBClusterParameterGroup">DeleteDBClusterParameterGroup</option>
+		
+			<option value="DeleteDBClusterSnapshot">DeleteDBClusterSnapshot</option>
+		
+			<option value="DeleteDBInstance">DeleteDBInstance</option>
+		
+			<option value="DeleteDBParameterGroup">DeleteDBParameterGroup</option>
+		
+			<option value="DeleteDBSubnetGroup">DeleteDBSubnetGroup</option>
+		
+			<option value="DeleteEventSubscription">DeleteEventSubscription</option>
+		
+			<option value="DescribeDBClusterEndpoints">DescribeDBClusterEndpoints</option>
+		
+			<option value="DescribeDBClusterParameterGroups">DescribeDBClusterParameterGroups</option>
+		
+			<option value="DescribeDBClusterParameters">DescribeDBClusterParameters</option>
+		
+			<option value="DescribeDBClusterSnapshotAttributes">DescribeDBClusterSnapshotAttributes</option>
+		
+			<option value="DescribeDBClusterSnapshots">DescribeDBClusterSnapshots</option>
+		
+			<option value="DescribeDBClusters">DescribeDBClusters</option>
+		
+			<option value="DescribeDBEngineVersions">DescribeDBEngineVersions</option>
+		
+			<option value="DescribeDBInstances">DescribeDBInstances</option>
+		
+			<option value="DescribeDBParameterGroups">DescribeDBParameterGroups</option>
+		
+			<option value="DescribeDBParameters">DescribeDBParameters</option>
+		
+			<option value="DescribeDBSubnetGroups">DescribeDBSubnetGroups</option>
+		
+			<option value="DescribeEngineDefaultClusterParameters">DescribeEngineDefaultClusterParameters</option>
+		
+			<option value="DescribeEngineDefaultParameters">DescribeEngineDefaultParameters</option>
+		
+			<option value="DescribeEventCategories">DescribeEventCategories</option>
+		
+			<option value="DescribeEventSubscriptions">DescribeEventSubscriptions</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeOrderableDBInstanceOptions">DescribeOrderableDBInstanceOptions</option>
+		
+			<option value="DescribePendingMaintenanceActions">DescribePendingMaintenanceActions</option>
+		
+			<option value="DescribeValidDBInstanceModifications">DescribeValidDBInstanceModifications</option>
+		
+			<option value="FailoverDBCluster">FailoverDBCluster</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyDBCluster">ModifyDBCluster</option>
+		
+			<option value="ModifyDBClusterEndpoint">ModifyDBClusterEndpoint</option>
+		
+			<option value="ModifyDBClusterParameterGroup">ModifyDBClusterParameterGroup</option>
+		
+			<option value="ModifyDBClusterSnapshotAttribute">ModifyDBClusterSnapshotAttribute</option>
+		
+			<option value="ModifyDBInstance">ModifyDBInstance</option>
+		
+			<option value="ModifyDBParameterGroup">ModifyDBParameterGroup</option>
+		
+			<option value="ModifyDBSubnetGroup">ModifyDBSubnetGroup</option>
+		
+			<option value="ModifyEventSubscription">ModifyEventSubscription</option>
+		
+			<option value="PromoteReadReplicaDBCluster">PromoteReadReplicaDBCluster</option>
+		
+			<option value="RebootDBInstance">RebootDBInstance</option>
+		
+			<option value="RemoveRoleFromDBCluster">RemoveRoleFromDBCluster</option>
+		
+			<option value="RemoveSourceIdentifierFromSubscription">RemoveSourceIdentifierFromSubscription</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetDBClusterParameterGroup">ResetDBClusterParameterGroup</option>
+		
+			<option value="ResetDBParameterGroup">ResetDBParameterGroup</option>
+		
+			<option value="RestoreDBClusterFromSnapshot">RestoreDBClusterFromSnapshot</option>
+		
+			<option value="RestoreDBClusterToPointInTime">RestoreDBClusterToPointInTime</option>
+		
+			<option value="StartDBCluster">StartDBCluster</option>
+		
+			<option value="StopDBCluster">StopDBCluster</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DBClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterIdentifier"><i class="fa fa-tag"></i>DBClusterIdentifier</label>
+		<input type="text" id="node-input-DBClusterIdentifier" placeholder="DBClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i>RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionName"><i class="fa fa-tag"></i>SubscriptionName</label>
+		<input type="text" id="node-input-SubscriptionName" placeholder="SubscriptionName"></input>
+	</div> 
+	<div class="form-row" id='SourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIdentifier"><i class="fa fa-tag"></i>SourceIdentifier</label>
+		<input type="text" id="node-input-SourceIdentifier" placeholder="SourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i>ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdentifier"><i class="fa fa-tag"></i>ResourceIdentifier</label>
+		<input type="text" id="node-input-ResourceIdentifier" placeholder="ResourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ApplyActionAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyAction"><i class="fa fa-tag"></i>ApplyAction</label>
+		<input type="text" id="node-input-ApplyAction" placeholder="ApplyAction"></input>
+	</div> 
+	<div class="form-row" id='OptInTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OptInType"><i class="fa fa-tag"></i>OptInType</label>
+		<input type="text" id="node-input-OptInType" placeholder="OptInType"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterParameterGroupIdentifier"><i class="fa fa-tag"></i>SourceDBClusterParameterGroupIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterParameterGroupIdentifier" placeholder="SourceDBClusterParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterParameterGroupIdentifier"><i class="fa fa-tag"></i>TargetDBClusterParameterGroupIdentifier</label>
+		<input type="text" id="node-input-TargetDBClusterParameterGroupIdentifier" placeholder="TargetDBClusterParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterParameterGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterParameterGroupDescription"><i class="fa fa-tag"></i>TargetDBClusterParameterGroupDescription</label>
+		<input type="text" id="node-input-TargetDBClusterParameterGroupDescription" placeholder="TargetDBClusterParameterGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterSnapshotIdentifier"><i class="fa fa-tag"></i>SourceDBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterSnapshotIdentifier" placeholder="SourceDBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterSnapshotIdentifier"><i class="fa fa-tag"></i>TargetDBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-TargetDBClusterSnapshotIdentifier" placeholder="TargetDBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='SourceDBParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBParameterGroupIdentifier"><i class="fa fa-tag"></i>SourceDBParameterGroupIdentifier</label>
+		<input type="text" id="node-input-SourceDBParameterGroupIdentifier" placeholder="SourceDBParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBParameterGroupIdentifier"><i class="fa fa-tag"></i>TargetDBParameterGroupIdentifier</label>
+		<input type="text" id="node-input-TargetDBParameterGroupIdentifier" placeholder="TargetDBParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBParameterGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBParameterGroupDescription"><i class="fa fa-tag"></i>TargetDBParameterGroupDescription</label>
+		<input type="text" id="node-input-TargetDBParameterGroupDescription" placeholder="TargetDBParameterGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i>Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='DBClusterEndpointIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterEndpointIdentifier"><i class="fa fa-tag"></i>DBClusterEndpointIdentifier</label>
+		<input type="text" id="node-input-DBClusterEndpointIdentifier" placeholder="DBClusterEndpointIdentifier"></input>
+	</div> 
+	<div class="form-row" id='EndpointTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointType"><i class="fa fa-tag"></i>EndpointType</label>
+		<input type="text" id="node-input-EndpointType" placeholder="EndpointType"></input>
+	</div> 
+	<div class="form-row" id='DBClusterParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterParameterGroupName"><i class="fa fa-tag"></i>DBClusterParameterGroupName</label>
+		<input type="text" id="node-input-DBClusterParameterGroupName" placeholder="DBClusterParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='DBParameterGroupFamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-DBParameterGroupFamily"><i class="fa fa-tag"></i>DBParameterGroupFamily</label>
+		<input type="text" id="node-input-DBParameterGroupFamily" placeholder="DBParameterGroupFamily"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterSnapshotIdentifier"><i class="fa fa-tag"></i>DBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-DBClusterSnapshotIdentifier" placeholder="DBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBInstanceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBInstanceIdentifier"><i class="fa fa-tag"></i>DBInstanceIdentifier</label>
+		<input type="text" id="node-input-DBInstanceIdentifier" placeholder="DBInstanceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBInstanceClassAttr' class='hiddenAttrs'>
+		<label for="node-input-DBInstanceClass"><i class="fa fa-tag"></i>DBInstanceClass</label>
+		<input type="text" id="node-input-DBInstanceClass" placeholder="DBInstanceClass"></input>
+	</div> 
+	<div class="form-row" id='DBParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBParameterGroupName"><i class="fa fa-tag"></i>DBParameterGroupName</label>
+		<input type="text" id="node-input-DBParameterGroupName" placeholder="DBParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='DBSubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBSubnetGroupName"><i class="fa fa-tag"></i>DBSubnetGroupName</label>
+		<input type="text" id="node-input-DBSubnetGroupName" placeholder="DBSubnetGroupName"></input>
+	</div> 
+	<div class="form-row" id='DBSubnetGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-DBSubnetGroupDescription"><i class="fa fa-tag"></i>DBSubnetGroupDescription</label>
+		<input type="text" id="node-input-DBSubnetGroupDescription" placeholder="DBSubnetGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicArn"><i class="fa fa-tag"></i>SnsTopicArn</label>
+		<input type="text" id="node-input-SnsTopicArn" placeholder="SnsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i>Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='AttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeName"><i class="fa fa-tag"></i>AttributeName</label>
+		<input type="text" id="node-input-AttributeName" placeholder="AttributeName"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotIdentifier"><i class="fa fa-tag"></i>SnapshotIdentifier</label>
+		<input type="text" id="node-input-SnapshotIdentifier" placeholder="SnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterIdentifier"><i class="fa fa-tag"></i>SourceDBClusterIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterIdentifier" placeholder="SourceDBClusterIdentifier"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddRoleToDBCluster:[
+					'#DBClusterIdentifierAttr','#RoleArnAttr'
+					],
+				AddSourceIdentifierToSubscription:[
+					'#SubscriptionNameAttr','#SourceIdentifierAttr'
+					],
+				AddTagsToResource:[
+					'#ResourceNameAttr','#TagsAttr'
+					],
+				ApplyPendingMaintenanceAction:[
+					'#ResourceIdentifierAttr','#ApplyActionAttr','#OptInTypeAttr'
+					],
+				CopyDBClusterParameterGroup:[
+					'#SourceDBClusterParameterGroupIdentifierAttr','#TargetDBClusterParameterGroupIdentifierAttr','#TargetDBClusterParameterGroupDescriptionAttr'
+					],
+				CopyDBClusterSnapshot:[
+					'#SourceDBClusterSnapshotIdentifierAttr','#TargetDBClusterSnapshotIdentifierAttr'
+					],
+				CopyDBParameterGroup:[
+					'#SourceDBParameterGroupIdentifierAttr','#TargetDBParameterGroupIdentifierAttr','#TargetDBParameterGroupDescriptionAttr'
+					],
+				CreateDBCluster:[
+					'#DBClusterIdentifierAttr','#EngineAttr'
+					],
+				CreateDBClusterEndpoint:[
+					'#DBClusterIdentifierAttr','#DBClusterEndpointIdentifierAttr','#EndpointTypeAttr'
+					],
+				CreateDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr','#DBParameterGroupFamilyAttr','#DescriptionAttr'
+					],
+				CreateDBClusterSnapshot:[
+					'#DBClusterSnapshotIdentifierAttr','#DBClusterIdentifierAttr'
+					],
+				CreateDBInstance:[
+					'#DBInstanceIdentifierAttr','#DBInstanceClassAttr','#EngineAttr'
+					],
+				CreateDBParameterGroup:[
+					'#DBParameterGroupNameAttr','#DBParameterGroupFamilyAttr','#DescriptionAttr'
+					],
+				CreateDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr','#DBSubnetGroupDescriptionAttr','#SubnetIdsAttr'
+					],
+				CreateEventSubscription:[
+					'#SubscriptionNameAttr','#SnsTopicArnAttr'
+					],
+				DeleteDBCluster:[
+					'#DBClusterIdentifierAttr'
+					],
+				DeleteDBClusterEndpoint:[
+					'#DBClusterEndpointIdentifierAttr'
+					],
+				DeleteDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr'
+					],
+				DeleteDBClusterSnapshot:[
+					'#DBClusterSnapshotIdentifierAttr'
+					],
+				DeleteDBInstance:[
+					'#DBInstanceIdentifierAttr'
+					],
+				DeleteDBParameterGroup:[
+					'#DBParameterGroupNameAttr'
+					],
+				DeleteDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr'
+					],
+				DeleteEventSubscription:[
+					'#SubscriptionNameAttr'
+					],
+				DescribeDBClusterEndpoints:[
+					
+					],
+				DescribeDBClusterParameterGroups:[
+					
+					],
+				DescribeDBClusterParameters:[
+					'#DBClusterParameterGroupNameAttr'
+					],
+				DescribeDBClusterSnapshotAttributes:[
+					'#DBClusterSnapshotIdentifierAttr'
+					],
+				DescribeDBClusterSnapshots:[
+					
+					],
+				DescribeDBClusters:[
+					
+					],
+				DescribeDBEngineVersions:[
+					
+					],
+				DescribeDBInstances:[
+					
+					],
+				DescribeDBParameterGroups:[
+					
+					],
+				DescribeDBParameters:[
+					'#DBParameterGroupNameAttr'
+					],
+				DescribeDBSubnetGroups:[
+					
+					],
+				DescribeEngineDefaultClusterParameters:[
+					'#DBParameterGroupFamilyAttr'
+					],
+				DescribeEngineDefaultParameters:[
+					'#DBParameterGroupFamilyAttr'
+					],
+				DescribeEventCategories:[
+					
+					],
+				DescribeEventSubscriptions:[
+					
+					],
+				DescribeEvents:[
+					
+					],
+				DescribeOrderableDBInstanceOptions:[
+					'#EngineAttr'
+					],
+				DescribePendingMaintenanceActions:[
+					
+					],
+				DescribeValidDBInstanceModifications:[
+					'#DBInstanceIdentifierAttr'
+					],
+				FailoverDBCluster:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceNameAttr'
+					],
+				ModifyDBCluster:[
+					'#DBClusterIdentifierAttr'
+					],
+				ModifyDBClusterEndpoint:[
+					'#DBClusterEndpointIdentifierAttr'
+					],
+				ModifyDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr','#ParametersAttr'
+					],
+				ModifyDBClusterSnapshotAttribute:[
+					'#DBClusterSnapshotIdentifierAttr','#AttributeNameAttr'
+					],
+				ModifyDBInstance:[
+					'#DBInstanceIdentifierAttr'
+					],
+				ModifyDBParameterGroup:[
+					'#DBParameterGroupNameAttr','#ParametersAttr'
+					],
+				ModifyDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr','#SubnetIdsAttr'
+					],
+				ModifyEventSubscription:[
+					'#SubscriptionNameAttr'
+					],
+				PromoteReadReplicaDBCluster:[
+					'#DBClusterIdentifierAttr'
+					],
+				RebootDBInstance:[
+					'#DBInstanceIdentifierAttr'
+					],
+				RemoveRoleFromDBCluster:[
+					'#DBClusterIdentifierAttr','#RoleArnAttr'
+					],
+				RemoveSourceIdentifierFromSubscription:[
+					'#SubscriptionNameAttr','#SourceIdentifierAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceNameAttr','#TagKeysAttr'
+					],
+				ResetDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr'
+					],
+				ResetDBParameterGroup:[
+					'#DBParameterGroupNameAttr'
+					],
+				RestoreDBClusterFromSnapshot:[
+					'#DBClusterIdentifierAttr','#SnapshotIdentifierAttr','#EngineAttr'
+					],
+				RestoreDBClusterToPointInTime:[
+					'#DBClusterIdentifierAttr','#SourceDBClusterIdentifierAttr'
+					],
+				StartDBCluster:[
+					'#DBClusterIdentifierAttr'
+					],
+				StopDBCluster:[
+					'#DBClusterIdentifierAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Neptune">
+<p>
+AWS Neptune
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Neptune.html">Neptune</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Neptune',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddRoleToDBCluster' },
+			
+				DBClusterIdentifier: { value: ""} ,
+				RoleArn: { value: ""} ,
+				SubscriptionName: { value: ""} ,
+				SourceIdentifier: { value: ""} ,
+				ResourceName: { value: ""} ,
+				Tags: { value: ""} ,
+				ResourceIdentifier: { value: ""} ,
+				ApplyAction: { value: ""} ,
+				OptInType: { value: ""} ,
+				SourceDBClusterParameterGroupIdentifier: { value: ""} ,
+				TargetDBClusterParameterGroupIdentifier: { value: ""} ,
+				TargetDBClusterParameterGroupDescription: { value: ""} ,
+				SourceDBClusterSnapshotIdentifier: { value: ""} ,
+				TargetDBClusterSnapshotIdentifier: { value: ""} ,
+				SourceDBParameterGroupIdentifier: { value: ""} ,
+				TargetDBParameterGroupIdentifier: { value: ""} ,
+				TargetDBParameterGroupDescription: { value: ""} ,
+				Engine: { value: ""} ,
+				DBClusterEndpointIdentifier: { value: ""} ,
+				EndpointType: { value: ""} ,
+				DBClusterParameterGroupName: { value: ""} ,
+				DBParameterGroupFamily: { value: ""} ,
+				Description: { value: ""} ,
+				DBClusterSnapshotIdentifier: { value: ""} ,
+				DBInstanceIdentifier: { value: ""} ,
+				DBInstanceClass: { value: ""} ,
+				DBParameterGroupName: { value: ""} ,
+				DBSubnetGroupName: { value: ""} ,
+				DBSubnetGroupDescription: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				SnsTopicArn: { value: ""} ,
+				Parameters: { value: ""} ,
+				AttributeName: { value: ""} ,
+				TagKeys: { value: ""} ,
+				SnapshotIdentifier: { value: ""} ,
+				SourceDBClusterIdentifier: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Neptune " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

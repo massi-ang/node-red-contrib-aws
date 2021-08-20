@@ -1,0 +1,441 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Personalize">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateBatchInferenceJob">CreateBatchInferenceJob</option>
+		
+			<option value="CreateCampaign">CreateCampaign</option>
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateDatasetExportJob">CreateDatasetExportJob</option>
+		
+			<option value="CreateDatasetGroup">CreateDatasetGroup</option>
+		
+			<option value="CreateDatasetImportJob">CreateDatasetImportJob</option>
+		
+			<option value="CreateEventTracker">CreateEventTracker</option>
+		
+			<option value="CreateFilter">CreateFilter</option>
+		
+			<option value="CreateSchema">CreateSchema</option>
+		
+			<option value="CreateSolution">CreateSolution</option>
+		
+			<option value="CreateSolutionVersion">CreateSolutionVersion</option>
+		
+			<option value="DeleteCampaign">DeleteCampaign</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteDatasetGroup">DeleteDatasetGroup</option>
+		
+			<option value="DeleteEventTracker">DeleteEventTracker</option>
+		
+			<option value="DeleteFilter">DeleteFilter</option>
+		
+			<option value="DeleteSchema">DeleteSchema</option>
+		
+			<option value="DeleteSolution">DeleteSolution</option>
+		
+			<option value="DescribeAlgorithm">DescribeAlgorithm</option>
+		
+			<option value="DescribeBatchInferenceJob">DescribeBatchInferenceJob</option>
+		
+			<option value="DescribeCampaign">DescribeCampaign</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeDatasetExportJob">DescribeDatasetExportJob</option>
+		
+			<option value="DescribeDatasetGroup">DescribeDatasetGroup</option>
+		
+			<option value="DescribeDatasetImportJob">DescribeDatasetImportJob</option>
+		
+			<option value="DescribeEventTracker">DescribeEventTracker</option>
+		
+			<option value="DescribeFeatureTransformation">DescribeFeatureTransformation</option>
+		
+			<option value="DescribeFilter">DescribeFilter</option>
+		
+			<option value="DescribeRecipe">DescribeRecipe</option>
+		
+			<option value="DescribeSchema">DescribeSchema</option>
+		
+			<option value="DescribeSolution">DescribeSolution</option>
+		
+			<option value="DescribeSolutionVersion">DescribeSolutionVersion</option>
+		
+			<option value="GetSolutionMetrics">GetSolutionMetrics</option>
+		
+			<option value="ListBatchInferenceJobs">ListBatchInferenceJobs</option>
+		
+			<option value="ListCampaigns">ListCampaigns</option>
+		
+			<option value="ListDatasetExportJobs">ListDatasetExportJobs</option>
+		
+			<option value="ListDatasetGroups">ListDatasetGroups</option>
+		
+			<option value="ListDatasetImportJobs">ListDatasetImportJobs</option>
+		
+			<option value="ListDatasets">ListDatasets</option>
+		
+			<option value="ListEventTrackers">ListEventTrackers</option>
+		
+			<option value="ListFilters">ListFilters</option>
+		
+			<option value="ListRecipes">ListRecipes</option>
+		
+			<option value="ListSchemas">ListSchemas</option>
+		
+			<option value="ListSolutionVersions">ListSolutionVersions</option>
+		
+			<option value="ListSolutions">ListSolutions</option>
+		
+			<option value="StopSolutionVersionCreation">StopSolutionVersionCreation</option>
+		
+			<option value="UpdateCampaign">UpdateCampaign</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='jobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-jobName"><i class="fa fa-tag"></i>jobName</label>
+		<input type="text" id="node-input-jobName" placeholder="jobName"></input>
+	</div> 
+	<div class="form-row" id='solutionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-solutionVersionArn"><i class="fa fa-tag"></i>solutionVersionArn</label>
+		<input type="text" id="node-input-solutionVersionArn" placeholder="solutionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='jobInputAttr' class='hiddenAttrs'>
+		<label for="node-input-jobInput"><i class="fa fa-tag"></i>jobInput</label>
+		<input type="text" id="node-input-jobInput" placeholder="jobInput"></input>
+	</div> 
+	<div class="form-row" id='jobOutputAttr' class='hiddenAttrs'>
+		<label for="node-input-jobOutput"><i class="fa fa-tag"></i>jobOutput</label>
+		<input type="text" id="node-input-jobOutput" placeholder="jobOutput"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i>roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='schemaArnAttr' class='hiddenAttrs'>
+		<label for="node-input-schemaArn"><i class="fa fa-tag"></i>schemaArn</label>
+		<input type="text" id="node-input-schemaArn" placeholder="schemaArn"></input>
+	</div> 
+	<div class="form-row" id='datasetGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetGroupArn"><i class="fa fa-tag"></i>datasetGroupArn</label>
+		<input type="text" id="node-input-datasetGroupArn" placeholder="datasetGroupArn"></input>
+	</div> 
+	<div class="form-row" id='datasetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetType"><i class="fa fa-tag"></i>datasetType</label>
+		<input type="text" id="node-input-datasetType" placeholder="datasetType"></input>
+	</div> 
+	<div class="form-row" id='datasetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetArn"><i class="fa fa-tag"></i>datasetArn</label>
+		<input type="text" id="node-input-datasetArn" placeholder="datasetArn"></input>
+	</div> 
+	<div class="form-row" id='dataSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-dataSource"><i class="fa fa-tag"></i>dataSource</label>
+		<input type="text" id="node-input-dataSource" placeholder="dataSource"></input>
+	</div> 
+	<div class="form-row" id='filterExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-filterExpression"><i class="fa fa-tag"></i>filterExpression</label>
+		<input type="text" id="node-input-filterExpression" placeholder="filterExpression"></input>
+	</div> 
+	<div class="form-row" id='schemaAttr' class='hiddenAttrs'>
+		<label for="node-input-schema"><i class="fa fa-tag"></i>schema</label>
+		<input type="text" id="node-input-schema" placeholder="schema"></input>
+	</div> 
+	<div class="form-row" id='solutionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-solutionArn"><i class="fa fa-tag"></i>solutionArn</label>
+		<input type="text" id="node-input-solutionArn" placeholder="solutionArn"></input>
+	</div> 
+	<div class="form-row" id='campaignArnAttr' class='hiddenAttrs'>
+		<label for="node-input-campaignArn"><i class="fa fa-tag"></i>campaignArn</label>
+		<input type="text" id="node-input-campaignArn" placeholder="campaignArn"></input>
+	</div> 
+	<div class="form-row" id='eventTrackerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-eventTrackerArn"><i class="fa fa-tag"></i>eventTrackerArn</label>
+		<input type="text" id="node-input-eventTrackerArn" placeholder="eventTrackerArn"></input>
+	</div> 
+	<div class="form-row" id='filterArnAttr' class='hiddenAttrs'>
+		<label for="node-input-filterArn"><i class="fa fa-tag"></i>filterArn</label>
+		<input type="text" id="node-input-filterArn" placeholder="filterArn"></input>
+	</div> 
+	<div class="form-row" id='algorithmArnAttr' class='hiddenAttrs'>
+		<label for="node-input-algorithmArn"><i class="fa fa-tag"></i>algorithmArn</label>
+		<input type="text" id="node-input-algorithmArn" placeholder="algorithmArn"></input>
+	</div> 
+	<div class="form-row" id='batchInferenceJobArnAttr' class='hiddenAttrs'>
+		<label for="node-input-batchInferenceJobArn"><i class="fa fa-tag"></i>batchInferenceJobArn</label>
+		<input type="text" id="node-input-batchInferenceJobArn" placeholder="batchInferenceJobArn"></input>
+	</div> 
+	<div class="form-row" id='datasetExportJobArnAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetExportJobArn"><i class="fa fa-tag"></i>datasetExportJobArn</label>
+		<input type="text" id="node-input-datasetExportJobArn" placeholder="datasetExportJobArn"></input>
+	</div> 
+	<div class="form-row" id='datasetImportJobArnAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetImportJobArn"><i class="fa fa-tag"></i>datasetImportJobArn</label>
+		<input type="text" id="node-input-datasetImportJobArn" placeholder="datasetImportJobArn"></input>
+	</div> 
+	<div class="form-row" id='featureTransformationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-featureTransformationArn"><i class="fa fa-tag"></i>featureTransformationArn</label>
+		<input type="text" id="node-input-featureTransformationArn" placeholder="featureTransformationArn"></input>
+	</div> 
+	<div class="form-row" id='recipeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-recipeArn"><i class="fa fa-tag"></i>recipeArn</label>
+		<input type="text" id="node-input-recipeArn" placeholder="recipeArn"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateBatchInferenceJob:[
+					'#jobNameAttr','#solutionVersionArnAttr','#jobInputAttr','#jobOutputAttr','#roleArnAttr'
+					],
+				CreateCampaign:[
+					'#nameAttr','#solutionVersionArnAttr'
+					],
+				CreateDataset:[
+					'#nameAttr','#schemaArnAttr','#datasetGroupArnAttr','#datasetTypeAttr'
+					],
+				CreateDatasetExportJob:[
+					'#jobNameAttr','#datasetArnAttr','#roleArnAttr','#jobOutputAttr'
+					],
+				CreateDatasetGroup:[
+					'#nameAttr'
+					],
+				CreateDatasetImportJob:[
+					'#jobNameAttr','#datasetArnAttr','#dataSourceAttr','#roleArnAttr'
+					],
+				CreateEventTracker:[
+					'#nameAttr','#datasetGroupArnAttr'
+					],
+				CreateFilter:[
+					'#nameAttr','#datasetGroupArnAttr','#filterExpressionAttr'
+					],
+				CreateSchema:[
+					'#nameAttr','#schemaAttr'
+					],
+				CreateSolution:[
+					'#nameAttr','#datasetGroupArnAttr'
+					],
+				CreateSolutionVersion:[
+					'#solutionArnAttr'
+					],
+				DeleteCampaign:[
+					'#campaignArnAttr'
+					],
+				DeleteDataset:[
+					'#datasetArnAttr'
+					],
+				DeleteDatasetGroup:[
+					'#datasetGroupArnAttr'
+					],
+				DeleteEventTracker:[
+					'#eventTrackerArnAttr'
+					],
+				DeleteFilter:[
+					'#filterArnAttr'
+					],
+				DeleteSchema:[
+					'#schemaArnAttr'
+					],
+				DeleteSolution:[
+					'#solutionArnAttr'
+					],
+				DescribeAlgorithm:[
+					'#algorithmArnAttr'
+					],
+				DescribeBatchInferenceJob:[
+					'#batchInferenceJobArnAttr'
+					],
+				DescribeCampaign:[
+					'#campaignArnAttr'
+					],
+				DescribeDataset:[
+					'#datasetArnAttr'
+					],
+				DescribeDatasetExportJob:[
+					'#datasetExportJobArnAttr'
+					],
+				DescribeDatasetGroup:[
+					'#datasetGroupArnAttr'
+					],
+				DescribeDatasetImportJob:[
+					'#datasetImportJobArnAttr'
+					],
+				DescribeEventTracker:[
+					'#eventTrackerArnAttr'
+					],
+				DescribeFeatureTransformation:[
+					'#featureTransformationArnAttr'
+					],
+				DescribeFilter:[
+					'#filterArnAttr'
+					],
+				DescribeRecipe:[
+					'#recipeArnAttr'
+					],
+				DescribeSchema:[
+					'#schemaArnAttr'
+					],
+				DescribeSolution:[
+					'#solutionArnAttr'
+					],
+				DescribeSolutionVersion:[
+					'#solutionVersionArnAttr'
+					],
+				GetSolutionMetrics:[
+					'#solutionVersionArnAttr'
+					],
+				ListBatchInferenceJobs:[
+					
+					],
+				ListCampaigns:[
+					
+					],
+				ListDatasetExportJobs:[
+					
+					],
+				ListDatasetGroups:[
+					
+					],
+				ListDatasetImportJobs:[
+					
+					],
+				ListDatasets:[
+					
+					],
+				ListEventTrackers:[
+					
+					],
+				ListFilters:[
+					
+					],
+				ListRecipes:[
+					
+					],
+				ListSchemas:[
+					
+					],
+				ListSolutionVersions:[
+					
+					],
+				ListSolutions:[
+					
+					],
+				StopSolutionVersionCreation:[
+					'#solutionVersionArnAttr'
+					],
+				UpdateCampaign:[
+					'#campaignArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Personalize">
+<p>
+AWS Personalize
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Personalize.html">Personalize</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Personalize',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateBatchInferenceJob' },
+			
+				jobName: { value: ""} ,
+				solutionVersionArn: { value: ""} ,
+				jobInput: { value: ""} ,
+				jobOutput: { value: ""} ,
+				roleArn: { value: ""} ,
+				name: { value: ""} ,
+				schemaArn: { value: ""} ,
+				datasetGroupArn: { value: ""} ,
+				datasetType: { value: ""} ,
+				datasetArn: { value: ""} ,
+				dataSource: { value: ""} ,
+				filterExpression: { value: ""} ,
+				schema: { value: ""} ,
+				solutionArn: { value: ""} ,
+				campaignArn: { value: ""} ,
+				eventTrackerArn: { value: ""} ,
+				filterArn: { value: ""} ,
+				algorithmArn: { value: ""} ,
+				batchInferenceJobArn: { value: ""} ,
+				datasetExportJobArn: { value: ""} ,
+				datasetImportJobArn: { value: ""} ,
+				featureTransformationArn: { value: ""} ,
+				recipeArn: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Personalize " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

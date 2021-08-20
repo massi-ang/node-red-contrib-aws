@@ -1,0 +1,471 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Imagebuilder">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelImageCreation">CancelImageCreation</option>
+		
+			<option value="CreateComponent">CreateComponent</option>
+		
+			<option value="CreateContainerRecipe">CreateContainerRecipe</option>
+		
+			<option value="CreateDistributionConfiguration">CreateDistributionConfiguration</option>
+		
+			<option value="CreateImage">CreateImage</option>
+		
+			<option value="CreateImagePipeline">CreateImagePipeline</option>
+		
+			<option value="CreateImageRecipe">CreateImageRecipe</option>
+		
+			<option value="CreateInfrastructureConfiguration">CreateInfrastructureConfiguration</option>
+		
+			<option value="DeleteComponent">DeleteComponent</option>
+		
+			<option value="DeleteContainerRecipe">DeleteContainerRecipe</option>
+		
+			<option value="DeleteDistributionConfiguration">DeleteDistributionConfiguration</option>
+		
+			<option value="DeleteImage">DeleteImage</option>
+		
+			<option value="DeleteImagePipeline">DeleteImagePipeline</option>
+		
+			<option value="DeleteImageRecipe">DeleteImageRecipe</option>
+		
+			<option value="DeleteInfrastructureConfiguration">DeleteInfrastructureConfiguration</option>
+		
+			<option value="GetComponent">GetComponent</option>
+		
+			<option value="GetComponentPolicy">GetComponentPolicy</option>
+		
+			<option value="GetContainerRecipe">GetContainerRecipe</option>
+		
+			<option value="GetContainerRecipePolicy">GetContainerRecipePolicy</option>
+		
+			<option value="GetDistributionConfiguration">GetDistributionConfiguration</option>
+		
+			<option value="GetImage">GetImage</option>
+		
+			<option value="GetImagePipeline">GetImagePipeline</option>
+		
+			<option value="GetImagePolicy">GetImagePolicy</option>
+		
+			<option value="GetImageRecipe">GetImageRecipe</option>
+		
+			<option value="GetImageRecipePolicy">GetImageRecipePolicy</option>
+		
+			<option value="GetInfrastructureConfiguration">GetInfrastructureConfiguration</option>
+		
+			<option value="ImportComponent">ImportComponent</option>
+		
+			<option value="ListComponentBuildVersions">ListComponentBuildVersions</option>
+		
+			<option value="ListComponents">ListComponents</option>
+		
+			<option value="ListContainerRecipes">ListContainerRecipes</option>
+		
+			<option value="ListDistributionConfigurations">ListDistributionConfigurations</option>
+		
+			<option value="ListImageBuildVersions">ListImageBuildVersions</option>
+		
+			<option value="ListImagePackages">ListImagePackages</option>
+		
+			<option value="ListImagePipelineImages">ListImagePipelineImages</option>
+		
+			<option value="ListImagePipelines">ListImagePipelines</option>
+		
+			<option value="ListImageRecipes">ListImageRecipes</option>
+		
+			<option value="ListImages">ListImages</option>
+		
+			<option value="ListInfrastructureConfigurations">ListInfrastructureConfigurations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutComponentPolicy">PutComponentPolicy</option>
+		
+			<option value="PutContainerRecipePolicy">PutContainerRecipePolicy</option>
+		
+			<option value="PutImagePolicy">PutImagePolicy</option>
+		
+			<option value="PutImageRecipePolicy">PutImageRecipePolicy</option>
+		
+			<option value="StartImagePipelineExecution">StartImagePipelineExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDistributionConfiguration">UpdateDistributionConfiguration</option>
+		
+			<option value="UpdateImagePipeline">UpdateImagePipeline</option>
+		
+			<option value="UpdateInfrastructureConfiguration">UpdateInfrastructureConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='imageBuildVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageBuildVersionArn"><i class="fa fa-tag"></i>imageBuildVersionArn</label>
+		<input type="text" id="node-input-imageBuildVersionArn" placeholder="imageBuildVersionArn"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i>clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='semanticVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-semanticVersion"><i class="fa fa-tag"></i>semanticVersion</label>
+		<input type="text" id="node-input-semanticVersion" placeholder="semanticVersion"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i>platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='containerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-containerType"><i class="fa fa-tag"></i>containerType</label>
+		<input type="text" id="node-input-containerType" placeholder="containerType"></input>
+	</div> 
+	<div class="form-row" id='componentsAttr' class='hiddenAttrs'>
+		<label for="node-input-components"><i class="fa fa-tag"></i>components</label>
+		<input type="text" id="node-input-components" placeholder="components"></input>
+	</div> 
+	<div class="form-row" id='parentImageAttr' class='hiddenAttrs'>
+		<label for="node-input-parentImage"><i class="fa fa-tag"></i>parentImage</label>
+		<input type="text" id="node-input-parentImage" placeholder="parentImage"></input>
+	</div> 
+	<div class="form-row" id='targetRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-targetRepository"><i class="fa fa-tag"></i>targetRepository</label>
+		<input type="text" id="node-input-targetRepository" placeholder="targetRepository"></input>
+	</div> 
+	<div class="form-row" id='distributionsAttr' class='hiddenAttrs'>
+		<label for="node-input-distributions"><i class="fa fa-tag"></i>distributions</label>
+		<input type="text" id="node-input-distributions" placeholder="distributions"></input>
+	</div> 
+	<div class="form-row" id='infrastructureConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-infrastructureConfigurationArn"><i class="fa fa-tag"></i>infrastructureConfigurationArn</label>
+		<input type="text" id="node-input-infrastructureConfigurationArn" placeholder="infrastructureConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='instanceProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceProfileName"><i class="fa fa-tag"></i>instanceProfileName</label>
+		<input type="text" id="node-input-instanceProfileName" placeholder="instanceProfileName"></input>
+	</div> 
+	<div class="form-row" id='componentBuildVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentBuildVersionArn"><i class="fa fa-tag"></i>componentBuildVersionArn</label>
+		<input type="text" id="node-input-componentBuildVersionArn" placeholder="componentBuildVersionArn"></input>
+	</div> 
+	<div class="form-row" id='containerRecipeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-containerRecipeArn"><i class="fa fa-tag"></i>containerRecipeArn</label>
+		<input type="text" id="node-input-containerRecipeArn" placeholder="containerRecipeArn"></input>
+	</div> 
+	<div class="form-row" id='distributionConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-distributionConfigurationArn"><i class="fa fa-tag"></i>distributionConfigurationArn</label>
+		<input type="text" id="node-input-distributionConfigurationArn" placeholder="distributionConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='imagePipelineArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imagePipelineArn"><i class="fa fa-tag"></i>imagePipelineArn</label>
+		<input type="text" id="node-input-imagePipelineArn" placeholder="imagePipelineArn"></input>
+	</div> 
+	<div class="form-row" id='imageRecipeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageRecipeArn"><i class="fa fa-tag"></i>imageRecipeArn</label>
+		<input type="text" id="node-input-imageRecipeArn" placeholder="imageRecipeArn"></input>
+	</div> 
+	<div class="form-row" id='componentArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentArn"><i class="fa fa-tag"></i>componentArn</label>
+		<input type="text" id="node-input-componentArn" placeholder="componentArn"></input>
+	</div> 
+	<div class="form-row" id='imageArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageArn"><i class="fa fa-tag"></i>imageArn</label>
+		<input type="text" id="node-input-imageArn" placeholder="imageArn"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i>type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i>format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='componentVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentVersionArn"><i class="fa fa-tag"></i>componentVersionArn</label>
+		<input type="text" id="node-input-componentVersionArn" placeholder="componentVersionArn"></input>
+	</div> 
+	<div class="form-row" id='imageVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageVersionArn"><i class="fa fa-tag"></i>imageVersionArn</label>
+		<input type="text" id="node-input-imageVersionArn" placeholder="imageVersionArn"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i>policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelImageCreation:[
+					'#imageBuildVersionArnAttr','#clientTokenAttr'
+					],
+				CreateComponent:[
+					'#nameAttr','#semanticVersionAttr','#platformAttr','#clientTokenAttr'
+					],
+				CreateContainerRecipe:[
+					'#containerTypeAttr','#nameAttr','#semanticVersionAttr','#componentsAttr','#parentImageAttr','#targetRepositoryAttr','#clientTokenAttr'
+					],
+				CreateDistributionConfiguration:[
+					'#nameAttr','#distributionsAttr','#clientTokenAttr'
+					],
+				CreateImage:[
+					'#infrastructureConfigurationArnAttr','#clientTokenAttr'
+					],
+				CreateImagePipeline:[
+					'#nameAttr','#infrastructureConfigurationArnAttr','#clientTokenAttr'
+					],
+				CreateImageRecipe:[
+					'#nameAttr','#semanticVersionAttr','#componentsAttr','#parentImageAttr','#clientTokenAttr'
+					],
+				CreateInfrastructureConfiguration:[
+					'#nameAttr','#instanceProfileNameAttr','#clientTokenAttr'
+					],
+				DeleteComponent:[
+					'#componentBuildVersionArnAttr'
+					],
+				DeleteContainerRecipe:[
+					'#containerRecipeArnAttr'
+					],
+				DeleteDistributionConfiguration:[
+					'#distributionConfigurationArnAttr'
+					],
+				DeleteImage:[
+					'#imageBuildVersionArnAttr'
+					],
+				DeleteImagePipeline:[
+					'#imagePipelineArnAttr'
+					],
+				DeleteImageRecipe:[
+					'#imageRecipeArnAttr'
+					],
+				DeleteInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr'
+					],
+				GetComponent:[
+					'#componentBuildVersionArnAttr'
+					],
+				GetComponentPolicy:[
+					'#componentArnAttr'
+					],
+				GetContainerRecipe:[
+					'#containerRecipeArnAttr'
+					],
+				GetContainerRecipePolicy:[
+					'#containerRecipeArnAttr'
+					],
+				GetDistributionConfiguration:[
+					'#distributionConfigurationArnAttr'
+					],
+				GetImage:[
+					'#imageBuildVersionArnAttr'
+					],
+				GetImagePipeline:[
+					'#imagePipelineArnAttr'
+					],
+				GetImagePolicy:[
+					'#imageArnAttr'
+					],
+				GetImageRecipe:[
+					'#imageRecipeArnAttr'
+					],
+				GetImageRecipePolicy:[
+					'#imageRecipeArnAttr'
+					],
+				GetInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr'
+					],
+				ImportComponent:[
+					'#nameAttr','#semanticVersionAttr','#typeAttr','#formatAttr','#platformAttr','#clientTokenAttr'
+					],
+				ListComponentBuildVersions:[
+					'#componentVersionArnAttr'
+					],
+				ListComponents:[
+					
+					],
+				ListContainerRecipes:[
+					
+					],
+				ListDistributionConfigurations:[
+					
+					],
+				ListImageBuildVersions:[
+					'#imageVersionArnAttr'
+					],
+				ListImagePackages:[
+					'#imageBuildVersionArnAttr'
+					],
+				ListImagePipelineImages:[
+					'#imagePipelineArnAttr'
+					],
+				ListImagePipelines:[
+					
+					],
+				ListImageRecipes:[
+					
+					],
+				ListImages:[
+					
+					],
+				ListInfrastructureConfigurations:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutComponentPolicy:[
+					'#componentArnAttr','#policyAttr'
+					],
+				PutContainerRecipePolicy:[
+					'#containerRecipeArnAttr','#policyAttr'
+					],
+				PutImagePolicy:[
+					'#imageArnAttr','#policyAttr'
+					],
+				PutImageRecipePolicy:[
+					'#imageRecipeArnAttr','#policyAttr'
+					],
+				StartImagePipelineExecution:[
+					'#imagePipelineArnAttr','#clientTokenAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateDistributionConfiguration:[
+					'#distributionConfigurationArnAttr','#distributionsAttr','#clientTokenAttr'
+					],
+				UpdateImagePipeline:[
+					'#imagePipelineArnAttr','#infrastructureConfigurationArnAttr','#clientTokenAttr'
+					],
+				UpdateInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr','#instanceProfileNameAttr','#clientTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Imagebuilder">
+<p>
+AWS Imagebuilder
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Imagebuilder.html">Imagebuilder</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Imagebuilder',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelImageCreation' },
+			
+				imageBuildVersionArn: { value: ""} ,
+				clientToken: { value: ""} ,
+				name: { value: ""} ,
+				semanticVersion: { value: ""} ,
+				platform: { value: ""} ,
+				containerType: { value: ""} ,
+				components: { value: ""} ,
+				parentImage: { value: ""} ,
+				targetRepository: { value: ""} ,
+				distributions: { value: ""} ,
+				infrastructureConfigurationArn: { value: ""} ,
+				instanceProfileName: { value: ""} ,
+				componentBuildVersionArn: { value: ""} ,
+				containerRecipeArn: { value: ""} ,
+				distributionConfigurationArn: { value: ""} ,
+				imagePipelineArn: { value: ""} ,
+				imageRecipeArn: { value: ""} ,
+				componentArn: { value: ""} ,
+				imageArn: { value: ""} ,
+				_type: { value: ""} ,
+				format: { value: ""} ,
+				componentVersionArn: { value: ""} ,
+				imageVersionArn: { value: ""} ,
+				resourceArn: { value: ""} ,
+				policy: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Imagebuilder " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,571 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS WorkSpaces">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateConnectionAlias">AssociateConnectionAlias</option>
+		
+			<option value="AssociateIpGroups">AssociateIpGroups</option>
+		
+			<option value="AuthorizeIpRules">AuthorizeIpRules</option>
+		
+			<option value="CopyWorkspaceImage">CopyWorkspaceImage</option>
+		
+			<option value="CreateConnectionAlias">CreateConnectionAlias</option>
+		
+			<option value="CreateIpGroup">CreateIpGroup</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="CreateWorkspaceBundle">CreateWorkspaceBundle</option>
+		
+			<option value="CreateWorkspaces">CreateWorkspaces</option>
+		
+			<option value="DeleteConnectionAlias">DeleteConnectionAlias</option>
+		
+			<option value="DeleteIpGroup">DeleteIpGroup</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DeleteWorkspaceBundle">DeleteWorkspaceBundle</option>
+		
+			<option value="DeleteWorkspaceImage">DeleteWorkspaceImage</option>
+		
+			<option value="DeregisterWorkspaceDirectory">DeregisterWorkspaceDirectory</option>
+		
+			<option value="DescribeAccount">DescribeAccount</option>
+		
+			<option value="DescribeAccountModifications">DescribeAccountModifications</option>
+		
+			<option value="DescribeClientProperties">DescribeClientProperties</option>
+		
+			<option value="DescribeConnectionAliasPermissions">DescribeConnectionAliasPermissions</option>
+		
+			<option value="DescribeConnectionAliases">DescribeConnectionAliases</option>
+		
+			<option value="DescribeIpGroups">DescribeIpGroups</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="DescribeWorkspaceBundles">DescribeWorkspaceBundles</option>
+		
+			<option value="DescribeWorkspaceDirectories">DescribeWorkspaceDirectories</option>
+		
+			<option value="DescribeWorkspaceImagePermissions">DescribeWorkspaceImagePermissions</option>
+		
+			<option value="DescribeWorkspaceImages">DescribeWorkspaceImages</option>
+		
+			<option value="DescribeWorkspaceSnapshots">DescribeWorkspaceSnapshots</option>
+		
+			<option value="DescribeWorkspaces">DescribeWorkspaces</option>
+		
+			<option value="DescribeWorkspacesConnectionStatus">DescribeWorkspacesConnectionStatus</option>
+		
+			<option value="DisassociateConnectionAlias">DisassociateConnectionAlias</option>
+		
+			<option value="DisassociateIpGroups">DisassociateIpGroups</option>
+		
+			<option value="ImportWorkspaceImage">ImportWorkspaceImage</option>
+		
+			<option value="ListAvailableManagementCidrRanges">ListAvailableManagementCidrRanges</option>
+		
+			<option value="MigrateWorkspace">MigrateWorkspace</option>
+		
+			<option value="ModifyAccount">ModifyAccount</option>
+		
+			<option value="ModifyClientProperties">ModifyClientProperties</option>
+		
+			<option value="ModifySelfservicePermissions">ModifySelfservicePermissions</option>
+		
+			<option value="ModifyWorkspaceAccessProperties">ModifyWorkspaceAccessProperties</option>
+		
+			<option value="ModifyWorkspaceCreationProperties">ModifyWorkspaceCreationProperties</option>
+		
+			<option value="ModifyWorkspaceProperties">ModifyWorkspaceProperties</option>
+		
+			<option value="ModifyWorkspaceState">ModifyWorkspaceState</option>
+		
+			<option value="RebootWorkspaces">RebootWorkspaces</option>
+		
+			<option value="RebuildWorkspaces">RebuildWorkspaces</option>
+		
+			<option value="RegisterWorkspaceDirectory">RegisterWorkspaceDirectory</option>
+		
+			<option value="RestoreWorkspace">RestoreWorkspace</option>
+		
+			<option value="RevokeIpRules">RevokeIpRules</option>
+		
+			<option value="StartWorkspaces">StartWorkspaces</option>
+		
+			<option value="StopWorkspaces">StopWorkspaces</option>
+		
+			<option value="TerminateWorkspaces">TerminateWorkspaces</option>
+		
+			<option value="UpdateConnectionAliasPermission">UpdateConnectionAliasPermission</option>
+		
+			<option value="UpdateRulesOfIpGroup">UpdateRulesOfIpGroup</option>
+		
+			<option value="UpdateWorkspaceBundle">UpdateWorkspaceBundle</option>
+		
+			<option value="UpdateWorkspaceImagePermission">UpdateWorkspaceImagePermission</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AliasIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AliasId"><i class="fa fa-tag"></i>AliasId</label>
+		<input type="text" id="node-input-AliasId" placeholder="AliasId"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i>ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='DirectoryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryId"><i class="fa fa-tag"></i>DirectoryId</label>
+		<input type="text" id="node-input-DirectoryId" placeholder="DirectoryId"></input>
+	</div> 
+	<div class="form-row" id='GroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupIds"><i class="fa fa-tag"></i>GroupIds</label>
+		<input type="text" id="node-input-GroupIds" placeholder="GroupIds"></input>
+	</div> 
+	<div class="form-row" id='GroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupId"><i class="fa fa-tag"></i>GroupId</label>
+		<input type="text" id="node-input-GroupId" placeholder="GroupId"></input>
+	</div> 
+	<div class="form-row" id='UserRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-UserRules"><i class="fa fa-tag"></i>UserRules</label>
+		<input type="text" id="node-input-UserRules" placeholder="UserRules"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SourceImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceImageId"><i class="fa fa-tag"></i>SourceImageId</label>
+		<input type="text" id="node-input-SourceImageId" placeholder="SourceImageId"></input>
+	</div> 
+	<div class="form-row" id='SourceRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceRegion"><i class="fa fa-tag"></i>SourceRegion</label>
+		<input type="text" id="node-input-SourceRegion" placeholder="SourceRegion"></input>
+	</div> 
+	<div class="form-row" id='ConnectionStringAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionString"><i class="fa fa-tag"></i>ConnectionString</label>
+		<input type="text" id="node-input-ConnectionString" placeholder="ConnectionString"></input>
+	</div> 
+	<div class="form-row" id='GroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupName"><i class="fa fa-tag"></i>GroupName</label>
+		<input type="text" id="node-input-GroupName" placeholder="GroupName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='BundleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BundleName"><i class="fa fa-tag"></i>BundleName</label>
+		<input type="text" id="node-input-BundleName" placeholder="BundleName"></input>
+	</div> 
+	<div class="form-row" id='BundleDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-BundleDescription"><i class="fa fa-tag"></i>BundleDescription</label>
+		<input type="text" id="node-input-BundleDescription" placeholder="BundleDescription"></input>
+	</div> 
+	<div class="form-row" id='ImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageId"><i class="fa fa-tag"></i>ImageId</label>
+		<input type="text" id="node-input-ImageId" placeholder="ImageId"></input>
+	</div> 
+	<div class="form-row" id='ComputeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputeType"><i class="fa fa-tag"></i>ComputeType</label>
+		<input type="text" id="node-input-ComputeType" placeholder="ComputeType"></input>
+	</div> 
+	<div class="form-row" id='UserStorageAttr' class='hiddenAttrs'>
+		<label for="node-input-UserStorage"><i class="fa fa-tag"></i>UserStorage</label>
+		<input type="text" id="node-input-UserStorage" placeholder="UserStorage"></input>
+	</div> 
+	<div class="form-row" id='WorkspacesAttr' class='hiddenAttrs'>
+		<label for="node-input-Workspaces"><i class="fa fa-tag"></i>Workspaces</label>
+		<input type="text" id="node-input-Workspaces" placeholder="Workspaces"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIds"><i class="fa fa-tag"></i>ResourceIds</label>
+		<input type="text" id="node-input-ResourceIds" placeholder="ResourceIds"></input>
+	</div> 
+	<div class="form-row" id='WorkspaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceId"><i class="fa fa-tag"></i>WorkspaceId</label>
+		<input type="text" id="node-input-WorkspaceId" placeholder="WorkspaceId"></input>
+	</div> 
+	<div class="form-row" id='Ec2ImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-Ec2ImageId"><i class="fa fa-tag"></i>Ec2ImageId</label>
+		<input type="text" id="node-input-Ec2ImageId" placeholder="Ec2ImageId"></input>
+	</div> 
+	<div class="form-row" id='IngestionProcessAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestionProcess"><i class="fa fa-tag"></i>IngestionProcess</label>
+		<input type="text" id="node-input-IngestionProcess" placeholder="IngestionProcess"></input>
+	</div> 
+	<div class="form-row" id='ImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageName"><i class="fa fa-tag"></i>ImageName</label>
+		<input type="text" id="node-input-ImageName" placeholder="ImageName"></input>
+	</div> 
+	<div class="form-row" id='ImageDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageDescription"><i class="fa fa-tag"></i>ImageDescription</label>
+		<input type="text" id="node-input-ImageDescription" placeholder="ImageDescription"></input>
+	</div> 
+	<div class="form-row" id='ManagementCidrRangeConstraintAttr' class='hiddenAttrs'>
+		<label for="node-input-ManagementCidrRangeConstraint"><i class="fa fa-tag"></i>ManagementCidrRangeConstraint</label>
+		<input type="text" id="node-input-ManagementCidrRangeConstraint" placeholder="ManagementCidrRangeConstraint"></input>
+	</div> 
+	<div class="form-row" id='SourceWorkspaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceWorkspaceId"><i class="fa fa-tag"></i>SourceWorkspaceId</label>
+		<input type="text" id="node-input-SourceWorkspaceId" placeholder="SourceWorkspaceId"></input>
+	</div> 
+	<div class="form-row" id='BundleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BundleId"><i class="fa fa-tag"></i>BundleId</label>
+		<input type="text" id="node-input-BundleId" placeholder="BundleId"></input>
+	</div> 
+	<div class="form-row" id='ClientPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientProperties"><i class="fa fa-tag"></i>ClientProperties</label>
+		<input type="text" id="node-input-ClientProperties" placeholder="ClientProperties"></input>
+	</div> 
+	<div class="form-row" id='SelfservicePermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-SelfservicePermissions"><i class="fa fa-tag"></i>SelfservicePermissions</label>
+		<input type="text" id="node-input-SelfservicePermissions" placeholder="SelfservicePermissions"></input>
+	</div> 
+	<div class="form-row" id='WorkspaceAccessPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceAccessProperties"><i class="fa fa-tag"></i>WorkspaceAccessProperties</label>
+		<input type="text" id="node-input-WorkspaceAccessProperties" placeholder="WorkspaceAccessProperties"></input>
+	</div> 
+	<div class="form-row" id='WorkspaceCreationPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceCreationProperties"><i class="fa fa-tag"></i>WorkspaceCreationProperties</label>
+		<input type="text" id="node-input-WorkspaceCreationProperties" placeholder="WorkspaceCreationProperties"></input>
+	</div> 
+	<div class="form-row" id='WorkspacePropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceProperties"><i class="fa fa-tag"></i>WorkspaceProperties</label>
+		<input type="text" id="node-input-WorkspaceProperties" placeholder="WorkspaceProperties"></input>
+	</div> 
+	<div class="form-row" id='WorkspaceStateAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkspaceState"><i class="fa fa-tag"></i>WorkspaceState</label>
+		<input type="text" id="node-input-WorkspaceState" placeholder="WorkspaceState"></input>
+	</div> 
+	<div class="form-row" id='RebootWorkspaceRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-RebootWorkspaceRequests"><i class="fa fa-tag"></i>RebootWorkspaceRequests</label>
+		<input type="text" id="node-input-RebootWorkspaceRequests" placeholder="RebootWorkspaceRequests"></input>
+	</div> 
+	<div class="form-row" id='RebuildWorkspaceRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-RebuildWorkspaceRequests"><i class="fa fa-tag"></i>RebuildWorkspaceRequests</label>
+		<input type="text" id="node-input-RebuildWorkspaceRequests" placeholder="RebuildWorkspaceRequests"></input>
+	</div> 
+	<div class="form-row" id='EnableWorkDocsAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableWorkDocs"><i class="fa fa-tag"></i>EnableWorkDocs</label>
+		<input type="text" id="node-input-EnableWorkDocs" placeholder="EnableWorkDocs"></input>
+	</div> 
+	<div class="form-row" id='StartWorkspaceRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-StartWorkspaceRequests"><i class="fa fa-tag"></i>StartWorkspaceRequests</label>
+		<input type="text" id="node-input-StartWorkspaceRequests" placeholder="StartWorkspaceRequests"></input>
+	</div> 
+	<div class="form-row" id='StopWorkspaceRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-StopWorkspaceRequests"><i class="fa fa-tag"></i>StopWorkspaceRequests</label>
+		<input type="text" id="node-input-StopWorkspaceRequests" placeholder="StopWorkspaceRequests"></input>
+	</div> 
+	<div class="form-row" id='TerminateWorkspaceRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminateWorkspaceRequests"><i class="fa fa-tag"></i>TerminateWorkspaceRequests</label>
+		<input type="text" id="node-input-TerminateWorkspaceRequests" placeholder="TerminateWorkspaceRequests"></input>
+	</div> 
+	<div class="form-row" id='ConnectionAliasPermissionAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionAliasPermission"><i class="fa fa-tag"></i>ConnectionAliasPermission</label>
+		<input type="text" id="node-input-ConnectionAliasPermission" placeholder="ConnectionAliasPermission"></input>
+	</div> 
+	<div class="form-row" id='AllowCopyImageAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowCopyImage"><i class="fa fa-tag"></i>AllowCopyImage</label>
+		<input type="text" id="node-input-AllowCopyImage" placeholder="AllowCopyImage"></input>
+	</div> 
+	<div class="form-row" id='SharedAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedAccountId"><i class="fa fa-tag"></i>SharedAccountId</label>
+		<input type="text" id="node-input-SharedAccountId" placeholder="SharedAccountId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateConnectionAlias:[
+					'#AliasIdAttr','#ResourceIdAttr'
+					],
+				AssociateIpGroups:[
+					'#DirectoryIdAttr','#GroupIdsAttr'
+					],
+				AuthorizeIpRules:[
+					'#GroupIdAttr','#UserRulesAttr'
+					],
+				CopyWorkspaceImage:[
+					'#NameAttr','#SourceImageIdAttr','#SourceRegionAttr'
+					],
+				CreateConnectionAlias:[
+					'#ConnectionStringAttr'
+					],
+				CreateIpGroup:[
+					'#GroupNameAttr'
+					],
+				CreateTags:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				CreateWorkspaceBundle:[
+					'#BundleNameAttr','#BundleDescriptionAttr','#ImageIdAttr','#ComputeTypeAttr','#UserStorageAttr'
+					],
+				CreateWorkspaces:[
+					'#WorkspacesAttr'
+					],
+				DeleteConnectionAlias:[
+					'#AliasIdAttr'
+					],
+				DeleteIpGroup:[
+					'#GroupIdAttr'
+					],
+				DeleteTags:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				DeleteWorkspaceBundle:[
+					
+					],
+				DeleteWorkspaceImage:[
+					'#ImageIdAttr'
+					],
+				DeregisterWorkspaceDirectory:[
+					'#DirectoryIdAttr'
+					],
+				DescribeAccount:[
+					
+					],
+				DescribeAccountModifications:[
+					
+					],
+				DescribeClientProperties:[
+					'#ResourceIdsAttr'
+					],
+				DescribeConnectionAliasPermissions:[
+					'#AliasIdAttr'
+					],
+				DescribeConnectionAliases:[
+					
+					],
+				DescribeIpGroups:[
+					
+					],
+				DescribeTags:[
+					'#ResourceIdAttr'
+					],
+				DescribeWorkspaceBundles:[
+					
+					],
+				DescribeWorkspaceDirectories:[
+					
+					],
+				DescribeWorkspaceImagePermissions:[
+					'#ImageIdAttr'
+					],
+				DescribeWorkspaceImages:[
+					
+					],
+				DescribeWorkspaceSnapshots:[
+					'#WorkspaceIdAttr'
+					],
+				DescribeWorkspaces:[
+					
+					],
+				DescribeWorkspacesConnectionStatus:[
+					
+					],
+				DisassociateConnectionAlias:[
+					'#AliasIdAttr'
+					],
+				DisassociateIpGroups:[
+					'#DirectoryIdAttr','#GroupIdsAttr'
+					],
+				ImportWorkspaceImage:[
+					'#Ec2ImageIdAttr','#IngestionProcessAttr','#ImageNameAttr','#ImageDescriptionAttr'
+					],
+				ListAvailableManagementCidrRanges:[
+					'#ManagementCidrRangeConstraintAttr'
+					],
+				MigrateWorkspace:[
+					'#SourceWorkspaceIdAttr','#BundleIdAttr'
+					],
+				ModifyAccount:[
+					
+					],
+				ModifyClientProperties:[
+					'#ResourceIdAttr','#ClientPropertiesAttr'
+					],
+				ModifySelfservicePermissions:[
+					'#ResourceIdAttr','#SelfservicePermissionsAttr'
+					],
+				ModifyWorkspaceAccessProperties:[
+					'#ResourceIdAttr','#WorkspaceAccessPropertiesAttr'
+					],
+				ModifyWorkspaceCreationProperties:[
+					'#ResourceIdAttr','#WorkspaceCreationPropertiesAttr'
+					],
+				ModifyWorkspaceProperties:[
+					'#WorkspaceIdAttr','#WorkspacePropertiesAttr'
+					],
+				ModifyWorkspaceState:[
+					'#WorkspaceIdAttr','#WorkspaceStateAttr'
+					],
+				RebootWorkspaces:[
+					'#RebootWorkspaceRequestsAttr'
+					],
+				RebuildWorkspaces:[
+					'#RebuildWorkspaceRequestsAttr'
+					],
+				RegisterWorkspaceDirectory:[
+					'#DirectoryIdAttr','#EnableWorkDocsAttr'
+					],
+				RestoreWorkspace:[
+					'#WorkspaceIdAttr'
+					],
+				RevokeIpRules:[
+					'#GroupIdAttr','#UserRulesAttr'
+					],
+				StartWorkspaces:[
+					'#StartWorkspaceRequestsAttr'
+					],
+				StopWorkspaces:[
+					'#StopWorkspaceRequestsAttr'
+					],
+				TerminateWorkspaces:[
+					'#TerminateWorkspaceRequestsAttr'
+					],
+				UpdateConnectionAliasPermission:[
+					'#AliasIdAttr','#ConnectionAliasPermissionAttr'
+					],
+				UpdateRulesOfIpGroup:[
+					'#GroupIdAttr','#UserRulesAttr'
+					],
+				UpdateWorkspaceBundle:[
+					
+					],
+				UpdateWorkspaceImagePermission:[
+					'#ImageIdAttr','#AllowCopyImageAttr','#SharedAccountIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS WorkSpaces">
+<p>
+AWS WorkSpaces
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WorkSpaces.html">WorkSpaces</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WorkSpaces',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateConnectionAlias' },
+			
+				AliasId: { value: ""} ,
+				ResourceId: { value: ""} ,
+				DirectoryId: { value: ""} ,
+				GroupIds: { value: ""} ,
+				GroupId: { value: ""} ,
+				UserRules: { value: ""} ,
+				Name: { value: ""} ,
+				SourceImageId: { value: ""} ,
+				SourceRegion: { value: ""} ,
+				ConnectionString: { value: ""} ,
+				GroupName: { value: ""} ,
+				Tags: { value: ""} ,
+				BundleName: { value: ""} ,
+				BundleDescription: { value: ""} ,
+				ImageId: { value: ""} ,
+				ComputeType: { value: ""} ,
+				UserStorage: { value: ""} ,
+				Workspaces: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ResourceIds: { value: ""} ,
+				WorkspaceId: { value: ""} ,
+				Ec2ImageId: { value: ""} ,
+				IngestionProcess: { value: ""} ,
+				ImageName: { value: ""} ,
+				ImageDescription: { value: ""} ,
+				ManagementCidrRangeConstraint: { value: ""} ,
+				SourceWorkspaceId: { value: ""} ,
+				BundleId: { value: ""} ,
+				ClientProperties: { value: ""} ,
+				SelfservicePermissions: { value: ""} ,
+				WorkspaceAccessProperties: { value: ""} ,
+				WorkspaceCreationProperties: { value: ""} ,
+				WorkspaceProperties: { value: ""} ,
+				WorkspaceState: { value: ""} ,
+				RebootWorkspaceRequests: { value: ""} ,
+				RebuildWorkspaceRequests: { value: ""} ,
+				EnableWorkDocs: { value: ""} ,
+				StartWorkspaceRequests: { value: ""} ,
+				StopWorkspaceRequests: { value: ""} ,
+				TerminateWorkspaceRequests: { value: ""} ,
+				ConnectionAliasPermission: { value: ""} ,
+				AllowCopyImage: { value: ""} ,
+				SharedAccountId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WorkSpaces " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

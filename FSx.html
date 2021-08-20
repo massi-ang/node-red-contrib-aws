@@ -1,0 +1,246 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS FSx">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateFileSystemAliases">AssociateFileSystemAliases</option>
+		
+			<option value="CancelDataRepositoryTask">CancelDataRepositoryTask</option>
+		
+			<option value="CopyBackup">CopyBackup</option>
+		
+			<option value="CreateBackup">CreateBackup</option>
+		
+			<option value="CreateDataRepositoryTask">CreateDataRepositoryTask</option>
+		
+			<option value="CreateFileSystem">CreateFileSystem</option>
+		
+			<option value="CreateFileSystemFromBackup">CreateFileSystemFromBackup</option>
+		
+			<option value="DeleteBackup">DeleteBackup</option>
+		
+			<option value="DeleteFileSystem">DeleteFileSystem</option>
+		
+			<option value="DescribeBackups">DescribeBackups</option>
+		
+			<option value="DescribeDataRepositoryTasks">DescribeDataRepositoryTasks</option>
+		
+			<option value="DescribeFileSystemAliases">DescribeFileSystemAliases</option>
+		
+			<option value="DescribeFileSystems">DescribeFileSystems</option>
+		
+			<option value="DisassociateFileSystemAliases">DisassociateFileSystemAliases</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFileSystem">UpdateFileSystem</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FileSystemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemId"><i class="fa fa-tag"></i>FileSystemId</label>
+		<input type="text" id="node-input-FileSystemId" placeholder="FileSystemId"></input>
+	</div> 
+	<div class="form-row" id='AliasesAttr' class='hiddenAttrs'>
+		<label for="node-input-Aliases"><i class="fa fa-tag"></i>Aliases</label>
+		<input type="text" id="node-input-Aliases" placeholder="Aliases"></input>
+	</div> 
+	<div class="form-row" id='TaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskId"><i class="fa fa-tag"></i>TaskId</label>
+		<input type="text" id="node-input-TaskId" placeholder="TaskId"></input>
+	</div> 
+	<div class="form-row" id='SourceBackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBackupId"><i class="fa fa-tag"></i>SourceBackupId</label>
+		<input type="text" id="node-input-SourceBackupId" placeholder="SourceBackupId"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='ReportAttr' class='hiddenAttrs'>
+		<label for="node-input-Report"><i class="fa fa-tag"></i>Report</label>
+		<input type="text" id="node-input-Report" placeholder="Report"></input>
+	</div> 
+	<div class="form-row" id='FileSystemTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemType"><i class="fa fa-tag"></i>FileSystemType</label>
+		<input type="text" id="node-input-FileSystemType" placeholder="FileSystemType"></input>
+	</div> 
+	<div class="form-row" id='StorageCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageCapacity"><i class="fa fa-tag"></i>StorageCapacity</label>
+		<input type="text" id="node-input-StorageCapacity" placeholder="StorageCapacity"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='BackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupId"><i class="fa fa-tag"></i>BackupId</label>
+		<input type="text" id="node-input-BackupId" placeholder="BackupId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateFileSystemAliases:[
+					'#FileSystemIdAttr','#AliasesAttr'
+					],
+				CancelDataRepositoryTask:[
+					'#TaskIdAttr'
+					],
+				CopyBackup:[
+					'#SourceBackupIdAttr'
+					],
+				CreateBackup:[
+					'#FileSystemIdAttr'
+					],
+				CreateDataRepositoryTask:[
+					'#TypeAttr','#FileSystemIdAttr','#ReportAttr'
+					],
+				CreateFileSystem:[
+					'#FileSystemTypeAttr','#StorageCapacityAttr','#SubnetIdsAttr'
+					],
+				CreateFileSystemFromBackup:[
+					'#BackupIdAttr','#SubnetIdsAttr'
+					],
+				DeleteBackup:[
+					'#BackupIdAttr'
+					],
+				DeleteFileSystem:[
+					'#FileSystemIdAttr'
+					],
+				DescribeBackups:[
+					
+					],
+				DescribeDataRepositoryTasks:[
+					
+					],
+				DescribeFileSystemAliases:[
+					'#FileSystemIdAttr'
+					],
+				DescribeFileSystems:[
+					
+					],
+				DisassociateFileSystemAliases:[
+					'#FileSystemIdAttr','#AliasesAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateFileSystem:[
+					'#FileSystemIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS FSx">
+<p>
+AWS FSx
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/FSx.html">FSx</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS FSx',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateFileSystemAliases' },
+			
+				FileSystemId: { value: ""} ,
+				Aliases: { value: ""} ,
+				TaskId: { value: ""} ,
+				SourceBackupId: { value: ""} ,
+				Type: { value: ""} ,
+				Report: { value: ""} ,
+				FileSystemType: { value: ""} ,
+				StorageCapacity: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				BackupId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "FSx " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

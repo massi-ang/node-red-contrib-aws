@@ -1,0 +1,596 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ApiGatewayV2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApi">CreateApi</option>
+		
+			<option value="CreateApiMapping">CreateApiMapping</option>
+		
+			<option value="CreateAuthorizer">CreateAuthorizer</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDomainName">CreateDomainName</option>
+		
+			<option value="CreateIntegration">CreateIntegration</option>
+		
+			<option value="CreateIntegrationResponse">CreateIntegrationResponse</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="CreateRoute">CreateRoute</option>
+		
+			<option value="CreateRouteResponse">CreateRouteResponse</option>
+		
+			<option value="CreateStage">CreateStage</option>
+		
+			<option value="CreateVpcLink">CreateVpcLink</option>
+		
+			<option value="DeleteAccessLogSettings">DeleteAccessLogSettings</option>
+		
+			<option value="DeleteApi">DeleteApi</option>
+		
+			<option value="DeleteApiMapping">DeleteApiMapping</option>
+		
+			<option value="DeleteAuthorizer">DeleteAuthorizer</option>
+		
+			<option value="DeleteCorsConfiguration">DeleteCorsConfiguration</option>
+		
+			<option value="DeleteDeployment">DeleteDeployment</option>
+		
+			<option value="DeleteDomainName">DeleteDomainName</option>
+		
+			<option value="DeleteIntegration">DeleteIntegration</option>
+		
+			<option value="DeleteIntegrationResponse">DeleteIntegrationResponse</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DeleteRoute">DeleteRoute</option>
+		
+			<option value="DeleteRouteRequestParameter">DeleteRouteRequestParameter</option>
+		
+			<option value="DeleteRouteResponse">DeleteRouteResponse</option>
+		
+			<option value="DeleteRouteSettings">DeleteRouteSettings</option>
+		
+			<option value="DeleteStage">DeleteStage</option>
+		
+			<option value="DeleteVpcLink">DeleteVpcLink</option>
+		
+			<option value="ExportApi">ExportApi</option>
+		
+			<option value="ResetAuthorizersCache">ResetAuthorizersCache</option>
+		
+			<option value="GetApi">GetApi</option>
+		
+			<option value="GetApiMapping">GetApiMapping</option>
+		
+			<option value="GetApiMappings">GetApiMappings</option>
+		
+			<option value="GetApis">GetApis</option>
+		
+			<option value="GetAuthorizer">GetAuthorizer</option>
+		
+			<option value="GetAuthorizers">GetAuthorizers</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="GetDeployments">GetDeployments</option>
+		
+			<option value="GetDomainName">GetDomainName</option>
+		
+			<option value="GetDomainNames">GetDomainNames</option>
+		
+			<option value="GetIntegration">GetIntegration</option>
+		
+			<option value="GetIntegrationResponse">GetIntegrationResponse</option>
+		
+			<option value="GetIntegrationResponses">GetIntegrationResponses</option>
+		
+			<option value="GetIntegrations">GetIntegrations</option>
+		
+			<option value="GetModel">GetModel</option>
+		
+			<option value="GetModelTemplate">GetModelTemplate</option>
+		
+			<option value="GetModels">GetModels</option>
+		
+			<option value="GetRoute">GetRoute</option>
+		
+			<option value="GetRouteResponse">GetRouteResponse</option>
+		
+			<option value="GetRouteResponses">GetRouteResponses</option>
+		
+			<option value="GetRoutes">GetRoutes</option>
+		
+			<option value="GetStage">GetStage</option>
+		
+			<option value="GetStages">GetStages</option>
+		
+			<option value="GetTags">GetTags</option>
+		
+			<option value="GetVpcLink">GetVpcLink</option>
+		
+			<option value="GetVpcLinks">GetVpcLinks</option>
+		
+			<option value="ImportApi">ImportApi</option>
+		
+			<option value="ReimportApi">ReimportApi</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApi">UpdateApi</option>
+		
+			<option value="UpdateApiMapping">UpdateApiMapping</option>
+		
+			<option value="UpdateAuthorizer">UpdateAuthorizer</option>
+		
+			<option value="UpdateDeployment">UpdateDeployment</option>
+		
+			<option value="UpdateDomainName">UpdateDomainName</option>
+		
+			<option value="UpdateIntegration">UpdateIntegration</option>
+		
+			<option value="UpdateIntegrationResponse">UpdateIntegrationResponse</option>
+		
+			<option value="UpdateModel">UpdateModel</option>
+		
+			<option value="UpdateRoute">UpdateRoute</option>
+		
+			<option value="UpdateRouteResponse">UpdateRouteResponse</option>
+		
+			<option value="UpdateStage">UpdateStage</option>
+		
+			<option value="UpdateVpcLink">UpdateVpcLink</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ProtocolTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProtocolType"><i class="fa fa-tag"></i>ProtocolType</label>
+		<input type="text" id="node-input-ProtocolType" placeholder="ProtocolType"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i>DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='StageAttr' class='hiddenAttrs'>
+		<label for="node-input-Stage"><i class="fa fa-tag"></i>Stage</label>
+		<input type="text" id="node-input-Stage" placeholder="Stage"></input>
+	</div> 
+	<div class="form-row" id='ApiIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApiId"><i class="fa fa-tag"></i>ApiId</label>
+		<input type="text" id="node-input-ApiId" placeholder="ApiId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizerType"><i class="fa fa-tag"></i>AuthorizerType</label>
+		<input type="text" id="node-input-AuthorizerType" placeholder="AuthorizerType"></input>
+	</div> 
+	<div class="form-row" id='IdentitySourceAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentitySource"><i class="fa fa-tag"></i>IdentitySource</label>
+		<input type="text" id="node-input-IdentitySource" placeholder="IdentitySource"></input>
+	</div> 
+	<div class="form-row" id='IntegrationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationType"><i class="fa fa-tag"></i>IntegrationType</label>
+		<input type="text" id="node-input-IntegrationType" placeholder="IntegrationType"></input>
+	</div> 
+	<div class="form-row" id='IntegrationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationId"><i class="fa fa-tag"></i>IntegrationId</label>
+		<input type="text" id="node-input-IntegrationId" placeholder="IntegrationId"></input>
+	</div> 
+	<div class="form-row" id='IntegrationResponseKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationResponseKey"><i class="fa fa-tag"></i>IntegrationResponseKey</label>
+		<input type="text" id="node-input-IntegrationResponseKey" placeholder="IntegrationResponseKey"></input>
+	</div> 
+	<div class="form-row" id='SchemaAttr' class='hiddenAttrs'>
+		<label for="node-input-Schema"><i class="fa fa-tag"></i>Schema</label>
+		<input type="text" id="node-input-Schema" placeholder="Schema"></input>
+	</div> 
+	<div class="form-row" id='RouteKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-RouteKey"><i class="fa fa-tag"></i>RouteKey</label>
+		<input type="text" id="node-input-RouteKey" placeholder="RouteKey"></input>
+	</div> 
+	<div class="form-row" id='RouteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RouteId"><i class="fa fa-tag"></i>RouteId</label>
+		<input type="text" id="node-input-RouteId" placeholder="RouteId"></input>
+	</div> 
+	<div class="form-row" id='RouteResponseKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-RouteResponseKey"><i class="fa fa-tag"></i>RouteResponseKey</label>
+		<input type="text" id="node-input-RouteResponseKey" placeholder="RouteResponseKey"></input>
+	</div> 
+	<div class="form-row" id='StageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StageName"><i class="fa fa-tag"></i>StageName</label>
+		<input type="text" id="node-input-StageName" placeholder="StageName"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='ApiMappingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApiMappingId"><i class="fa fa-tag"></i>ApiMappingId</label>
+		<input type="text" id="node-input-ApiMappingId" placeholder="ApiMappingId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizerId"><i class="fa fa-tag"></i>AuthorizerId</label>
+		<input type="text" id="node-input-AuthorizerId" placeholder="AuthorizerId"></input>
+	</div> 
+	<div class="form-row" id='DeploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentId"><i class="fa fa-tag"></i>DeploymentId</label>
+		<input type="text" id="node-input-DeploymentId" placeholder="DeploymentId"></input>
+	</div> 
+	<div class="form-row" id='IntegrationResponseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationResponseId"><i class="fa fa-tag"></i>IntegrationResponseId</label>
+		<input type="text" id="node-input-IntegrationResponseId" placeholder="IntegrationResponseId"></input>
+	</div> 
+	<div class="form-row" id='ModelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelId"><i class="fa fa-tag"></i>ModelId</label>
+		<input type="text" id="node-input-ModelId" placeholder="ModelId"></input>
+	</div> 
+	<div class="form-row" id='RequestParameterKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestParameterKey"><i class="fa fa-tag"></i>RequestParameterKey</label>
+		<input type="text" id="node-input-RequestParameterKey" placeholder="RequestParameterKey"></input>
+	</div> 
+	<div class="form-row" id='RouteResponseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RouteResponseId"><i class="fa fa-tag"></i>RouteResponseId</label>
+		<input type="text" id="node-input-RouteResponseId" placeholder="RouteResponseId"></input>
+	</div> 
+	<div class="form-row" id='VpcLinkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcLinkId"><i class="fa fa-tag"></i>VpcLinkId</label>
+		<input type="text" id="node-input-VpcLinkId" placeholder="VpcLinkId"></input>
+	</div> 
+	<div class="form-row" id='SpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-Specification"><i class="fa fa-tag"></i>Specification</label>
+		<input type="text" id="node-input-Specification" placeholder="Specification"></input>
+	</div> 
+	<div class="form-row" id='OutputTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputType"><i class="fa fa-tag"></i>OutputType</label>
+		<input type="text" id="node-input-OutputType" placeholder="OutputType"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='BodyAttr' class='hiddenAttrs'>
+		<label for="node-input-Body"><i class="fa fa-tag"></i>Body</label>
+		<input type="text" id="node-input-Body" placeholder="Body"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApi:[
+					'#ProtocolTypeAttr','#NameAttr'
+					],
+				CreateApiMapping:[
+					'#DomainNameAttr','#StageAttr','#ApiIdAttr'
+					],
+				CreateAuthorizer:[
+					'#ApiIdAttr','#AuthorizerTypeAttr','#IdentitySourceAttr','#NameAttr'
+					],
+				CreateDeployment:[
+					'#ApiIdAttr'
+					],
+				CreateDomainName:[
+					'#DomainNameAttr'
+					],
+				CreateIntegration:[
+					'#ApiIdAttr','#IntegrationTypeAttr'
+					],
+				CreateIntegrationResponse:[
+					'#ApiIdAttr','#IntegrationIdAttr','#IntegrationResponseKeyAttr'
+					],
+				CreateModel:[
+					'#ApiIdAttr','#SchemaAttr','#NameAttr'
+					],
+				CreateRoute:[
+					'#ApiIdAttr','#RouteKeyAttr'
+					],
+				CreateRouteResponse:[
+					'#ApiIdAttr','#RouteIdAttr','#RouteResponseKeyAttr'
+					],
+				CreateStage:[
+					'#ApiIdAttr','#StageNameAttr'
+					],
+				CreateVpcLink:[
+					'#SubnetIdsAttr','#NameAttr'
+					],
+				DeleteAccessLogSettings:[
+					'#StageNameAttr','#ApiIdAttr'
+					],
+				DeleteApi:[
+					'#ApiIdAttr'
+					],
+				DeleteApiMapping:[
+					'#ApiMappingIdAttr','#DomainNameAttr'
+					],
+				DeleteAuthorizer:[
+					'#AuthorizerIdAttr','#ApiIdAttr'
+					],
+				DeleteCorsConfiguration:[
+					'#ApiIdAttr'
+					],
+				DeleteDeployment:[
+					'#ApiIdAttr','#DeploymentIdAttr'
+					],
+				DeleteDomainName:[
+					'#DomainNameAttr'
+					],
+				DeleteIntegration:[
+					'#ApiIdAttr','#IntegrationIdAttr'
+					],
+				DeleteIntegrationResponse:[
+					'#ApiIdAttr','#IntegrationResponseIdAttr','#IntegrationIdAttr'
+					],
+				DeleteModel:[
+					'#ModelIdAttr','#ApiIdAttr'
+					],
+				DeleteRoute:[
+					'#ApiIdAttr','#RouteIdAttr'
+					],
+				DeleteRouteRequestParameter:[
+					'#RequestParameterKeyAttr','#ApiIdAttr','#RouteIdAttr'
+					],
+				DeleteRouteResponse:[
+					'#RouteResponseIdAttr','#ApiIdAttr','#RouteIdAttr'
+					],
+				DeleteRouteSettings:[
+					'#StageNameAttr','#RouteKeyAttr','#ApiIdAttr'
+					],
+				DeleteStage:[
+					'#StageNameAttr','#ApiIdAttr'
+					],
+				DeleteVpcLink:[
+					'#VpcLinkIdAttr'
+					],
+				ExportApi:[
+					'#SpecificationAttr','#OutputTypeAttr','#ApiIdAttr'
+					],
+				ResetAuthorizersCache:[
+					'#StageNameAttr','#ApiIdAttr'
+					],
+				GetApi:[
+					'#ApiIdAttr'
+					],
+				GetApiMapping:[
+					'#ApiMappingIdAttr','#DomainNameAttr'
+					],
+				GetApiMappings:[
+					'#DomainNameAttr'
+					],
+				GetApis:[
+					
+					],
+				GetAuthorizer:[
+					'#AuthorizerIdAttr','#ApiIdAttr'
+					],
+				GetAuthorizers:[
+					'#ApiIdAttr'
+					],
+				GetDeployment:[
+					'#ApiIdAttr','#DeploymentIdAttr'
+					],
+				GetDeployments:[
+					'#ApiIdAttr'
+					],
+				GetDomainName:[
+					'#DomainNameAttr'
+					],
+				GetDomainNames:[
+					
+					],
+				GetIntegration:[
+					'#ApiIdAttr','#IntegrationIdAttr'
+					],
+				GetIntegrationResponse:[
+					'#ApiIdAttr','#IntegrationResponseIdAttr','#IntegrationIdAttr'
+					],
+				GetIntegrationResponses:[
+					'#IntegrationIdAttr','#ApiIdAttr'
+					],
+				GetIntegrations:[
+					'#ApiIdAttr'
+					],
+				GetModel:[
+					'#ModelIdAttr','#ApiIdAttr'
+					],
+				GetModelTemplate:[
+					'#ModelIdAttr','#ApiIdAttr'
+					],
+				GetModels:[
+					'#ApiIdAttr'
+					],
+				GetRoute:[
+					'#ApiIdAttr','#RouteIdAttr'
+					],
+				GetRouteResponse:[
+					'#RouteResponseIdAttr','#ApiIdAttr','#RouteIdAttr'
+					],
+				GetRouteResponses:[
+					'#RouteIdAttr','#ApiIdAttr'
+					],
+				GetRoutes:[
+					'#ApiIdAttr'
+					],
+				GetStage:[
+					'#StageNameAttr','#ApiIdAttr'
+					],
+				GetStages:[
+					'#ApiIdAttr'
+					],
+				GetTags:[
+					'#ResourceArnAttr'
+					],
+				GetVpcLink:[
+					'#VpcLinkIdAttr'
+					],
+				GetVpcLinks:[
+					
+					],
+				ImportApi:[
+					'#BodyAttr'
+					],
+				ReimportApi:[
+					'#ApiIdAttr','#BodyAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateApi:[
+					'#ApiIdAttr'
+					],
+				UpdateApiMapping:[
+					'#ApiMappingIdAttr','#ApiIdAttr','#DomainNameAttr'
+					],
+				UpdateAuthorizer:[
+					'#AuthorizerIdAttr','#ApiIdAttr'
+					],
+				UpdateDeployment:[
+					'#ApiIdAttr','#DeploymentIdAttr'
+					],
+				UpdateDomainName:[
+					'#DomainNameAttr'
+					],
+				UpdateIntegration:[
+					'#ApiIdAttr','#IntegrationIdAttr'
+					],
+				UpdateIntegrationResponse:[
+					'#ApiIdAttr','#IntegrationResponseIdAttr','#IntegrationIdAttr'
+					],
+				UpdateModel:[
+					'#ModelIdAttr','#ApiIdAttr'
+					],
+				UpdateRoute:[
+					'#ApiIdAttr','#RouteIdAttr'
+					],
+				UpdateRouteResponse:[
+					'#RouteResponseIdAttr','#ApiIdAttr','#RouteIdAttr'
+					],
+				UpdateStage:[
+					'#StageNameAttr','#ApiIdAttr'
+					],
+				UpdateVpcLink:[
+					'#VpcLinkIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ApiGatewayV2">
+<p>
+AWS ApiGatewayV2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ApiGatewayV2.html">ApiGatewayV2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ApiGatewayV2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApi' },
+			
+				ProtocolType: { value: ""} ,
+				Name: { value: ""} ,
+				DomainName: { value: ""} ,
+				Stage: { value: ""} ,
+				ApiId: { value: ""} ,
+				AuthorizerType: { value: ""} ,
+				IdentitySource: { value: ""} ,
+				IntegrationType: { value: ""} ,
+				IntegrationId: { value: ""} ,
+				IntegrationResponseKey: { value: ""} ,
+				Schema: { value: ""} ,
+				RouteKey: { value: ""} ,
+				RouteId: { value: ""} ,
+				RouteResponseKey: { value: ""} ,
+				StageName: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				ApiMappingId: { value: ""} ,
+				AuthorizerId: { value: ""} ,
+				DeploymentId: { value: ""} ,
+				IntegrationResponseId: { value: ""} ,
+				ModelId: { value: ""} ,
+				RequestParameterKey: { value: ""} ,
+				RouteResponseId: { value: ""} ,
+				VpcLinkId: { value: ""} ,
+				Specification: { value: ""} ,
+				OutputType: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Body: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ApiGatewayV2 " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

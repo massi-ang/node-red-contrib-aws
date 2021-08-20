@@ -1,0 +1,201 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Support">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddAttachmentsToSet">AddAttachmentsToSet</option>
+		
+			<option value="AddCommunicationToCase">AddCommunicationToCase</option>
+		
+			<option value="CreateCase">CreateCase</option>
+		
+			<option value="DescribeAttachment">DescribeAttachment</option>
+		
+			<option value="DescribeCases">DescribeCases</option>
+		
+			<option value="DescribeCommunications">DescribeCommunications</option>
+		
+			<option value="DescribeServices">DescribeServices</option>
+		
+			<option value="DescribeSeverityLevels">DescribeSeverityLevels</option>
+		
+			<option value="DescribeTrustedAdvisorCheckRefreshStatuses">DescribeTrustedAdvisorCheckRefreshStatuses</option>
+		
+			<option value="DescribeTrustedAdvisorCheckResult">DescribeTrustedAdvisorCheckResult</option>
+		
+			<option value="DescribeTrustedAdvisorCheckSummaries">DescribeTrustedAdvisorCheckSummaries</option>
+		
+			<option value="DescribeTrustedAdvisorChecks">DescribeTrustedAdvisorChecks</option>
+		
+			<option value="RefreshTrustedAdvisorCheck">RefreshTrustedAdvisorCheck</option>
+		
+			<option value="ResolveCase">ResolveCase</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='attachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-attachments"><i class="fa fa-tag"></i>attachments</label>
+		<input type="text" id="node-input-attachments" placeholder="attachments"></input>
+	</div> 
+	<div class="form-row" id='communicationBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-communicationBody"><i class="fa fa-tag"></i>communicationBody</label>
+		<input type="text" id="node-input-communicationBody" placeholder="communicationBody"></input>
+	</div> 
+	<div class="form-row" id='subjectAttr' class='hiddenAttrs'>
+		<label for="node-input-subject"><i class="fa fa-tag"></i>subject</label>
+		<input type="text" id="node-input-subject" placeholder="subject"></input>
+	</div> 
+	<div class="form-row" id='attachmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-attachmentId"><i class="fa fa-tag"></i>attachmentId</label>
+		<input type="text" id="node-input-attachmentId" placeholder="attachmentId"></input>
+	</div> 
+	<div class="form-row" id='caseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-caseId"><i class="fa fa-tag"></i>caseId</label>
+		<input type="text" id="node-input-caseId" placeholder="caseId"></input>
+	</div> 
+	<div class="form-row" id='checkIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-checkIds"><i class="fa fa-tag"></i>checkIds</label>
+		<input type="text" id="node-input-checkIds" placeholder="checkIds"></input>
+	</div> 
+	<div class="form-row" id='checkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-checkId"><i class="fa fa-tag"></i>checkId</label>
+		<input type="text" id="node-input-checkId" placeholder="checkId"></input>
+	</div> 
+	<div class="form-row" id='languageAttr' class='hiddenAttrs'>
+		<label for="node-input-language"><i class="fa fa-tag"></i>language</label>
+		<input type="text" id="node-input-language" placeholder="language"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddAttachmentsToSet:[
+					'#attachmentsAttr'
+					],
+				AddCommunicationToCase:[
+					'#communicationBodyAttr'
+					],
+				CreateCase:[
+					'#subjectAttr','#communicationBodyAttr'
+					],
+				DescribeAttachment:[
+					'#attachmentIdAttr'
+					],
+				DescribeCases:[
+					
+					],
+				DescribeCommunications:[
+					'#caseIdAttr'
+					],
+				DescribeServices:[
+					
+					],
+				DescribeSeverityLevels:[
+					
+					],
+				DescribeTrustedAdvisorCheckRefreshStatuses:[
+					'#checkIdsAttr'
+					],
+				DescribeTrustedAdvisorCheckResult:[
+					'#checkIdAttr'
+					],
+				DescribeTrustedAdvisorCheckSummaries:[
+					'#checkIdsAttr'
+					],
+				DescribeTrustedAdvisorChecks:[
+					'#languageAttr'
+					],
+				RefreshTrustedAdvisorCheck:[
+					'#checkIdAttr'
+					],
+				ResolveCase:[
+					
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Support">
+<p>
+AWS Support
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Support.html">Support</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Support',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddAttachmentsToSet' },
+			
+				attachments: { value: ""} ,
+				communicationBody: { value: ""} ,
+				subject: { value: ""} ,
+				attachmentId: { value: ""} ,
+				caseId: { value: ""} ,
+				checkIds: { value: ""} ,
+				checkId: { value: ""} ,
+				language: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Support " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

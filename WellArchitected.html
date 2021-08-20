@@ -1,0 +1,351 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS WellArchitected">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateLenses">AssociateLenses</option>
+		
+			<option value="CreateMilestone">CreateMilestone</option>
+		
+			<option value="CreateWorkload">CreateWorkload</option>
+		
+			<option value="CreateWorkloadShare">CreateWorkloadShare</option>
+		
+			<option value="DeleteWorkload">DeleteWorkload</option>
+		
+			<option value="DeleteWorkloadShare">DeleteWorkloadShare</option>
+		
+			<option value="DisassociateLenses">DisassociateLenses</option>
+		
+			<option value="GetAnswer">GetAnswer</option>
+		
+			<option value="GetLensReview">GetLensReview</option>
+		
+			<option value="GetLensReviewReport">GetLensReviewReport</option>
+		
+			<option value="GetLensVersionDifference">GetLensVersionDifference</option>
+		
+			<option value="GetMilestone">GetMilestone</option>
+		
+			<option value="GetWorkload">GetWorkload</option>
+		
+			<option value="ListAnswers">ListAnswers</option>
+		
+			<option value="ListLensReviewImprovements">ListLensReviewImprovements</option>
+		
+			<option value="ListLensReviews">ListLensReviews</option>
+		
+			<option value="ListLenses">ListLenses</option>
+		
+			<option value="ListMilestones">ListMilestones</option>
+		
+			<option value="ListNotifications">ListNotifications</option>
+		
+			<option value="ListShareInvitations">ListShareInvitations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWorkloadShares">ListWorkloadShares</option>
+		
+			<option value="ListWorkloads">ListWorkloads</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAnswer">UpdateAnswer</option>
+		
+			<option value="UpdateLensReview">UpdateLensReview</option>
+		
+			<option value="UpdateShareInvitation">UpdateShareInvitation</option>
+		
+			<option value="UpdateWorkload">UpdateWorkload</option>
+		
+			<option value="UpdateWorkloadShare">UpdateWorkloadShare</option>
+		
+			<option value="UpgradeLensReview">UpgradeLensReview</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='WorkloadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkloadId"><i class="fa fa-tag"></i>WorkloadId</label>
+		<input type="text" id="node-input-WorkloadId" placeholder="WorkloadId"></input>
+	</div> 
+	<div class="form-row" id='LensAliasesAttr' class='hiddenAttrs'>
+		<label for="node-input-LensAliases"><i class="fa fa-tag"></i>LensAliases</label>
+		<input type="text" id="node-input-LensAliases" placeholder="LensAliases"></input>
+	</div> 
+	<div class="form-row" id='MilestoneNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MilestoneName"><i class="fa fa-tag"></i>MilestoneName</label>
+		<input type="text" id="node-input-MilestoneName" placeholder="MilestoneName"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i>ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='WorkloadNameAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkloadName"><i class="fa fa-tag"></i>WorkloadName</label>
+		<input type="text" id="node-input-WorkloadName" placeholder="WorkloadName"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Environment"><i class="fa fa-tag"></i>Environment</label>
+		<input type="text" id="node-input-Environment" placeholder="Environment"></input>
+	</div> 
+	<div class="form-row" id='ReviewOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-ReviewOwner"><i class="fa fa-tag"></i>ReviewOwner</label>
+		<input type="text" id="node-input-ReviewOwner" placeholder="ReviewOwner"></input>
+	</div> 
+	<div class="form-row" id='LensesAttr' class='hiddenAttrs'>
+		<label for="node-input-Lenses"><i class="fa fa-tag"></i>Lenses</label>
+		<input type="text" id="node-input-Lenses" placeholder="Lenses"></input>
+	</div> 
+	<div class="form-row" id='SharedWithAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedWith"><i class="fa fa-tag"></i>SharedWith</label>
+		<input type="text" id="node-input-SharedWith" placeholder="SharedWith"></input>
+	</div> 
+	<div class="form-row" id='PermissionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionType"><i class="fa fa-tag"></i>PermissionType</label>
+		<input type="text" id="node-input-PermissionType" placeholder="PermissionType"></input>
+	</div> 
+	<div class="form-row" id='ShareIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareId"><i class="fa fa-tag"></i>ShareId</label>
+		<input type="text" id="node-input-ShareId" placeholder="ShareId"></input>
+	</div> 
+	<div class="form-row" id='LensAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-LensAlias"><i class="fa fa-tag"></i>LensAlias</label>
+		<input type="text" id="node-input-LensAlias" placeholder="LensAlias"></input>
+	</div> 
+	<div class="form-row" id='QuestionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QuestionId"><i class="fa fa-tag"></i>QuestionId</label>
+		<input type="text" id="node-input-QuestionId" placeholder="QuestionId"></input>
+	</div> 
+	<div class="form-row" id='BaseLensVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-BaseLensVersion"><i class="fa fa-tag"></i>BaseLensVersion</label>
+		<input type="text" id="node-input-BaseLensVersion" placeholder="BaseLensVersion"></input>
+	</div> 
+	<div class="form-row" id='MilestoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-MilestoneNumber"><i class="fa fa-tag"></i>MilestoneNumber</label>
+		<input type="text" id="node-input-MilestoneNumber" placeholder="MilestoneNumber"></input>
+	</div> 
+	<div class="form-row" id='WorkloadArnAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkloadArn"><i class="fa fa-tag"></i>WorkloadArn</label>
+		<input type="text" id="node-input-WorkloadArn" placeholder="WorkloadArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ShareInvitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareInvitationId"><i class="fa fa-tag"></i>ShareInvitationId</label>
+		<input type="text" id="node-input-ShareInvitationId" placeholder="ShareInvitationId"></input>
+	</div> 
+	<div class="form-row" id='ShareInvitationActionAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareInvitationAction"><i class="fa fa-tag"></i>ShareInvitationAction</label>
+		<input type="text" id="node-input-ShareInvitationAction" placeholder="ShareInvitationAction"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateLenses:[
+					'#WorkloadIdAttr','#LensAliasesAttr'
+					],
+				CreateMilestone:[
+					'#WorkloadIdAttr','#MilestoneNameAttr','#ClientRequestTokenAttr'
+					],
+				CreateWorkload:[
+					'#WorkloadNameAttr','#DescriptionAttr','#EnvironmentAttr','#ReviewOwnerAttr','#LensesAttr','#ClientRequestTokenAttr'
+					],
+				CreateWorkloadShare:[
+					'#WorkloadIdAttr','#SharedWithAttr','#PermissionTypeAttr','#ClientRequestTokenAttr'
+					],
+				DeleteWorkload:[
+					'#WorkloadIdAttr','#ClientRequestTokenAttr'
+					],
+				DeleteWorkloadShare:[
+					'#ShareIdAttr','#WorkloadIdAttr','#ClientRequestTokenAttr'
+					],
+				DisassociateLenses:[
+					'#WorkloadIdAttr','#LensAliasesAttr'
+					],
+				GetAnswer:[
+					'#WorkloadIdAttr','#LensAliasAttr','#QuestionIdAttr'
+					],
+				GetLensReview:[
+					'#WorkloadIdAttr','#LensAliasAttr'
+					],
+				GetLensReviewReport:[
+					'#WorkloadIdAttr','#LensAliasAttr'
+					],
+				GetLensVersionDifference:[
+					'#LensAliasAttr','#BaseLensVersionAttr'
+					],
+				GetMilestone:[
+					'#WorkloadIdAttr','#MilestoneNumberAttr'
+					],
+				GetWorkload:[
+					'#WorkloadIdAttr'
+					],
+				ListAnswers:[
+					'#WorkloadIdAttr','#LensAliasAttr'
+					],
+				ListLensReviewImprovements:[
+					'#WorkloadIdAttr','#LensAliasAttr'
+					],
+				ListLensReviews:[
+					'#WorkloadIdAttr'
+					],
+				ListLenses:[
+					
+					],
+				ListMilestones:[
+					'#WorkloadIdAttr'
+					],
+				ListNotifications:[
+					
+					],
+				ListShareInvitations:[
+					
+					],
+				ListTagsForResource:[
+					'#WorkloadArnAttr'
+					],
+				ListWorkloadShares:[
+					'#WorkloadIdAttr'
+					],
+				ListWorkloads:[
+					
+					],
+				TagResource:[
+					'#WorkloadArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#WorkloadArnAttr','#TagKeysAttr'
+					],
+				UpdateAnswer:[
+					'#WorkloadIdAttr','#LensAliasAttr','#QuestionIdAttr'
+					],
+				UpdateLensReview:[
+					'#WorkloadIdAttr','#LensAliasAttr'
+					],
+				UpdateShareInvitation:[
+					'#ShareInvitationIdAttr','#ShareInvitationActionAttr'
+					],
+				UpdateWorkload:[
+					'#WorkloadIdAttr'
+					],
+				UpdateWorkloadShare:[
+					'#ShareIdAttr','#WorkloadIdAttr','#PermissionTypeAttr'
+					],
+				UpgradeLensReview:[
+					'#WorkloadIdAttr','#LensAliasAttr','#MilestoneNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS WellArchitected">
+<p>
+AWS WellArchitected
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WellArchitected.html">WellArchitected</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WellArchitected',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateLenses' },
+			
+				WorkloadId: { value: ""} ,
+				LensAliases: { value: ""} ,
+				MilestoneName: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				WorkloadName: { value: ""} ,
+				Description: { value: ""} ,
+				Environment: { value: ""} ,
+				ReviewOwner: { value: ""} ,
+				Lenses: { value: ""} ,
+				SharedWith: { value: ""} ,
+				PermissionType: { value: ""} ,
+				ShareId: { value: ""} ,
+				LensAlias: { value: ""} ,
+				QuestionId: { value: ""} ,
+				BaseLensVersion: { value: ""} ,
+				MilestoneNumber: { value: ""} ,
+				WorkloadArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ShareInvitationId: { value: ""} ,
+				ShareInvitationAction: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WellArchitected " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,231 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Translate">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateParallelData">CreateParallelData</option>
+		
+			<option value="DeleteParallelData">DeleteParallelData</option>
+		
+			<option value="DeleteTerminology">DeleteTerminology</option>
+		
+			<option value="DescribeTextTranslationJob">DescribeTextTranslationJob</option>
+		
+			<option value="GetParallelData">GetParallelData</option>
+		
+			<option value="GetTerminology">GetTerminology</option>
+		
+			<option value="ImportTerminology">ImportTerminology</option>
+		
+			<option value="ListParallelData">ListParallelData</option>
+		
+			<option value="ListTerminologies">ListTerminologies</option>
+		
+			<option value="ListTextTranslationJobs">ListTextTranslationJobs</option>
+		
+			<option value="StartTextTranslationJob">StartTextTranslationJob</option>
+		
+			<option value="StopTextTranslationJob">StopTextTranslationJob</option>
+		
+			<option value="TranslateText">TranslateText</option>
+		
+			<option value="UpdateParallelData">UpdateParallelData</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ParallelDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ParallelDataConfig"><i class="fa fa-tag"></i>ParallelDataConfig</label>
+		<input type="text" id="node-input-ParallelDataConfig" placeholder="ParallelDataConfig"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i>ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i>JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='TerminologyDataFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminologyDataFormat"><i class="fa fa-tag"></i>TerminologyDataFormat</label>
+		<input type="text" id="node-input-TerminologyDataFormat" placeholder="TerminologyDataFormat"></input>
+	</div> 
+	<div class="form-row" id='MergeStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-MergeStrategy"><i class="fa fa-tag"></i>MergeStrategy</label>
+		<input type="text" id="node-input-MergeStrategy" placeholder="MergeStrategy"></input>
+	</div> 
+	<div class="form-row" id='TerminologyDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminologyData"><i class="fa fa-tag"></i>TerminologyData</label>
+		<input type="text" id="node-input-TerminologyData" placeholder="TerminologyData"></input>
+	</div> 
+	<div class="form-row" id='InputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDataConfig"><i class="fa fa-tag"></i>InputDataConfig</label>
+		<input type="text" id="node-input-InputDataConfig" placeholder="InputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='OutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputDataConfig"><i class="fa fa-tag"></i>OutputDataConfig</label>
+		<input type="text" id="node-input-OutputDataConfig" placeholder="OutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='DataAccessRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DataAccessRoleArn"><i class="fa fa-tag"></i>DataAccessRoleArn</label>
+		<input type="text" id="node-input-DataAccessRoleArn" placeholder="DataAccessRoleArn"></input>
+	</div> 
+	<div class="form-row" id='SourceLanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceLanguageCode"><i class="fa fa-tag"></i>SourceLanguageCode</label>
+		<input type="text" id="node-input-SourceLanguageCode" placeholder="SourceLanguageCode"></input>
+	</div> 
+	<div class="form-row" id='TargetLanguageCodesAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetLanguageCodes"><i class="fa fa-tag"></i>TargetLanguageCodes</label>
+		<input type="text" id="node-input-TargetLanguageCodes" placeholder="TargetLanguageCodes"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i>Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='TargetLanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetLanguageCode"><i class="fa fa-tag"></i>TargetLanguageCode</label>
+		<input type="text" id="node-input-TargetLanguageCode" placeholder="TargetLanguageCode"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateParallelData:[
+					'#NameAttr','#ParallelDataConfigAttr','#ClientTokenAttr'
+					],
+				DeleteParallelData:[
+					'#NameAttr'
+					],
+				DeleteTerminology:[
+					'#NameAttr'
+					],
+				DescribeTextTranslationJob:[
+					'#JobIdAttr'
+					],
+				GetParallelData:[
+					'#NameAttr'
+					],
+				GetTerminology:[
+					'#NameAttr','#TerminologyDataFormatAttr'
+					],
+				ImportTerminology:[
+					'#NameAttr','#MergeStrategyAttr','#TerminologyDataAttr'
+					],
+				ListParallelData:[
+					
+					],
+				ListTerminologies:[
+					
+					],
+				ListTextTranslationJobs:[
+					
+					],
+				StartTextTranslationJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#SourceLanguageCodeAttr','#TargetLanguageCodesAttr','#ClientTokenAttr'
+					],
+				StopTextTranslationJob:[
+					'#JobIdAttr'
+					],
+				TranslateText:[
+					'#TextAttr','#SourceLanguageCodeAttr','#TargetLanguageCodeAttr'
+					],
+				UpdateParallelData:[
+					'#NameAttr','#ParallelDataConfigAttr','#ClientTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Translate">
+<p>
+AWS Translate
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Translate.html">Translate</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Translate',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateParallelData' },
+			
+				Name: { value: ""} ,
+				ParallelDataConfig: { value: ""} ,
+				ClientToken: { value: ""} ,
+				JobId: { value: ""} ,
+				TerminologyDataFormat: { value: ""} ,
+				MergeStrategy: { value: ""} ,
+				TerminologyData: { value: ""} ,
+				InputDataConfig: { value: ""} ,
+				OutputDataConfig: { value: ""} ,
+				DataAccessRoleArn: { value: ""} ,
+				SourceLanguageCode: { value: ""} ,
+				TargetLanguageCodes: { value: ""} ,
+				Text: { value: ""} ,
+				TargetLanguageCode: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Translate " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

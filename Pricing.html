@@ -1,0 +1,116 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Pricing">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DescribeServices">DescribeServices</option>
+		
+			<option value="GetAttributeValues">GetAttributeValues</option>
+		
+			<option value="GetProducts">GetProducts</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ServiceCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceCode"><i class="fa fa-tag"></i>ServiceCode</label>
+		<input type="text" id="node-input-ServiceCode" placeholder="ServiceCode"></input>
+	</div> 
+	<div class="form-row" id='AttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeName"><i class="fa fa-tag"></i>AttributeName</label>
+		<input type="text" id="node-input-AttributeName" placeholder="AttributeName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DescribeServices:[
+					
+					],
+				GetAttributeValues:[
+					'#ServiceCodeAttr','#AttributeNameAttr'
+					],
+				GetProducts:[
+					
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Pricing">
+<p>
+AWS Pricing
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Pricing.html">Pricing</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Pricing',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DescribeServices' },
+			
+				ServiceCode: { value: ""} ,
+				AttributeName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Pricing " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

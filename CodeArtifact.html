@@ -1,0 +1,336 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodeArtifact">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateExternalConnection">AssociateExternalConnection</option>
+		
+			<option value="CopyPackageVersions">CopyPackageVersions</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="CreateRepository">CreateRepository</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DeleteDomainPermissionsPolicy">DeleteDomainPermissionsPolicy</option>
+		
+			<option value="DeletePackageVersions">DeletePackageVersions</option>
+		
+			<option value="DeleteRepository">DeleteRepository</option>
+		
+			<option value="DeleteRepositoryPermissionsPolicy">DeleteRepositoryPermissionsPolicy</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribePackageVersion">DescribePackageVersion</option>
+		
+			<option value="DescribeRepository">DescribeRepository</option>
+		
+			<option value="DisassociateExternalConnection">DisassociateExternalConnection</option>
+		
+			<option value="DisposePackageVersions">DisposePackageVersions</option>
+		
+			<option value="GetAuthorizationToken">GetAuthorizationToken</option>
+		
+			<option value="GetDomainPermissionsPolicy">GetDomainPermissionsPolicy</option>
+		
+			<option value="GetPackageVersionAsset">GetPackageVersionAsset</option>
+		
+			<option value="GetPackageVersionReadme">GetPackageVersionReadme</option>
+		
+			<option value="GetRepositoryEndpoint">GetRepositoryEndpoint</option>
+		
+			<option value="GetRepositoryPermissionsPolicy">GetRepositoryPermissionsPolicy</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListPackageVersionAssets">ListPackageVersionAssets</option>
+		
+			<option value="ListPackageVersionDependencies">ListPackageVersionDependencies</option>
+		
+			<option value="ListPackageVersions">ListPackageVersions</option>
+		
+			<option value="ListPackages">ListPackages</option>
+		
+			<option value="ListRepositories">ListRepositories</option>
+		
+			<option value="ListRepositoriesInDomain">ListRepositoriesInDomain</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutDomainPermissionsPolicy">PutDomainPermissionsPolicy</option>
+		
+			<option value="PutRepositoryPermissionsPolicy">PutRepositoryPermissionsPolicy</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdatePackageVersionsStatus">UpdatePackageVersionsStatus</option>
+		
+			<option value="UpdateRepository">UpdateRepository</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='domainAttr' class='hiddenAttrs'>
+		<label for="node-input-domain"><i class="fa fa-tag"></i>domain</label>
+		<input type="text" id="node-input-domain" placeholder="domain"></input>
+	</div> 
+	<div class="form-row" id='repositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-repository"><i class="fa fa-tag"></i>repository</label>
+		<input type="text" id="node-input-repository" placeholder="repository"></input>
+	</div> 
+	<div class="form-row" id='externalConnectionAttr' class='hiddenAttrs'>
+		<label for="node-input-externalConnection"><i class="fa fa-tag"></i>externalConnection</label>
+		<input type="text" id="node-input-externalConnection" placeholder="externalConnection"></input>
+	</div> 
+	<div class="form-row" id='sourceRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceRepository"><i class="fa fa-tag"></i>sourceRepository</label>
+		<input type="text" id="node-input-sourceRepository" placeholder="sourceRepository"></input>
+	</div> 
+	<div class="form-row" id='destinationRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationRepository"><i class="fa fa-tag"></i>destinationRepository</label>
+		<input type="text" id="node-input-destinationRepository" placeholder="destinationRepository"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i>format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='packageAttr' class='hiddenAttrs'>
+		<label for="node-input-package"><i class="fa fa-tag"></i>package</label>
+		<input type="text" id="node-input-package" placeholder="package"></input>
+	</div> 
+	<div class="form-row" id='versionsAttr' class='hiddenAttrs'>
+		<label for="node-input-versions"><i class="fa fa-tag"></i>versions</label>
+		<input type="text" id="node-input-versions" placeholder="versions"></input>
+	</div> 
+	<div class="form-row" id='packageVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-packageVersion"><i class="fa fa-tag"></i>packageVersion</label>
+		<input type="text" id="node-input-packageVersion" placeholder="packageVersion"></input>
+	</div> 
+	<div class="form-row" id='assetAttr' class='hiddenAttrs'>
+		<label for="node-input-asset"><i class="fa fa-tag"></i>asset</label>
+		<input type="text" id="node-input-asset" placeholder="asset"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='policyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-policyDocument"><i class="fa fa-tag"></i>policyDocument</label>
+		<input type="text" id="node-input-policyDocument" placeholder="policyDocument"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='targetStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-targetStatus"><i class="fa fa-tag"></i>targetStatus</label>
+		<input type="text" id="node-input-targetStatus" placeholder="targetStatus"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateExternalConnection:[
+					'#domainAttr','#repositoryAttr','#externalConnectionAttr'
+					],
+				CopyPackageVersions:[
+					'#domainAttr','#sourceRepositoryAttr','#destinationRepositoryAttr','#formatAttr','#packageAttr'
+					],
+				CreateDomain:[
+					'#domainAttr'
+					],
+				CreateRepository:[
+					'#domainAttr','#repositoryAttr'
+					],
+				DeleteDomain:[
+					'#domainAttr'
+					],
+				DeleteDomainPermissionsPolicy:[
+					'#domainAttr'
+					],
+				DeletePackageVersions:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#versionsAttr'
+					],
+				DeleteRepository:[
+					'#domainAttr','#repositoryAttr'
+					],
+				DeleteRepositoryPermissionsPolicy:[
+					'#domainAttr','#repositoryAttr'
+					],
+				DescribeDomain:[
+					'#domainAttr'
+					],
+				DescribePackageVersion:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#packageVersionAttr'
+					],
+				DescribeRepository:[
+					'#domainAttr','#repositoryAttr'
+					],
+				DisassociateExternalConnection:[
+					'#domainAttr','#repositoryAttr','#externalConnectionAttr'
+					],
+				DisposePackageVersions:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#versionsAttr'
+					],
+				GetAuthorizationToken:[
+					'#domainAttr'
+					],
+				GetDomainPermissionsPolicy:[
+					'#domainAttr'
+					],
+				GetPackageVersionAsset:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#packageVersionAttr','#assetAttr'
+					],
+				GetPackageVersionReadme:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#packageVersionAttr'
+					],
+				GetRepositoryEndpoint:[
+					'#domainAttr','#repositoryAttr','#formatAttr'
+					],
+				GetRepositoryPermissionsPolicy:[
+					'#domainAttr','#repositoryAttr'
+					],
+				ListDomains:[
+					
+					],
+				ListPackageVersionAssets:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#packageVersionAttr'
+					],
+				ListPackageVersionDependencies:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#packageVersionAttr'
+					],
+				ListPackageVersions:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr'
+					],
+				ListPackages:[
+					'#domainAttr','#repositoryAttr'
+					],
+				ListRepositories:[
+					
+					],
+				ListRepositoriesInDomain:[
+					'#domainAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutDomainPermissionsPolicy:[
+					'#domainAttr','#policyDocumentAttr'
+					],
+				PutRepositoryPermissionsPolicy:[
+					'#domainAttr','#repositoryAttr','#policyDocumentAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdatePackageVersionsStatus:[
+					'#domainAttr','#repositoryAttr','#formatAttr','#packageAttr','#versionsAttr','#targetStatusAttr'
+					],
+				UpdateRepository:[
+					'#domainAttr','#repositoryAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodeArtifact">
+<p>
+AWS CodeArtifact
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeArtifact.html">CodeArtifact</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeArtifact',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateExternalConnection' },
+			
+				domain: { value: ""} ,
+				repository: { value: ""} ,
+				externalConnection: { value: ""} ,
+				sourceRepository: { value: ""} ,
+				destinationRepository: { value: ""} ,
+				format: { value: ""} ,
+				package: { value: ""} ,
+				versions: { value: ""} ,
+				packageVersion: { value: ""} ,
+				asset: { value: ""} ,
+				resourceArn: { value: ""} ,
+				policyDocument: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				targetStatus: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeArtifact " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

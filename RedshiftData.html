@@ -1,0 +1,166 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS RedshiftData">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchExecuteStatement">BatchExecuteStatement</option>
+		
+			<option value="CancelStatement">CancelStatement</option>
+		
+			<option value="DescribeStatement">DescribeStatement</option>
+		
+			<option value="DescribeTable">DescribeTable</option>
+		
+			<option value="ExecuteStatement">ExecuteStatement</option>
+		
+			<option value="GetStatementResult">GetStatementResult</option>
+		
+			<option value="ListDatabases">ListDatabases</option>
+		
+			<option value="ListSchemas">ListSchemas</option>
+		
+			<option value="ListStatements">ListStatements</option>
+		
+			<option value="ListTables">ListTables</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterIdentifier"><i class="fa fa-tag"></i>ClusterIdentifier</label>
+		<input type="text" id="node-input-ClusterIdentifier" placeholder="ClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DatabaseAttr' class='hiddenAttrs'>
+		<label for="node-input-Database"><i class="fa fa-tag"></i>Database</label>
+		<input type="text" id="node-input-Database" placeholder="Database"></input>
+	</div> 
+	<div class="form-row" id='SqlsAttr' class='hiddenAttrs'>
+		<label for="node-input-Sqls"><i class="fa fa-tag"></i>Sqls</label>
+		<input type="text" id="node-input-Sqls" placeholder="Sqls"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='SqlAttr' class='hiddenAttrs'>
+		<label for="node-input-Sql"><i class="fa fa-tag"></i>Sql</label>
+		<input type="text" id="node-input-Sql" placeholder="Sql"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchExecuteStatement:[
+					'#ClusterIdentifierAttr','#DatabaseAttr','#SqlsAttr'
+					],
+				CancelStatement:[
+					'#IdAttr'
+					],
+				DescribeStatement:[
+					'#IdAttr'
+					],
+				DescribeTable:[
+					'#ClusterIdentifierAttr','#DatabaseAttr'
+					],
+				ExecuteStatement:[
+					'#ClusterIdentifierAttr','#DatabaseAttr','#SqlAttr'
+					],
+				GetStatementResult:[
+					'#IdAttr'
+					],
+				ListDatabases:[
+					'#ClusterIdentifierAttr','#DatabaseAttr'
+					],
+				ListSchemas:[
+					'#ClusterIdentifierAttr','#DatabaseAttr'
+					],
+				ListStatements:[
+					
+					],
+				ListTables:[
+					'#ClusterIdentifierAttr','#DatabaseAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS RedshiftData">
+<p>
+AWS RedshiftData
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RedshiftData.html">RedshiftData</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS RedshiftData',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchExecuteStatement' },
+			
+				ClusterIdentifier: { value: ""} ,
+				Database: { value: ""} ,
+				Sqls: { value: ""} ,
+				Id: { value: ""} ,
+				Sql: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "RedshiftData " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

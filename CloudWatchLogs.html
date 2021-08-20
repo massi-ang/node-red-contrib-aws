@@ -1,0 +1,431 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CloudWatchLogs">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateKmsKey">AssociateKmsKey</option>
+		
+			<option value="CancelExportTask">CancelExportTask</option>
+		
+			<option value="CreateExportTask">CreateExportTask</option>
+		
+			<option value="CreateLogGroup">CreateLogGroup</option>
+		
+			<option value="CreateLogStream">CreateLogStream</option>
+		
+			<option value="DeleteDestination">DeleteDestination</option>
+		
+			<option value="DeleteLogGroup">DeleteLogGroup</option>
+		
+			<option value="DeleteLogStream">DeleteLogStream</option>
+		
+			<option value="DeleteMetricFilter">DeleteMetricFilter</option>
+		
+			<option value="DeleteQueryDefinition">DeleteQueryDefinition</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteRetentionPolicy">DeleteRetentionPolicy</option>
+		
+			<option value="DeleteSubscriptionFilter">DeleteSubscriptionFilter</option>
+		
+			<option value="DescribeDestinations">DescribeDestinations</option>
+		
+			<option value="DescribeExportTasks">DescribeExportTasks</option>
+		
+			<option value="DescribeLogGroups">DescribeLogGroups</option>
+		
+			<option value="DescribeLogStreams">DescribeLogStreams</option>
+		
+			<option value="DescribeMetricFilters">DescribeMetricFilters</option>
+		
+			<option value="DescribeQueries">DescribeQueries</option>
+		
+			<option value="DescribeQueryDefinitions">DescribeQueryDefinitions</option>
+		
+			<option value="DescribeResourcePolicies">DescribeResourcePolicies</option>
+		
+			<option value="DescribeSubscriptionFilters">DescribeSubscriptionFilters</option>
+		
+			<option value="DisassociateKmsKey">DisassociateKmsKey</option>
+		
+			<option value="FilterLogEvents">FilterLogEvents</option>
+		
+			<option value="GetLogEvents">GetLogEvents</option>
+		
+			<option value="GetLogGroupFields">GetLogGroupFields</option>
+		
+			<option value="GetLogRecord">GetLogRecord</option>
+		
+			<option value="GetQueryResults">GetQueryResults</option>
+		
+			<option value="ListTagsLogGroup">ListTagsLogGroup</option>
+		
+			<option value="PutDestination">PutDestination</option>
+		
+			<option value="PutDestinationPolicy">PutDestinationPolicy</option>
+		
+			<option value="PutLogEvents">PutLogEvents</option>
+		
+			<option value="PutMetricFilter">PutMetricFilter</option>
+		
+			<option value="PutQueryDefinition">PutQueryDefinition</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="PutRetentionPolicy">PutRetentionPolicy</option>
+		
+			<option value="PutSubscriptionFilter">PutSubscriptionFilter</option>
+		
+			<option value="StartQuery">StartQuery</option>
+		
+			<option value="StopQuery">StopQuery</option>
+		
+			<option value="TagLogGroup">TagLogGroup</option>
+		
+			<option value="TestMetricFilter">TestMetricFilter</option>
+		
+			<option value="UntagLogGroup">UntagLogGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='logGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-logGroupName"><i class="fa fa-tag"></i>logGroupName</label>
+		<input type="text" id="node-input-logGroupName" placeholder="logGroupName"></input>
+	</div> 
+	<div class="form-row" id='kmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsKeyId"><i class="fa fa-tag"></i>kmsKeyId</label>
+		<input type="text" id="node-input-kmsKeyId" placeholder="kmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='taskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-taskId"><i class="fa fa-tag"></i>taskId</label>
+		<input type="text" id="node-input-taskId" placeholder="taskId"></input>
+	</div> 
+	<div class="form-row" id='fromAttr' class='hiddenAttrs'>
+		<label for="node-input-from"><i class="fa fa-tag"></i>from</label>
+		<input type="text" id="node-input-from" placeholder="from"></input>
+	</div> 
+	<div class="form-row" id='toAttr' class='hiddenAttrs'>
+		<label for="node-input-to"><i class="fa fa-tag"></i>to</label>
+		<input type="text" id="node-input-to" placeholder="to"></input>
+	</div> 
+	<div class="form-row" id='destinationAttr' class='hiddenAttrs'>
+		<label for="node-input-destination"><i class="fa fa-tag"></i>destination</label>
+		<input type="text" id="node-input-destination" placeholder="destination"></input>
+	</div> 
+	<div class="form-row" id='logStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-logStreamName"><i class="fa fa-tag"></i>logStreamName</label>
+		<input type="text" id="node-input-logStreamName" placeholder="logStreamName"></input>
+	</div> 
+	<div class="form-row" id='destinationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationName"><i class="fa fa-tag"></i>destinationName</label>
+		<input type="text" id="node-input-destinationName" placeholder="destinationName"></input>
+	</div> 
+	<div class="form-row" id='filterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-filterName"><i class="fa fa-tag"></i>filterName</label>
+		<input type="text" id="node-input-filterName" placeholder="filterName"></input>
+	</div> 
+	<div class="form-row" id='queryDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-queryDefinitionId"><i class="fa fa-tag"></i>queryDefinitionId</label>
+		<input type="text" id="node-input-queryDefinitionId" placeholder="queryDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='logRecordPointerAttr' class='hiddenAttrs'>
+		<label for="node-input-logRecordPointer"><i class="fa fa-tag"></i>logRecordPointer</label>
+		<input type="text" id="node-input-logRecordPointer" placeholder="logRecordPointer"></input>
+	</div> 
+	<div class="form-row" id='queryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-queryId"><i class="fa fa-tag"></i>queryId</label>
+		<input type="text" id="node-input-queryId" placeholder="queryId"></input>
+	</div> 
+	<div class="form-row" id='targetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-targetArn"><i class="fa fa-tag"></i>targetArn</label>
+		<input type="text" id="node-input-targetArn" placeholder="targetArn"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i>roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='accessPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPolicy"><i class="fa fa-tag"></i>accessPolicy</label>
+		<input type="text" id="node-input-accessPolicy" placeholder="accessPolicy"></input>
+	</div> 
+	<div class="form-row" id='logEventsAttr' class='hiddenAttrs'>
+		<label for="node-input-logEvents"><i class="fa fa-tag"></i>logEvents</label>
+		<input type="text" id="node-input-logEvents" placeholder="logEvents"></input>
+	</div> 
+	<div class="form-row" id='filterPatternAttr' class='hiddenAttrs'>
+		<label for="node-input-filterPattern"><i class="fa fa-tag"></i>filterPattern</label>
+		<input type="text" id="node-input-filterPattern" placeholder="filterPattern"></input>
+	</div> 
+	<div class="form-row" id='metricTransformationsAttr' class='hiddenAttrs'>
+		<label for="node-input-metricTransformations"><i class="fa fa-tag"></i>metricTransformations</label>
+		<input type="text" id="node-input-metricTransformations" placeholder="metricTransformations"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='queryStringAttr' class='hiddenAttrs'>
+		<label for="node-input-queryString"><i class="fa fa-tag"></i>queryString</label>
+		<input type="text" id="node-input-queryString" placeholder="queryString"></input>
+	</div> 
+	<div class="form-row" id='retentionInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-retentionInDays"><i class="fa fa-tag"></i>retentionInDays</label>
+		<input type="text" id="node-input-retentionInDays" placeholder="retentionInDays"></input>
+	</div> 
+	<div class="form-row" id='destinationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationArn"><i class="fa fa-tag"></i>destinationArn</label>
+		<input type="text" id="node-input-destinationArn" placeholder="destinationArn"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i>startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i>endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='logEventMessagesAttr' class='hiddenAttrs'>
+		<label for="node-input-logEventMessages"><i class="fa fa-tag"></i>logEventMessages</label>
+		<input type="text" id="node-input-logEventMessages" placeholder="logEventMessages"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateKmsKey:[
+					'#logGroupNameAttr','#kmsKeyIdAttr'
+					],
+				CancelExportTask:[
+					'#taskIdAttr'
+					],
+				CreateExportTask:[
+					'#logGroupNameAttr','#fromAttr','#toAttr','#destinationAttr'
+					],
+				CreateLogGroup:[
+					'#logGroupNameAttr'
+					],
+				CreateLogStream:[
+					'#logGroupNameAttr','#logStreamNameAttr'
+					],
+				DeleteDestination:[
+					'#destinationNameAttr'
+					],
+				DeleteLogGroup:[
+					'#logGroupNameAttr'
+					],
+				DeleteLogStream:[
+					'#logGroupNameAttr','#logStreamNameAttr'
+					],
+				DeleteMetricFilter:[
+					'#logGroupNameAttr','#filterNameAttr'
+					],
+				DeleteQueryDefinition:[
+					'#queryDefinitionIdAttr'
+					],
+				DeleteResourcePolicy:[
+					
+					],
+				DeleteRetentionPolicy:[
+					'#logGroupNameAttr'
+					],
+				DeleteSubscriptionFilter:[
+					'#logGroupNameAttr','#filterNameAttr'
+					],
+				DescribeDestinations:[
+					
+					],
+				DescribeExportTasks:[
+					
+					],
+				DescribeLogGroups:[
+					
+					],
+				DescribeLogStreams:[
+					'#logGroupNameAttr'
+					],
+				DescribeMetricFilters:[
+					
+					],
+				DescribeQueries:[
+					
+					],
+				DescribeQueryDefinitions:[
+					
+					],
+				DescribeResourcePolicies:[
+					
+					],
+				DescribeSubscriptionFilters:[
+					'#logGroupNameAttr'
+					],
+				DisassociateKmsKey:[
+					'#logGroupNameAttr'
+					],
+				FilterLogEvents:[
+					'#logGroupNameAttr'
+					],
+				GetLogEvents:[
+					'#logGroupNameAttr','#logStreamNameAttr'
+					],
+				GetLogGroupFields:[
+					'#logGroupNameAttr'
+					],
+				GetLogRecord:[
+					'#logRecordPointerAttr'
+					],
+				GetQueryResults:[
+					'#queryIdAttr'
+					],
+				ListTagsLogGroup:[
+					'#logGroupNameAttr'
+					],
+				PutDestination:[
+					'#destinationNameAttr','#targetArnAttr','#roleArnAttr'
+					],
+				PutDestinationPolicy:[
+					'#destinationNameAttr','#accessPolicyAttr'
+					],
+				PutLogEvents:[
+					'#logGroupNameAttr','#logStreamNameAttr','#logEventsAttr'
+					],
+				PutMetricFilter:[
+					'#logGroupNameAttr','#filterNameAttr','#filterPatternAttr','#metricTransformationsAttr'
+					],
+				PutQueryDefinition:[
+					'#nameAttr','#queryStringAttr'
+					],
+				PutResourcePolicy:[
+					
+					],
+				PutRetentionPolicy:[
+					'#logGroupNameAttr','#retentionInDaysAttr'
+					],
+				PutSubscriptionFilter:[
+					'#logGroupNameAttr','#filterNameAttr','#filterPatternAttr','#destinationArnAttr'
+					],
+				StartQuery:[
+					'#startTimeAttr','#endTimeAttr','#queryStringAttr'
+					],
+				StopQuery:[
+					'#queryIdAttr'
+					],
+				TagLogGroup:[
+					'#logGroupNameAttr','#tagsAttr'
+					],
+				TestMetricFilter:[
+					'#filterPatternAttr','#logEventMessagesAttr'
+					],
+				UntagLogGroup:[
+					'#logGroupNameAttr','#tagsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CloudWatchLogs">
+<p>
+AWS CloudWatchLogs
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatchLogs.html">CloudWatchLogs</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudWatchLogs',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateKmsKey' },
+			
+				logGroupName: { value: ""} ,
+				kmsKeyId: { value: ""} ,
+				taskId: { value: ""} ,
+				from: { value: ""} ,
+				to: { value: ""} ,
+				destination: { value: ""} ,
+				logStreamName: { value: ""} ,
+				destinationName: { value: ""} ,
+				filterName: { value: ""} ,
+				queryDefinitionId: { value: ""} ,
+				logRecordPointer: { value: ""} ,
+				queryId: { value: ""} ,
+				targetArn: { value: ""} ,
+				roleArn: { value: ""} ,
+				accessPolicy: { value: ""} ,
+				logEvents: { value: ""} ,
+				filterPattern: { value: ""} ,
+				metricTransformations: { value: ""} ,
+				name: { value: ""} ,
+				queryString: { value: ""} ,
+				retentionInDays: { value: ""} ,
+				destinationArn: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				tags: { value: ""} ,
+				logEventMessages: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudWatchLogs " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

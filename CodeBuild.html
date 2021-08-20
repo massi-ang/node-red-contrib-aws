@@ -1,0 +1,436 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodeBuild">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteBuilds">BatchDeleteBuilds</option>
+		
+			<option value="BatchGetBuildBatches">BatchGetBuildBatches</option>
+		
+			<option value="BatchGetBuilds">BatchGetBuilds</option>
+		
+			<option value="BatchGetProjects">BatchGetProjects</option>
+		
+			<option value="BatchGetReportGroups">BatchGetReportGroups</option>
+		
+			<option value="BatchGetReports">BatchGetReports</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateReportGroup">CreateReportGroup</option>
+		
+			<option value="CreateWebhook">CreateWebhook</option>
+		
+			<option value="DeleteBuildBatch">DeleteBuildBatch</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteReport">DeleteReport</option>
+		
+			<option value="DeleteReportGroup">DeleteReportGroup</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteSourceCredentials">DeleteSourceCredentials</option>
+		
+			<option value="DeleteWebhook">DeleteWebhook</option>
+		
+			<option value="DescribeCodeCoverages">DescribeCodeCoverages</option>
+		
+			<option value="DescribeTestCases">DescribeTestCases</option>
+		
+			<option value="GetReportGroupTrend">GetReportGroupTrend</option>
+		
+			<option value="GetResourcePolicy">GetResourcePolicy</option>
+		
+			<option value="ImportSourceCredentials">ImportSourceCredentials</option>
+		
+			<option value="InvalidateProjectCache">InvalidateProjectCache</option>
+		
+			<option value="ListBuildBatches">ListBuildBatches</option>
+		
+			<option value="ListBuildBatchesForProject">ListBuildBatchesForProject</option>
+		
+			<option value="ListBuilds">ListBuilds</option>
+		
+			<option value="ListBuildsForProject">ListBuildsForProject</option>
+		
+			<option value="ListCuratedEnvironmentImages">ListCuratedEnvironmentImages</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListReportGroups">ListReportGroups</option>
+		
+			<option value="ListReports">ListReports</option>
+		
+			<option value="ListReportsForReportGroup">ListReportsForReportGroup</option>
+		
+			<option value="ListSharedProjects">ListSharedProjects</option>
+		
+			<option value="ListSharedReportGroups">ListSharedReportGroups</option>
+		
+			<option value="ListSourceCredentials">ListSourceCredentials</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="RetryBuild">RetryBuild</option>
+		
+			<option value="RetryBuildBatch">RetryBuildBatch</option>
+		
+			<option value="StartBuild">StartBuild</option>
+		
+			<option value="StartBuildBatch">StartBuildBatch</option>
+		
+			<option value="StopBuild">StopBuild</option>
+		
+			<option value="StopBuildBatch">StopBuildBatch</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		
+			<option value="UpdateProjectVisibility">UpdateProjectVisibility</option>
+		
+			<option value="UpdateReportGroup">UpdateReportGroup</option>
+		
+			<option value="UpdateWebhook">UpdateWebhook</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='idsAttr' class='hiddenAttrs'>
+		<label for="node-input-ids"><i class="fa fa-tag"></i>ids</label>
+		<input type="text" id="node-input-ids" placeholder="ids"></input>
+	</div> 
+	<div class="form-row" id='namesAttr' class='hiddenAttrs'>
+		<label for="node-input-names"><i class="fa fa-tag"></i>names</label>
+		<input type="text" id="node-input-names" placeholder="names"></input>
+	</div> 
+	<div class="form-row" id='reportGroupArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-reportGroupArns"><i class="fa fa-tag"></i>reportGroupArns</label>
+		<input type="text" id="node-input-reportGroupArns" placeholder="reportGroupArns"></input>
+	</div> 
+	<div class="form-row" id='reportArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-reportArns"><i class="fa fa-tag"></i>reportArns</label>
+		<input type="text" id="node-input-reportArns" placeholder="reportArns"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='sourceAttr' class='hiddenAttrs'>
+		<label for="node-input-source"><i class="fa fa-tag"></i>source</label>
+		<input type="text" id="node-input-source" placeholder="source"></input>
+	</div> 
+	<div class="form-row" id='artifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-artifacts"><i class="fa fa-tag"></i>artifacts</label>
+		<input type="text" id="node-input-artifacts" placeholder="artifacts"></input>
+	</div> 
+	<div class="form-row" id='environmentAttr' class='hiddenAttrs'>
+		<label for="node-input-environment"><i class="fa fa-tag"></i>environment</label>
+		<input type="text" id="node-input-environment" placeholder="environment"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRole"><i class="fa fa-tag"></i>serviceRole</label>
+		<input type="text" id="node-input-serviceRole" placeholder="serviceRole"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i>type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='exportConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-exportConfig"><i class="fa fa-tag"></i>exportConfig</label>
+		<input type="text" id="node-input-exportConfig" placeholder="exportConfig"></input>
+	</div> 
+	<div class="form-row" id='projectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-projectName"><i class="fa fa-tag"></i>projectName</label>
+		<input type="text" id="node-input-projectName" placeholder="projectName"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i>id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i>arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='reportArnAttr' class='hiddenAttrs'>
+		<label for="node-input-reportArn"><i class="fa fa-tag"></i>reportArn</label>
+		<input type="text" id="node-input-reportArn" placeholder="reportArn"></input>
+	</div> 
+	<div class="form-row" id='reportGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-reportGroupArn"><i class="fa fa-tag"></i>reportGroupArn</label>
+		<input type="text" id="node-input-reportGroupArn" placeholder="reportGroupArn"></input>
+	</div> 
+	<div class="form-row" id='trendFieldAttr' class='hiddenAttrs'>
+		<label for="node-input-trendField"><i class="fa fa-tag"></i>trendField</label>
+		<input type="text" id="node-input-trendField" placeholder="trendField"></input>
+	</div> 
+	<div class="form-row" id='tokenAttr' class='hiddenAttrs'>
+		<label for="node-input-token"><i class="fa fa-tag"></i>token</label>
+		<input type="text" id="node-input-token" placeholder="token"></input>
+	</div> 
+	<div class="form-row" id='serverTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-serverType"><i class="fa fa-tag"></i>serverType</label>
+		<input type="text" id="node-input-serverType" placeholder="serverType"></input>
+	</div> 
+	<div class="form-row" id='authTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authType"><i class="fa fa-tag"></i>authType</label>
+		<input type="text" id="node-input-authType" placeholder="authType"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i>policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='projectArnAttr' class='hiddenAttrs'>
+		<label for="node-input-projectArn"><i class="fa fa-tag"></i>projectArn</label>
+		<input type="text" id="node-input-projectArn" placeholder="projectArn"></input>
+	</div> 
+	<div class="form-row" id='projectVisibilityAttr' class='hiddenAttrs'>
+		<label for="node-input-projectVisibility"><i class="fa fa-tag"></i>projectVisibility</label>
+		<input type="text" id="node-input-projectVisibility" placeholder="projectVisibility"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteBuilds:[
+					'#idsAttr'
+					],
+				BatchGetBuildBatches:[
+					'#idsAttr'
+					],
+				BatchGetBuilds:[
+					'#idsAttr'
+					],
+				BatchGetProjects:[
+					'#namesAttr'
+					],
+				BatchGetReportGroups:[
+					'#reportGroupArnsAttr'
+					],
+				BatchGetReports:[
+					'#reportArnsAttr'
+					],
+				CreateProject:[
+					'#nameAttr','#sourceAttr','#artifactsAttr','#environmentAttr','#serviceRoleAttr'
+					],
+				CreateReportGroup:[
+					'#nameAttr','#typeAttr','#exportConfigAttr'
+					],
+				CreateWebhook:[
+					'#projectNameAttr'
+					],
+				DeleteBuildBatch:[
+					'#idAttr'
+					],
+				DeleteProject:[
+					'#nameAttr'
+					],
+				DeleteReport:[
+					'#arnAttr'
+					],
+				DeleteReportGroup:[
+					'#arnAttr'
+					],
+				DeleteResourcePolicy:[
+					'#resourceArnAttr'
+					],
+				DeleteSourceCredentials:[
+					'#arnAttr'
+					],
+				DeleteWebhook:[
+					'#projectNameAttr'
+					],
+				DescribeCodeCoverages:[
+					'#reportArnAttr'
+					],
+				DescribeTestCases:[
+					'#reportArnAttr'
+					],
+				GetReportGroupTrend:[
+					'#reportGroupArnAttr','#trendFieldAttr'
+					],
+				GetResourcePolicy:[
+					'#resourceArnAttr'
+					],
+				ImportSourceCredentials:[
+					'#tokenAttr','#serverTypeAttr','#authTypeAttr'
+					],
+				InvalidateProjectCache:[
+					'#projectNameAttr'
+					],
+				ListBuildBatches:[
+					
+					],
+				ListBuildBatchesForProject:[
+					
+					],
+				ListBuilds:[
+					
+					],
+				ListBuildsForProject:[
+					'#projectNameAttr'
+					],
+				ListCuratedEnvironmentImages:[
+					
+					],
+				ListProjects:[
+					
+					],
+				ListReportGroups:[
+					
+					],
+				ListReports:[
+					
+					],
+				ListReportsForReportGroup:[
+					'#reportGroupArnAttr'
+					],
+				ListSharedProjects:[
+					
+					],
+				ListSharedReportGroups:[
+					
+					],
+				ListSourceCredentials:[
+					
+					],
+				PutResourcePolicy:[
+					'#policyAttr','#resourceArnAttr'
+					],
+				RetryBuild:[
+					
+					],
+				RetryBuildBatch:[
+					
+					],
+				StartBuild:[
+					'#projectNameAttr'
+					],
+				StartBuildBatch:[
+					'#projectNameAttr'
+					],
+				StopBuild:[
+					'#idAttr'
+					],
+				StopBuildBatch:[
+					'#idAttr'
+					],
+				UpdateProject:[
+					'#nameAttr'
+					],
+				UpdateProjectVisibility:[
+					'#projectArnAttr','#projectVisibilityAttr'
+					],
+				UpdateReportGroup:[
+					'#arnAttr'
+					],
+				UpdateWebhook:[
+					'#projectNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodeBuild">
+<p>
+AWS CodeBuild
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeBuild.html">CodeBuild</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeBuild',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteBuilds' },
+			
+				ids: { value: ""} ,
+				names: { value: ""} ,
+				reportGroupArns: { value: ""} ,
+				reportArns: { value: ""} ,
+				name: { value: ""} ,
+				source: { value: ""} ,
+				artifacts: { value: ""} ,
+				environment: { value: ""} ,
+				serviceRole: { value: ""} ,
+				_type: { value: ""} ,
+				exportConfig: { value: ""} ,
+				projectName: { value: ""} ,
+				id: { value: ""} ,
+				arn: { value: ""} ,
+				resourceArn: { value: ""} ,
+				reportArn: { value: ""} ,
+				reportGroupArn: { value: ""} ,
+				trendField: { value: ""} ,
+				token: { value: ""} ,
+				serverType: { value: ""} ,
+				authType: { value: ""} ,
+				policy: { value: ""} ,
+				projectArn: { value: ""} ,
+				projectVisibility: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeBuild " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

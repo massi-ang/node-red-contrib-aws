@@ -1,0 +1,421 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CodeDeploy">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToOnPremisesInstances">AddTagsToOnPremisesInstances</option>
+		
+			<option value="BatchGetApplicationRevisions">BatchGetApplicationRevisions</option>
+		
+			<option value="BatchGetApplications">BatchGetApplications</option>
+		
+			<option value="BatchGetDeploymentGroups">BatchGetDeploymentGroups</option>
+		
+			<option value="BatchGetDeploymentInstances">BatchGetDeploymentInstances</option>
+		
+			<option value="BatchGetDeploymentTargets">BatchGetDeploymentTargets</option>
+		
+			<option value="BatchGetDeployments">BatchGetDeployments</option>
+		
+			<option value="BatchGetOnPremisesInstances">BatchGetOnPremisesInstances</option>
+		
+			<option value="ContinueDeployment">ContinueDeployment</option>
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDeploymentConfig">CreateDeploymentConfig</option>
+		
+			<option value="CreateDeploymentGroup">CreateDeploymentGroup</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteDeploymentConfig">DeleteDeploymentConfig</option>
+		
+			<option value="DeleteDeploymentGroup">DeleteDeploymentGroup</option>
+		
+			<option value="DeleteGitHubAccountToken">DeleteGitHubAccountToken</option>
+		
+			<option value="DeleteResourcesByExternalId">DeleteResourcesByExternalId</option>
+		
+			<option value="DeregisterOnPremisesInstance">DeregisterOnPremisesInstance</option>
+		
+			<option value="GetApplication">GetApplication</option>
+		
+			<option value="GetApplicationRevision">GetApplicationRevision</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="GetDeploymentConfig">GetDeploymentConfig</option>
+		
+			<option value="GetDeploymentGroup">GetDeploymentGroup</option>
+		
+			<option value="GetDeploymentInstance">GetDeploymentInstance</option>
+		
+			<option value="GetDeploymentTarget">GetDeploymentTarget</option>
+		
+			<option value="GetOnPremisesInstance">GetOnPremisesInstance</option>
+		
+			<option value="ListApplicationRevisions">ListApplicationRevisions</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="ListDeploymentConfigs">ListDeploymentConfigs</option>
+		
+			<option value="ListDeploymentGroups">ListDeploymentGroups</option>
+		
+			<option value="ListDeploymentInstances">ListDeploymentInstances</option>
+		
+			<option value="ListDeploymentTargets">ListDeploymentTargets</option>
+		
+			<option value="ListDeployments">ListDeployments</option>
+		
+			<option value="ListGitHubAccountTokenNames">ListGitHubAccountTokenNames</option>
+		
+			<option value="ListOnPremisesInstances">ListOnPremisesInstances</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutLifecycleEventHookExecutionStatus">PutLifecycleEventHookExecutionStatus</option>
+		
+			<option value="RegisterApplicationRevision">RegisterApplicationRevision</option>
+		
+			<option value="RegisterOnPremisesInstance">RegisterOnPremisesInstance</option>
+		
+			<option value="RemoveTagsFromOnPremisesInstances">RemoveTagsFromOnPremisesInstances</option>
+		
+			<option value="SkipWaitTimeForInstanceTermination">SkipWaitTimeForInstanceTermination</option>
+		
+			<option value="StopDeployment">StopDeployment</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateDeploymentGroup">UpdateDeploymentGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='instanceNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceNames"><i class="fa fa-tag"></i>instanceNames</label>
+		<input type="text" id="node-input-instanceNames" placeholder="instanceNames"></input>
+	</div> 
+	<div class="form-row" id='applicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-applicationName"><i class="fa fa-tag"></i>applicationName</label>
+		<input type="text" id="node-input-applicationName" placeholder="applicationName"></input>
+	</div> 
+	<div class="form-row" id='revisionsAttr' class='hiddenAttrs'>
+		<label for="node-input-revisions"><i class="fa fa-tag"></i>revisions</label>
+		<input type="text" id="node-input-revisions" placeholder="revisions"></input>
+	</div> 
+	<div class="form-row" id='applicationNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-applicationNames"><i class="fa fa-tag"></i>applicationNames</label>
+		<input type="text" id="node-input-applicationNames" placeholder="applicationNames"></input>
+	</div> 
+	<div class="form-row" id='deploymentGroupNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentGroupNames"><i class="fa fa-tag"></i>deploymentGroupNames</label>
+		<input type="text" id="node-input-deploymentGroupNames" placeholder="deploymentGroupNames"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentId"><i class="fa fa-tag"></i>deploymentId</label>
+		<input type="text" id="node-input-deploymentId" placeholder="deploymentId"></input>
+	</div> 
+	<div class="form-row" id='instanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceIds"><i class="fa fa-tag"></i>instanceIds</label>
+		<input type="text" id="node-input-instanceIds" placeholder="instanceIds"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentIds"><i class="fa fa-tag"></i>deploymentIds</label>
+		<input type="text" id="node-input-deploymentIds" placeholder="deploymentIds"></input>
+	</div> 
+	<div class="form-row" id='deploymentConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentConfigName"><i class="fa fa-tag"></i>deploymentConfigName</label>
+		<input type="text" id="node-input-deploymentConfigName" placeholder="deploymentConfigName"></input>
+	</div> 
+	<div class="form-row" id='deploymentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentGroupName"><i class="fa fa-tag"></i>deploymentGroupName</label>
+		<input type="text" id="node-input-deploymentGroupName" placeholder="deploymentGroupName"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRoleArn"><i class="fa fa-tag"></i>serviceRoleArn</label>
+		<input type="text" id="node-input-serviceRoleArn" placeholder="serviceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='instanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceName"><i class="fa fa-tag"></i>instanceName</label>
+		<input type="text" id="node-input-instanceName" placeholder="instanceName"></input>
+	</div> 
+	<div class="form-row" id='revisionAttr' class='hiddenAttrs'>
+		<label for="node-input-revision"><i class="fa fa-tag"></i>revision</label>
+		<input type="text" id="node-input-revision" placeholder="revision"></input>
+	</div> 
+	<div class="form-row" id='instanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceId"><i class="fa fa-tag"></i>instanceId</label>
+		<input type="text" id="node-input-instanceId" placeholder="instanceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='currentDeploymentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-currentDeploymentGroupName"><i class="fa fa-tag"></i>currentDeploymentGroupName</label>
+		<input type="text" id="node-input-currentDeploymentGroupName" placeholder="currentDeploymentGroupName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToOnPremisesInstances:[
+					'#tagsAttr','#instanceNamesAttr'
+					],
+				BatchGetApplicationRevisions:[
+					'#applicationNameAttr','#revisionsAttr'
+					],
+				BatchGetApplications:[
+					'#applicationNamesAttr'
+					],
+				BatchGetDeploymentGroups:[
+					'#applicationNameAttr','#deploymentGroupNamesAttr'
+					],
+				BatchGetDeploymentInstances:[
+					'#deploymentIdAttr','#instanceIdsAttr'
+					],
+				BatchGetDeploymentTargets:[
+					
+					],
+				BatchGetDeployments:[
+					'#deploymentIdsAttr'
+					],
+				BatchGetOnPremisesInstances:[
+					'#instanceNamesAttr'
+					],
+				ContinueDeployment:[
+					
+					],
+				CreateApplication:[
+					'#applicationNameAttr'
+					],
+				CreateDeployment:[
+					'#applicationNameAttr'
+					],
+				CreateDeploymentConfig:[
+					'#deploymentConfigNameAttr'
+					],
+				CreateDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr','#serviceRoleArnAttr'
+					],
+				DeleteApplication:[
+					'#applicationNameAttr'
+					],
+				DeleteDeploymentConfig:[
+					'#deploymentConfigNameAttr'
+					],
+				DeleteDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr'
+					],
+				DeleteGitHubAccountToken:[
+					
+					],
+				DeleteResourcesByExternalId:[
+					
+					],
+				DeregisterOnPremisesInstance:[
+					'#instanceNameAttr'
+					],
+				GetApplication:[
+					'#applicationNameAttr'
+					],
+				GetApplicationRevision:[
+					'#applicationNameAttr','#revisionAttr'
+					],
+				GetDeployment:[
+					'#deploymentIdAttr'
+					],
+				GetDeploymentConfig:[
+					'#deploymentConfigNameAttr'
+					],
+				GetDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr'
+					],
+				GetDeploymentInstance:[
+					'#deploymentIdAttr','#instanceIdAttr'
+					],
+				GetDeploymentTarget:[
+					
+					],
+				GetOnPremisesInstance:[
+					'#instanceNameAttr'
+					],
+				ListApplicationRevisions:[
+					'#applicationNameAttr'
+					],
+				ListApplications:[
+					
+					],
+				ListDeploymentConfigs:[
+					
+					],
+				ListDeploymentGroups:[
+					'#applicationNameAttr'
+					],
+				ListDeploymentInstances:[
+					'#deploymentIdAttr'
+					],
+				ListDeploymentTargets:[
+					
+					],
+				ListDeployments:[
+					
+					],
+				ListGitHubAccountTokenNames:[
+					
+					],
+				ListOnPremisesInstances:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutLifecycleEventHookExecutionStatus:[
+					
+					],
+				RegisterApplicationRevision:[
+					'#applicationNameAttr','#revisionAttr'
+					],
+				RegisterOnPremisesInstance:[
+					'#instanceNameAttr'
+					],
+				RemoveTagsFromOnPremisesInstances:[
+					'#tagsAttr','#instanceNamesAttr'
+					],
+				SkipWaitTimeForInstanceTermination:[
+					
+					],
+				StopDeployment:[
+					'#deploymentIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateApplication:[
+					
+					],
+				UpdateDeploymentGroup:[
+					'#applicationNameAttr','#currentDeploymentGroupNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CodeDeploy">
+<p>
+AWS CodeDeploy
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeDeploy.html">CodeDeploy</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeDeploy',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToOnPremisesInstances' },
+			
+				tags: { value: ""} ,
+				instanceNames: { value: ""} ,
+				applicationName: { value: ""} ,
+				revisions: { value: ""} ,
+				applicationNames: { value: ""} ,
+				deploymentGroupNames: { value: ""} ,
+				deploymentId: { value: ""} ,
+				instanceIds: { value: ""} ,
+				deploymentIds: { value: ""} ,
+				deploymentConfigName: { value: ""} ,
+				deploymentGroupName: { value: ""} ,
+				serviceRoleArn: { value: ""} ,
+				instanceName: { value: ""} ,
+				revision: { value: ""} ,
+				instanceId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				currentDeploymentGroupName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeDeploy " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

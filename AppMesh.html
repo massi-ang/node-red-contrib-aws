@@ -1,0 +1,336 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS AppMesh">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateGatewayRoute">CreateGatewayRoute</option>
+		
+			<option value="CreateMesh">CreateMesh</option>
+		
+			<option value="CreateRoute">CreateRoute</option>
+		
+			<option value="CreateVirtualGateway">CreateVirtualGateway</option>
+		
+			<option value="CreateVirtualNode">CreateVirtualNode</option>
+		
+			<option value="CreateVirtualRouter">CreateVirtualRouter</option>
+		
+			<option value="CreateVirtualService">CreateVirtualService</option>
+		
+			<option value="DeleteGatewayRoute">DeleteGatewayRoute</option>
+		
+			<option value="DeleteMesh">DeleteMesh</option>
+		
+			<option value="DeleteRoute">DeleteRoute</option>
+		
+			<option value="DeleteVirtualGateway">DeleteVirtualGateway</option>
+		
+			<option value="DeleteVirtualNode">DeleteVirtualNode</option>
+		
+			<option value="DeleteVirtualRouter">DeleteVirtualRouter</option>
+		
+			<option value="DeleteVirtualService">DeleteVirtualService</option>
+		
+			<option value="DescribeGatewayRoute">DescribeGatewayRoute</option>
+		
+			<option value="DescribeMesh">DescribeMesh</option>
+		
+			<option value="DescribeRoute">DescribeRoute</option>
+		
+			<option value="DescribeVirtualGateway">DescribeVirtualGateway</option>
+		
+			<option value="DescribeVirtualNode">DescribeVirtualNode</option>
+		
+			<option value="DescribeVirtualRouter">DescribeVirtualRouter</option>
+		
+			<option value="DescribeVirtualService">DescribeVirtualService</option>
+		
+			<option value="ListGatewayRoutes">ListGatewayRoutes</option>
+		
+			<option value="ListMeshes">ListMeshes</option>
+		
+			<option value="ListRoutes">ListRoutes</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListVirtualGateways">ListVirtualGateways</option>
+		
+			<option value="ListVirtualNodes">ListVirtualNodes</option>
+		
+			<option value="ListVirtualRouters">ListVirtualRouters</option>
+		
+			<option value="ListVirtualServices">ListVirtualServices</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateGatewayRoute">UpdateGatewayRoute</option>
+		
+			<option value="UpdateMesh">UpdateMesh</option>
+		
+			<option value="UpdateRoute">UpdateRoute</option>
+		
+			<option value="UpdateVirtualGateway">UpdateVirtualGateway</option>
+		
+			<option value="UpdateVirtualNode">UpdateVirtualNode</option>
+		
+			<option value="UpdateVirtualRouter">UpdateVirtualRouter</option>
+		
+			<option value="UpdateVirtualService">UpdateVirtualService</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='gatewayRouteNameAttr' class='hiddenAttrs'>
+		<label for="node-input-gatewayRouteName"><i class="fa fa-tag"></i>gatewayRouteName</label>
+		<input type="text" id="node-input-gatewayRouteName" placeholder="gatewayRouteName"></input>
+	</div> 
+	<div class="form-row" id='meshNameAttr' class='hiddenAttrs'>
+		<label for="node-input-meshName"><i class="fa fa-tag"></i>meshName</label>
+		<input type="text" id="node-input-meshName" placeholder="meshName"></input>
+	</div> 
+	<div class="form-row" id='specAttr' class='hiddenAttrs'>
+		<label for="node-input-spec"><i class="fa fa-tag"></i>spec</label>
+		<input type="text" id="node-input-spec" placeholder="spec"></input>
+	</div> 
+	<div class="form-row" id='virtualGatewayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualGatewayName"><i class="fa fa-tag"></i>virtualGatewayName</label>
+		<input type="text" id="node-input-virtualGatewayName" placeholder="virtualGatewayName"></input>
+	</div> 
+	<div class="form-row" id='routeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-routeName"><i class="fa fa-tag"></i>routeName</label>
+		<input type="text" id="node-input-routeName" placeholder="routeName"></input>
+	</div> 
+	<div class="form-row" id='virtualRouterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualRouterName"><i class="fa fa-tag"></i>virtualRouterName</label>
+		<input type="text" id="node-input-virtualRouterName" placeholder="virtualRouterName"></input>
+	</div> 
+	<div class="form-row" id='virtualNodeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualNodeName"><i class="fa fa-tag"></i>virtualNodeName</label>
+		<input type="text" id="node-input-virtualNodeName" placeholder="virtualNodeName"></input>
+	</div> 
+	<div class="form-row" id='virtualServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualServiceName"><i class="fa fa-tag"></i>virtualServiceName</label>
+		<input type="text" id="node-input-virtualServiceName" placeholder="virtualServiceName"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateGatewayRoute:[
+					'#gatewayRouteNameAttr','#meshNameAttr','#specAttr','#virtualGatewayNameAttr'
+					],
+				CreateMesh:[
+					'#meshNameAttr'
+					],
+				CreateRoute:[
+					'#meshNameAttr','#routeNameAttr','#specAttr','#virtualRouterNameAttr'
+					],
+				CreateVirtualGateway:[
+					'#meshNameAttr','#specAttr','#virtualGatewayNameAttr'
+					],
+				CreateVirtualNode:[
+					'#meshNameAttr','#specAttr','#virtualNodeNameAttr'
+					],
+				CreateVirtualRouter:[
+					'#meshNameAttr','#specAttr','#virtualRouterNameAttr'
+					],
+				CreateVirtualService:[
+					'#meshNameAttr','#specAttr','#virtualServiceNameAttr'
+					],
+				DeleteGatewayRoute:[
+					'#gatewayRouteNameAttr','#meshNameAttr','#virtualGatewayNameAttr'
+					],
+				DeleteMesh:[
+					'#meshNameAttr'
+					],
+				DeleteRoute:[
+					'#meshNameAttr','#routeNameAttr','#virtualRouterNameAttr'
+					],
+				DeleteVirtualGateway:[
+					'#meshNameAttr','#virtualGatewayNameAttr'
+					],
+				DeleteVirtualNode:[
+					'#meshNameAttr','#virtualNodeNameAttr'
+					],
+				DeleteVirtualRouter:[
+					'#meshNameAttr','#virtualRouterNameAttr'
+					],
+				DeleteVirtualService:[
+					'#meshNameAttr','#virtualServiceNameAttr'
+					],
+				DescribeGatewayRoute:[
+					'#gatewayRouteNameAttr','#meshNameAttr','#virtualGatewayNameAttr'
+					],
+				DescribeMesh:[
+					'#meshNameAttr'
+					],
+				DescribeRoute:[
+					'#meshNameAttr','#routeNameAttr','#virtualRouterNameAttr'
+					],
+				DescribeVirtualGateway:[
+					'#meshNameAttr','#virtualGatewayNameAttr'
+					],
+				DescribeVirtualNode:[
+					'#meshNameAttr','#virtualNodeNameAttr'
+					],
+				DescribeVirtualRouter:[
+					'#meshNameAttr','#virtualRouterNameAttr'
+					],
+				DescribeVirtualService:[
+					'#meshNameAttr','#virtualServiceNameAttr'
+					],
+				ListGatewayRoutes:[
+					'#meshNameAttr','#virtualGatewayNameAttr'
+					],
+				ListMeshes:[
+					
+					],
+				ListRoutes:[
+					'#meshNameAttr','#virtualRouterNameAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListVirtualGateways:[
+					'#meshNameAttr'
+					],
+				ListVirtualNodes:[
+					'#meshNameAttr'
+					],
+				ListVirtualRouters:[
+					'#meshNameAttr'
+					],
+				ListVirtualServices:[
+					'#meshNameAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateGatewayRoute:[
+					'#gatewayRouteNameAttr','#meshNameAttr','#specAttr','#virtualGatewayNameAttr'
+					],
+				UpdateMesh:[
+					'#meshNameAttr'
+					],
+				UpdateRoute:[
+					'#meshNameAttr','#routeNameAttr','#specAttr','#virtualRouterNameAttr'
+					],
+				UpdateVirtualGateway:[
+					'#meshNameAttr','#specAttr','#virtualGatewayNameAttr'
+					],
+				UpdateVirtualNode:[
+					'#meshNameAttr','#specAttr','#virtualNodeNameAttr'
+					],
+				UpdateVirtualRouter:[
+					'#meshNameAttr','#specAttr','#virtualRouterNameAttr'
+					],
+				UpdateVirtualService:[
+					'#meshNameAttr','#specAttr','#virtualServiceNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS AppMesh">
+<p>
+AWS AppMesh
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppMesh.html">AppMesh</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppMesh',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateGatewayRoute' },
+			
+				gatewayRouteName: { value: ""} ,
+				meshName: { value: ""} ,
+				spec: { value: ""} ,
+				virtualGatewayName: { value: ""} ,
+				routeName: { value: ""} ,
+				virtualRouterName: { value: ""} ,
+				virtualNodeName: { value: ""} ,
+				virtualServiceName: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppMesh " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

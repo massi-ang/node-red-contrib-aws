@@ -1,0 +1,291 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ApplicationInsights">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateComponent">CreateComponent</option>
+		
+			<option value="CreateLogPattern">CreateLogPattern</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteComponent">DeleteComponent</option>
+		
+			<option value="DeleteLogPattern">DeleteLogPattern</option>
+		
+			<option value="DescribeApplication">DescribeApplication</option>
+		
+			<option value="DescribeComponent">DescribeComponent</option>
+		
+			<option value="DescribeComponentConfiguration">DescribeComponentConfiguration</option>
+		
+			<option value="DescribeComponentConfigurationRecommendation">DescribeComponentConfigurationRecommendation</option>
+		
+			<option value="DescribeLogPattern">DescribeLogPattern</option>
+		
+			<option value="DescribeObservation">DescribeObservation</option>
+		
+			<option value="DescribeProblem">DescribeProblem</option>
+		
+			<option value="DescribeProblemObservations">DescribeProblemObservations</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="ListComponents">ListComponents</option>
+		
+			<option value="ListConfigurationHistory">ListConfigurationHistory</option>
+		
+			<option value="ListLogPatternSets">ListLogPatternSets</option>
+		
+			<option value="ListLogPatterns">ListLogPatterns</option>
+		
+			<option value="ListProblems">ListProblems</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateComponent">UpdateComponent</option>
+		
+			<option value="UpdateComponentConfiguration">UpdateComponentConfiguration</option>
+		
+			<option value="UpdateLogPattern">UpdateLogPattern</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceGroupName"><i class="fa fa-tag"></i>ResourceGroupName</label>
+		<input type="text" id="node-input-ResourceGroupName" placeholder="ResourceGroupName"></input>
+	</div> 
+	<div class="form-row" id='ComponentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ComponentName"><i class="fa fa-tag"></i>ComponentName</label>
+		<input type="text" id="node-input-ComponentName" placeholder="ComponentName"></input>
+	</div> 
+	<div class="form-row" id='ResourceListAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceList"><i class="fa fa-tag"></i>ResourceList</label>
+		<input type="text" id="node-input-ResourceList" placeholder="ResourceList"></input>
+	</div> 
+	<div class="form-row" id='PatternSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PatternSetName"><i class="fa fa-tag"></i>PatternSetName</label>
+		<input type="text" id="node-input-PatternSetName" placeholder="PatternSetName"></input>
+	</div> 
+	<div class="form-row" id='PatternNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PatternName"><i class="fa fa-tag"></i>PatternName</label>
+		<input type="text" id="node-input-PatternName" placeholder="PatternName"></input>
+	</div> 
+	<div class="form-row" id='PatternAttr' class='hiddenAttrs'>
+		<label for="node-input-Pattern"><i class="fa fa-tag"></i>Pattern</label>
+		<input type="text" id="node-input-Pattern" placeholder="Pattern"></input>
+	</div> 
+	<div class="form-row" id='RankAttr' class='hiddenAttrs'>
+		<label for="node-input-Rank"><i class="fa fa-tag"></i>Rank</label>
+		<input type="text" id="node-input-Rank" placeholder="Rank"></input>
+	</div> 
+	<div class="form-row" id='TierAttr' class='hiddenAttrs'>
+		<label for="node-input-Tier"><i class="fa fa-tag"></i>Tier</label>
+		<input type="text" id="node-input-Tier" placeholder="Tier"></input>
+	</div> 
+	<div class="form-row" id='ObservationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ObservationId"><i class="fa fa-tag"></i>ObservationId</label>
+		<input type="text" id="node-input-ObservationId" placeholder="ObservationId"></input>
+	</div> 
+	<div class="form-row" id='ProblemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProblemId"><i class="fa fa-tag"></i>ProblemId</label>
+		<input type="text" id="node-input-ProblemId" placeholder="ProblemId"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				CreateComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#ResourceListAttr'
+					],
+				CreateLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr','#PatternAttr','#RankAttr'
+					],
+				DeleteApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				DeleteComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DeleteLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr'
+					],
+				DescribeApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				DescribeComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DescribeComponentConfiguration:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DescribeComponentConfigurationRecommendation:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#TierAttr'
+					],
+				DescribeLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr'
+					],
+				DescribeObservation:[
+					'#ObservationIdAttr'
+					],
+				DescribeProblem:[
+					'#ProblemIdAttr'
+					],
+				DescribeProblemObservations:[
+					'#ProblemIdAttr'
+					],
+				ListApplications:[
+					
+					],
+				ListComponents:[
+					'#ResourceGroupNameAttr'
+					],
+				ListConfigurationHistory:[
+					
+					],
+				ListLogPatternSets:[
+					'#ResourceGroupNameAttr'
+					],
+				ListLogPatterns:[
+					'#ResourceGroupNameAttr'
+					],
+				ListProblems:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				UpdateComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				UpdateComponentConfiguration:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				UpdateLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ApplicationInsights">
+<p>
+AWS ApplicationInsights
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ApplicationInsights.html">ApplicationInsights</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ApplicationInsights',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApplication' },
+			
+				ResourceGroupName: { value: ""} ,
+				ComponentName: { value: ""} ,
+				ResourceList: { value: ""} ,
+				PatternSetName: { value: ""} ,
+				PatternName: { value: ""} ,
+				Pattern: { value: ""} ,
+				Rank: { value: ""} ,
+				Tier: { value: ""} ,
+				ObservationId: { value: ""} ,
+				ProblemId: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ApplicationInsights " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

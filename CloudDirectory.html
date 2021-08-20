@@ -1,0 +1,581 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CloudDirectory">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddFacetToObject">AddFacetToObject</option>
+		
+			<option value="ApplySchema">ApplySchema</option>
+		
+			<option value="AttachObject">AttachObject</option>
+		
+			<option value="AttachPolicy">AttachPolicy</option>
+		
+			<option value="AttachToIndex">AttachToIndex</option>
+		
+			<option value="AttachTypedLink">AttachTypedLink</option>
+		
+			<option value="BatchRead">BatchRead</option>
+		
+			<option value="BatchWrite">BatchWrite</option>
+		
+			<option value="CreateDirectory">CreateDirectory</option>
+		
+			<option value="CreateFacet">CreateFacet</option>
+		
+			<option value="CreateIndex">CreateIndex</option>
+		
+			<option value="CreateObject">CreateObject</option>
+		
+			<option value="CreateSchema">CreateSchema</option>
+		
+			<option value="CreateTypedLinkFacet">CreateTypedLinkFacet</option>
+		
+			<option value="DeleteDirectory">DeleteDirectory</option>
+		
+			<option value="DeleteFacet">DeleteFacet</option>
+		
+			<option value="DeleteObject">DeleteObject</option>
+		
+			<option value="DeleteSchema">DeleteSchema</option>
+		
+			<option value="DeleteTypedLinkFacet">DeleteTypedLinkFacet</option>
+		
+			<option value="DetachFromIndex">DetachFromIndex</option>
+		
+			<option value="DetachObject">DetachObject</option>
+		
+			<option value="DetachPolicy">DetachPolicy</option>
+		
+			<option value="DetachTypedLink">DetachTypedLink</option>
+		
+			<option value="DisableDirectory">DisableDirectory</option>
+		
+			<option value="EnableDirectory">EnableDirectory</option>
+		
+			<option value="GetAppliedSchemaVersion">GetAppliedSchemaVersion</option>
+		
+			<option value="GetDirectory">GetDirectory</option>
+		
+			<option value="GetFacet">GetFacet</option>
+		
+			<option value="GetLinkAttributes">GetLinkAttributes</option>
+		
+			<option value="GetObjectAttributes">GetObjectAttributes</option>
+		
+			<option value="GetObjectInformation">GetObjectInformation</option>
+		
+			<option value="GetSchemaAsJson">GetSchemaAsJson</option>
+		
+			<option value="GetTypedLinkFacetInformation">GetTypedLinkFacetInformation</option>
+		
+			<option value="ListAppliedSchemaArns">ListAppliedSchemaArns</option>
+		
+			<option value="ListAttachedIndices">ListAttachedIndices</option>
+		
+			<option value="ListDevelopmentSchemaArns">ListDevelopmentSchemaArns</option>
+		
+			<option value="ListDirectories">ListDirectories</option>
+		
+			<option value="ListFacetAttributes">ListFacetAttributes</option>
+		
+			<option value="ListFacetNames">ListFacetNames</option>
+		
+			<option value="ListIncomingTypedLinks">ListIncomingTypedLinks</option>
+		
+			<option value="ListIndex">ListIndex</option>
+		
+			<option value="ListManagedSchemaArns">ListManagedSchemaArns</option>
+		
+			<option value="ListObjectAttributes">ListObjectAttributes</option>
+		
+			<option value="ListObjectChildren">ListObjectChildren</option>
+		
+			<option value="ListObjectParentPaths">ListObjectParentPaths</option>
+		
+			<option value="ListObjectParents">ListObjectParents</option>
+		
+			<option value="ListObjectPolicies">ListObjectPolicies</option>
+		
+			<option value="ListOutgoingTypedLinks">ListOutgoingTypedLinks</option>
+		
+			<option value="ListPolicyAttachments">ListPolicyAttachments</option>
+		
+			<option value="ListPublishedSchemaArns">ListPublishedSchemaArns</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTypedLinkFacetAttributes">ListTypedLinkFacetAttributes</option>
+		
+			<option value="ListTypedLinkFacetNames">ListTypedLinkFacetNames</option>
+		
+			<option value="LookupPolicy">LookupPolicy</option>
+		
+			<option value="PublishSchema">PublishSchema</option>
+		
+			<option value="PutSchemaFromJson">PutSchemaFromJson</option>
+		
+			<option value="RemoveFacetFromObject">RemoveFacetFromObject</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFacet">UpdateFacet</option>
+		
+			<option value="UpdateLinkAttributes">UpdateLinkAttributes</option>
+		
+			<option value="UpdateObjectAttributes">UpdateObjectAttributes</option>
+		
+			<option value="UpdateSchema">UpdateSchema</option>
+		
+			<option value="UpdateTypedLinkFacet">UpdateTypedLinkFacet</option>
+		
+			<option value="UpgradeAppliedSchema">UpgradeAppliedSchema</option>
+		
+			<option value="UpgradePublishedSchema">UpgradePublishedSchema</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DirectoryArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryArn"><i class="fa fa-tag"></i>DirectoryArn</label>
+		<input type="text" id="node-input-DirectoryArn" placeholder="DirectoryArn"></input>
+	</div> 
+	<div class="form-row" id='SchemaFacetAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaFacet"><i class="fa fa-tag"></i>SchemaFacet</label>
+		<input type="text" id="node-input-SchemaFacet" placeholder="SchemaFacet"></input>
+	</div> 
+	<div class="form-row" id='ObjectReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectReference"><i class="fa fa-tag"></i>ObjectReference</label>
+		<input type="text" id="node-input-ObjectReference" placeholder="ObjectReference"></input>
+	</div> 
+	<div class="form-row" id='PublishedSchemaArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PublishedSchemaArn"><i class="fa fa-tag"></i>PublishedSchemaArn</label>
+		<input type="text" id="node-input-PublishedSchemaArn" placeholder="PublishedSchemaArn"></input>
+	</div> 
+	<div class="form-row" id='ParentReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentReference"><i class="fa fa-tag"></i>ParentReference</label>
+		<input type="text" id="node-input-ParentReference" placeholder="ParentReference"></input>
+	</div> 
+	<div class="form-row" id='ChildReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-ChildReference"><i class="fa fa-tag"></i>ChildReference</label>
+		<input type="text" id="node-input-ChildReference" placeholder="ChildReference"></input>
+	</div> 
+	<div class="form-row" id='LinkNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LinkName"><i class="fa fa-tag"></i>LinkName</label>
+		<input type="text" id="node-input-LinkName" placeholder="LinkName"></input>
+	</div> 
+	<div class="form-row" id='PolicyReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyReference"><i class="fa fa-tag"></i>PolicyReference</label>
+		<input type="text" id="node-input-PolicyReference" placeholder="PolicyReference"></input>
+	</div> 
+	<div class="form-row" id='IndexReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexReference"><i class="fa fa-tag"></i>IndexReference</label>
+		<input type="text" id="node-input-IndexReference" placeholder="IndexReference"></input>
+	</div> 
+	<div class="form-row" id='TargetReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetReference"><i class="fa fa-tag"></i>TargetReference</label>
+		<input type="text" id="node-input-TargetReference" placeholder="TargetReference"></input>
+	</div> 
+	<div class="form-row" id='SourceObjectReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceObjectReference"><i class="fa fa-tag"></i>SourceObjectReference</label>
+		<input type="text" id="node-input-SourceObjectReference" placeholder="SourceObjectReference"></input>
+	</div> 
+	<div class="form-row" id='TargetObjectReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetObjectReference"><i class="fa fa-tag"></i>TargetObjectReference</label>
+		<input type="text" id="node-input-TargetObjectReference" placeholder="TargetObjectReference"></input>
+	</div> 
+	<div class="form-row" id='TypedLinkFacetAttr' class='hiddenAttrs'>
+		<label for="node-input-TypedLinkFacet"><i class="fa fa-tag"></i>TypedLinkFacet</label>
+		<input type="text" id="node-input-TypedLinkFacet" placeholder="TypedLinkFacet"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i>Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='OperationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Operations"><i class="fa fa-tag"></i>Operations</label>
+		<input type="text" id="node-input-Operations" placeholder="Operations"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SchemaArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaArn"><i class="fa fa-tag"></i>SchemaArn</label>
+		<input type="text" id="node-input-SchemaArn" placeholder="SchemaArn"></input>
+	</div> 
+	<div class="form-row" id='OrderedIndexedAttributeListAttr' class='hiddenAttrs'>
+		<label for="node-input-OrderedIndexedAttributeList"><i class="fa fa-tag"></i>OrderedIndexedAttributeList</label>
+		<input type="text" id="node-input-OrderedIndexedAttributeList" placeholder="OrderedIndexedAttributeList"></input>
+	</div> 
+	<div class="form-row" id='IsUniqueAttr' class='hiddenAttrs'>
+		<label for="node-input-IsUnique"><i class="fa fa-tag"></i>IsUnique</label>
+		<input type="text" id="node-input-IsUnique" placeholder="IsUnique"></input>
+	</div> 
+	<div class="form-row" id='SchemaFacetsAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaFacets"><i class="fa fa-tag"></i>SchemaFacets</label>
+		<input type="text" id="node-input-SchemaFacets" placeholder="SchemaFacets"></input>
+	</div> 
+	<div class="form-row" id='FacetAttr' class='hiddenAttrs'>
+		<label for="node-input-Facet"><i class="fa fa-tag"></i>Facet</label>
+		<input type="text" id="node-input-Facet" placeholder="Facet"></input>
+	</div> 
+	<div class="form-row" id='TypedLinkSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TypedLinkSpecifier"><i class="fa fa-tag"></i>TypedLinkSpecifier</label>
+		<input type="text" id="node-input-TypedLinkSpecifier" placeholder="TypedLinkSpecifier"></input>
+	</div> 
+	<div class="form-row" id='AttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeNames"><i class="fa fa-tag"></i>AttributeNames</label>
+		<input type="text" id="node-input-AttributeNames" placeholder="AttributeNames"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='DevelopmentSchemaArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DevelopmentSchemaArn"><i class="fa fa-tag"></i>DevelopmentSchemaArn</label>
+		<input type="text" id="node-input-DevelopmentSchemaArn" placeholder="DevelopmentSchemaArn"></input>
+	</div> 
+	<div class="form-row" id='VersionAttr' class='hiddenAttrs'>
+		<label for="node-input-Version"><i class="fa fa-tag"></i>Version</label>
+		<input type="text" id="node-input-Version" placeholder="Version"></input>
+	</div> 
+	<div class="form-row" id='DocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-Document"><i class="fa fa-tag"></i>Document</label>
+		<input type="text" id="node-input-Document" placeholder="Document"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='AttributeUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeUpdates"><i class="fa fa-tag"></i>AttributeUpdates</label>
+		<input type="text" id="node-input-AttributeUpdates" placeholder="AttributeUpdates"></input>
+	</div> 
+	<div class="form-row" id='IdentityAttributeOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityAttributeOrder"><i class="fa fa-tag"></i>IdentityAttributeOrder</label>
+		<input type="text" id="node-input-IdentityAttributeOrder" placeholder="IdentityAttributeOrder"></input>
+	</div> 
+	<div class="form-row" id='MinorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-MinorVersion"><i class="fa fa-tag"></i>MinorVersion</label>
+		<input type="text" id="node-input-MinorVersion" placeholder="MinorVersion"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddFacetToObject:[
+					'#DirectoryArnAttr','#SchemaFacetAttr','#ObjectReferenceAttr'
+					],
+				ApplySchema:[
+					'#PublishedSchemaArnAttr','#DirectoryArnAttr'
+					],
+				AttachObject:[
+					'#DirectoryArnAttr','#ParentReferenceAttr','#ChildReferenceAttr','#LinkNameAttr'
+					],
+				AttachPolicy:[
+					'#DirectoryArnAttr','#PolicyReferenceAttr','#ObjectReferenceAttr'
+					],
+				AttachToIndex:[
+					'#DirectoryArnAttr','#IndexReferenceAttr','#TargetReferenceAttr'
+					],
+				AttachTypedLink:[
+					'#DirectoryArnAttr','#SourceObjectReferenceAttr','#TargetObjectReferenceAttr','#TypedLinkFacetAttr','#AttributesAttr'
+					],
+				BatchRead:[
+					'#DirectoryArnAttr','#OperationsAttr'
+					],
+				BatchWrite:[
+					'#DirectoryArnAttr','#OperationsAttr'
+					],
+				CreateDirectory:[
+					'#NameAttr','#SchemaArnAttr'
+					],
+				CreateFacet:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				CreateIndex:[
+					'#DirectoryArnAttr','#OrderedIndexedAttributeListAttr','#IsUniqueAttr'
+					],
+				CreateObject:[
+					'#DirectoryArnAttr','#SchemaFacetsAttr'
+					],
+				CreateSchema:[
+					'#NameAttr'
+					],
+				CreateTypedLinkFacet:[
+					'#SchemaArnAttr','#FacetAttr'
+					],
+				DeleteDirectory:[
+					'#DirectoryArnAttr'
+					],
+				DeleteFacet:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				DeleteObject:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				DeleteSchema:[
+					'#SchemaArnAttr'
+					],
+				DeleteTypedLinkFacet:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				DetachFromIndex:[
+					'#DirectoryArnAttr','#IndexReferenceAttr','#TargetReferenceAttr'
+					],
+				DetachObject:[
+					'#DirectoryArnAttr','#ParentReferenceAttr','#LinkNameAttr'
+					],
+				DetachPolicy:[
+					'#DirectoryArnAttr','#PolicyReferenceAttr','#ObjectReferenceAttr'
+					],
+				DetachTypedLink:[
+					'#DirectoryArnAttr','#TypedLinkSpecifierAttr'
+					],
+				DisableDirectory:[
+					'#DirectoryArnAttr'
+					],
+				EnableDirectory:[
+					'#DirectoryArnAttr'
+					],
+				GetAppliedSchemaVersion:[
+					'#SchemaArnAttr'
+					],
+				GetDirectory:[
+					'#DirectoryArnAttr'
+					],
+				GetFacet:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				GetLinkAttributes:[
+					'#DirectoryArnAttr','#TypedLinkSpecifierAttr','#AttributeNamesAttr'
+					],
+				GetObjectAttributes:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr','#SchemaFacetAttr','#AttributeNamesAttr'
+					],
+				GetObjectInformation:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				GetSchemaAsJson:[
+					'#SchemaArnAttr'
+					],
+				GetTypedLinkFacetInformation:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				ListAppliedSchemaArns:[
+					'#DirectoryArnAttr'
+					],
+				ListAttachedIndices:[
+					'#DirectoryArnAttr','#TargetReferenceAttr'
+					],
+				ListDevelopmentSchemaArns:[
+					
+					],
+				ListDirectories:[
+					
+					],
+				ListFacetAttributes:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				ListFacetNames:[
+					'#SchemaArnAttr'
+					],
+				ListIncomingTypedLinks:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListIndex:[
+					'#DirectoryArnAttr','#IndexReferenceAttr'
+					],
+				ListManagedSchemaArns:[
+					
+					],
+				ListObjectAttributes:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListObjectChildren:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListObjectParentPaths:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListObjectParents:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListObjectPolicies:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListOutgoingTypedLinks:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				ListPolicyAttachments:[
+					'#DirectoryArnAttr','#PolicyReferenceAttr'
+					],
+				ListPublishedSchemaArns:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTypedLinkFacetAttributes:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				ListTypedLinkFacetNames:[
+					'#SchemaArnAttr'
+					],
+				LookupPolicy:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr'
+					],
+				PublishSchema:[
+					'#DevelopmentSchemaArnAttr','#VersionAttr'
+					],
+				PutSchemaFromJson:[
+					'#SchemaArnAttr','#DocumentAttr'
+					],
+				RemoveFacetFromObject:[
+					'#DirectoryArnAttr','#SchemaFacetAttr','#ObjectReferenceAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateFacet:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				UpdateLinkAttributes:[
+					'#DirectoryArnAttr','#TypedLinkSpecifierAttr','#AttributeUpdatesAttr'
+					],
+				UpdateObjectAttributes:[
+					'#DirectoryArnAttr','#ObjectReferenceAttr','#AttributeUpdatesAttr'
+					],
+				UpdateSchema:[
+					'#SchemaArnAttr','#NameAttr'
+					],
+				UpdateTypedLinkFacet:[
+					'#SchemaArnAttr','#NameAttr','#AttributeUpdatesAttr','#IdentityAttributeOrderAttr'
+					],
+				UpgradeAppliedSchema:[
+					'#PublishedSchemaArnAttr','#DirectoryArnAttr'
+					],
+				UpgradePublishedSchema:[
+					'#DevelopmentSchemaArnAttr','#PublishedSchemaArnAttr','#MinorVersionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CloudDirectory">
+<p>
+AWS CloudDirectory
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudDirectory.html">CloudDirectory</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudDirectory',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddFacetToObject' },
+			
+				DirectoryArn: { value: ""} ,
+				SchemaFacet: { value: ""} ,
+				ObjectReference: { value: ""} ,
+				PublishedSchemaArn: { value: ""} ,
+				ParentReference: { value: ""} ,
+				ChildReference: { value: ""} ,
+				LinkName: { value: ""} ,
+				PolicyReference: { value: ""} ,
+				IndexReference: { value: ""} ,
+				TargetReference: { value: ""} ,
+				SourceObjectReference: { value: ""} ,
+				TargetObjectReference: { value: ""} ,
+				TypedLinkFacet: { value: ""} ,
+				Attributes: { value: ""} ,
+				Operations: { value: ""} ,
+				Name: { value: ""} ,
+				SchemaArn: { value: ""} ,
+				OrderedIndexedAttributeList: { value: ""} ,
+				IsUnique: { value: ""} ,
+				SchemaFacets: { value: ""} ,
+				Facet: { value: ""} ,
+				TypedLinkSpecifier: { value: ""} ,
+				AttributeNames: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				DevelopmentSchemaArn: { value: ""} ,
+				Version: { value: ""} ,
+				Document: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				AttributeUpdates: { value: ""} ,
+				IdentityAttributeOrder: { value: ""} ,
+				MinorVersion: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudDirectory " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,9 +1,13 @@
-41a42,45
+27a28,35
 > 		<label for="node-input-endpoint"><i class="fa fa-wrench"></i> Endpoint</label>
->  		<input type="text" id="node-input-endpoint">
->  	</div>
->  	<div class="form-row">
-126c130
+>   		<input type="text" id="node-input-endpoint">
+>   	</div>
+> 	<div class="form-row">
+> 			<div class="form-row">
+> 		<label for="node-input-endpoint"><i class="fa fa-wrench"></i> Endpoint</label>
+>   		<input type="text" id="node-input-endpoint">
+>   	</div>
+112c120
 < 			
 ---
-> 				endpoint: { value: "xxx-ats.iot.<region>.amazonaws.com", required:true},
+> 			endpoint: { value: "xxx-ats.iot.<region>.amazonaws.com"},

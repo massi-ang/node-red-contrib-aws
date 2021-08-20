@@ -1,4 +1,4 @@
-77c77
+62c62
 < 		var awsService = new AWS.IotData( { 'region': node.region } );
 ---
 > 		var awsService = new AWS.IotData( { 'region': node.region, 'endpoint': n.endpoint } );

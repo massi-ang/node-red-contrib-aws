@@ -1,0 +1,321 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CustomerProfiles">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddProfileKey">AddProfileKey</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="CreateProfile">CreateProfile</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DeleteIntegration">DeleteIntegration</option>
+		
+			<option value="DeleteProfile">DeleteProfile</option>
+		
+			<option value="DeleteProfileKey">DeleteProfileKey</option>
+		
+			<option value="DeleteProfileObject">DeleteProfileObject</option>
+		
+			<option value="DeleteProfileObjectType">DeleteProfileObjectType</option>
+		
+			<option value="GetDomain">GetDomain</option>
+		
+			<option value="GetIntegration">GetIntegration</option>
+		
+			<option value="GetMatches">GetMatches</option>
+		
+			<option value="GetProfileObjectType">GetProfileObjectType</option>
+		
+			<option value="GetProfileObjectTypeTemplate">GetProfileObjectTypeTemplate</option>
+		
+			<option value="ListAccountIntegrations">ListAccountIntegrations</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListIntegrations">ListIntegrations</option>
+		
+			<option value="ListProfileObjectTypeTemplates">ListProfileObjectTypeTemplates</option>
+		
+			<option value="ListProfileObjectTypes">ListProfileObjectTypes</option>
+		
+			<option value="ListProfileObjects">ListProfileObjects</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="MergeProfiles">MergeProfiles</option>
+		
+			<option value="PutIntegration">PutIntegration</option>
+		
+			<option value="PutProfileObject">PutProfileObject</option>
+		
+			<option value="PutProfileObjectType">PutProfileObjectType</option>
+		
+			<option value="SearchProfiles">SearchProfiles</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDomain">UpdateDomain</option>
+		
+			<option value="UpdateProfile">UpdateProfile</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProfileId"><i class="fa fa-tag"></i>ProfileId</label>
+		<input type="text" id="node-input-ProfileId" placeholder="ProfileId"></input>
+	</div> 
+	<div class="form-row" id='KeyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyName"><i class="fa fa-tag"></i>KeyName</label>
+		<input type="text" id="node-input-KeyName" placeholder="KeyName"></input>
+	</div> 
+	<div class="form-row" id='ValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-Values"><i class="fa fa-tag"></i>Values</label>
+		<input type="text" id="node-input-Values" placeholder="Values"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i>DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='DefaultExpirationDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultExpirationDays"><i class="fa fa-tag"></i>DefaultExpirationDays</label>
+		<input type="text" id="node-input-DefaultExpirationDays" placeholder="DefaultExpirationDays"></input>
+	</div> 
+	<div class="form-row" id='UriAttr' class='hiddenAttrs'>
+		<label for="node-input-Uri"><i class="fa fa-tag"></i>Uri</label>
+		<input type="text" id="node-input-Uri" placeholder="Uri"></input>
+	</div> 
+	<div class="form-row" id='ProfileObjectUniqueKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ProfileObjectUniqueKey"><i class="fa fa-tag"></i>ProfileObjectUniqueKey</label>
+		<input type="text" id="node-input-ProfileObjectUniqueKey" placeholder="ProfileObjectUniqueKey"></input>
+	</div> 
+	<div class="form-row" id='ObjectTypeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectTypeName"><i class="fa fa-tag"></i>ObjectTypeName</label>
+		<input type="text" id="node-input-ObjectTypeName" placeholder="ObjectTypeName"></input>
+	</div> 
+	<div class="form-row" id='TemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateId"><i class="fa fa-tag"></i>TemplateId</label>
+		<input type="text" id="node-input-TemplateId" placeholder="TemplateId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='MainProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MainProfileId"><i class="fa fa-tag"></i>MainProfileId</label>
+		<input type="text" id="node-input-MainProfileId" placeholder="MainProfileId"></input>
+	</div> 
+	<div class="form-row" id='ProfileIdsToBeMergedAttr' class='hiddenAttrs'>
+		<label for="node-input-ProfileIdsToBeMerged"><i class="fa fa-tag"></i>ProfileIdsToBeMerged</label>
+		<input type="text" id="node-input-ProfileIdsToBeMerged" placeholder="ProfileIdsToBeMerged"></input>
+	</div> 
+	<div class="form-row" id='ObjectAttr' class='hiddenAttrs'>
+		<label for="node-input-Object"><i class="fa fa-tag"></i>Object</label>
+		<input type="text" id="node-input-Object" placeholder="Object"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddProfileKey:[
+					'#ProfileIdAttr','#KeyNameAttr','#ValuesAttr','#DomainNameAttr'
+					],
+				CreateDomain:[
+					'#DomainNameAttr','#DefaultExpirationDaysAttr'
+					],
+				CreateProfile:[
+					'#DomainNameAttr'
+					],
+				DeleteDomain:[
+					'#DomainNameAttr'
+					],
+				DeleteIntegration:[
+					'#DomainNameAttr','#UriAttr'
+					],
+				DeleteProfile:[
+					'#ProfileIdAttr','#DomainNameAttr'
+					],
+				DeleteProfileKey:[
+					'#ProfileIdAttr','#KeyNameAttr','#ValuesAttr','#DomainNameAttr'
+					],
+				DeleteProfileObject:[
+					'#ProfileIdAttr','#ProfileObjectUniqueKeyAttr','#ObjectTypeNameAttr','#DomainNameAttr'
+					],
+				DeleteProfileObjectType:[
+					'#DomainNameAttr','#ObjectTypeNameAttr'
+					],
+				GetDomain:[
+					'#DomainNameAttr'
+					],
+				GetIntegration:[
+					'#DomainNameAttr','#UriAttr'
+					],
+				GetMatches:[
+					'#DomainNameAttr'
+					],
+				GetProfileObjectType:[
+					'#DomainNameAttr','#ObjectTypeNameAttr'
+					],
+				GetProfileObjectTypeTemplate:[
+					'#TemplateIdAttr'
+					],
+				ListAccountIntegrations:[
+					'#UriAttr'
+					],
+				ListDomains:[
+					
+					],
+				ListIntegrations:[
+					'#DomainNameAttr'
+					],
+				ListProfileObjectTypeTemplates:[
+					
+					],
+				ListProfileObjectTypes:[
+					'#DomainNameAttr'
+					],
+				ListProfileObjects:[
+					'#DomainNameAttr','#ObjectTypeNameAttr','#ProfileIdAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				MergeProfiles:[
+					'#DomainNameAttr','#MainProfileIdAttr','#ProfileIdsToBeMergedAttr'
+					],
+				PutIntegration:[
+					'#DomainNameAttr','#ObjectTypeNameAttr'
+					],
+				PutProfileObject:[
+					'#ObjectTypeNameAttr','#ObjectAttr','#DomainNameAttr'
+					],
+				PutProfileObjectType:[
+					'#DomainNameAttr','#ObjectTypeNameAttr','#DescriptionAttr'
+					],
+				SearchProfiles:[
+					'#DomainNameAttr','#KeyNameAttr','#ValuesAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateDomain:[
+					'#DomainNameAttr'
+					],
+				UpdateProfile:[
+					'#DomainNameAttr','#ProfileIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CustomerProfiles">
+<p>
+AWS CustomerProfiles
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CustomerProfiles.html">CustomerProfiles</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CustomerProfiles',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddProfileKey' },
+			
+				ProfileId: { value: ""} ,
+				KeyName: { value: ""} ,
+				Values: { value: ""} ,
+				DomainName: { value: ""} ,
+				DefaultExpirationDays: { value: ""} ,
+				Uri: { value: ""} ,
+				ProfileObjectUniqueKey: { value: ""} ,
+				ObjectTypeName: { value: ""} ,
+				TemplateId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				MainProfileId: { value: ""} ,
+				ProfileIdsToBeMerged: { value: ""} ,
+				Object: { value: ""} ,
+				Description: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CustomerProfiles " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

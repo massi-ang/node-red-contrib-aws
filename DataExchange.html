@@ -1,0 +1,261 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS DataExchange">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateDataSet">CreateDataSet</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreateRevision">CreateRevision</option>
+		
+			<option value="DeleteAsset">DeleteAsset</option>
+		
+			<option value="DeleteDataSet">DeleteDataSet</option>
+		
+			<option value="DeleteRevision">DeleteRevision</option>
+		
+			<option value="GetAsset">GetAsset</option>
+		
+			<option value="GetDataSet">GetDataSet</option>
+		
+			<option value="GetJob">GetJob</option>
+		
+			<option value="GetRevision">GetRevision</option>
+		
+			<option value="ListDataSetRevisions">ListDataSetRevisions</option>
+		
+			<option value="ListDataSets">ListDataSets</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListRevisionAssets">ListRevisionAssets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartJob">StartJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAsset">UpdateAsset</option>
+		
+			<option value="UpdateDataSet">UpdateDataSet</option>
+		
+			<option value="UpdateRevision">UpdateRevision</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i>JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='AssetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AssetType"><i class="fa fa-tag"></i>AssetType</label>
+		<input type="text" id="node-input-AssetType" placeholder="AssetType"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='DetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-Details"><i class="fa fa-tag"></i>Details</label>
+		<input type="text" id="node-input-Details" placeholder="Details"></input>
+	</div> 
+	<div class="form-row" id='DataSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSetId"><i class="fa fa-tag"></i>DataSetId</label>
+		<input type="text" id="node-input-DataSetId" placeholder="DataSetId"></input>
+	</div> 
+	<div class="form-row" id='RevisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RevisionId"><i class="fa fa-tag"></i>RevisionId</label>
+		<input type="text" id="node-input-RevisionId" placeholder="RevisionId"></input>
+	</div> 
+	<div class="form-row" id='AssetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AssetId"><i class="fa fa-tag"></i>AssetId</label>
+		<input type="text" id="node-input-AssetId" placeholder="AssetId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJob:[
+					'#JobIdAttr'
+					],
+				CreateDataSet:[
+					'#AssetTypeAttr','#DescriptionAttr','#NameAttr'
+					],
+				CreateJob:[
+					'#TypeAttr','#DetailsAttr'
+					],
+				CreateRevision:[
+					'#DataSetIdAttr'
+					],
+				DeleteAsset:[
+					'#RevisionIdAttr','#AssetIdAttr','#DataSetIdAttr'
+					],
+				DeleteDataSet:[
+					'#DataSetIdAttr'
+					],
+				DeleteRevision:[
+					'#RevisionIdAttr','#DataSetIdAttr'
+					],
+				GetAsset:[
+					'#RevisionIdAttr','#AssetIdAttr','#DataSetIdAttr'
+					],
+				GetDataSet:[
+					'#DataSetIdAttr'
+					],
+				GetJob:[
+					'#JobIdAttr'
+					],
+				GetRevision:[
+					'#RevisionIdAttr','#DataSetIdAttr'
+					],
+				ListDataSetRevisions:[
+					'#DataSetIdAttr'
+					],
+				ListDataSets:[
+					
+					],
+				ListJobs:[
+					
+					],
+				ListRevisionAssets:[
+					'#RevisionIdAttr','#DataSetIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartJob:[
+					'#JobIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#TagKeysAttr','#ResourceArnAttr'
+					],
+				UpdateAsset:[
+					'#RevisionIdAttr','#AssetIdAttr','#DataSetIdAttr','#NameAttr'
+					],
+				UpdateDataSet:[
+					'#DataSetIdAttr'
+					],
+				UpdateRevision:[
+					'#RevisionIdAttr','#DataSetIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS DataExchange">
+<p>
+AWS DataExchange
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DataExchange.html">DataExchange</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DataExchange',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJob' },
+			
+				JobId: { value: ""} ,
+				AssetType: { value: ""} ,
+				Description: { value: ""} ,
+				Name: { value: ""} ,
+				Type: { value: ""} ,
+				Details: { value: ""} ,
+				DataSetId: { value: ""} ,
+				RevisionId: { value: ""} ,
+				AssetId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DataExchange " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

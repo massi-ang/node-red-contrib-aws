@@ -1,0 +1,326 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS SSMContacts">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptPage">AcceptPage</option>
+		
+			<option value="ActivateContactChannel">ActivateContactChannel</option>
+		
+			<option value="CreateContact">CreateContact</option>
+		
+			<option value="CreateContactChannel">CreateContactChannel</option>
+		
+			<option value="DeactivateContactChannel">DeactivateContactChannel</option>
+		
+			<option value="DeleteContact">DeleteContact</option>
+		
+			<option value="DeleteContactChannel">DeleteContactChannel</option>
+		
+			<option value="DescribeEngagement">DescribeEngagement</option>
+		
+			<option value="DescribePage">DescribePage</option>
+		
+			<option value="GetContact">GetContact</option>
+		
+			<option value="GetContactChannel">GetContactChannel</option>
+		
+			<option value="GetContactPolicy">GetContactPolicy</option>
+		
+			<option value="ListContactChannels">ListContactChannels</option>
+		
+			<option value="ListContacts">ListContacts</option>
+		
+			<option value="ListEngagements">ListEngagements</option>
+		
+			<option value="ListPageReceipts">ListPageReceipts</option>
+		
+			<option value="ListPagesByContact">ListPagesByContact</option>
+		
+			<option value="ListPagesByEngagement">ListPagesByEngagement</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutContactPolicy">PutContactPolicy</option>
+		
+			<option value="SendActivationCode">SendActivationCode</option>
+		
+			<option value="StartEngagement">StartEngagement</option>
+		
+			<option value="StopEngagement">StopEngagement</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateContact">UpdateContact</option>
+		
+			<option value="UpdateContactChannel">UpdateContactChannel</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='PageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PageId"><i class="fa fa-tag"></i>PageId</label>
+		<input type="text" id="node-input-PageId" placeholder="PageId"></input>
+	</div> 
+	<div class="form-row" id='AcceptTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptType"><i class="fa fa-tag"></i>AcceptType</label>
+		<input type="text" id="node-input-AcceptType" placeholder="AcceptType"></input>
+	</div> 
+	<div class="form-row" id='AcceptCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptCode"><i class="fa fa-tag"></i>AcceptCode</label>
+		<input type="text" id="node-input-AcceptCode" placeholder="AcceptCode"></input>
+	</div> 
+	<div class="form-row" id='ContactChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactChannelId"><i class="fa fa-tag"></i>ContactChannelId</label>
+		<input type="text" id="node-input-ContactChannelId" placeholder="ContactChannelId"></input>
+	</div> 
+	<div class="form-row" id='ActivationCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActivationCode"><i class="fa fa-tag"></i>ActivationCode</label>
+		<input type="text" id="node-input-ActivationCode" placeholder="ActivationCode"></input>
+	</div> 
+	<div class="form-row" id='AliasAttr' class='hiddenAttrs'>
+		<label for="node-input-Alias"><i class="fa fa-tag"></i>Alias</label>
+		<input type="text" id="node-input-Alias" placeholder="Alias"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='PlanAttr' class='hiddenAttrs'>
+		<label for="node-input-Plan"><i class="fa fa-tag"></i>Plan</label>
+		<input type="text" id="node-input-Plan" placeholder="Plan"></input>
+	</div> 
+	<div class="form-row" id='ContactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactId"><i class="fa fa-tag"></i>ContactId</label>
+		<input type="text" id="node-input-ContactId" placeholder="ContactId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DeliveryAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryAddress"><i class="fa fa-tag"></i>DeliveryAddress</label>
+		<input type="text" id="node-input-DeliveryAddress" placeholder="DeliveryAddress"></input>
+	</div> 
+	<div class="form-row" id='EngagementIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EngagementId"><i class="fa fa-tag"></i>EngagementId</label>
+		<input type="text" id="node-input-EngagementId" placeholder="EngagementId"></input>
+	</div> 
+	<div class="form-row" id='ContactArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactArn"><i class="fa fa-tag"></i>ContactArn</label>
+		<input type="text" id="node-input-ContactArn" placeholder="ContactArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i>ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i>Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='SenderAttr' class='hiddenAttrs'>
+		<label for="node-input-Sender"><i class="fa fa-tag"></i>Sender</label>
+		<input type="text" id="node-input-Sender" placeholder="Sender"></input>
+	</div> 
+	<div class="form-row" id='SubjectAttr' class='hiddenAttrs'>
+		<label for="node-input-Subject"><i class="fa fa-tag"></i>Subject</label>
+		<input type="text" id="node-input-Subject" placeholder="Subject"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptPage:[
+					'#PageIdAttr','#AcceptTypeAttr','#AcceptCodeAttr'
+					],
+				ActivateContactChannel:[
+					'#ContactChannelIdAttr','#ActivationCodeAttr'
+					],
+				CreateContact:[
+					'#AliasAttr','#TypeAttr','#PlanAttr'
+					],
+				CreateContactChannel:[
+					'#ContactIdAttr','#NameAttr','#TypeAttr','#DeliveryAddressAttr'
+					],
+				DeactivateContactChannel:[
+					'#ContactChannelIdAttr'
+					],
+				DeleteContact:[
+					'#ContactIdAttr'
+					],
+				DeleteContactChannel:[
+					'#ContactChannelIdAttr'
+					],
+				DescribeEngagement:[
+					'#EngagementIdAttr'
+					],
+				DescribePage:[
+					'#PageIdAttr'
+					],
+				GetContact:[
+					'#ContactIdAttr'
+					],
+				GetContactChannel:[
+					'#ContactChannelIdAttr'
+					],
+				GetContactPolicy:[
+					'#ContactArnAttr'
+					],
+				ListContactChannels:[
+					'#ContactIdAttr'
+					],
+				ListContacts:[
+					
+					],
+				ListEngagements:[
+					
+					],
+				ListPageReceipts:[
+					'#PageIdAttr'
+					],
+				ListPagesByContact:[
+					'#ContactIdAttr'
+					],
+				ListPagesByEngagement:[
+					'#EngagementIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				PutContactPolicy:[
+					'#ContactArnAttr','#PolicyAttr'
+					],
+				SendActivationCode:[
+					'#ContactChannelIdAttr'
+					],
+				StartEngagement:[
+					'#ContactIdAttr','#SenderAttr','#SubjectAttr','#ContentAttr'
+					],
+				StopEngagement:[
+					'#EngagementIdAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateContact:[
+					'#ContactIdAttr'
+					],
+				UpdateContactChannel:[
+					'#ContactChannelIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS SSMContacts">
+<p>
+AWS SSMContacts
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SSMContacts.html">SSMContacts</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SSMContacts',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptPage' },
+			
+				PageId: { value: ""} ,
+				AcceptType: { value: ""} ,
+				AcceptCode: { value: ""} ,
+				ContactChannelId: { value: ""} ,
+				ActivationCode: { value: ""} ,
+				Alias: { value: ""} ,
+				Type: { value: ""} ,
+				Plan: { value: ""} ,
+				ContactId: { value: ""} ,
+				Name: { value: ""} ,
+				DeliveryAddress: { value: ""} ,
+				EngagementId: { value: ""} ,
+				ContactArn: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				Policy: { value: ""} ,
+				Sender: { value: ""} ,
+				Subject: { value: ""} ,
+				Content: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SSMContacts " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

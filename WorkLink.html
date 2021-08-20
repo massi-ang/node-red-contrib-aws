@@ -1,0 +1,341 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS WorkLink">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateDomain">AssociateDomain</option>
+		
+			<option value="AssociateWebsiteAuthorizationProvider">AssociateWebsiteAuthorizationProvider</option>
+		
+			<option value="AssociateWebsiteCertificateAuthority">AssociateWebsiteCertificateAuthority</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DescribeAuditStreamConfiguration">DescribeAuditStreamConfiguration</option>
+		
+			<option value="DescribeCompanyNetworkConfiguration">DescribeCompanyNetworkConfiguration</option>
+		
+			<option value="DescribeDevice">DescribeDevice</option>
+		
+			<option value="DescribeDevicePolicyConfiguration">DescribeDevicePolicyConfiguration</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribeFleetMetadata">DescribeFleetMetadata</option>
+		
+			<option value="DescribeIdentityProviderConfiguration">DescribeIdentityProviderConfiguration</option>
+		
+			<option value="DescribeWebsiteCertificateAuthority">DescribeWebsiteCertificateAuthority</option>
+		
+			<option value="DisassociateDomain">DisassociateDomain</option>
+		
+			<option value="DisassociateWebsiteAuthorizationProvider">DisassociateWebsiteAuthorizationProvider</option>
+		
+			<option value="DisassociateWebsiteCertificateAuthority">DisassociateWebsiteCertificateAuthority</option>
+		
+			<option value="ListDevices">ListDevices</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListFleets">ListFleets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebsiteAuthorizationProviders">ListWebsiteAuthorizationProviders</option>
+		
+			<option value="ListWebsiteCertificateAuthorities">ListWebsiteCertificateAuthorities</option>
+		
+			<option value="RestoreDomainAccess">RestoreDomainAccess</option>
+		
+			<option value="RevokeDomainAccess">RevokeDomainAccess</option>
+		
+			<option value="SignOutUser">SignOutUser</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAuditStreamConfiguration">UpdateAuditStreamConfiguration</option>
+		
+			<option value="UpdateCompanyNetworkConfiguration">UpdateCompanyNetworkConfiguration</option>
+		
+			<option value="UpdateDevicePolicyConfiguration">UpdateDevicePolicyConfiguration</option>
+		
+			<option value="UpdateDomainMetadata">UpdateDomainMetadata</option>
+		
+			<option value="UpdateFleetMetadata">UpdateFleetMetadata</option>
+		
+			<option value="UpdateIdentityProviderConfiguration">UpdateIdentityProviderConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FleetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetArn"><i class="fa fa-tag"></i>FleetArn</label>
+		<input type="text" id="node-input-FleetArn" placeholder="FleetArn"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i>DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='AcmCertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AcmCertificateArn"><i class="fa fa-tag"></i>AcmCertificateArn</label>
+		<input type="text" id="node-input-AcmCertificateArn" placeholder="AcmCertificateArn"></input>
+	</div> 
+	<div class="form-row" id='AuthorizationProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizationProviderType"><i class="fa fa-tag"></i>AuthorizationProviderType</label>
+		<input type="text" id="node-input-AuthorizationProviderType" placeholder="AuthorizationProviderType"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i>Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='FleetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetName"><i class="fa fa-tag"></i>FleetName</label>
+		<input type="text" id="node-input-FleetName" placeholder="FleetName"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceId"><i class="fa fa-tag"></i>DeviceId</label>
+		<input type="text" id="node-input-DeviceId" placeholder="DeviceId"></input>
+	</div> 
+	<div class="form-row" id='WebsiteCaIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebsiteCaId"><i class="fa fa-tag"></i>WebsiteCaId</label>
+		<input type="text" id="node-input-WebsiteCaId" placeholder="WebsiteCaId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizationProviderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizationProviderId"><i class="fa fa-tag"></i>AuthorizationProviderId</label>
+		<input type="text" id="node-input-AuthorizationProviderId" placeholder="AuthorizationProviderId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i>Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i>VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i>SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderType"><i class="fa fa-tag"></i>IdentityProviderType</label>
+		<input type="text" id="node-input-IdentityProviderType" placeholder="IdentityProviderType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateDomain:[
+					'#FleetArnAttr','#DomainNameAttr','#AcmCertificateArnAttr'
+					],
+				AssociateWebsiteAuthorizationProvider:[
+					'#FleetArnAttr','#AuthorizationProviderTypeAttr'
+					],
+				AssociateWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#CertificateAttr'
+					],
+				CreateFleet:[
+					'#FleetNameAttr'
+					],
+				DeleteFleet:[
+					'#FleetArnAttr'
+					],
+				DescribeAuditStreamConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeCompanyNetworkConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeDevice:[
+					'#FleetArnAttr','#DeviceIdAttr'
+					],
+				DescribeDevicePolicyConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeDomain:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				DescribeFleetMetadata:[
+					'#FleetArnAttr'
+					],
+				DescribeIdentityProviderConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#WebsiteCaIdAttr'
+					],
+				DisassociateDomain:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				DisassociateWebsiteAuthorizationProvider:[
+					'#FleetArnAttr','#AuthorizationProviderIdAttr'
+					],
+				DisassociateWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#WebsiteCaIdAttr'
+					],
+				ListDevices:[
+					'#FleetArnAttr'
+					],
+				ListDomains:[
+					'#FleetArnAttr'
+					],
+				ListFleets:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListWebsiteAuthorizationProviders:[
+					'#FleetArnAttr'
+					],
+				ListWebsiteCertificateAuthorities:[
+					'#FleetArnAttr'
+					],
+				RestoreDomainAccess:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				RevokeDomainAccess:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				SignOutUser:[
+					'#FleetArnAttr','#UsernameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateAuditStreamConfiguration:[
+					'#FleetArnAttr'
+					],
+				UpdateCompanyNetworkConfiguration:[
+					'#FleetArnAttr','#VpcIdAttr','#SubnetIdsAttr','#SecurityGroupIdsAttr'
+					],
+				UpdateDevicePolicyConfiguration:[
+					'#FleetArnAttr'
+					],
+				UpdateDomainMetadata:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				UpdateFleetMetadata:[
+					'#FleetArnAttr'
+					],
+				UpdateIdentityProviderConfiguration:[
+					'#FleetArnAttr','#IdentityProviderTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS WorkLink">
+<p>
+AWS WorkLink
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WorkLink.html">WorkLink</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WorkLink',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateDomain' },
+			
+				FleetArn: { value: ""} ,
+				DomainName: { value: ""} ,
+				AcmCertificateArn: { value: ""} ,
+				AuthorizationProviderType: { value: ""} ,
+				Certificate: { value: ""} ,
+				FleetName: { value: ""} ,
+				DeviceId: { value: ""} ,
+				WebsiteCaId: { value: ""} ,
+				AuthorizationProviderId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Username: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				VpcId: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				IdentityProviderType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WorkLink " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

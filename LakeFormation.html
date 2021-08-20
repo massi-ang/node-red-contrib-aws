@@ -1,0 +1,261 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS LakeFormation">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddLFTagsToResource">AddLFTagsToResource</option>
+		
+			<option value="BatchGrantPermissions">BatchGrantPermissions</option>
+		
+			<option value="BatchRevokePermissions">BatchRevokePermissions</option>
+		
+			<option value="CreateLFTag">CreateLFTag</option>
+		
+			<option value="DeleteLFTag">DeleteLFTag</option>
+		
+			<option value="DeregisterResource">DeregisterResource</option>
+		
+			<option value="DescribeResource">DescribeResource</option>
+		
+			<option value="GetDataLakeSettings">GetDataLakeSettings</option>
+		
+			<option value="GetEffectivePermissionsForPath">GetEffectivePermissionsForPath</option>
+		
+			<option value="GetLFTag">GetLFTag</option>
+		
+			<option value="GetResourceLFTags">GetResourceLFTags</option>
+		
+			<option value="GrantPermissions">GrantPermissions</option>
+		
+			<option value="ListLFTags">ListLFTags</option>
+		
+			<option value="ListPermissions">ListPermissions</option>
+		
+			<option value="ListResources">ListResources</option>
+		
+			<option value="PutDataLakeSettings">PutDataLakeSettings</option>
+		
+			<option value="RegisterResource">RegisterResource</option>
+		
+			<option value="RemoveLFTagsFromResource">RemoveLFTagsFromResource</option>
+		
+			<option value="RevokePermissions">RevokePermissions</option>
+		
+			<option value="SearchDatabasesByLFTags">SearchDatabasesByLFTags</option>
+		
+			<option value="SearchTablesByLFTags">SearchTablesByLFTags</option>
+		
+			<option value="UpdateLFTag">UpdateLFTag</option>
+		
+			<option value="UpdateResource">UpdateResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i>Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='LFTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-LFTags"><i class="fa fa-tag"></i>LFTags</label>
+		<input type="text" id="node-input-LFTags" placeholder="LFTags"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i>Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='TagKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKey"><i class="fa fa-tag"></i>TagKey</label>
+		<input type="text" id="node-input-TagKey" placeholder="TagKey"></input>
+	</div> 
+	<div class="form-row" id='TagValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-TagValues"><i class="fa fa-tag"></i>TagValues</label>
+		<input type="text" id="node-input-TagValues" placeholder="TagValues"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='PrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-Principal"><i class="fa fa-tag"></i>Principal</label>
+		<input type="text" id="node-input-Principal" placeholder="Principal"></input>
+	</div> 
+	<div class="form-row" id='PermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Permissions"><i class="fa fa-tag"></i>Permissions</label>
+		<input type="text" id="node-input-Permissions" placeholder="Permissions"></input>
+	</div> 
+	<div class="form-row" id='DataLakeSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-DataLakeSettings"><i class="fa fa-tag"></i>DataLakeSettings</label>
+		<input type="text" id="node-input-DataLakeSettings" placeholder="DataLakeSettings"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i>Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i>RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddLFTagsToResource:[
+					'#ResourceAttr','#LFTagsAttr'
+					],
+				BatchGrantPermissions:[
+					'#EntriesAttr'
+					],
+				BatchRevokePermissions:[
+					'#EntriesAttr'
+					],
+				CreateLFTag:[
+					'#TagKeyAttr','#TagValuesAttr'
+					],
+				DeleteLFTag:[
+					'#TagKeyAttr'
+					],
+				DeregisterResource:[
+					'#ResourceArnAttr'
+					],
+				DescribeResource:[
+					'#ResourceArnAttr'
+					],
+				GetDataLakeSettings:[
+					
+					],
+				GetEffectivePermissionsForPath:[
+					'#ResourceArnAttr'
+					],
+				GetLFTag:[
+					'#TagKeyAttr'
+					],
+				GetResourceLFTags:[
+					'#ResourceAttr'
+					],
+				GrantPermissions:[
+					'#PrincipalAttr','#ResourceAttr','#PermissionsAttr'
+					],
+				ListLFTags:[
+					
+					],
+				ListPermissions:[
+					
+					],
+				ListResources:[
+					
+					],
+				PutDataLakeSettings:[
+					'#DataLakeSettingsAttr'
+					],
+				RegisterResource:[
+					'#ResourceArnAttr'
+					],
+				RemoveLFTagsFromResource:[
+					'#ResourceAttr','#LFTagsAttr'
+					],
+				RevokePermissions:[
+					'#PrincipalAttr','#ResourceAttr','#PermissionsAttr'
+					],
+				SearchDatabasesByLFTags:[
+					'#ExpressionAttr'
+					],
+				SearchTablesByLFTags:[
+					'#ExpressionAttr'
+					],
+				UpdateLFTag:[
+					'#TagKeyAttr'
+					],
+				UpdateResource:[
+					'#RoleArnAttr','#ResourceArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS LakeFormation">
+<p>
+AWS LakeFormation
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LakeFormation.html">LakeFormation</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LakeFormation',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddLFTagsToResource' },
+			
+				Resource: { value: ""} ,
+				LFTags: { value: ""} ,
+				Entries: { value: ""} ,
+				TagKey: { value: ""} ,
+				TagValues: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Principal: { value: ""} ,
+				Permissions: { value: ""} ,
+				DataLakeSettings: { value: ""} ,
+				Expression: { value: ""} ,
+				RoleArn: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LakeFormation " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

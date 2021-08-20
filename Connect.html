@@ -1,0 +1,966 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS Connect">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateApprovedOrigin">AssociateApprovedOrigin</option>
+		
+			<option value="AssociateBot">AssociateBot</option>
+		
+			<option value="AssociateInstanceStorageConfig">AssociateInstanceStorageConfig</option>
+		
+			<option value="AssociateLambdaFunction">AssociateLambdaFunction</option>
+		
+			<option value="AssociateLexBot">AssociateLexBot</option>
+		
+			<option value="AssociateQueueQuickConnects">AssociateQueueQuickConnects</option>
+		
+			<option value="AssociateRoutingProfileQueues">AssociateRoutingProfileQueues</option>
+		
+			<option value="AssociateSecurityKey">AssociateSecurityKey</option>
+		
+			<option value="CreateAgentStatus">CreateAgentStatus</option>
+		
+			<option value="CreateContactFlow">CreateContactFlow</option>
+		
+			<option value="CreateHoursOfOperation">CreateHoursOfOperation</option>
+		
+			<option value="CreateInstance">CreateInstance</option>
+		
+			<option value="CreateIntegrationAssociation">CreateIntegrationAssociation</option>
+		
+			<option value="CreateQueue">CreateQueue</option>
+		
+			<option value="CreateQuickConnect">CreateQuickConnect</option>
+		
+			<option value="CreateRoutingProfile">CreateRoutingProfile</option>
+		
+			<option value="CreateUseCase">CreateUseCase</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateUserHierarchyGroup">CreateUserHierarchyGroup</option>
+		
+			<option value="DeleteHoursOfOperation">DeleteHoursOfOperation</option>
+		
+			<option value="DeleteInstance">DeleteInstance</option>
+		
+			<option value="DeleteIntegrationAssociation">DeleteIntegrationAssociation</option>
+		
+			<option value="DeleteQuickConnect">DeleteQuickConnect</option>
+		
+			<option value="DeleteUseCase">DeleteUseCase</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteUserHierarchyGroup">DeleteUserHierarchyGroup</option>
+		
+			<option value="DescribeAgentStatus">DescribeAgentStatus</option>
+		
+			<option value="DescribeContactFlow">DescribeContactFlow</option>
+		
+			<option value="DescribeHoursOfOperation">DescribeHoursOfOperation</option>
+		
+			<option value="DescribeInstance">DescribeInstance</option>
+		
+			<option value="DescribeInstanceAttribute">DescribeInstanceAttribute</option>
+		
+			<option value="DescribeInstanceStorageConfig">DescribeInstanceStorageConfig</option>
+		
+			<option value="DescribeQueue">DescribeQueue</option>
+		
+			<option value="DescribeQuickConnect">DescribeQuickConnect</option>
+		
+			<option value="DescribeRoutingProfile">DescribeRoutingProfile</option>
+		
+			<option value="DescribeUser">DescribeUser</option>
+		
+			<option value="DescribeUserHierarchyGroup">DescribeUserHierarchyGroup</option>
+		
+			<option value="DescribeUserHierarchyStructure">DescribeUserHierarchyStructure</option>
+		
+			<option value="DisassociateApprovedOrigin">DisassociateApprovedOrigin</option>
+		
+			<option value="DisassociateBot">DisassociateBot</option>
+		
+			<option value="DisassociateInstanceStorageConfig">DisassociateInstanceStorageConfig</option>
+		
+			<option value="DisassociateLambdaFunction">DisassociateLambdaFunction</option>
+		
+			<option value="DisassociateLexBot">DisassociateLexBot</option>
+		
+			<option value="DisassociateQueueQuickConnects">DisassociateQueueQuickConnects</option>
+		
+			<option value="DisassociateRoutingProfileQueues">DisassociateRoutingProfileQueues</option>
+		
+			<option value="DisassociateSecurityKey">DisassociateSecurityKey</option>
+		
+			<option value="GetContactAttributes">GetContactAttributes</option>
+		
+			<option value="GetCurrentMetricData">GetCurrentMetricData</option>
+		
+			<option value="GetFederationToken">GetFederationToken</option>
+		
+			<option value="GetMetricData">GetMetricData</option>
+		
+			<option value="ListAgentStatuses">ListAgentStatuses</option>
+		
+			<option value="ListApprovedOrigins">ListApprovedOrigins</option>
+		
+			<option value="ListBots">ListBots</option>
+		
+			<option value="ListContactFlows">ListContactFlows</option>
+		
+			<option value="ListHoursOfOperations">ListHoursOfOperations</option>
+		
+			<option value="ListInstanceAttributes">ListInstanceAttributes</option>
+		
+			<option value="ListInstanceStorageConfigs">ListInstanceStorageConfigs</option>
+		
+			<option value="ListInstances">ListInstances</option>
+		
+			<option value="ListIntegrationAssociations">ListIntegrationAssociations</option>
+		
+			<option value="ListLambdaFunctions">ListLambdaFunctions</option>
+		
+			<option value="ListLexBots">ListLexBots</option>
+		
+			<option value="ListPhoneNumbers">ListPhoneNumbers</option>
+		
+			<option value="ListPrompts">ListPrompts</option>
+		
+			<option value="ListQueueQuickConnects">ListQueueQuickConnects</option>
+		
+			<option value="ListQueues">ListQueues</option>
+		
+			<option value="ListQuickConnects">ListQuickConnects</option>
+		
+			<option value="ListRoutingProfileQueues">ListRoutingProfileQueues</option>
+		
+			<option value="ListRoutingProfiles">ListRoutingProfiles</option>
+		
+			<option value="ListSecurityKeys">ListSecurityKeys</option>
+		
+			<option value="ListSecurityProfiles">ListSecurityProfiles</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListUseCases">ListUseCases</option>
+		
+			<option value="ListUserHierarchyGroups">ListUserHierarchyGroups</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="ResumeContactRecording">ResumeContactRecording</option>
+		
+			<option value="StartChatContact">StartChatContact</option>
+		
+			<option value="StartContactRecording">StartContactRecording</option>
+		
+			<option value="StartOutboundVoiceContact">StartOutboundVoiceContact</option>
+		
+			<option value="StartTaskContact">StartTaskContact</option>
+		
+			<option value="StopContact">StopContact</option>
+		
+			<option value="StopContactRecording">StopContactRecording</option>
+		
+			<option value="SuspendContactRecording">SuspendContactRecording</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAgentStatus">UpdateAgentStatus</option>
+		
+			<option value="UpdateContactAttributes">UpdateContactAttributes</option>
+		
+			<option value="UpdateContactFlowContent">UpdateContactFlowContent</option>
+		
+			<option value="UpdateContactFlowName">UpdateContactFlowName</option>
+		
+			<option value="UpdateHoursOfOperation">UpdateHoursOfOperation</option>
+		
+			<option value="UpdateInstanceAttribute">UpdateInstanceAttribute</option>
+		
+			<option value="UpdateInstanceStorageConfig">UpdateInstanceStorageConfig</option>
+		
+			<option value="UpdateQueueHoursOfOperation">UpdateQueueHoursOfOperation</option>
+		
+			<option value="UpdateQueueMaxContacts">UpdateQueueMaxContacts</option>
+		
+			<option value="UpdateQueueName">UpdateQueueName</option>
+		
+			<option value="UpdateQueueOutboundCallerConfig">UpdateQueueOutboundCallerConfig</option>
+		
+			<option value="UpdateQueueStatus">UpdateQueueStatus</option>
+		
+			<option value="UpdateQuickConnectConfig">UpdateQuickConnectConfig</option>
+		
+			<option value="UpdateQuickConnectName">UpdateQuickConnectName</option>
+		
+			<option value="UpdateRoutingProfileConcurrency">UpdateRoutingProfileConcurrency</option>
+		
+			<option value="UpdateRoutingProfileDefaultOutboundQueue">UpdateRoutingProfileDefaultOutboundQueue</option>
+		
+			<option value="UpdateRoutingProfileName">UpdateRoutingProfileName</option>
+		
+			<option value="UpdateRoutingProfileQueues">UpdateRoutingProfileQueues</option>
+		
+			<option value="UpdateUserHierarchy">UpdateUserHierarchy</option>
+		
+			<option value="UpdateUserHierarchyGroupName">UpdateUserHierarchyGroupName</option>
+		
+			<option value="UpdateUserHierarchyStructure">UpdateUserHierarchyStructure</option>
+		
+			<option value="UpdateUserIdentityInfo">UpdateUserIdentityInfo</option>
+		
+			<option value="UpdateUserPhoneConfig">UpdateUserPhoneConfig</option>
+		
+			<option value="UpdateUserRoutingProfile">UpdateUserRoutingProfile</option>
+		
+			<option value="UpdateUserSecurityProfiles">UpdateUserSecurityProfiles</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i>InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='OriginAttr' class='hiddenAttrs'>
+		<label for="node-input-Origin"><i class="fa fa-tag"></i>Origin</label>
+		<input type="text" id="node-input-Origin" placeholder="Origin"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i>ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='StorageConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageConfig"><i class="fa fa-tag"></i>StorageConfig</label>
+		<input type="text" id="node-input-StorageConfig" placeholder="StorageConfig"></input>
+	</div> 
+	<div class="form-row" id='FunctionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionArn"><i class="fa fa-tag"></i>FunctionArn</label>
+		<input type="text" id="node-input-FunctionArn" placeholder="FunctionArn"></input>
+	</div> 
+	<div class="form-row" id='LexBotAttr' class='hiddenAttrs'>
+		<label for="node-input-LexBot"><i class="fa fa-tag"></i>LexBot</label>
+		<input type="text" id="node-input-LexBot" placeholder="LexBot"></input>
+	</div> 
+	<div class="form-row" id='QueueIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueId"><i class="fa fa-tag"></i>QueueId</label>
+		<input type="text" id="node-input-QueueId" placeholder="QueueId"></input>
+	</div> 
+	<div class="form-row" id='QuickConnectIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-QuickConnectIds"><i class="fa fa-tag"></i>QuickConnectIds</label>
+		<input type="text" id="node-input-QuickConnectIds" placeholder="QuickConnectIds"></input>
+	</div> 
+	<div class="form-row" id='RoutingProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RoutingProfileId"><i class="fa fa-tag"></i>RoutingProfileId</label>
+		<input type="text" id="node-input-RoutingProfileId" placeholder="RoutingProfileId"></input>
+	</div> 
+	<div class="form-row" id='QueueConfigsAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueConfigs"><i class="fa fa-tag"></i>QueueConfigs</label>
+		<input type="text" id="node-input-QueueConfigs" placeholder="QueueConfigs"></input>
+	</div> 
+	<div class="form-row" id='KeyAttr' class='hiddenAttrs'>
+		<label for="node-input-Key"><i class="fa fa-tag"></i>Key</label>
+		<input type="text" id="node-input-Key" placeholder="Key"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='StateAttr' class='hiddenAttrs'>
+		<label for="node-input-State"><i class="fa fa-tag"></i>State</label>
+		<input type="text" id="node-input-State" placeholder="State"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i>Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i>Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='TimeZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeZone"><i class="fa fa-tag"></i>TimeZone</label>
+		<input type="text" id="node-input-TimeZone" placeholder="TimeZone"></input>
+	</div> 
+	<div class="form-row" id='ConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-Config"><i class="fa fa-tag"></i>Config</label>
+		<input type="text" id="node-input-Config" placeholder="Config"></input>
+	</div> 
+	<div class="form-row" id='IdentityManagementTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityManagementType"><i class="fa fa-tag"></i>IdentityManagementType</label>
+		<input type="text" id="node-input-IdentityManagementType" placeholder="IdentityManagementType"></input>
+	</div> 
+	<div class="form-row" id='InboundCallsEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-InboundCallsEnabled"><i class="fa fa-tag"></i>InboundCallsEnabled</label>
+		<input type="text" id="node-input-InboundCallsEnabled" placeholder="InboundCallsEnabled"></input>
+	</div> 
+	<div class="form-row" id='OutboundCallsEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-OutboundCallsEnabled"><i class="fa fa-tag"></i>OutboundCallsEnabled</label>
+		<input type="text" id="node-input-OutboundCallsEnabled" placeholder="OutboundCallsEnabled"></input>
+	</div> 
+	<div class="form-row" id='IntegrationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationType"><i class="fa fa-tag"></i>IntegrationType</label>
+		<input type="text" id="node-input-IntegrationType" placeholder="IntegrationType"></input>
+	</div> 
+	<div class="form-row" id='IntegrationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationArn"><i class="fa fa-tag"></i>IntegrationArn</label>
+		<input type="text" id="node-input-IntegrationArn" placeholder="IntegrationArn"></input>
+	</div> 
+	<div class="form-row" id='SourceApplicationUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceApplicationUrl"><i class="fa fa-tag"></i>SourceApplicationUrl</label>
+		<input type="text" id="node-input-SourceApplicationUrl" placeholder="SourceApplicationUrl"></input>
+	</div> 
+	<div class="form-row" id='SourceApplicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceApplicationName"><i class="fa fa-tag"></i>SourceApplicationName</label>
+		<input type="text" id="node-input-SourceApplicationName" placeholder="SourceApplicationName"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i>SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='HoursOfOperationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HoursOfOperationId"><i class="fa fa-tag"></i>HoursOfOperationId</label>
+		<input type="text" id="node-input-HoursOfOperationId" placeholder="HoursOfOperationId"></input>
+	</div> 
+	<div class="form-row" id='QuickConnectConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-QuickConnectConfig"><i class="fa fa-tag"></i>QuickConnectConfig</label>
+		<input type="text" id="node-input-QuickConnectConfig" placeholder="QuickConnectConfig"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DefaultOutboundQueueIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultOutboundQueueId"><i class="fa fa-tag"></i>DefaultOutboundQueueId</label>
+		<input type="text" id="node-input-DefaultOutboundQueueId" placeholder="DefaultOutboundQueueId"></input>
+	</div> 
+	<div class="form-row" id='MediaConcurrenciesAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaConcurrencies"><i class="fa fa-tag"></i>MediaConcurrencies</label>
+		<input type="text" id="node-input-MediaConcurrencies" placeholder="MediaConcurrencies"></input>
+	</div> 
+	<div class="form-row" id='IntegrationAssociationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegrationAssociationId"><i class="fa fa-tag"></i>IntegrationAssociationId</label>
+		<input type="text" id="node-input-IntegrationAssociationId" placeholder="IntegrationAssociationId"></input>
+	</div> 
+	<div class="form-row" id='UseCaseTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-UseCaseType"><i class="fa fa-tag"></i>UseCaseType</label>
+		<input type="text" id="node-input-UseCaseType" placeholder="UseCaseType"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i>Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='PhoneConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneConfig"><i class="fa fa-tag"></i>PhoneConfig</label>
+		<input type="text" id="node-input-PhoneConfig" placeholder="PhoneConfig"></input>
+	</div> 
+	<div class="form-row" id='SecurityProfileIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityProfileIds"><i class="fa fa-tag"></i>SecurityProfileIds</label>
+		<input type="text" id="node-input-SecurityProfileIds" placeholder="SecurityProfileIds"></input>
+	</div> 
+	<div class="form-row" id='QuickConnectIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QuickConnectId"><i class="fa fa-tag"></i>QuickConnectId</label>
+		<input type="text" id="node-input-QuickConnectId" placeholder="QuickConnectId"></input>
+	</div> 
+	<div class="form-row" id='UseCaseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UseCaseId"><i class="fa fa-tag"></i>UseCaseId</label>
+		<input type="text" id="node-input-UseCaseId" placeholder="UseCaseId"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i>UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='HierarchyGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HierarchyGroupId"><i class="fa fa-tag"></i>HierarchyGroupId</label>
+		<input type="text" id="node-input-HierarchyGroupId" placeholder="HierarchyGroupId"></input>
+	</div> 
+	<div class="form-row" id='AgentStatusIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AgentStatusId"><i class="fa fa-tag"></i>AgentStatusId</label>
+		<input type="text" id="node-input-AgentStatusId" placeholder="AgentStatusId"></input>
+	</div> 
+	<div class="form-row" id='ContactFlowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactFlowId"><i class="fa fa-tag"></i>ContactFlowId</label>
+		<input type="text" id="node-input-ContactFlowId" placeholder="ContactFlowId"></input>
+	</div> 
+	<div class="form-row" id='AttributeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeType"><i class="fa fa-tag"></i>AttributeType</label>
+		<input type="text" id="node-input-AttributeType" placeholder="AttributeType"></input>
+	</div> 
+	<div class="form-row" id='AssociationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationId"><i class="fa fa-tag"></i>AssociationId</label>
+		<input type="text" id="node-input-AssociationId" placeholder="AssociationId"></input>
+	</div> 
+	<div class="form-row" id='BotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BotName"><i class="fa fa-tag"></i>BotName</label>
+		<input type="text" id="node-input-BotName" placeholder="BotName"></input>
+	</div> 
+	<div class="form-row" id='LexRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-LexRegion"><i class="fa fa-tag"></i>LexRegion</label>
+		<input type="text" id="node-input-LexRegion" placeholder="LexRegion"></input>
+	</div> 
+	<div class="form-row" id='QueueReferencesAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueReferences"><i class="fa fa-tag"></i>QueueReferences</label>
+		<input type="text" id="node-input-QueueReferences" placeholder="QueueReferences"></input>
+	</div> 
+	<div class="form-row" id='InitialContactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InitialContactId"><i class="fa fa-tag"></i>InitialContactId</label>
+		<input type="text" id="node-input-InitialContactId" placeholder="InitialContactId"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i>Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='CurrentMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-CurrentMetrics"><i class="fa fa-tag"></i>CurrentMetrics</label>
+		<input type="text" id="node-input-CurrentMetrics" placeholder="CurrentMetrics"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i>StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i>EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='HistoricalMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-HistoricalMetrics"><i class="fa fa-tag"></i>HistoricalMetrics</label>
+		<input type="text" id="node-input-HistoricalMetrics" placeholder="HistoricalMetrics"></input>
+	</div> 
+	<div class="form-row" id='LexVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-LexVersion"><i class="fa fa-tag"></i>LexVersion</label>
+		<input type="text" id="node-input-LexVersion" placeholder="LexVersion"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='ContactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ContactId"><i class="fa fa-tag"></i>ContactId</label>
+		<input type="text" id="node-input-ContactId" placeholder="ContactId"></input>
+	</div> 
+	<div class="form-row" id='ParticipantDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-ParticipantDetails"><i class="fa fa-tag"></i>ParticipantDetails</label>
+		<input type="text" id="node-input-ParticipantDetails" placeholder="ParticipantDetails"></input>
+	</div> 
+	<div class="form-row" id='VoiceRecordingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceRecordingConfiguration"><i class="fa fa-tag"></i>VoiceRecordingConfiguration</label>
+		<input type="text" id="node-input-VoiceRecordingConfiguration" placeholder="VoiceRecordingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='DestinationPhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationPhoneNumber"><i class="fa fa-tag"></i>DestinationPhoneNumber</label>
+		<input type="text" id="node-input-DestinationPhoneNumber" placeholder="DestinationPhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i>Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='ValueAttr' class='hiddenAttrs'>
+		<label for="node-input-Value"><i class="fa fa-tag"></i>Value</label>
+		<input type="text" id="node-input-Value" placeholder="Value"></input>
+	</div> 
+	<div class="form-row" id='OutboundCallerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutboundCallerConfig"><i class="fa fa-tag"></i>OutboundCallerConfig</label>
+		<input type="text" id="node-input-OutboundCallerConfig" placeholder="OutboundCallerConfig"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i>Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='HierarchyStructureAttr' class='hiddenAttrs'>
+		<label for="node-input-HierarchyStructure"><i class="fa fa-tag"></i>HierarchyStructure</label>
+		<input type="text" id="node-input-HierarchyStructure" placeholder="HierarchyStructure"></input>
+	</div> 
+	<div class="form-row" id='IdentityInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityInfo"><i class="fa fa-tag"></i>IdentityInfo</label>
+		<input type="text" id="node-input-IdentityInfo" placeholder="IdentityInfo"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateApprovedOrigin:[
+					'#InstanceIdAttr','#OriginAttr'
+					],
+				AssociateBot:[
+					'#InstanceIdAttr'
+					],
+				AssociateInstanceStorageConfig:[
+					'#InstanceIdAttr','#ResourceTypeAttr','#StorageConfigAttr'
+					],
+				AssociateLambdaFunction:[
+					'#InstanceIdAttr','#FunctionArnAttr'
+					],
+				AssociateLexBot:[
+					'#InstanceIdAttr','#LexBotAttr'
+					],
+				AssociateQueueQuickConnects:[
+					'#InstanceIdAttr','#QueueIdAttr','#QuickConnectIdsAttr'
+					],
+				AssociateRoutingProfileQueues:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr','#QueueConfigsAttr'
+					],
+				AssociateSecurityKey:[
+					'#InstanceIdAttr','#KeyAttr'
+					],
+				CreateAgentStatus:[
+					'#InstanceIdAttr','#NameAttr','#StateAttr'
+					],
+				CreateContactFlow:[
+					'#InstanceIdAttr','#NameAttr','#TypeAttr','#ContentAttr'
+					],
+				CreateHoursOfOperation:[
+					'#InstanceIdAttr','#NameAttr','#TimeZoneAttr','#ConfigAttr'
+					],
+				CreateInstance:[
+					'#IdentityManagementTypeAttr','#InboundCallsEnabledAttr','#OutboundCallsEnabledAttr'
+					],
+				CreateIntegrationAssociation:[
+					'#InstanceIdAttr','#IntegrationTypeAttr','#IntegrationArnAttr','#SourceApplicationUrlAttr','#SourceApplicationNameAttr','#SourceTypeAttr'
+					],
+				CreateQueue:[
+					'#InstanceIdAttr','#NameAttr','#HoursOfOperationIdAttr'
+					],
+				CreateQuickConnect:[
+					'#InstanceIdAttr','#NameAttr','#QuickConnectConfigAttr'
+					],
+				CreateRoutingProfile:[
+					'#InstanceIdAttr','#NameAttr','#DescriptionAttr','#DefaultOutboundQueueIdAttr','#MediaConcurrenciesAttr'
+					],
+				CreateUseCase:[
+					'#InstanceIdAttr','#IntegrationAssociationIdAttr','#UseCaseTypeAttr'
+					],
+				CreateUser:[
+					'#UsernameAttr','#PhoneConfigAttr','#SecurityProfileIdsAttr','#RoutingProfileIdAttr','#InstanceIdAttr'
+					],
+				CreateUserHierarchyGroup:[
+					'#NameAttr','#InstanceIdAttr'
+					],
+				DeleteHoursOfOperation:[
+					'#InstanceIdAttr','#HoursOfOperationIdAttr'
+					],
+				DeleteInstance:[
+					'#InstanceIdAttr'
+					],
+				DeleteIntegrationAssociation:[
+					'#InstanceIdAttr','#IntegrationAssociationIdAttr'
+					],
+				DeleteQuickConnect:[
+					'#InstanceIdAttr','#QuickConnectIdAttr'
+					],
+				DeleteUseCase:[
+					'#InstanceIdAttr','#IntegrationAssociationIdAttr','#UseCaseIdAttr'
+					],
+				DeleteUser:[
+					'#InstanceIdAttr','#UserIdAttr'
+					],
+				DeleteUserHierarchyGroup:[
+					'#HierarchyGroupIdAttr','#InstanceIdAttr'
+					],
+				DescribeAgentStatus:[
+					'#InstanceIdAttr','#AgentStatusIdAttr'
+					],
+				DescribeContactFlow:[
+					'#InstanceIdAttr','#ContactFlowIdAttr'
+					],
+				DescribeHoursOfOperation:[
+					'#InstanceIdAttr','#HoursOfOperationIdAttr'
+					],
+				DescribeInstance:[
+					'#InstanceIdAttr'
+					],
+				DescribeInstanceAttribute:[
+					'#InstanceIdAttr','#AttributeTypeAttr'
+					],
+				DescribeInstanceStorageConfig:[
+					'#InstanceIdAttr','#AssociationIdAttr','#ResourceTypeAttr'
+					],
+				DescribeQueue:[
+					'#InstanceIdAttr','#QueueIdAttr'
+					],
+				DescribeQuickConnect:[
+					'#InstanceIdAttr','#QuickConnectIdAttr'
+					],
+				DescribeRoutingProfile:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr'
+					],
+				DescribeUser:[
+					'#UserIdAttr','#InstanceIdAttr'
+					],
+				DescribeUserHierarchyGroup:[
+					'#HierarchyGroupIdAttr','#InstanceIdAttr'
+					],
+				DescribeUserHierarchyStructure:[
+					'#InstanceIdAttr'
+					],
+				DisassociateApprovedOrigin:[
+					'#InstanceIdAttr','#OriginAttr'
+					],
+				DisassociateBot:[
+					'#InstanceIdAttr'
+					],
+				DisassociateInstanceStorageConfig:[
+					'#InstanceIdAttr','#AssociationIdAttr','#ResourceTypeAttr'
+					],
+				DisassociateLambdaFunction:[
+					'#InstanceIdAttr','#FunctionArnAttr'
+					],
+				DisassociateLexBot:[
+					'#InstanceIdAttr','#BotNameAttr','#LexRegionAttr'
+					],
+				DisassociateQueueQuickConnects:[
+					'#InstanceIdAttr','#QueueIdAttr','#QuickConnectIdsAttr'
+					],
+				DisassociateRoutingProfileQueues:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr','#QueueReferencesAttr'
+					],
+				DisassociateSecurityKey:[
+					'#InstanceIdAttr','#AssociationIdAttr'
+					],
+				GetContactAttributes:[
+					'#InstanceIdAttr','#InitialContactIdAttr'
+					],
+				GetCurrentMetricData:[
+					'#InstanceIdAttr','#FiltersAttr','#CurrentMetricsAttr'
+					],
+				GetFederationToken:[
+					'#InstanceIdAttr'
+					],
+				GetMetricData:[
+					'#InstanceIdAttr','#StartTimeAttr','#EndTimeAttr','#FiltersAttr','#HistoricalMetricsAttr'
+					],
+				ListAgentStatuses:[
+					'#InstanceIdAttr'
+					],
+				ListApprovedOrigins:[
+					'#InstanceIdAttr'
+					],
+				ListBots:[
+					'#InstanceIdAttr','#LexVersionAttr'
+					],
+				ListContactFlows:[
+					'#InstanceIdAttr'
+					],
+				ListHoursOfOperations:[
+					'#InstanceIdAttr'
+					],
+				ListInstanceAttributes:[
+					'#InstanceIdAttr'
+					],
+				ListInstanceStorageConfigs:[
+					'#InstanceIdAttr','#ResourceTypeAttr'
+					],
+				ListInstances:[
+					
+					],
+				ListIntegrationAssociations:[
+					'#InstanceIdAttr'
+					],
+				ListLambdaFunctions:[
+					'#InstanceIdAttr'
+					],
+				ListLexBots:[
+					'#InstanceIdAttr'
+					],
+				ListPhoneNumbers:[
+					'#InstanceIdAttr'
+					],
+				ListPrompts:[
+					'#InstanceIdAttr'
+					],
+				ListQueueQuickConnects:[
+					'#InstanceIdAttr','#QueueIdAttr'
+					],
+				ListQueues:[
+					'#InstanceIdAttr'
+					],
+				ListQuickConnects:[
+					'#InstanceIdAttr'
+					],
+				ListRoutingProfileQueues:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr'
+					],
+				ListRoutingProfiles:[
+					'#InstanceIdAttr'
+					],
+				ListSecurityKeys:[
+					'#InstanceIdAttr'
+					],
+				ListSecurityProfiles:[
+					'#InstanceIdAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListUseCases:[
+					'#InstanceIdAttr','#IntegrationAssociationIdAttr'
+					],
+				ListUserHierarchyGroups:[
+					'#InstanceIdAttr'
+					],
+				ListUsers:[
+					'#InstanceIdAttr'
+					],
+				ResumeContactRecording:[
+					'#InstanceIdAttr','#ContactIdAttr','#InitialContactIdAttr'
+					],
+				StartChatContact:[
+					'#InstanceIdAttr','#ContactFlowIdAttr','#ParticipantDetailsAttr'
+					],
+				StartContactRecording:[
+					'#InstanceIdAttr','#ContactIdAttr','#InitialContactIdAttr','#VoiceRecordingConfigurationAttr'
+					],
+				StartOutboundVoiceContact:[
+					'#DestinationPhoneNumberAttr','#ContactFlowIdAttr','#InstanceIdAttr'
+					],
+				StartTaskContact:[
+					'#InstanceIdAttr','#ContactFlowIdAttr','#NameAttr'
+					],
+				StopContact:[
+					'#ContactIdAttr','#InstanceIdAttr'
+					],
+				StopContactRecording:[
+					'#InstanceIdAttr','#ContactIdAttr','#InitialContactIdAttr'
+					],
+				SuspendContactRecording:[
+					'#InstanceIdAttr','#ContactIdAttr','#InitialContactIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAgentStatus:[
+					'#InstanceIdAttr','#AgentStatusIdAttr'
+					],
+				UpdateContactAttributes:[
+					'#InitialContactIdAttr','#InstanceIdAttr','#AttributesAttr'
+					],
+				UpdateContactFlowContent:[
+					'#InstanceIdAttr','#ContactFlowIdAttr','#ContentAttr'
+					],
+				UpdateContactFlowName:[
+					'#InstanceIdAttr','#ContactFlowIdAttr'
+					],
+				UpdateHoursOfOperation:[
+					'#InstanceIdAttr','#HoursOfOperationIdAttr'
+					],
+				UpdateInstanceAttribute:[
+					'#InstanceIdAttr','#AttributeTypeAttr','#ValueAttr'
+					],
+				UpdateInstanceStorageConfig:[
+					'#InstanceIdAttr','#AssociationIdAttr','#ResourceTypeAttr','#StorageConfigAttr'
+					],
+				UpdateQueueHoursOfOperation:[
+					'#InstanceIdAttr','#QueueIdAttr','#HoursOfOperationIdAttr'
+					],
+				UpdateQueueMaxContacts:[
+					'#InstanceIdAttr','#QueueIdAttr'
+					],
+				UpdateQueueName:[
+					'#InstanceIdAttr','#QueueIdAttr'
+					],
+				UpdateQueueOutboundCallerConfig:[
+					'#InstanceIdAttr','#QueueIdAttr','#OutboundCallerConfigAttr'
+					],
+				UpdateQueueStatus:[
+					'#InstanceIdAttr','#QueueIdAttr','#StatusAttr'
+					],
+				UpdateQuickConnectConfig:[
+					'#InstanceIdAttr','#QuickConnectIdAttr','#QuickConnectConfigAttr'
+					],
+				UpdateQuickConnectName:[
+					'#InstanceIdAttr','#QuickConnectIdAttr'
+					],
+				UpdateRoutingProfileConcurrency:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr','#MediaConcurrenciesAttr'
+					],
+				UpdateRoutingProfileDefaultOutboundQueue:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr','#DefaultOutboundQueueIdAttr'
+					],
+				UpdateRoutingProfileName:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr'
+					],
+				UpdateRoutingProfileQueues:[
+					'#InstanceIdAttr','#RoutingProfileIdAttr','#QueueConfigsAttr'
+					],
+				UpdateUserHierarchy:[
+					'#UserIdAttr','#InstanceIdAttr'
+					],
+				UpdateUserHierarchyGroupName:[
+					'#NameAttr','#HierarchyGroupIdAttr','#InstanceIdAttr'
+					],
+				UpdateUserHierarchyStructure:[
+					'#HierarchyStructureAttr','#InstanceIdAttr'
+					],
+				UpdateUserIdentityInfo:[
+					'#IdentityInfoAttr','#UserIdAttr','#InstanceIdAttr'
+					],
+				UpdateUserPhoneConfig:[
+					'#PhoneConfigAttr','#UserIdAttr','#InstanceIdAttr'
+					],
+				UpdateUserRoutingProfile:[
+					'#RoutingProfileIdAttr','#UserIdAttr','#InstanceIdAttr'
+					],
+				UpdateUserSecurityProfiles:[
+					'#SecurityProfileIdsAttr','#UserIdAttr','#InstanceIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS Connect">
+<p>
+AWS Connect
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Connect.html">Connect</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Connect',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateApprovedOrigin' },
+			
+				InstanceId: { value: ""} ,
+				Origin: { value: ""} ,
+				ResourceType: { value: ""} ,
+				StorageConfig: { value: ""} ,
+				FunctionArn: { value: ""} ,
+				LexBot: { value: ""} ,
+				QueueId: { value: ""} ,
+				QuickConnectIds: { value: ""} ,
+				RoutingProfileId: { value: ""} ,
+				QueueConfigs: { value: ""} ,
+				Key: { value: ""} ,
+				Name: { value: ""} ,
+				State: { value: ""} ,
+				Type: { value: ""} ,
+				Content: { value: ""} ,
+				TimeZone: { value: ""} ,
+				Config: { value: ""} ,
+				IdentityManagementType: { value: ""} ,
+				InboundCallsEnabled: { value: ""} ,
+				OutboundCallsEnabled: { value: ""} ,
+				IntegrationType: { value: ""} ,
+				IntegrationArn: { value: ""} ,
+				SourceApplicationUrl: { value: ""} ,
+				SourceApplicationName: { value: ""} ,
+				SourceType: { value: ""} ,
+				HoursOfOperationId: { value: ""} ,
+				QuickConnectConfig: { value: ""} ,
+				Description: { value: ""} ,
+				DefaultOutboundQueueId: { value: ""} ,
+				MediaConcurrencies: { value: ""} ,
+				IntegrationAssociationId: { value: ""} ,
+				UseCaseType: { value: ""} ,
+				Username: { value: ""} ,
+				PhoneConfig: { value: ""} ,
+				SecurityProfileIds: { value: ""} ,
+				QuickConnectId: { value: ""} ,
+				UseCaseId: { value: ""} ,
+				UserId: { value: ""} ,
+				HierarchyGroupId: { value: ""} ,
+				AgentStatusId: { value: ""} ,
+				ContactFlowId: { value: ""} ,
+				AttributeType: { value: ""} ,
+				AssociationId: { value: ""} ,
+				BotName: { value: ""} ,
+				LexRegion: { value: ""} ,
+				QueueReferences: { value: ""} ,
+				InitialContactId: { value: ""} ,
+				Filters: { value: ""} ,
+				CurrentMetrics: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				HistoricalMetrics: { value: ""} ,
+				LexVersion: { value: ""} ,
+				resourceArn: { value: ""} ,
+				ContactId: { value: ""} ,
+				ParticipantDetails: { value: ""} ,
+				VoiceRecordingConfiguration: { value: ""} ,
+				DestinationPhoneNumber: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				Attributes: { value: ""} ,
+				Value: { value: ""} ,
+				OutboundCallerConfig: { value: ""} ,
+				Status: { value: ""} ,
+				HierarchyStructure: { value: ""} ,
+				IdentityInfo: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Connect " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,151 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ApplicationCostProfiler">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DeleteReportDefinition">DeleteReportDefinition</option>
+		
+			<option value="GetReportDefinition">GetReportDefinition</option>
+		
+			<option value="ImportApplicationUsage">ImportApplicationUsage</option>
+		
+			<option value="ListReportDefinitions">ListReportDefinitions</option>
+		
+			<option value="PutReportDefinition">PutReportDefinition</option>
+		
+			<option value="UpdateReportDefinition">UpdateReportDefinition</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='reportIdAttr' class='hiddenAttrs'>
+		<label for="node-input-reportId"><i class="fa fa-tag"></i>reportId</label>
+		<input type="text" id="node-input-reportId" placeholder="reportId"></input>
+	</div> 
+	<div class="form-row" id='sourceS3LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceS3Location"><i class="fa fa-tag"></i>sourceS3Location</label>
+		<input type="text" id="node-input-sourceS3Location" placeholder="sourceS3Location"></input>
+	</div> 
+	<div class="form-row" id='reportDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-reportDescription"><i class="fa fa-tag"></i>reportDescription</label>
+		<input type="text" id="node-input-reportDescription" placeholder="reportDescription"></input>
+	</div> 
+	<div class="form-row" id='reportFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-reportFrequency"><i class="fa fa-tag"></i>reportFrequency</label>
+		<input type="text" id="node-input-reportFrequency" placeholder="reportFrequency"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i>format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='destinationS3LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationS3Location"><i class="fa fa-tag"></i>destinationS3Location</label>
+		<input type="text" id="node-input-destinationS3Location" placeholder="destinationS3Location"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DeleteReportDefinition:[
+					'#reportIdAttr'
+					],
+				GetReportDefinition:[
+					'#reportIdAttr'
+					],
+				ImportApplicationUsage:[
+					'#sourceS3LocationAttr'
+					],
+				ListReportDefinitions:[
+					
+					],
+				PutReportDefinition:[
+					'#reportIdAttr','#reportDescriptionAttr','#reportFrequencyAttr','#formatAttr','#destinationS3LocationAttr'
+					],
+				UpdateReportDefinition:[
+					'#reportIdAttr','#reportDescriptionAttr','#reportFrequencyAttr','#formatAttr','#destinationS3LocationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ApplicationCostProfiler">
+<p>
+AWS ApplicationCostProfiler
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ApplicationCostProfiler.html">ApplicationCostProfiler</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ApplicationCostProfiler',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DeleteReportDefinition' },
+			
+				reportId: { value: ""} ,
+				sourceS3Location: { value: ""} ,
+				reportDescription: { value: ""} ,
+				reportFrequency: { value: ""} ,
+				format: { value: ""} ,
+				destinationS3Location: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ApplicationCostProfiler " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

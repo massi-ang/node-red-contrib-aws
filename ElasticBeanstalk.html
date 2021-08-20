@@ -1,0 +1,396 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ElasticBeanstalk">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AbortEnvironmentUpdate">AbortEnvironmentUpdate</option>
+		
+			<option value="ApplyEnvironmentManagedAction">ApplyEnvironmentManagedAction</option>
+		
+			<option value="AssociateEnvironmentOperationsRole">AssociateEnvironmentOperationsRole</option>
+		
+			<option value="CheckDNSAvailability">CheckDNSAvailability</option>
+		
+			<option value="ComposeEnvironments">ComposeEnvironments</option>
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateApplicationVersion">CreateApplicationVersion</option>
+		
+			<option value="CreateConfigurationTemplate">CreateConfigurationTemplate</option>
+		
+			<option value="CreateEnvironment">CreateEnvironment</option>
+		
+			<option value="CreatePlatformVersion">CreatePlatformVersion</option>
+		
+			<option value="CreateStorageLocation">CreateStorageLocation</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteApplicationVersion">DeleteApplicationVersion</option>
+		
+			<option value="DeleteConfigurationTemplate">DeleteConfigurationTemplate</option>
+		
+			<option value="DeleteEnvironmentConfiguration">DeleteEnvironmentConfiguration</option>
+		
+			<option value="DeletePlatformVersion">DeletePlatformVersion</option>
+		
+			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
+		
+			<option value="DescribeApplicationVersions">DescribeApplicationVersions</option>
+		
+			<option value="DescribeApplications">DescribeApplications</option>
+		
+			<option value="DescribeConfigurationOptions">DescribeConfigurationOptions</option>
+		
+			<option value="DescribeConfigurationSettings">DescribeConfigurationSettings</option>
+		
+			<option value="DescribeEnvironmentHealth">DescribeEnvironmentHealth</option>
+		
+			<option value="DescribeEnvironmentManagedActionHistory">DescribeEnvironmentManagedActionHistory</option>
+		
+			<option value="DescribeEnvironmentManagedActions">DescribeEnvironmentManagedActions</option>
+		
+			<option value="DescribeEnvironmentResources">DescribeEnvironmentResources</option>
+		
+			<option value="DescribeEnvironments">DescribeEnvironments</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeInstancesHealth">DescribeInstancesHealth</option>
+		
+			<option value="DescribePlatformVersion">DescribePlatformVersion</option>
+		
+			<option value="DisassociateEnvironmentOperationsRole">DisassociateEnvironmentOperationsRole</option>
+		
+			<option value="ListAvailableSolutionStacks">ListAvailableSolutionStacks</option>
+		
+			<option value="ListPlatformBranches">ListPlatformBranches</option>
+		
+			<option value="ListPlatformVersions">ListPlatformVersions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RebuildEnvironment">RebuildEnvironment</option>
+		
+			<option value="RequestEnvironmentInfo">RequestEnvironmentInfo</option>
+		
+			<option value="RestartAppServer">RestartAppServer</option>
+		
+			<option value="RetrieveEnvironmentInfo">RetrieveEnvironmentInfo</option>
+		
+			<option value="SwapEnvironmentCNAMEs">SwapEnvironmentCNAMEs</option>
+		
+			<option value="TerminateEnvironment">TerminateEnvironment</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateApplicationResourceLifecycle">UpdateApplicationResourceLifecycle</option>
+		
+			<option value="UpdateApplicationVersion">UpdateApplicationVersion</option>
+		
+			<option value="UpdateConfigurationTemplate">UpdateConfigurationTemplate</option>
+		
+			<option value="UpdateEnvironment">UpdateEnvironment</option>
+		
+			<option value="UpdateTagsForResource">UpdateTagsForResource</option>
+		
+			<option value="ValidateConfigurationSettings">ValidateConfigurationSettings</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ActionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionId"><i class="fa fa-tag"></i>ActionId</label>
+		<input type="text" id="node-input-ActionId" placeholder="ActionId"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentName"><i class="fa fa-tag"></i>EnvironmentName</label>
+		<input type="text" id="node-input-EnvironmentName" placeholder="EnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='OperationsRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationsRole"><i class="fa fa-tag"></i>OperationsRole</label>
+		<input type="text" id="node-input-OperationsRole" placeholder="OperationsRole"></input>
+	</div> 
+	<div class="form-row" id='CNAMEPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-CNAMEPrefix"><i class="fa fa-tag"></i>CNAMEPrefix</label>
+		<input type="text" id="node-input-CNAMEPrefix" placeholder="CNAMEPrefix"></input>
+	</div> 
+	<div class="form-row" id='ApplicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationName"><i class="fa fa-tag"></i>ApplicationName</label>
+		<input type="text" id="node-input-ApplicationName" placeholder="ApplicationName"></input>
+	</div> 
+	<div class="form-row" id='VersionLabelAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionLabel"><i class="fa fa-tag"></i>VersionLabel</label>
+		<input type="text" id="node-input-VersionLabel" placeholder="VersionLabel"></input>
+	</div> 
+	<div class="form-row" id='TemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateName"><i class="fa fa-tag"></i>TemplateName</label>
+		<input type="text" id="node-input-TemplateName" placeholder="TemplateName"></input>
+	</div> 
+	<div class="form-row" id='PlatformNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformName"><i class="fa fa-tag"></i>PlatformName</label>
+		<input type="text" id="node-input-PlatformName" placeholder="PlatformName"></input>
+	</div> 
+	<div class="form-row" id='PlatformVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformVersion"><i class="fa fa-tag"></i>PlatformVersion</label>
+		<input type="text" id="node-input-PlatformVersion" placeholder="PlatformVersion"></input>
+	</div> 
+	<div class="form-row" id='PlatformDefinitionBundleAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformDefinitionBundle"><i class="fa fa-tag"></i>PlatformDefinitionBundle</label>
+		<input type="text" id="node-input-PlatformDefinitionBundle" placeholder="PlatformDefinitionBundle"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='InfoTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InfoType"><i class="fa fa-tag"></i>InfoType</label>
+		<input type="text" id="node-input-InfoType" placeholder="InfoType"></input>
+	</div> 
+	<div class="form-row" id='ResourceLifecycleConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceLifecycleConfig"><i class="fa fa-tag"></i>ResourceLifecycleConfig</label>
+		<input type="text" id="node-input-ResourceLifecycleConfig" placeholder="ResourceLifecycleConfig"></input>
+	</div> 
+	<div class="form-row" id='OptionSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-OptionSettings"><i class="fa fa-tag"></i>OptionSettings</label>
+		<input type="text" id="node-input-OptionSettings" placeholder="OptionSettings"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AbortEnvironmentUpdate:[
+					
+					],
+				ApplyEnvironmentManagedAction:[
+					'#ActionIdAttr'
+					],
+				AssociateEnvironmentOperationsRole:[
+					'#EnvironmentNameAttr','#OperationsRoleAttr'
+					],
+				CheckDNSAvailability:[
+					'#CNAMEPrefixAttr'
+					],
+				ComposeEnvironments:[
+					
+					],
+				CreateApplication:[
+					'#ApplicationNameAttr'
+					],
+				CreateApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr'
+					],
+				CreateConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr'
+					],
+				CreateEnvironment:[
+					'#ApplicationNameAttr'
+					],
+				CreatePlatformVersion:[
+					'#PlatformNameAttr','#PlatformVersionAttr','#PlatformDefinitionBundleAttr'
+					],
+				CreateStorageLocation:[
+					
+					],
+				DeleteApplication:[
+					'#ApplicationNameAttr'
+					],
+				DeleteApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr'
+					],
+				DeleteConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr'
+					],
+				DeleteEnvironmentConfiguration:[
+					'#ApplicationNameAttr','#EnvironmentNameAttr'
+					],
+				DeletePlatformVersion:[
+					
+					],
+				DescribeAccountAttributes:[
+					
+					],
+				DescribeApplicationVersions:[
+					
+					],
+				DescribeApplications:[
+					
+					],
+				DescribeConfigurationOptions:[
+					
+					],
+				DescribeConfigurationSettings:[
+					'#ApplicationNameAttr'
+					],
+				DescribeEnvironmentHealth:[
+					
+					],
+				DescribeEnvironmentManagedActionHistory:[
+					
+					],
+				DescribeEnvironmentManagedActions:[
+					
+					],
+				DescribeEnvironmentResources:[
+					
+					],
+				DescribeEnvironments:[
+					
+					],
+				DescribeEvents:[
+					
+					],
+				DescribeInstancesHealth:[
+					
+					],
+				DescribePlatformVersion:[
+					
+					],
+				DisassociateEnvironmentOperationsRole:[
+					'#EnvironmentNameAttr'
+					],
+				ListAvailableSolutionStacks:[
+					
+					],
+				ListPlatformBranches:[
+					
+					],
+				ListPlatformVersions:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RebuildEnvironment:[
+					
+					],
+				RequestEnvironmentInfo:[
+					'#InfoTypeAttr'
+					],
+				RestartAppServer:[
+					
+					],
+				RetrieveEnvironmentInfo:[
+					'#InfoTypeAttr'
+					],
+				SwapEnvironmentCNAMEs:[
+					
+					],
+				TerminateEnvironment:[
+					
+					],
+				UpdateApplication:[
+					'#ApplicationNameAttr'
+					],
+				UpdateApplicationResourceLifecycle:[
+					'#ApplicationNameAttr','#ResourceLifecycleConfigAttr'
+					],
+				UpdateApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr'
+					],
+				UpdateConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr'
+					],
+				UpdateEnvironment:[
+					
+					],
+				UpdateTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ValidateConfigurationSettings:[
+					'#ApplicationNameAttr','#OptionSettingsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ElasticBeanstalk">
+<p>
+AWS ElasticBeanstalk
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticBeanstalk.html">ElasticBeanstalk</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElasticBeanstalk',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AbortEnvironmentUpdate' },
+			
+				ActionId: { value: ""} ,
+				EnvironmentName: { value: ""} ,
+				OperationsRole: { value: ""} ,
+				CNAMEPrefix: { value: ""} ,
+				ApplicationName: { value: ""} ,
+				VersionLabel: { value: ""} ,
+				TemplateName: { value: ""} ,
+				PlatformName: { value: ""} ,
+				PlatformVersion: { value: ""} ,
+				PlatformDefinitionBundle: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				InfoType: { value: ""} ,
+				ResourceLifecycleConfig: { value: ""} ,
+				OptionSettings: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElasticBeanstalk " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

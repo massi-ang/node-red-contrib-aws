@@ -1,0 +1,291 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CognitoIdentity">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateIdentityPool">CreateIdentityPool</option>
+		
+			<option value="DeleteIdentities">DeleteIdentities</option>
+		
+			<option value="DeleteIdentityPool">DeleteIdentityPool</option>
+		
+			<option value="DescribeIdentity">DescribeIdentity</option>
+		
+			<option value="DescribeIdentityPool">DescribeIdentityPool</option>
+		
+			<option value="GetCredentialsForIdentity">GetCredentialsForIdentity</option>
+		
+			<option value="GetId">GetId</option>
+		
+			<option value="GetIdentityPoolRoles">GetIdentityPoolRoles</option>
+		
+			<option value="GetOpenIdToken">GetOpenIdToken</option>
+		
+			<option value="GetOpenIdTokenForDeveloperIdentity">GetOpenIdTokenForDeveloperIdentity</option>
+		
+			<option value="GetPrincipalTagAttributeMap">GetPrincipalTagAttributeMap</option>
+		
+			<option value="ListIdentities">ListIdentities</option>
+		
+			<option value="ListIdentityPools">ListIdentityPools</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="LookupDeveloperIdentity">LookupDeveloperIdentity</option>
+		
+			<option value="MergeDeveloperIdentities">MergeDeveloperIdentities</option>
+		
+			<option value="SetIdentityPoolRoles">SetIdentityPoolRoles</option>
+		
+			<option value="SetPrincipalTagAttributeMap">SetPrincipalTagAttributeMap</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UnlinkDeveloperIdentity">UnlinkDeveloperIdentity</option>
+		
+			<option value="UnlinkIdentity">UnlinkIdentity</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateIdentityPool">UpdateIdentityPool</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IdentityPoolNameAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityPoolName"><i class="fa fa-tag"></i>IdentityPoolName</label>
+		<input type="text" id="node-input-IdentityPoolName" placeholder="IdentityPoolName"></input>
+	</div> 
+	<div class="form-row" id='AllowUnauthenticatedIdentitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowUnauthenticatedIdentities"><i class="fa fa-tag"></i>AllowUnauthenticatedIdentities</label>
+		<input type="text" id="node-input-AllowUnauthenticatedIdentities" placeholder="AllowUnauthenticatedIdentities"></input>
+	</div> 
+	<div class="form-row" id='IdentityIdsToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityIdsToDelete"><i class="fa fa-tag"></i>IdentityIdsToDelete</label>
+		<input type="text" id="node-input-IdentityIdsToDelete" placeholder="IdentityIdsToDelete"></input>
+	</div> 
+	<div class="form-row" id='IdentityPoolIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityPoolId"><i class="fa fa-tag"></i>IdentityPoolId</label>
+		<input type="text" id="node-input-IdentityPoolId" placeholder="IdentityPoolId"></input>
+	</div> 
+	<div class="form-row" id='IdentityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityId"><i class="fa fa-tag"></i>IdentityId</label>
+		<input type="text" id="node-input-IdentityId" placeholder="IdentityId"></input>
+	</div> 
+	<div class="form-row" id='LoginsAttr' class='hiddenAttrs'>
+		<label for="node-input-Logins"><i class="fa fa-tag"></i>Logins</label>
+		<input type="text" id="node-input-Logins" placeholder="Logins"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderNameAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderName"><i class="fa fa-tag"></i>IdentityProviderName</label>
+		<input type="text" id="node-input-IdentityProviderName" placeholder="IdentityProviderName"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i>MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='SourceUserIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceUserIdentifier"><i class="fa fa-tag"></i>SourceUserIdentifier</label>
+		<input type="text" id="node-input-SourceUserIdentifier" placeholder="SourceUserIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DestinationUserIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationUserIdentifier"><i class="fa fa-tag"></i>DestinationUserIdentifier</label>
+		<input type="text" id="node-input-DestinationUserIdentifier" placeholder="DestinationUserIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DeveloperProviderNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeveloperProviderName"><i class="fa fa-tag"></i>DeveloperProviderName</label>
+		<input type="text" id="node-input-DeveloperProviderName" placeholder="DeveloperProviderName"></input>
+	</div> 
+	<div class="form-row" id='RolesAttr' class='hiddenAttrs'>
+		<label for="node-input-Roles"><i class="fa fa-tag"></i>Roles</label>
+		<input type="text" id="node-input-Roles" placeholder="Roles"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DeveloperUserIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DeveloperUserIdentifier"><i class="fa fa-tag"></i>DeveloperUserIdentifier</label>
+		<input type="text" id="node-input-DeveloperUserIdentifier" placeholder="DeveloperUserIdentifier"></input>
+	</div> 
+	<div class="form-row" id='LoginsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-LoginsToRemove"><i class="fa fa-tag"></i>LoginsToRemove</label>
+		<input type="text" id="node-input-LoginsToRemove" placeholder="LoginsToRemove"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateIdentityPool:[
+					'#IdentityPoolNameAttr','#AllowUnauthenticatedIdentitiesAttr'
+					],
+				DeleteIdentities:[
+					'#IdentityIdsToDeleteAttr'
+					],
+				DeleteIdentityPool:[
+					'#IdentityPoolIdAttr'
+					],
+				DescribeIdentity:[
+					'#IdentityIdAttr'
+					],
+				DescribeIdentityPool:[
+					'#IdentityPoolIdAttr'
+					],
+				GetCredentialsForIdentity:[
+					'#IdentityIdAttr'
+					],
+				GetId:[
+					'#IdentityPoolIdAttr'
+					],
+				GetIdentityPoolRoles:[
+					'#IdentityPoolIdAttr'
+					],
+				GetOpenIdToken:[
+					'#IdentityIdAttr'
+					],
+				GetOpenIdTokenForDeveloperIdentity:[
+					'#IdentityPoolIdAttr','#LoginsAttr'
+					],
+				GetPrincipalTagAttributeMap:[
+					'#IdentityPoolIdAttr','#IdentityProviderNameAttr'
+					],
+				ListIdentities:[
+					'#IdentityPoolIdAttr','#MaxResultsAttr'
+					],
+				ListIdentityPools:[
+					'#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				LookupDeveloperIdentity:[
+					'#IdentityPoolIdAttr'
+					],
+				MergeDeveloperIdentities:[
+					'#SourceUserIdentifierAttr','#DestinationUserIdentifierAttr','#DeveloperProviderNameAttr','#IdentityPoolIdAttr'
+					],
+				SetIdentityPoolRoles:[
+					'#IdentityPoolIdAttr','#RolesAttr'
+					],
+				SetPrincipalTagAttributeMap:[
+					'#IdentityPoolIdAttr','#IdentityProviderNameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UnlinkDeveloperIdentity:[
+					'#IdentityIdAttr','#IdentityPoolIdAttr','#DeveloperProviderNameAttr','#DeveloperUserIdentifierAttr'
+					],
+				UnlinkIdentity:[
+					'#IdentityIdAttr','#LoginsAttr','#LoginsToRemoveAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateIdentityPool:[
+					
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CognitoIdentity">
+<p>
+AWS CognitoIdentity
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CognitoIdentity.html">CognitoIdentity</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CognitoIdentity',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateIdentityPool' },
+			
+				IdentityPoolName: { value: ""} ,
+				AllowUnauthenticatedIdentities: { value: ""} ,
+				IdentityIdsToDelete: { value: ""} ,
+				IdentityPoolId: { value: ""} ,
+				IdentityId: { value: ""} ,
+				Logins: { value: ""} ,
+				IdentityProviderName: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				SourceUserIdentifier: { value: ""} ,
+				DestinationUserIdentifier: { value: ""} ,
+				DeveloperProviderName: { value: ""} ,
+				Roles: { value: ""} ,
+				Tags: { value: ""} ,
+				DeveloperUserIdentifier: { value: ""} ,
+				LoginsToRemove: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CognitoIdentity " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

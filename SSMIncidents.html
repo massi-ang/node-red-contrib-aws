@@ -1,0 +1,326 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS SSMIncidents">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateReplicationSet">CreateReplicationSet</option>
+		
+			<option value="CreateResponsePlan">CreateResponsePlan</option>
+		
+			<option value="CreateTimelineEvent">CreateTimelineEvent</option>
+		
+			<option value="DeleteIncidentRecord">DeleteIncidentRecord</option>
+		
+			<option value="DeleteReplicationSet">DeleteReplicationSet</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteResponsePlan">DeleteResponsePlan</option>
+		
+			<option value="DeleteTimelineEvent">DeleteTimelineEvent</option>
+		
+			<option value="GetIncidentRecord">GetIncidentRecord</option>
+		
+			<option value="GetReplicationSet">GetReplicationSet</option>
+		
+			<option value="GetResourcePolicies">GetResourcePolicies</option>
+		
+			<option value="GetResponsePlan">GetResponsePlan</option>
+		
+			<option value="GetTimelineEvent">GetTimelineEvent</option>
+		
+			<option value="ListIncidentRecords">ListIncidentRecords</option>
+		
+			<option value="ListRelatedItems">ListRelatedItems</option>
+		
+			<option value="ListReplicationSets">ListReplicationSets</option>
+		
+			<option value="ListResponsePlans">ListResponsePlans</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTimelineEvents">ListTimelineEvents</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="StartIncident">StartIncident</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDeletionProtection">UpdateDeletionProtection</option>
+		
+			<option value="UpdateIncidentRecord">UpdateIncidentRecord</option>
+		
+			<option value="UpdateRelatedItems">UpdateRelatedItems</option>
+		
+			<option value="UpdateReplicationSet">UpdateReplicationSet</option>
+		
+			<option value="UpdateResponsePlan">UpdateResponsePlan</option>
+		
+			<option value="UpdateTimelineEvent">UpdateTimelineEvent</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='regionsAttr' class='hiddenAttrs'>
+		<label for="node-input-regions"><i class="fa fa-tag"></i>regions</label>
+		<input type="text" id="node-input-regions" placeholder="regions"></input>
+	</div> 
+	<div class="form-row" id='incidentTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-incidentTemplate"><i class="fa fa-tag"></i>incidentTemplate</label>
+		<input type="text" id="node-input-incidentTemplate" placeholder="incidentTemplate"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i>name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='eventDataAttr' class='hiddenAttrs'>
+		<label for="node-input-eventData"><i class="fa fa-tag"></i>eventData</label>
+		<input type="text" id="node-input-eventData" placeholder="eventData"></input>
+	</div> 
+	<div class="form-row" id='eventTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-eventTime"><i class="fa fa-tag"></i>eventTime</label>
+		<input type="text" id="node-input-eventTime" placeholder="eventTime"></input>
+	</div> 
+	<div class="form-row" id='eventTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-eventType"><i class="fa fa-tag"></i>eventType</label>
+		<input type="text" id="node-input-eventType" placeholder="eventType"></input>
+	</div> 
+	<div class="form-row" id='incidentRecordArnAttr' class='hiddenAttrs'>
+		<label for="node-input-incidentRecordArn"><i class="fa fa-tag"></i>incidentRecordArn</label>
+		<input type="text" id="node-input-incidentRecordArn" placeholder="incidentRecordArn"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i>arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='policyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-policyId"><i class="fa fa-tag"></i>policyId</label>
+		<input type="text" id="node-input-policyId" placeholder="policyId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i>resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='eventIdAttr' class='hiddenAttrs'>
+		<label for="node-input-eventId"><i class="fa fa-tag"></i>eventId</label>
+		<input type="text" id="node-input-eventId" placeholder="eventId"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i>policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='responsePlanArnAttr' class='hiddenAttrs'>
+		<label for="node-input-responsePlanArn"><i class="fa fa-tag"></i>responsePlanArn</label>
+		<input type="text" id="node-input-responsePlanArn" placeholder="responsePlanArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i>tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i>tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='deletionProtectedAttr' class='hiddenAttrs'>
+		<label for="node-input-deletionProtected"><i class="fa fa-tag"></i>deletionProtected</label>
+		<input type="text" id="node-input-deletionProtected" placeholder="deletionProtected"></input>
+	</div> 
+	<div class="form-row" id='relatedItemsUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-relatedItemsUpdate"><i class="fa fa-tag"></i>relatedItemsUpdate</label>
+		<input type="text" id="node-input-relatedItemsUpdate" placeholder="relatedItemsUpdate"></input>
+	</div> 
+	<div class="form-row" id='actionsAttr' class='hiddenAttrs'>
+		<label for="node-input-actions"><i class="fa fa-tag"></i>actions</label>
+		<input type="text" id="node-input-actions" placeholder="actions"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateReplicationSet:[
+					'#regionsAttr'
+					],
+				CreateResponsePlan:[
+					'#incidentTemplateAttr','#nameAttr'
+					],
+				CreateTimelineEvent:[
+					'#eventDataAttr','#eventTimeAttr','#eventTypeAttr','#incidentRecordArnAttr'
+					],
+				DeleteIncidentRecord:[
+					'#arnAttr'
+					],
+				DeleteReplicationSet:[
+					'#arnAttr'
+					],
+				DeleteResourcePolicy:[
+					'#policyIdAttr','#resourceArnAttr'
+					],
+				DeleteResponsePlan:[
+					'#arnAttr'
+					],
+				DeleteTimelineEvent:[
+					'#eventIdAttr','#incidentRecordArnAttr'
+					],
+				GetIncidentRecord:[
+					'#arnAttr'
+					],
+				GetReplicationSet:[
+					'#arnAttr'
+					],
+				GetResourcePolicies:[
+					'#resourceArnAttr'
+					],
+				GetResponsePlan:[
+					'#arnAttr'
+					],
+				GetTimelineEvent:[
+					'#eventIdAttr','#incidentRecordArnAttr'
+					],
+				ListIncidentRecords:[
+					
+					],
+				ListRelatedItems:[
+					'#incidentRecordArnAttr'
+					],
+				ListReplicationSets:[
+					
+					],
+				ListResponsePlans:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListTimelineEvents:[
+					'#incidentRecordArnAttr'
+					],
+				PutResourcePolicy:[
+					'#policyAttr','#resourceArnAttr'
+					],
+				StartIncident:[
+					'#responsePlanArnAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateDeletionProtection:[
+					'#arnAttr','#deletionProtectedAttr'
+					],
+				UpdateIncidentRecord:[
+					'#arnAttr'
+					],
+				UpdateRelatedItems:[
+					'#incidentRecordArnAttr','#relatedItemsUpdateAttr'
+					],
+				UpdateReplicationSet:[
+					'#actionsAttr','#arnAttr'
+					],
+				UpdateResponsePlan:[
+					'#arnAttr'
+					],
+				UpdateTimelineEvent:[
+					'#eventIdAttr','#incidentRecordArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS SSMIncidents">
+<p>
+AWS SSMIncidents
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SSMIncidents.html">SSMIncidents</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SSMIncidents',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateReplicationSet' },
+			
+				regions: { value: ""} ,
+				incidentTemplate: { value: ""} ,
+				name: { value: ""} ,
+				eventData: { value: ""} ,
+				eventTime: { value: ""} ,
+				eventType: { value: ""} ,
+				incidentRecordArn: { value: ""} ,
+				arn: { value: ""} ,
+				policyId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				eventId: { value: ""} ,
+				policy: { value: ""} ,
+				responsePlanArn: { value: ""} ,
+				tags: { value: ""} ,
+				tagKeys: { value: ""} ,
+				deletionProtected: { value: ""} ,
+				relatedItemsUpdate: { value: ""} ,
+				actions: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SSMIncidents " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

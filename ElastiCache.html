@@ -1,0 +1,601 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ElastiCache">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="AuthorizeCacheSecurityGroupIngress">AuthorizeCacheSecurityGroupIngress</option>
+		
+			<option value="BatchApplyUpdateAction">BatchApplyUpdateAction</option>
+		
+			<option value="BatchStopUpdateAction">BatchStopUpdateAction</option>
+		
+			<option value="CompleteMigration">CompleteMigration</option>
+		
+			<option value="CopySnapshot">CopySnapshot</option>
+		
+			<option value="CreateCacheCluster">CreateCacheCluster</option>
+		
+			<option value="CreateCacheParameterGroup">CreateCacheParameterGroup</option>
+		
+			<option value="CreateCacheSecurityGroup">CreateCacheSecurityGroup</option>
+		
+			<option value="CreateCacheSubnetGroup">CreateCacheSubnetGroup</option>
+		
+			<option value="CreateGlobalReplicationGroup">CreateGlobalReplicationGroup</option>
+		
+			<option value="CreateReplicationGroup">CreateReplicationGroup</option>
+		
+			<option value="CreateSnapshot">CreateSnapshot</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateUserGroup">CreateUserGroup</option>
+		
+			<option value="DecreaseNodeGroupsInGlobalReplicationGroup">DecreaseNodeGroupsInGlobalReplicationGroup</option>
+		
+			<option value="DecreaseReplicaCount">DecreaseReplicaCount</option>
+		
+			<option value="DeleteCacheCluster">DeleteCacheCluster</option>
+		
+			<option value="DeleteCacheParameterGroup">DeleteCacheParameterGroup</option>
+		
+			<option value="DeleteCacheSecurityGroup">DeleteCacheSecurityGroup</option>
+		
+			<option value="DeleteCacheSubnetGroup">DeleteCacheSubnetGroup</option>
+		
+			<option value="DeleteGlobalReplicationGroup">DeleteGlobalReplicationGroup</option>
+		
+			<option value="DeleteReplicationGroup">DeleteReplicationGroup</option>
+		
+			<option value="DeleteSnapshot">DeleteSnapshot</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteUserGroup">DeleteUserGroup</option>
+		
+			<option value="DescribeCacheClusters">DescribeCacheClusters</option>
+		
+			<option value="DescribeCacheEngineVersions">DescribeCacheEngineVersions</option>
+		
+			<option value="DescribeCacheParameterGroups">DescribeCacheParameterGroups</option>
+		
+			<option value="DescribeCacheParameters">DescribeCacheParameters</option>
+		
+			<option value="DescribeCacheSecurityGroups">DescribeCacheSecurityGroups</option>
+		
+			<option value="DescribeCacheSubnetGroups">DescribeCacheSubnetGroups</option>
+		
+			<option value="DescribeEngineDefaultParameters">DescribeEngineDefaultParameters</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeGlobalReplicationGroups">DescribeGlobalReplicationGroups</option>
+		
+			<option value="DescribeReplicationGroups">DescribeReplicationGroups</option>
+		
+			<option value="DescribeReservedCacheNodes">DescribeReservedCacheNodes</option>
+		
+			<option value="DescribeReservedCacheNodesOfferings">DescribeReservedCacheNodesOfferings</option>
+		
+			<option value="DescribeServiceUpdates">DescribeServiceUpdates</option>
+		
+			<option value="DescribeSnapshots">DescribeSnapshots</option>
+		
+			<option value="DescribeUpdateActions">DescribeUpdateActions</option>
+		
+			<option value="DescribeUserGroups">DescribeUserGroups</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="DisassociateGlobalReplicationGroup">DisassociateGlobalReplicationGroup</option>
+		
+			<option value="FailoverGlobalReplicationGroup">FailoverGlobalReplicationGroup</option>
+		
+			<option value="IncreaseNodeGroupsInGlobalReplicationGroup">IncreaseNodeGroupsInGlobalReplicationGroup</option>
+		
+			<option value="IncreaseReplicaCount">IncreaseReplicaCount</option>
+		
+			<option value="ListAllowedNodeTypeModifications">ListAllowedNodeTypeModifications</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyCacheCluster">ModifyCacheCluster</option>
+		
+			<option value="ModifyCacheParameterGroup">ModifyCacheParameterGroup</option>
+		
+			<option value="ModifyCacheSubnetGroup">ModifyCacheSubnetGroup</option>
+		
+			<option value="ModifyGlobalReplicationGroup">ModifyGlobalReplicationGroup</option>
+		
+			<option value="ModifyReplicationGroup">ModifyReplicationGroup</option>
+		
+			<option value="ModifyReplicationGroupShardConfiguration">ModifyReplicationGroupShardConfiguration</option>
+		
+			<option value="ModifyUser">ModifyUser</option>
+		
+			<option value="ModifyUserGroup">ModifyUserGroup</option>
+		
+			<option value="PurchaseReservedCacheNodesOffering">PurchaseReservedCacheNodesOffering</option>
+		
+			<option value="RebalanceSlotsInGlobalReplicationGroup">RebalanceSlotsInGlobalReplicationGroup</option>
+		
+			<option value="RebootCacheCluster">RebootCacheCluster</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetCacheParameterGroup">ResetCacheParameterGroup</option>
+		
+			<option value="RevokeCacheSecurityGroupIngress">RevokeCacheSecurityGroupIngress</option>
+		
+			<option value="StartMigration">StartMigration</option>
+		
+			<option value="TestFailover">TestFailover</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i>ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='CacheSecurityGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSecurityGroupName"><i class="fa fa-tag"></i>CacheSecurityGroupName</label>
+		<input type="text" id="node-input-CacheSecurityGroupName" placeholder="CacheSecurityGroupName"></input>
+	</div> 
+	<div class="form-row" id='EC2SecurityGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2SecurityGroupName"><i class="fa fa-tag"></i>EC2SecurityGroupName</label>
+		<input type="text" id="node-input-EC2SecurityGroupName" placeholder="EC2SecurityGroupName"></input>
+	</div> 
+	<div class="form-row" id='EC2SecurityGroupOwnerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2SecurityGroupOwnerId"><i class="fa fa-tag"></i>EC2SecurityGroupOwnerId</label>
+		<input type="text" id="node-input-EC2SecurityGroupOwnerId" placeholder="EC2SecurityGroupOwnerId"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdateName"><i class="fa fa-tag"></i>ServiceUpdateName</label>
+		<input type="text" id="node-input-ServiceUpdateName" placeholder="ServiceUpdateName"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupId"><i class="fa fa-tag"></i>ReplicationGroupId</label>
+		<input type="text" id="node-input-ReplicationGroupId" placeholder="ReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='SourceSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceSnapshotName"><i class="fa fa-tag"></i>SourceSnapshotName</label>
+		<input type="text" id="node-input-SourceSnapshotName" placeholder="SourceSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='TargetSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetSnapshotName"><i class="fa fa-tag"></i>TargetSnapshotName</label>
+		<input type="text" id="node-input-TargetSnapshotName" placeholder="TargetSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='CacheClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheClusterId"><i class="fa fa-tag"></i>CacheClusterId</label>
+		<input type="text" id="node-input-CacheClusterId" placeholder="CacheClusterId"></input>
+	</div> 
+	<div class="form-row" id='CacheParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheParameterGroupName"><i class="fa fa-tag"></i>CacheParameterGroupName</label>
+		<input type="text" id="node-input-CacheParameterGroupName" placeholder="CacheParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='CacheParameterGroupFamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheParameterGroupFamily"><i class="fa fa-tag"></i>CacheParameterGroupFamily</label>
+		<input type="text" id="node-input-CacheParameterGroupFamily" placeholder="CacheParameterGroupFamily"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i>Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='CacheSubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSubnetGroupName"><i class="fa fa-tag"></i>CacheSubnetGroupName</label>
+		<input type="text" id="node-input-CacheSubnetGroupName" placeholder="CacheSubnetGroupName"></input>
+	</div> 
+	<div class="form-row" id='CacheSubnetGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSubnetGroupDescription"><i class="fa fa-tag"></i>CacheSubnetGroupDescription</label>
+		<input type="text" id="node-input-CacheSubnetGroupDescription" placeholder="CacheSubnetGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i>SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='GlobalReplicationGroupIdSuffixAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalReplicationGroupIdSuffix"><i class="fa fa-tag"></i>GlobalReplicationGroupIdSuffix</label>
+		<input type="text" id="node-input-GlobalReplicationGroupIdSuffix" placeholder="GlobalReplicationGroupIdSuffix"></input>
+	</div> 
+	<div class="form-row" id='PrimaryReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryReplicationGroupId"><i class="fa fa-tag"></i>PrimaryReplicationGroupId</label>
+		<input type="text" id="node-input-PrimaryReplicationGroupId" placeholder="PrimaryReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupDescription"><i class="fa fa-tag"></i>ReplicationGroupDescription</label>
+		<input type="text" id="node-input-ReplicationGroupDescription" placeholder="ReplicationGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotName"><i class="fa fa-tag"></i>SnapshotName</label>
+		<input type="text" id="node-input-SnapshotName" placeholder="SnapshotName"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i>UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i>UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i>Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='AccessStringAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessString"><i class="fa fa-tag"></i>AccessString</label>
+		<input type="text" id="node-input-AccessString" placeholder="AccessString"></input>
+	</div> 
+	<div class="form-row" id='UserGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserGroupId"><i class="fa fa-tag"></i>UserGroupId</label>
+		<input type="text" id="node-input-UserGroupId" placeholder="UserGroupId"></input>
+	</div> 
+	<div class="form-row" id='GlobalReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalReplicationGroupId"><i class="fa fa-tag"></i>GlobalReplicationGroupId</label>
+		<input type="text" id="node-input-GlobalReplicationGroupId" placeholder="GlobalReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupCountAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupCount"><i class="fa fa-tag"></i>NodeGroupCount</label>
+		<input type="text" id="node-input-NodeGroupCount" placeholder="NodeGroupCount"></input>
+	</div> 
+	<div class="form-row" id='ApplyImmediatelyAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyImmediately"><i class="fa fa-tag"></i>ApplyImmediately</label>
+		<input type="text" id="node-input-ApplyImmediately" placeholder="ApplyImmediately"></input>
+	</div> 
+	<div class="form-row" id='RetainPrimaryReplicationGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainPrimaryReplicationGroup"><i class="fa fa-tag"></i>RetainPrimaryReplicationGroup</label>
+		<input type="text" id="node-input-RetainPrimaryReplicationGroup" placeholder="RetainPrimaryReplicationGroup"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupRegion"><i class="fa fa-tag"></i>ReplicationGroupRegion</label>
+		<input type="text" id="node-input-ReplicationGroupRegion" placeholder="ReplicationGroupRegion"></input>
+	</div> 
+	<div class="form-row" id='PrimaryRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryRegion"><i class="fa fa-tag"></i>PrimaryRegion</label>
+		<input type="text" id="node-input-PrimaryRegion" placeholder="PrimaryRegion"></input>
+	</div> 
+	<div class="form-row" id='ParameterNameValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterNameValues"><i class="fa fa-tag"></i>ParameterNameValues</label>
+		<input type="text" id="node-input-ParameterNameValues" placeholder="ParameterNameValues"></input>
+	</div> 
+	<div class="form-row" id='ReservedCacheNodesOfferingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservedCacheNodesOfferingId"><i class="fa fa-tag"></i>ReservedCacheNodesOfferingId</label>
+		<input type="text" id="node-input-ReservedCacheNodesOfferingId" placeholder="ReservedCacheNodesOfferingId"></input>
+	</div> 
+	<div class="form-row" id='CacheNodeIdsToRebootAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheNodeIdsToReboot"><i class="fa fa-tag"></i>CacheNodeIdsToReboot</label>
+		<input type="text" id="node-input-CacheNodeIdsToReboot" placeholder="CacheNodeIdsToReboot"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='CustomerNodeEndpointListAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerNodeEndpointList"><i class="fa fa-tag"></i>CustomerNodeEndpointList</label>
+		<input type="text" id="node-input-CustomerNodeEndpointList" placeholder="CustomerNodeEndpointList"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupId"><i class="fa fa-tag"></i>NodeGroupId</label>
+		<input type="text" id="node-input-NodeGroupId" placeholder="NodeGroupId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToResource:[
+					'#ResourceNameAttr','#TagsAttr'
+					],
+				AuthorizeCacheSecurityGroupIngress:[
+					'#CacheSecurityGroupNameAttr','#EC2SecurityGroupNameAttr','#EC2SecurityGroupOwnerIdAttr'
+					],
+				BatchApplyUpdateAction:[
+					'#ServiceUpdateNameAttr'
+					],
+				BatchStopUpdateAction:[
+					'#ServiceUpdateNameAttr'
+					],
+				CompleteMigration:[
+					'#ReplicationGroupIdAttr'
+					],
+				CopySnapshot:[
+					'#SourceSnapshotNameAttr','#TargetSnapshotNameAttr'
+					],
+				CreateCacheCluster:[
+					'#CacheClusterIdAttr'
+					],
+				CreateCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr','#CacheParameterGroupFamilyAttr','#DescriptionAttr'
+					],
+				CreateCacheSecurityGroup:[
+					'#CacheSecurityGroupNameAttr','#DescriptionAttr'
+					],
+				CreateCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr','#CacheSubnetGroupDescriptionAttr','#SubnetIdsAttr'
+					],
+				CreateGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdSuffixAttr','#PrimaryReplicationGroupIdAttr'
+					],
+				CreateReplicationGroup:[
+					'#ReplicationGroupIdAttr','#ReplicationGroupDescriptionAttr'
+					],
+				CreateSnapshot:[
+					'#SnapshotNameAttr'
+					],
+				CreateUser:[
+					'#UserIdAttr','#UserNameAttr','#EngineAttr','#AccessStringAttr'
+					],
+				CreateUserGroup:[
+					'#UserGroupIdAttr','#EngineAttr'
+					],
+				DecreaseNodeGroupsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#NodeGroupCountAttr','#ApplyImmediatelyAttr'
+					],
+				DecreaseReplicaCount:[
+					'#ReplicationGroupIdAttr','#ApplyImmediatelyAttr'
+					],
+				DeleteCacheCluster:[
+					'#CacheClusterIdAttr'
+					],
+				DeleteCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr'
+					],
+				DeleteCacheSecurityGroup:[
+					'#CacheSecurityGroupNameAttr'
+					],
+				DeleteCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr'
+					],
+				DeleteGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#RetainPrimaryReplicationGroupAttr'
+					],
+				DeleteReplicationGroup:[
+					'#ReplicationGroupIdAttr'
+					],
+				DeleteSnapshot:[
+					'#SnapshotNameAttr'
+					],
+				DeleteUser:[
+					'#UserIdAttr'
+					],
+				DeleteUserGroup:[
+					'#UserGroupIdAttr'
+					],
+				DescribeCacheClusters:[
+					
+					],
+				DescribeCacheEngineVersions:[
+					
+					],
+				DescribeCacheParameterGroups:[
+					
+					],
+				DescribeCacheParameters:[
+					'#CacheParameterGroupNameAttr'
+					],
+				DescribeCacheSecurityGroups:[
+					
+					],
+				DescribeCacheSubnetGroups:[
+					
+					],
+				DescribeEngineDefaultParameters:[
+					'#CacheParameterGroupFamilyAttr'
+					],
+				DescribeEvents:[
+					
+					],
+				DescribeGlobalReplicationGroups:[
+					
+					],
+				DescribeReplicationGroups:[
+					
+					],
+				DescribeReservedCacheNodes:[
+					
+					],
+				DescribeReservedCacheNodesOfferings:[
+					
+					],
+				DescribeServiceUpdates:[
+					
+					],
+				DescribeSnapshots:[
+					
+					],
+				DescribeUpdateActions:[
+					
+					],
+				DescribeUserGroups:[
+					
+					],
+				DescribeUsers:[
+					
+					],
+				DisassociateGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ReplicationGroupIdAttr','#ReplicationGroupRegionAttr'
+					],
+				FailoverGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#PrimaryRegionAttr','#PrimaryReplicationGroupIdAttr'
+					],
+				IncreaseNodeGroupsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#NodeGroupCountAttr','#ApplyImmediatelyAttr'
+					],
+				IncreaseReplicaCount:[
+					'#ReplicationGroupIdAttr','#ApplyImmediatelyAttr'
+					],
+				ListAllowedNodeTypeModifications:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceNameAttr'
+					],
+				ModifyCacheCluster:[
+					'#CacheClusterIdAttr'
+					],
+				ModifyCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr','#ParameterNameValuesAttr'
+					],
+				ModifyCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr'
+					],
+				ModifyGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ApplyImmediatelyAttr'
+					],
+				ModifyReplicationGroup:[
+					'#ReplicationGroupIdAttr'
+					],
+				ModifyReplicationGroupShardConfiguration:[
+					'#ReplicationGroupIdAttr','#NodeGroupCountAttr','#ApplyImmediatelyAttr'
+					],
+				ModifyUser:[
+					'#UserIdAttr'
+					],
+				ModifyUserGroup:[
+					'#UserGroupIdAttr'
+					],
+				PurchaseReservedCacheNodesOffering:[
+					'#ReservedCacheNodesOfferingIdAttr'
+					],
+				RebalanceSlotsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ApplyImmediatelyAttr'
+					],
+				RebootCacheCluster:[
+					'#CacheClusterIdAttr','#CacheNodeIdsToRebootAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceNameAttr','#TagKeysAttr'
+					],
+				ResetCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr'
+					],
+				RevokeCacheSecurityGroupIngress:[
+					'#CacheSecurityGroupNameAttr','#EC2SecurityGroupNameAttr','#EC2SecurityGroupOwnerIdAttr'
+					],
+				StartMigration:[
+					'#ReplicationGroupIdAttr','#CustomerNodeEndpointListAttr'
+					],
+				TestFailover:[
+					'#ReplicationGroupIdAttr','#NodeGroupIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ElastiCache">
+<p>
+AWS ElastiCache
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElastiCache.html">ElastiCache</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElastiCache',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToResource' },
+			
+				ResourceName: { value: ""} ,
+				Tags: { value: ""} ,
+				CacheSecurityGroupName: { value: ""} ,
+				EC2SecurityGroupName: { value: ""} ,
+				EC2SecurityGroupOwnerId: { value: ""} ,
+				ServiceUpdateName: { value: ""} ,
+				ReplicationGroupId: { value: ""} ,
+				SourceSnapshotName: { value: ""} ,
+				TargetSnapshotName: { value: ""} ,
+				CacheClusterId: { value: ""} ,
+				CacheParameterGroupName: { value: ""} ,
+				CacheParameterGroupFamily: { value: ""} ,
+				Description: { value: ""} ,
+				CacheSubnetGroupName: { value: ""} ,
+				CacheSubnetGroupDescription: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				GlobalReplicationGroupIdSuffix: { value: ""} ,
+				PrimaryReplicationGroupId: { value: ""} ,
+				ReplicationGroupDescription: { value: ""} ,
+				SnapshotName: { value: ""} ,
+				UserId: { value: ""} ,
+				UserName: { value: ""} ,
+				Engine: { value: ""} ,
+				AccessString: { value: ""} ,
+				UserGroupId: { value: ""} ,
+				GlobalReplicationGroupId: { value: ""} ,
+				NodeGroupCount: { value: ""} ,
+				ApplyImmediately: { value: ""} ,
+				RetainPrimaryReplicationGroup: { value: ""} ,
+				ReplicationGroupRegion: { value: ""} ,
+				PrimaryRegion: { value: ""} ,
+				ParameterNameValues: { value: ""} ,
+				ReservedCacheNodesOfferingId: { value: ""} ,
+				CacheNodeIdsToReboot: { value: ""} ,
+				TagKeys: { value: ""} ,
+				CustomerNodeEndpointList: { value: ""} ,
+				NodeGroupId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElastiCache " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

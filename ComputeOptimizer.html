@@ -1,0 +1,191 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS ComputeOptimizer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DescribeRecommendationExportJobs">DescribeRecommendationExportJobs</option>
+		
+			<option value="ExportAutoScalingGroupRecommendations">ExportAutoScalingGroupRecommendations</option>
+		
+			<option value="ExportEBSVolumeRecommendations">ExportEBSVolumeRecommendations</option>
+		
+			<option value="ExportEC2InstanceRecommendations">ExportEC2InstanceRecommendations</option>
+		
+			<option value="ExportLambdaFunctionRecommendations">ExportLambdaFunctionRecommendations</option>
+		
+			<option value="GetAutoScalingGroupRecommendations">GetAutoScalingGroupRecommendations</option>
+		
+			<option value="GetEBSVolumeRecommendations">GetEBSVolumeRecommendations</option>
+		
+			<option value="GetEC2InstanceRecommendations">GetEC2InstanceRecommendations</option>
+		
+			<option value="GetEC2RecommendationProjectedMetrics">GetEC2RecommendationProjectedMetrics</option>
+		
+			<option value="GetEnrollmentStatus">GetEnrollmentStatus</option>
+		
+			<option value="GetLambdaFunctionRecommendations">GetLambdaFunctionRecommendations</option>
+		
+			<option value="GetRecommendationSummaries">GetRecommendationSummaries</option>
+		
+			<option value="UpdateEnrollmentStatus">UpdateEnrollmentStatus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='s3DestinationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-s3DestinationConfig"><i class="fa fa-tag"></i>s3DestinationConfig</label>
+		<input type="text" id="node-input-s3DestinationConfig" placeholder="s3DestinationConfig"></input>
+	</div> 
+	<div class="form-row" id='instanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceArn"><i class="fa fa-tag"></i>instanceArn</label>
+		<input type="text" id="node-input-instanceArn" placeholder="instanceArn"></input>
+	</div> 
+	<div class="form-row" id='statAttr' class='hiddenAttrs'>
+		<label for="node-input-stat"><i class="fa fa-tag"></i>stat</label>
+		<input type="text" id="node-input-stat" placeholder="stat"></input>
+	</div> 
+	<div class="form-row" id='periodAttr' class='hiddenAttrs'>
+		<label for="node-input-period"><i class="fa fa-tag"></i>period</label>
+		<input type="text" id="node-input-period" placeholder="period"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i>startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i>endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i>status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DescribeRecommendationExportJobs:[
+					
+					],
+				ExportAutoScalingGroupRecommendations:[
+					'#s3DestinationConfigAttr'
+					],
+				ExportEBSVolumeRecommendations:[
+					'#s3DestinationConfigAttr'
+					],
+				ExportEC2InstanceRecommendations:[
+					'#s3DestinationConfigAttr'
+					],
+				ExportLambdaFunctionRecommendations:[
+					'#s3DestinationConfigAttr'
+					],
+				GetAutoScalingGroupRecommendations:[
+					
+					],
+				GetEBSVolumeRecommendations:[
+					
+					],
+				GetEC2InstanceRecommendations:[
+					
+					],
+				GetEC2RecommendationProjectedMetrics:[
+					'#instanceArnAttr','#statAttr','#periodAttr','#startTimeAttr','#endTimeAttr'
+					],
+				GetEnrollmentStatus:[
+					
+					],
+				GetLambdaFunctionRecommendations:[
+					
+					],
+				GetRecommendationSummaries:[
+					
+					],
+				UpdateEnrollmentStatus:[
+					'#statusAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS ComputeOptimizer">
+<p>
+AWS ComputeOptimizer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ComputeOptimizer.html">ComputeOptimizer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ComputeOptimizer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DescribeRecommendationExportJobs' },
+			
+				s3DestinationConfig: { value: ""} ,
+				instanceArn: { value: ""} ,
+				stat: { value: ""} ,
+				period: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				status: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ComputeOptimizer " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

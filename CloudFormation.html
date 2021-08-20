@@ -1,0 +1,521 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS CloudFormation">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ActivateType">ActivateType</option>
+		
+			<option value="BatchDescribeTypeConfigurations">BatchDescribeTypeConfigurations</option>
+		
+			<option value="CancelUpdateStack">CancelUpdateStack</option>
+		
+			<option value="ContinueUpdateRollback">ContinueUpdateRollback</option>
+		
+			<option value="CreateChangeSet">CreateChangeSet</option>
+		
+			<option value="CreateStack">CreateStack</option>
+		
+			<option value="CreateStackInstances">CreateStackInstances</option>
+		
+			<option value="CreateStackSet">CreateStackSet</option>
+		
+			<option value="DeactivateType">DeactivateType</option>
+		
+			<option value="DeleteChangeSet">DeleteChangeSet</option>
+		
+			<option value="DeleteStack">DeleteStack</option>
+		
+			<option value="DeleteStackInstances">DeleteStackInstances</option>
+		
+			<option value="DeleteStackSet">DeleteStackSet</option>
+		
+			<option value="DeregisterType">DeregisterType</option>
+		
+			<option value="DescribeAccountLimits">DescribeAccountLimits</option>
+		
+			<option value="DescribeChangeSet">DescribeChangeSet</option>
+		
+			<option value="DescribePublisher">DescribePublisher</option>
+		
+			<option value="DescribeStackDriftDetectionStatus">DescribeStackDriftDetectionStatus</option>
+		
+			<option value="DescribeStackEvents">DescribeStackEvents</option>
+		
+			<option value="DescribeStackInstance">DescribeStackInstance</option>
+		
+			<option value="DescribeStackResource">DescribeStackResource</option>
+		
+			<option value="DescribeStackResourceDrifts">DescribeStackResourceDrifts</option>
+		
+			<option value="DescribeStackResources">DescribeStackResources</option>
+		
+			<option value="DescribeStackSet">DescribeStackSet</option>
+		
+			<option value="DescribeStackSetOperation">DescribeStackSetOperation</option>
+		
+			<option value="DescribeStacks">DescribeStacks</option>
+		
+			<option value="DescribeType">DescribeType</option>
+		
+			<option value="DescribeTypeRegistration">DescribeTypeRegistration</option>
+		
+			<option value="DetectStackDrift">DetectStackDrift</option>
+		
+			<option value="DetectStackResourceDrift">DetectStackResourceDrift</option>
+		
+			<option value="DetectStackSetDrift">DetectStackSetDrift</option>
+		
+			<option value="EstimateTemplateCost">EstimateTemplateCost</option>
+		
+			<option value="ExecuteChangeSet">ExecuteChangeSet</option>
+		
+			<option value="GetStackPolicy">GetStackPolicy</option>
+		
+			<option value="GetTemplate">GetTemplate</option>
+		
+			<option value="GetTemplateSummary">GetTemplateSummary</option>
+		
+			<option value="ImportStacksToStackSet">ImportStacksToStackSet</option>
+		
+			<option value="ListChangeSets">ListChangeSets</option>
+		
+			<option value="ListExports">ListExports</option>
+		
+			<option value="ListImports">ListImports</option>
+		
+			<option value="ListStackInstances">ListStackInstances</option>
+		
+			<option value="ListStackResources">ListStackResources</option>
+		
+			<option value="ListStackSetOperationResults">ListStackSetOperationResults</option>
+		
+			<option value="ListStackSetOperations">ListStackSetOperations</option>
+		
+			<option value="ListStackSets">ListStackSets</option>
+		
+			<option value="ListStacks">ListStacks</option>
+		
+			<option value="ListTypeRegistrations">ListTypeRegistrations</option>
+		
+			<option value="ListTypeVersions">ListTypeVersions</option>
+		
+			<option value="ListTypes">ListTypes</option>
+		
+			<option value="PublishType">PublishType</option>
+		
+			<option value="RecordHandlerProgress">RecordHandlerProgress</option>
+		
+			<option value="RegisterPublisher">RegisterPublisher</option>
+		
+			<option value="RegisterType">RegisterType</option>
+		
+			<option value="SetStackPolicy">SetStackPolicy</option>
+		
+			<option value="SetTypeConfiguration">SetTypeConfiguration</option>
+		
+			<option value="SetTypeDefaultVersion">SetTypeDefaultVersion</option>
+		
+			<option value="SignalResource">SignalResource</option>
+		
+			<option value="StopStackSetOperation">StopStackSetOperation</option>
+		
+			<option value="TestType">TestType</option>
+		
+			<option value="UpdateStack">UpdateStack</option>
+		
+			<option value="UpdateStackInstances">UpdateStackInstances</option>
+		
+			<option value="UpdateStackSet">UpdateStackSet</option>
+		
+			<option value="UpdateTerminationProtection">UpdateTerminationProtection</option>
+		
+			<option value="ValidateTemplate">ValidateTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TypeConfigurationIdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeConfigurationIdentifiers"><i class="fa fa-tag"></i>TypeConfigurationIdentifiers</label>
+		<input type="text" id="node-input-TypeConfigurationIdentifiers" placeholder="TypeConfigurationIdentifiers"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i>StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetName"><i class="fa fa-tag"></i>ChangeSetName</label>
+		<input type="text" id="node-input-ChangeSetName" placeholder="ChangeSetName"></input>
+	</div> 
+	<div class="form-row" id='StackSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackSetName"><i class="fa fa-tag"></i>StackSetName</label>
+		<input type="text" id="node-input-StackSetName" placeholder="StackSetName"></input>
+	</div> 
+	<div class="form-row" id='RegionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Regions"><i class="fa fa-tag"></i>Regions</label>
+		<input type="text" id="node-input-Regions" placeholder="Regions"></input>
+	</div> 
+	<div class="form-row" id='RetainStacksAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainStacks"><i class="fa fa-tag"></i>RetainStacks</label>
+		<input type="text" id="node-input-RetainStacks" placeholder="RetainStacks"></input>
+	</div> 
+	<div class="form-row" id='StackDriftDetectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StackDriftDetectionId"><i class="fa fa-tag"></i>StackDriftDetectionId</label>
+		<input type="text" id="node-input-StackDriftDetectionId" placeholder="StackDriftDetectionId"></input>
+	</div> 
+	<div class="form-row" id='StackInstanceAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-StackInstanceAccount"><i class="fa fa-tag"></i>StackInstanceAccount</label>
+		<input type="text" id="node-input-StackInstanceAccount" placeholder="StackInstanceAccount"></input>
+	</div> 
+	<div class="form-row" id='StackInstanceRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-StackInstanceRegion"><i class="fa fa-tag"></i>StackInstanceRegion</label>
+		<input type="text" id="node-input-StackInstanceRegion" placeholder="StackInstanceRegion"></input>
+	</div> 
+	<div class="form-row" id='LogicalResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LogicalResourceId"><i class="fa fa-tag"></i>LogicalResourceId</label>
+		<input type="text" id="node-input-LogicalResourceId" placeholder="LogicalResourceId"></input>
+	</div> 
+	<div class="form-row" id='OperationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationId"><i class="fa fa-tag"></i>OperationId</label>
+		<input type="text" id="node-input-OperationId" placeholder="OperationId"></input>
+	</div> 
+	<div class="form-row" id='RegistrationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistrationToken"><i class="fa fa-tag"></i>RegistrationToken</label>
+		<input type="text" id="node-input-RegistrationToken" placeholder="RegistrationToken"></input>
+	</div> 
+	<div class="form-row" id='StackIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-StackIds"><i class="fa fa-tag"></i>StackIds</label>
+		<input type="text" id="node-input-StackIds" placeholder="StackIds"></input>
+	</div> 
+	<div class="form-row" id='ExportNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportName"><i class="fa fa-tag"></i>ExportName</label>
+		<input type="text" id="node-input-ExportName" placeholder="ExportName"></input>
+	</div> 
+	<div class="form-row" id='BearerTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-BearerToken"><i class="fa fa-tag"></i>BearerToken</label>
+		<input type="text" id="node-input-BearerToken" placeholder="BearerToken"></input>
+	</div> 
+	<div class="form-row" id='OperationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationStatus"><i class="fa fa-tag"></i>OperationStatus</label>
+		<input type="text" id="node-input-OperationStatus" placeholder="OperationStatus"></input>
+	</div> 
+	<div class="form-row" id='TypeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeName"><i class="fa fa-tag"></i>TypeName</label>
+		<input type="text" id="node-input-TypeName" placeholder="TypeName"></input>
+	</div> 
+	<div class="form-row" id='SchemaHandlerPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaHandlerPackage"><i class="fa fa-tag"></i>SchemaHandlerPackage</label>
+		<input type="text" id="node-input-SchemaHandlerPackage" placeholder="SchemaHandlerPackage"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i>Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='UniqueIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UniqueId"><i class="fa fa-tag"></i>UniqueId</label>
+		<input type="text" id="node-input-UniqueId" placeholder="UniqueId"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i>Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='EnableTerminationProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableTerminationProtection"><i class="fa fa-tag"></i>EnableTerminationProtection</label>
+		<input type="text" id="node-input-EnableTerminationProtection" placeholder="EnableTerminationProtection"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ActivateType:[
+					
+					],
+				BatchDescribeTypeConfigurations:[
+					'#TypeConfigurationIdentifiersAttr'
+					],
+				CancelUpdateStack:[
+					'#StackNameAttr'
+					],
+				ContinueUpdateRollback:[
+					'#StackNameAttr'
+					],
+				CreateChangeSet:[
+					'#StackNameAttr','#ChangeSetNameAttr'
+					],
+				CreateStack:[
+					'#StackNameAttr'
+					],
+				CreateStackInstances:[
+					'#StackSetNameAttr','#RegionsAttr'
+					],
+				CreateStackSet:[
+					'#StackSetNameAttr'
+					],
+				DeactivateType:[
+					
+					],
+				DeleteChangeSet:[
+					'#ChangeSetNameAttr'
+					],
+				DeleteStack:[
+					'#StackNameAttr'
+					],
+				DeleteStackInstances:[
+					'#StackSetNameAttr','#RegionsAttr','#RetainStacksAttr'
+					],
+				DeleteStackSet:[
+					'#StackSetNameAttr'
+					],
+				DeregisterType:[
+					
+					],
+				DescribeAccountLimits:[
+					
+					],
+				DescribeChangeSet:[
+					'#ChangeSetNameAttr'
+					],
+				DescribePublisher:[
+					
+					],
+				DescribeStackDriftDetectionStatus:[
+					'#StackDriftDetectionIdAttr'
+					],
+				DescribeStackEvents:[
+					
+					],
+				DescribeStackInstance:[
+					'#StackSetNameAttr','#StackInstanceAccountAttr','#StackInstanceRegionAttr'
+					],
+				DescribeStackResource:[
+					'#StackNameAttr','#LogicalResourceIdAttr'
+					],
+				DescribeStackResourceDrifts:[
+					'#StackNameAttr'
+					],
+				DescribeStackResources:[
+					
+					],
+				DescribeStackSet:[
+					'#StackSetNameAttr'
+					],
+				DescribeStackSetOperation:[
+					'#StackSetNameAttr','#OperationIdAttr'
+					],
+				DescribeStacks:[
+					
+					],
+				DescribeType:[
+					
+					],
+				DescribeTypeRegistration:[
+					'#RegistrationTokenAttr'
+					],
+				DetectStackDrift:[
+					'#StackNameAttr'
+					],
+				DetectStackResourceDrift:[
+					'#StackNameAttr','#LogicalResourceIdAttr'
+					],
+				DetectStackSetDrift:[
+					'#StackSetNameAttr'
+					],
+				EstimateTemplateCost:[
+					
+					],
+				ExecuteChangeSet:[
+					'#ChangeSetNameAttr'
+					],
+				GetStackPolicy:[
+					'#StackNameAttr'
+					],
+				GetTemplate:[
+					
+					],
+				GetTemplateSummary:[
+					
+					],
+				ImportStacksToStackSet:[
+					'#StackSetNameAttr','#StackIdsAttr'
+					],
+				ListChangeSets:[
+					'#StackNameAttr'
+					],
+				ListExports:[
+					
+					],
+				ListImports:[
+					'#ExportNameAttr'
+					],
+				ListStackInstances:[
+					'#StackSetNameAttr'
+					],
+				ListStackResources:[
+					'#StackNameAttr'
+					],
+				ListStackSetOperationResults:[
+					'#StackSetNameAttr','#OperationIdAttr'
+					],
+				ListStackSetOperations:[
+					'#StackSetNameAttr'
+					],
+				ListStackSets:[
+					
+					],
+				ListStacks:[
+					
+					],
+				ListTypeRegistrations:[
+					
+					],
+				ListTypeVersions:[
+					
+					],
+				ListTypes:[
+					
+					],
+				PublishType:[
+					
+					],
+				RecordHandlerProgress:[
+					'#BearerTokenAttr','#OperationStatusAttr'
+					],
+				RegisterPublisher:[
+					
+					],
+				RegisterType:[
+					'#TypeNameAttr','#SchemaHandlerPackageAttr'
+					],
+				SetStackPolicy:[
+					'#StackNameAttr'
+					],
+				SetTypeConfiguration:[
+					'#ConfigurationAttr'
+					],
+				SetTypeDefaultVersion:[
+					
+					],
+				SignalResource:[
+					'#StackNameAttr','#LogicalResourceIdAttr','#UniqueIdAttr','#StatusAttr'
+					],
+				StopStackSetOperation:[
+					'#StackSetNameAttr','#OperationIdAttr'
+					],
+				TestType:[
+					
+					],
+				UpdateStack:[
+					'#StackNameAttr'
+					],
+				UpdateStackInstances:[
+					'#StackSetNameAttr','#RegionsAttr'
+					],
+				UpdateStackSet:[
+					'#StackSetNameAttr'
+					],
+				UpdateTerminationProtection:[
+					'#EnableTerminationProtectionAttr','#StackNameAttr'
+					],
+				ValidateTemplate:[
+					
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS CloudFormation">
+<p>
+AWS CloudFormation
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudFormation.html">CloudFormation</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudFormation',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ActivateType' },
+			
+				TypeConfigurationIdentifiers: { value: ""} ,
+				StackName: { value: ""} ,
+				ChangeSetName: { value: ""} ,
+				StackSetName: { value: ""} ,
+				Regions: { value: ""} ,
+				RetainStacks: { value: ""} ,
+				StackDriftDetectionId: { value: ""} ,
+				StackInstanceAccount: { value: ""} ,
+				StackInstanceRegion: { value: ""} ,
+				LogicalResourceId: { value: ""} ,
+				OperationId: { value: ""} ,
+				RegistrationToken: { value: ""} ,
+				StackIds: { value: ""} ,
+				ExportName: { value: ""} ,
+				BearerToken: { value: ""} ,
+				OperationStatus: { value: ""} ,
+				TypeName: { value: ""} ,
+				SchemaHandlerPackage: { value: ""} ,
+				Configuration: { value: ""} ,
+				UniqueId: { value: ""} ,
+				Status: { value: ""} ,
+				EnableTerminationProtection: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudFormation " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

@@ -1,0 +1,166 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS SimpleDB">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteAttributes">BatchDeleteAttributes</option>
+		
+			<option value="BatchPutAttributes">BatchPutAttributes</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="DeleteAttributes">DeleteAttributes</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DomainMetadata">DomainMetadata</option>
+		
+			<option value="GetAttributes">GetAttributes</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="PutAttributes">PutAttributes</option>
+		
+			<option value="Select">Select</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i>DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='ItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-Items"><i class="fa fa-tag"></i>Items</label>
+		<input type="text" id="node-input-Items" placeholder="Items"></input>
+	</div> 
+	<div class="form-row" id='ItemNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ItemName"><i class="fa fa-tag"></i>ItemName</label>
+		<input type="text" id="node-input-ItemName" placeholder="ItemName"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i>Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='SelectExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-SelectExpression"><i class="fa fa-tag"></i>SelectExpression</label>
+		<input type="text" id="node-input-SelectExpression" placeholder="SelectExpression"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteAttributes:[
+					'#DomainNameAttr','#ItemsAttr'
+					],
+				BatchPutAttributes:[
+					'#DomainNameAttr','#ItemsAttr'
+					],
+				CreateDomain:[
+					'#DomainNameAttr'
+					],
+				DeleteAttributes:[
+					'#DomainNameAttr','#ItemNameAttr'
+					],
+				DeleteDomain:[
+					'#DomainNameAttr'
+					],
+				DomainMetadata:[
+					'#DomainNameAttr'
+					],
+				GetAttributes:[
+					'#DomainNameAttr','#ItemNameAttr'
+					],
+				ListDomains:[
+					
+					],
+				PutAttributes:[
+					'#DomainNameAttr','#ItemNameAttr','#AttributesAttr'
+					],
+				Select:[
+					'#SelectExpressionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS SimpleDB">
+<p>
+AWS SimpleDB
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SimpleDB.html">SimpleDB</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SimpleDB',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteAttributes' },
+			
+				DomainName: { value: ""} ,
+				Items: { value: ""} ,
+				ItemName: { value: ""} ,
+				Attributes: { value: ""} ,
+				SelectExpression: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SimpleDB " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+

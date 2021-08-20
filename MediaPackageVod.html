@@ -1,0 +1,211 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/x-red" data-template-name="AWS MediaPackageVod">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ConfigureLogs">ConfigureLogs</option>
+		
+			<option value="CreateAsset">CreateAsset</option>
+		
+			<option value="CreatePackagingConfiguration">CreatePackagingConfiguration</option>
+		
+			<option value="CreatePackagingGroup">CreatePackagingGroup</option>
+		
+			<option value="DeleteAsset">DeleteAsset</option>
+		
+			<option value="DeletePackagingConfiguration">DeletePackagingConfiguration</option>
+		
+			<option value="DeletePackagingGroup">DeletePackagingGroup</option>
+		
+			<option value="DescribeAsset">DescribeAsset</option>
+		
+			<option value="DescribePackagingConfiguration">DescribePackagingConfiguration</option>
+		
+			<option value="DescribePackagingGroup">DescribePackagingGroup</option>
+		
+			<option value="ListAssets">ListAssets</option>
+		
+			<option value="ListPackagingConfigurations">ListPackagingConfigurations</option>
+		
+			<option value="ListPackagingGroups">ListPackagingGroups</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdatePackagingGroup">UpdatePackagingGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i>Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i>SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='PackagingGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PackagingGroupId"><i class="fa fa-tag"></i>PackagingGroupId</label>
+		<input type="text" id="node-input-PackagingGroupId" placeholder="PackagingGroupId"></input>
+	</div> 
+	<div class="form-row" id='SourceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceRoleArn"><i class="fa fa-tag"></i>SourceRoleArn</label>
+		<input type="text" id="node-input-SourceRoleArn" placeholder="SourceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i>ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i>Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i>TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ConfigureLogs:[
+					'#IdAttr'
+					],
+				CreateAsset:[
+					'#SourceArnAttr','#IdAttr','#PackagingGroupIdAttr','#SourceRoleArnAttr'
+					],
+				CreatePackagingConfiguration:[
+					'#IdAttr','#PackagingGroupIdAttr'
+					],
+				CreatePackagingGroup:[
+					'#IdAttr'
+					],
+				DeleteAsset:[
+					'#IdAttr'
+					],
+				DeletePackagingConfiguration:[
+					'#IdAttr'
+					],
+				DeletePackagingGroup:[
+					'#IdAttr'
+					],
+				DescribeAsset:[
+					'#IdAttr'
+					],
+				DescribePackagingConfiguration:[
+					'#IdAttr'
+					],
+				DescribePackagingGroup:[
+					'#IdAttr'
+					],
+				ListAssets:[
+					
+					],
+				ListPackagingConfigurations:[
+					
+					],
+				ListPackagingGroups:[
+					
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#TagKeysAttr','#ResourceArnAttr'
+					],
+				UpdatePackagingGroup:[
+					'#IdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/x-red" data-help-name="AWS MediaPackageVod">
+<p>
+AWS MediaPackageVod
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaPackageVod.html">MediaPackageVod</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaPackageVod',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ConfigureLogs' },
+			
+				Id: { value: ""} ,
+				SourceArn: { value: ""} ,
+				PackagingGroupId: { value: ""} ,
+				SourceRoleArn: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaPackageVod " + this.operation;
+		},
+		oneditprepare: function () {
+
+		}
+	});
+</script>
+
