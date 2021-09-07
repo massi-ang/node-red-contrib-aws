@@ -1,0 +1,334 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ElasticTranscoder">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="CreatePreset">CreatePreset</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DeletePreset">DeletePreset</option>
+		
+			<option value="ListJobsByPipeline">ListJobsByPipeline</option>
+		
+			<option value="ListJobsByStatus">ListJobsByStatus</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListPresets">ListPresets</option>
+		
+			<option value="ReadJob">ReadJob</option>
+		
+			<option value="ReadPipeline">ReadPipeline</option>
+		
+			<option value="ReadPreset">ReadPreset</option>
+		
+			<option value="TestRole">TestRole</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		
+			<option value="UpdatePipelineNotifications">UpdatePipelineNotifications</option>
+		
+			<option value="UpdatePipelineStatus">UpdatePipelineStatus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='PipelineIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineId"><i class="fa fa-tag"></i> PipelineId</label>
+		<input type="text" id="node-input-PipelineId" placeholder="PipelineId"></input>
+	</div> 
+	<div class="form-row" id='InputAttr' class='hiddenAttrs'>
+		<label for="node-input-Input"><i class="fa fa-tag"></i> Input</label>
+		<input type="text" id="node-input-Input" placeholder="Input"></input>
+	</div> 
+	<div class="form-row" id='InputsAttr' class='hiddenAttrs'>
+		<label for="node-input-Inputs"><i class="fa fa-tag"></i> Inputs</label>
+		<input type="text" id="node-input-Inputs" placeholder="Inputs"></input>
+	</div> 
+	<div class="form-row" id='OutputAttr' class='hiddenAttrs'>
+		<label for="node-input-Output"><i class="fa fa-tag"></i> Output</label>
+		<input type="text" id="node-input-Output" placeholder="Output"></input>
+	</div> 
+	<div class="form-row" id='OutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-Outputs"><i class="fa fa-tag"></i> Outputs</label>
+		<input type="text" id="node-input-Outputs" placeholder="Outputs"></input>
+	</div> 
+	<div class="form-row" id='OutputKeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputKeyPrefix"><i class="fa fa-tag"></i> OutputKeyPrefix</label>
+		<input type="text" id="node-input-OutputKeyPrefix" placeholder="OutputKeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='PlaylistsAttr' class='hiddenAttrs'>
+		<label for="node-input-Playlists"><i class="fa fa-tag"></i> Playlists</label>
+		<input type="text" id="node-input-Playlists" placeholder="Playlists"></input>
+	</div> 
+	<div class="form-row" id='UserMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-UserMetadata"><i class="fa fa-tag"></i> UserMetadata</label>
+		<input type="text" id="node-input-UserMetadata" placeholder="UserMetadata"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='InputBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-InputBucket"><i class="fa fa-tag"></i> InputBucket</label>
+		<input type="text" id="node-input-InputBucket" placeholder="InputBucket"></input>
+	</div> 
+	<div class="form-row" id='OutputBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputBucket"><i class="fa fa-tag"></i> OutputBucket</label>
+		<input type="text" id="node-input-OutputBucket" placeholder="OutputBucket"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i> Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='AwsKmsKeyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AwsKmsKeyArn"><i class="fa fa-tag"></i> AwsKmsKeyArn</label>
+		<input type="text" id="node-input-AwsKmsKeyArn" placeholder="AwsKmsKeyArn"></input>
+	</div> 
+	<div class="form-row" id='NotificationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Notifications"><i class="fa fa-tag"></i> Notifications</label>
+		<input type="text" id="node-input-Notifications" placeholder="Notifications"></input>
+	</div> 
+	<div class="form-row" id='ContentConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentConfig"><i class="fa fa-tag"></i> ContentConfig</label>
+		<input type="text" id="node-input-ContentConfig" placeholder="ContentConfig"></input>
+	</div> 
+	<div class="form-row" id='ThumbnailConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ThumbnailConfig"><i class="fa fa-tag"></i> ThumbnailConfig</label>
+		<input type="text" id="node-input-ThumbnailConfig" placeholder="ThumbnailConfig"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ContainerAttr' class='hiddenAttrs'>
+		<label for="node-input-Container"><i class="fa fa-tag"></i> Container</label>
+		<input type="text" id="node-input-Container" placeholder="Container"></input>
+	</div> 
+	<div class="form-row" id='VideoAttr' class='hiddenAttrs'>
+		<label for="node-input-Video"><i class="fa fa-tag"></i> Video</label>
+		<input type="text" id="node-input-Video" placeholder="Video"></input>
+	</div> 
+	<div class="form-row" id='AudioAttr' class='hiddenAttrs'>
+		<label for="node-input-Audio"><i class="fa fa-tag"></i> Audio</label>
+		<input type="text" id="node-input-Audio" placeholder="Audio"></input>
+	</div> 
+	<div class="form-row" id='ThumbnailsAttr' class='hiddenAttrs'>
+		<label for="node-input-Thumbnails"><i class="fa fa-tag"></i> Thumbnails</label>
+		<input type="text" id="node-input-Thumbnails" placeholder="Thumbnails"></input>
+	</div> 
+	<div class="form-row" id='AscendingAttr' class='hiddenAttrs'>
+		<label for="node-input-Ascending"><i class="fa fa-tag"></i> Ascending</label>
+		<input type="text" id="node-input-Ascending" placeholder="Ascending"></input>
+	</div> 
+	<div class="form-row" id='PageTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-PageToken"><i class="fa fa-tag"></i> PageToken</label>
+		<input type="text" id="node-input-PageToken" placeholder="PageToken"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='TopicsAttr' class='hiddenAttrs'>
+		<label for="node-input-Topics"><i class="fa fa-tag"></i> Topics</label>
+		<input type="text" id="node-input-Topics" placeholder="Topics"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJob:[
+					'#IdAttr'
+					],
+				CreateJob:[
+					'#PipelineIdAttr','#InputAttr','#InputsAttr','#OutputAttr','#OutputsAttr','#OutputKeyPrefixAttr','#PlaylistsAttr','#UserMetadataAttr'
+					],
+				CreatePipeline:[
+					'#NameAttr','#InputBucketAttr','#OutputBucketAttr','#RoleAttr','#AwsKmsKeyArnAttr','#NotificationsAttr','#ContentConfigAttr','#ThumbnailConfigAttr'
+					],
+				CreatePreset:[
+					'#NameAttr','#DescriptionAttr','#ContainerAttr','#VideoAttr','#AudioAttr','#ThumbnailsAttr'
+					],
+				DeletePipeline:[
+					'#IdAttr'
+					],
+				DeletePreset:[
+					'#IdAttr'
+					],
+				ListJobsByPipeline:[
+					'#PipelineIdAttr','#AscendingAttr','#PageTokenAttr'
+					],
+				ListJobsByStatus:[
+					'#StatusAttr','#AscendingAttr','#PageTokenAttr'
+					],
+				ListPipelines:[
+					'#AscendingAttr','#PageTokenAttr'
+					],
+				ListPresets:[
+					'#AscendingAttr','#PageTokenAttr'
+					],
+				ReadJob:[
+					'#IdAttr'
+					],
+				ReadPipeline:[
+					'#IdAttr'
+					],
+				ReadPreset:[
+					'#IdAttr'
+					],
+				TestRole:[
+					'#RoleAttr','#InputBucketAttr','#OutputBucketAttr','#TopicsAttr'
+					],
+				UpdatePipeline:[
+					'#IdAttr','#NameAttr','#InputBucketAttr','#RoleAttr','#AwsKmsKeyArnAttr','#NotificationsAttr','#ContentConfigAttr','#ThumbnailConfigAttr'
+					],
+				UpdatePipelineNotifications:[
+					'#IdAttr','#NotificationsAttr'
+					],
+				UpdatePipelineStatus:[
+					'#IdAttr','#StatusAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ElasticTranscoder">
+<p>
+AWS ElasticTranscoder
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticTranscoder.html">ElasticTranscoder</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElasticTranscoder',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJob' },
+			
+				Id: { value: ""} ,
+				PipelineId: { value: ""} ,
+				Input: { value: ""} ,
+				Inputs: { value: ""} ,
+				Output: { value: ""} ,
+				Outputs: { value: ""} ,
+				OutputKeyPrefix: { value: ""} ,
+				Playlists: { value: ""} ,
+				UserMetadata: { value: ""} ,
+				Name: { value: ""} ,
+				InputBucket: { value: ""} ,
+				OutputBucket: { value: ""} ,
+				Role: { value: ""} ,
+				AwsKmsKeyArn: { value: ""} ,
+				Notifications: { value: ""} ,
+				ContentConfig: { value: ""} ,
+				ThumbnailConfig: { value: ""} ,
+				Description: { value: ""} ,
+				Container: { value: ""} ,
+				Video: { value: ""} ,
+				Audio: { value: ""} ,
+				Thumbnails: { value: ""} ,
+				Ascending: { value: ""} ,
+				PageToken: { value: ""} ,
+				Status: { value: ""} ,
+				Topics: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElasticTranscoder " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Input").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Inputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Output").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-OutputKeyPrefix").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UserMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AwsKmsKeyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Notifications").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThumbnailConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Container").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Video").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Audio").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Thumbnails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Ascending").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PageToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

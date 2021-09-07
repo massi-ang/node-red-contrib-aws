@@ -1,0 +1,997 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ConfigService">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchGetAggregateResourceConfig">BatchGetAggregateResourceConfig</option>
+		
+			<option value="BatchGetResourceConfig">BatchGetResourceConfig</option>
+		
+			<option value="DeleteAggregationAuthorization">DeleteAggregationAuthorization</option>
+		
+			<option value="DeleteConfigRule">DeleteConfigRule</option>
+		
+			<option value="DeleteConfigurationAggregator">DeleteConfigurationAggregator</option>
+		
+			<option value="DeleteConfigurationRecorder">DeleteConfigurationRecorder</option>
+		
+			<option value="DeleteConformancePack">DeleteConformancePack</option>
+		
+			<option value="DeleteDeliveryChannel">DeleteDeliveryChannel</option>
+		
+			<option value="DeleteEvaluationResults">DeleteEvaluationResults</option>
+		
+			<option value="DeleteOrganizationConfigRule">DeleteOrganizationConfigRule</option>
+		
+			<option value="DeleteOrganizationConformancePack">DeleteOrganizationConformancePack</option>
+		
+			<option value="DeletePendingAggregationRequest">DeletePendingAggregationRequest</option>
+		
+			<option value="DeleteRemediationConfiguration">DeleteRemediationConfiguration</option>
+		
+			<option value="DeleteRemediationExceptions">DeleteRemediationExceptions</option>
+		
+			<option value="DeleteResourceConfig">DeleteResourceConfig</option>
+		
+			<option value="DeleteRetentionConfiguration">DeleteRetentionConfiguration</option>
+		
+			<option value="DeleteStoredQuery">DeleteStoredQuery</option>
+		
+			<option value="DeliverConfigSnapshot">DeliverConfigSnapshot</option>
+		
+			<option value="DescribeAggregateComplianceByConfigRules">DescribeAggregateComplianceByConfigRules</option>
+		
+			<option value="DescribeAggregateComplianceByConformancePacks">DescribeAggregateComplianceByConformancePacks</option>
+		
+			<option value="DescribeAggregationAuthorizations">DescribeAggregationAuthorizations</option>
+		
+			<option value="DescribeComplianceByConfigRule">DescribeComplianceByConfigRule</option>
+		
+			<option value="DescribeComplianceByResource">DescribeComplianceByResource</option>
+		
+			<option value="DescribeConfigRuleEvaluationStatus">DescribeConfigRuleEvaluationStatus</option>
+		
+			<option value="DescribeConfigRules">DescribeConfigRules</option>
+		
+			<option value="DescribeConfigurationAggregatorSourcesStatus">DescribeConfigurationAggregatorSourcesStatus</option>
+		
+			<option value="DescribeConfigurationAggregators">DescribeConfigurationAggregators</option>
+		
+			<option value="DescribeConfigurationRecorderStatus">DescribeConfigurationRecorderStatus</option>
+		
+			<option value="DescribeConfigurationRecorders">DescribeConfigurationRecorders</option>
+		
+			<option value="DescribeConformancePackCompliance">DescribeConformancePackCompliance</option>
+		
+			<option value="DescribeConformancePackStatus">DescribeConformancePackStatus</option>
+		
+			<option value="DescribeConformancePacks">DescribeConformancePacks</option>
+		
+			<option value="DescribeDeliveryChannelStatus">DescribeDeliveryChannelStatus</option>
+		
+			<option value="DescribeDeliveryChannels">DescribeDeliveryChannels</option>
+		
+			<option value="DescribeOrganizationConfigRuleStatuses">DescribeOrganizationConfigRuleStatuses</option>
+		
+			<option value="DescribeOrganizationConfigRules">DescribeOrganizationConfigRules</option>
+		
+			<option value="DescribeOrganizationConformancePackStatuses">DescribeOrganizationConformancePackStatuses</option>
+		
+			<option value="DescribeOrganizationConformancePacks">DescribeOrganizationConformancePacks</option>
+		
+			<option value="DescribePendingAggregationRequests">DescribePendingAggregationRequests</option>
+		
+			<option value="DescribeRemediationConfigurations">DescribeRemediationConfigurations</option>
+		
+			<option value="DescribeRemediationExceptions">DescribeRemediationExceptions</option>
+		
+			<option value="DescribeRemediationExecutionStatus">DescribeRemediationExecutionStatus</option>
+		
+			<option value="DescribeRetentionConfigurations">DescribeRetentionConfigurations</option>
+		
+			<option value="GetAggregateComplianceDetailsByConfigRule">GetAggregateComplianceDetailsByConfigRule</option>
+		
+			<option value="GetAggregateConfigRuleComplianceSummary">GetAggregateConfigRuleComplianceSummary</option>
+		
+			<option value="GetAggregateConformancePackComplianceSummary">GetAggregateConformancePackComplianceSummary</option>
+		
+			<option value="GetAggregateDiscoveredResourceCounts">GetAggregateDiscoveredResourceCounts</option>
+		
+			<option value="GetAggregateResourceConfig">GetAggregateResourceConfig</option>
+		
+			<option value="GetComplianceDetailsByConfigRule">GetComplianceDetailsByConfigRule</option>
+		
+			<option value="GetComplianceDetailsByResource">GetComplianceDetailsByResource</option>
+		
+			<option value="GetComplianceSummaryByConfigRule">GetComplianceSummaryByConfigRule</option>
+		
+			<option value="GetComplianceSummaryByResourceType">GetComplianceSummaryByResourceType</option>
+		
+			<option value="GetConformancePackComplianceDetails">GetConformancePackComplianceDetails</option>
+		
+			<option value="GetConformancePackComplianceSummary">GetConformancePackComplianceSummary</option>
+		
+			<option value="GetDiscoveredResourceCounts">GetDiscoveredResourceCounts</option>
+		
+			<option value="GetOrganizationConfigRuleDetailedStatus">GetOrganizationConfigRuleDetailedStatus</option>
+		
+			<option value="GetOrganizationConformancePackDetailedStatus">GetOrganizationConformancePackDetailedStatus</option>
+		
+			<option value="GetResourceConfigHistory">GetResourceConfigHistory</option>
+		
+			<option value="GetStoredQuery">GetStoredQuery</option>
+		
+			<option value="ListAggregateDiscoveredResources">ListAggregateDiscoveredResources</option>
+		
+			<option value="ListDiscoveredResources">ListDiscoveredResources</option>
+		
+			<option value="ListStoredQueries">ListStoredQueries</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutAggregationAuthorization">PutAggregationAuthorization</option>
+		
+			<option value="PutConfigRule">PutConfigRule</option>
+		
+			<option value="PutConfigurationAggregator">PutConfigurationAggregator</option>
+		
+			<option value="PutConfigurationRecorder">PutConfigurationRecorder</option>
+		
+			<option value="PutConformancePack">PutConformancePack</option>
+		
+			<option value="PutDeliveryChannel">PutDeliveryChannel</option>
+		
+			<option value="PutEvaluations">PutEvaluations</option>
+		
+			<option value="PutExternalEvaluation">PutExternalEvaluation</option>
+		
+			<option value="PutOrganizationConfigRule">PutOrganizationConfigRule</option>
+		
+			<option value="PutOrganizationConformancePack">PutOrganizationConformancePack</option>
+		
+			<option value="PutRemediationConfigurations">PutRemediationConfigurations</option>
+		
+			<option value="PutRemediationExceptions">PutRemediationExceptions</option>
+		
+			<option value="PutResourceConfig">PutResourceConfig</option>
+		
+			<option value="PutRetentionConfiguration">PutRetentionConfiguration</option>
+		
+			<option value="PutStoredQuery">PutStoredQuery</option>
+		
+			<option value="SelectAggregateResourceConfig">SelectAggregateResourceConfig</option>
+		
+			<option value="SelectResourceConfig">SelectResourceConfig</option>
+		
+			<option value="StartConfigRulesEvaluation">StartConfigRulesEvaluation</option>
+		
+			<option value="StartConfigurationRecorder">StartConfigurationRecorder</option>
+		
+			<option value="StartRemediationExecution">StartRemediationExecution</option>
+		
+			<option value="StopConfigurationRecorder">StopConfigurationRecorder</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ConfigurationAggregatorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationAggregatorName"><i class="fa fa-tag"></i> ConfigurationAggregatorName</label>
+		<input type="text" id="node-input-ConfigurationAggregatorName" placeholder="ConfigurationAggregatorName"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdentifiers"><i class="fa fa-tag"></i> ResourceIdentifiers</label>
+		<input type="text" id="node-input-ResourceIdentifiers" placeholder="ResourceIdentifiers"></input>
+	</div> 
+	<div class="form-row" id='resourceKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceKeys"><i class="fa fa-tag"></i> resourceKeys</label>
+		<input type="text" id="node-input-resourceKeys" placeholder="resourceKeys"></input>
+	</div> 
+	<div class="form-row" id='AuthorizedAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizedAccountId"><i class="fa fa-tag"></i> AuthorizedAccountId</label>
+		<input type="text" id="node-input-AuthorizedAccountId" placeholder="AuthorizedAccountId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizedAwsRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizedAwsRegion"><i class="fa fa-tag"></i> AuthorizedAwsRegion</label>
+		<input type="text" id="node-input-AuthorizedAwsRegion" placeholder="AuthorizedAwsRegion"></input>
+	</div> 
+	<div class="form-row" id='ConfigRuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigRuleName"><i class="fa fa-tag"></i> ConfigRuleName</label>
+		<input type="text" id="node-input-ConfigRuleName" placeholder="ConfigRuleName"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationRecorderNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationRecorderName"><i class="fa fa-tag"></i> ConfigurationRecorderName</label>
+		<input type="text" id="node-input-ConfigurationRecorderName" placeholder="ConfigurationRecorderName"></input>
+	</div> 
+	<div class="form-row" id='ConformancePackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConformancePackName"><i class="fa fa-tag"></i> ConformancePackName</label>
+		<input type="text" id="node-input-ConformancePackName" placeholder="ConformancePackName"></input>
+	</div> 
+	<div class="form-row" id='DeliveryChannelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryChannelName"><i class="fa fa-tag"></i> DeliveryChannelName</label>
+		<input type="text" id="node-input-DeliveryChannelName" placeholder="DeliveryChannelName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationConfigRuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationConfigRuleName"><i class="fa fa-tag"></i> OrganizationConfigRuleName</label>
+		<input type="text" id="node-input-OrganizationConfigRuleName" placeholder="OrganizationConfigRuleName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationConformancePackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationConformancePackName"><i class="fa fa-tag"></i> OrganizationConformancePackName</label>
+		<input type="text" id="node-input-OrganizationConformancePackName" placeholder="OrganizationConformancePackName"></input>
+	</div> 
+	<div class="form-row" id='RequesterAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RequesterAccountId"><i class="fa fa-tag"></i> RequesterAccountId</label>
+		<input type="text" id="node-input-RequesterAccountId" placeholder="RequesterAccountId"></input>
+	</div> 
+	<div class="form-row" id='RequesterAwsRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-RequesterAwsRegion"><i class="fa fa-tag"></i> RequesterAwsRegion</label>
+		<input type="text" id="node-input-RequesterAwsRegion" placeholder="RequesterAwsRegion"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='ResourceKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceKeys"><i class="fa fa-tag"></i> ResourceKeys</label>
+		<input type="text" id="node-input-ResourceKeys" placeholder="ResourceKeys"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='RetentionConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionConfigurationName"><i class="fa fa-tag"></i> RetentionConfigurationName</label>
+		<input type="text" id="node-input-RetentionConfigurationName" placeholder="RetentionConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='QueryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryName"><i class="fa fa-tag"></i> QueryName</label>
+		<input type="text" id="node-input-QueryName" placeholder="QueryName"></input>
+	</div> 
+	<div class="form-row" id='deliveryChannelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deliveryChannelName"><i class="fa fa-tag"></i> deliveryChannelName</label>
+		<input type="text" id="node-input-deliveryChannelName" placeholder="deliveryChannelName"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ConfigRuleNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigRuleNames"><i class="fa fa-tag"></i> ConfigRuleNames</label>
+		<input type="text" id="node-input-ConfigRuleNames" placeholder="ConfigRuleNames"></input>
+	</div> 
+	<div class="form-row" id='ComplianceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ComplianceTypes"><i class="fa fa-tag"></i> ComplianceTypes</label>
+		<input type="text" id="node-input-ComplianceTypes" placeholder="ComplianceTypes"></input>
+	</div> 
+	<div class="form-row" id='UpdateStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateStatus"><i class="fa fa-tag"></i> UpdateStatus</label>
+		<input type="text" id="node-input-UpdateStatus" placeholder="UpdateStatus"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAggregatorNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationAggregatorNames"><i class="fa fa-tag"></i> ConfigurationAggregatorNames</label>
+		<input type="text" id="node-input-ConfigurationAggregatorNames" placeholder="ConfigurationAggregatorNames"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationRecorderNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationRecorderNames"><i class="fa fa-tag"></i> ConfigurationRecorderNames</label>
+		<input type="text" id="node-input-ConfigurationRecorderNames" placeholder="ConfigurationRecorderNames"></input>
+	</div> 
+	<div class="form-row" id='ConformancePackNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ConformancePackNames"><i class="fa fa-tag"></i> ConformancePackNames</label>
+		<input type="text" id="node-input-ConformancePackNames" placeholder="ConformancePackNames"></input>
+	</div> 
+	<div class="form-row" id='DeliveryChannelNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryChannelNames"><i class="fa fa-tag"></i> DeliveryChannelNames</label>
+		<input type="text" id="node-input-DeliveryChannelNames" placeholder="DeliveryChannelNames"></input>
+	</div> 
+	<div class="form-row" id='OrganizationConfigRuleNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationConfigRuleNames"><i class="fa fa-tag"></i> OrganizationConfigRuleNames</label>
+		<input type="text" id="node-input-OrganizationConfigRuleNames" placeholder="OrganizationConfigRuleNames"></input>
+	</div> 
+	<div class="form-row" id='OrganizationConformancePackNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationConformancePackNames"><i class="fa fa-tag"></i> OrganizationConformancePackNames</label>
+		<input type="text" id="node-input-OrganizationConformancePackNames" placeholder="OrganizationConformancePackNames"></input>
+	</div> 
+	<div class="form-row" id='RetentionConfigurationNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionConfigurationNames"><i class="fa fa-tag"></i> RetentionConfigurationNames</label>
+		<input type="text" id="node-input-RetentionConfigurationNames" placeholder="RetentionConfigurationNames"></input>
+	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='AwsRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-AwsRegion"><i class="fa fa-tag"></i> AwsRegion</label>
+		<input type="text" id="node-input-AwsRegion" placeholder="AwsRegion"></input>
+	</div> 
+	<div class="form-row" id='ComplianceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ComplianceType"><i class="fa fa-tag"></i> ComplianceType</label>
+		<input type="text" id="node-input-ComplianceType" placeholder="ComplianceType"></input>
+	</div> 
+	<div class="form-row" id='GroupByKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupByKey"><i class="fa fa-tag"></i> GroupByKey</label>
+		<input type="text" id="node-input-GroupByKey" placeholder="GroupByKey"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdentifier"><i class="fa fa-tag"></i> ResourceIdentifier</label>
+		<input type="text" id="node-input-ResourceIdentifier" placeholder="ResourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceTypes"><i class="fa fa-tag"></i> ResourceTypes</label>
+		<input type="text" id="node-input-ResourceTypes" placeholder="ResourceTypes"></input>
+	</div> 
+	<div class="form-row" id='resourceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceTypes"><i class="fa fa-tag"></i> resourceTypes</label>
+		<input type="text" id="node-input-resourceTypes" placeholder="resourceTypes"></input>
+	</div> 
+	<div class="form-row" id='limitAttr' class='hiddenAttrs'>
+		<label for="node-input-limit"><i class="fa fa-tag"></i> limit</label>
+		<input type="text" id="node-input-limit" placeholder="limit"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='resourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceType"><i class="fa fa-tag"></i> resourceType</label>
+		<input type="text" id="node-input-resourceType" placeholder="resourceType"></input>
+	</div> 
+	<div class="form-row" id='resourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceId"><i class="fa fa-tag"></i> resourceId</label>
+		<input type="text" id="node-input-resourceId" placeholder="resourceId"></input>
+	</div> 
+	<div class="form-row" id='laterTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-laterTime"><i class="fa fa-tag"></i> laterTime</label>
+		<input type="text" id="node-input-laterTime" placeholder="laterTime"></input>
+	</div> 
+	<div class="form-row" id='earlierTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-earlierTime"><i class="fa fa-tag"></i> earlierTime</label>
+		<input type="text" id="node-input-earlierTime" placeholder="earlierTime"></input>
+	</div> 
+	<div class="form-row" id='chronologicalOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-chronologicalOrder"><i class="fa fa-tag"></i> chronologicalOrder</label>
+		<input type="text" id="node-input-chronologicalOrder" placeholder="chronologicalOrder"></input>
+	</div> 
+	<div class="form-row" id='resourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceIds"><i class="fa fa-tag"></i> resourceIds</label>
+		<input type="text" id="node-input-resourceIds" placeholder="resourceIds"></input>
+	</div> 
+	<div class="form-row" id='resourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceName"><i class="fa fa-tag"></i> resourceName</label>
+		<input type="text" id="node-input-resourceName" placeholder="resourceName"></input>
+	</div> 
+	<div class="form-row" id='includeDeletedResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeDeletedResources"><i class="fa fa-tag"></i> includeDeletedResources</label>
+		<input type="text" id="node-input-includeDeletedResources" placeholder="includeDeletedResources"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ConfigRuleAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigRule"><i class="fa fa-tag"></i> ConfigRule</label>
+		<input type="text" id="node-input-ConfigRule" placeholder="ConfigRule"></input>
+	</div> 
+	<div class="form-row" id='AccountAggregationSourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountAggregationSources"><i class="fa fa-tag"></i> AccountAggregationSources</label>
+		<input type="text" id="node-input-AccountAggregationSources" placeholder="AccountAggregationSources"></input>
+	</div> 
+	<div class="form-row" id='OrganizationAggregationSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationAggregationSource"><i class="fa fa-tag"></i> OrganizationAggregationSource</label>
+		<input type="text" id="node-input-OrganizationAggregationSource" placeholder="OrganizationAggregationSource"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationRecorderAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationRecorder"><i class="fa fa-tag"></i> ConfigurationRecorder</label>
+		<input type="text" id="node-input-ConfigurationRecorder" placeholder="ConfigurationRecorder"></input>
+	</div> 
+	<div class="form-row" id='TemplateS3UriAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateS3Uri"><i class="fa fa-tag"></i> TemplateS3Uri</label>
+		<input type="text" id="node-input-TemplateS3Uri" placeholder="TemplateS3Uri"></input>
+	</div> 
+	<div class="form-row" id='TemplateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateBody"><i class="fa fa-tag"></i> TemplateBody</label>
+		<input type="text" id="node-input-TemplateBody" placeholder="TemplateBody"></input>
+	</div> 
+	<div class="form-row" id='DeliveryS3BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryS3Bucket"><i class="fa fa-tag"></i> DeliveryS3Bucket</label>
+		<input type="text" id="node-input-DeliveryS3Bucket" placeholder="DeliveryS3Bucket"></input>
+	</div> 
+	<div class="form-row" id='DeliveryS3KeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryS3KeyPrefix"><i class="fa fa-tag"></i> DeliveryS3KeyPrefix</label>
+		<input type="text" id="node-input-DeliveryS3KeyPrefix" placeholder="DeliveryS3KeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='ConformancePackInputParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ConformancePackInputParameters"><i class="fa fa-tag"></i> ConformancePackInputParameters</label>
+		<input type="text" id="node-input-ConformancePackInputParameters" placeholder="ConformancePackInputParameters"></input>
+	</div> 
+	<div class="form-row" id='DeliveryChannelAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryChannel"><i class="fa fa-tag"></i> DeliveryChannel</label>
+		<input type="text" id="node-input-DeliveryChannel" placeholder="DeliveryChannel"></input>
+	</div> 
+	<div class="form-row" id='EvaluationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Evaluations"><i class="fa fa-tag"></i> Evaluations</label>
+		<input type="text" id="node-input-Evaluations" placeholder="Evaluations"></input>
+	</div> 
+	<div class="form-row" id='ResultTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ResultToken"><i class="fa fa-tag"></i> ResultToken</label>
+		<input type="text" id="node-input-ResultToken" placeholder="ResultToken"></input>
+	</div> 
+	<div class="form-row" id='TestModeAttr' class='hiddenAttrs'>
+		<label for="node-input-TestMode"><i class="fa fa-tag"></i> TestMode</label>
+		<input type="text" id="node-input-TestMode" placeholder="TestMode"></input>
+	</div> 
+	<div class="form-row" id='ExternalEvaluationAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalEvaluation"><i class="fa fa-tag"></i> ExternalEvaluation</label>
+		<input type="text" id="node-input-ExternalEvaluation" placeholder="ExternalEvaluation"></input>
+	</div> 
+	<div class="form-row" id='OrganizationManagedRuleMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationManagedRuleMetadata"><i class="fa fa-tag"></i> OrganizationManagedRuleMetadata</label>
+		<input type="text" id="node-input-OrganizationManagedRuleMetadata" placeholder="OrganizationManagedRuleMetadata"></input>
+	</div> 
+	<div class="form-row" id='OrganizationCustomRuleMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationCustomRuleMetadata"><i class="fa fa-tag"></i> OrganizationCustomRuleMetadata</label>
+		<input type="text" id="node-input-OrganizationCustomRuleMetadata" placeholder="OrganizationCustomRuleMetadata"></input>
+	</div> 
+	<div class="form-row" id='ExcludedAccountsAttr' class='hiddenAttrs'>
+		<label for="node-input-ExcludedAccounts"><i class="fa fa-tag"></i> ExcludedAccounts</label>
+		<input type="text" id="node-input-ExcludedAccounts" placeholder="ExcludedAccounts"></input>
+	</div> 
+	<div class="form-row" id='RemediationConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-RemediationConfigurations"><i class="fa fa-tag"></i> RemediationConfigurations</label>
+		<input type="text" id="node-input-RemediationConfigurations" placeholder="RemediationConfigurations"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='ExpirationTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpirationTime"><i class="fa fa-tag"></i> ExpirationTime</label>
+		<input type="text" id="node-input-ExpirationTime" placeholder="ExpirationTime"></input>
+	</div> 
+	<div class="form-row" id='SchemaVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaVersionId"><i class="fa fa-tag"></i> SchemaVersionId</label>
+		<input type="text" id="node-input-SchemaVersionId" placeholder="SchemaVersionId"></input>
+	</div> 
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i> ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='RetentionPeriodInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionPeriodInDays"><i class="fa fa-tag"></i> RetentionPeriodInDays</label>
+		<input type="text" id="node-input-RetentionPeriodInDays" placeholder="RetentionPeriodInDays"></input>
+	</div> 
+	<div class="form-row" id='StoredQueryAttr' class='hiddenAttrs'>
+		<label for="node-input-StoredQuery"><i class="fa fa-tag"></i> StoredQuery</label>
+		<input type="text" id="node-input-StoredQuery" placeholder="StoredQuery"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i> Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchGetAggregateResourceConfig:[
+					'#ConfigurationAggregatorNameAttr','#ResourceIdentifiersAttr'
+					],
+				BatchGetResourceConfig:[
+					'#resourceKeysAttr'
+					],
+				DeleteAggregationAuthorization:[
+					'#AuthorizedAccountIdAttr','#AuthorizedAwsRegionAttr'
+					],
+				DeleteConfigRule:[
+					'#ConfigRuleNameAttr'
+					],
+				DeleteConfigurationAggregator:[
+					'#ConfigurationAggregatorNameAttr'
+					],
+				DeleteConfigurationRecorder:[
+					'#ConfigurationRecorderNameAttr'
+					],
+				DeleteConformancePack:[
+					'#ConformancePackNameAttr'
+					],
+				DeleteDeliveryChannel:[
+					'#DeliveryChannelNameAttr'
+					],
+				DeleteEvaluationResults:[
+					'#ConfigRuleNameAttr'
+					],
+				DeleteOrganizationConfigRule:[
+					'#OrganizationConfigRuleNameAttr'
+					],
+				DeleteOrganizationConformancePack:[
+					'#OrganizationConformancePackNameAttr'
+					],
+				DeletePendingAggregationRequest:[
+					'#RequesterAccountIdAttr','#RequesterAwsRegionAttr'
+					],
+				DeleteRemediationConfiguration:[
+					'#ConfigRuleNameAttr','#ResourceTypeAttr'
+					],
+				DeleteRemediationExceptions:[
+					'#ConfigRuleNameAttr','#ResourceKeysAttr'
+					],
+				DeleteResourceConfig:[
+					'#ResourceTypeAttr','#ResourceIdAttr'
+					],
+				DeleteRetentionConfiguration:[
+					'#RetentionConfigurationNameAttr'
+					],
+				DeleteStoredQuery:[
+					'#QueryNameAttr'
+					],
+				DeliverConfigSnapshot:[
+					'#deliveryChannelNameAttr'
+					],
+				DescribeAggregateComplianceByConfigRules:[
+					'#ConfigurationAggregatorNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeAggregateComplianceByConformancePacks:[
+					'#ConfigurationAggregatorNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeAggregationAuthorizations:[
+					'#LimitAttr','#NextTokenAttr'
+					],
+				DescribeComplianceByConfigRule:[
+					'#ConfigRuleNamesAttr','#ComplianceTypesAttr','#NextTokenAttr'
+					],
+				DescribeComplianceByResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr','#ComplianceTypesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeConfigRuleEvaluationStatus:[
+					'#ConfigRuleNamesAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeConfigRules:[
+					'#ConfigRuleNamesAttr','#NextTokenAttr'
+					],
+				DescribeConfigurationAggregatorSourcesStatus:[
+					'#ConfigurationAggregatorNameAttr','#UpdateStatusAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeConfigurationAggregators:[
+					'#ConfigurationAggregatorNamesAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeConfigurationRecorderStatus:[
+					'#ConfigurationRecorderNamesAttr'
+					],
+				DescribeConfigurationRecorders:[
+					'#ConfigurationRecorderNamesAttr'
+					],
+				DescribeConformancePackCompliance:[
+					'#ConformancePackNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeConformancePackStatus:[
+					'#ConformancePackNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeConformancePacks:[
+					'#ConformancePackNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeDeliveryChannelStatus:[
+					'#DeliveryChannelNamesAttr'
+					],
+				DescribeDeliveryChannels:[
+					'#DeliveryChannelNamesAttr'
+					],
+				DescribeOrganizationConfigRuleStatuses:[
+					'#OrganizationConfigRuleNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeOrganizationConfigRules:[
+					'#OrganizationConfigRuleNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeOrganizationConformancePackStatuses:[
+					'#OrganizationConformancePackNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeOrganizationConformancePacks:[
+					'#OrganizationConformancePackNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribePendingAggregationRequests:[
+					'#LimitAttr','#NextTokenAttr'
+					],
+				DescribeRemediationConfigurations:[
+					'#ConfigRuleNamesAttr'
+					],
+				DescribeRemediationExceptions:[
+					'#ConfigRuleNameAttr','#ResourceKeysAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeRemediationExecutionStatus:[
+					'#ConfigRuleNameAttr','#ResourceKeysAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeRetentionConfigurations:[
+					'#RetentionConfigurationNamesAttr','#NextTokenAttr'
+					],
+				GetAggregateComplianceDetailsByConfigRule:[
+					'#ConfigurationAggregatorNameAttr','#ConfigRuleNameAttr','#AccountIdAttr','#AwsRegionAttr','#ComplianceTypeAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetAggregateConfigRuleComplianceSummary:[
+					'#ConfigurationAggregatorNameAttr','#FiltersAttr','#GroupByKeyAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetAggregateConformancePackComplianceSummary:[
+					'#ConfigurationAggregatorNameAttr','#FiltersAttr','#GroupByKeyAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetAggregateDiscoveredResourceCounts:[
+					'#ConfigurationAggregatorNameAttr','#FiltersAttr','#GroupByKeyAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetAggregateResourceConfig:[
+					'#ConfigurationAggregatorNameAttr','#ResourceIdentifierAttr'
+					],
+				GetComplianceDetailsByConfigRule:[
+					'#ConfigRuleNameAttr','#ComplianceTypesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetComplianceDetailsByResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr','#ComplianceTypesAttr','#NextTokenAttr'
+					],
+				GetComplianceSummaryByConfigRule:[
+					
+					],
+				GetComplianceSummaryByResourceType:[
+					'#ResourceTypesAttr'
+					],
+				GetConformancePackComplianceDetails:[
+					'#ConformancePackNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetConformancePackComplianceSummary:[
+					'#ConformancePackNamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetDiscoveredResourceCounts:[
+					'#resourceTypesAttr','#limitAttr','#nextTokenAttr'
+					],
+				GetOrganizationConfigRuleDetailedStatus:[
+					'#OrganizationConfigRuleNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetOrganizationConformancePackDetailedStatus:[
+					'#OrganizationConformancePackNameAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				GetResourceConfigHistory:[
+					'#resourceTypeAttr','#resourceIdAttr','#laterTimeAttr','#earlierTimeAttr','#chronologicalOrderAttr','#limitAttr','#nextTokenAttr'
+					],
+				GetStoredQuery:[
+					'#QueryNameAttr'
+					],
+				ListAggregateDiscoveredResources:[
+					'#ConfigurationAggregatorNameAttr','#ResourceTypeAttr','#FiltersAttr','#LimitAttr','#NextTokenAttr'
+					],
+				ListDiscoveredResources:[
+					'#resourceTypeAttr','#resourceIdsAttr','#resourceNameAttr','#limitAttr','#includeDeletedResourcesAttr','#nextTokenAttr'
+					],
+				ListStoredQueries:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr','#LimitAttr','#NextTokenAttr'
+					],
+				PutAggregationAuthorization:[
+					'#AuthorizedAccountIdAttr','#AuthorizedAwsRegionAttr','#TagsAttr'
+					],
+				PutConfigRule:[
+					'#ConfigRuleAttr','#TagsAttr'
+					],
+				PutConfigurationAggregator:[
+					'#ConfigurationAggregatorNameAttr','#AccountAggregationSourcesAttr','#OrganizationAggregationSourceAttr','#TagsAttr'
+					],
+				PutConfigurationRecorder:[
+					'#ConfigurationRecorderAttr'
+					],
+				PutConformancePack:[
+					'#ConformancePackNameAttr','#TemplateS3UriAttr','#TemplateBodyAttr','#DeliveryS3BucketAttr','#DeliveryS3KeyPrefixAttr','#ConformancePackInputParametersAttr'
+					],
+				PutDeliveryChannel:[
+					'#DeliveryChannelAttr'
+					],
+				PutEvaluations:[
+					'#EvaluationsAttr','#ResultTokenAttr','#TestModeAttr'
+					],
+				PutExternalEvaluation:[
+					'#ConfigRuleNameAttr','#ExternalEvaluationAttr'
+					],
+				PutOrganizationConfigRule:[
+					'#OrganizationConfigRuleNameAttr','#OrganizationManagedRuleMetadataAttr','#OrganizationCustomRuleMetadataAttr','#ExcludedAccountsAttr'
+					],
+				PutOrganizationConformancePack:[
+					'#OrganizationConformancePackNameAttr','#TemplateS3UriAttr','#TemplateBodyAttr','#DeliveryS3BucketAttr','#DeliveryS3KeyPrefixAttr','#ConformancePackInputParametersAttr','#ExcludedAccountsAttr'
+					],
+				PutRemediationConfigurations:[
+					'#RemediationConfigurationsAttr'
+					],
+				PutRemediationExceptions:[
+					'#ConfigRuleNameAttr','#ResourceKeysAttr','#MessageAttr','#ExpirationTimeAttr'
+					],
+				PutResourceConfig:[
+					'#ResourceTypeAttr','#SchemaVersionIdAttr','#ResourceIdAttr','#ResourceNameAttr','#ConfigurationAttr','#TagsAttr'
+					],
+				PutRetentionConfiguration:[
+					'#RetentionPeriodInDaysAttr'
+					],
+				PutStoredQuery:[
+					'#StoredQueryAttr','#TagsAttr'
+					],
+				SelectAggregateResourceConfig:[
+					'#ExpressionAttr','#ConfigurationAggregatorNameAttr','#LimitAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				SelectResourceConfig:[
+					'#ExpressionAttr','#LimitAttr','#NextTokenAttr'
+					],
+				StartConfigRulesEvaluation:[
+					'#ConfigRuleNamesAttr'
+					],
+				StartConfigurationRecorder:[
+					'#ConfigurationRecorderNameAttr'
+					],
+				StartRemediationExecution:[
+					'#ConfigRuleNameAttr','#ResourceKeysAttr'
+					],
+				StopConfigurationRecorder:[
+					'#ConfigurationRecorderNameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ConfigService">
+<p>
+AWS ConfigService
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ConfigService.html">ConfigService</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ConfigService',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchGetAggregateResourceConfig' },
+			
+				ConfigurationAggregatorName: { value: ""} ,
+				ResourceIdentifiers: { value: ""} ,
+				resourceKeys: { value: ""} ,
+				AuthorizedAccountId: { value: ""} ,
+				AuthorizedAwsRegion: { value: ""} ,
+				ConfigRuleName: { value: ""} ,
+				ConfigurationRecorderName: { value: ""} ,
+				ConformancePackName: { value: ""} ,
+				DeliveryChannelName: { value: ""} ,
+				OrganizationConfigRuleName: { value: ""} ,
+				OrganizationConformancePackName: { value: ""} ,
+				RequesterAccountId: { value: ""} ,
+				RequesterAwsRegion: { value: ""} ,
+				ResourceType: { value: ""} ,
+				ResourceKeys: { value: ""} ,
+				ResourceId: { value: ""} ,
+				RetentionConfigurationName: { value: ""} ,
+				QueryName: { value: ""} ,
+				deliveryChannelName: { value: ""} ,
+				Filters: { value: ""} ,
+				Limit: { value: ""} ,
+				NextToken: { value: ""} ,
+				ConfigRuleNames: { value: ""} ,
+				ComplianceTypes: { value: ""} ,
+				UpdateStatus: { value: ""} ,
+				ConfigurationAggregatorNames: { value: ""} ,
+				ConfigurationRecorderNames: { value: ""} ,
+				ConformancePackNames: { value: ""} ,
+				DeliveryChannelNames: { value: ""} ,
+				OrganizationConfigRuleNames: { value: ""} ,
+				OrganizationConformancePackNames: { value: ""} ,
+				RetentionConfigurationNames: { value: ""} ,
+				AccountId: { value: ""} ,
+				AwsRegion: { value: ""} ,
+				ComplianceType: { value: ""} ,
+				GroupByKey: { value: ""} ,
+				ResourceIdentifier: { value: ""} ,
+				ResourceTypes: { value: ""} ,
+				resourceTypes: { value: ""} ,
+				limit: { value: ""} ,
+				nextToken: { value: ""} ,
+				resourceType: { value: ""} ,
+				resourceId: { value: ""} ,
+				laterTime: { value: ""} ,
+				earlierTime: { value: ""} ,
+				chronologicalOrder: { value: ""} ,
+				resourceIds: { value: ""} ,
+				resourceName: { value: ""} ,
+				includeDeletedResources: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				ConfigRule: { value: ""} ,
+				AccountAggregationSources: { value: ""} ,
+				OrganizationAggregationSource: { value: ""} ,
+				ConfigurationRecorder: { value: ""} ,
+				TemplateS3Uri: { value: ""} ,
+				TemplateBody: { value: ""} ,
+				DeliveryS3Bucket: { value: ""} ,
+				DeliveryS3KeyPrefix: { value: ""} ,
+				ConformancePackInputParameters: { value: ""} ,
+				DeliveryChannel: { value: ""} ,
+				Evaluations: { value: ""} ,
+				ResultToken: { value: ""} ,
+				TestMode: { value: ""} ,
+				ExternalEvaluation: { value: ""} ,
+				OrganizationManagedRuleMetadata: { value: ""} ,
+				OrganizationCustomRuleMetadata: { value: ""} ,
+				ExcludedAccounts: { value: ""} ,
+				RemediationConfigurations: { value: ""} ,
+				Message: { value: ""} ,
+				ExpirationTime: { value: ""} ,
+				SchemaVersionId: { value: ""} ,
+				ResourceName: { value: ""} ,
+				Configuration: { value: ""} ,
+				RetentionPeriodInDays: { value: ""} ,
+				StoredQuery: { value: ""} ,
+				Expression: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ConfigService " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ConfigurationAggregatorName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthorizedAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthorizedAwsRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigRuleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationRecorderName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConformancePackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryChannelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationConfigRuleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationConformancePackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequesterAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequesterAwsRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetentionConfigurationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QueryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deliveryChannelName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ComplianceTypes").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ConfigurationRecorderNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DeliveryChannelNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationConfigRuleNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationConformancePackNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AwsRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComplianceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupByKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-chronologicalOrder").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeDeletedResources").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigRule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountAggregationSources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationAggregationSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationRecorder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateS3Uri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryS3Bucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryS3KeyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConformancePackInputParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryChannel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Evaluations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResultToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TestMode").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-OrganizationManagedRuleMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationCustomRuleMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExcludedAccounts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemediationConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Message").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SchemaVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetentionPeriodInDays").typedInput({ default: "num", types: ["num"]});
+$("#node-input-StoredQuery").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Expression").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

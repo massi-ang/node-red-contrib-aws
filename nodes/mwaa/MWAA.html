@@ -1,0 +1,304 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MWAA">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateCliToken">CreateCliToken</option>
+		
+			<option value="CreateEnvironment">CreateEnvironment</option>
+		
+			<option value="CreateWebLoginToken">CreateWebLoginToken</option>
+		
+			<option value="DeleteEnvironment">DeleteEnvironment</option>
+		
+			<option value="GetEnvironment">GetEnvironment</option>
+		
+			<option value="ListEnvironments">ListEnvironments</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PublishMetrics">PublishMetrics</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateEnvironment">UpdateEnvironment</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='AirflowConfigurationOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-AirflowConfigurationOptions"><i class="fa fa-tag"></i> AirflowConfigurationOptions</label>
+		<input type="text" id="node-input-AirflowConfigurationOptions" placeholder="AirflowConfigurationOptions"></input>
+	</div> 
+	<div class="form-row" id='AirflowVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-AirflowVersion"><i class="fa fa-tag"></i> AirflowVersion</label>
+		<input type="text" id="node-input-AirflowVersion" placeholder="AirflowVersion"></input>
+	</div> 
+	<div class="form-row" id='DagS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-DagS3Path"><i class="fa fa-tag"></i> DagS3Path</label>
+		<input type="text" id="node-input-DagS3Path" placeholder="DagS3Path"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentClassAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentClass"><i class="fa fa-tag"></i> EnvironmentClass</label>
+		<input type="text" id="node-input-EnvironmentClass" placeholder="EnvironmentClass"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleArn"><i class="fa fa-tag"></i> ExecutionRoleArn</label>
+		<input type="text" id="node-input-ExecutionRoleArn" placeholder="ExecutionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKey"><i class="fa fa-tag"></i> KmsKey</label>
+		<input type="text" id="node-input-KmsKey" placeholder="KmsKey"></input>
+	</div> 
+	<div class="form-row" id='LoggingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingConfiguration"><i class="fa fa-tag"></i> LoggingConfiguration</label>
+		<input type="text" id="node-input-LoggingConfiguration" placeholder="LoggingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='MaxWorkersAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxWorkers"><i class="fa fa-tag"></i> MaxWorkers</label>
+		<input type="text" id="node-input-MaxWorkers" placeholder="MaxWorkers"></input>
+	</div> 
+	<div class="form-row" id='MinWorkersAttr' class='hiddenAttrs'>
+		<label for="node-input-MinWorkers"><i class="fa fa-tag"></i> MinWorkers</label>
+		<input type="text" id="node-input-MinWorkers" placeholder="MinWorkers"></input>
+	</div> 
+	<div class="form-row" id='NetworkConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NetworkConfiguration"><i class="fa fa-tag"></i> NetworkConfiguration</label>
+		<input type="text" id="node-input-NetworkConfiguration" placeholder="NetworkConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PluginsS3ObjectVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-PluginsS3ObjectVersion"><i class="fa fa-tag"></i> PluginsS3ObjectVersion</label>
+		<input type="text" id="node-input-PluginsS3ObjectVersion" placeholder="PluginsS3ObjectVersion"></input>
+	</div> 
+	<div class="form-row" id='PluginsS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-PluginsS3Path"><i class="fa fa-tag"></i> PluginsS3Path</label>
+		<input type="text" id="node-input-PluginsS3Path" placeholder="PluginsS3Path"></input>
+	</div> 
+	<div class="form-row" id='RequirementsS3ObjectVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-RequirementsS3ObjectVersion"><i class="fa fa-tag"></i> RequirementsS3ObjectVersion</label>
+		<input type="text" id="node-input-RequirementsS3ObjectVersion" placeholder="RequirementsS3ObjectVersion"></input>
+	</div> 
+	<div class="form-row" id='RequirementsS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-RequirementsS3Path"><i class="fa fa-tag"></i> RequirementsS3Path</label>
+		<input type="text" id="node-input-RequirementsS3Path" placeholder="RequirementsS3Path"></input>
+	</div> 
+	<div class="form-row" id='SchedulersAttr' class='hiddenAttrs'>
+		<label for="node-input-Schedulers"><i class="fa fa-tag"></i> Schedulers</label>
+		<input type="text" id="node-input-Schedulers" placeholder="Schedulers"></input>
+	</div> 
+	<div class="form-row" id='SourceBucketArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBucketArn"><i class="fa fa-tag"></i> SourceBucketArn</label>
+		<input type="text" id="node-input-SourceBucketArn" placeholder="SourceBucketArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='WebserverAccessModeAttr' class='hiddenAttrs'>
+		<label for="node-input-WebserverAccessMode"><i class="fa fa-tag"></i> WebserverAccessMode</label>
+		<input type="text" id="node-input-WebserverAccessMode" placeholder="WebserverAccessMode"></input>
+	</div> 
+	<div class="form-row" id='WeeklyMaintenanceWindowStartAttr' class='hiddenAttrs'>
+		<label for="node-input-WeeklyMaintenanceWindowStart"><i class="fa fa-tag"></i> WeeklyMaintenanceWindowStart</label>
+		<input type="text" id="node-input-WeeklyMaintenanceWindowStart" placeholder="WeeklyMaintenanceWindowStart"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentName"><i class="fa fa-tag"></i> EnvironmentName</label>
+		<input type="text" id="node-input-EnvironmentName" placeholder="EnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='MetricDataAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricData"><i class="fa fa-tag"></i> MetricData</label>
+		<input type="text" id="node-input-MetricData" placeholder="MetricData"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateCliToken:[
+					'#NameAttr'
+					],
+				CreateEnvironment:[
+					'#AirflowConfigurationOptionsAttr','#AirflowVersionAttr','#DagS3PathAttr','#EnvironmentClassAttr','#ExecutionRoleArnAttr','#KmsKeyAttr','#LoggingConfigurationAttr','#MaxWorkersAttr','#MinWorkersAttr','#NameAttr','#NetworkConfigurationAttr','#PluginsS3ObjectVersionAttr','#PluginsS3PathAttr','#RequirementsS3ObjectVersionAttr','#RequirementsS3PathAttr','#SchedulersAttr','#SourceBucketArnAttr','#TagsAttr','#WebserverAccessModeAttr','#WeeklyMaintenanceWindowStartAttr'
+					],
+				CreateWebLoginToken:[
+					'#NameAttr'
+					],
+				DeleteEnvironment:[
+					'#NameAttr'
+					],
+				GetEnvironment:[
+					'#NameAttr'
+					],
+				ListEnvironments:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PublishMetrics:[
+					'#EnvironmentNameAttr','#MetricDataAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#tagKeysAttr'
+					],
+				UpdateEnvironment:[
+					'#AirflowConfigurationOptionsAttr','#AirflowVersionAttr','#DagS3PathAttr','#EnvironmentClassAttr','#ExecutionRoleArnAttr','#LoggingConfigurationAttr','#MaxWorkersAttr','#MinWorkersAttr','#NameAttr','#NetworkConfigurationAttr','#PluginsS3ObjectVersionAttr','#PluginsS3PathAttr','#RequirementsS3ObjectVersionAttr','#RequirementsS3PathAttr','#SchedulersAttr','#SourceBucketArnAttr','#WebserverAccessModeAttr','#WeeklyMaintenanceWindowStartAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MWAA">
+<p>
+AWS MWAA
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MWAA.html">MWAA</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MWAA',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateCliToken' },
+			
+				Name: { value: ""} ,
+				AirflowConfigurationOptions: { value: ""} ,
+				AirflowVersion: { value: ""} ,
+				DagS3Path: { value: ""} ,
+				EnvironmentClass: { value: ""} ,
+				ExecutionRoleArn: { value: ""} ,
+				KmsKey: { value: ""} ,
+				LoggingConfiguration: { value: ""} ,
+				MaxWorkers: { value: ""} ,
+				MinWorkers: { value: ""} ,
+				NetworkConfiguration: { value: ""} ,
+				PluginsS3ObjectVersion: { value: ""} ,
+				PluginsS3Path: { value: ""} ,
+				RequirementsS3ObjectVersion: { value: ""} ,
+				RequirementsS3Path: { value: ""} ,
+				Schedulers: { value: ""} ,
+				SourceBucketArn: { value: ""} ,
+				Tags: { value: ""} ,
+				WebserverAccessMode: { value: ""} ,
+				WeeklyMaintenanceWindowStart: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				EnvironmentName: { value: ""} ,
+				MetricData: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MWAA " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AirflowVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DagS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnvironmentClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxWorkers").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MinWorkers").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-PluginsS3ObjectVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PluginsS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequirementsS3ObjectVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequirementsS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Schedulers").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SourceBucketArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WebserverAccessMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WeeklyMaintenanceWindowStart").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnvironmentName").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

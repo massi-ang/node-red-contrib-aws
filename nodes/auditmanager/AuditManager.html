@@ -1,0 +1,612 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS AuditManager">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateAssessmentReportEvidenceFolder">AssociateAssessmentReportEvidenceFolder</option>
+		
+			<option value="BatchAssociateAssessmentReportEvidence">BatchAssociateAssessmentReportEvidence</option>
+		
+			<option value="BatchCreateDelegationByAssessment">BatchCreateDelegationByAssessment</option>
+		
+			<option value="BatchDeleteDelegationByAssessment">BatchDeleteDelegationByAssessment</option>
+		
+			<option value="BatchDisassociateAssessmentReportEvidence">BatchDisassociateAssessmentReportEvidence</option>
+		
+			<option value="BatchImportEvidenceToAssessmentControl">BatchImportEvidenceToAssessmentControl</option>
+		
+			<option value="CreateAssessment">CreateAssessment</option>
+		
+			<option value="CreateAssessmentFramework">CreateAssessmentFramework</option>
+		
+			<option value="CreateAssessmentReport">CreateAssessmentReport</option>
+		
+			<option value="CreateControl">CreateControl</option>
+		
+			<option value="DeleteAssessment">DeleteAssessment</option>
+		
+			<option value="DeleteAssessmentFramework">DeleteAssessmentFramework</option>
+		
+			<option value="DeleteAssessmentReport">DeleteAssessmentReport</option>
+		
+			<option value="DeleteControl">DeleteControl</option>
+		
+			<option value="DeregisterAccount">DeregisterAccount</option>
+		
+			<option value="DeregisterOrganizationAdminAccount">DeregisterOrganizationAdminAccount</option>
+		
+			<option value="DisassociateAssessmentReportEvidenceFolder">DisassociateAssessmentReportEvidenceFolder</option>
+		
+			<option value="GetAccountStatus">GetAccountStatus</option>
+		
+			<option value="GetAssessment">GetAssessment</option>
+		
+			<option value="GetAssessmentFramework">GetAssessmentFramework</option>
+		
+			<option value="GetAssessmentReportUrl">GetAssessmentReportUrl</option>
+		
+			<option value="GetChangeLogs">GetChangeLogs</option>
+		
+			<option value="GetControl">GetControl</option>
+		
+			<option value="GetDelegations">GetDelegations</option>
+		
+			<option value="GetEvidence">GetEvidence</option>
+		
+			<option value="GetEvidenceByEvidenceFolder">GetEvidenceByEvidenceFolder</option>
+		
+			<option value="GetEvidenceFolder">GetEvidenceFolder</option>
+		
+			<option value="GetEvidenceFoldersByAssessment">GetEvidenceFoldersByAssessment</option>
+		
+			<option value="GetEvidenceFoldersByAssessmentControl">GetEvidenceFoldersByAssessmentControl</option>
+		
+			<option value="GetOrganizationAdminAccount">GetOrganizationAdminAccount</option>
+		
+			<option value="GetServicesInScope">GetServicesInScope</option>
+		
+			<option value="GetSettings">GetSettings</option>
+		
+			<option value="ListAssessmentFrameworks">ListAssessmentFrameworks</option>
+		
+			<option value="ListAssessmentReports">ListAssessmentReports</option>
+		
+			<option value="ListAssessments">ListAssessments</option>
+		
+			<option value="ListControls">ListControls</option>
+		
+			<option value="ListKeywordsForDataSource">ListKeywordsForDataSource</option>
+		
+			<option value="ListNotifications">ListNotifications</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterAccount">RegisterAccount</option>
+		
+			<option value="RegisterOrganizationAdminAccount">RegisterOrganizationAdminAccount</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAssessment">UpdateAssessment</option>
+		
+			<option value="UpdateAssessmentControl">UpdateAssessmentControl</option>
+		
+			<option value="UpdateAssessmentControlSetStatus">UpdateAssessmentControlSetStatus</option>
+		
+			<option value="UpdateAssessmentFramework">UpdateAssessmentFramework</option>
+		
+			<option value="UpdateAssessmentStatus">UpdateAssessmentStatus</option>
+		
+			<option value="UpdateControl">UpdateControl</option>
+		
+			<option value="UpdateSettings">UpdateSettings</option>
+		
+			<option value="ValidateAssessmentReportIntegrity">ValidateAssessmentReportIntegrity</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='assessmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentId"><i class="fa fa-tag"></i> assessmentId</label>
+		<input type="text" id="node-input-assessmentId" placeholder="assessmentId"></input>
+	</div> 
+	<div class="form-row" id='evidenceFolderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-evidenceFolderId"><i class="fa fa-tag"></i> evidenceFolderId</label>
+		<input type="text" id="node-input-evidenceFolderId" placeholder="evidenceFolderId"></input>
+	</div> 
+	<div class="form-row" id='evidenceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-evidenceIds"><i class="fa fa-tag"></i> evidenceIds</label>
+		<input type="text" id="node-input-evidenceIds" placeholder="evidenceIds"></input>
+	</div> 
+	<div class="form-row" id='createDelegationRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-createDelegationRequests"><i class="fa fa-tag"></i> createDelegationRequests</label>
+		<input type="text" id="node-input-createDelegationRequests" placeholder="createDelegationRequests"></input>
+	</div> 
+	<div class="form-row" id='delegationIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-delegationIds"><i class="fa fa-tag"></i> delegationIds</label>
+		<input type="text" id="node-input-delegationIds" placeholder="delegationIds"></input>
+	</div> 
+	<div class="form-row" id='controlSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-controlSetId"><i class="fa fa-tag"></i> controlSetId</label>
+		<input type="text" id="node-input-controlSetId" placeholder="controlSetId"></input>
+	</div> 
+	<div class="form-row" id='controlIdAttr' class='hiddenAttrs'>
+		<label for="node-input-controlId"><i class="fa fa-tag"></i> controlId</label>
+		<input type="text" id="node-input-controlId" placeholder="controlId"></input>
+	</div> 
+	<div class="form-row" id='manualEvidenceAttr' class='hiddenAttrs'>
+		<label for="node-input-manualEvidence"><i class="fa fa-tag"></i> manualEvidence</label>
+		<input type="text" id="node-input-manualEvidence" placeholder="manualEvidence"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='assessmentReportsDestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentReportsDestination"><i class="fa fa-tag"></i> assessmentReportsDestination</label>
+		<input type="text" id="node-input-assessmentReportsDestination" placeholder="assessmentReportsDestination"></input>
+	</div> 
+	<div class="form-row" id='scopeAttr' class='hiddenAttrs'>
+		<label for="node-input-scope"><i class="fa fa-tag"></i> scope</label>
+		<input type="text" id="node-input-scope" placeholder="scope"></input>
+	</div> 
+	<div class="form-row" id='rolesAttr' class='hiddenAttrs'>
+		<label for="node-input-roles"><i class="fa fa-tag"></i> roles</label>
+		<input type="text" id="node-input-roles" placeholder="roles"></input>
+	</div> 
+	<div class="form-row" id='frameworkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-frameworkId"><i class="fa fa-tag"></i> frameworkId</label>
+		<input type="text" id="node-input-frameworkId" placeholder="frameworkId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='complianceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-complianceType"><i class="fa fa-tag"></i> complianceType</label>
+		<input type="text" id="node-input-complianceType" placeholder="complianceType"></input>
+	</div> 
+	<div class="form-row" id='controlSetsAttr' class='hiddenAttrs'>
+		<label for="node-input-controlSets"><i class="fa fa-tag"></i> controlSets</label>
+		<input type="text" id="node-input-controlSets" placeholder="controlSets"></input>
+	</div> 
+	<div class="form-row" id='testingInformationAttr' class='hiddenAttrs'>
+		<label for="node-input-testingInformation"><i class="fa fa-tag"></i> testingInformation</label>
+		<input type="text" id="node-input-testingInformation" placeholder="testingInformation"></input>
+	</div> 
+	<div class="form-row" id='actionPlanTitleAttr' class='hiddenAttrs'>
+		<label for="node-input-actionPlanTitle"><i class="fa fa-tag"></i> actionPlanTitle</label>
+		<input type="text" id="node-input-actionPlanTitle" placeholder="actionPlanTitle"></input>
+	</div> 
+	<div class="form-row" id='actionPlanInstructionsAttr' class='hiddenAttrs'>
+		<label for="node-input-actionPlanInstructions"><i class="fa fa-tag"></i> actionPlanInstructions</label>
+		<input type="text" id="node-input-actionPlanInstructions" placeholder="actionPlanInstructions"></input>
+	</div> 
+	<div class="form-row" id='controlMappingSourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-controlMappingSources"><i class="fa fa-tag"></i> controlMappingSources</label>
+		<input type="text" id="node-input-controlMappingSources" placeholder="controlMappingSources"></input>
+	</div> 
+	<div class="form-row" id='assessmentReportIdAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentReportId"><i class="fa fa-tag"></i> assessmentReportId</label>
+		<input type="text" id="node-input-assessmentReportId" placeholder="assessmentReportId"></input>
+	</div> 
+	<div class="form-row" id='adminAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-adminAccountId"><i class="fa fa-tag"></i> adminAccountId</label>
+		<input type="text" id="node-input-adminAccountId" placeholder="adminAccountId"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='evidenceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-evidenceId"><i class="fa fa-tag"></i> evidenceId</label>
+		<input type="text" id="node-input-evidenceId" placeholder="evidenceId"></input>
+	</div> 
+	<div class="form-row" id='attributeAttr' class='hiddenAttrs'>
+		<label for="node-input-attribute"><i class="fa fa-tag"></i> attribute</label>
+		<input type="text" id="node-input-attribute" placeholder="attribute"></input>
+	</div> 
+	<div class="form-row" id='frameworkTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-frameworkType"><i class="fa fa-tag"></i> frameworkType</label>
+		<input type="text" id="node-input-frameworkType" placeholder="frameworkType"></input>
+	</div> 
+	<div class="form-row" id='controlTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-controlType"><i class="fa fa-tag"></i> controlType</label>
+		<input type="text" id="node-input-controlType" placeholder="controlType"></input>
+	</div> 
+	<div class="form-row" id='sourceAttr' class='hiddenAttrs'>
+		<label for="node-input-source"><i class="fa fa-tag"></i> source</label>
+		<input type="text" id="node-input-source" placeholder="source"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='kmsKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsKey"><i class="fa fa-tag"></i> kmsKey</label>
+		<input type="text" id="node-input-kmsKey" placeholder="kmsKey"></input>
+	</div> 
+	<div class="form-row" id='delegatedAdminAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-delegatedAdminAccount"><i class="fa fa-tag"></i> delegatedAdminAccount</label>
+		<input type="text" id="node-input-delegatedAdminAccount" placeholder="delegatedAdminAccount"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='assessmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentName"><i class="fa fa-tag"></i> assessmentName</label>
+		<input type="text" id="node-input-assessmentName" placeholder="assessmentName"></input>
+	</div> 
+	<div class="form-row" id='assessmentDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentDescription"><i class="fa fa-tag"></i> assessmentDescription</label>
+		<input type="text" id="node-input-assessmentDescription" placeholder="assessmentDescription"></input>
+	</div> 
+	<div class="form-row" id='controlStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-controlStatus"><i class="fa fa-tag"></i> controlStatus</label>
+		<input type="text" id="node-input-controlStatus" placeholder="controlStatus"></input>
+	</div> 
+	<div class="form-row" id='commentBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-commentBody"><i class="fa fa-tag"></i> commentBody</label>
+		<input type="text" id="node-input-commentBody" placeholder="commentBody"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='commentAttr' class='hiddenAttrs'>
+		<label for="node-input-comment"><i class="fa fa-tag"></i> comment</label>
+		<input type="text" id="node-input-comment" placeholder="comment"></input>
+	</div> 
+	<div class="form-row" id='snsTopicAttr' class='hiddenAttrs'>
+		<label for="node-input-snsTopic"><i class="fa fa-tag"></i> snsTopic</label>
+		<input type="text" id="node-input-snsTopic" placeholder="snsTopic"></input>
+	</div> 
+	<div class="form-row" id='defaultAssessmentReportsDestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultAssessmentReportsDestination"><i class="fa fa-tag"></i> defaultAssessmentReportsDestination</label>
+		<input type="text" id="node-input-defaultAssessmentReportsDestination" placeholder="defaultAssessmentReportsDestination"></input>
+	</div> 
+	<div class="form-row" id='defaultProcessOwnersAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultProcessOwners"><i class="fa fa-tag"></i> defaultProcessOwners</label>
+		<input type="text" id="node-input-defaultProcessOwners" placeholder="defaultProcessOwners"></input>
+	</div> 
+	<div class="form-row" id='s3RelativePathAttr' class='hiddenAttrs'>
+		<label for="node-input-s3RelativePath"><i class="fa fa-tag"></i> s3RelativePath</label>
+		<input type="text" id="node-input-s3RelativePath" placeholder="s3RelativePath"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateAssessmentReportEvidenceFolder:[
+					'#assessmentIdAttr','#evidenceFolderIdAttr'
+					],
+				BatchAssociateAssessmentReportEvidence:[
+					'#assessmentIdAttr','#evidenceFolderIdAttr','#evidenceIdsAttr'
+					],
+				BatchCreateDelegationByAssessment:[
+					'#createDelegationRequestsAttr','#assessmentIdAttr'
+					],
+				BatchDeleteDelegationByAssessment:[
+					'#delegationIdsAttr','#assessmentIdAttr'
+					],
+				BatchDisassociateAssessmentReportEvidence:[
+					'#assessmentIdAttr','#evidenceFolderIdAttr','#evidenceIdsAttr'
+					],
+				BatchImportEvidenceToAssessmentControl:[
+					'#assessmentIdAttr','#controlSetIdAttr','#controlIdAttr','#manualEvidenceAttr'
+					],
+				CreateAssessment:[
+					'#nameAttr','#descriptionAttr','#assessmentReportsDestinationAttr','#scopeAttr','#rolesAttr','#frameworkIdAttr','#tagsAttr'
+					],
+				CreateAssessmentFramework:[
+					'#nameAttr','#descriptionAttr','#complianceTypeAttr','#controlSetsAttr','#tagsAttr'
+					],
+				CreateAssessmentReport:[
+					'#nameAttr','#descriptionAttr','#assessmentIdAttr'
+					],
+				CreateControl:[
+					'#nameAttr','#descriptionAttr','#testingInformationAttr','#actionPlanTitleAttr','#actionPlanInstructionsAttr','#controlMappingSourcesAttr','#tagsAttr'
+					],
+				DeleteAssessment:[
+					'#assessmentIdAttr'
+					],
+				DeleteAssessmentFramework:[
+					'#frameworkIdAttr'
+					],
+				DeleteAssessmentReport:[
+					'#assessmentIdAttr','#assessmentReportIdAttr'
+					],
+				DeleteControl:[
+					'#controlIdAttr'
+					],
+				DeregisterAccount:[
+					
+					],
+				DeregisterOrganizationAdminAccount:[
+					'#adminAccountIdAttr'
+					],
+				DisassociateAssessmentReportEvidenceFolder:[
+					'#assessmentIdAttr','#evidenceFolderIdAttr'
+					],
+				GetAccountStatus:[
+					
+					],
+				GetAssessment:[
+					'#assessmentIdAttr'
+					],
+				GetAssessmentFramework:[
+					'#frameworkIdAttr'
+					],
+				GetAssessmentReportUrl:[
+					'#assessmentReportIdAttr','#assessmentIdAttr'
+					],
+				GetChangeLogs:[
+					'#assessmentIdAttr','#controlSetIdAttr','#controlIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetControl:[
+					'#controlIdAttr'
+					],
+				GetDelegations:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				GetEvidence:[
+					'#assessmentIdAttr','#controlSetIdAttr','#evidenceFolderIdAttr','#evidenceIdAttr'
+					],
+				GetEvidenceByEvidenceFolder:[
+					'#assessmentIdAttr','#controlSetIdAttr','#evidenceFolderIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetEvidenceFolder:[
+					'#assessmentIdAttr','#controlSetIdAttr','#evidenceFolderIdAttr'
+					],
+				GetEvidenceFoldersByAssessment:[
+					'#assessmentIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetEvidenceFoldersByAssessmentControl:[
+					'#assessmentIdAttr','#controlSetIdAttr','#controlIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetOrganizationAdminAccount:[
+					
+					],
+				GetServicesInScope:[
+					
+					],
+				GetSettings:[
+					'#attributeAttr'
+					],
+				ListAssessmentFrameworks:[
+					'#frameworkTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssessmentReports:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssessments:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListControls:[
+					'#controlTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListKeywordsForDataSource:[
+					'#sourceAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListNotifications:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				RegisterAccount:[
+					'#kmsKeyAttr','#delegatedAdminAccountAttr'
+					],
+				RegisterOrganizationAdminAccount:[
+					'#adminAccountIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAssessment:[
+					'#assessmentIdAttr','#assessmentNameAttr','#assessmentDescriptionAttr','#scopeAttr','#assessmentReportsDestinationAttr','#rolesAttr'
+					],
+				UpdateAssessmentControl:[
+					'#assessmentIdAttr','#controlSetIdAttr','#controlIdAttr','#controlStatusAttr','#commentBodyAttr'
+					],
+				UpdateAssessmentControlSetStatus:[
+					'#assessmentIdAttr','#controlSetIdAttr','#statusAttr','#commentAttr'
+					],
+				UpdateAssessmentFramework:[
+					'#frameworkIdAttr','#nameAttr','#descriptionAttr','#complianceTypeAttr','#controlSetsAttr'
+					],
+				UpdateAssessmentStatus:[
+					'#assessmentIdAttr','#statusAttr'
+					],
+				UpdateControl:[
+					'#controlIdAttr','#nameAttr','#descriptionAttr','#testingInformationAttr','#actionPlanTitleAttr','#actionPlanInstructionsAttr','#controlMappingSourcesAttr'
+					],
+				UpdateSettings:[
+					'#snsTopicAttr','#defaultAssessmentReportsDestinationAttr','#defaultProcessOwnersAttr','#kmsKeyAttr'
+					],
+				ValidateAssessmentReportIntegrity:[
+					'#s3RelativePathAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS AuditManager">
+<p>
+AWS AuditManager
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AuditManager.html">AuditManager</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AuditManager',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateAssessmentReportEvidenceFolder' },
+			
+				assessmentId: { value: ""} ,
+				evidenceFolderId: { value: ""} ,
+				evidenceIds: { value: ""} ,
+				createDelegationRequests: { value: ""} ,
+				delegationIds: { value: ""} ,
+				controlSetId: { value: ""} ,
+				controlId: { value: ""} ,
+				manualEvidence: { value: ""} ,
+				name: { value: ""} ,
+				description: { value: ""} ,
+				assessmentReportsDestination: { value: ""} ,
+				scope: { value: ""} ,
+				roles: { value: ""} ,
+				frameworkId: { value: ""} ,
+				tags: { value: ""} ,
+				complianceType: { value: ""} ,
+				controlSets: { value: ""} ,
+				testingInformation: { value: ""} ,
+				actionPlanTitle: { value: ""} ,
+				actionPlanInstructions: { value: ""} ,
+				controlMappingSources: { value: ""} ,
+				assessmentReportId: { value: ""} ,
+				adminAccountId: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				evidenceId: { value: ""} ,
+				attribute: { value: ""} ,
+				frameworkType: { value: ""} ,
+				controlType: { value: ""} ,
+				source: { value: ""} ,
+				resourceArn: { value: ""} ,
+				kmsKey: { value: ""} ,
+				delegatedAdminAccount: { value: ""} ,
+				tagKeys: { value: ""} ,
+				assessmentName: { value: ""} ,
+				assessmentDescription: { value: ""} ,
+				controlStatus: { value: ""} ,
+				commentBody: { value: ""} ,
+				status: { value: ""} ,
+				comment: { value: ""} ,
+				snsTopic: { value: ""} ,
+				defaultAssessmentReportsDestination: { value: ""} ,
+				defaultProcessOwners: { value: ""} ,
+				s3RelativePath: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AuditManager " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-assessmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-evidenceFolderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-evidenceIds").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-controlSetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-controlId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentReportsDestination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scope").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roles").typedInput({ default: "str", types: ["str"]});
+$("#node-input-frameworkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-complianceType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-testingInformation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionPlanTitle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionPlanInstructions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-controlMappingSources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentReportId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-adminAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-evidenceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attribute").typedInput({ default: "str", types: ["str"]});
+$("#node-input-frameworkType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-controlType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-kmsKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-delegatedAdminAccount").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-assessmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-controlStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commentBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-comment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-snsTopic").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultAssessmentReportsDestination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultProcessOwners").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3RelativePath").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

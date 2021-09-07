@@ -1,0 +1,1431 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS APIGateway">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApiKey">CreateApiKey</option>
+		
+			<option value="CreateAuthorizer">CreateAuthorizer</option>
+		
+			<option value="CreateBasePathMapping">CreateBasePathMapping</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDocumentationPart">CreateDocumentationPart</option>
+		
+			<option value="CreateDocumentationVersion">CreateDocumentationVersion</option>
+		
+			<option value="CreateDomainName">CreateDomainName</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="CreateRequestValidator">CreateRequestValidator</option>
+		
+			<option value="CreateResource">CreateResource</option>
+		
+			<option value="CreateRestApi">CreateRestApi</option>
+		
+			<option value="CreateStage">CreateStage</option>
+		
+			<option value="CreateUsagePlan">CreateUsagePlan</option>
+		
+			<option value="CreateUsagePlanKey">CreateUsagePlanKey</option>
+		
+			<option value="CreateVpcLink">CreateVpcLink</option>
+		
+			<option value="DeleteApiKey">DeleteApiKey</option>
+		
+			<option value="DeleteAuthorizer">DeleteAuthorizer</option>
+		
+			<option value="DeleteBasePathMapping">DeleteBasePathMapping</option>
+		
+			<option value="DeleteClientCertificate">DeleteClientCertificate</option>
+		
+			<option value="DeleteDeployment">DeleteDeployment</option>
+		
+			<option value="DeleteDocumentationPart">DeleteDocumentationPart</option>
+		
+			<option value="DeleteDocumentationVersion">DeleteDocumentationVersion</option>
+		
+			<option value="DeleteDomainName">DeleteDomainName</option>
+		
+			<option value="DeleteGatewayResponse">DeleteGatewayResponse</option>
+		
+			<option value="DeleteIntegration">DeleteIntegration</option>
+		
+			<option value="DeleteIntegrationResponse">DeleteIntegrationResponse</option>
+		
+			<option value="DeleteMethod">DeleteMethod</option>
+		
+			<option value="DeleteMethodResponse">DeleteMethodResponse</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DeleteRequestValidator">DeleteRequestValidator</option>
+		
+			<option value="DeleteResource">DeleteResource</option>
+		
+			<option value="DeleteRestApi">DeleteRestApi</option>
+		
+			<option value="DeleteStage">DeleteStage</option>
+		
+			<option value="DeleteUsagePlan">DeleteUsagePlan</option>
+		
+			<option value="DeleteUsagePlanKey">DeleteUsagePlanKey</option>
+		
+			<option value="DeleteVpcLink">DeleteVpcLink</option>
+		
+			<option value="FlushStageAuthorizersCache">FlushStageAuthorizersCache</option>
+		
+			<option value="FlushStageCache">FlushStageCache</option>
+		
+			<option value="GenerateClientCertificate">GenerateClientCertificate</option>
+		
+			<option value="GetAccount">GetAccount</option>
+		
+			<option value="GetApiKey">GetApiKey</option>
+		
+			<option value="GetApiKeys">GetApiKeys</option>
+		
+			<option value="GetAuthorizer">GetAuthorizer</option>
+		
+			<option value="GetAuthorizers">GetAuthorizers</option>
+		
+			<option value="GetBasePathMapping">GetBasePathMapping</option>
+		
+			<option value="GetBasePathMappings">GetBasePathMappings</option>
+		
+			<option value="GetClientCertificate">GetClientCertificate</option>
+		
+			<option value="GetClientCertificates">GetClientCertificates</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="GetDeployments">GetDeployments</option>
+		
+			<option value="GetDocumentationPart">GetDocumentationPart</option>
+		
+			<option value="GetDocumentationParts">GetDocumentationParts</option>
+		
+			<option value="GetDocumentationVersion">GetDocumentationVersion</option>
+		
+			<option value="GetDocumentationVersions">GetDocumentationVersions</option>
+		
+			<option value="GetDomainName">GetDomainName</option>
+		
+			<option value="GetDomainNames">GetDomainNames</option>
+		
+			<option value="GetExport">GetExport</option>
+		
+			<option value="GetGatewayResponse">GetGatewayResponse</option>
+		
+			<option value="GetGatewayResponses">GetGatewayResponses</option>
+		
+			<option value="GetIntegration">GetIntegration</option>
+		
+			<option value="GetIntegrationResponse">GetIntegrationResponse</option>
+		
+			<option value="GetMethod">GetMethod</option>
+		
+			<option value="GetMethodResponse">GetMethodResponse</option>
+		
+			<option value="GetModel">GetModel</option>
+		
+			<option value="GetModelTemplate">GetModelTemplate</option>
+		
+			<option value="GetModels">GetModels</option>
+		
+			<option value="GetRequestValidator">GetRequestValidator</option>
+		
+			<option value="GetRequestValidators">GetRequestValidators</option>
+		
+			<option value="GetResource">GetResource</option>
+		
+			<option value="GetResources">GetResources</option>
+		
+			<option value="GetRestApi">GetRestApi</option>
+		
+			<option value="GetRestApis">GetRestApis</option>
+		
+			<option value="GetSdk">GetSdk</option>
+		
+			<option value="GetSdkType">GetSdkType</option>
+		
+			<option value="GetSdkTypes">GetSdkTypes</option>
+		
+			<option value="GetStage">GetStage</option>
+		
+			<option value="GetStages">GetStages</option>
+		
+			<option value="GetTags">GetTags</option>
+		
+			<option value="GetUsage">GetUsage</option>
+		
+			<option value="GetUsagePlan">GetUsagePlan</option>
+		
+			<option value="GetUsagePlanKey">GetUsagePlanKey</option>
+		
+			<option value="GetUsagePlanKeys">GetUsagePlanKeys</option>
+		
+			<option value="GetUsagePlans">GetUsagePlans</option>
+		
+			<option value="GetVpcLink">GetVpcLink</option>
+		
+			<option value="GetVpcLinks">GetVpcLinks</option>
+		
+			<option value="ImportApiKeys">ImportApiKeys</option>
+		
+			<option value="ImportDocumentationParts">ImportDocumentationParts</option>
+		
+			<option value="ImportRestApi">ImportRestApi</option>
+		
+			<option value="PutGatewayResponse">PutGatewayResponse</option>
+		
+			<option value="PutIntegration">PutIntegration</option>
+		
+			<option value="PutIntegrationResponse">PutIntegrationResponse</option>
+		
+			<option value="PutMethod">PutMethod</option>
+		
+			<option value="PutMethodResponse">PutMethodResponse</option>
+		
+			<option value="PutRestApi">PutRestApi</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestInvokeAuthorizer">TestInvokeAuthorizer</option>
+		
+			<option value="TestInvokeMethod">TestInvokeMethod</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccount">UpdateAccount</option>
+		
+			<option value="UpdateApiKey">UpdateApiKey</option>
+		
+			<option value="UpdateAuthorizer">UpdateAuthorizer</option>
+		
+			<option value="UpdateBasePathMapping">UpdateBasePathMapping</option>
+		
+			<option value="UpdateClientCertificate">UpdateClientCertificate</option>
+		
+			<option value="UpdateDeployment">UpdateDeployment</option>
+		
+			<option value="UpdateDocumentationPart">UpdateDocumentationPart</option>
+		
+			<option value="UpdateDocumentationVersion">UpdateDocumentationVersion</option>
+		
+			<option value="UpdateDomainName">UpdateDomainName</option>
+		
+			<option value="UpdateGatewayResponse">UpdateGatewayResponse</option>
+		
+			<option value="UpdateIntegration">UpdateIntegration</option>
+		
+			<option value="UpdateIntegrationResponse">UpdateIntegrationResponse</option>
+		
+			<option value="UpdateMethod">UpdateMethod</option>
+		
+			<option value="UpdateMethodResponse">UpdateMethodResponse</option>
+		
+			<option value="UpdateModel">UpdateModel</option>
+		
+			<option value="UpdateRequestValidator">UpdateRequestValidator</option>
+		
+			<option value="UpdateResource">UpdateResource</option>
+		
+			<option value="UpdateRestApi">UpdateRestApi</option>
+		
+			<option value="UpdateStage">UpdateStage</option>
+		
+			<option value="UpdateUsage">UpdateUsage</option>
+		
+			<option value="UpdateUsagePlan">UpdateUsagePlan</option>
+		
+			<option value="UpdateVpcLink">UpdateVpcLink</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='enabledAttr' class='hiddenAttrs'>
+		<label for="node-input-enabled"><i class="fa fa-tag"></i> enabled</label>
+		<input type="text" id="node-input-enabled" placeholder="enabled"></input>
+	</div> 
+	<div class="form-row" id='generateDistinctIdAttr' class='hiddenAttrs'>
+		<label for="node-input-generateDistinctId"><i class="fa fa-tag"></i> generateDistinctId</label>
+		<input type="text" id="node-input-generateDistinctId" placeholder="generateDistinctId"></input>
+	</div> 
+	<div class="form-row" id='valueAttr' class='hiddenAttrs'>
+		<label for="node-input-value"><i class="fa fa-tag"></i> value</label>
+		<input type="text" id="node-input-value" placeholder="value"></input>
+	</div> 
+	<div class="form-row" id='stageKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-stageKeys"><i class="fa fa-tag"></i> stageKeys</label>
+		<input type="text" id="node-input-stageKeys" placeholder="stageKeys"></input>
+	</div> 
+	<div class="form-row" id='customerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-customerId"><i class="fa fa-tag"></i> customerId</label>
+		<input type="text" id="node-input-customerId" placeholder="customerId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='restApiIdAttr' class='hiddenAttrs'>
+		<label for="node-input-restApiId"><i class="fa fa-tag"></i> restApiId</label>
+		<input type="text" id="node-input-restApiId" placeholder="restApiId"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='providerARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-providerARNs"><i class="fa fa-tag"></i> providerARNs</label>
+		<input type="text" id="node-input-providerARNs" placeholder="providerARNs"></input>
+	</div> 
+	<div class="form-row" id='authTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authType"><i class="fa fa-tag"></i> authType</label>
+		<input type="text" id="node-input-authType" placeholder="authType"></input>
+	</div> 
+	<div class="form-row" id='authorizerUriAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerUri"><i class="fa fa-tag"></i> authorizerUri</label>
+		<input type="text" id="node-input-authorizerUri" placeholder="authorizerUri"></input>
+	</div> 
+	<div class="form-row" id='authorizerCredentialsAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerCredentials"><i class="fa fa-tag"></i> authorizerCredentials</label>
+		<input type="text" id="node-input-authorizerCredentials" placeholder="authorizerCredentials"></input>
+	</div> 
+	<div class="form-row" id='identitySourceAttr' class='hiddenAttrs'>
+		<label for="node-input-identitySource"><i class="fa fa-tag"></i> identitySource</label>
+		<input type="text" id="node-input-identitySource" placeholder="identitySource"></input>
+	</div> 
+	<div class="form-row" id='identityValidationExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-identityValidationExpression"><i class="fa fa-tag"></i> identityValidationExpression</label>
+		<input type="text" id="node-input-identityValidationExpression" placeholder="identityValidationExpression"></input>
+	</div> 
+	<div class="form-row" id='authorizerResultTtlInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerResultTtlInSeconds"><i class="fa fa-tag"></i> authorizerResultTtlInSeconds</label>
+		<input type="text" id="node-input-authorizerResultTtlInSeconds" placeholder="authorizerResultTtlInSeconds"></input>
+	</div> 
+	<div class="form-row" id='domainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-domainName"><i class="fa fa-tag"></i> domainName</label>
+		<input type="text" id="node-input-domainName" placeholder="domainName"></input>
+	</div> 
+	<div class="form-row" id='basePathAttr' class='hiddenAttrs'>
+		<label for="node-input-basePath"><i class="fa fa-tag"></i> basePath</label>
+		<input type="text" id="node-input-basePath" placeholder="basePath"></input>
+	</div> 
+	<div class="form-row" id='stageAttr' class='hiddenAttrs'>
+		<label for="node-input-stage"><i class="fa fa-tag"></i> stage</label>
+		<input type="text" id="node-input-stage" placeholder="stage"></input>
+	</div> 
+	<div class="form-row" id='stageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-stageName"><i class="fa fa-tag"></i> stageName</label>
+		<input type="text" id="node-input-stageName" placeholder="stageName"></input>
+	</div> 
+	<div class="form-row" id='stageDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-stageDescription"><i class="fa fa-tag"></i> stageDescription</label>
+		<input type="text" id="node-input-stageDescription" placeholder="stageDescription"></input>
+	</div> 
+	<div class="form-row" id='cacheClusterEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheClusterEnabled"><i class="fa fa-tag"></i> cacheClusterEnabled</label>
+		<input type="text" id="node-input-cacheClusterEnabled" placeholder="cacheClusterEnabled"></input>
+	</div> 
+	<div class="form-row" id='cacheClusterSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheClusterSize"><i class="fa fa-tag"></i> cacheClusterSize</label>
+		<input type="text" id="node-input-cacheClusterSize" placeholder="cacheClusterSize"></input>
+	</div> 
+	<div class="form-row" id='variablesAttr' class='hiddenAttrs'>
+		<label for="node-input-variables"><i class="fa fa-tag"></i> variables</label>
+		<input type="text" id="node-input-variables" placeholder="variables"></input>
+	</div> 
+	<div class="form-row" id='canarySettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-canarySettings"><i class="fa fa-tag"></i> canarySettings</label>
+		<input type="text" id="node-input-canarySettings" placeholder="canarySettings"></input>
+	</div> 
+	<div class="form-row" id='tracingEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-tracingEnabled"><i class="fa fa-tag"></i> tracingEnabled</label>
+		<input type="text" id="node-input-tracingEnabled" placeholder="tracingEnabled"></input>
+	</div> 
+	<div class="form-row" id='locationAttr' class='hiddenAttrs'>
+		<label for="node-input-location"><i class="fa fa-tag"></i> location</label>
+		<input type="text" id="node-input-location" placeholder="location"></input>
+	</div> 
+	<div class="form-row" id='propertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-properties"><i class="fa fa-tag"></i> properties</label>
+		<input type="text" id="node-input-properties" placeholder="properties"></input>
+	</div> 
+	<div class="form-row" id='documentationVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-documentationVersion"><i class="fa fa-tag"></i> documentationVersion</label>
+		<input type="text" id="node-input-documentationVersion" placeholder="documentationVersion"></input>
+	</div> 
+	<div class="form-row" id='certificateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateName"><i class="fa fa-tag"></i> certificateName</label>
+		<input type="text" id="node-input-certificateName" placeholder="certificateName"></input>
+	</div> 
+	<div class="form-row" id='certificateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateBody"><i class="fa fa-tag"></i> certificateBody</label>
+		<input type="text" id="node-input-certificateBody" placeholder="certificateBody"></input>
+	</div> 
+	<div class="form-row" id='certificatePrivateKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-certificatePrivateKey"><i class="fa fa-tag"></i> certificatePrivateKey</label>
+		<input type="text" id="node-input-certificatePrivateKey" placeholder="certificatePrivateKey"></input>
+	</div> 
+	<div class="form-row" id='certificateChainAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateChain"><i class="fa fa-tag"></i> certificateChain</label>
+		<input type="text" id="node-input-certificateChain" placeholder="certificateChain"></input>
+	</div> 
+	<div class="form-row" id='certificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateArn"><i class="fa fa-tag"></i> certificateArn</label>
+		<input type="text" id="node-input-certificateArn" placeholder="certificateArn"></input>
+	</div> 
+	<div class="form-row" id='regionalCertificateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-regionalCertificateName"><i class="fa fa-tag"></i> regionalCertificateName</label>
+		<input type="text" id="node-input-regionalCertificateName" placeholder="regionalCertificateName"></input>
+	</div> 
+	<div class="form-row" id='regionalCertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-regionalCertificateArn"><i class="fa fa-tag"></i> regionalCertificateArn</label>
+		<input type="text" id="node-input-regionalCertificateArn" placeholder="regionalCertificateArn"></input>
+	</div> 
+	<div class="form-row" id='endpointConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-endpointConfiguration"><i class="fa fa-tag"></i> endpointConfiguration</label>
+		<input type="text" id="node-input-endpointConfiguration" placeholder="endpointConfiguration"></input>
+	</div> 
+	<div class="form-row" id='securityPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-securityPolicy"><i class="fa fa-tag"></i> securityPolicy</label>
+		<input type="text" id="node-input-securityPolicy" placeholder="securityPolicy"></input>
+	</div> 
+	<div class="form-row" id='mutualTlsAuthenticationAttr' class='hiddenAttrs'>
+		<label for="node-input-mutualTlsAuthentication"><i class="fa fa-tag"></i> mutualTlsAuthentication</label>
+		<input type="text" id="node-input-mutualTlsAuthentication" placeholder="mutualTlsAuthentication"></input>
+	</div> 
+	<div class="form-row" id='ownershipVerificationCertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ownershipVerificationCertificateArn"><i class="fa fa-tag"></i> ownershipVerificationCertificateArn</label>
+		<input type="text" id="node-input-ownershipVerificationCertificateArn" placeholder="ownershipVerificationCertificateArn"></input>
+	</div> 
+	<div class="form-row" id='schemaAttr' class='hiddenAttrs'>
+		<label for="node-input-schema"><i class="fa fa-tag"></i> schema</label>
+		<input type="text" id="node-input-schema" placeholder="schema"></input>
+	</div> 
+	<div class="form-row" id='contentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-contentType"><i class="fa fa-tag"></i> contentType</label>
+		<input type="text" id="node-input-contentType" placeholder="contentType"></input>
+	</div> 
+	<div class="form-row" id='validateRequestBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-validateRequestBody"><i class="fa fa-tag"></i> validateRequestBody</label>
+		<input type="text" id="node-input-validateRequestBody" placeholder="validateRequestBody"></input>
+	</div> 
+	<div class="form-row" id='validateRequestParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-validateRequestParameters"><i class="fa fa-tag"></i> validateRequestParameters</label>
+		<input type="text" id="node-input-validateRequestParameters" placeholder="validateRequestParameters"></input>
+	</div> 
+	<div class="form-row" id='parentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-parentId"><i class="fa fa-tag"></i> parentId</label>
+		<input type="text" id="node-input-parentId" placeholder="parentId"></input>
+	</div> 
+	<div class="form-row" id='pathPartAttr' class='hiddenAttrs'>
+		<label for="node-input-pathPart"><i class="fa fa-tag"></i> pathPart</label>
+		<input type="text" id="node-input-pathPart" placeholder="pathPart"></input>
+	</div> 
+	<div class="form-row" id='versionAttr' class='hiddenAttrs'>
+		<label for="node-input-version"><i class="fa fa-tag"></i> version</label>
+		<input type="text" id="node-input-version" placeholder="version"></input>
+	</div> 
+	<div class="form-row" id='cloneFromAttr' class='hiddenAttrs'>
+		<label for="node-input-cloneFrom"><i class="fa fa-tag"></i> cloneFrom</label>
+		<input type="text" id="node-input-cloneFrom" placeholder="cloneFrom"></input>
+	</div> 
+	<div class="form-row" id='binaryMediaTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-binaryMediaTypes"><i class="fa fa-tag"></i> binaryMediaTypes</label>
+		<input type="text" id="node-input-binaryMediaTypes" placeholder="binaryMediaTypes"></input>
+	</div> 
+	<div class="form-row" id='minimumCompressionSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-minimumCompressionSize"><i class="fa fa-tag"></i> minimumCompressionSize</label>
+		<input type="text" id="node-input-minimumCompressionSize" placeholder="minimumCompressionSize"></input>
+	</div> 
+	<div class="form-row" id='apiKeySourceAttr' class='hiddenAttrs'>
+		<label for="node-input-apiKeySource"><i class="fa fa-tag"></i> apiKeySource</label>
+		<input type="text" id="node-input-apiKeySource" placeholder="apiKeySource"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i> policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='disableExecuteApiEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-disableExecuteApiEndpoint"><i class="fa fa-tag"></i> disableExecuteApiEndpoint</label>
+		<input type="text" id="node-input-disableExecuteApiEndpoint" placeholder="disableExecuteApiEndpoint"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentId"><i class="fa fa-tag"></i> deploymentId</label>
+		<input type="text" id="node-input-deploymentId" placeholder="deploymentId"></input>
+	</div> 
+	<div class="form-row" id='apiStagesAttr' class='hiddenAttrs'>
+		<label for="node-input-apiStages"><i class="fa fa-tag"></i> apiStages</label>
+		<input type="text" id="node-input-apiStages" placeholder="apiStages"></input>
+	</div> 
+	<div class="form-row" id='throttleAttr' class='hiddenAttrs'>
+		<label for="node-input-throttle"><i class="fa fa-tag"></i> throttle</label>
+		<input type="text" id="node-input-throttle" placeholder="throttle"></input>
+	</div> 
+	<div class="form-row" id='quotaAttr' class='hiddenAttrs'>
+		<label for="node-input-quota"><i class="fa fa-tag"></i> quota</label>
+		<input type="text" id="node-input-quota" placeholder="quota"></input>
+	</div> 
+	<div class="form-row" id='usagePlanIdAttr' class='hiddenAttrs'>
+		<label for="node-input-usagePlanId"><i class="fa fa-tag"></i> usagePlanId</label>
+		<input type="text" id="node-input-usagePlanId" placeholder="usagePlanId"></input>
+	</div> 
+	<div class="form-row" id='keyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-keyId"><i class="fa fa-tag"></i> keyId</label>
+		<input type="text" id="node-input-keyId" placeholder="keyId"></input>
+	</div> 
+	<div class="form-row" id='keyTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-keyType"><i class="fa fa-tag"></i> keyType</label>
+		<input type="text" id="node-input-keyType" placeholder="keyType"></input>
+	</div> 
+	<div class="form-row" id='targetArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-targetArns"><i class="fa fa-tag"></i> targetArns</label>
+		<input type="text" id="node-input-targetArns" placeholder="targetArns"></input>
+	</div> 
+	<div class="form-row" id='apiKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-apiKey"><i class="fa fa-tag"></i> apiKey</label>
+		<input type="text" id="node-input-apiKey" placeholder="apiKey"></input>
+	</div> 
+	<div class="form-row" id='authorizerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerId"><i class="fa fa-tag"></i> authorizerId</label>
+		<input type="text" id="node-input-authorizerId" placeholder="authorizerId"></input>
+	</div> 
+	<div class="form-row" id='clientCertificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-clientCertificateId"><i class="fa fa-tag"></i> clientCertificateId</label>
+		<input type="text" id="node-input-clientCertificateId" placeholder="clientCertificateId"></input>
+	</div> 
+	<div class="form-row" id='documentationPartIdAttr' class='hiddenAttrs'>
+		<label for="node-input-documentationPartId"><i class="fa fa-tag"></i> documentationPartId</label>
+		<input type="text" id="node-input-documentationPartId" placeholder="documentationPartId"></input>
+	</div> 
+	<div class="form-row" id='responseTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-responseType"><i class="fa fa-tag"></i> responseType</label>
+		<input type="text" id="node-input-responseType" placeholder="responseType"></input>
+	</div> 
+	<div class="form-row" id='resourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceId"><i class="fa fa-tag"></i> resourceId</label>
+		<input type="text" id="node-input-resourceId" placeholder="resourceId"></input>
+	</div> 
+	<div class="form-row" id='httpMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-httpMethod"><i class="fa fa-tag"></i> httpMethod</label>
+		<input type="text" id="node-input-httpMethod" placeholder="httpMethod"></input>
+	</div> 
+	<div class="form-row" id='statusCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-statusCode"><i class="fa fa-tag"></i> statusCode</label>
+		<input type="text" id="node-input-statusCode" placeholder="statusCode"></input>
+	</div> 
+	<div class="form-row" id='modelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-modelName"><i class="fa fa-tag"></i> modelName</label>
+		<input type="text" id="node-input-modelName" placeholder="modelName"></input>
+	</div> 
+	<div class="form-row" id='requestValidatorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-requestValidatorId"><i class="fa fa-tag"></i> requestValidatorId</label>
+		<input type="text" id="node-input-requestValidatorId" placeholder="requestValidatorId"></input>
+	</div> 
+	<div class="form-row" id='vpcLinkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-vpcLinkId"><i class="fa fa-tag"></i> vpcLinkId</label>
+		<input type="text" id="node-input-vpcLinkId" placeholder="vpcLinkId"></input>
+	</div> 
+	<div class="form-row" id='includeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-includeValue"><i class="fa fa-tag"></i> includeValue</label>
+		<input type="text" id="node-input-includeValue" placeholder="includeValue"></input>
+	</div> 
+	<div class="form-row" id='positionAttr' class='hiddenAttrs'>
+		<label for="node-input-position"><i class="fa fa-tag"></i> position</label>
+		<input type="text" id="node-input-position" placeholder="position"></input>
+	</div> 
+	<div class="form-row" id='limitAttr' class='hiddenAttrs'>
+		<label for="node-input-limit"><i class="fa fa-tag"></i> limit</label>
+		<input type="text" id="node-input-limit" placeholder="limit"></input>
+	</div> 
+	<div class="form-row" id='nameQueryAttr' class='hiddenAttrs'>
+		<label for="node-input-nameQuery"><i class="fa fa-tag"></i> nameQuery</label>
+		<input type="text" id="node-input-nameQuery" placeholder="nameQuery"></input>
+	</div> 
+	<div class="form-row" id='includeValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeValues"><i class="fa fa-tag"></i> includeValues</label>
+		<input type="text" id="node-input-includeValues" placeholder="includeValues"></input>
+	</div> 
+	<div class="form-row" id='embedAttr' class='hiddenAttrs'>
+		<label for="node-input-embed"><i class="fa fa-tag"></i> embed</label>
+		<input type="text" id="node-input-embed" placeholder="embed"></input>
+	</div> 
+	<div class="form-row" id='pathAttr' class='hiddenAttrs'>
+		<label for="node-input-path"><i class="fa fa-tag"></i> path</label>
+		<input type="text" id="node-input-path" placeholder="path"></input>
+	</div> 
+	<div class="form-row" id='locationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-locationStatus"><i class="fa fa-tag"></i> locationStatus</label>
+		<input type="text" id="node-input-locationStatus" placeholder="locationStatus"></input>
+	</div> 
+	<div class="form-row" id='exportTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-exportType"><i class="fa fa-tag"></i> exportType</label>
+		<input type="text" id="node-input-exportType" placeholder="exportType"></input>
+	</div> 
+	<div class="form-row" id='parametersAttr' class='hiddenAttrs'>
+		<label for="node-input-parameters"><i class="fa fa-tag"></i> parameters</label>
+		<input type="text" id="node-input-parameters" placeholder="parameters"></input>
+	</div> 
+	<div class="form-row" id='acceptsAttr' class='hiddenAttrs'>
+		<label for="node-input-accepts"><i class="fa fa-tag"></i> accepts</label>
+		<input type="text" id="node-input-accepts" placeholder="accepts"></input>
+	</div> 
+	<div class="form-row" id='flattenAttr' class='hiddenAttrs'>
+		<label for="node-input-flatten"><i class="fa fa-tag"></i> flatten</label>
+		<input type="text" id="node-input-flatten" placeholder="flatten"></input>
+	</div> 
+	<div class="form-row" id='sdkTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-sdkType"><i class="fa fa-tag"></i> sdkType</label>
+		<input type="text" id="node-input-sdkType" placeholder="sdkType"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='startDateAttr' class='hiddenAttrs'>
+		<label for="node-input-startDate"><i class="fa fa-tag"></i> startDate</label>
+		<input type="text" id="node-input-startDate" placeholder="startDate"></input>
+	</div> 
+	<div class="form-row" id='endDateAttr' class='hiddenAttrs'>
+		<label for="node-input-endDate"><i class="fa fa-tag"></i> endDate</label>
+		<input type="text" id="node-input-endDate" placeholder="endDate"></input>
+	</div> 
+	<div class="form-row" id='bodyAttr' class='hiddenAttrs'>
+		<label for="node-input-body"><i class="fa fa-tag"></i> body</label>
+		<input type="text" id="node-input-body" placeholder="body"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i> format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='failOnWarningsAttr' class='hiddenAttrs'>
+		<label for="node-input-failOnWarnings"><i class="fa fa-tag"></i> failOnWarnings</label>
+		<input type="text" id="node-input-failOnWarnings" placeholder="failOnWarnings"></input>
+	</div> 
+	<div class="form-row" id='modeAttr' class='hiddenAttrs'>
+		<label for="node-input-mode"><i class="fa fa-tag"></i> mode</label>
+		<input type="text" id="node-input-mode" placeholder="mode"></input>
+	</div> 
+	<div class="form-row" id='responseParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-responseParameters"><i class="fa fa-tag"></i> responseParameters</label>
+		<input type="text" id="node-input-responseParameters" placeholder="responseParameters"></input>
+	</div> 
+	<div class="form-row" id='responseTemplatesAttr' class='hiddenAttrs'>
+		<label for="node-input-responseTemplates"><i class="fa fa-tag"></i> responseTemplates</label>
+		<input type="text" id="node-input-responseTemplates" placeholder="responseTemplates"></input>
+	</div> 
+	<div class="form-row" id='integrationHttpMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-integrationHttpMethod"><i class="fa fa-tag"></i> integrationHttpMethod</label>
+		<input type="text" id="node-input-integrationHttpMethod" placeholder="integrationHttpMethod"></input>
+	</div> 
+	<div class="form-row" id='uriAttr' class='hiddenAttrs'>
+		<label for="node-input-uri"><i class="fa fa-tag"></i> uri</label>
+		<input type="text" id="node-input-uri" placeholder="uri"></input>
+	</div> 
+	<div class="form-row" id='connectionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionType"><i class="fa fa-tag"></i> connectionType</label>
+		<input type="text" id="node-input-connectionType" placeholder="connectionType"></input>
+	</div> 
+	<div class="form-row" id='connectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionId"><i class="fa fa-tag"></i> connectionId</label>
+		<input type="text" id="node-input-connectionId" placeholder="connectionId"></input>
+	</div> 
+	<div class="form-row" id='credentialsAttr' class='hiddenAttrs'>
+		<label for="node-input-credentials"><i class="fa fa-tag"></i> credentials</label>
+		<input type="text" id="node-input-credentials" placeholder="credentials"></input>
+	</div> 
+	<div class="form-row" id='requestParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-requestParameters"><i class="fa fa-tag"></i> requestParameters</label>
+		<input type="text" id="node-input-requestParameters" placeholder="requestParameters"></input>
+	</div> 
+	<div class="form-row" id='requestTemplatesAttr' class='hiddenAttrs'>
+		<label for="node-input-requestTemplates"><i class="fa fa-tag"></i> requestTemplates</label>
+		<input type="text" id="node-input-requestTemplates" placeholder="requestTemplates"></input>
+	</div> 
+	<div class="form-row" id='passthroughBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-passthroughBehavior"><i class="fa fa-tag"></i> passthroughBehavior</label>
+		<input type="text" id="node-input-passthroughBehavior" placeholder="passthroughBehavior"></input>
+	</div> 
+	<div class="form-row" id='cacheNamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheNamespace"><i class="fa fa-tag"></i> cacheNamespace</label>
+		<input type="text" id="node-input-cacheNamespace" placeholder="cacheNamespace"></input>
+	</div> 
+	<div class="form-row" id='cacheKeyParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheKeyParameters"><i class="fa fa-tag"></i> cacheKeyParameters</label>
+		<input type="text" id="node-input-cacheKeyParameters" placeholder="cacheKeyParameters"></input>
+	</div> 
+	<div class="form-row" id='contentHandlingAttr' class='hiddenAttrs'>
+		<label for="node-input-contentHandling"><i class="fa fa-tag"></i> contentHandling</label>
+		<input type="text" id="node-input-contentHandling" placeholder="contentHandling"></input>
+	</div> 
+	<div class="form-row" id='timeoutInMillisAttr' class='hiddenAttrs'>
+		<label for="node-input-timeoutInMillis"><i class="fa fa-tag"></i> timeoutInMillis</label>
+		<input type="text" id="node-input-timeoutInMillis" placeholder="timeoutInMillis"></input>
+	</div> 
+	<div class="form-row" id='tlsConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-tlsConfig"><i class="fa fa-tag"></i> tlsConfig</label>
+		<input type="text" id="node-input-tlsConfig" placeholder="tlsConfig"></input>
+	</div> 
+	<div class="form-row" id='selectionPatternAttr' class='hiddenAttrs'>
+		<label for="node-input-selectionPattern"><i class="fa fa-tag"></i> selectionPattern</label>
+		<input type="text" id="node-input-selectionPattern" placeholder="selectionPattern"></input>
+	</div> 
+	<div class="form-row" id='authorizationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizationType"><i class="fa fa-tag"></i> authorizationType</label>
+		<input type="text" id="node-input-authorizationType" placeholder="authorizationType"></input>
+	</div> 
+	<div class="form-row" id='apiKeyRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-apiKeyRequired"><i class="fa fa-tag"></i> apiKeyRequired</label>
+		<input type="text" id="node-input-apiKeyRequired" placeholder="apiKeyRequired"></input>
+	</div> 
+	<div class="form-row" id='operationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-operationName"><i class="fa fa-tag"></i> operationName</label>
+		<input type="text" id="node-input-operationName" placeholder="operationName"></input>
+	</div> 
+	<div class="form-row" id='requestModelsAttr' class='hiddenAttrs'>
+		<label for="node-input-requestModels"><i class="fa fa-tag"></i> requestModels</label>
+		<input type="text" id="node-input-requestModels" placeholder="requestModels"></input>
+	</div> 
+	<div class="form-row" id='authorizationScopesAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizationScopes"><i class="fa fa-tag"></i> authorizationScopes</label>
+		<input type="text" id="node-input-authorizationScopes" placeholder="authorizationScopes"></input>
+	</div> 
+	<div class="form-row" id='responseModelsAttr' class='hiddenAttrs'>
+		<label for="node-input-responseModels"><i class="fa fa-tag"></i> responseModels</label>
+		<input type="text" id="node-input-responseModels" placeholder="responseModels"></input>
+	</div> 
+	<div class="form-row" id='headersAttr' class='hiddenAttrs'>
+		<label for="node-input-headers"><i class="fa fa-tag"></i> headers</label>
+		<input type="text" id="node-input-headers" placeholder="headers"></input>
+	</div> 
+	<div class="form-row" id='multiValueHeadersAttr' class='hiddenAttrs'>
+		<label for="node-input-multiValueHeaders"><i class="fa fa-tag"></i> multiValueHeaders</label>
+		<input type="text" id="node-input-multiValueHeaders" placeholder="multiValueHeaders"></input>
+	</div> 
+	<div class="form-row" id='pathWithQueryStringAttr' class='hiddenAttrs'>
+		<label for="node-input-pathWithQueryString"><i class="fa fa-tag"></i> pathWithQueryString</label>
+		<input type="text" id="node-input-pathWithQueryString" placeholder="pathWithQueryString"></input>
+	</div> 
+	<div class="form-row" id='stageVariablesAttr' class='hiddenAttrs'>
+		<label for="node-input-stageVariables"><i class="fa fa-tag"></i> stageVariables</label>
+		<input type="text" id="node-input-stageVariables" placeholder="stageVariables"></input>
+	</div> 
+	<div class="form-row" id='additionalContextAttr' class='hiddenAttrs'>
+		<label for="node-input-additionalContext"><i class="fa fa-tag"></i> additionalContext</label>
+		<input type="text" id="node-input-additionalContext" placeholder="additionalContext"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='patchOperationsAttr' class='hiddenAttrs'>
+		<label for="node-input-patchOperations"><i class="fa fa-tag"></i> patchOperations</label>
+		<input type="text" id="node-input-patchOperations" placeholder="patchOperations"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApiKey:[
+					'#nameAttr','#descriptionAttr','#enabledAttr','#generateDistinctIdAttr','#valueAttr','#stageKeysAttr','#customerIdAttr','#tagsAttr'
+					],
+				CreateAuthorizer:[
+					'#restApiIdAttr','#nameAttr','#typeAttr','#providerARNsAttr','#authTypeAttr','#authorizerUriAttr','#authorizerCredentialsAttr','#identitySourceAttr','#identityValidationExpressionAttr','#authorizerResultTtlInSecondsAttr'
+					],
+				CreateBasePathMapping:[
+					'#domainNameAttr','#basePathAttr','#restApiIdAttr','#stageAttr'
+					],
+				CreateDeployment:[
+					'#restApiIdAttr','#stageNameAttr','#stageDescriptionAttr','#descriptionAttr','#cacheClusterEnabledAttr','#cacheClusterSizeAttr','#variablesAttr','#canarySettingsAttr','#tracingEnabledAttr'
+					],
+				CreateDocumentationPart:[
+					'#restApiIdAttr','#locationAttr','#propertiesAttr'
+					],
+				CreateDocumentationVersion:[
+					'#restApiIdAttr','#documentationVersionAttr','#stageNameAttr','#descriptionAttr'
+					],
+				CreateDomainName:[
+					'#domainNameAttr','#certificateNameAttr','#certificateBodyAttr','#certificatePrivateKeyAttr','#certificateChainAttr','#certificateArnAttr','#regionalCertificateNameAttr','#regionalCertificateArnAttr','#endpointConfigurationAttr','#tagsAttr','#securityPolicyAttr','#mutualTlsAuthenticationAttr','#ownershipVerificationCertificateArnAttr'
+					],
+				CreateModel:[
+					'#restApiIdAttr','#nameAttr','#descriptionAttr','#schemaAttr','#contentTypeAttr'
+					],
+				CreateRequestValidator:[
+					'#restApiIdAttr','#nameAttr','#validateRequestBodyAttr','#validateRequestParametersAttr'
+					],
+				CreateResource:[
+					'#restApiIdAttr','#parentIdAttr','#pathPartAttr'
+					],
+				CreateRestApi:[
+					'#nameAttr','#descriptionAttr','#versionAttr','#cloneFromAttr','#binaryMediaTypesAttr','#minimumCompressionSizeAttr','#apiKeySourceAttr','#endpointConfigurationAttr','#policyAttr','#tagsAttr','#disableExecuteApiEndpointAttr'
+					],
+				CreateStage:[
+					'#restApiIdAttr','#stageNameAttr','#deploymentIdAttr','#descriptionAttr','#cacheClusterEnabledAttr','#cacheClusterSizeAttr','#variablesAttr','#documentationVersionAttr','#canarySettingsAttr','#tracingEnabledAttr','#tagsAttr'
+					],
+				CreateUsagePlan:[
+					'#nameAttr','#descriptionAttr','#apiStagesAttr','#throttleAttr','#quotaAttr','#tagsAttr'
+					],
+				CreateUsagePlanKey:[
+					'#usagePlanIdAttr','#keyIdAttr','#keyTypeAttr'
+					],
+				CreateVpcLink:[
+					'#nameAttr','#descriptionAttr','#targetArnsAttr','#tagsAttr'
+					],
+				DeleteApiKey:[
+					'#apiKeyAttr'
+					],
+				DeleteAuthorizer:[
+					'#restApiIdAttr','#authorizerIdAttr'
+					],
+				DeleteBasePathMapping:[
+					'#domainNameAttr','#basePathAttr'
+					],
+				DeleteClientCertificate:[
+					'#clientCertificateIdAttr'
+					],
+				DeleteDeployment:[
+					'#restApiIdAttr','#deploymentIdAttr'
+					],
+				DeleteDocumentationPart:[
+					'#restApiIdAttr','#documentationPartIdAttr'
+					],
+				DeleteDocumentationVersion:[
+					'#restApiIdAttr','#documentationVersionAttr'
+					],
+				DeleteDomainName:[
+					'#domainNameAttr'
+					],
+				DeleteGatewayResponse:[
+					'#restApiIdAttr','#responseTypeAttr'
+					],
+				DeleteIntegration:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr'
+					],
+				DeleteIntegrationResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr'
+					],
+				DeleteMethod:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr'
+					],
+				DeleteMethodResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr'
+					],
+				DeleteModel:[
+					'#restApiIdAttr','#modelNameAttr'
+					],
+				DeleteRequestValidator:[
+					'#restApiIdAttr','#requestValidatorIdAttr'
+					],
+				DeleteResource:[
+					'#restApiIdAttr','#resourceIdAttr'
+					],
+				DeleteRestApi:[
+					'#restApiIdAttr'
+					],
+				DeleteStage:[
+					'#restApiIdAttr','#stageNameAttr'
+					],
+				DeleteUsagePlan:[
+					'#usagePlanIdAttr'
+					],
+				DeleteUsagePlanKey:[
+					'#usagePlanIdAttr','#keyIdAttr'
+					],
+				DeleteVpcLink:[
+					'#vpcLinkIdAttr'
+					],
+				FlushStageAuthorizersCache:[
+					'#restApiIdAttr','#stageNameAttr'
+					],
+				FlushStageCache:[
+					'#restApiIdAttr','#stageNameAttr'
+					],
+				GenerateClientCertificate:[
+					'#descriptionAttr','#tagsAttr'
+					],
+				GetAccount:[
+					
+					],
+				GetApiKey:[
+					'#apiKeyAttr','#includeValueAttr'
+					],
+				GetApiKeys:[
+					'#positionAttr','#limitAttr','#nameQueryAttr','#customerIdAttr','#includeValuesAttr'
+					],
+				GetAuthorizer:[
+					'#restApiIdAttr','#authorizerIdAttr'
+					],
+				GetAuthorizers:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetBasePathMapping:[
+					'#domainNameAttr','#basePathAttr'
+					],
+				GetBasePathMappings:[
+					'#domainNameAttr','#positionAttr','#limitAttr'
+					],
+				GetClientCertificate:[
+					'#clientCertificateIdAttr'
+					],
+				GetClientCertificates:[
+					'#positionAttr','#limitAttr'
+					],
+				GetDeployment:[
+					'#restApiIdAttr','#deploymentIdAttr','#embedAttr'
+					],
+				GetDeployments:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetDocumentationPart:[
+					'#restApiIdAttr','#documentationPartIdAttr'
+					],
+				GetDocumentationParts:[
+					'#restApiIdAttr','#typeAttr','#nameQueryAttr','#pathAttr','#positionAttr','#limitAttr','#locationStatusAttr'
+					],
+				GetDocumentationVersion:[
+					'#restApiIdAttr','#documentationVersionAttr'
+					],
+				GetDocumentationVersions:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetDomainName:[
+					'#domainNameAttr'
+					],
+				GetDomainNames:[
+					'#positionAttr','#limitAttr'
+					],
+				GetExport:[
+					'#restApiIdAttr','#stageNameAttr','#exportTypeAttr','#parametersAttr','#acceptsAttr'
+					],
+				GetGatewayResponse:[
+					'#restApiIdAttr','#responseTypeAttr'
+					],
+				GetGatewayResponses:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetIntegration:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr'
+					],
+				GetIntegrationResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr'
+					],
+				GetMethod:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr'
+					],
+				GetMethodResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr'
+					],
+				GetModel:[
+					'#restApiIdAttr','#modelNameAttr','#flattenAttr'
+					],
+				GetModelTemplate:[
+					'#restApiIdAttr','#modelNameAttr'
+					],
+				GetModels:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetRequestValidator:[
+					'#restApiIdAttr','#requestValidatorIdAttr'
+					],
+				GetRequestValidators:[
+					'#restApiIdAttr','#positionAttr','#limitAttr'
+					],
+				GetResource:[
+					'#restApiIdAttr','#resourceIdAttr','#embedAttr'
+					],
+				GetResources:[
+					'#restApiIdAttr','#positionAttr','#limitAttr','#embedAttr'
+					],
+				GetRestApi:[
+					'#restApiIdAttr'
+					],
+				GetRestApis:[
+					'#positionAttr','#limitAttr'
+					],
+				GetSdk:[
+					'#restApiIdAttr','#stageNameAttr','#sdkTypeAttr','#parametersAttr'
+					],
+				GetSdkType:[
+					'#idAttr'
+					],
+				GetSdkTypes:[
+					'#positionAttr','#limitAttr'
+					],
+				GetStage:[
+					'#restApiIdAttr','#stageNameAttr'
+					],
+				GetStages:[
+					'#restApiIdAttr','#deploymentIdAttr'
+					],
+				GetTags:[
+					'#resourceArnAttr','#positionAttr','#limitAttr'
+					],
+				GetUsage:[
+					'#usagePlanIdAttr','#keyIdAttr','#startDateAttr','#endDateAttr','#positionAttr','#limitAttr'
+					],
+				GetUsagePlan:[
+					'#usagePlanIdAttr'
+					],
+				GetUsagePlanKey:[
+					'#usagePlanIdAttr','#keyIdAttr'
+					],
+				GetUsagePlanKeys:[
+					'#usagePlanIdAttr','#positionAttr','#limitAttr','#nameQueryAttr'
+					],
+				GetUsagePlans:[
+					'#positionAttr','#keyIdAttr','#limitAttr'
+					],
+				GetVpcLink:[
+					'#vpcLinkIdAttr'
+					],
+				GetVpcLinks:[
+					'#positionAttr','#limitAttr'
+					],
+				ImportApiKeys:[
+					'#bodyAttr','#formatAttr','#failOnWarningsAttr'
+					],
+				ImportDocumentationParts:[
+					'#restApiIdAttr','#modeAttr','#failOnWarningsAttr','#bodyAttr'
+					],
+				ImportRestApi:[
+					'#failOnWarningsAttr','#parametersAttr','#bodyAttr'
+					],
+				PutGatewayResponse:[
+					'#restApiIdAttr','#responseTypeAttr','#statusCodeAttr','#responseParametersAttr','#responseTemplatesAttr'
+					],
+				PutIntegration:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#typeAttr','#integrationHttpMethodAttr','#uriAttr','#connectionTypeAttr','#connectionIdAttr','#credentialsAttr','#requestParametersAttr','#requestTemplatesAttr','#passthroughBehaviorAttr','#cacheNamespaceAttr','#cacheKeyParametersAttr','#contentHandlingAttr','#timeoutInMillisAttr','#tlsConfigAttr'
+					],
+				PutIntegrationResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr','#selectionPatternAttr','#responseParametersAttr','#responseTemplatesAttr','#contentHandlingAttr'
+					],
+				PutMethod:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#authorizationTypeAttr','#authorizerIdAttr','#apiKeyRequiredAttr','#operationNameAttr','#requestParametersAttr','#requestModelsAttr','#requestValidatorIdAttr','#authorizationScopesAttr'
+					],
+				PutMethodResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr','#responseParametersAttr','#responseModelsAttr'
+					],
+				PutRestApi:[
+					'#restApiIdAttr','#modeAttr','#failOnWarningsAttr','#parametersAttr','#bodyAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TestInvokeAuthorizer:[
+					'#restApiIdAttr','#authorizerIdAttr','#headersAttr','#multiValueHeadersAttr','#pathWithQueryStringAttr','#bodyAttr','#stageVariablesAttr','#additionalContextAttr'
+					],
+				TestInvokeMethod:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#pathWithQueryStringAttr','#bodyAttr','#headersAttr','#multiValueHeadersAttr','#clientCertificateIdAttr','#stageVariablesAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAccount:[
+					'#patchOperationsAttr'
+					],
+				UpdateApiKey:[
+					'#apiKeyAttr','#patchOperationsAttr'
+					],
+				UpdateAuthorizer:[
+					'#restApiIdAttr','#authorizerIdAttr','#patchOperationsAttr'
+					],
+				UpdateBasePathMapping:[
+					'#domainNameAttr','#basePathAttr','#patchOperationsAttr'
+					],
+				UpdateClientCertificate:[
+					'#clientCertificateIdAttr','#patchOperationsAttr'
+					],
+				UpdateDeployment:[
+					'#restApiIdAttr','#deploymentIdAttr','#patchOperationsAttr'
+					],
+				UpdateDocumentationPart:[
+					'#restApiIdAttr','#documentationPartIdAttr','#patchOperationsAttr'
+					],
+				UpdateDocumentationVersion:[
+					'#restApiIdAttr','#documentationVersionAttr','#patchOperationsAttr'
+					],
+				UpdateDomainName:[
+					'#domainNameAttr','#patchOperationsAttr'
+					],
+				UpdateGatewayResponse:[
+					'#restApiIdAttr','#responseTypeAttr','#patchOperationsAttr'
+					],
+				UpdateIntegration:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#patchOperationsAttr'
+					],
+				UpdateIntegrationResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr','#patchOperationsAttr'
+					],
+				UpdateMethod:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#patchOperationsAttr'
+					],
+				UpdateMethodResponse:[
+					'#restApiIdAttr','#resourceIdAttr','#httpMethodAttr','#statusCodeAttr','#patchOperationsAttr'
+					],
+				UpdateModel:[
+					'#restApiIdAttr','#modelNameAttr','#patchOperationsAttr'
+					],
+				UpdateRequestValidator:[
+					'#restApiIdAttr','#requestValidatorIdAttr','#patchOperationsAttr'
+					],
+				UpdateResource:[
+					'#restApiIdAttr','#resourceIdAttr','#patchOperationsAttr'
+					],
+				UpdateRestApi:[
+					'#restApiIdAttr','#patchOperationsAttr'
+					],
+				UpdateStage:[
+					'#restApiIdAttr','#stageNameAttr','#patchOperationsAttr'
+					],
+				UpdateUsage:[
+					'#usagePlanIdAttr','#keyIdAttr','#patchOperationsAttr'
+					],
+				UpdateUsagePlan:[
+					'#usagePlanIdAttr','#patchOperationsAttr'
+					],
+				UpdateVpcLink:[
+					'#vpcLinkIdAttr','#patchOperationsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS APIGateway">
+<p>
+AWS APIGateway
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/APIGateway.html">APIGateway</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS APIGateway',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApiKey' },
+			
+				name: { value: ""} ,
+				description: { value: ""} ,
+				enabled: { value: ""} ,
+				generateDistinctId: { value: ""} ,
+				value: { value: ""} ,
+				stageKeys: { value: ""} ,
+				customerId: { value: ""} ,
+				tags: { value: ""} ,
+				restApiId: { value: ""} ,
+				_type: { value: ""} ,
+				providerARNs: { value: ""} ,
+				authType: { value: ""} ,
+				authorizerUri: { value: ""} ,
+				authorizerCredentials: { value: ""} ,
+				identitySource: { value: ""} ,
+				identityValidationExpression: { value: ""} ,
+				authorizerResultTtlInSeconds: { value: ""} ,
+				domainName: { value: ""} ,
+				basePath: { value: ""} ,
+				stage: { value: ""} ,
+				stageName: { value: ""} ,
+				stageDescription: { value: ""} ,
+				cacheClusterEnabled: { value: ""} ,
+				cacheClusterSize: { value: ""} ,
+				variables: { value: ""} ,
+				canarySettings: { value: ""} ,
+				tracingEnabled: { value: ""} ,
+				location: { value: ""} ,
+				properties: { value: ""} ,
+				documentationVersion: { value: ""} ,
+				certificateName: { value: ""} ,
+				certificateBody: { value: ""} ,
+				certificatePrivateKey: { value: ""} ,
+				certificateChain: { value: ""} ,
+				certificateArn: { value: ""} ,
+				regionalCertificateName: { value: ""} ,
+				regionalCertificateArn: { value: ""} ,
+				endpointConfiguration: { value: ""} ,
+				securityPolicy: { value: ""} ,
+				mutualTlsAuthentication: { value: ""} ,
+				ownershipVerificationCertificateArn: { value: ""} ,
+				schema: { value: ""} ,
+				contentType: { value: ""} ,
+				validateRequestBody: { value: ""} ,
+				validateRequestParameters: { value: ""} ,
+				parentId: { value: ""} ,
+				pathPart: { value: ""} ,
+				version: { value: ""} ,
+				cloneFrom: { value: ""} ,
+				binaryMediaTypes: { value: ""} ,
+				minimumCompressionSize: { value: ""} ,
+				apiKeySource: { value: ""} ,
+				policy: { value: ""} ,
+				disableExecuteApiEndpoint: { value: ""} ,
+				deploymentId: { value: ""} ,
+				apiStages: { value: ""} ,
+				throttle: { value: ""} ,
+				quota: { value: ""} ,
+				usagePlanId: { value: ""} ,
+				keyId: { value: ""} ,
+				keyType: { value: ""} ,
+				targetArns: { value: ""} ,
+				apiKey: { value: ""} ,
+				authorizerId: { value: ""} ,
+				clientCertificateId: { value: ""} ,
+				documentationPartId: { value: ""} ,
+				responseType: { value: ""} ,
+				resourceId: { value: ""} ,
+				httpMethod: { value: ""} ,
+				statusCode: { value: ""} ,
+				modelName: { value: ""} ,
+				requestValidatorId: { value: ""} ,
+				vpcLinkId: { value: ""} ,
+				includeValue: { value: ""} ,
+				position: { value: ""} ,
+				limit: { value: ""} ,
+				nameQuery: { value: ""} ,
+				includeValues: { value: ""} ,
+				embed: { value: ""} ,
+				path: { value: ""} ,
+				locationStatus: { value: ""} ,
+				exportType: { value: ""} ,
+				parameters: { value: ""} ,
+				accepts: { value: ""} ,
+				flatten: { value: ""} ,
+				sdkType: { value: ""} ,
+				id: { value: ""} ,
+				resourceArn: { value: ""} ,
+				startDate: { value: ""} ,
+				endDate: { value: ""} ,
+				body: { value: ""} ,
+				format: { value: ""} ,
+				failOnWarnings: { value: ""} ,
+				mode: { value: ""} ,
+				responseParameters: { value: ""} ,
+				responseTemplates: { value: ""} ,
+				integrationHttpMethod: { value: ""} ,
+				uri: { value: ""} ,
+				connectionType: { value: ""} ,
+				connectionId: { value: ""} ,
+				credentials: { value: ""} ,
+				requestParameters: { value: ""} ,
+				requestTemplates: { value: ""} ,
+				passthroughBehavior: { value: ""} ,
+				cacheNamespace: { value: ""} ,
+				cacheKeyParameters: { value: ""} ,
+				contentHandling: { value: ""} ,
+				timeoutInMillis: { value: ""} ,
+				tlsConfig: { value: ""} ,
+				selectionPattern: { value: ""} ,
+				authorizationType: { value: ""} ,
+				apiKeyRequired: { value: ""} ,
+				operationName: { value: ""} ,
+				requestModels: { value: ""} ,
+				authorizationScopes: { value: ""} ,
+				responseModels: { value: ""} ,
+				headers: { value: ""} ,
+				multiValueHeaders: { value: ""} ,
+				pathWithQueryString: { value: ""} ,
+				stageVariables: { value: ""} ,
+				additionalContext: { value: ""} ,
+				tagKeys: { value: ""} ,
+				patchOperations: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "APIGateway " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-generateDistinctId").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-value").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-customerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-restApiId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-providerARNs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerCredentials").typedInput({ default: "str", types: ["str"]});
+$("#node-input-identitySource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-identityValidationExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerResultTtlInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-domainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-basePath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stageDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheClusterEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-cacheClusterSize").typedInput({ default: "str", types: ["str"]});
+$("#node-input-variables").typedInput({ default: "str", types: ["str"]});
+$("#node-input-canarySettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tracingEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-properties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-documentationVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificatePrivateKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateChain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-regionalCertificateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-regionalCertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-endpointConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityPolicy").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ownershipVerificationCertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-schema").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-validateRequestBody").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-validateRequestParameters").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-parentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pathPart").typedInput({ default: "str", types: ["str"]});
+$("#node-input-version").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cloneFrom").typedInput({ default: "str", types: ["str"]});
+$("#node-input-binaryMediaTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-minimumCompressionSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-apiKeySource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-disableExecuteApiEndpoint").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-deploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-apiStages").typedInput({ default: "str", types: ["str"]});
+$("#node-input-throttle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-quota").typedInput({ default: "str", types: ["str"]});
+$("#node-input-usagePlanId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keyType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-apiKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientCertificateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-documentationPartId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-responseType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-httpMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-statusCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-modelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestValidatorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpcLinkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeValue").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-position").typedInput({ default: "str", types: ["str"]});
+$("#node-input-limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nameQuery").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeValues").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-embed").typedInput({ default: "str", types: ["str"]});
+$("#node-input-path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-locationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-exportType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accepts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-flatten").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-sdkType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-startDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-endDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-body").typedInput({ default: "str", types: ["str"]});
+$("#node-input-format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-failOnWarnings").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-mode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-responseParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-responseTemplates").typedInput({ default: "str", types: ["str"]});
+$("#node-input-integrationHttpMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-uri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-credentials").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestTemplates").typedInput({ default: "str", types: ["str"]});
+$("#node-input-passthroughBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheNamespace").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheKeyParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contentHandling").typedInput({ default: "str", types: ["str"]});
+$("#node-input-timeoutInMillis").typedInput({ default: "num", types: ["num"]});
+$("#node-input-tlsConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-selectionPattern").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-apiKeyRequired").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-operationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestModels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizationScopes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-responseModels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-headers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-multiValueHeaders").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pathWithQueryString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stageVariables").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-patchOperations").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

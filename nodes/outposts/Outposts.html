@@ -1,0 +1,256 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Outposts">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateOrder">CreateOrder</option>
+		
+			<option value="CreateOutpost">CreateOutpost</option>
+		
+			<option value="DeleteOutpost">DeleteOutpost</option>
+		
+			<option value="DeleteSite">DeleteSite</option>
+		
+			<option value="GetOutpost">GetOutpost</option>
+		
+			<option value="GetOutpostInstanceTypes">GetOutpostInstanceTypes</option>
+		
+			<option value="ListOutposts">ListOutposts</option>
+		
+			<option value="ListSites">ListSites</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='OutpostIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-OutpostIdentifier"><i class="fa fa-tag"></i> OutpostIdentifier</label>
+		<input type="text" id="node-input-OutpostIdentifier" placeholder="OutpostIdentifier"></input>
+	</div> 
+	<div class="form-row" id='LineItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-LineItems"><i class="fa fa-tag"></i> LineItems</label>
+		<input type="text" id="node-input-LineItems" placeholder="LineItems"></input>
+	</div> 
+	<div class="form-row" id='PaymentOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PaymentOption"><i class="fa fa-tag"></i> PaymentOption</label>
+		<input type="text" id="node-input-PaymentOption" placeholder="PaymentOption"></input>
+	</div> 
+	<div class="form-row" id='PaymentTermAttr' class='hiddenAttrs'>
+		<label for="node-input-PaymentTerm"><i class="fa fa-tag"></i> PaymentTerm</label>
+		<input type="text" id="node-input-PaymentTerm" placeholder="PaymentTerm"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='SiteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SiteId"><i class="fa fa-tag"></i> SiteId</label>
+		<input type="text" id="node-input-SiteId" placeholder="SiteId"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZone"><i class="fa fa-tag"></i> AvailabilityZone</label>
+		<input type="text" id="node-input-AvailabilityZone" placeholder="AvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZoneId"><i class="fa fa-tag"></i> AvailabilityZoneId</label>
+		<input type="text" id="node-input-AvailabilityZoneId" placeholder="AvailabilityZoneId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='OutpostIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OutpostId"><i class="fa fa-tag"></i> OutpostId</label>
+		<input type="text" id="node-input-OutpostId" placeholder="OutpostId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='LifeCycleStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-LifeCycleStatusFilter"><i class="fa fa-tag"></i> LifeCycleStatusFilter</label>
+		<input type="text" id="node-input-LifeCycleStatusFilter" placeholder="LifeCycleStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZoneFilter"><i class="fa fa-tag"></i> AvailabilityZoneFilter</label>
+		<input type="text" id="node-input-AvailabilityZoneFilter" placeholder="AvailabilityZoneFilter"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneIdFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZoneIdFilter"><i class="fa fa-tag"></i> AvailabilityZoneIdFilter</label>
+		<input type="text" id="node-input-AvailabilityZoneIdFilter" placeholder="AvailabilityZoneIdFilter"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateOrder:[
+					'#OutpostIdentifierAttr','#LineItemsAttr','#PaymentOptionAttr','#PaymentTermAttr'
+					],
+				CreateOutpost:[
+					'#NameAttr','#DescriptionAttr','#SiteIdAttr','#AvailabilityZoneAttr','#AvailabilityZoneIdAttr','#TagsAttr'
+					],
+				DeleteOutpost:[
+					'#OutpostIdAttr'
+					],
+				DeleteSite:[
+					'#SiteIdAttr'
+					],
+				GetOutpost:[
+					'#OutpostIdAttr'
+					],
+				GetOutpostInstanceTypes:[
+					'#OutpostIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListOutposts:[
+					'#NextTokenAttr','#MaxResultsAttr','#LifeCycleStatusFilterAttr','#AvailabilityZoneFilterAttr','#AvailabilityZoneIdFilterAttr'
+					],
+				ListSites:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Outposts">
+<p>
+AWS Outposts
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Outposts.html">Outposts</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Outposts',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateOrder' },
+			
+				OutpostIdentifier: { value: ""} ,
+				LineItems: { value: ""} ,
+				PaymentOption: { value: ""} ,
+				PaymentTerm: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				SiteId: { value: ""} ,
+				AvailabilityZone: { value: ""} ,
+				AvailabilityZoneId: { value: ""} ,
+				Tags: { value: ""} ,
+				OutpostId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				LifeCycleStatusFilter: { value: ""} ,
+				AvailabilityZoneFilter: { value: ""} ,
+				AvailabilityZoneIdFilter: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Outposts " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-OutpostIdentifier").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PaymentOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PaymentTerm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SiteId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZoneId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutpostId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

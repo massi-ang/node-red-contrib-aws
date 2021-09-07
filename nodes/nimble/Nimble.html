@@ -1,0 +1,594 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Nimble">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptEulas">AcceptEulas</option>
+		
+			<option value="CreateLaunchProfile">CreateLaunchProfile</option>
+		
+			<option value="CreateStreamingImage">CreateStreamingImage</option>
+		
+			<option value="CreateStreamingSession">CreateStreamingSession</option>
+		
+			<option value="CreateStreamingSessionStream">CreateStreamingSessionStream</option>
+		
+			<option value="CreateStudio">CreateStudio</option>
+		
+			<option value="CreateStudioComponent">CreateStudioComponent</option>
+		
+			<option value="DeleteLaunchProfile">DeleteLaunchProfile</option>
+		
+			<option value="DeleteLaunchProfileMember">DeleteLaunchProfileMember</option>
+		
+			<option value="DeleteStreamingImage">DeleteStreamingImage</option>
+		
+			<option value="DeleteStreamingSession">DeleteStreamingSession</option>
+		
+			<option value="DeleteStudio">DeleteStudio</option>
+		
+			<option value="DeleteStudioComponent">DeleteStudioComponent</option>
+		
+			<option value="DeleteStudioMember">DeleteStudioMember</option>
+		
+			<option value="GetEula">GetEula</option>
+		
+			<option value="GetLaunchProfile">GetLaunchProfile</option>
+		
+			<option value="GetLaunchProfileDetails">GetLaunchProfileDetails</option>
+		
+			<option value="GetLaunchProfileInitialization">GetLaunchProfileInitialization</option>
+		
+			<option value="GetLaunchProfileMember">GetLaunchProfileMember</option>
+		
+			<option value="GetStreamingImage">GetStreamingImage</option>
+		
+			<option value="GetStreamingSession">GetStreamingSession</option>
+		
+			<option value="GetStreamingSessionStream">GetStreamingSessionStream</option>
+		
+			<option value="GetStudio">GetStudio</option>
+		
+			<option value="GetStudioComponent">GetStudioComponent</option>
+		
+			<option value="GetStudioMember">GetStudioMember</option>
+		
+			<option value="ListEulaAcceptances">ListEulaAcceptances</option>
+		
+			<option value="ListEulas">ListEulas</option>
+		
+			<option value="ListLaunchProfileMembers">ListLaunchProfileMembers</option>
+		
+			<option value="ListLaunchProfiles">ListLaunchProfiles</option>
+		
+			<option value="ListStreamingImages">ListStreamingImages</option>
+		
+			<option value="ListStreamingSessions">ListStreamingSessions</option>
+		
+			<option value="ListStudioComponents">ListStudioComponents</option>
+		
+			<option value="ListStudioMembers">ListStudioMembers</option>
+		
+			<option value="ListStudios">ListStudios</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutLaunchProfileMembers">PutLaunchProfileMembers</option>
+		
+			<option value="PutStudioMembers">PutStudioMembers</option>
+		
+			<option value="StartStudioSSOConfigurationRepair">StartStudioSSOConfigurationRepair</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateLaunchProfile">UpdateLaunchProfile</option>
+		
+			<option value="UpdateLaunchProfileMember">UpdateLaunchProfileMember</option>
+		
+			<option value="UpdateStreamingImage">UpdateStreamingImage</option>
+		
+			<option value="UpdateStudio">UpdateStudio</option>
+		
+			<option value="UpdateStudioComponent">UpdateStudioComponent</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='eulaIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-eulaIds"><i class="fa fa-tag"></i> eulaIds</label>
+		<input type="text" id="node-input-eulaIds" placeholder="eulaIds"></input>
+	</div> 
+	<div class="form-row" id='studioIdAttr' class='hiddenAttrs'>
+		<label for="node-input-studioId"><i class="fa fa-tag"></i> studioId</label>
+		<input type="text" id="node-input-studioId" placeholder="studioId"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='ec2SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2SubnetIds"><i class="fa fa-tag"></i> ec2SubnetIds</label>
+		<input type="text" id="node-input-ec2SubnetIds" placeholder="ec2SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='launchProfileProtocolVersionsAttr' class='hiddenAttrs'>
+		<label for="node-input-launchProfileProtocolVersions"><i class="fa fa-tag"></i> launchProfileProtocolVersions</label>
+		<input type="text" id="node-input-launchProfileProtocolVersions" placeholder="launchProfileProtocolVersions"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='streamConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-streamConfiguration"><i class="fa fa-tag"></i> streamConfiguration</label>
+		<input type="text" id="node-input-streamConfiguration" placeholder="streamConfiguration"></input>
+	</div> 
+	<div class="form-row" id='studioComponentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-studioComponentIds"><i class="fa fa-tag"></i> studioComponentIds</label>
+		<input type="text" id="node-input-studioComponentIds" placeholder="studioComponentIds"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='ec2ImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2ImageId"><i class="fa fa-tag"></i> ec2ImageId</label>
+		<input type="text" id="node-input-ec2ImageId" placeholder="ec2ImageId"></input>
+	</div> 
+	<div class="form-row" id='ec2InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2InstanceType"><i class="fa fa-tag"></i> ec2InstanceType</label>
+		<input type="text" id="node-input-ec2InstanceType" placeholder="ec2InstanceType"></input>
+	</div> 
+	<div class="form-row" id='launchProfileIdAttr' class='hiddenAttrs'>
+		<label for="node-input-launchProfileId"><i class="fa fa-tag"></i> launchProfileId</label>
+		<input type="text" id="node-input-launchProfileId" placeholder="launchProfileId"></input>
+	</div> 
+	<div class="form-row" id='ownedByAttr' class='hiddenAttrs'>
+		<label for="node-input-ownedBy"><i class="fa fa-tag"></i> ownedBy</label>
+		<input type="text" id="node-input-ownedBy" placeholder="ownedBy"></input>
+	</div> 
+	<div class="form-row" id='streamingImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-streamingImageId"><i class="fa fa-tag"></i> streamingImageId</label>
+		<input type="text" id="node-input-streamingImageId" placeholder="streamingImageId"></input>
+	</div> 
+	<div class="form-row" id='expirationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-expirationInSeconds"><i class="fa fa-tag"></i> expirationInSeconds</label>
+		<input type="text" id="node-input-expirationInSeconds" placeholder="expirationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='sessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-sessionId"><i class="fa fa-tag"></i> sessionId</label>
+		<input type="text" id="node-input-sessionId" placeholder="sessionId"></input>
+	</div> 
+	<div class="form-row" id='adminRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-adminRoleArn"><i class="fa fa-tag"></i> adminRoleArn</label>
+		<input type="text" id="node-input-adminRoleArn" placeholder="adminRoleArn"></input>
+	</div> 
+	<div class="form-row" id='displayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-displayName"><i class="fa fa-tag"></i> displayName</label>
+		<input type="text" id="node-input-displayName" placeholder="displayName"></input>
+	</div> 
+	<div class="form-row" id='studioEncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-studioEncryptionConfiguration"><i class="fa fa-tag"></i> studioEncryptionConfiguration</label>
+		<input type="text" id="node-input-studioEncryptionConfiguration" placeholder="studioEncryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='studioNameAttr' class='hiddenAttrs'>
+		<label for="node-input-studioName"><i class="fa fa-tag"></i> studioName</label>
+		<input type="text" id="node-input-studioName" placeholder="studioName"></input>
+	</div> 
+	<div class="form-row" id='userRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-userRoleArn"><i class="fa fa-tag"></i> userRoleArn</label>
+		<input type="text" id="node-input-userRoleArn" placeholder="userRoleArn"></input>
+	</div> 
+	<div class="form-row" id='configurationAttr' class='hiddenAttrs'>
+		<label for="node-input-configuration"><i class="fa fa-tag"></i> configuration</label>
+		<input type="text" id="node-input-configuration" placeholder="configuration"></input>
+	</div> 
+	<div class="form-row" id='ec2SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2SecurityGroupIds"><i class="fa fa-tag"></i> ec2SecurityGroupIds</label>
+		<input type="text" id="node-input-ec2SecurityGroupIds" placeholder="ec2SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='initializationScriptsAttr' class='hiddenAttrs'>
+		<label for="node-input-initializationScripts"><i class="fa fa-tag"></i> initializationScripts</label>
+		<input type="text" id="node-input-initializationScripts" placeholder="initializationScripts"></input>
+	</div> 
+	<div class="form-row" id='scriptParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-scriptParameters"><i class="fa fa-tag"></i> scriptParameters</label>
+		<input type="text" id="node-input-scriptParameters" placeholder="scriptParameters"></input>
+	</div> 
+	<div class="form-row" id='subtypeAttr' class='hiddenAttrs'>
+		<label for="node-input-subtype"><i class="fa fa-tag"></i> subtype</label>
+		<input type="text" id="node-input-subtype" placeholder="subtype"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='principalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-principalId"><i class="fa fa-tag"></i> principalId</label>
+		<input type="text" id="node-input-principalId" placeholder="principalId"></input>
+	</div> 
+	<div class="form-row" id='studioComponentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-studioComponentId"><i class="fa fa-tag"></i> studioComponentId</label>
+		<input type="text" id="node-input-studioComponentId" placeholder="studioComponentId"></input>
+	</div> 
+	<div class="form-row" id='eulaIdAttr' class='hiddenAttrs'>
+		<label for="node-input-eulaId"><i class="fa fa-tag"></i> eulaId</label>
+		<input type="text" id="node-input-eulaId" placeholder="eulaId"></input>
+	</div> 
+	<div class="form-row" id='launchPurposeAttr' class='hiddenAttrs'>
+		<label for="node-input-launchPurpose"><i class="fa fa-tag"></i> launchPurpose</label>
+		<input type="text" id="node-input-launchPurpose" placeholder="launchPurpose"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i> platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='streamIdAttr' class='hiddenAttrs'>
+		<label for="node-input-streamId"><i class="fa fa-tag"></i> streamId</label>
+		<input type="text" id="node-input-streamId" placeholder="streamId"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='statesAttr' class='hiddenAttrs'>
+		<label for="node-input-states"><i class="fa fa-tag"></i> states</label>
+		<input type="text" id="node-input-states" placeholder="states"></input>
+	</div> 
+	<div class="form-row" id='ownerAttr' class='hiddenAttrs'>
+		<label for="node-input-owner"><i class="fa fa-tag"></i> owner</label>
+		<input type="text" id="node-input-owner" placeholder="owner"></input>
+	</div> 
+	<div class="form-row" id='createdByAttr' class='hiddenAttrs'>
+		<label for="node-input-createdBy"><i class="fa fa-tag"></i> createdBy</label>
+		<input type="text" id="node-input-createdBy" placeholder="createdBy"></input>
+	</div> 
+	<div class="form-row" id='sessionIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-sessionIds"><i class="fa fa-tag"></i> sessionIds</label>
+		<input type="text" id="node-input-sessionIds" placeholder="sessionIds"></input>
+	</div> 
+	<div class="form-row" id='typesAttr' class='hiddenAttrs'>
+		<label for="node-input-types"><i class="fa fa-tag"></i> types</label>
+		<input type="text" id="node-input-types" placeholder="types"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='identityStoreIdAttr' class='hiddenAttrs'>
+		<label for="node-input-identityStoreId"><i class="fa fa-tag"></i> identityStoreId</label>
+		<input type="text" id="node-input-identityStoreId" placeholder="identityStoreId"></input>
+	</div> 
+	<div class="form-row" id='membersAttr' class='hiddenAttrs'>
+		<label for="node-input-members"><i class="fa fa-tag"></i> members</label>
+		<input type="text" id="node-input-members" placeholder="members"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='personaAttr' class='hiddenAttrs'>
+		<label for="node-input-persona"><i class="fa fa-tag"></i> persona</label>
+		<input type="text" id="node-input-persona" placeholder="persona"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptEulas:[
+					'#clientTokenAttr','#eulaIdsAttr','#studioIdAttr'
+					],
+				CreateLaunchProfile:[
+					'#clientTokenAttr','#descriptionAttr','#ec2SubnetIdsAttr','#launchProfileProtocolVersionsAttr','#nameAttr','#streamConfigurationAttr','#studioComponentIdsAttr','#studioIdAttr','#tagsAttr'
+					],
+				CreateStreamingImage:[
+					'#clientTokenAttr','#descriptionAttr','#ec2ImageIdAttr','#nameAttr','#studioIdAttr','#tagsAttr'
+					],
+				CreateStreamingSession:[
+					'#clientTokenAttr','#ec2InstanceTypeAttr','#launchProfileIdAttr','#ownedByAttr','#streamingImageIdAttr','#studioIdAttr','#tagsAttr'
+					],
+				CreateStreamingSessionStream:[
+					'#clientTokenAttr','#expirationInSecondsAttr','#sessionIdAttr','#studioIdAttr'
+					],
+				CreateStudio:[
+					'#adminRoleArnAttr','#clientTokenAttr','#displayNameAttr','#studioEncryptionConfigurationAttr','#studioNameAttr','#tagsAttr','#userRoleArnAttr'
+					],
+				CreateStudioComponent:[
+					'#clientTokenAttr','#configurationAttr','#descriptionAttr','#ec2SecurityGroupIdsAttr','#initializationScriptsAttr','#nameAttr','#scriptParametersAttr','#studioIdAttr','#subtypeAttr','#tagsAttr','#typeAttr'
+					],
+				DeleteLaunchProfile:[
+					'#clientTokenAttr','#launchProfileIdAttr','#studioIdAttr'
+					],
+				DeleteLaunchProfileMember:[
+					'#clientTokenAttr','#launchProfileIdAttr','#principalIdAttr','#studioIdAttr'
+					],
+				DeleteStreamingImage:[
+					'#clientTokenAttr','#streamingImageIdAttr','#studioIdAttr'
+					],
+				DeleteStreamingSession:[
+					'#clientTokenAttr','#sessionIdAttr','#studioIdAttr'
+					],
+				DeleteStudio:[
+					'#clientTokenAttr','#studioIdAttr'
+					],
+				DeleteStudioComponent:[
+					'#clientTokenAttr','#studioComponentIdAttr','#studioIdAttr'
+					],
+				DeleteStudioMember:[
+					'#clientTokenAttr','#principalIdAttr','#studioIdAttr'
+					],
+				GetEula:[
+					'#eulaIdAttr'
+					],
+				GetLaunchProfile:[
+					'#launchProfileIdAttr','#studioIdAttr'
+					],
+				GetLaunchProfileDetails:[
+					'#launchProfileIdAttr','#studioIdAttr'
+					],
+				GetLaunchProfileInitialization:[
+					'#launchProfileIdAttr','#launchProfileProtocolVersionsAttr','#launchPurposeAttr','#platformAttr','#studioIdAttr'
+					],
+				GetLaunchProfileMember:[
+					'#launchProfileIdAttr','#principalIdAttr','#studioIdAttr'
+					],
+				GetStreamingImage:[
+					'#streamingImageIdAttr','#studioIdAttr'
+					],
+				GetStreamingSession:[
+					'#sessionIdAttr','#studioIdAttr'
+					],
+				GetStreamingSessionStream:[
+					'#sessionIdAttr','#streamIdAttr','#studioIdAttr'
+					],
+				GetStudio:[
+					'#studioIdAttr'
+					],
+				GetStudioComponent:[
+					'#studioComponentIdAttr','#studioIdAttr'
+					],
+				GetStudioMember:[
+					'#principalIdAttr','#studioIdAttr'
+					],
+				ListEulaAcceptances:[
+					'#eulaIdsAttr','#nextTokenAttr','#studioIdAttr'
+					],
+				ListEulas:[
+					'#eulaIdsAttr','#nextTokenAttr'
+					],
+				ListLaunchProfileMembers:[
+					'#launchProfileIdAttr','#maxResultsAttr','#nextTokenAttr','#studioIdAttr'
+					],
+				ListLaunchProfiles:[
+					'#maxResultsAttr','#nextTokenAttr','#principalIdAttr','#statesAttr','#studioIdAttr'
+					],
+				ListStreamingImages:[
+					'#nextTokenAttr','#ownerAttr','#studioIdAttr'
+					],
+				ListStreamingSessions:[
+					'#createdByAttr','#nextTokenAttr','#ownedByAttr','#sessionIdsAttr','#studioIdAttr'
+					],
+				ListStudioComponents:[
+					'#maxResultsAttr','#nextTokenAttr','#statesAttr','#studioIdAttr','#typesAttr'
+					],
+				ListStudioMembers:[
+					'#maxResultsAttr','#nextTokenAttr','#studioIdAttr'
+					],
+				ListStudios:[
+					'#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutLaunchProfileMembers:[
+					'#clientTokenAttr','#identityStoreIdAttr','#launchProfileIdAttr','#membersAttr','#studioIdAttr'
+					],
+				PutStudioMembers:[
+					'#clientTokenAttr','#identityStoreIdAttr','#membersAttr','#studioIdAttr'
+					],
+				StartStudioSSOConfigurationRepair:[
+					'#clientTokenAttr','#studioIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateLaunchProfile:[
+					'#clientTokenAttr','#descriptionAttr','#launchProfileIdAttr','#launchProfileProtocolVersionsAttr','#nameAttr','#streamConfigurationAttr','#studioComponentIdsAttr','#studioIdAttr'
+					],
+				UpdateLaunchProfileMember:[
+					'#clientTokenAttr','#launchProfileIdAttr','#personaAttr','#principalIdAttr','#studioIdAttr'
+					],
+				UpdateStreamingImage:[
+					'#clientTokenAttr','#descriptionAttr','#nameAttr','#streamingImageIdAttr','#studioIdAttr'
+					],
+				UpdateStudio:[
+					'#adminRoleArnAttr','#clientTokenAttr','#displayNameAttr','#studioIdAttr','#userRoleArnAttr'
+					],
+				UpdateStudioComponent:[
+					'#clientTokenAttr','#configurationAttr','#descriptionAttr','#ec2SecurityGroupIdsAttr','#initializationScriptsAttr','#nameAttr','#scriptParametersAttr','#studioComponentIdAttr','#studioIdAttr','#subtypeAttr','#typeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Nimble">
+<p>
+AWS Nimble
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Nimble.html">Nimble</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Nimble',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptEulas' },
+			
+				clientToken: { value: ""} ,
+				eulaIds: { value: ""} ,
+				studioId: { value: ""} ,
+				description: { value: ""} ,
+				ec2SubnetIds: { value: ""} ,
+				launchProfileProtocolVersions: { value: ""} ,
+				name: { value: ""} ,
+				streamConfiguration: { value: ""} ,
+				studioComponentIds: { value: ""} ,
+				tags: { value: ""} ,
+				ec2ImageId: { value: ""} ,
+				ec2InstanceType: { value: ""} ,
+				launchProfileId: { value: ""} ,
+				ownedBy: { value: ""} ,
+				streamingImageId: { value: ""} ,
+				expirationInSeconds: { value: ""} ,
+				sessionId: { value: ""} ,
+				adminRoleArn: { value: ""} ,
+				displayName: { value: ""} ,
+				studioEncryptionConfiguration: { value: ""} ,
+				studioName: { value: ""} ,
+				userRoleArn: { value: ""} ,
+				configuration: { value: ""} ,
+				ec2SecurityGroupIds: { value: ""} ,
+				initializationScripts: { value: ""} ,
+				scriptParameters: { value: ""} ,
+				subtype: { value: ""} ,
+				_type: { value: ""} ,
+				principalId: { value: ""} ,
+				studioComponentId: { value: ""} ,
+				eulaId: { value: ""} ,
+				launchPurpose: { value: ""} ,
+				platform: { value: ""} ,
+				streamId: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				states: { value: ""} ,
+				owner: { value: ""} ,
+				createdBy: { value: ""} ,
+				sessionIds: { value: ""} ,
+				types: { value: ""} ,
+				resourceArn: { value: ""} ,
+				identityStoreId: { value: ""} ,
+				members: { value: ""} ,
+				tagKeys: { value: ""} ,
+				persona: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Nimble " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-eulaIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-studioId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-launchProfileProtocolVersions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-streamConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-studioComponentIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2ImageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-launchProfileId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ownedBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-streamingImageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-expirationInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-sessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-adminRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-displayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-studioEncryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-studioName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-userRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-initializationScripts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scriptParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-subtype").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-principalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-studioComponentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-eulaId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-launchPurpose").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-streamId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-states").typedInput({ default: "str", types: ["str"]});
+$("#node-input-owner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-createdBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sessionIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-types").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-identityStoreId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-tagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-persona").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

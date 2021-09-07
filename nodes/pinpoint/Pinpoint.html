@@ -1,0 +1,995 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Pinpoint">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApp">CreateApp</option>
+		
+			<option value="CreateCampaign">CreateCampaign</option>
+		
+			<option value="CreateEmailTemplate">CreateEmailTemplate</option>
+		
+			<option value="CreateExportJob">CreateExportJob</option>
+		
+			<option value="CreateImportJob">CreateImportJob</option>
+		
+			<option value="CreateJourney">CreateJourney</option>
+		
+			<option value="CreatePushTemplate">CreatePushTemplate</option>
+		
+			<option value="CreateRecommenderConfiguration">CreateRecommenderConfiguration</option>
+		
+			<option value="CreateSegment">CreateSegment</option>
+		
+			<option value="CreateSmsTemplate">CreateSmsTemplate</option>
+		
+			<option value="CreateVoiceTemplate">CreateVoiceTemplate</option>
+		
+			<option value="DeleteAdmChannel">DeleteAdmChannel</option>
+		
+			<option value="DeleteApnsChannel">DeleteApnsChannel</option>
+		
+			<option value="DeleteApnsSandboxChannel">DeleteApnsSandboxChannel</option>
+		
+			<option value="DeleteApnsVoipChannel">DeleteApnsVoipChannel</option>
+		
+			<option value="DeleteApnsVoipSandboxChannel">DeleteApnsVoipSandboxChannel</option>
+		
+			<option value="DeleteApp">DeleteApp</option>
+		
+			<option value="DeleteBaiduChannel">DeleteBaiduChannel</option>
+		
+			<option value="DeleteCampaign">DeleteCampaign</option>
+		
+			<option value="DeleteEmailChannel">DeleteEmailChannel</option>
+		
+			<option value="DeleteEmailTemplate">DeleteEmailTemplate</option>
+		
+			<option value="DeleteEndpoint">DeleteEndpoint</option>
+		
+			<option value="DeleteEventStream">DeleteEventStream</option>
+		
+			<option value="DeleteGcmChannel">DeleteGcmChannel</option>
+		
+			<option value="DeleteJourney">DeleteJourney</option>
+		
+			<option value="DeletePushTemplate">DeletePushTemplate</option>
+		
+			<option value="DeleteRecommenderConfiguration">DeleteRecommenderConfiguration</option>
+		
+			<option value="DeleteSegment">DeleteSegment</option>
+		
+			<option value="DeleteSmsChannel">DeleteSmsChannel</option>
+		
+			<option value="DeleteSmsTemplate">DeleteSmsTemplate</option>
+		
+			<option value="DeleteUserEndpoints">DeleteUserEndpoints</option>
+		
+			<option value="DeleteVoiceChannel">DeleteVoiceChannel</option>
+		
+			<option value="DeleteVoiceTemplate">DeleteVoiceTemplate</option>
+		
+			<option value="GetAdmChannel">GetAdmChannel</option>
+		
+			<option value="GetApnsChannel">GetApnsChannel</option>
+		
+			<option value="GetApnsSandboxChannel">GetApnsSandboxChannel</option>
+		
+			<option value="GetApnsVoipChannel">GetApnsVoipChannel</option>
+		
+			<option value="GetApnsVoipSandboxChannel">GetApnsVoipSandboxChannel</option>
+		
+			<option value="GetApp">GetApp</option>
+		
+			<option value="GetApplicationDateRangeKpi">GetApplicationDateRangeKpi</option>
+		
+			<option value="GetApplicationSettings">GetApplicationSettings</option>
+		
+			<option value="GetApps">GetApps</option>
+		
+			<option value="GetBaiduChannel">GetBaiduChannel</option>
+		
+			<option value="GetCampaign">GetCampaign</option>
+		
+			<option value="GetCampaignActivities">GetCampaignActivities</option>
+		
+			<option value="GetCampaignDateRangeKpi">GetCampaignDateRangeKpi</option>
+		
+			<option value="GetCampaignVersion">GetCampaignVersion</option>
+		
+			<option value="GetCampaignVersions">GetCampaignVersions</option>
+		
+			<option value="GetCampaigns">GetCampaigns</option>
+		
+			<option value="GetChannels">GetChannels</option>
+		
+			<option value="GetEmailChannel">GetEmailChannel</option>
+		
+			<option value="GetEmailTemplate">GetEmailTemplate</option>
+		
+			<option value="GetEndpoint">GetEndpoint</option>
+		
+			<option value="GetEventStream">GetEventStream</option>
+		
+			<option value="GetExportJob">GetExportJob</option>
+		
+			<option value="GetExportJobs">GetExportJobs</option>
+		
+			<option value="GetGcmChannel">GetGcmChannel</option>
+		
+			<option value="GetImportJob">GetImportJob</option>
+		
+			<option value="GetImportJobs">GetImportJobs</option>
+		
+			<option value="GetJourney">GetJourney</option>
+		
+			<option value="GetJourneyDateRangeKpi">GetJourneyDateRangeKpi</option>
+		
+			<option value="GetJourneyExecutionActivityMetrics">GetJourneyExecutionActivityMetrics</option>
+		
+			<option value="GetJourneyExecutionMetrics">GetJourneyExecutionMetrics</option>
+		
+			<option value="GetPushTemplate">GetPushTemplate</option>
+		
+			<option value="GetRecommenderConfiguration">GetRecommenderConfiguration</option>
+		
+			<option value="GetRecommenderConfigurations">GetRecommenderConfigurations</option>
+		
+			<option value="GetSegment">GetSegment</option>
+		
+			<option value="GetSegmentExportJobs">GetSegmentExportJobs</option>
+		
+			<option value="GetSegmentImportJobs">GetSegmentImportJobs</option>
+		
+			<option value="GetSegmentVersion">GetSegmentVersion</option>
+		
+			<option value="GetSegmentVersions">GetSegmentVersions</option>
+		
+			<option value="GetSegments">GetSegments</option>
+		
+			<option value="GetSmsChannel">GetSmsChannel</option>
+		
+			<option value="GetSmsTemplate">GetSmsTemplate</option>
+		
+			<option value="GetUserEndpoints">GetUserEndpoints</option>
+		
+			<option value="GetVoiceChannel">GetVoiceChannel</option>
+		
+			<option value="GetVoiceTemplate">GetVoiceTemplate</option>
+		
+			<option value="ListJourneys">ListJourneys</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTemplateVersions">ListTemplateVersions</option>
+		
+			<option value="ListTemplates">ListTemplates</option>
+		
+			<option value="PhoneNumberValidate">PhoneNumberValidate</option>
+		
+			<option value="PutEventStream">PutEventStream</option>
+		
+			<option value="PutEvents">PutEvents</option>
+		
+			<option value="RemoveAttributes">RemoveAttributes</option>
+		
+			<option value="SendMessages">SendMessages</option>
+		
+			<option value="SendUsersMessages">SendUsersMessages</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAdmChannel">UpdateAdmChannel</option>
+		
+			<option value="UpdateApnsChannel">UpdateApnsChannel</option>
+		
+			<option value="UpdateApnsSandboxChannel">UpdateApnsSandboxChannel</option>
+		
+			<option value="UpdateApnsVoipChannel">UpdateApnsVoipChannel</option>
+		
+			<option value="UpdateApnsVoipSandboxChannel">UpdateApnsVoipSandboxChannel</option>
+		
+			<option value="UpdateApplicationSettings">UpdateApplicationSettings</option>
+		
+			<option value="UpdateBaiduChannel">UpdateBaiduChannel</option>
+		
+			<option value="UpdateCampaign">UpdateCampaign</option>
+		
+			<option value="UpdateEmailChannel">UpdateEmailChannel</option>
+		
+			<option value="UpdateEmailTemplate">UpdateEmailTemplate</option>
+		
+			<option value="UpdateEndpoint">UpdateEndpoint</option>
+		
+			<option value="UpdateEndpointsBatch">UpdateEndpointsBatch</option>
+		
+			<option value="UpdateGcmChannel">UpdateGcmChannel</option>
+		
+			<option value="UpdateJourney">UpdateJourney</option>
+		
+			<option value="UpdateJourneyState">UpdateJourneyState</option>
+		
+			<option value="UpdatePushTemplate">UpdatePushTemplate</option>
+		
+			<option value="UpdateRecommenderConfiguration">UpdateRecommenderConfiguration</option>
+		
+			<option value="UpdateSegment">UpdateSegment</option>
+		
+			<option value="UpdateSmsChannel">UpdateSmsChannel</option>
+		
+			<option value="UpdateSmsTemplate">UpdateSmsTemplate</option>
+		
+			<option value="UpdateTemplateActiveVersion">UpdateTemplateActiveVersion</option>
+		
+			<option value="UpdateVoiceChannel">UpdateVoiceChannel</option>
+		
+			<option value="UpdateVoiceTemplate">UpdateVoiceTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CreateApplicationRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateApplicationRequest"><i class="fa fa-tag"></i> CreateApplicationRequest</label>
+		<input type="text" id="node-input-CreateApplicationRequest" placeholder="CreateApplicationRequest"></input>
+	</div> 
+	<div class="form-row" id='ApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationId"><i class="fa fa-tag"></i> ApplicationId</label>
+		<input type="text" id="node-input-ApplicationId" placeholder="ApplicationId"></input>
+	</div> 
+	<div class="form-row" id='WriteCampaignRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-WriteCampaignRequest"><i class="fa fa-tag"></i> WriteCampaignRequest</label>
+		<input type="text" id="node-input-WriteCampaignRequest" placeholder="WriteCampaignRequest"></input>
+	</div> 
+	<div class="form-row" id='EmailTemplateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailTemplateRequest"><i class="fa fa-tag"></i> EmailTemplateRequest</label>
+		<input type="text" id="node-input-EmailTemplateRequest" placeholder="EmailTemplateRequest"></input>
+	</div> 
+	<div class="form-row" id='TemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateName"><i class="fa fa-tag"></i> TemplateName</label>
+		<input type="text" id="node-input-TemplateName" placeholder="TemplateName"></input>
+	</div> 
+	<div class="form-row" id='ExportJobRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportJobRequest"><i class="fa fa-tag"></i> ExportJobRequest</label>
+		<input type="text" id="node-input-ExportJobRequest" placeholder="ExportJobRequest"></input>
+	</div> 
+	<div class="form-row" id='ImportJobRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-ImportJobRequest"><i class="fa fa-tag"></i> ImportJobRequest</label>
+		<input type="text" id="node-input-ImportJobRequest" placeholder="ImportJobRequest"></input>
+	</div> 
+	<div class="form-row" id='WriteJourneyRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-WriteJourneyRequest"><i class="fa fa-tag"></i> WriteJourneyRequest</label>
+		<input type="text" id="node-input-WriteJourneyRequest" placeholder="WriteJourneyRequest"></input>
+	</div> 
+	<div class="form-row" id='PushNotificationTemplateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-PushNotificationTemplateRequest"><i class="fa fa-tag"></i> PushNotificationTemplateRequest</label>
+		<input type="text" id="node-input-PushNotificationTemplateRequest" placeholder="PushNotificationTemplateRequest"></input>
+	</div> 
+	<div class="form-row" id='CreateRecommenderConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateRecommenderConfiguration"><i class="fa fa-tag"></i> CreateRecommenderConfiguration</label>
+		<input type="text" id="node-input-CreateRecommenderConfiguration" placeholder="CreateRecommenderConfiguration"></input>
+	</div> 
+	<div class="form-row" id='WriteSegmentRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-WriteSegmentRequest"><i class="fa fa-tag"></i> WriteSegmentRequest</label>
+		<input type="text" id="node-input-WriteSegmentRequest" placeholder="WriteSegmentRequest"></input>
+	</div> 
+	<div class="form-row" id='SMSTemplateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-SMSTemplateRequest"><i class="fa fa-tag"></i> SMSTemplateRequest</label>
+		<input type="text" id="node-input-SMSTemplateRequest" placeholder="SMSTemplateRequest"></input>
+	</div> 
+	<div class="form-row" id='VoiceTemplateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceTemplateRequest"><i class="fa fa-tag"></i> VoiceTemplateRequest</label>
+		<input type="text" id="node-input-VoiceTemplateRequest" placeholder="VoiceTemplateRequest"></input>
+	</div> 
+	<div class="form-row" id='CampaignIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CampaignId"><i class="fa fa-tag"></i> CampaignId</label>
+		<input type="text" id="node-input-CampaignId" placeholder="CampaignId"></input>
+	</div> 
+	<div class="form-row" id='VersionAttr' class='hiddenAttrs'>
+		<label for="node-input-Version"><i class="fa fa-tag"></i> Version</label>
+		<input type="text" id="node-input-Version" placeholder="Version"></input>
+	</div> 
+	<div class="form-row" id='EndpointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointId"><i class="fa fa-tag"></i> EndpointId</label>
+		<input type="text" id="node-input-EndpointId" placeholder="EndpointId"></input>
+	</div> 
+	<div class="form-row" id='JourneyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JourneyId"><i class="fa fa-tag"></i> JourneyId</label>
+		<input type="text" id="node-input-JourneyId" placeholder="JourneyId"></input>
+	</div> 
+	<div class="form-row" id='RecommenderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RecommenderId"><i class="fa fa-tag"></i> RecommenderId</label>
+		<input type="text" id="node-input-RecommenderId" placeholder="RecommenderId"></input>
+	</div> 
+	<div class="form-row" id='SegmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SegmentId"><i class="fa fa-tag"></i> SegmentId</label>
+		<input type="text" id="node-input-SegmentId" placeholder="SegmentId"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='KpiNameAttr' class='hiddenAttrs'>
+		<label for="node-input-KpiName"><i class="fa fa-tag"></i> KpiName</label>
+		<input type="text" id="node-input-KpiName" placeholder="KpiName"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='PageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-PageSize"><i class="fa fa-tag"></i> PageSize</label>
+		<input type="text" id="node-input-PageSize" placeholder="PageSize"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='TokenAttr' class='hiddenAttrs'>
+		<label for="node-input-Token"><i class="fa fa-tag"></i> Token</label>
+		<input type="text" id="node-input-Token" placeholder="Token"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='JourneyActivityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JourneyActivityId"><i class="fa fa-tag"></i> JourneyActivityId</label>
+		<input type="text" id="node-input-JourneyActivityId" placeholder="JourneyActivityId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TemplateTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateType"><i class="fa fa-tag"></i> TemplateType</label>
+		<input type="text" id="node-input-TemplateType" placeholder="TemplateType"></input>
+	</div> 
+	<div class="form-row" id='PrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-Prefix"><i class="fa fa-tag"></i> Prefix</label>
+		<input type="text" id="node-input-Prefix" placeholder="Prefix"></input>
+	</div> 
+	<div class="form-row" id='NumberValidateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberValidateRequest"><i class="fa fa-tag"></i> NumberValidateRequest</label>
+		<input type="text" id="node-input-NumberValidateRequest" placeholder="NumberValidateRequest"></input>
+	</div> 
+	<div class="form-row" id='WriteEventStreamAttr' class='hiddenAttrs'>
+		<label for="node-input-WriteEventStream"><i class="fa fa-tag"></i> WriteEventStream</label>
+		<input type="text" id="node-input-WriteEventStream" placeholder="WriteEventStream"></input>
+	</div> 
+	<div class="form-row" id='EventsRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-EventsRequest"><i class="fa fa-tag"></i> EventsRequest</label>
+		<input type="text" id="node-input-EventsRequest" placeholder="EventsRequest"></input>
+	</div> 
+	<div class="form-row" id='AttributeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeType"><i class="fa fa-tag"></i> AttributeType</label>
+		<input type="text" id="node-input-AttributeType" placeholder="AttributeType"></input>
+	</div> 
+	<div class="form-row" id='UpdateAttributesRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateAttributesRequest"><i class="fa fa-tag"></i> UpdateAttributesRequest</label>
+		<input type="text" id="node-input-UpdateAttributesRequest" placeholder="UpdateAttributesRequest"></input>
+	</div> 
+	<div class="form-row" id='MessageRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageRequest"><i class="fa fa-tag"></i> MessageRequest</label>
+		<input type="text" id="node-input-MessageRequest" placeholder="MessageRequest"></input>
+	</div> 
+	<div class="form-row" id='SendUsersMessageRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-SendUsersMessageRequest"><i class="fa fa-tag"></i> SendUsersMessageRequest</label>
+		<input type="text" id="node-input-SendUsersMessageRequest" placeholder="SendUsersMessageRequest"></input>
+	</div> 
+	<div class="form-row" id='TagsModelAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsModel"><i class="fa fa-tag"></i> TagsModel</label>
+		<input type="text" id="node-input-TagsModel" placeholder="TagsModel"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ADMChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-ADMChannelRequest"><i class="fa fa-tag"></i> ADMChannelRequest</label>
+		<input type="text" id="node-input-ADMChannelRequest" placeholder="ADMChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='APNSChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-APNSChannelRequest"><i class="fa fa-tag"></i> APNSChannelRequest</label>
+		<input type="text" id="node-input-APNSChannelRequest" placeholder="APNSChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='APNSSandboxChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-APNSSandboxChannelRequest"><i class="fa fa-tag"></i> APNSSandboxChannelRequest</label>
+		<input type="text" id="node-input-APNSSandboxChannelRequest" placeholder="APNSSandboxChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='APNSVoipChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-APNSVoipChannelRequest"><i class="fa fa-tag"></i> APNSVoipChannelRequest</label>
+		<input type="text" id="node-input-APNSVoipChannelRequest" placeholder="APNSVoipChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='APNSVoipSandboxChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-APNSVoipSandboxChannelRequest"><i class="fa fa-tag"></i> APNSVoipSandboxChannelRequest</label>
+		<input type="text" id="node-input-APNSVoipSandboxChannelRequest" placeholder="APNSVoipSandboxChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='WriteApplicationSettingsRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-WriteApplicationSettingsRequest"><i class="fa fa-tag"></i> WriteApplicationSettingsRequest</label>
+		<input type="text" id="node-input-WriteApplicationSettingsRequest" placeholder="WriteApplicationSettingsRequest"></input>
+	</div> 
+	<div class="form-row" id='BaiduChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-BaiduChannelRequest"><i class="fa fa-tag"></i> BaiduChannelRequest</label>
+		<input type="text" id="node-input-BaiduChannelRequest" placeholder="BaiduChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='EmailChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailChannelRequest"><i class="fa fa-tag"></i> EmailChannelRequest</label>
+		<input type="text" id="node-input-EmailChannelRequest" placeholder="EmailChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='CreateNewVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateNewVersion"><i class="fa fa-tag"></i> CreateNewVersion</label>
+		<input type="text" id="node-input-CreateNewVersion" placeholder="CreateNewVersion"></input>
+	</div> 
+	<div class="form-row" id='EndpointRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointRequest"><i class="fa fa-tag"></i> EndpointRequest</label>
+		<input type="text" id="node-input-EndpointRequest" placeholder="EndpointRequest"></input>
+	</div> 
+	<div class="form-row" id='EndpointBatchRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointBatchRequest"><i class="fa fa-tag"></i> EndpointBatchRequest</label>
+		<input type="text" id="node-input-EndpointBatchRequest" placeholder="EndpointBatchRequest"></input>
+	</div> 
+	<div class="form-row" id='GCMChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-GCMChannelRequest"><i class="fa fa-tag"></i> GCMChannelRequest</label>
+		<input type="text" id="node-input-GCMChannelRequest" placeholder="GCMChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='JourneyStateRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-JourneyStateRequest"><i class="fa fa-tag"></i> JourneyStateRequest</label>
+		<input type="text" id="node-input-JourneyStateRequest" placeholder="JourneyStateRequest"></input>
+	</div> 
+	<div class="form-row" id='UpdateRecommenderConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateRecommenderConfiguration"><i class="fa fa-tag"></i> UpdateRecommenderConfiguration</label>
+		<input type="text" id="node-input-UpdateRecommenderConfiguration" placeholder="UpdateRecommenderConfiguration"></input>
+	</div> 
+	<div class="form-row" id='SMSChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-SMSChannelRequest"><i class="fa fa-tag"></i> SMSChannelRequest</label>
+		<input type="text" id="node-input-SMSChannelRequest" placeholder="SMSChannelRequest"></input>
+	</div> 
+	<div class="form-row" id='TemplateActiveVersionRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateActiveVersionRequest"><i class="fa fa-tag"></i> TemplateActiveVersionRequest</label>
+		<input type="text" id="node-input-TemplateActiveVersionRequest" placeholder="TemplateActiveVersionRequest"></input>
+	</div> 
+	<div class="form-row" id='VoiceChannelRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceChannelRequest"><i class="fa fa-tag"></i> VoiceChannelRequest</label>
+		<input type="text" id="node-input-VoiceChannelRequest" placeholder="VoiceChannelRequest"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApp:[
+					'#CreateApplicationRequestAttr'
+					],
+				CreateCampaign:[
+					'#ApplicationIdAttr','#WriteCampaignRequestAttr'
+					],
+				CreateEmailTemplate:[
+					'#EmailTemplateRequestAttr','#TemplateNameAttr'
+					],
+				CreateExportJob:[
+					'#ApplicationIdAttr','#ExportJobRequestAttr'
+					],
+				CreateImportJob:[
+					'#ApplicationIdAttr','#ImportJobRequestAttr'
+					],
+				CreateJourney:[
+					'#ApplicationIdAttr','#WriteJourneyRequestAttr'
+					],
+				CreatePushTemplate:[
+					'#PushNotificationTemplateRequestAttr','#TemplateNameAttr'
+					],
+				CreateRecommenderConfiguration:[
+					'#CreateRecommenderConfigurationAttr'
+					],
+				CreateSegment:[
+					'#ApplicationIdAttr','#WriteSegmentRequestAttr'
+					],
+				CreateSmsTemplate:[
+					'#SMSTemplateRequestAttr','#TemplateNameAttr'
+					],
+				CreateVoiceTemplate:[
+					'#TemplateNameAttr','#VoiceTemplateRequestAttr'
+					],
+				DeleteAdmChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApnsChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApnsSandboxChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApnsVoipChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApnsVoipSandboxChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteApp:[
+					'#ApplicationIdAttr'
+					],
+				DeleteBaiduChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteCampaign:[
+					'#ApplicationIdAttr','#CampaignIdAttr'
+					],
+				DeleteEmailChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteEmailTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				DeleteEndpoint:[
+					'#ApplicationIdAttr','#EndpointIdAttr'
+					],
+				DeleteEventStream:[
+					'#ApplicationIdAttr'
+					],
+				DeleteGcmChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteJourney:[
+					'#ApplicationIdAttr','#JourneyIdAttr'
+					],
+				DeletePushTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				DeleteRecommenderConfiguration:[
+					'#RecommenderIdAttr'
+					],
+				DeleteSegment:[
+					'#ApplicationIdAttr','#SegmentIdAttr'
+					],
+				DeleteSmsChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteSmsTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				DeleteUserEndpoints:[
+					'#ApplicationIdAttr','#UserIdAttr'
+					],
+				DeleteVoiceChannel:[
+					'#ApplicationIdAttr'
+					],
+				DeleteVoiceTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				GetAdmChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetApnsChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetApnsSandboxChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetApnsVoipChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetApnsVoipSandboxChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetApp:[
+					'#ApplicationIdAttr'
+					],
+				GetApplicationDateRangeKpi:[
+					'#ApplicationIdAttr','#EndTimeAttr','#KpiNameAttr','#NextTokenAttr','#PageSizeAttr','#StartTimeAttr'
+					],
+				GetApplicationSettings:[
+					'#ApplicationIdAttr'
+					],
+				GetApps:[
+					'#PageSizeAttr','#TokenAttr'
+					],
+				GetBaiduChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetCampaign:[
+					'#ApplicationIdAttr','#CampaignIdAttr'
+					],
+				GetCampaignActivities:[
+					'#ApplicationIdAttr','#CampaignIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetCampaignDateRangeKpi:[
+					'#ApplicationIdAttr','#CampaignIdAttr','#EndTimeAttr','#KpiNameAttr','#NextTokenAttr','#PageSizeAttr','#StartTimeAttr'
+					],
+				GetCampaignVersion:[
+					'#ApplicationIdAttr','#CampaignIdAttr','#VersionAttr'
+					],
+				GetCampaignVersions:[
+					'#ApplicationIdAttr','#CampaignIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetCampaigns:[
+					'#ApplicationIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetChannels:[
+					'#ApplicationIdAttr'
+					],
+				GetEmailChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetEmailTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				GetEndpoint:[
+					'#ApplicationIdAttr','#EndpointIdAttr'
+					],
+				GetEventStream:[
+					'#ApplicationIdAttr'
+					],
+				GetExportJob:[
+					'#ApplicationIdAttr','#JobIdAttr'
+					],
+				GetExportJobs:[
+					'#ApplicationIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetGcmChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetImportJob:[
+					'#ApplicationIdAttr','#JobIdAttr'
+					],
+				GetImportJobs:[
+					'#ApplicationIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetJourney:[
+					'#ApplicationIdAttr','#JourneyIdAttr'
+					],
+				GetJourneyDateRangeKpi:[
+					'#ApplicationIdAttr','#EndTimeAttr','#JourneyIdAttr','#KpiNameAttr','#NextTokenAttr','#PageSizeAttr','#StartTimeAttr'
+					],
+				GetJourneyExecutionActivityMetrics:[
+					'#ApplicationIdAttr','#JourneyActivityIdAttr','#JourneyIdAttr','#NextTokenAttr','#PageSizeAttr'
+					],
+				GetJourneyExecutionMetrics:[
+					'#ApplicationIdAttr','#JourneyIdAttr','#NextTokenAttr','#PageSizeAttr'
+					],
+				GetPushTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				GetRecommenderConfiguration:[
+					'#RecommenderIdAttr'
+					],
+				GetRecommenderConfigurations:[
+					'#PageSizeAttr','#TokenAttr'
+					],
+				GetSegment:[
+					'#ApplicationIdAttr','#SegmentIdAttr'
+					],
+				GetSegmentExportJobs:[
+					'#ApplicationIdAttr','#PageSizeAttr','#SegmentIdAttr','#TokenAttr'
+					],
+				GetSegmentImportJobs:[
+					'#ApplicationIdAttr','#PageSizeAttr','#SegmentIdAttr','#TokenAttr'
+					],
+				GetSegmentVersion:[
+					'#ApplicationIdAttr','#SegmentIdAttr','#VersionAttr'
+					],
+				GetSegmentVersions:[
+					'#ApplicationIdAttr','#PageSizeAttr','#SegmentIdAttr','#TokenAttr'
+					],
+				GetSegments:[
+					'#ApplicationIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				GetSmsChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetSmsTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				GetUserEndpoints:[
+					'#ApplicationIdAttr','#UserIdAttr'
+					],
+				GetVoiceChannel:[
+					'#ApplicationIdAttr'
+					],
+				GetVoiceTemplate:[
+					'#TemplateNameAttr','#VersionAttr'
+					],
+				ListJourneys:[
+					'#ApplicationIdAttr','#PageSizeAttr','#TokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTemplateVersions:[
+					'#NextTokenAttr','#PageSizeAttr','#TemplateNameAttr','#TemplateTypeAttr'
+					],
+				ListTemplates:[
+					'#NextTokenAttr','#PageSizeAttr','#PrefixAttr','#TemplateTypeAttr'
+					],
+				PhoneNumberValidate:[
+					'#NumberValidateRequestAttr'
+					],
+				PutEventStream:[
+					'#ApplicationIdAttr','#WriteEventStreamAttr'
+					],
+				PutEvents:[
+					'#ApplicationIdAttr','#EventsRequestAttr'
+					],
+				RemoveAttributes:[
+					'#ApplicationIdAttr','#AttributeTypeAttr','#UpdateAttributesRequestAttr'
+					],
+				SendMessages:[
+					'#ApplicationIdAttr','#MessageRequestAttr'
+					],
+				SendUsersMessages:[
+					'#ApplicationIdAttr','#SendUsersMessageRequestAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsModelAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateAdmChannel:[
+					'#ADMChannelRequestAttr','#ApplicationIdAttr'
+					],
+				UpdateApnsChannel:[
+					'#APNSChannelRequestAttr','#ApplicationIdAttr'
+					],
+				UpdateApnsSandboxChannel:[
+					'#APNSSandboxChannelRequestAttr','#ApplicationIdAttr'
+					],
+				UpdateApnsVoipChannel:[
+					'#APNSVoipChannelRequestAttr','#ApplicationIdAttr'
+					],
+				UpdateApnsVoipSandboxChannel:[
+					'#APNSVoipSandboxChannelRequestAttr','#ApplicationIdAttr'
+					],
+				UpdateApplicationSettings:[
+					'#ApplicationIdAttr','#WriteApplicationSettingsRequestAttr'
+					],
+				UpdateBaiduChannel:[
+					'#ApplicationIdAttr','#BaiduChannelRequestAttr'
+					],
+				UpdateCampaign:[
+					'#ApplicationIdAttr','#CampaignIdAttr','#WriteCampaignRequestAttr'
+					],
+				UpdateEmailChannel:[
+					'#ApplicationIdAttr','#EmailChannelRequestAttr'
+					],
+				UpdateEmailTemplate:[
+					'#CreateNewVersionAttr','#EmailTemplateRequestAttr','#TemplateNameAttr','#VersionAttr'
+					],
+				UpdateEndpoint:[
+					'#ApplicationIdAttr','#EndpointIdAttr','#EndpointRequestAttr'
+					],
+				UpdateEndpointsBatch:[
+					'#ApplicationIdAttr','#EndpointBatchRequestAttr'
+					],
+				UpdateGcmChannel:[
+					'#ApplicationIdAttr','#GCMChannelRequestAttr'
+					],
+				UpdateJourney:[
+					'#ApplicationIdAttr','#JourneyIdAttr','#WriteJourneyRequestAttr'
+					],
+				UpdateJourneyState:[
+					'#ApplicationIdAttr','#JourneyIdAttr','#JourneyStateRequestAttr'
+					],
+				UpdatePushTemplate:[
+					'#CreateNewVersionAttr','#PushNotificationTemplateRequestAttr','#TemplateNameAttr','#VersionAttr'
+					],
+				UpdateRecommenderConfiguration:[
+					'#RecommenderIdAttr','#UpdateRecommenderConfigurationAttr'
+					],
+				UpdateSegment:[
+					'#ApplicationIdAttr','#SegmentIdAttr','#WriteSegmentRequestAttr'
+					],
+				UpdateSmsChannel:[
+					'#ApplicationIdAttr','#SMSChannelRequestAttr'
+					],
+				UpdateSmsTemplate:[
+					'#CreateNewVersionAttr','#SMSTemplateRequestAttr','#TemplateNameAttr','#VersionAttr'
+					],
+				UpdateTemplateActiveVersion:[
+					'#TemplateActiveVersionRequestAttr','#TemplateNameAttr','#TemplateTypeAttr'
+					],
+				UpdateVoiceChannel:[
+					'#ApplicationIdAttr','#VoiceChannelRequestAttr'
+					],
+				UpdateVoiceTemplate:[
+					'#CreateNewVersionAttr','#TemplateNameAttr','#VersionAttr','#VoiceTemplateRequestAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Pinpoint">
+<p>
+AWS Pinpoint
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Pinpoint.html">Pinpoint</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Pinpoint',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApp' },
+			
+				CreateApplicationRequest: { value: ""} ,
+				ApplicationId: { value: ""} ,
+				WriteCampaignRequest: { value: ""} ,
+				EmailTemplateRequest: { value: ""} ,
+				TemplateName: { value: ""} ,
+				ExportJobRequest: { value: ""} ,
+				ImportJobRequest: { value: ""} ,
+				WriteJourneyRequest: { value: ""} ,
+				PushNotificationTemplateRequest: { value: ""} ,
+				CreateRecommenderConfiguration: { value: ""} ,
+				WriteSegmentRequest: { value: ""} ,
+				SMSTemplateRequest: { value: ""} ,
+				VoiceTemplateRequest: { value: ""} ,
+				CampaignId: { value: ""} ,
+				Version: { value: ""} ,
+				EndpointId: { value: ""} ,
+				JourneyId: { value: ""} ,
+				RecommenderId: { value: ""} ,
+				SegmentId: { value: ""} ,
+				UserId: { value: ""} ,
+				EndTime: { value: ""} ,
+				KpiName: { value: ""} ,
+				NextToken: { value: ""} ,
+				PageSize: { value: ""} ,
+				StartTime: { value: ""} ,
+				Token: { value: ""} ,
+				JobId: { value: ""} ,
+				JourneyActivityId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TemplateType: { value: ""} ,
+				Prefix: { value: ""} ,
+				NumberValidateRequest: { value: ""} ,
+				WriteEventStream: { value: ""} ,
+				EventsRequest: { value: ""} ,
+				AttributeType: { value: ""} ,
+				UpdateAttributesRequest: { value: ""} ,
+				MessageRequest: { value: ""} ,
+				SendUsersMessageRequest: { value: ""} ,
+				TagsModel: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ADMChannelRequest: { value: ""} ,
+				APNSChannelRequest: { value: ""} ,
+				APNSSandboxChannelRequest: { value: ""} ,
+				APNSVoipChannelRequest: { value: ""} ,
+				APNSVoipSandboxChannelRequest: { value: ""} ,
+				WriteApplicationSettingsRequest: { value: ""} ,
+				BaiduChannelRequest: { value: ""} ,
+				EmailChannelRequest: { value: ""} ,
+				CreateNewVersion: { value: ""} ,
+				EndpointRequest: { value: ""} ,
+				EndpointBatchRequest: { value: ""} ,
+				GCMChannelRequest: { value: ""} ,
+				JourneyStateRequest: { value: ""} ,
+				UpdateRecommenderConfiguration: { value: ""} ,
+				SMSChannelRequest: { value: ""} ,
+				TemplateActiveVersionRequest: { value: ""} ,
+				VoiceChannelRequest: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Pinpoint " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-ApplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WriteCampaignRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EmailTemplateRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-WriteJourneyRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PushNotificationTemplateRequest").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-WriteSegmentRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SMSTemplateRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VoiceTemplateRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CampaignId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Version").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JourneyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecommenderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SegmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KpiName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PageSize").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Token").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JourneyActivityId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Prefix").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-AttributeType").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-TagsModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+
+
+
+$("#node-input-CreateNewVersion").typedInput({ default: "bool", types: ["bool"]});
+
+
+
+
+
+
+
+
+		}
+	});
+</script>
+

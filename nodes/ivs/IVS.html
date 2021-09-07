@@ -1,0 +1,331 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IVS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchGetChannel">BatchGetChannel</option>
+		
+			<option value="BatchGetStreamKey">BatchGetStreamKey</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateRecordingConfiguration">CreateRecordingConfiguration</option>
+		
+			<option value="CreateStreamKey">CreateStreamKey</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeletePlaybackKeyPair">DeletePlaybackKeyPair</option>
+		
+			<option value="DeleteRecordingConfiguration">DeleteRecordingConfiguration</option>
+		
+			<option value="DeleteStreamKey">DeleteStreamKey</option>
+		
+			<option value="GetChannel">GetChannel</option>
+		
+			<option value="GetPlaybackKeyPair">GetPlaybackKeyPair</option>
+		
+			<option value="GetRecordingConfiguration">GetRecordingConfiguration</option>
+		
+			<option value="GetStream">GetStream</option>
+		
+			<option value="GetStreamKey">GetStreamKey</option>
+		
+			<option value="ImportPlaybackKeyPair">ImportPlaybackKeyPair</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListPlaybackKeyPairs">ListPlaybackKeyPairs</option>
+		
+			<option value="ListRecordingConfigurations">ListRecordingConfigurations</option>
+		
+			<option value="ListStreamKeys">ListStreamKeys</option>
+		
+			<option value="ListStreams">ListStreams</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutMetadata">PutMetadata</option>
+		
+			<option value="StopStream">StopStream</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='arnsAttr' class='hiddenAttrs'>
+		<label for="node-input-arns"><i class="fa fa-tag"></i> arns</label>
+		<input type="text" id="node-input-arns" placeholder="arns"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='latencyModeAttr' class='hiddenAttrs'>
+		<label for="node-input-latencyMode"><i class="fa fa-tag"></i> latencyMode</label>
+		<input type="text" id="node-input-latencyMode" placeholder="latencyMode"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='authorizedAttr' class='hiddenAttrs'>
+		<label for="node-input-authorized"><i class="fa fa-tag"></i> authorized</label>
+		<input type="text" id="node-input-authorized" placeholder="authorized"></input>
+	</div> 
+	<div class="form-row" id='recordingConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-recordingConfigurationArn"><i class="fa fa-tag"></i> recordingConfigurationArn</label>
+		<input type="text" id="node-input-recordingConfigurationArn" placeholder="recordingConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='destinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationConfiguration"><i class="fa fa-tag"></i> destinationConfiguration</label>
+		<input type="text" id="node-input-destinationConfiguration" placeholder="destinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='channelArnAttr' class='hiddenAttrs'>
+		<label for="node-input-channelArn"><i class="fa fa-tag"></i> channelArn</label>
+		<input type="text" id="node-input-channelArn" placeholder="channelArn"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='publicKeyMaterialAttr' class='hiddenAttrs'>
+		<label for="node-input-publicKeyMaterial"><i class="fa fa-tag"></i> publicKeyMaterial</label>
+		<input type="text" id="node-input-publicKeyMaterial" placeholder="publicKeyMaterial"></input>
+	</div> 
+	<div class="form-row" id='filterByNameAttr' class='hiddenAttrs'>
+		<label for="node-input-filterByName"><i class="fa fa-tag"></i> filterByName</label>
+		<input type="text" id="node-input-filterByName" placeholder="filterByName"></input>
+	</div> 
+	<div class="form-row" id='filterByRecordingConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-filterByRecordingConfigurationArn"><i class="fa fa-tag"></i> filterByRecordingConfigurationArn</label>
+		<input type="text" id="node-input-filterByRecordingConfigurationArn" placeholder="filterByRecordingConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='metadataAttr' class='hiddenAttrs'>
+		<label for="node-input-metadata"><i class="fa fa-tag"></i> metadata</label>
+		<input type="text" id="node-input-metadata" placeholder="metadata"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchGetChannel:[
+					'#arnsAttr'
+					],
+				BatchGetStreamKey:[
+					'#arnsAttr'
+					],
+				CreateChannel:[
+					'#nameAttr','#latencyModeAttr','#typeAttr','#authorizedAttr','#recordingConfigurationArnAttr','#tagsAttr'
+					],
+				CreateRecordingConfiguration:[
+					'#nameAttr','#destinationConfigurationAttr','#tagsAttr'
+					],
+				CreateStreamKey:[
+					'#channelArnAttr','#tagsAttr'
+					],
+				DeleteChannel:[
+					'#arnAttr'
+					],
+				DeletePlaybackKeyPair:[
+					'#arnAttr'
+					],
+				DeleteRecordingConfiguration:[
+					'#arnAttr'
+					],
+				DeleteStreamKey:[
+					'#arnAttr'
+					],
+				GetChannel:[
+					'#arnAttr'
+					],
+				GetPlaybackKeyPair:[
+					'#arnAttr'
+					],
+				GetRecordingConfiguration:[
+					'#arnAttr'
+					],
+				GetStream:[
+					'#channelArnAttr'
+					],
+				GetStreamKey:[
+					'#arnAttr'
+					],
+				ImportPlaybackKeyPair:[
+					'#publicKeyMaterialAttr','#nameAttr','#tagsAttr'
+					],
+				ListChannels:[
+					'#filterByNameAttr','#filterByRecordingConfigurationArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListPlaybackKeyPairs:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListRecordingConfigurations:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListStreamKeys:[
+					'#channelArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListStreams:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				PutMetadata:[
+					'#channelArnAttr','#metadataAttr'
+					],
+				StopStream:[
+					'#channelArnAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateChannel:[
+					'#arnAttr','#nameAttr','#latencyModeAttr','#typeAttr','#authorizedAttr','#recordingConfigurationArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IVS">
+<p>
+AWS IVS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IVS.html">IVS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IVS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchGetChannel' },
+			
+				arns: { value: ""} ,
+				name: { value: ""} ,
+				latencyMode: { value: ""} ,
+				_type: { value: ""} ,
+				authorized: { value: ""} ,
+				recordingConfigurationArn: { value: ""} ,
+				tags: { value: ""} ,
+				destinationConfiguration: { value: ""} ,
+				channelArn: { value: ""} ,
+				arn: { value: ""} ,
+				publicKeyMaterial: { value: ""} ,
+				filterByName: { value: ""} ,
+				filterByRecordingConfigurationArn: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				resourceArn: { value: ""} ,
+				metadata: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IVS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-latencyMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorized").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-recordingConfigurationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-destinationConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-channelArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-publicKeyMaterial").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filterByName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filterByRecordingConfigurationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-metadata").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

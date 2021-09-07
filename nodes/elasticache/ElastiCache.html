@@ -1,0 +1,1156 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ElastiCache">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="AuthorizeCacheSecurityGroupIngress">AuthorizeCacheSecurityGroupIngress</option>
+		
+			<option value="BatchApplyUpdateAction">BatchApplyUpdateAction</option>
+		
+			<option value="BatchStopUpdateAction">BatchStopUpdateAction</option>
+		
+			<option value="CompleteMigration">CompleteMigration</option>
+		
+			<option value="CopySnapshot">CopySnapshot</option>
+		
+			<option value="CreateCacheCluster">CreateCacheCluster</option>
+		
+			<option value="CreateCacheParameterGroup">CreateCacheParameterGroup</option>
+		
+			<option value="CreateCacheSecurityGroup">CreateCacheSecurityGroup</option>
+		
+			<option value="CreateCacheSubnetGroup">CreateCacheSubnetGroup</option>
+		
+			<option value="CreateGlobalReplicationGroup">CreateGlobalReplicationGroup</option>
+		
+			<option value="CreateReplicationGroup">CreateReplicationGroup</option>
+		
+			<option value="CreateSnapshot">CreateSnapshot</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateUserGroup">CreateUserGroup</option>
+		
+			<option value="DecreaseNodeGroupsInGlobalReplicationGroup">DecreaseNodeGroupsInGlobalReplicationGroup</option>
+		
+			<option value="DecreaseReplicaCount">DecreaseReplicaCount</option>
+		
+			<option value="DeleteCacheCluster">DeleteCacheCluster</option>
+		
+			<option value="DeleteCacheParameterGroup">DeleteCacheParameterGroup</option>
+		
+			<option value="DeleteCacheSecurityGroup">DeleteCacheSecurityGroup</option>
+		
+			<option value="DeleteCacheSubnetGroup">DeleteCacheSubnetGroup</option>
+		
+			<option value="DeleteGlobalReplicationGroup">DeleteGlobalReplicationGroup</option>
+		
+			<option value="DeleteReplicationGroup">DeleteReplicationGroup</option>
+		
+			<option value="DeleteSnapshot">DeleteSnapshot</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteUserGroup">DeleteUserGroup</option>
+		
+			<option value="DescribeCacheClusters">DescribeCacheClusters</option>
+		
+			<option value="DescribeCacheEngineVersions">DescribeCacheEngineVersions</option>
+		
+			<option value="DescribeCacheParameterGroups">DescribeCacheParameterGroups</option>
+		
+			<option value="DescribeCacheParameters">DescribeCacheParameters</option>
+		
+			<option value="DescribeCacheSecurityGroups">DescribeCacheSecurityGroups</option>
+		
+			<option value="DescribeCacheSubnetGroups">DescribeCacheSubnetGroups</option>
+		
+			<option value="DescribeEngineDefaultParameters">DescribeEngineDefaultParameters</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeGlobalReplicationGroups">DescribeGlobalReplicationGroups</option>
+		
+			<option value="DescribeReplicationGroups">DescribeReplicationGroups</option>
+		
+			<option value="DescribeReservedCacheNodes">DescribeReservedCacheNodes</option>
+		
+			<option value="DescribeReservedCacheNodesOfferings">DescribeReservedCacheNodesOfferings</option>
+		
+			<option value="DescribeServiceUpdates">DescribeServiceUpdates</option>
+		
+			<option value="DescribeSnapshots">DescribeSnapshots</option>
+		
+			<option value="DescribeUpdateActions">DescribeUpdateActions</option>
+		
+			<option value="DescribeUserGroups">DescribeUserGroups</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="DisassociateGlobalReplicationGroup">DisassociateGlobalReplicationGroup</option>
+		
+			<option value="FailoverGlobalReplicationGroup">FailoverGlobalReplicationGroup</option>
+		
+			<option value="IncreaseNodeGroupsInGlobalReplicationGroup">IncreaseNodeGroupsInGlobalReplicationGroup</option>
+		
+			<option value="IncreaseReplicaCount">IncreaseReplicaCount</option>
+		
+			<option value="ListAllowedNodeTypeModifications">ListAllowedNodeTypeModifications</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyCacheCluster">ModifyCacheCluster</option>
+		
+			<option value="ModifyCacheParameterGroup">ModifyCacheParameterGroup</option>
+		
+			<option value="ModifyCacheSubnetGroup">ModifyCacheSubnetGroup</option>
+		
+			<option value="ModifyGlobalReplicationGroup">ModifyGlobalReplicationGroup</option>
+		
+			<option value="ModifyReplicationGroup">ModifyReplicationGroup</option>
+		
+			<option value="ModifyReplicationGroupShardConfiguration">ModifyReplicationGroupShardConfiguration</option>
+		
+			<option value="ModifyUser">ModifyUser</option>
+		
+			<option value="ModifyUserGroup">ModifyUserGroup</option>
+		
+			<option value="PurchaseReservedCacheNodesOffering">PurchaseReservedCacheNodesOffering</option>
+		
+			<option value="RebalanceSlotsInGlobalReplicationGroup">RebalanceSlotsInGlobalReplicationGroup</option>
+		
+			<option value="RebootCacheCluster">RebootCacheCluster</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetCacheParameterGroup">ResetCacheParameterGroup</option>
+		
+			<option value="RevokeCacheSecurityGroupIngress">RevokeCacheSecurityGroupIngress</option>
+		
+			<option value="StartMigration">StartMigration</option>
+		
+			<option value="TestFailover">TestFailover</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i> ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='CacheSecurityGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSecurityGroupName"><i class="fa fa-tag"></i> CacheSecurityGroupName</label>
+		<input type="text" id="node-input-CacheSecurityGroupName" placeholder="CacheSecurityGroupName"></input>
+	</div> 
+	<div class="form-row" id='EC2SecurityGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2SecurityGroupName"><i class="fa fa-tag"></i> EC2SecurityGroupName</label>
+		<input type="text" id="node-input-EC2SecurityGroupName" placeholder="EC2SecurityGroupName"></input>
+	</div> 
+	<div class="form-row" id='EC2SecurityGroupOwnerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2SecurityGroupOwnerId"><i class="fa fa-tag"></i> EC2SecurityGroupOwnerId</label>
+		<input type="text" id="node-input-EC2SecurityGroupOwnerId" placeholder="EC2SecurityGroupOwnerId"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupIds"><i class="fa fa-tag"></i> ReplicationGroupIds</label>
+		<input type="text" id="node-input-ReplicationGroupIds" placeholder="ReplicationGroupIds"></input>
+	</div> 
+	<div class="form-row" id='CacheClusterIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheClusterIds"><i class="fa fa-tag"></i> CacheClusterIds</label>
+		<input type="text" id="node-input-CacheClusterIds" placeholder="CacheClusterIds"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdateName"><i class="fa fa-tag"></i> ServiceUpdateName</label>
+		<input type="text" id="node-input-ServiceUpdateName" placeholder="ServiceUpdateName"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupId"><i class="fa fa-tag"></i> ReplicationGroupId</label>
+		<input type="text" id="node-input-ReplicationGroupId" placeholder="ReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='ForceAttr' class='hiddenAttrs'>
+		<label for="node-input-Force"><i class="fa fa-tag"></i> Force</label>
+		<input type="text" id="node-input-Force" placeholder="Force"></input>
+	</div> 
+	<div class="form-row" id='SourceSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceSnapshotName"><i class="fa fa-tag"></i> SourceSnapshotName</label>
+		<input type="text" id="node-input-SourceSnapshotName" placeholder="SourceSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='TargetSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetSnapshotName"><i class="fa fa-tag"></i> TargetSnapshotName</label>
+		<input type="text" id="node-input-TargetSnapshotName" placeholder="TargetSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='TargetBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetBucket"><i class="fa fa-tag"></i> TargetBucket</label>
+		<input type="text" id="node-input-TargetBucket" placeholder="TargetBucket"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='CacheClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheClusterId"><i class="fa fa-tag"></i> CacheClusterId</label>
+		<input type="text" id="node-input-CacheClusterId" placeholder="CacheClusterId"></input>
+	</div> 
+	<div class="form-row" id='AZModeAttr' class='hiddenAttrs'>
+		<label for="node-input-AZMode"><i class="fa fa-tag"></i> AZMode</label>
+		<input type="text" id="node-input-AZMode" placeholder="AZMode"></input>
+	</div> 
+	<div class="form-row" id='PreferredAvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredAvailabilityZone"><i class="fa fa-tag"></i> PreferredAvailabilityZone</label>
+		<input type="text" id="node-input-PreferredAvailabilityZone" placeholder="PreferredAvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='PreferredAvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredAvailabilityZones"><i class="fa fa-tag"></i> PreferredAvailabilityZones</label>
+		<input type="text" id="node-input-PreferredAvailabilityZones" placeholder="PreferredAvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='NumCacheNodesAttr' class='hiddenAttrs'>
+		<label for="node-input-NumCacheNodes"><i class="fa fa-tag"></i> NumCacheNodes</label>
+		<input type="text" id="node-input-NumCacheNodes" placeholder="NumCacheNodes"></input>
+	</div> 
+	<div class="form-row" id='CacheNodeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheNodeType"><i class="fa fa-tag"></i> CacheNodeType</label>
+		<input type="text" id="node-input-CacheNodeType" placeholder="CacheNodeType"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i> Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i> EngineVersion</label>
+		<input type="text" id="node-input-EngineVersion" placeholder="EngineVersion"></input>
+	</div> 
+	<div class="form-row" id='CacheParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheParameterGroupName"><i class="fa fa-tag"></i> CacheParameterGroupName</label>
+		<input type="text" id="node-input-CacheParameterGroupName" placeholder="CacheParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='CacheSubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSubnetGroupName"><i class="fa fa-tag"></i> CacheSubnetGroupName</label>
+		<input type="text" id="node-input-CacheSubnetGroupName" placeholder="CacheSubnetGroupName"></input>
+	</div> 
+	<div class="form-row" id='CacheSecurityGroupNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSecurityGroupNames"><i class="fa fa-tag"></i> CacheSecurityGroupNames</label>
+		<input type="text" id="node-input-CacheSecurityGroupNames" placeholder="CacheSecurityGroupNames"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='SnapshotArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotArns"><i class="fa fa-tag"></i> SnapshotArns</label>
+		<input type="text" id="node-input-SnapshotArns" placeholder="SnapshotArns"></input>
+	</div> 
+	<div class="form-row" id='SnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotName"><i class="fa fa-tag"></i> SnapshotName</label>
+		<input type="text" id="node-input-SnapshotName" placeholder="SnapshotName"></input>
+	</div> 
+	<div class="form-row" id='PreferredMaintenanceWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredMaintenanceWindow"><i class="fa fa-tag"></i> PreferredMaintenanceWindow</label>
+		<input type="text" id="node-input-PreferredMaintenanceWindow" placeholder="PreferredMaintenanceWindow"></input>
+	</div> 
+	<div class="form-row" id='PortAttr' class='hiddenAttrs'>
+		<label for="node-input-Port"><i class="fa fa-tag"></i> Port</label>
+		<input type="text" id="node-input-Port" placeholder="Port"></input>
+	</div> 
+	<div class="form-row" id='NotificationTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationTopicArn"><i class="fa fa-tag"></i> NotificationTopicArn</label>
+		<input type="text" id="node-input-NotificationTopicArn" placeholder="NotificationTopicArn"></input>
+	</div> 
+	<div class="form-row" id='AutoMinorVersionUpgradeAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMinorVersionUpgrade"><i class="fa fa-tag"></i> AutoMinorVersionUpgrade</label>
+		<input type="text" id="node-input-AutoMinorVersionUpgrade" placeholder="AutoMinorVersionUpgrade"></input>
+	</div> 
+	<div class="form-row" id='SnapshotRetentionLimitAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotRetentionLimit"><i class="fa fa-tag"></i> SnapshotRetentionLimit</label>
+		<input type="text" id="node-input-SnapshotRetentionLimit" placeholder="SnapshotRetentionLimit"></input>
+	</div> 
+	<div class="form-row" id='SnapshotWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotWindow"><i class="fa fa-tag"></i> SnapshotWindow</label>
+		<input type="text" id="node-input-SnapshotWindow" placeholder="SnapshotWindow"></input>
+	</div> 
+	<div class="form-row" id='AuthTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthToken"><i class="fa fa-tag"></i> AuthToken</label>
+		<input type="text" id="node-input-AuthToken" placeholder="AuthToken"></input>
+	</div> 
+	<div class="form-row" id='OutpostModeAttr' class='hiddenAttrs'>
+		<label for="node-input-OutpostMode"><i class="fa fa-tag"></i> OutpostMode</label>
+		<input type="text" id="node-input-OutpostMode" placeholder="OutpostMode"></input>
+	</div> 
+	<div class="form-row" id='PreferredOutpostArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredOutpostArn"><i class="fa fa-tag"></i> PreferredOutpostArn</label>
+		<input type="text" id="node-input-PreferredOutpostArn" placeholder="PreferredOutpostArn"></input>
+	</div> 
+	<div class="form-row" id='PreferredOutpostArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredOutpostArns"><i class="fa fa-tag"></i> PreferredOutpostArns</label>
+		<input type="text" id="node-input-PreferredOutpostArns" placeholder="PreferredOutpostArns"></input>
+	</div> 
+	<div class="form-row" id='LogDeliveryConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-LogDeliveryConfigurations"><i class="fa fa-tag"></i> LogDeliveryConfigurations</label>
+		<input type="text" id="node-input-LogDeliveryConfigurations" placeholder="LogDeliveryConfigurations"></input>
+	</div> 
+	<div class="form-row" id='CacheParameterGroupFamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheParameterGroupFamily"><i class="fa fa-tag"></i> CacheParameterGroupFamily</label>
+		<input type="text" id="node-input-CacheParameterGroupFamily" placeholder="CacheParameterGroupFamily"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='CacheSubnetGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheSubnetGroupDescription"><i class="fa fa-tag"></i> CacheSubnetGroupDescription</label>
+		<input type="text" id="node-input-CacheSubnetGroupDescription" placeholder="CacheSubnetGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='GlobalReplicationGroupIdSuffixAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalReplicationGroupIdSuffix"><i class="fa fa-tag"></i> GlobalReplicationGroupIdSuffix</label>
+		<input type="text" id="node-input-GlobalReplicationGroupIdSuffix" placeholder="GlobalReplicationGroupIdSuffix"></input>
+	</div> 
+	<div class="form-row" id='GlobalReplicationGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalReplicationGroupDescription"><i class="fa fa-tag"></i> GlobalReplicationGroupDescription</label>
+		<input type="text" id="node-input-GlobalReplicationGroupDescription" placeholder="GlobalReplicationGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='PrimaryReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryReplicationGroupId"><i class="fa fa-tag"></i> PrimaryReplicationGroupId</label>
+		<input type="text" id="node-input-PrimaryReplicationGroupId" placeholder="PrimaryReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupDescription"><i class="fa fa-tag"></i> ReplicationGroupDescription</label>
+		<input type="text" id="node-input-ReplicationGroupDescription" placeholder="ReplicationGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='GlobalReplicationGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalReplicationGroupId"><i class="fa fa-tag"></i> GlobalReplicationGroupId</label>
+		<input type="text" id="node-input-GlobalReplicationGroupId" placeholder="GlobalReplicationGroupId"></input>
+	</div> 
+	<div class="form-row" id='PrimaryClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryClusterId"><i class="fa fa-tag"></i> PrimaryClusterId</label>
+		<input type="text" id="node-input-PrimaryClusterId" placeholder="PrimaryClusterId"></input>
+	</div> 
+	<div class="form-row" id='AutomaticFailoverEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-AutomaticFailoverEnabled"><i class="fa fa-tag"></i> AutomaticFailoverEnabled</label>
+		<input type="text" id="node-input-AutomaticFailoverEnabled" placeholder="AutomaticFailoverEnabled"></input>
+	</div> 
+	<div class="form-row" id='MultiAZEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiAZEnabled"><i class="fa fa-tag"></i> MultiAZEnabled</label>
+		<input type="text" id="node-input-MultiAZEnabled" placeholder="MultiAZEnabled"></input>
+	</div> 
+	<div class="form-row" id='NumCacheClustersAttr' class='hiddenAttrs'>
+		<label for="node-input-NumCacheClusters"><i class="fa fa-tag"></i> NumCacheClusters</label>
+		<input type="text" id="node-input-NumCacheClusters" placeholder="NumCacheClusters"></input>
+	</div> 
+	<div class="form-row" id='PreferredCacheClusterAZsAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredCacheClusterAZs"><i class="fa fa-tag"></i> PreferredCacheClusterAZs</label>
+		<input type="text" id="node-input-PreferredCacheClusterAZs" placeholder="PreferredCacheClusterAZs"></input>
+	</div> 
+	<div class="form-row" id='NumNodeGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-NumNodeGroups"><i class="fa fa-tag"></i> NumNodeGroups</label>
+		<input type="text" id="node-input-NumNodeGroups" placeholder="NumNodeGroups"></input>
+	</div> 
+	<div class="form-row" id='ReplicasPerNodeGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicasPerNodeGroup"><i class="fa fa-tag"></i> ReplicasPerNodeGroup</label>
+		<input type="text" id="node-input-ReplicasPerNodeGroup" placeholder="ReplicasPerNodeGroup"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupConfiguration"><i class="fa fa-tag"></i> NodeGroupConfiguration</label>
+		<input type="text" id="node-input-NodeGroupConfiguration" placeholder="NodeGroupConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TransitEncryptionEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitEncryptionEnabled"><i class="fa fa-tag"></i> TransitEncryptionEnabled</label>
+		<input type="text" id="node-input-TransitEncryptionEnabled" placeholder="TransitEncryptionEnabled"></input>
+	</div> 
+	<div class="form-row" id='AtRestEncryptionEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-AtRestEncryptionEnabled"><i class="fa fa-tag"></i> AtRestEncryptionEnabled</label>
+		<input type="text" id="node-input-AtRestEncryptionEnabled" placeholder="AtRestEncryptionEnabled"></input>
+	</div> 
+	<div class="form-row" id='UserGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserGroupIds"><i class="fa fa-tag"></i> UserGroupIds</label>
+		<input type="text" id="node-input-UserGroupIds" placeholder="UserGroupIds"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='PasswordsAttr' class='hiddenAttrs'>
+		<label for="node-input-Passwords"><i class="fa fa-tag"></i> Passwords</label>
+		<input type="text" id="node-input-Passwords" placeholder="Passwords"></input>
+	</div> 
+	<div class="form-row" id='AccessStringAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessString"><i class="fa fa-tag"></i> AccessString</label>
+		<input type="text" id="node-input-AccessString" placeholder="AccessString"></input>
+	</div> 
+	<div class="form-row" id='NoPasswordRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-NoPasswordRequired"><i class="fa fa-tag"></i> NoPasswordRequired</label>
+		<input type="text" id="node-input-NoPasswordRequired" placeholder="NoPasswordRequired"></input>
+	</div> 
+	<div class="form-row" id='UserGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserGroupId"><i class="fa fa-tag"></i> UserGroupId</label>
+		<input type="text" id="node-input-UserGroupId" placeholder="UserGroupId"></input>
+	</div> 
+	<div class="form-row" id='UserIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIds"><i class="fa fa-tag"></i> UserIds</label>
+		<input type="text" id="node-input-UserIds" placeholder="UserIds"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupCountAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupCount"><i class="fa fa-tag"></i> NodeGroupCount</label>
+		<input type="text" id="node-input-NodeGroupCount" placeholder="NodeGroupCount"></input>
+	</div> 
+	<div class="form-row" id='GlobalNodeGroupsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalNodeGroupsToRemove"><i class="fa fa-tag"></i> GlobalNodeGroupsToRemove</label>
+		<input type="text" id="node-input-GlobalNodeGroupsToRemove" placeholder="GlobalNodeGroupsToRemove"></input>
+	</div> 
+	<div class="form-row" id='GlobalNodeGroupsToRetainAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalNodeGroupsToRetain"><i class="fa fa-tag"></i> GlobalNodeGroupsToRetain</label>
+		<input type="text" id="node-input-GlobalNodeGroupsToRetain" placeholder="GlobalNodeGroupsToRetain"></input>
+	</div> 
+	<div class="form-row" id='ApplyImmediatelyAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyImmediately"><i class="fa fa-tag"></i> ApplyImmediately</label>
+		<input type="text" id="node-input-ApplyImmediately" placeholder="ApplyImmediately"></input>
+	</div> 
+	<div class="form-row" id='NewReplicaCountAttr' class='hiddenAttrs'>
+		<label for="node-input-NewReplicaCount"><i class="fa fa-tag"></i> NewReplicaCount</label>
+		<input type="text" id="node-input-NewReplicaCount" placeholder="NewReplicaCount"></input>
+	</div> 
+	<div class="form-row" id='ReplicaConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaConfiguration"><i class="fa fa-tag"></i> ReplicaConfiguration</label>
+		<input type="text" id="node-input-ReplicaConfiguration" placeholder="ReplicaConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ReplicasToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicasToRemove"><i class="fa fa-tag"></i> ReplicasToRemove</label>
+		<input type="text" id="node-input-ReplicasToRemove" placeholder="ReplicasToRemove"></input>
+	</div> 
+	<div class="form-row" id='FinalSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-FinalSnapshotIdentifier"><i class="fa fa-tag"></i> FinalSnapshotIdentifier</label>
+		<input type="text" id="node-input-FinalSnapshotIdentifier" placeholder="FinalSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='RetainPrimaryReplicationGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainPrimaryReplicationGroup"><i class="fa fa-tag"></i> RetainPrimaryReplicationGroup</label>
+		<input type="text" id="node-input-RetainPrimaryReplicationGroup" placeholder="RetainPrimaryReplicationGroup"></input>
+	</div> 
+	<div class="form-row" id='RetainPrimaryClusterAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainPrimaryCluster"><i class="fa fa-tag"></i> RetainPrimaryCluster</label>
+		<input type="text" id="node-input-RetainPrimaryCluster" placeholder="RetainPrimaryCluster"></input>
+	</div> 
+	<div class="form-row" id='MaxRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRecords"><i class="fa fa-tag"></i> MaxRecords</label>
+		<input type="text" id="node-input-MaxRecords" placeholder="MaxRecords"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='ShowCacheNodeInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowCacheNodeInfo"><i class="fa fa-tag"></i> ShowCacheNodeInfo</label>
+		<input type="text" id="node-input-ShowCacheNodeInfo" placeholder="ShowCacheNodeInfo"></input>
+	</div> 
+	<div class="form-row" id='ShowCacheClustersNotInReplicationGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowCacheClustersNotInReplicationGroups"><i class="fa fa-tag"></i> ShowCacheClustersNotInReplicationGroups</label>
+		<input type="text" id="node-input-ShowCacheClustersNotInReplicationGroups" placeholder="ShowCacheClustersNotInReplicationGroups"></input>
+	</div> 
+	<div class="form-row" id='DefaultOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultOnly"><i class="fa fa-tag"></i> DefaultOnly</label>
+		<input type="text" id="node-input-DefaultOnly" placeholder="DefaultOnly"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='SourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIdentifier"><i class="fa fa-tag"></i> SourceIdentifier</label>
+		<input type="text" id="node-input-SourceIdentifier" placeholder="SourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i> SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='DurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Duration"><i class="fa fa-tag"></i> Duration</label>
+		<input type="text" id="node-input-Duration" placeholder="Duration"></input>
+	</div> 
+	<div class="form-row" id='ShowMemberInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowMemberInfo"><i class="fa fa-tag"></i> ShowMemberInfo</label>
+		<input type="text" id="node-input-ShowMemberInfo" placeholder="ShowMemberInfo"></input>
+	</div> 
+	<div class="form-row" id='ReservedCacheNodeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservedCacheNodeId"><i class="fa fa-tag"></i> ReservedCacheNodeId</label>
+		<input type="text" id="node-input-ReservedCacheNodeId" placeholder="ReservedCacheNodeId"></input>
+	</div> 
+	<div class="form-row" id='ReservedCacheNodesOfferingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservedCacheNodesOfferingId"><i class="fa fa-tag"></i> ReservedCacheNodesOfferingId</label>
+		<input type="text" id="node-input-ReservedCacheNodesOfferingId" placeholder="ReservedCacheNodesOfferingId"></input>
+	</div> 
+	<div class="form-row" id='ProductDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductDescription"><i class="fa fa-tag"></i> ProductDescription</label>
+		<input type="text" id="node-input-ProductDescription" placeholder="ProductDescription"></input>
+	</div> 
+	<div class="form-row" id='OfferingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OfferingType"><i class="fa fa-tag"></i> OfferingType</label>
+		<input type="text" id="node-input-OfferingType" placeholder="OfferingType"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdateStatus"><i class="fa fa-tag"></i> ServiceUpdateStatus</label>
+		<input type="text" id="node-input-ServiceUpdateStatus" placeholder="ServiceUpdateStatus"></input>
+	</div> 
+	<div class="form-row" id='SnapshotSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotSource"><i class="fa fa-tag"></i> SnapshotSource</label>
+		<input type="text" id="node-input-SnapshotSource" placeholder="SnapshotSource"></input>
+	</div> 
+	<div class="form-row" id='ShowNodeGroupConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowNodeGroupConfig"><i class="fa fa-tag"></i> ShowNodeGroupConfig</label>
+		<input type="text" id="node-input-ShowNodeGroupConfig" placeholder="ShowNodeGroupConfig"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateTimeRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdateTimeRange"><i class="fa fa-tag"></i> ServiceUpdateTimeRange</label>
+		<input type="text" id="node-input-ServiceUpdateTimeRange" placeholder="ServiceUpdateTimeRange"></input>
+	</div> 
+	<div class="form-row" id='UpdateActionStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateActionStatus"><i class="fa fa-tag"></i> UpdateActionStatus</label>
+		<input type="text" id="node-input-UpdateActionStatus" placeholder="UpdateActionStatus"></input>
+	</div> 
+	<div class="form-row" id='ShowNodeLevelUpdateStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowNodeLevelUpdateStatus"><i class="fa fa-tag"></i> ShowNodeLevelUpdateStatus</label>
+		<input type="text" id="node-input-ShowNodeLevelUpdateStatus" placeholder="ShowNodeLevelUpdateStatus"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroupRegion"><i class="fa fa-tag"></i> ReplicationGroupRegion</label>
+		<input type="text" id="node-input-ReplicationGroupRegion" placeholder="ReplicationGroupRegion"></input>
+	</div> 
+	<div class="form-row" id='PrimaryRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryRegion"><i class="fa fa-tag"></i> PrimaryRegion</label>
+		<input type="text" id="node-input-PrimaryRegion" placeholder="PrimaryRegion"></input>
+	</div> 
+	<div class="form-row" id='RegionalConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-RegionalConfigurations"><i class="fa fa-tag"></i> RegionalConfigurations</label>
+		<input type="text" id="node-input-RegionalConfigurations" placeholder="RegionalConfigurations"></input>
+	</div> 
+	<div class="form-row" id='CacheNodeIdsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheNodeIdsToRemove"><i class="fa fa-tag"></i> CacheNodeIdsToRemove</label>
+		<input type="text" id="node-input-CacheNodeIdsToRemove" placeholder="CacheNodeIdsToRemove"></input>
+	</div> 
+	<div class="form-row" id='NewAvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-NewAvailabilityZones"><i class="fa fa-tag"></i> NewAvailabilityZones</label>
+		<input type="text" id="node-input-NewAvailabilityZones" placeholder="NewAvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='NotificationTopicStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationTopicStatus"><i class="fa fa-tag"></i> NotificationTopicStatus</label>
+		<input type="text" id="node-input-NotificationTopicStatus" placeholder="NotificationTopicStatus"></input>
+	</div> 
+	<div class="form-row" id='AuthTokenUpdateStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthTokenUpdateStrategy"><i class="fa fa-tag"></i> AuthTokenUpdateStrategy</label>
+		<input type="text" id="node-input-AuthTokenUpdateStrategy" placeholder="AuthTokenUpdateStrategy"></input>
+	</div> 
+	<div class="form-row" id='ParameterNameValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterNameValues"><i class="fa fa-tag"></i> ParameterNameValues</label>
+		<input type="text" id="node-input-ParameterNameValues" placeholder="ParameterNameValues"></input>
+	</div> 
+	<div class="form-row" id='SnapshottingClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshottingClusterId"><i class="fa fa-tag"></i> SnapshottingClusterId</label>
+		<input type="text" id="node-input-SnapshottingClusterId" placeholder="SnapshottingClusterId"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupId"><i class="fa fa-tag"></i> NodeGroupId</label>
+		<input type="text" id="node-input-NodeGroupId" placeholder="NodeGroupId"></input>
+	</div> 
+	<div class="form-row" id='UserGroupIdsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-UserGroupIdsToAdd"><i class="fa fa-tag"></i> UserGroupIdsToAdd</label>
+		<input type="text" id="node-input-UserGroupIdsToAdd" placeholder="UserGroupIdsToAdd"></input>
+	</div> 
+	<div class="form-row" id='UserGroupIdsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-UserGroupIdsToRemove"><i class="fa fa-tag"></i> UserGroupIdsToRemove</label>
+		<input type="text" id="node-input-UserGroupIdsToRemove" placeholder="UserGroupIdsToRemove"></input>
+	</div> 
+	<div class="form-row" id='RemoveUserGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoveUserGroups"><i class="fa fa-tag"></i> RemoveUserGroups</label>
+		<input type="text" id="node-input-RemoveUserGroups" placeholder="RemoveUserGroups"></input>
+	</div> 
+	<div class="form-row" id='ReshardingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ReshardingConfiguration"><i class="fa fa-tag"></i> ReshardingConfiguration</label>
+		<input type="text" id="node-input-ReshardingConfiguration" placeholder="ReshardingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupsToRemove"><i class="fa fa-tag"></i> NodeGroupsToRemove</label>
+		<input type="text" id="node-input-NodeGroupsToRemove" placeholder="NodeGroupsToRemove"></input>
+	</div> 
+	<div class="form-row" id='NodeGroupsToRetainAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeGroupsToRetain"><i class="fa fa-tag"></i> NodeGroupsToRetain</label>
+		<input type="text" id="node-input-NodeGroupsToRetain" placeholder="NodeGroupsToRetain"></input>
+	</div> 
+	<div class="form-row" id='AppendAccessStringAttr' class='hiddenAttrs'>
+		<label for="node-input-AppendAccessString"><i class="fa fa-tag"></i> AppendAccessString</label>
+		<input type="text" id="node-input-AppendAccessString" placeholder="AppendAccessString"></input>
+	</div> 
+	<div class="form-row" id='UserIdsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIdsToAdd"><i class="fa fa-tag"></i> UserIdsToAdd</label>
+		<input type="text" id="node-input-UserIdsToAdd" placeholder="UserIdsToAdd"></input>
+	</div> 
+	<div class="form-row" id='UserIdsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIdsToRemove"><i class="fa fa-tag"></i> UserIdsToRemove</label>
+		<input type="text" id="node-input-UserIdsToRemove" placeholder="UserIdsToRemove"></input>
+	</div> 
+	<div class="form-row" id='CacheNodeCountAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheNodeCount"><i class="fa fa-tag"></i> CacheNodeCount</label>
+		<input type="text" id="node-input-CacheNodeCount" placeholder="CacheNodeCount"></input>
+	</div> 
+	<div class="form-row" id='CacheNodeIdsToRebootAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheNodeIdsToReboot"><i class="fa fa-tag"></i> CacheNodeIdsToReboot</label>
+		<input type="text" id="node-input-CacheNodeIdsToReboot" placeholder="CacheNodeIdsToReboot"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ResetAllParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ResetAllParameters"><i class="fa fa-tag"></i> ResetAllParameters</label>
+		<input type="text" id="node-input-ResetAllParameters" placeholder="ResetAllParameters"></input>
+	</div> 
+	<div class="form-row" id='CustomerNodeEndpointListAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerNodeEndpointList"><i class="fa fa-tag"></i> CustomerNodeEndpointList</label>
+		<input type="text" id="node-input-CustomerNodeEndpointList" placeholder="CustomerNodeEndpointList"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToResource:[
+					'#ResourceNameAttr','#TagsAttr'
+					],
+				AuthorizeCacheSecurityGroupIngress:[
+					'#CacheSecurityGroupNameAttr','#EC2SecurityGroupNameAttr','#EC2SecurityGroupOwnerIdAttr'
+					],
+				BatchApplyUpdateAction:[
+					'#ReplicationGroupIdsAttr','#CacheClusterIdsAttr','#ServiceUpdateNameAttr'
+					],
+				BatchStopUpdateAction:[
+					'#ReplicationGroupIdsAttr','#CacheClusterIdsAttr','#ServiceUpdateNameAttr'
+					],
+				CompleteMigration:[
+					'#ReplicationGroupIdAttr','#ForceAttr'
+					],
+				CopySnapshot:[
+					'#SourceSnapshotNameAttr','#TargetSnapshotNameAttr','#TargetBucketAttr','#KmsKeyIdAttr','#TagsAttr'
+					],
+				CreateCacheCluster:[
+					'#CacheClusterIdAttr','#ReplicationGroupIdAttr','#AZModeAttr','#PreferredAvailabilityZoneAttr','#PreferredAvailabilityZonesAttr','#NumCacheNodesAttr','#CacheNodeTypeAttr','#EngineAttr','#EngineVersionAttr','#CacheParameterGroupNameAttr','#CacheSubnetGroupNameAttr','#CacheSecurityGroupNamesAttr','#SecurityGroupIdsAttr','#TagsAttr','#SnapshotArnsAttr','#SnapshotNameAttr','#PreferredMaintenanceWindowAttr','#PortAttr','#NotificationTopicArnAttr','#AutoMinorVersionUpgradeAttr','#SnapshotRetentionLimitAttr','#SnapshotWindowAttr','#AuthTokenAttr','#OutpostModeAttr','#PreferredOutpostArnAttr','#PreferredOutpostArnsAttr','#LogDeliveryConfigurationsAttr'
+					],
+				CreateCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr','#CacheParameterGroupFamilyAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateCacheSecurityGroup:[
+					'#CacheSecurityGroupNameAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr','#CacheSubnetGroupDescriptionAttr','#SubnetIdsAttr','#TagsAttr'
+					],
+				CreateGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdSuffixAttr','#GlobalReplicationGroupDescriptionAttr','#PrimaryReplicationGroupIdAttr'
+					],
+				CreateReplicationGroup:[
+					'#ReplicationGroupIdAttr','#ReplicationGroupDescriptionAttr','#GlobalReplicationGroupIdAttr','#PrimaryClusterIdAttr','#AutomaticFailoverEnabledAttr','#MultiAZEnabledAttr','#NumCacheClustersAttr','#PreferredCacheClusterAZsAttr','#NumNodeGroupsAttr','#ReplicasPerNodeGroupAttr','#NodeGroupConfigurationAttr','#CacheNodeTypeAttr','#EngineAttr','#EngineVersionAttr','#CacheParameterGroupNameAttr','#CacheSubnetGroupNameAttr','#CacheSecurityGroupNamesAttr','#SecurityGroupIdsAttr','#TagsAttr','#SnapshotArnsAttr','#SnapshotNameAttr','#PreferredMaintenanceWindowAttr','#PortAttr','#NotificationTopicArnAttr','#AutoMinorVersionUpgradeAttr','#SnapshotRetentionLimitAttr','#SnapshotWindowAttr','#AuthTokenAttr','#TransitEncryptionEnabledAttr','#AtRestEncryptionEnabledAttr','#KmsKeyIdAttr','#UserGroupIdsAttr','#LogDeliveryConfigurationsAttr'
+					],
+				CreateSnapshot:[
+					'#ReplicationGroupIdAttr','#CacheClusterIdAttr','#SnapshotNameAttr','#KmsKeyIdAttr','#TagsAttr'
+					],
+				CreateUser:[
+					'#UserIdAttr','#UserNameAttr','#EngineAttr','#PasswordsAttr','#AccessStringAttr','#NoPasswordRequiredAttr','#TagsAttr'
+					],
+				CreateUserGroup:[
+					'#UserGroupIdAttr','#EngineAttr','#UserIdsAttr','#TagsAttr'
+					],
+				DecreaseNodeGroupsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#NodeGroupCountAttr','#GlobalNodeGroupsToRemoveAttr','#GlobalNodeGroupsToRetainAttr','#ApplyImmediatelyAttr'
+					],
+				DecreaseReplicaCount:[
+					'#ReplicationGroupIdAttr','#NewReplicaCountAttr','#ReplicaConfigurationAttr','#ReplicasToRemoveAttr','#ApplyImmediatelyAttr'
+					],
+				DeleteCacheCluster:[
+					'#CacheClusterIdAttr','#FinalSnapshotIdentifierAttr'
+					],
+				DeleteCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr'
+					],
+				DeleteCacheSecurityGroup:[
+					'#CacheSecurityGroupNameAttr'
+					],
+				DeleteCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr'
+					],
+				DeleteGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#RetainPrimaryReplicationGroupAttr'
+					],
+				DeleteReplicationGroup:[
+					'#ReplicationGroupIdAttr','#RetainPrimaryClusterAttr','#FinalSnapshotIdentifierAttr'
+					],
+				DeleteSnapshot:[
+					'#SnapshotNameAttr'
+					],
+				DeleteUser:[
+					'#UserIdAttr'
+					],
+				DeleteUserGroup:[
+					'#UserGroupIdAttr'
+					],
+				DescribeCacheClusters:[
+					'#CacheClusterIdAttr','#MaxRecordsAttr','#MarkerAttr','#ShowCacheNodeInfoAttr','#ShowCacheClustersNotInReplicationGroupsAttr'
+					],
+				DescribeCacheEngineVersions:[
+					'#EngineAttr','#EngineVersionAttr','#CacheParameterGroupFamilyAttr','#MaxRecordsAttr','#MarkerAttr','#DefaultOnlyAttr'
+					],
+				DescribeCacheParameterGroups:[
+					'#CacheParameterGroupNameAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeCacheParameters:[
+					'#CacheParameterGroupNameAttr','#SourceAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeCacheSecurityGroups:[
+					'#CacheSecurityGroupNameAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeCacheSubnetGroups:[
+					'#CacheSubnetGroupNameAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeEngineDefaultParameters:[
+					'#CacheParameterGroupFamilyAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeEvents:[
+					'#SourceIdentifierAttr','#SourceTypeAttr','#StartTimeAttr','#EndTimeAttr','#DurationAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeGlobalReplicationGroups:[
+					'#GlobalReplicationGroupIdAttr','#MaxRecordsAttr','#MarkerAttr','#ShowMemberInfoAttr'
+					],
+				DescribeReplicationGroups:[
+					'#ReplicationGroupIdAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeReservedCacheNodes:[
+					'#ReservedCacheNodeIdAttr','#ReservedCacheNodesOfferingIdAttr','#CacheNodeTypeAttr','#DurationAttr','#ProductDescriptionAttr','#OfferingTypeAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeReservedCacheNodesOfferings:[
+					'#ReservedCacheNodesOfferingIdAttr','#CacheNodeTypeAttr','#DurationAttr','#ProductDescriptionAttr','#OfferingTypeAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeServiceUpdates:[
+					'#ServiceUpdateNameAttr','#ServiceUpdateStatusAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeSnapshots:[
+					'#ReplicationGroupIdAttr','#CacheClusterIdAttr','#SnapshotNameAttr','#SnapshotSourceAttr','#MarkerAttr','#MaxRecordsAttr','#ShowNodeGroupConfigAttr'
+					],
+				DescribeUpdateActions:[
+					'#ServiceUpdateNameAttr','#ReplicationGroupIdsAttr','#CacheClusterIdsAttr','#EngineAttr','#ServiceUpdateStatusAttr','#ServiceUpdateTimeRangeAttr','#UpdateActionStatusAttr','#ShowNodeLevelUpdateStatusAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeUserGroups:[
+					'#UserGroupIdAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeUsers:[
+					'#EngineAttr','#UserIdAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DisassociateGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ReplicationGroupIdAttr','#ReplicationGroupRegionAttr'
+					],
+				FailoverGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#PrimaryRegionAttr','#PrimaryReplicationGroupIdAttr'
+					],
+				IncreaseNodeGroupsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#NodeGroupCountAttr','#RegionalConfigurationsAttr','#ApplyImmediatelyAttr'
+					],
+				IncreaseReplicaCount:[
+					'#ReplicationGroupIdAttr','#NewReplicaCountAttr','#ReplicaConfigurationAttr','#ApplyImmediatelyAttr'
+					],
+				ListAllowedNodeTypeModifications:[
+					'#CacheClusterIdAttr','#ReplicationGroupIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceNameAttr'
+					],
+				ModifyCacheCluster:[
+					'#CacheClusterIdAttr','#NumCacheNodesAttr','#CacheNodeIdsToRemoveAttr','#AZModeAttr','#NewAvailabilityZonesAttr','#CacheSecurityGroupNamesAttr','#SecurityGroupIdsAttr','#PreferredMaintenanceWindowAttr','#NotificationTopicArnAttr','#CacheParameterGroupNameAttr','#NotificationTopicStatusAttr','#ApplyImmediatelyAttr','#EngineVersionAttr','#AutoMinorVersionUpgradeAttr','#SnapshotRetentionLimitAttr','#SnapshotWindowAttr','#CacheNodeTypeAttr','#AuthTokenAttr','#AuthTokenUpdateStrategyAttr','#LogDeliveryConfigurationsAttr'
+					],
+				ModifyCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr','#ParameterNameValuesAttr'
+					],
+				ModifyCacheSubnetGroup:[
+					'#CacheSubnetGroupNameAttr','#CacheSubnetGroupDescriptionAttr','#SubnetIdsAttr'
+					],
+				ModifyGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ApplyImmediatelyAttr','#CacheNodeTypeAttr','#EngineVersionAttr','#CacheParameterGroupNameAttr','#GlobalReplicationGroupDescriptionAttr','#AutomaticFailoverEnabledAttr'
+					],
+				ModifyReplicationGroup:[
+					'#ReplicationGroupIdAttr','#ReplicationGroupDescriptionAttr','#PrimaryClusterIdAttr','#SnapshottingClusterIdAttr','#AutomaticFailoverEnabledAttr','#MultiAZEnabledAttr','#NodeGroupIdAttr','#CacheSecurityGroupNamesAttr','#SecurityGroupIdsAttr','#PreferredMaintenanceWindowAttr','#NotificationTopicArnAttr','#CacheParameterGroupNameAttr','#NotificationTopicStatusAttr','#ApplyImmediatelyAttr','#EngineVersionAttr','#AutoMinorVersionUpgradeAttr','#SnapshotRetentionLimitAttr','#SnapshotWindowAttr','#CacheNodeTypeAttr','#AuthTokenAttr','#AuthTokenUpdateStrategyAttr','#UserGroupIdsToAddAttr','#UserGroupIdsToRemoveAttr','#RemoveUserGroupsAttr','#LogDeliveryConfigurationsAttr'
+					],
+				ModifyReplicationGroupShardConfiguration:[
+					'#ReplicationGroupIdAttr','#NodeGroupCountAttr','#ApplyImmediatelyAttr','#ReshardingConfigurationAttr','#NodeGroupsToRemoveAttr','#NodeGroupsToRetainAttr'
+					],
+				ModifyUser:[
+					'#UserIdAttr','#AccessStringAttr','#AppendAccessStringAttr','#PasswordsAttr','#NoPasswordRequiredAttr'
+					],
+				ModifyUserGroup:[
+					'#UserGroupIdAttr','#UserIdsToAddAttr','#UserIdsToRemoveAttr'
+					],
+				PurchaseReservedCacheNodesOffering:[
+					'#ReservedCacheNodesOfferingIdAttr','#ReservedCacheNodeIdAttr','#CacheNodeCountAttr','#TagsAttr'
+					],
+				RebalanceSlotsInGlobalReplicationGroup:[
+					'#GlobalReplicationGroupIdAttr','#ApplyImmediatelyAttr'
+					],
+				RebootCacheCluster:[
+					'#CacheClusterIdAttr','#CacheNodeIdsToRebootAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceNameAttr','#TagKeysAttr'
+					],
+				ResetCacheParameterGroup:[
+					'#CacheParameterGroupNameAttr','#ResetAllParametersAttr','#ParameterNameValuesAttr'
+					],
+				RevokeCacheSecurityGroupIngress:[
+					'#CacheSecurityGroupNameAttr','#EC2SecurityGroupNameAttr','#EC2SecurityGroupOwnerIdAttr'
+					],
+				StartMigration:[
+					'#ReplicationGroupIdAttr','#CustomerNodeEndpointListAttr'
+					],
+				TestFailover:[
+					'#ReplicationGroupIdAttr','#NodeGroupIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ElastiCache">
+<p>
+AWS ElastiCache
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElastiCache.html">ElastiCache</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElastiCache',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToResource' },
+			
+				ResourceName: { value: ""} ,
+				Tags: { value: ""} ,
+				CacheSecurityGroupName: { value: ""} ,
+				EC2SecurityGroupName: { value: ""} ,
+				EC2SecurityGroupOwnerId: { value: ""} ,
+				ReplicationGroupIds: { value: ""} ,
+				CacheClusterIds: { value: ""} ,
+				ServiceUpdateName: { value: ""} ,
+				ReplicationGroupId: { value: ""} ,
+				Force: { value: ""} ,
+				SourceSnapshotName: { value: ""} ,
+				TargetSnapshotName: { value: ""} ,
+				TargetBucket: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				CacheClusterId: { value: ""} ,
+				AZMode: { value: ""} ,
+				PreferredAvailabilityZone: { value: ""} ,
+				PreferredAvailabilityZones: { value: ""} ,
+				NumCacheNodes: { value: ""} ,
+				CacheNodeType: { value: ""} ,
+				Engine: { value: ""} ,
+				EngineVersion: { value: ""} ,
+				CacheParameterGroupName: { value: ""} ,
+				CacheSubnetGroupName: { value: ""} ,
+				CacheSecurityGroupNames: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				SnapshotArns: { value: ""} ,
+				SnapshotName: { value: ""} ,
+				PreferredMaintenanceWindow: { value: ""} ,
+				Port: { value: ""} ,
+				NotificationTopicArn: { value: ""} ,
+				AutoMinorVersionUpgrade: { value: ""} ,
+				SnapshotRetentionLimit: { value: ""} ,
+				SnapshotWindow: { value: ""} ,
+				AuthToken: { value: ""} ,
+				OutpostMode: { value: ""} ,
+				PreferredOutpostArn: { value: ""} ,
+				PreferredOutpostArns: { value: ""} ,
+				LogDeliveryConfigurations: { value: ""} ,
+				CacheParameterGroupFamily: { value: ""} ,
+				Description: { value: ""} ,
+				CacheSubnetGroupDescription: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				GlobalReplicationGroupIdSuffix: { value: ""} ,
+				GlobalReplicationGroupDescription: { value: ""} ,
+				PrimaryReplicationGroupId: { value: ""} ,
+				ReplicationGroupDescription: { value: ""} ,
+				GlobalReplicationGroupId: { value: ""} ,
+				PrimaryClusterId: { value: ""} ,
+				AutomaticFailoverEnabled: { value: ""} ,
+				MultiAZEnabled: { value: ""} ,
+				NumCacheClusters: { value: ""} ,
+				PreferredCacheClusterAZs: { value: ""} ,
+				NumNodeGroups: { value: ""} ,
+				ReplicasPerNodeGroup: { value: ""} ,
+				NodeGroupConfiguration: { value: ""} ,
+				TransitEncryptionEnabled: { value: ""} ,
+				AtRestEncryptionEnabled: { value: ""} ,
+				UserGroupIds: { value: ""} ,
+				UserId: { value: ""} ,
+				UserName: { value: ""} ,
+				Passwords: { value: ""} ,
+				AccessString: { value: ""} ,
+				NoPasswordRequired: { value: ""} ,
+				UserGroupId: { value: ""} ,
+				UserIds: { value: ""} ,
+				NodeGroupCount: { value: ""} ,
+				GlobalNodeGroupsToRemove: { value: ""} ,
+				GlobalNodeGroupsToRetain: { value: ""} ,
+				ApplyImmediately: { value: ""} ,
+				NewReplicaCount: { value: ""} ,
+				ReplicaConfiguration: { value: ""} ,
+				ReplicasToRemove: { value: ""} ,
+				FinalSnapshotIdentifier: { value: ""} ,
+				RetainPrimaryReplicationGroup: { value: ""} ,
+				RetainPrimaryCluster: { value: ""} ,
+				MaxRecords: { value: ""} ,
+				Marker: { value: ""} ,
+				ShowCacheNodeInfo: { value: ""} ,
+				ShowCacheClustersNotInReplicationGroups: { value: ""} ,
+				DefaultOnly: { value: ""} ,
+				Source: { value: ""} ,
+				SourceIdentifier: { value: ""} ,
+				SourceType: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				Duration: { value: ""} ,
+				ShowMemberInfo: { value: ""} ,
+				ReservedCacheNodeId: { value: ""} ,
+				ReservedCacheNodesOfferingId: { value: ""} ,
+				ProductDescription: { value: ""} ,
+				OfferingType: { value: ""} ,
+				ServiceUpdateStatus: { value: ""} ,
+				SnapshotSource: { value: ""} ,
+				ShowNodeGroupConfig: { value: ""} ,
+				ServiceUpdateTimeRange: { value: ""} ,
+				UpdateActionStatus: { value: ""} ,
+				ShowNodeLevelUpdateStatus: { value: ""} ,
+				Filters: { value: ""} ,
+				ReplicationGroupRegion: { value: ""} ,
+				PrimaryRegion: { value: ""} ,
+				RegionalConfigurations: { value: ""} ,
+				CacheNodeIdsToRemove: { value: ""} ,
+				NewAvailabilityZones: { value: ""} ,
+				NotificationTopicStatus: { value: ""} ,
+				AuthTokenUpdateStrategy: { value: ""} ,
+				ParameterNameValues: { value: ""} ,
+				SnapshottingClusterId: { value: ""} ,
+				NodeGroupId: { value: ""} ,
+				UserGroupIdsToAdd: { value: ""} ,
+				UserGroupIdsToRemove: { value: ""} ,
+				RemoveUserGroups: { value: ""} ,
+				ReshardingConfiguration: { value: ""} ,
+				NodeGroupsToRemove: { value: ""} ,
+				NodeGroupsToRetain: { value: ""} ,
+				AppendAccessString: { value: ""} ,
+				UserIdsToAdd: { value: ""} ,
+				UserIdsToRemove: { value: ""} ,
+				CacheNodeCount: { value: ""} ,
+				CacheNodeIdsToReboot: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ResetAllParameters: { value: ""} ,
+				CustomerNodeEndpointList: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElastiCache " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheSecurityGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EC2SecurityGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EC2SecurityGroupOwnerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicationGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheClusterIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceUpdateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicationGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SourceSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AZMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredAvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredAvailabilityZones").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumCacheNodes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-CacheNodeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Engine").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheParameterGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheSubnetGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheSecurityGroupNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredMaintenanceWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Port").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NotificationTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMinorVersionUpgrade").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SnapshotRetentionLimit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SnapshotWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutpostMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredOutpostArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredOutpostArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogDeliveryConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheParameterGroupFamily").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheSubnetGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalReplicationGroupIdSuffix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalReplicationGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrimaryReplicationGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicationGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalReplicationGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrimaryClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutomaticFailoverEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MultiAZEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NumCacheClusters").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PreferredCacheClusterAZs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumNodeGroups").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ReplicasPerNodeGroup").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-TransitEncryptionEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AtRestEncryptionEnabled").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Passwords").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NoPasswordRequired").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UserGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NodeGroupCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-GlobalNodeGroupsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalNodeGroupsToRetain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplyImmediately").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NewReplicaCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ReplicaConfiguration").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-FinalSnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetainPrimaryReplicationGroup").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RetainPrimaryCluster").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MaxRecords").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShowCacheNodeInfo").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ShowCacheClustersNotInReplicationGroups").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DefaultOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Duration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShowMemberInfo").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ReservedCacheNodeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReservedCacheNodesOfferingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OfferingType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceUpdateStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShowNodeGroupConfig").typedInput({ default: "bool", types: ["bool"]});
+
+
+$("#node-input-ShowNodeLevelUpdateStatus").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-ReplicationGroupRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrimaryRegion").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CacheNodeIdsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewAvailabilityZones").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationTopicStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthTokenUpdateStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParameterNameValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshottingClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NodeGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserGroupIdsToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserGroupIdsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemoveUserGroups").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ReshardingConfiguration").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-AppendAccessString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserIdsToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserIdsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheNodeCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-CacheNodeIdsToReboot").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResetAllParameters").typedInput({ default: "bool", types: ["bool"]});
+
+		}
+	});
+</script>
+

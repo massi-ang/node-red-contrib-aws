@@ -1,0 +1,258 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MediaStore">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateContainer">CreateContainer</option>
+		
+			<option value="DeleteContainer">DeleteContainer</option>
+		
+			<option value="DeleteContainerPolicy">DeleteContainerPolicy</option>
+		
+			<option value="DeleteCorsPolicy">DeleteCorsPolicy</option>
+		
+			<option value="DeleteLifecyclePolicy">DeleteLifecyclePolicy</option>
+		
+			<option value="DeleteMetricPolicy">DeleteMetricPolicy</option>
+		
+			<option value="DescribeContainer">DescribeContainer</option>
+		
+			<option value="GetContainerPolicy">GetContainerPolicy</option>
+		
+			<option value="GetCorsPolicy">GetCorsPolicy</option>
+		
+			<option value="GetLifecyclePolicy">GetLifecyclePolicy</option>
+		
+			<option value="GetMetricPolicy">GetMetricPolicy</option>
+		
+			<option value="ListContainers">ListContainers</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutContainerPolicy">PutContainerPolicy</option>
+		
+			<option value="PutCorsPolicy">PutCorsPolicy</option>
+		
+			<option value="PutLifecyclePolicy">PutLifecyclePolicy</option>
+		
+			<option value="PutMetricPolicy">PutMetricPolicy</option>
+		
+			<option value="StartAccessLogging">StartAccessLogging</option>
+		
+			<option value="StopAccessLogging">StopAccessLogging</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ContainerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ContainerName"><i class="fa fa-tag"></i> ContainerName</label>
+		<input type="text" id="node-input-ContainerName" placeholder="ContainerName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i> Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='CorsPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-CorsPolicy"><i class="fa fa-tag"></i> CorsPolicy</label>
+		<input type="text" id="node-input-CorsPolicy" placeholder="CorsPolicy"></input>
+	</div> 
+	<div class="form-row" id='LifecyclePolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecyclePolicy"><i class="fa fa-tag"></i> LifecyclePolicy</label>
+		<input type="text" id="node-input-LifecyclePolicy" placeholder="LifecyclePolicy"></input>
+	</div> 
+	<div class="form-row" id='MetricPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricPolicy"><i class="fa fa-tag"></i> MetricPolicy</label>
+		<input type="text" id="node-input-MetricPolicy" placeholder="MetricPolicy"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateContainer:[
+					'#ContainerNameAttr','#TagsAttr'
+					],
+				DeleteContainer:[
+					'#ContainerNameAttr'
+					],
+				DeleteContainerPolicy:[
+					'#ContainerNameAttr'
+					],
+				DeleteCorsPolicy:[
+					'#ContainerNameAttr'
+					],
+				DeleteLifecyclePolicy:[
+					'#ContainerNameAttr'
+					],
+				DeleteMetricPolicy:[
+					'#ContainerNameAttr'
+					],
+				DescribeContainer:[
+					'#ContainerNameAttr'
+					],
+				GetContainerPolicy:[
+					'#ContainerNameAttr'
+					],
+				GetCorsPolicy:[
+					'#ContainerNameAttr'
+					],
+				GetLifecyclePolicy:[
+					'#ContainerNameAttr'
+					],
+				GetMetricPolicy:[
+					'#ContainerNameAttr'
+					],
+				ListContainers:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceAttr'
+					],
+				PutContainerPolicy:[
+					'#ContainerNameAttr','#PolicyAttr'
+					],
+				PutCorsPolicy:[
+					'#ContainerNameAttr','#CorsPolicyAttr'
+					],
+				PutLifecyclePolicy:[
+					'#ContainerNameAttr','#LifecyclePolicyAttr'
+					],
+				PutMetricPolicy:[
+					'#ContainerNameAttr','#MetricPolicyAttr'
+					],
+				StartAccessLogging:[
+					'#ContainerNameAttr'
+					],
+				StopAccessLogging:[
+					'#ContainerNameAttr'
+					],
+				TagResource:[
+					'#ResourceAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MediaStore">
+<p>
+AWS MediaStore
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaStore.html">MediaStore</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaStore',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateContainer' },
+			
+				ContainerName: { value: ""} ,
+				Tags: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Resource: { value: ""} ,
+				Policy: { value: ""} ,
+				CorsPolicy: { value: ""} ,
+				LifecyclePolicy: { value: ""} ,
+				MetricPolicy: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaStore " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ContainerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Resource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CorsPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LifecyclePolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricPolicy").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

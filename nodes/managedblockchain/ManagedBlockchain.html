@@ -1,0 +1,358 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ManagedBlockchain">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateMember">CreateMember</option>
+		
+			<option value="CreateNetwork">CreateNetwork</option>
+		
+			<option value="CreateNode">CreateNode</option>
+		
+			<option value="CreateProposal">CreateProposal</option>
+		
+			<option value="DeleteMember">DeleteMember</option>
+		
+			<option value="DeleteNode">DeleteNode</option>
+		
+			<option value="GetMember">GetMember</option>
+		
+			<option value="GetNetwork">GetNetwork</option>
+		
+			<option value="GetNode">GetNode</option>
+		
+			<option value="GetProposal">GetProposal</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListNetworks">ListNetworks</option>
+		
+			<option value="ListNodes">ListNodes</option>
+		
+			<option value="ListProposalVotes">ListProposalVotes</option>
+		
+			<option value="ListProposals">ListProposals</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RejectInvitation">RejectInvitation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateMember">UpdateMember</option>
+		
+			<option value="UpdateNode">UpdateNode</option>
+		
+			<option value="VoteOnProposal">VoteOnProposal</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='InvitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InvitationId"><i class="fa fa-tag"></i> InvitationId</label>
+		<input type="text" id="node-input-InvitationId" placeholder="InvitationId"></input>
+	</div> 
+	<div class="form-row" id='NetworkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NetworkId"><i class="fa fa-tag"></i> NetworkId</label>
+		<input type="text" id="node-input-NetworkId" placeholder="NetworkId"></input>
+	</div> 
+	<div class="form-row" id='MemberConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberConfiguration"><i class="fa fa-tag"></i> MemberConfiguration</label>
+		<input type="text" id="node-input-MemberConfiguration" placeholder="MemberConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='FrameworkAttr' class='hiddenAttrs'>
+		<label for="node-input-Framework"><i class="fa fa-tag"></i> Framework</label>
+		<input type="text" id="node-input-Framework" placeholder="Framework"></input>
+	</div> 
+	<div class="form-row" id='FrameworkVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-FrameworkVersion"><i class="fa fa-tag"></i> FrameworkVersion</label>
+		<input type="text" id="node-input-FrameworkVersion" placeholder="FrameworkVersion"></input>
+	</div> 
+	<div class="form-row" id='FrameworkConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-FrameworkConfiguration"><i class="fa fa-tag"></i> FrameworkConfiguration</label>
+		<input type="text" id="node-input-FrameworkConfiguration" placeholder="FrameworkConfiguration"></input>
+	</div> 
+	<div class="form-row" id='VotingPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-VotingPolicy"><i class="fa fa-tag"></i> VotingPolicy</label>
+		<input type="text" id="node-input-VotingPolicy" placeholder="VotingPolicy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='MemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberId"><i class="fa fa-tag"></i> MemberId</label>
+		<input type="text" id="node-input-MemberId" placeholder="MemberId"></input>
+	</div> 
+	<div class="form-row" id='NodeConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeConfiguration"><i class="fa fa-tag"></i> NodeConfiguration</label>
+		<input type="text" id="node-input-NodeConfiguration" placeholder="NodeConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i> Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='NodeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeId"><i class="fa fa-tag"></i> NodeId</label>
+		<input type="text" id="node-input-NodeId" placeholder="NodeId"></input>
+	</div> 
+	<div class="form-row" id='ProposalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProposalId"><i class="fa fa-tag"></i> ProposalId</label>
+		<input type="text" id="node-input-ProposalId" placeholder="ProposalId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='IsOwnedAttr' class='hiddenAttrs'>
+		<label for="node-input-IsOwned"><i class="fa fa-tag"></i> IsOwned</label>
+		<input type="text" id="node-input-IsOwned" placeholder="IsOwned"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='LogPublishingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LogPublishingConfiguration"><i class="fa fa-tag"></i> LogPublishingConfiguration</label>
+		<input type="text" id="node-input-LogPublishingConfiguration" placeholder="LogPublishingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='VoterMemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoterMemberId"><i class="fa fa-tag"></i> VoterMemberId</label>
+		<input type="text" id="node-input-VoterMemberId" placeholder="VoterMemberId"></input>
+	</div> 
+	<div class="form-row" id='VoteAttr' class='hiddenAttrs'>
+		<label for="node-input-Vote"><i class="fa fa-tag"></i> Vote</label>
+		<input type="text" id="node-input-Vote" placeholder="Vote"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateMember:[
+					'#ClientRequestTokenAttr','#InvitationIdAttr','#NetworkIdAttr','#MemberConfigurationAttr'
+					],
+				CreateNetwork:[
+					'#ClientRequestTokenAttr','#NameAttr','#DescriptionAttr','#FrameworkAttr','#FrameworkVersionAttr','#FrameworkConfigurationAttr','#VotingPolicyAttr','#MemberConfigurationAttr','#TagsAttr'
+					],
+				CreateNode:[
+					'#ClientRequestTokenAttr','#NetworkIdAttr','#MemberIdAttr','#NodeConfigurationAttr','#TagsAttr'
+					],
+				CreateProposal:[
+					'#ClientRequestTokenAttr','#NetworkIdAttr','#MemberIdAttr','#ActionsAttr','#DescriptionAttr','#TagsAttr'
+					],
+				DeleteMember:[
+					'#NetworkIdAttr','#MemberIdAttr'
+					],
+				DeleteNode:[
+					'#NetworkIdAttr','#MemberIdAttr','#NodeIdAttr'
+					],
+				GetMember:[
+					'#NetworkIdAttr','#MemberIdAttr'
+					],
+				GetNetwork:[
+					'#NetworkIdAttr'
+					],
+				GetNode:[
+					'#NetworkIdAttr','#MemberIdAttr','#NodeIdAttr'
+					],
+				GetProposal:[
+					'#NetworkIdAttr','#ProposalIdAttr'
+					],
+				ListInvitations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListMembers:[
+					'#NetworkIdAttr','#NameAttr','#StatusAttr','#IsOwnedAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListNetworks:[
+					'#NameAttr','#FrameworkAttr','#StatusAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListNodes:[
+					'#NetworkIdAttr','#MemberIdAttr','#StatusAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListProposalVotes:[
+					'#NetworkIdAttr','#ProposalIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListProposals:[
+					'#NetworkIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RejectInvitation:[
+					'#InvitationIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateMember:[
+					'#NetworkIdAttr','#MemberIdAttr','#LogPublishingConfigurationAttr'
+					],
+				UpdateNode:[
+					'#NetworkIdAttr','#MemberIdAttr','#NodeIdAttr','#LogPublishingConfigurationAttr'
+					],
+				VoteOnProposal:[
+					'#NetworkIdAttr','#ProposalIdAttr','#VoterMemberIdAttr','#VoteAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ManagedBlockchain">
+<p>
+AWS ManagedBlockchain
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ManagedBlockchain.html">ManagedBlockchain</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ManagedBlockchain',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateMember' },
+			
+				ClientRequestToken: { value: ""} ,
+				InvitationId: { value: ""} ,
+				NetworkId: { value: ""} ,
+				MemberConfiguration: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				Framework: { value: ""} ,
+				FrameworkVersion: { value: ""} ,
+				FrameworkConfiguration: { value: ""} ,
+				VotingPolicy: { value: ""} ,
+				Tags: { value: ""} ,
+				MemberId: { value: ""} ,
+				NodeConfiguration: { value: ""} ,
+				Actions: { value: ""} ,
+				NodeId: { value: ""} ,
+				ProposalId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				Status: { value: ""} ,
+				IsOwned: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				LogPublishingConfiguration: { value: ""} ,
+				VoterMemberId: { value: ""} ,
+				Vote: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ManagedBlockchain " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InvitationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NetworkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Framework").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FrameworkVersion").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-VotingPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Actions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NodeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProposalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IsOwned").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-LogPublishingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VoterMemberId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Vote").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

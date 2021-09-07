@@ -1,0 +1,837 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IoTSiteWise">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateAssets">AssociateAssets</option>
+		
+			<option value="BatchAssociateProjectAssets">BatchAssociateProjectAssets</option>
+		
+			<option value="BatchDisassociateProjectAssets">BatchDisassociateProjectAssets</option>
+		
+			<option value="BatchPutAssetPropertyValue">BatchPutAssetPropertyValue</option>
+		
+			<option value="CreateAccessPolicy">CreateAccessPolicy</option>
+		
+			<option value="CreateAsset">CreateAsset</option>
+		
+			<option value="CreateAssetModel">CreateAssetModel</option>
+		
+			<option value="CreateDashboard">CreateDashboard</option>
+		
+			<option value="CreateGateway">CreateGateway</option>
+		
+			<option value="CreatePortal">CreatePortal</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="DeleteAccessPolicy">DeleteAccessPolicy</option>
+		
+			<option value="DeleteAsset">DeleteAsset</option>
+		
+			<option value="DeleteAssetModel">DeleteAssetModel</option>
+		
+			<option value="DeleteDashboard">DeleteDashboard</option>
+		
+			<option value="DeleteGateway">DeleteGateway</option>
+		
+			<option value="DeletePortal">DeletePortal</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DescribeAccessPolicy">DescribeAccessPolicy</option>
+		
+			<option value="DescribeAsset">DescribeAsset</option>
+		
+			<option value="DescribeAssetModel">DescribeAssetModel</option>
+		
+			<option value="DescribeAssetProperty">DescribeAssetProperty</option>
+		
+			<option value="DescribeDashboard">DescribeDashboard</option>
+		
+			<option value="DescribeDefaultEncryptionConfiguration">DescribeDefaultEncryptionConfiguration</option>
+		
+			<option value="DescribeGateway">DescribeGateway</option>
+		
+			<option value="DescribeGatewayCapabilityConfiguration">DescribeGatewayCapabilityConfiguration</option>
+		
+			<option value="DescribeLoggingOptions">DescribeLoggingOptions</option>
+		
+			<option value="DescribePortal">DescribePortal</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="DescribeStorageConfiguration">DescribeStorageConfiguration</option>
+		
+			<option value="DisassociateAssets">DisassociateAssets</option>
+		
+			<option value="GetAssetPropertyAggregates">GetAssetPropertyAggregates</option>
+		
+			<option value="GetAssetPropertyValue">GetAssetPropertyValue</option>
+		
+			<option value="GetAssetPropertyValueHistory">GetAssetPropertyValueHistory</option>
+		
+			<option value="GetInterpolatedAssetPropertyValues">GetInterpolatedAssetPropertyValues</option>
+		
+			<option value="ListAccessPolicies">ListAccessPolicies</option>
+		
+			<option value="ListAssetModels">ListAssetModels</option>
+		
+			<option value="ListAssetRelationships">ListAssetRelationships</option>
+		
+			<option value="ListAssets">ListAssets</option>
+		
+			<option value="ListAssociatedAssets">ListAssociatedAssets</option>
+		
+			<option value="ListDashboards">ListDashboards</option>
+		
+			<option value="ListGateways">ListGateways</option>
+		
+			<option value="ListPortals">ListPortals</option>
+		
+			<option value="ListProjectAssets">ListProjectAssets</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutDefaultEncryptionConfiguration">PutDefaultEncryptionConfiguration</option>
+		
+			<option value="PutLoggingOptions">PutLoggingOptions</option>
+		
+			<option value="PutStorageConfiguration">PutStorageConfiguration</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccessPolicy">UpdateAccessPolicy</option>
+		
+			<option value="UpdateAsset">UpdateAsset</option>
+		
+			<option value="UpdateAssetModel">UpdateAssetModel</option>
+		
+			<option value="UpdateAssetProperty">UpdateAssetProperty</option>
+		
+			<option value="UpdateDashboard">UpdateDashboard</option>
+		
+			<option value="UpdateGateway">UpdateGateway</option>
+		
+			<option value="UpdateGatewayCapabilityConfiguration">UpdateGatewayCapabilityConfiguration</option>
+		
+			<option value="UpdatePortal">UpdatePortal</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='assetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-assetId"><i class="fa fa-tag"></i> assetId</label>
+		<input type="text" id="node-input-assetId" placeholder="assetId"></input>
+	</div> 
+	<div class="form-row" id='hierarchyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-hierarchyId"><i class="fa fa-tag"></i> hierarchyId</label>
+		<input type="text" id="node-input-hierarchyId" placeholder="hierarchyId"></input>
+	</div> 
+	<div class="form-row" id='childAssetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-childAssetId"><i class="fa fa-tag"></i> childAssetId</label>
+		<input type="text" id="node-input-childAssetId" placeholder="childAssetId"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='projectIdAttr' class='hiddenAttrs'>
+		<label for="node-input-projectId"><i class="fa fa-tag"></i> projectId</label>
+		<input type="text" id="node-input-projectId" placeholder="projectId"></input>
+	</div> 
+	<div class="form-row" id='assetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-assetIds"><i class="fa fa-tag"></i> assetIds</label>
+		<input type="text" id="node-input-assetIds" placeholder="assetIds"></input>
+	</div> 
+	<div class="form-row" id='entriesAttr' class='hiddenAttrs'>
+		<label for="node-input-entries"><i class="fa fa-tag"></i> entries</label>
+		<input type="text" id="node-input-entries" placeholder="entries"></input>
+	</div> 
+	<div class="form-row" id='accessPolicyIdentityAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPolicyIdentity"><i class="fa fa-tag"></i> accessPolicyIdentity</label>
+		<input type="text" id="node-input-accessPolicyIdentity" placeholder="accessPolicyIdentity"></input>
+	</div> 
+	<div class="form-row" id='accessPolicyResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPolicyResource"><i class="fa fa-tag"></i> accessPolicyResource</label>
+		<input type="text" id="node-input-accessPolicyResource" placeholder="accessPolicyResource"></input>
+	</div> 
+	<div class="form-row" id='accessPolicyPermissionAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPolicyPermission"><i class="fa fa-tag"></i> accessPolicyPermission</label>
+		<input type="text" id="node-input-accessPolicyPermission" placeholder="accessPolicyPermission"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='assetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assetName"><i class="fa fa-tag"></i> assetName</label>
+		<input type="text" id="node-input-assetName" placeholder="assetName"></input>
+	</div> 
+	<div class="form-row" id='assetModelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelId"><i class="fa fa-tag"></i> assetModelId</label>
+		<input type="text" id="node-input-assetModelId" placeholder="assetModelId"></input>
+	</div> 
+	<div class="form-row" id='assetModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelName"><i class="fa fa-tag"></i> assetModelName</label>
+		<input type="text" id="node-input-assetModelName" placeholder="assetModelName"></input>
+	</div> 
+	<div class="form-row" id='assetModelDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelDescription"><i class="fa fa-tag"></i> assetModelDescription</label>
+		<input type="text" id="node-input-assetModelDescription" placeholder="assetModelDescription"></input>
+	</div> 
+	<div class="form-row" id='assetModelPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelProperties"><i class="fa fa-tag"></i> assetModelProperties</label>
+		<input type="text" id="node-input-assetModelProperties" placeholder="assetModelProperties"></input>
+	</div> 
+	<div class="form-row" id='assetModelHierarchiesAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelHierarchies"><i class="fa fa-tag"></i> assetModelHierarchies</label>
+		<input type="text" id="node-input-assetModelHierarchies" placeholder="assetModelHierarchies"></input>
+	</div> 
+	<div class="form-row" id='assetModelCompositeModelsAttr' class='hiddenAttrs'>
+		<label for="node-input-assetModelCompositeModels"><i class="fa fa-tag"></i> assetModelCompositeModels</label>
+		<input type="text" id="node-input-assetModelCompositeModels" placeholder="assetModelCompositeModels"></input>
+	</div> 
+	<div class="form-row" id='dashboardNameAttr' class='hiddenAttrs'>
+		<label for="node-input-dashboardName"><i class="fa fa-tag"></i> dashboardName</label>
+		<input type="text" id="node-input-dashboardName" placeholder="dashboardName"></input>
+	</div> 
+	<div class="form-row" id='dashboardDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-dashboardDescription"><i class="fa fa-tag"></i> dashboardDescription</label>
+		<input type="text" id="node-input-dashboardDescription" placeholder="dashboardDescription"></input>
+	</div> 
+	<div class="form-row" id='dashboardDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-dashboardDefinition"><i class="fa fa-tag"></i> dashboardDefinition</label>
+		<input type="text" id="node-input-dashboardDefinition" placeholder="dashboardDefinition"></input>
+	</div> 
+	<div class="form-row" id='gatewayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-gatewayName"><i class="fa fa-tag"></i> gatewayName</label>
+		<input type="text" id="node-input-gatewayName" placeholder="gatewayName"></input>
+	</div> 
+	<div class="form-row" id='gatewayPlatformAttr' class='hiddenAttrs'>
+		<label for="node-input-gatewayPlatform"><i class="fa fa-tag"></i> gatewayPlatform</label>
+		<input type="text" id="node-input-gatewayPlatform" placeholder="gatewayPlatform"></input>
+	</div> 
+	<div class="form-row" id='portalNameAttr' class='hiddenAttrs'>
+		<label for="node-input-portalName"><i class="fa fa-tag"></i> portalName</label>
+		<input type="text" id="node-input-portalName" placeholder="portalName"></input>
+	</div> 
+	<div class="form-row" id='portalDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-portalDescription"><i class="fa fa-tag"></i> portalDescription</label>
+		<input type="text" id="node-input-portalDescription" placeholder="portalDescription"></input>
+	</div> 
+	<div class="form-row" id='portalContactEmailAttr' class='hiddenAttrs'>
+		<label for="node-input-portalContactEmail"><i class="fa fa-tag"></i> portalContactEmail</label>
+		<input type="text" id="node-input-portalContactEmail" placeholder="portalContactEmail"></input>
+	</div> 
+	<div class="form-row" id='portalLogoImageFileAttr' class='hiddenAttrs'>
+		<label for="node-input-portalLogoImageFile"><i class="fa fa-tag"></i> portalLogoImageFile</label>
+		<input type="text" id="node-input-portalLogoImageFile" placeholder="portalLogoImageFile"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i> roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='portalAuthModeAttr' class='hiddenAttrs'>
+		<label for="node-input-portalAuthMode"><i class="fa fa-tag"></i> portalAuthMode</label>
+		<input type="text" id="node-input-portalAuthMode" placeholder="portalAuthMode"></input>
+	</div> 
+	<div class="form-row" id='notificationSenderEmailAttr' class='hiddenAttrs'>
+		<label for="node-input-notificationSenderEmail"><i class="fa fa-tag"></i> notificationSenderEmail</label>
+		<input type="text" id="node-input-notificationSenderEmail" placeholder="notificationSenderEmail"></input>
+	</div> 
+	<div class="form-row" id='alarmsAttr' class='hiddenAttrs'>
+		<label for="node-input-alarms"><i class="fa fa-tag"></i> alarms</label>
+		<input type="text" id="node-input-alarms" placeholder="alarms"></input>
+	</div> 
+	<div class="form-row" id='portalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-portalId"><i class="fa fa-tag"></i> portalId</label>
+		<input type="text" id="node-input-portalId" placeholder="portalId"></input>
+	</div> 
+	<div class="form-row" id='projectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-projectName"><i class="fa fa-tag"></i> projectName</label>
+		<input type="text" id="node-input-projectName" placeholder="projectName"></input>
+	</div> 
+	<div class="form-row" id='projectDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-projectDescription"><i class="fa fa-tag"></i> projectDescription</label>
+		<input type="text" id="node-input-projectDescription" placeholder="projectDescription"></input>
+	</div> 
+	<div class="form-row" id='accessPolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-accessPolicyId"><i class="fa fa-tag"></i> accessPolicyId</label>
+		<input type="text" id="node-input-accessPolicyId" placeholder="accessPolicyId"></input>
+	</div> 
+	<div class="form-row" id='dashboardIdAttr' class='hiddenAttrs'>
+		<label for="node-input-dashboardId"><i class="fa fa-tag"></i> dashboardId</label>
+		<input type="text" id="node-input-dashboardId" placeholder="dashboardId"></input>
+	</div> 
+	<div class="form-row" id='gatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-gatewayId"><i class="fa fa-tag"></i> gatewayId</label>
+		<input type="text" id="node-input-gatewayId" placeholder="gatewayId"></input>
+	</div> 
+	<div class="form-row" id='propertyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-propertyId"><i class="fa fa-tag"></i> propertyId</label>
+		<input type="text" id="node-input-propertyId" placeholder="propertyId"></input>
+	</div> 
+	<div class="form-row" id='capabilityNamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-capabilityNamespace"><i class="fa fa-tag"></i> capabilityNamespace</label>
+		<input type="text" id="node-input-capabilityNamespace" placeholder="capabilityNamespace"></input>
+	</div> 
+	<div class="form-row" id='propertyAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-propertyAlias"><i class="fa fa-tag"></i> propertyAlias</label>
+		<input type="text" id="node-input-propertyAlias" placeholder="propertyAlias"></input>
+	</div> 
+	<div class="form-row" id='aggregateTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-aggregateTypes"><i class="fa fa-tag"></i> aggregateTypes</label>
+		<input type="text" id="node-input-aggregateTypes" placeholder="aggregateTypes"></input>
+	</div> 
+	<div class="form-row" id='resolutionAttr' class='hiddenAttrs'>
+		<label for="node-input-resolution"><i class="fa fa-tag"></i> resolution</label>
+		<input type="text" id="node-input-resolution" placeholder="resolution"></input>
+	</div> 
+	<div class="form-row" id='qualitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-qualities"><i class="fa fa-tag"></i> qualities</label>
+		<input type="text" id="node-input-qualities" placeholder="qualities"></input>
+	</div> 
+	<div class="form-row" id='startDateAttr' class='hiddenAttrs'>
+		<label for="node-input-startDate"><i class="fa fa-tag"></i> startDate</label>
+		<input type="text" id="node-input-startDate" placeholder="startDate"></input>
+	</div> 
+	<div class="form-row" id='endDateAttr' class='hiddenAttrs'>
+		<label for="node-input-endDate"><i class="fa fa-tag"></i> endDate</label>
+		<input type="text" id="node-input-endDate" placeholder="endDate"></input>
+	</div> 
+	<div class="form-row" id='timeOrderingAttr' class='hiddenAttrs'>
+		<label for="node-input-timeOrdering"><i class="fa fa-tag"></i> timeOrdering</label>
+		<input type="text" id="node-input-timeOrdering" placeholder="timeOrdering"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='startTimeInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-startTimeInSeconds"><i class="fa fa-tag"></i> startTimeInSeconds</label>
+		<input type="text" id="node-input-startTimeInSeconds" placeholder="startTimeInSeconds"></input>
+	</div> 
+	<div class="form-row" id='startTimeOffsetInNanosAttr' class='hiddenAttrs'>
+		<label for="node-input-startTimeOffsetInNanos"><i class="fa fa-tag"></i> startTimeOffsetInNanos</label>
+		<input type="text" id="node-input-startTimeOffsetInNanos" placeholder="startTimeOffsetInNanos"></input>
+	</div> 
+	<div class="form-row" id='endTimeInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-endTimeInSeconds"><i class="fa fa-tag"></i> endTimeInSeconds</label>
+		<input type="text" id="node-input-endTimeInSeconds" placeholder="endTimeInSeconds"></input>
+	</div> 
+	<div class="form-row" id='endTimeOffsetInNanosAttr' class='hiddenAttrs'>
+		<label for="node-input-endTimeOffsetInNanos"><i class="fa fa-tag"></i> endTimeOffsetInNanos</label>
+		<input type="text" id="node-input-endTimeOffsetInNanos" placeholder="endTimeOffsetInNanos"></input>
+	</div> 
+	<div class="form-row" id='qualityAttr' class='hiddenAttrs'>
+		<label for="node-input-quality"><i class="fa fa-tag"></i> quality</label>
+		<input type="text" id="node-input-quality" placeholder="quality"></input>
+	</div> 
+	<div class="form-row" id='intervalInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-intervalInSeconds"><i class="fa fa-tag"></i> intervalInSeconds</label>
+		<input type="text" id="node-input-intervalInSeconds" placeholder="intervalInSeconds"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='intervalWindowInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-intervalWindowInSeconds"><i class="fa fa-tag"></i> intervalWindowInSeconds</label>
+		<input type="text" id="node-input-intervalWindowInSeconds" placeholder="intervalWindowInSeconds"></input>
+	</div> 
+	<div class="form-row" id='identityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-identityType"><i class="fa fa-tag"></i> identityType</label>
+		<input type="text" id="node-input-identityType" placeholder="identityType"></input>
+	</div> 
+	<div class="form-row" id='identityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-identityId"><i class="fa fa-tag"></i> identityId</label>
+		<input type="text" id="node-input-identityId" placeholder="identityId"></input>
+	</div> 
+	<div class="form-row" id='resourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceType"><i class="fa fa-tag"></i> resourceType</label>
+		<input type="text" id="node-input-resourceType" placeholder="resourceType"></input>
+	</div> 
+	<div class="form-row" id='resourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceId"><i class="fa fa-tag"></i> resourceId</label>
+		<input type="text" id="node-input-resourceId" placeholder="resourceId"></input>
+	</div> 
+	<div class="form-row" id='iamArnAttr' class='hiddenAttrs'>
+		<label for="node-input-iamArn"><i class="fa fa-tag"></i> iamArn</label>
+		<input type="text" id="node-input-iamArn" placeholder="iamArn"></input>
+	</div> 
+	<div class="form-row" id='traversalTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-traversalType"><i class="fa fa-tag"></i> traversalType</label>
+		<input type="text" id="node-input-traversalType" placeholder="traversalType"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='traversalDirectionAttr' class='hiddenAttrs'>
+		<label for="node-input-traversalDirection"><i class="fa fa-tag"></i> traversalDirection</label>
+		<input type="text" id="node-input-traversalDirection" placeholder="traversalDirection"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='encryptionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionType"><i class="fa fa-tag"></i> encryptionType</label>
+		<input type="text" id="node-input-encryptionType" placeholder="encryptionType"></input>
+	</div> 
+	<div class="form-row" id='kmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsKeyId"><i class="fa fa-tag"></i> kmsKeyId</label>
+		<input type="text" id="node-input-kmsKeyId" placeholder="kmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='loggingOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-loggingOptions"><i class="fa fa-tag"></i> loggingOptions</label>
+		<input type="text" id="node-input-loggingOptions" placeholder="loggingOptions"></input>
+	</div> 
+	<div class="form-row" id='storageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-storageType"><i class="fa fa-tag"></i> storageType</label>
+		<input type="text" id="node-input-storageType" placeholder="storageType"></input>
+	</div> 
+	<div class="form-row" id='multiLayerStorageAttr' class='hiddenAttrs'>
+		<label for="node-input-multiLayerStorage"><i class="fa fa-tag"></i> multiLayerStorage</label>
+		<input type="text" id="node-input-multiLayerStorage" placeholder="multiLayerStorage"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='propertyNotificationStateAttr' class='hiddenAttrs'>
+		<label for="node-input-propertyNotificationState"><i class="fa fa-tag"></i> propertyNotificationState</label>
+		<input type="text" id="node-input-propertyNotificationState" placeholder="propertyNotificationState"></input>
+	</div> 
+	<div class="form-row" id='capabilityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-capabilityConfiguration"><i class="fa fa-tag"></i> capabilityConfiguration</label>
+		<input type="text" id="node-input-capabilityConfiguration" placeholder="capabilityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='portalLogoImageAttr' class='hiddenAttrs'>
+		<label for="node-input-portalLogoImage"><i class="fa fa-tag"></i> portalLogoImage</label>
+		<input type="text" id="node-input-portalLogoImage" placeholder="portalLogoImage"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateAssets:[
+					'#assetIdAttr','#hierarchyIdAttr','#childAssetIdAttr','#clientTokenAttr'
+					],
+				BatchAssociateProjectAssets:[
+					'#projectIdAttr','#assetIdsAttr','#clientTokenAttr'
+					],
+				BatchDisassociateProjectAssets:[
+					'#projectIdAttr','#assetIdsAttr','#clientTokenAttr'
+					],
+				BatchPutAssetPropertyValue:[
+					'#entriesAttr'
+					],
+				CreateAccessPolicy:[
+					'#accessPolicyIdentityAttr','#accessPolicyResourceAttr','#accessPolicyPermissionAttr','#clientTokenAttr','#tagsAttr'
+					],
+				CreateAsset:[
+					'#assetNameAttr','#assetModelIdAttr','#clientTokenAttr','#tagsAttr'
+					],
+				CreateAssetModel:[
+					'#assetModelNameAttr','#assetModelDescriptionAttr','#assetModelPropertiesAttr','#assetModelHierarchiesAttr','#assetModelCompositeModelsAttr','#clientTokenAttr','#tagsAttr'
+					],
+				CreateDashboard:[
+					'#projectIdAttr','#dashboardNameAttr','#dashboardDescriptionAttr','#dashboardDefinitionAttr','#clientTokenAttr','#tagsAttr'
+					],
+				CreateGateway:[
+					'#gatewayNameAttr','#gatewayPlatformAttr','#tagsAttr'
+					],
+				CreatePortal:[
+					'#portalNameAttr','#portalDescriptionAttr','#portalContactEmailAttr','#clientTokenAttr','#portalLogoImageFileAttr','#roleArnAttr','#tagsAttr','#portalAuthModeAttr','#notificationSenderEmailAttr','#alarmsAttr'
+					],
+				CreateProject:[
+					'#portalIdAttr','#projectNameAttr','#projectDescriptionAttr','#clientTokenAttr','#tagsAttr'
+					],
+				DeleteAccessPolicy:[
+					'#accessPolicyIdAttr','#clientTokenAttr'
+					],
+				DeleteAsset:[
+					'#assetIdAttr','#clientTokenAttr'
+					],
+				DeleteAssetModel:[
+					'#assetModelIdAttr','#clientTokenAttr'
+					],
+				DeleteDashboard:[
+					'#dashboardIdAttr','#clientTokenAttr'
+					],
+				DeleteGateway:[
+					'#gatewayIdAttr'
+					],
+				DeletePortal:[
+					'#portalIdAttr','#clientTokenAttr'
+					],
+				DeleteProject:[
+					'#projectIdAttr','#clientTokenAttr'
+					],
+				DescribeAccessPolicy:[
+					'#accessPolicyIdAttr'
+					],
+				DescribeAsset:[
+					'#assetIdAttr'
+					],
+				DescribeAssetModel:[
+					'#assetModelIdAttr'
+					],
+				DescribeAssetProperty:[
+					'#assetIdAttr','#propertyIdAttr'
+					],
+				DescribeDashboard:[
+					'#dashboardIdAttr'
+					],
+				DescribeDefaultEncryptionConfiguration:[
+					
+					],
+				DescribeGateway:[
+					'#gatewayIdAttr'
+					],
+				DescribeGatewayCapabilityConfiguration:[
+					'#gatewayIdAttr','#capabilityNamespaceAttr'
+					],
+				DescribeLoggingOptions:[
+					
+					],
+				DescribePortal:[
+					'#portalIdAttr'
+					],
+				DescribeProject:[
+					'#projectIdAttr'
+					],
+				DescribeStorageConfiguration:[
+					
+					],
+				DisassociateAssets:[
+					'#assetIdAttr','#hierarchyIdAttr','#childAssetIdAttr','#clientTokenAttr'
+					],
+				GetAssetPropertyAggregates:[
+					'#assetIdAttr','#propertyIdAttr','#propertyAliasAttr','#aggregateTypesAttr','#resolutionAttr','#qualitiesAttr','#startDateAttr','#endDateAttr','#timeOrderingAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetAssetPropertyValue:[
+					'#assetIdAttr','#propertyIdAttr','#propertyAliasAttr'
+					],
+				GetAssetPropertyValueHistory:[
+					'#assetIdAttr','#propertyIdAttr','#propertyAliasAttr','#startDateAttr','#endDateAttr','#qualitiesAttr','#timeOrderingAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetInterpolatedAssetPropertyValues:[
+					'#assetIdAttr','#propertyIdAttr','#propertyAliasAttr','#startTimeInSecondsAttr','#startTimeOffsetInNanosAttr','#endTimeInSecondsAttr','#endTimeOffsetInNanosAttr','#qualityAttr','#intervalInSecondsAttr','#nextTokenAttr','#maxResultsAttr','#typeAttr','#intervalWindowInSecondsAttr'
+					],
+				ListAccessPolicies:[
+					'#identityTypeAttr','#identityIdAttr','#resourceTypeAttr','#resourceIdAttr','#iamArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssetModels:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssetRelationships:[
+					'#assetIdAttr','#traversalTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssets:[
+					'#nextTokenAttr','#maxResultsAttr','#assetModelIdAttr','#filterAttr'
+					],
+				ListAssociatedAssets:[
+					'#assetIdAttr','#hierarchyIdAttr','#traversalDirectionAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDashboards:[
+					'#projectIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListGateways:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListPortals:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListProjectAssets:[
+					'#projectIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListProjects:[
+					'#portalIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutDefaultEncryptionConfiguration:[
+					'#encryptionTypeAttr','#kmsKeyIdAttr'
+					],
+				PutLoggingOptions:[
+					'#loggingOptionsAttr'
+					],
+				PutStorageConfiguration:[
+					'#storageTypeAttr','#multiLayerStorageAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAccessPolicy:[
+					'#accessPolicyIdAttr','#accessPolicyIdentityAttr','#accessPolicyResourceAttr','#accessPolicyPermissionAttr','#clientTokenAttr'
+					],
+				UpdateAsset:[
+					'#assetIdAttr','#assetNameAttr','#clientTokenAttr'
+					],
+				UpdateAssetModel:[
+					'#assetModelIdAttr','#assetModelNameAttr','#assetModelDescriptionAttr','#assetModelPropertiesAttr','#assetModelHierarchiesAttr','#assetModelCompositeModelsAttr','#clientTokenAttr'
+					],
+				UpdateAssetProperty:[
+					'#assetIdAttr','#propertyIdAttr','#propertyAliasAttr','#propertyNotificationStateAttr','#clientTokenAttr'
+					],
+				UpdateDashboard:[
+					'#dashboardIdAttr','#dashboardNameAttr','#dashboardDescriptionAttr','#dashboardDefinitionAttr','#clientTokenAttr'
+					],
+				UpdateGateway:[
+					'#gatewayIdAttr','#gatewayNameAttr'
+					],
+				UpdateGatewayCapabilityConfiguration:[
+					'#gatewayIdAttr','#capabilityNamespaceAttr','#capabilityConfigurationAttr'
+					],
+				UpdatePortal:[
+					'#portalIdAttr','#portalNameAttr','#portalDescriptionAttr','#portalContactEmailAttr','#portalLogoImageAttr','#roleArnAttr','#clientTokenAttr','#notificationSenderEmailAttr','#alarmsAttr'
+					],
+				UpdateProject:[
+					'#projectIdAttr','#projectNameAttr','#projectDescriptionAttr','#clientTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IoTSiteWise">
+<p>
+AWS IoTSiteWise
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IoTSiteWise.html">IoTSiteWise</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IoTSiteWise',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateAssets' },
+			
+				assetId: { value: ""} ,
+				hierarchyId: { value: ""} ,
+				childAssetId: { value: ""} ,
+				clientToken: { value: ""} ,
+				projectId: { value: ""} ,
+				assetIds: { value: ""} ,
+				entries: { value: ""} ,
+				accessPolicyIdentity: { value: ""} ,
+				accessPolicyResource: { value: ""} ,
+				accessPolicyPermission: { value: ""} ,
+				tags: { value: ""} ,
+				assetName: { value: ""} ,
+				assetModelId: { value: ""} ,
+				assetModelName: { value: ""} ,
+				assetModelDescription: { value: ""} ,
+				assetModelProperties: { value: ""} ,
+				assetModelHierarchies: { value: ""} ,
+				assetModelCompositeModels: { value: ""} ,
+				dashboardName: { value: ""} ,
+				dashboardDescription: { value: ""} ,
+				dashboardDefinition: { value: ""} ,
+				gatewayName: { value: ""} ,
+				gatewayPlatform: { value: ""} ,
+				portalName: { value: ""} ,
+				portalDescription: { value: ""} ,
+				portalContactEmail: { value: ""} ,
+				portalLogoImageFile: { value: ""} ,
+				roleArn: { value: ""} ,
+				portalAuthMode: { value: ""} ,
+				notificationSenderEmail: { value: ""} ,
+				alarms: { value: ""} ,
+				portalId: { value: ""} ,
+				projectName: { value: ""} ,
+				projectDescription: { value: ""} ,
+				accessPolicyId: { value: ""} ,
+				dashboardId: { value: ""} ,
+				gatewayId: { value: ""} ,
+				propertyId: { value: ""} ,
+				capabilityNamespace: { value: ""} ,
+				propertyAlias: { value: ""} ,
+				aggregateTypes: { value: ""} ,
+				resolution: { value: ""} ,
+				qualities: { value: ""} ,
+				startDate: { value: ""} ,
+				endDate: { value: ""} ,
+				timeOrdering: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				startTimeInSeconds: { value: ""} ,
+				startTimeOffsetInNanos: { value: ""} ,
+				endTimeInSeconds: { value: ""} ,
+				endTimeOffsetInNanos: { value: ""} ,
+				quality: { value: ""} ,
+				intervalInSeconds: { value: ""} ,
+				_type: { value: ""} ,
+				intervalWindowInSeconds: { value: ""} ,
+				identityType: { value: ""} ,
+				identityId: { value: ""} ,
+				resourceType: { value: ""} ,
+				resourceId: { value: ""} ,
+				iamArn: { value: ""} ,
+				traversalType: { value: ""} ,
+				filter: { value: ""} ,
+				traversalDirection: { value: ""} ,
+				resourceArn: { value: ""} ,
+				encryptionType: { value: ""} ,
+				kmsKeyId: { value: ""} ,
+				loggingOptions: { value: ""} ,
+				storageType: { value: ""} ,
+				multiLayerStorage: { value: ""} ,
+				tagKeys: { value: ""} ,
+				propertyNotificationState: { value: ""} ,
+				capabilityConfiguration: { value: ""} ,
+				portalLogoImage: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IoTSiteWise " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-assetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-hierarchyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-childAssetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetIds").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-accessPolicyIdentity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accessPolicyResource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accessPolicyPermission").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelHierarchies").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assetModelCompositeModels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dashboardName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dashboardDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dashboardDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-gatewayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-gatewayPlatform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalContactEmail").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalLogoImageFile").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalAuthMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-notificationSenderEmail").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarms").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accessPolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dashboardId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-gatewayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-propertyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-capabilityNamespace").typedInput({ default: "str", types: ["str"]});
+$("#node-input-propertyAlias").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resolution").typedInput({ default: "str", types: ["str"]});
+$("#node-input-qualities").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-timeOrdering").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-startTimeOffsetInNanos").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-endTimeOffsetInNanos").typedInput({ default: "num", types: ["num"]});
+$("#node-input-quality").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-identityType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-identityId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-iamArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-traversalType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-traversalDirection").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-encryptionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-kmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loggingOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-storageType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-multiLayerStorage").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-propertyNotificationState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-capabilityConfiguration").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

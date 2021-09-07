@@ -1,0 +1,402 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS WorkLink">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateDomain">AssociateDomain</option>
+		
+			<option value="AssociateWebsiteAuthorizationProvider">AssociateWebsiteAuthorizationProvider</option>
+		
+			<option value="AssociateWebsiteCertificateAuthority">AssociateWebsiteCertificateAuthority</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DescribeAuditStreamConfiguration">DescribeAuditStreamConfiguration</option>
+		
+			<option value="DescribeCompanyNetworkConfiguration">DescribeCompanyNetworkConfiguration</option>
+		
+			<option value="DescribeDevice">DescribeDevice</option>
+		
+			<option value="DescribeDevicePolicyConfiguration">DescribeDevicePolicyConfiguration</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribeFleetMetadata">DescribeFleetMetadata</option>
+		
+			<option value="DescribeIdentityProviderConfiguration">DescribeIdentityProviderConfiguration</option>
+		
+			<option value="DescribeWebsiteCertificateAuthority">DescribeWebsiteCertificateAuthority</option>
+		
+			<option value="DisassociateDomain">DisassociateDomain</option>
+		
+			<option value="DisassociateWebsiteAuthorizationProvider">DisassociateWebsiteAuthorizationProvider</option>
+		
+			<option value="DisassociateWebsiteCertificateAuthority">DisassociateWebsiteCertificateAuthority</option>
+		
+			<option value="ListDevices">ListDevices</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListFleets">ListFleets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebsiteAuthorizationProviders">ListWebsiteAuthorizationProviders</option>
+		
+			<option value="ListWebsiteCertificateAuthorities">ListWebsiteCertificateAuthorities</option>
+		
+			<option value="RestoreDomainAccess">RestoreDomainAccess</option>
+		
+			<option value="RevokeDomainAccess">RevokeDomainAccess</option>
+		
+			<option value="SignOutUser">SignOutUser</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAuditStreamConfiguration">UpdateAuditStreamConfiguration</option>
+		
+			<option value="UpdateCompanyNetworkConfiguration">UpdateCompanyNetworkConfiguration</option>
+		
+			<option value="UpdateDevicePolicyConfiguration">UpdateDevicePolicyConfiguration</option>
+		
+			<option value="UpdateDomainMetadata">UpdateDomainMetadata</option>
+		
+			<option value="UpdateFleetMetadata">UpdateFleetMetadata</option>
+		
+			<option value="UpdateIdentityProviderConfiguration">UpdateIdentityProviderConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FleetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetArn"><i class="fa fa-tag"></i> FleetArn</label>
+		<input type="text" id="node-input-FleetArn" placeholder="FleetArn"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i> DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='AcmCertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AcmCertificateArn"><i class="fa fa-tag"></i> AcmCertificateArn</label>
+		<input type="text" id="node-input-AcmCertificateArn" placeholder="AcmCertificateArn"></input>
+	</div> 
+	<div class="form-row" id='AuthorizationProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizationProviderType"><i class="fa fa-tag"></i> AuthorizationProviderType</label>
+		<input type="text" id="node-input-AuthorizationProviderType" placeholder="AuthorizationProviderType"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i> Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='FleetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetName"><i class="fa fa-tag"></i> FleetName</label>
+		<input type="text" id="node-input-FleetName" placeholder="FleetName"></input>
+	</div> 
+	<div class="form-row" id='OptimizeForEndUserLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-OptimizeForEndUserLocation"><i class="fa fa-tag"></i> OptimizeForEndUserLocation</label>
+		<input type="text" id="node-input-OptimizeForEndUserLocation" placeholder="OptimizeForEndUserLocation"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceId"><i class="fa fa-tag"></i> DeviceId</label>
+		<input type="text" id="node-input-DeviceId" placeholder="DeviceId"></input>
+	</div> 
+	<div class="form-row" id='WebsiteCaIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebsiteCaId"><i class="fa fa-tag"></i> WebsiteCaId</label>
+		<input type="text" id="node-input-WebsiteCaId" placeholder="WebsiteCaId"></input>
+	</div> 
+	<div class="form-row" id='AuthorizationProviderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthorizationProviderId"><i class="fa fa-tag"></i> AuthorizationProviderId</label>
+		<input type="text" id="node-input-AuthorizationProviderId" placeholder="AuthorizationProviderId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i> Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='AuditStreamArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AuditStreamArn"><i class="fa fa-tag"></i> AuditStreamArn</label>
+		<input type="text" id="node-input-AuditStreamArn" placeholder="AuditStreamArn"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i> VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='DeviceCaCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceCaCertificate"><i class="fa fa-tag"></i> DeviceCaCertificate</label>
+		<input type="text" id="node-input-DeviceCaCertificate" placeholder="DeviceCaCertificate"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderType"><i class="fa fa-tag"></i> IdentityProviderType</label>
+		<input type="text" id="node-input-IdentityProviderType" placeholder="IdentityProviderType"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderSamlMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderSamlMetadata"><i class="fa fa-tag"></i> IdentityProviderSamlMetadata</label>
+		<input type="text" id="node-input-IdentityProviderSamlMetadata" placeholder="IdentityProviderSamlMetadata"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateDomain:[
+					'#FleetArnAttr','#DomainNameAttr','#DisplayNameAttr','#AcmCertificateArnAttr'
+					],
+				AssociateWebsiteAuthorizationProvider:[
+					'#FleetArnAttr','#AuthorizationProviderTypeAttr','#DomainNameAttr'
+					],
+				AssociateWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#CertificateAttr','#DisplayNameAttr'
+					],
+				CreateFleet:[
+					'#FleetNameAttr','#DisplayNameAttr','#OptimizeForEndUserLocationAttr','#TagsAttr'
+					],
+				DeleteFleet:[
+					'#FleetArnAttr'
+					],
+				DescribeAuditStreamConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeCompanyNetworkConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeDevice:[
+					'#FleetArnAttr','#DeviceIdAttr'
+					],
+				DescribeDevicePolicyConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeDomain:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				DescribeFleetMetadata:[
+					'#FleetArnAttr'
+					],
+				DescribeIdentityProviderConfiguration:[
+					'#FleetArnAttr'
+					],
+				DescribeWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#WebsiteCaIdAttr'
+					],
+				DisassociateDomain:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				DisassociateWebsiteAuthorizationProvider:[
+					'#FleetArnAttr','#AuthorizationProviderIdAttr'
+					],
+				DisassociateWebsiteCertificateAuthority:[
+					'#FleetArnAttr','#WebsiteCaIdAttr'
+					],
+				ListDevices:[
+					'#FleetArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDomains:[
+					'#FleetArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListFleets:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListWebsiteAuthorizationProviders:[
+					'#FleetArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListWebsiteCertificateAuthorities:[
+					'#FleetArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				RestoreDomainAccess:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				RevokeDomainAccess:[
+					'#FleetArnAttr','#DomainNameAttr'
+					],
+				SignOutUser:[
+					'#FleetArnAttr','#UsernameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateAuditStreamConfiguration:[
+					'#FleetArnAttr','#AuditStreamArnAttr'
+					],
+				UpdateCompanyNetworkConfiguration:[
+					'#FleetArnAttr','#VpcIdAttr','#SubnetIdsAttr','#SecurityGroupIdsAttr'
+					],
+				UpdateDevicePolicyConfiguration:[
+					'#FleetArnAttr','#DeviceCaCertificateAttr'
+					],
+				UpdateDomainMetadata:[
+					'#FleetArnAttr','#DomainNameAttr','#DisplayNameAttr'
+					],
+				UpdateFleetMetadata:[
+					'#FleetArnAttr','#DisplayNameAttr','#OptimizeForEndUserLocationAttr'
+					],
+				UpdateIdentityProviderConfiguration:[
+					'#FleetArnAttr','#IdentityProviderTypeAttr','#IdentityProviderSamlMetadataAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS WorkLink">
+<p>
+AWS WorkLink
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WorkLink.html">WorkLink</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WorkLink',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateDomain' },
+			
+				FleetArn: { value: ""} ,
+				DomainName: { value: ""} ,
+				DisplayName: { value: ""} ,
+				AcmCertificateArn: { value: ""} ,
+				AuthorizationProviderType: { value: ""} ,
+				Certificate: { value: ""} ,
+				FleetName: { value: ""} ,
+				OptimizeForEndUserLocation: { value: ""} ,
+				Tags: { value: ""} ,
+				DeviceId: { value: ""} ,
+				WebsiteCaId: { value: ""} ,
+				AuthorizationProviderId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Username: { value: ""} ,
+				TagKeys: { value: ""} ,
+				AuditStreamArn: { value: ""} ,
+				VpcId: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				DeviceCaCertificate: { value: ""} ,
+				IdentityProviderType: { value: ""} ,
+				IdentityProviderSamlMetadata: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WorkLink " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-FleetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AcmCertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthorizationProviderType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Certificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FleetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OptimizeForEndUserLocation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WebsiteCaId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthorizationProviderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Username").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AuditStreamArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceCaCertificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdentityProviderType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdentityProviderSamlMetadata").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

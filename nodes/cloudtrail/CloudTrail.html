@@ -1,0 +1,339 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudTrail">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTags">AddTags</option>
+		
+			<option value="CreateTrail">CreateTrail</option>
+		
+			<option value="DeleteTrail">DeleteTrail</option>
+		
+			<option value="DescribeTrails">DescribeTrails</option>
+		
+			<option value="GetEventSelectors">GetEventSelectors</option>
+		
+			<option value="GetInsightSelectors">GetInsightSelectors</option>
+		
+			<option value="GetTrail">GetTrail</option>
+		
+			<option value="GetTrailStatus">GetTrailStatus</option>
+		
+			<option value="ListPublicKeys">ListPublicKeys</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="ListTrails">ListTrails</option>
+		
+			<option value="LookupEvents">LookupEvents</option>
+		
+			<option value="PutEventSelectors">PutEventSelectors</option>
+		
+			<option value="PutInsightSelectors">PutInsightSelectors</option>
+		
+			<option value="RemoveTags">RemoveTags</option>
+		
+			<option value="StartLogging">StartLogging</option>
+		
+			<option value="StopLogging">StopLogging</option>
+		
+			<option value="UpdateTrail">UpdateTrail</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='TagsListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsList"><i class="fa fa-tag"></i> TagsList</label>
+		<input type="text" id="node-input-TagsList" placeholder="TagsList"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='S3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-S3BucketName"><i class="fa fa-tag"></i> S3BucketName</label>
+		<input type="text" id="node-input-S3BucketName" placeholder="S3BucketName"></input>
+	</div> 
+	<div class="form-row" id='S3KeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-S3KeyPrefix"><i class="fa fa-tag"></i> S3KeyPrefix</label>
+		<input type="text" id="node-input-S3KeyPrefix" placeholder="S3KeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicName"><i class="fa fa-tag"></i> SnsTopicName</label>
+		<input type="text" id="node-input-SnsTopicName" placeholder="SnsTopicName"></input>
+	</div> 
+	<div class="form-row" id='IncludeGlobalServiceEventsAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeGlobalServiceEvents"><i class="fa fa-tag"></i> IncludeGlobalServiceEvents</label>
+		<input type="text" id="node-input-IncludeGlobalServiceEvents" placeholder="IncludeGlobalServiceEvents"></input>
+	</div> 
+	<div class="form-row" id='IsMultiRegionTrailAttr' class='hiddenAttrs'>
+		<label for="node-input-IsMultiRegionTrail"><i class="fa fa-tag"></i> IsMultiRegionTrail</label>
+		<input type="text" id="node-input-IsMultiRegionTrail" placeholder="IsMultiRegionTrail"></input>
+	</div> 
+	<div class="form-row" id='EnableLogFileValidationAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableLogFileValidation"><i class="fa fa-tag"></i> EnableLogFileValidation</label>
+		<input type="text" id="node-input-EnableLogFileValidation" placeholder="EnableLogFileValidation"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchLogsLogGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchLogsLogGroupArn"><i class="fa fa-tag"></i> CloudWatchLogsLogGroupArn</label>
+		<input type="text" id="node-input-CloudWatchLogsLogGroupArn" placeholder="CloudWatchLogsLogGroupArn"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchLogsRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchLogsRoleArn"><i class="fa fa-tag"></i> CloudWatchLogsRoleArn</label>
+		<input type="text" id="node-input-CloudWatchLogsRoleArn" placeholder="CloudWatchLogsRoleArn"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='IsOrganizationTrailAttr' class='hiddenAttrs'>
+		<label for="node-input-IsOrganizationTrail"><i class="fa fa-tag"></i> IsOrganizationTrail</label>
+		<input type="text" id="node-input-IsOrganizationTrail" placeholder="IsOrganizationTrail"></input>
+	</div> 
+	<div class="form-row" id='trailNameListAttr' class='hiddenAttrs'>
+		<label for="node-input-trailNameList"><i class="fa fa-tag"></i> trailNameList</label>
+		<input type="text" id="node-input-trailNameList" placeholder="trailNameList"></input>
+	</div> 
+	<div class="form-row" id='includeShadowTrailsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeShadowTrails"><i class="fa fa-tag"></i> includeShadowTrails</label>
+		<input type="text" id="node-input-includeShadowTrails" placeholder="includeShadowTrails"></input>
+	</div> 
+	<div class="form-row" id='TrailNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TrailName"><i class="fa fa-tag"></i> TrailName</label>
+		<input type="text" id="node-input-TrailName" placeholder="TrailName"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdListAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdList"><i class="fa fa-tag"></i> ResourceIdList</label>
+		<input type="text" id="node-input-ResourceIdList" placeholder="ResourceIdList"></input>
+	</div> 
+	<div class="form-row" id='LookupAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-LookupAttributes"><i class="fa fa-tag"></i> LookupAttributes</label>
+		<input type="text" id="node-input-LookupAttributes" placeholder="LookupAttributes"></input>
+	</div> 
+	<div class="form-row" id='EventCategoryAttr' class='hiddenAttrs'>
+		<label for="node-input-EventCategory"><i class="fa fa-tag"></i> EventCategory</label>
+		<input type="text" id="node-input-EventCategory" placeholder="EventCategory"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='EventSelectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-EventSelectors"><i class="fa fa-tag"></i> EventSelectors</label>
+		<input type="text" id="node-input-EventSelectors" placeholder="EventSelectors"></input>
+	</div> 
+	<div class="form-row" id='AdvancedEventSelectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-AdvancedEventSelectors"><i class="fa fa-tag"></i> AdvancedEventSelectors</label>
+		<input type="text" id="node-input-AdvancedEventSelectors" placeholder="AdvancedEventSelectors"></input>
+	</div> 
+	<div class="form-row" id='InsightSelectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-InsightSelectors"><i class="fa fa-tag"></i> InsightSelectors</label>
+		<input type="text" id="node-input-InsightSelectors" placeholder="InsightSelectors"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTags:[
+					'#ResourceIdAttr','#TagsListAttr'
+					],
+				CreateTrail:[
+					'#NameAttr','#S3BucketNameAttr','#S3KeyPrefixAttr','#SnsTopicNameAttr','#IncludeGlobalServiceEventsAttr','#IsMultiRegionTrailAttr','#EnableLogFileValidationAttr','#CloudWatchLogsLogGroupArnAttr','#CloudWatchLogsRoleArnAttr','#KmsKeyIdAttr','#IsOrganizationTrailAttr','#TagsListAttr'
+					],
+				DeleteTrail:[
+					'#NameAttr'
+					],
+				DescribeTrails:[
+					'#trailNameListAttr','#includeShadowTrailsAttr'
+					],
+				GetEventSelectors:[
+					'#TrailNameAttr'
+					],
+				GetInsightSelectors:[
+					'#TrailNameAttr'
+					],
+				GetTrail:[
+					'#NameAttr'
+					],
+				GetTrailStatus:[
+					'#NameAttr'
+					],
+				ListPublicKeys:[
+					'#StartTimeAttr','#EndTimeAttr','#NextTokenAttr'
+					],
+				ListTags:[
+					'#ResourceIdListAttr','#NextTokenAttr'
+					],
+				ListTrails:[
+					'#NextTokenAttr'
+					],
+				LookupEvents:[
+					'#LookupAttributesAttr','#StartTimeAttr','#EndTimeAttr','#EventCategoryAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				PutEventSelectors:[
+					'#TrailNameAttr','#EventSelectorsAttr','#AdvancedEventSelectorsAttr'
+					],
+				PutInsightSelectors:[
+					'#TrailNameAttr','#InsightSelectorsAttr'
+					],
+				RemoveTags:[
+					'#ResourceIdAttr','#TagsListAttr'
+					],
+				StartLogging:[
+					'#NameAttr'
+					],
+				StopLogging:[
+					'#NameAttr'
+					],
+				UpdateTrail:[
+					'#NameAttr','#S3BucketNameAttr','#S3KeyPrefixAttr','#SnsTopicNameAttr','#IncludeGlobalServiceEventsAttr','#IsMultiRegionTrailAttr','#EnableLogFileValidationAttr','#CloudWatchLogsLogGroupArnAttr','#CloudWatchLogsRoleArnAttr','#KmsKeyIdAttr','#IsOrganizationTrailAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudTrail">
+<p>
+AWS CloudTrail
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudTrail.html">CloudTrail</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudTrail',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTags' },
+			
+				ResourceId: { value: ""} ,
+				TagsList: { value: ""} ,
+				Name: { value: ""} ,
+				S3BucketName: { value: ""} ,
+				S3KeyPrefix: { value: ""} ,
+				SnsTopicName: { value: ""} ,
+				IncludeGlobalServiceEvents: { value: ""} ,
+				IsMultiRegionTrail: { value: ""} ,
+				EnableLogFileValidation: { value: ""} ,
+				CloudWatchLogsLogGroupArn: { value: ""} ,
+				CloudWatchLogsRoleArn: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				IsOrganizationTrail: { value: ""} ,
+				trailNameList: { value: ""} ,
+				includeShadowTrails: { value: ""} ,
+				TrailName: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				NextToken: { value: ""} ,
+				ResourceIdList: { value: ""} ,
+				LookupAttributes: { value: ""} ,
+				EventCategory: { value: ""} ,
+				MaxResults: { value: ""} ,
+				EventSelectors: { value: ""} ,
+				AdvancedEventSelectors: { value: ""} ,
+				InsightSelectors: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudTrail " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagsList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3BucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3KeyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopicName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeGlobalServiceEvents").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-IsMultiRegionTrail").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EnableLogFileValidation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CloudWatchLogsLogGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudWatchLogsRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IsOrganizationTrail").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-includeShadowTrails").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TrailName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-EventCategory").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-EventSelectors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdvancedEventSelectors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsightSelectors").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

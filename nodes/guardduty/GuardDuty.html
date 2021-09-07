@@ -1,0 +1,635 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS GuardDuty">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptInvitation">AcceptInvitation</option>
+		
+			<option value="ArchiveFindings">ArchiveFindings</option>
+		
+			<option value="CreateDetector">CreateDetector</option>
+		
+			<option value="CreateFilter">CreateFilter</option>
+		
+			<option value="CreateIPSet">CreateIPSet</option>
+		
+			<option value="CreateMembers">CreateMembers</option>
+		
+			<option value="CreatePublishingDestination">CreatePublishingDestination</option>
+		
+			<option value="CreateSampleFindings">CreateSampleFindings</option>
+		
+			<option value="CreateThreatIntelSet">CreateThreatIntelSet</option>
+		
+			<option value="DeclineInvitations">DeclineInvitations</option>
+		
+			<option value="DeleteDetector">DeleteDetector</option>
+		
+			<option value="DeleteFilter">DeleteFilter</option>
+		
+			<option value="DeleteIPSet">DeleteIPSet</option>
+		
+			<option value="DeleteInvitations">DeleteInvitations</option>
+		
+			<option value="DeleteMembers">DeleteMembers</option>
+		
+			<option value="DeletePublishingDestination">DeletePublishingDestination</option>
+		
+			<option value="DeleteThreatIntelSet">DeleteThreatIntelSet</option>
+		
+			<option value="DescribeOrganizationConfiguration">DescribeOrganizationConfiguration</option>
+		
+			<option value="DescribePublishingDestination">DescribePublishingDestination</option>
+		
+			<option value="DisableOrganizationAdminAccount">DisableOrganizationAdminAccount</option>
+		
+			<option value="DisassociateFromMasterAccount">DisassociateFromMasterAccount</option>
+		
+			<option value="DisassociateMembers">DisassociateMembers</option>
+		
+			<option value="EnableOrganizationAdminAccount">EnableOrganizationAdminAccount</option>
+		
+			<option value="GetDetector">GetDetector</option>
+		
+			<option value="GetFilter">GetFilter</option>
+		
+			<option value="GetFindings">GetFindings</option>
+		
+			<option value="GetFindingsStatistics">GetFindingsStatistics</option>
+		
+			<option value="GetIPSet">GetIPSet</option>
+		
+			<option value="GetInvitationsCount">GetInvitationsCount</option>
+		
+			<option value="GetMasterAccount">GetMasterAccount</option>
+		
+			<option value="GetMemberDetectors">GetMemberDetectors</option>
+		
+			<option value="GetMembers">GetMembers</option>
+		
+			<option value="GetThreatIntelSet">GetThreatIntelSet</option>
+		
+			<option value="GetUsageStatistics">GetUsageStatistics</option>
+		
+			<option value="InviteMembers">InviteMembers</option>
+		
+			<option value="ListDetectors">ListDetectors</option>
+		
+			<option value="ListFilters">ListFilters</option>
+		
+			<option value="ListFindings">ListFindings</option>
+		
+			<option value="ListIPSets">ListIPSets</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListOrganizationAdminAccounts">ListOrganizationAdminAccounts</option>
+		
+			<option value="ListPublishingDestinations">ListPublishingDestinations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListThreatIntelSets">ListThreatIntelSets</option>
+		
+			<option value="StartMonitoringMembers">StartMonitoringMembers</option>
+		
+			<option value="StopMonitoringMembers">StopMonitoringMembers</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UnarchiveFindings">UnarchiveFindings</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDetector">UpdateDetector</option>
+		
+			<option value="UpdateFilter">UpdateFilter</option>
+		
+			<option value="UpdateFindingsFeedback">UpdateFindingsFeedback</option>
+		
+			<option value="UpdateIPSet">UpdateIPSet</option>
+		
+			<option value="UpdateMemberDetectors">UpdateMemberDetectors</option>
+		
+			<option value="UpdateOrganizationConfiguration">UpdateOrganizationConfiguration</option>
+		
+			<option value="UpdatePublishingDestination">UpdatePublishingDestination</option>
+		
+			<option value="UpdateThreatIntelSet">UpdateThreatIntelSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DetectorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DetectorId"><i class="fa fa-tag"></i> DetectorId</label>
+		<input type="text" id="node-input-DetectorId" placeholder="DetectorId"></input>
+	</div> 
+	<div class="form-row" id='MasterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MasterId"><i class="fa fa-tag"></i> MasterId</label>
+		<input type="text" id="node-input-MasterId" placeholder="MasterId"></input>
+	</div> 
+	<div class="form-row" id='InvitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InvitationId"><i class="fa fa-tag"></i> InvitationId</label>
+		<input type="text" id="node-input-InvitationId" placeholder="InvitationId"></input>
+	</div> 
+	<div class="form-row" id='FindingIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingIds"><i class="fa fa-tag"></i> FindingIds</label>
+		<input type="text" id="node-input-FindingIds" placeholder="FindingIds"></input>
+	</div> 
+	<div class="form-row" id='EnableAttr' class='hiddenAttrs'>
+		<label for="node-input-Enable"><i class="fa fa-tag"></i> Enable</label>
+		<input type="text" id="node-input-Enable" placeholder="Enable"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='FindingPublishingFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingPublishingFrequency"><i class="fa fa-tag"></i> FindingPublishingFrequency</label>
+		<input type="text" id="node-input-FindingPublishingFrequency" placeholder="FindingPublishingFrequency"></input>
+	</div> 
+	<div class="form-row" id='DataSourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSources"><i class="fa fa-tag"></i> DataSources</label>
+		<input type="text" id="node-input-DataSources" placeholder="DataSources"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ActionAttr' class='hiddenAttrs'>
+		<label for="node-input-Action"><i class="fa fa-tag"></i> Action</label>
+		<input type="text" id="node-input-Action" placeholder="Action"></input>
+	</div> 
+	<div class="form-row" id='RankAttr' class='hiddenAttrs'>
+		<label for="node-input-Rank"><i class="fa fa-tag"></i> Rank</label>
+		<input type="text" id="node-input-Rank" placeholder="Rank"></input>
+	</div> 
+	<div class="form-row" id='FindingCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingCriteria"><i class="fa fa-tag"></i> FindingCriteria</label>
+		<input type="text" id="node-input-FindingCriteria" placeholder="FindingCriteria"></input>
+	</div> 
+	<div class="form-row" id='FormatAttr' class='hiddenAttrs'>
+		<label for="node-input-Format"><i class="fa fa-tag"></i> Format</label>
+		<input type="text" id="node-input-Format" placeholder="Format"></input>
+	</div> 
+	<div class="form-row" id='LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-Location"><i class="fa fa-tag"></i> Location</label>
+		<input type="text" id="node-input-Location" placeholder="Location"></input>
+	</div> 
+	<div class="form-row" id='ActivateAttr' class='hiddenAttrs'>
+		<label for="node-input-Activate"><i class="fa fa-tag"></i> Activate</label>
+		<input type="text" id="node-input-Activate" placeholder="Activate"></input>
+	</div> 
+	<div class="form-row" id='AccountDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountDetails"><i class="fa fa-tag"></i> AccountDetails</label>
+		<input type="text" id="node-input-AccountDetails" placeholder="AccountDetails"></input>
+	</div> 
+	<div class="form-row" id='DestinationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationType"><i class="fa fa-tag"></i> DestinationType</label>
+		<input type="text" id="node-input-DestinationType" placeholder="DestinationType"></input>
+	</div> 
+	<div class="form-row" id='DestinationPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationProperties"><i class="fa fa-tag"></i> DestinationProperties</label>
+		<input type="text" id="node-input-DestinationProperties" placeholder="DestinationProperties"></input>
+	</div> 
+	<div class="form-row" id='FindingTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingTypes"><i class="fa fa-tag"></i> FindingTypes</label>
+		<input type="text" id="node-input-FindingTypes" placeholder="FindingTypes"></input>
+	</div> 
+	<div class="form-row" id='AccountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountIds"><i class="fa fa-tag"></i> AccountIds</label>
+		<input type="text" id="node-input-AccountIds" placeholder="AccountIds"></input>
+	</div> 
+	<div class="form-row" id='FilterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterName"><i class="fa fa-tag"></i> FilterName</label>
+		<input type="text" id="node-input-FilterName" placeholder="FilterName"></input>
+	</div> 
+	<div class="form-row" id='IpSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IpSetId"><i class="fa fa-tag"></i> IpSetId</label>
+		<input type="text" id="node-input-IpSetId" placeholder="IpSetId"></input>
+	</div> 
+	<div class="form-row" id='DestinationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationId"><i class="fa fa-tag"></i> DestinationId</label>
+		<input type="text" id="node-input-DestinationId" placeholder="DestinationId"></input>
+	</div> 
+	<div class="form-row" id='ThreatIntelSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ThreatIntelSetId"><i class="fa fa-tag"></i> ThreatIntelSetId</label>
+		<input type="text" id="node-input-ThreatIntelSetId" placeholder="ThreatIntelSetId"></input>
+	</div> 
+	<div class="form-row" id='AdminAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AdminAccountId"><i class="fa fa-tag"></i> AdminAccountId</label>
+		<input type="text" id="node-input-AdminAccountId" placeholder="AdminAccountId"></input>
+	</div> 
+	<div class="form-row" id='SortCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-SortCriteria"><i class="fa fa-tag"></i> SortCriteria</label>
+		<input type="text" id="node-input-SortCriteria" placeholder="SortCriteria"></input>
+	</div> 
+	<div class="form-row" id='FindingStatisticTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingStatisticTypes"><i class="fa fa-tag"></i> FindingStatisticTypes</label>
+		<input type="text" id="node-input-FindingStatisticTypes" placeholder="FindingStatisticTypes"></input>
+	</div> 
+	<div class="form-row" id='UsageStatisticTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageStatisticType"><i class="fa fa-tag"></i> UsageStatisticType</label>
+		<input type="text" id="node-input-UsageStatisticType" placeholder="UsageStatisticType"></input>
+	</div> 
+	<div class="form-row" id='UsageCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageCriteria"><i class="fa fa-tag"></i> UsageCriteria</label>
+		<input type="text" id="node-input-UsageCriteria" placeholder="UsageCriteria"></input>
+	</div> 
+	<div class="form-row" id='UnitAttr' class='hiddenAttrs'>
+		<label for="node-input-Unit"><i class="fa fa-tag"></i> Unit</label>
+		<input type="text" id="node-input-Unit" placeholder="Unit"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='DisableEmailNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-DisableEmailNotification"><i class="fa fa-tag"></i> DisableEmailNotification</label>
+		<input type="text" id="node-input-DisableEmailNotification" placeholder="DisableEmailNotification"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='OnlyAssociatedAttr' class='hiddenAttrs'>
+		<label for="node-input-OnlyAssociated"><i class="fa fa-tag"></i> OnlyAssociated</label>
+		<input type="text" id="node-input-OnlyAssociated" placeholder="OnlyAssociated"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='FeedbackAttr' class='hiddenAttrs'>
+		<label for="node-input-Feedback"><i class="fa fa-tag"></i> Feedback</label>
+		<input type="text" id="node-input-Feedback" placeholder="Feedback"></input>
+	</div> 
+	<div class="form-row" id='CommentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Comments"><i class="fa fa-tag"></i> Comments</label>
+		<input type="text" id="node-input-Comments" placeholder="Comments"></input>
+	</div> 
+	<div class="form-row" id='AutoEnableAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoEnable"><i class="fa fa-tag"></i> AutoEnable</label>
+		<input type="text" id="node-input-AutoEnable" placeholder="AutoEnable"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptInvitation:[
+					'#DetectorIdAttr','#MasterIdAttr','#InvitationIdAttr'
+					],
+				ArchiveFindings:[
+					'#DetectorIdAttr','#FindingIdsAttr'
+					],
+				CreateDetector:[
+					'#EnableAttr','#ClientTokenAttr','#FindingPublishingFrequencyAttr','#DataSourcesAttr','#TagsAttr'
+					],
+				CreateFilter:[
+					'#DetectorIdAttr','#NameAttr','#DescriptionAttr','#ActionAttr','#RankAttr','#FindingCriteriaAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateIPSet:[
+					'#DetectorIdAttr','#NameAttr','#FormatAttr','#LocationAttr','#ActivateAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateMembers:[
+					'#DetectorIdAttr','#AccountDetailsAttr'
+					],
+				CreatePublishingDestination:[
+					'#DetectorIdAttr','#DestinationTypeAttr','#DestinationPropertiesAttr','#ClientTokenAttr'
+					],
+				CreateSampleFindings:[
+					'#DetectorIdAttr','#FindingTypesAttr'
+					],
+				CreateThreatIntelSet:[
+					'#DetectorIdAttr','#NameAttr','#FormatAttr','#LocationAttr','#ActivateAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				DeclineInvitations:[
+					'#AccountIdsAttr'
+					],
+				DeleteDetector:[
+					'#DetectorIdAttr'
+					],
+				DeleteFilter:[
+					'#DetectorIdAttr','#FilterNameAttr'
+					],
+				DeleteIPSet:[
+					'#DetectorIdAttr','#IpSetIdAttr'
+					],
+				DeleteInvitations:[
+					'#AccountIdsAttr'
+					],
+				DeleteMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				DeletePublishingDestination:[
+					'#DetectorIdAttr','#DestinationIdAttr'
+					],
+				DeleteThreatIntelSet:[
+					'#DetectorIdAttr','#ThreatIntelSetIdAttr'
+					],
+				DescribeOrganizationConfiguration:[
+					'#DetectorIdAttr'
+					],
+				DescribePublishingDestination:[
+					'#DetectorIdAttr','#DestinationIdAttr'
+					],
+				DisableOrganizationAdminAccount:[
+					'#AdminAccountIdAttr'
+					],
+				DisassociateFromMasterAccount:[
+					'#DetectorIdAttr'
+					],
+				DisassociateMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				EnableOrganizationAdminAccount:[
+					'#AdminAccountIdAttr'
+					],
+				GetDetector:[
+					'#DetectorIdAttr'
+					],
+				GetFilter:[
+					'#DetectorIdAttr','#FilterNameAttr'
+					],
+				GetFindings:[
+					'#DetectorIdAttr','#FindingIdsAttr','#SortCriteriaAttr'
+					],
+				GetFindingsStatistics:[
+					'#DetectorIdAttr','#FindingStatisticTypesAttr','#FindingCriteriaAttr'
+					],
+				GetIPSet:[
+					'#DetectorIdAttr','#IpSetIdAttr'
+					],
+				GetInvitationsCount:[
+					
+					],
+				GetMasterAccount:[
+					'#DetectorIdAttr'
+					],
+				GetMemberDetectors:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				GetMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				GetThreatIntelSet:[
+					'#DetectorIdAttr','#ThreatIntelSetIdAttr'
+					],
+				GetUsageStatistics:[
+					'#DetectorIdAttr','#UsageStatisticTypeAttr','#UsageCriteriaAttr','#UnitAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				InviteMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr','#DisableEmailNotificationAttr','#MessageAttr'
+					],
+				ListDetectors:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFilters:[
+					'#DetectorIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFindings:[
+					'#DetectorIdAttr','#FindingCriteriaAttr','#SortCriteriaAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListIPSets:[
+					'#DetectorIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListInvitations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListMembers:[
+					'#DetectorIdAttr','#MaxResultsAttr','#NextTokenAttr','#OnlyAssociatedAttr'
+					],
+				ListOrganizationAdminAccounts:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListPublishingDestinations:[
+					'#DetectorIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListThreatIntelSets:[
+					'#DetectorIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				StartMonitoringMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				StopMonitoringMembers:[
+					'#DetectorIdAttr','#AccountIdsAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UnarchiveFindings:[
+					'#DetectorIdAttr','#FindingIdsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDetector:[
+					'#DetectorIdAttr','#EnableAttr','#FindingPublishingFrequencyAttr','#DataSourcesAttr'
+					],
+				UpdateFilter:[
+					'#DetectorIdAttr','#FilterNameAttr','#DescriptionAttr','#ActionAttr','#RankAttr','#FindingCriteriaAttr'
+					],
+				UpdateFindingsFeedback:[
+					'#DetectorIdAttr','#FindingIdsAttr','#FeedbackAttr','#CommentsAttr'
+					],
+				UpdateIPSet:[
+					'#DetectorIdAttr','#IpSetIdAttr','#NameAttr','#LocationAttr','#ActivateAttr'
+					],
+				UpdateMemberDetectors:[
+					'#DetectorIdAttr','#AccountIdsAttr','#DataSourcesAttr'
+					],
+				UpdateOrganizationConfiguration:[
+					'#DetectorIdAttr','#AutoEnableAttr','#DataSourcesAttr'
+					],
+				UpdatePublishingDestination:[
+					'#DetectorIdAttr','#DestinationIdAttr','#DestinationPropertiesAttr'
+					],
+				UpdateThreatIntelSet:[
+					'#DetectorIdAttr','#ThreatIntelSetIdAttr','#NameAttr','#LocationAttr','#ActivateAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS GuardDuty">
+<p>
+AWS GuardDuty
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/GuardDuty.html">GuardDuty</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS GuardDuty',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptInvitation' },
+			
+				DetectorId: { value: ""} ,
+				MasterId: { value: ""} ,
+				InvitationId: { value: ""} ,
+				FindingIds: { value: ""} ,
+				Enable: { value: ""} ,
+				ClientToken: { value: ""} ,
+				FindingPublishingFrequency: { value: ""} ,
+				DataSources: { value: ""} ,
+				Tags: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				Action: { value: ""} ,
+				Rank: { value: ""} ,
+				FindingCriteria: { value: ""} ,
+				Format: { value: ""} ,
+				Location: { value: ""} ,
+				Activate: { value: ""} ,
+				AccountDetails: { value: ""} ,
+				DestinationType: { value: ""} ,
+				DestinationProperties: { value: ""} ,
+				FindingTypes: { value: ""} ,
+				AccountIds: { value: ""} ,
+				FilterName: { value: ""} ,
+				IpSetId: { value: ""} ,
+				DestinationId: { value: ""} ,
+				ThreatIntelSetId: { value: ""} ,
+				AdminAccountId: { value: ""} ,
+				SortCriteria: { value: ""} ,
+				FindingStatisticTypes: { value: ""} ,
+				UsageStatisticType: { value: ""} ,
+				UsageCriteria: { value: ""} ,
+				Unit: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				DisableEmailNotification: { value: ""} ,
+				Message: { value: ""} ,
+				OnlyAssociated: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Feedback: { value: ""} ,
+				Comments: { value: ""} ,
+				AutoEnable: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "GuardDuty " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-DetectorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MasterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InvitationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FindingIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Enable").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FindingPublishingFrequency").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Action").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Rank").typedInput({ default: "num", types: ["num"]});
+$("#node-input-FindingCriteria").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Activate").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-DestinationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationProperties").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AccountIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IpSetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThreatIntelSetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdminAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortCriteria").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UsageStatisticType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Unit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisableEmailNotification").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Message").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnlyAssociated").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Feedback").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Comments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoEnable").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

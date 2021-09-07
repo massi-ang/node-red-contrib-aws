@@ -1,0 +1,663 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS KMS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelKeyDeletion">CancelKeyDeletion</option>
+		
+			<option value="ConnectCustomKeyStore">ConnectCustomKeyStore</option>
+		
+			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateCustomKeyStore">CreateCustomKeyStore</option>
+		
+			<option value="CreateGrant">CreateGrant</option>
+		
+			<option value="CreateKey">CreateKey</option>
+		
+			<option value="Decrypt">Decrypt</option>
+		
+			<option value="DeleteAlias">DeleteAlias</option>
+		
+			<option value="DeleteCustomKeyStore">DeleteCustomKeyStore</option>
+		
+			<option value="DeleteImportedKeyMaterial">DeleteImportedKeyMaterial</option>
+		
+			<option value="DescribeCustomKeyStores">DescribeCustomKeyStores</option>
+		
+			<option value="DescribeKey">DescribeKey</option>
+		
+			<option value="DisableKey">DisableKey</option>
+		
+			<option value="DisableKeyRotation">DisableKeyRotation</option>
+		
+			<option value="DisconnectCustomKeyStore">DisconnectCustomKeyStore</option>
+		
+			<option value="EnableKey">EnableKey</option>
+		
+			<option value="EnableKeyRotation">EnableKeyRotation</option>
+		
+			<option value="Encrypt">Encrypt</option>
+		
+			<option value="GenerateDataKey">GenerateDataKey</option>
+		
+			<option value="GenerateDataKeyPair">GenerateDataKeyPair</option>
+		
+			<option value="GenerateDataKeyPairWithoutPlaintext">GenerateDataKeyPairWithoutPlaintext</option>
+		
+			<option value="GenerateDataKeyWithoutPlaintext">GenerateDataKeyWithoutPlaintext</option>
+		
+			<option value="GenerateRandom">GenerateRandom</option>
+		
+			<option value="GetKeyPolicy">GetKeyPolicy</option>
+		
+			<option value="GetKeyRotationStatus">GetKeyRotationStatus</option>
+		
+			<option value="GetParametersForImport">GetParametersForImport</option>
+		
+			<option value="GetPublicKey">GetPublicKey</option>
+		
+			<option value="ImportKeyMaterial">ImportKeyMaterial</option>
+		
+			<option value="ListAliases">ListAliases</option>
+		
+			<option value="ListGrants">ListGrants</option>
+		
+			<option value="ListKeyPolicies">ListKeyPolicies</option>
+		
+			<option value="ListKeys">ListKeys</option>
+		
+			<option value="ListResourceTags">ListResourceTags</option>
+		
+			<option value="ListRetirableGrants">ListRetirableGrants</option>
+		
+			<option value="PutKeyPolicy">PutKeyPolicy</option>
+		
+			<option value="ReEncrypt">ReEncrypt</option>
+		
+			<option value="ReplicateKey">ReplicateKey</option>
+		
+			<option value="RetireGrant">RetireGrant</option>
+		
+			<option value="RevokeGrant">RevokeGrant</option>
+		
+			<option value="ScheduleKeyDeletion">ScheduleKeyDeletion</option>
+		
+			<option value="Sign">Sign</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAlias">UpdateAlias</option>
+		
+			<option value="UpdateCustomKeyStore">UpdateCustomKeyStore</option>
+		
+			<option value="UpdateKeyDescription">UpdateKeyDescription</option>
+		
+			<option value="UpdatePrimaryRegion">UpdatePrimaryRegion</option>
+		
+			<option value="Verify">Verify</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='KeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyId"><i class="fa fa-tag"></i> KeyId</label>
+		<input type="text" id="node-input-KeyId" placeholder="KeyId"></input>
+	</div> 
+	<div class="form-row" id='CustomKeyStoreIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomKeyStoreId"><i class="fa fa-tag"></i> CustomKeyStoreId</label>
+		<input type="text" id="node-input-CustomKeyStoreId" placeholder="CustomKeyStoreId"></input>
+	</div> 
+	<div class="form-row" id='AliasNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AliasName"><i class="fa fa-tag"></i> AliasName</label>
+		<input type="text" id="node-input-AliasName" placeholder="AliasName"></input>
+	</div> 
+	<div class="form-row" id='TargetKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetKeyId"><i class="fa fa-tag"></i> TargetKeyId</label>
+		<input type="text" id="node-input-TargetKeyId" placeholder="TargetKeyId"></input>
+	</div> 
+	<div class="form-row" id='CustomKeyStoreNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomKeyStoreName"><i class="fa fa-tag"></i> CustomKeyStoreName</label>
+		<input type="text" id="node-input-CustomKeyStoreName" placeholder="CustomKeyStoreName"></input>
+	</div> 
+	<div class="form-row" id='CloudHsmClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudHsmClusterId"><i class="fa fa-tag"></i> CloudHsmClusterId</label>
+		<input type="text" id="node-input-CloudHsmClusterId" placeholder="CloudHsmClusterId"></input>
+	</div> 
+	<div class="form-row" id='TrustAnchorCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustAnchorCertificate"><i class="fa fa-tag"></i> TrustAnchorCertificate</label>
+		<input type="text" id="node-input-TrustAnchorCertificate" placeholder="TrustAnchorCertificate"></input>
+	</div> 
+	<div class="form-row" id='KeyStorePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyStorePassword"><i class="fa fa-tag"></i> KeyStorePassword</label>
+		<input type="text" id="node-input-KeyStorePassword" placeholder="KeyStorePassword"></input>
+	</div> 
+	<div class="form-row" id='GranteePrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-GranteePrincipal"><i class="fa fa-tag"></i> GranteePrincipal</label>
+		<input type="text" id="node-input-GranteePrincipal" placeholder="GranteePrincipal"></input>
+	</div> 
+	<div class="form-row" id='RetiringPrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-RetiringPrincipal"><i class="fa fa-tag"></i> RetiringPrincipal</label>
+		<input type="text" id="node-input-RetiringPrincipal" placeholder="RetiringPrincipal"></input>
+	</div> 
+	<div class="form-row" id='OperationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Operations"><i class="fa fa-tag"></i> Operations</label>
+		<input type="text" id="node-input-Operations" placeholder="Operations"></input>
+	</div> 
+	<div class="form-row" id='ConstraintsAttr' class='hiddenAttrs'>
+		<label for="node-input-Constraints"><i class="fa fa-tag"></i> Constraints</label>
+		<input type="text" id="node-input-Constraints" placeholder="Constraints"></input>
+	</div> 
+	<div class="form-row" id='GrantTokensAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantTokens"><i class="fa fa-tag"></i> GrantTokens</label>
+		<input type="text" id="node-input-GrantTokens" placeholder="GrantTokens"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='KeyUsageAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyUsage"><i class="fa fa-tag"></i> KeyUsage</label>
+		<input type="text" id="node-input-KeyUsage" placeholder="KeyUsage"></input>
+	</div> 
+	<div class="form-row" id='CustomerMasterKeySpecAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerMasterKeySpec"><i class="fa fa-tag"></i> CustomerMasterKeySpec</label>
+		<input type="text" id="node-input-CustomerMasterKeySpec" placeholder="CustomerMasterKeySpec"></input>
+	</div> 
+	<div class="form-row" id='KeySpecAttr' class='hiddenAttrs'>
+		<label for="node-input-KeySpec"><i class="fa fa-tag"></i> KeySpec</label>
+		<input type="text" id="node-input-KeySpec" placeholder="KeySpec"></input>
+	</div> 
+	<div class="form-row" id='OriginAttr' class='hiddenAttrs'>
+		<label for="node-input-Origin"><i class="fa fa-tag"></i> Origin</label>
+		<input type="text" id="node-input-Origin" placeholder="Origin"></input>
+	</div> 
+	<div class="form-row" id='BypassPolicyLockoutSafetyCheckAttr' class='hiddenAttrs'>
+		<label for="node-input-BypassPolicyLockoutSafetyCheck"><i class="fa fa-tag"></i> BypassPolicyLockoutSafetyCheck</label>
+		<input type="text" id="node-input-BypassPolicyLockoutSafetyCheck" placeholder="BypassPolicyLockoutSafetyCheck"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='MultiRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiRegion"><i class="fa fa-tag"></i> MultiRegion</label>
+		<input type="text" id="node-input-MultiRegion" placeholder="MultiRegion"></input>
+	</div> 
+	<div class="form-row" id='CiphertextBlobAttr' class='hiddenAttrs'>
+		<label for="node-input-CiphertextBlob"><i class="fa fa-tag"></i> CiphertextBlob</label>
+		<input type="text" id="node-input-CiphertextBlob" placeholder="CiphertextBlob"></input>
+	</div> 
+	<div class="form-row" id='EncryptionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionContext"><i class="fa fa-tag"></i> EncryptionContext</label>
+		<input type="text" id="node-input-EncryptionContext" placeholder="EncryptionContext"></input>
+	</div> 
+	<div class="form-row" id='EncryptionAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionAlgorithm"><i class="fa fa-tag"></i> EncryptionAlgorithm</label>
+		<input type="text" id="node-input-EncryptionAlgorithm" placeholder="EncryptionAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='PlaintextAttr' class='hiddenAttrs'>
+		<label for="node-input-Plaintext"><i class="fa fa-tag"></i> Plaintext</label>
+		<input type="text" id="node-input-Plaintext" placeholder="Plaintext"></input>
+	</div> 
+	<div class="form-row" id='NumberOfBytesAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfBytes"><i class="fa fa-tag"></i> NumberOfBytes</label>
+		<input type="text" id="node-input-NumberOfBytes" placeholder="NumberOfBytes"></input>
+	</div> 
+	<div class="form-row" id='KeyPairSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyPairSpec"><i class="fa fa-tag"></i> KeyPairSpec</label>
+		<input type="text" id="node-input-KeyPairSpec" placeholder="KeyPairSpec"></input>
+	</div> 
+	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyName"><i class="fa fa-tag"></i> PolicyName</label>
+		<input type="text" id="node-input-PolicyName" placeholder="PolicyName"></input>
+	</div> 
+	<div class="form-row" id='WrappingAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-WrappingAlgorithm"><i class="fa fa-tag"></i> WrappingAlgorithm</label>
+		<input type="text" id="node-input-WrappingAlgorithm" placeholder="WrappingAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='WrappingKeySpecAttr' class='hiddenAttrs'>
+		<label for="node-input-WrappingKeySpec"><i class="fa fa-tag"></i> WrappingKeySpec</label>
+		<input type="text" id="node-input-WrappingKeySpec" placeholder="WrappingKeySpec"></input>
+	</div> 
+	<div class="form-row" id='ImportTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ImportToken"><i class="fa fa-tag"></i> ImportToken</label>
+		<input type="text" id="node-input-ImportToken" placeholder="ImportToken"></input>
+	</div> 
+	<div class="form-row" id='EncryptedKeyMaterialAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptedKeyMaterial"><i class="fa fa-tag"></i> EncryptedKeyMaterial</label>
+		<input type="text" id="node-input-EncryptedKeyMaterial" placeholder="EncryptedKeyMaterial"></input>
+	</div> 
+	<div class="form-row" id='ValidToAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidTo"><i class="fa fa-tag"></i> ValidTo</label>
+		<input type="text" id="node-input-ValidTo" placeholder="ValidTo"></input>
+	</div> 
+	<div class="form-row" id='ExpirationModelAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpirationModel"><i class="fa fa-tag"></i> ExpirationModel</label>
+		<input type="text" id="node-input-ExpirationModel" placeholder="ExpirationModel"></input>
+	</div> 
+	<div class="form-row" id='GrantIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantId"><i class="fa fa-tag"></i> GrantId</label>
+		<input type="text" id="node-input-GrantId" placeholder="GrantId"></input>
+	</div> 
+	<div class="form-row" id='SourceEncryptionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceEncryptionContext"><i class="fa fa-tag"></i> SourceEncryptionContext</label>
+		<input type="text" id="node-input-SourceEncryptionContext" placeholder="SourceEncryptionContext"></input>
+	</div> 
+	<div class="form-row" id='SourceKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceKeyId"><i class="fa fa-tag"></i> SourceKeyId</label>
+		<input type="text" id="node-input-SourceKeyId" placeholder="SourceKeyId"></input>
+	</div> 
+	<div class="form-row" id='DestinationKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationKeyId"><i class="fa fa-tag"></i> DestinationKeyId</label>
+		<input type="text" id="node-input-DestinationKeyId" placeholder="DestinationKeyId"></input>
+	</div> 
+	<div class="form-row" id='DestinationEncryptionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationEncryptionContext"><i class="fa fa-tag"></i> DestinationEncryptionContext</label>
+		<input type="text" id="node-input-DestinationEncryptionContext" placeholder="DestinationEncryptionContext"></input>
+	</div> 
+	<div class="form-row" id='SourceEncryptionAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceEncryptionAlgorithm"><i class="fa fa-tag"></i> SourceEncryptionAlgorithm</label>
+		<input type="text" id="node-input-SourceEncryptionAlgorithm" placeholder="SourceEncryptionAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='DestinationEncryptionAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationEncryptionAlgorithm"><i class="fa fa-tag"></i> DestinationEncryptionAlgorithm</label>
+		<input type="text" id="node-input-DestinationEncryptionAlgorithm" placeholder="DestinationEncryptionAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='ReplicaRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaRegion"><i class="fa fa-tag"></i> ReplicaRegion</label>
+		<input type="text" id="node-input-ReplicaRegion" placeholder="ReplicaRegion"></input>
+	</div> 
+	<div class="form-row" id='GrantTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantToken"><i class="fa fa-tag"></i> GrantToken</label>
+		<input type="text" id="node-input-GrantToken" placeholder="GrantToken"></input>
+	</div> 
+	<div class="form-row" id='PendingWindowInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-PendingWindowInDays"><i class="fa fa-tag"></i> PendingWindowInDays</label>
+		<input type="text" id="node-input-PendingWindowInDays" placeholder="PendingWindowInDays"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='MessageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageType"><i class="fa fa-tag"></i> MessageType</label>
+		<input type="text" id="node-input-MessageType" placeholder="MessageType"></input>
+	</div> 
+	<div class="form-row" id='SigningAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-SigningAlgorithm"><i class="fa fa-tag"></i> SigningAlgorithm</label>
+		<input type="text" id="node-input-SigningAlgorithm" placeholder="SigningAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='NewCustomKeyStoreNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NewCustomKeyStoreName"><i class="fa fa-tag"></i> NewCustomKeyStoreName</label>
+		<input type="text" id="node-input-NewCustomKeyStoreName" placeholder="NewCustomKeyStoreName"></input>
+	</div> 
+	<div class="form-row" id='PrimaryRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryRegion"><i class="fa fa-tag"></i> PrimaryRegion</label>
+		<input type="text" id="node-input-PrimaryRegion" placeholder="PrimaryRegion"></input>
+	</div> 
+	<div class="form-row" id='SignatureAttr' class='hiddenAttrs'>
+		<label for="node-input-Signature"><i class="fa fa-tag"></i> Signature</label>
+		<input type="text" id="node-input-Signature" placeholder="Signature"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelKeyDeletion:[
+					'#KeyIdAttr'
+					],
+				ConnectCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
+				CreateAlias:[
+					'#AliasNameAttr','#TargetKeyIdAttr'
+					],
+				CreateCustomKeyStore:[
+					'#CustomKeyStoreNameAttr','#CloudHsmClusterIdAttr','#TrustAnchorCertificateAttr','#KeyStorePasswordAttr'
+					],
+				CreateGrant:[
+					'#KeyIdAttr','#GranteePrincipalAttr','#RetiringPrincipalAttr','#OperationsAttr','#ConstraintsAttr','#GrantTokensAttr','#NameAttr'
+					],
+				CreateKey:[
+					'#PolicyAttr','#DescriptionAttr','#KeyUsageAttr','#CustomerMasterKeySpecAttr','#KeySpecAttr','#OriginAttr','#CustomKeyStoreIdAttr','#BypassPolicyLockoutSafetyCheckAttr','#TagsAttr','#MultiRegionAttr'
+					],
+				Decrypt:[
+					'#CiphertextBlobAttr','#EncryptionContextAttr','#GrantTokensAttr','#KeyIdAttr','#EncryptionAlgorithmAttr'
+					],
+				DeleteAlias:[
+					'#AliasNameAttr'
+					],
+				DeleteCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
+				DeleteImportedKeyMaterial:[
+					'#KeyIdAttr'
+					],
+				DescribeCustomKeyStores:[
+					'#CustomKeyStoreIdAttr','#CustomKeyStoreNameAttr','#LimitAttr','#MarkerAttr'
+					],
+				DescribeKey:[
+					'#KeyIdAttr','#GrantTokensAttr'
+					],
+				DisableKey:[
+					'#KeyIdAttr'
+					],
+				DisableKeyRotation:[
+					'#KeyIdAttr'
+					],
+				DisconnectCustomKeyStore:[
+					'#CustomKeyStoreIdAttr'
+					],
+				EnableKey:[
+					'#KeyIdAttr'
+					],
+				EnableKeyRotation:[
+					'#KeyIdAttr'
+					],
+				Encrypt:[
+					'#KeyIdAttr','#PlaintextAttr','#EncryptionContextAttr','#GrantTokensAttr','#EncryptionAlgorithmAttr'
+					],
+				GenerateDataKey:[
+					'#KeyIdAttr','#EncryptionContextAttr','#NumberOfBytesAttr','#KeySpecAttr','#GrantTokensAttr'
+					],
+				GenerateDataKeyPair:[
+					'#EncryptionContextAttr','#KeyIdAttr','#KeyPairSpecAttr','#GrantTokensAttr'
+					],
+				GenerateDataKeyPairWithoutPlaintext:[
+					'#EncryptionContextAttr','#KeyIdAttr','#KeyPairSpecAttr','#GrantTokensAttr'
+					],
+				GenerateDataKeyWithoutPlaintext:[
+					'#KeyIdAttr','#EncryptionContextAttr','#KeySpecAttr','#NumberOfBytesAttr','#GrantTokensAttr'
+					],
+				GenerateRandom:[
+					'#NumberOfBytesAttr','#CustomKeyStoreIdAttr'
+					],
+				GetKeyPolicy:[
+					'#KeyIdAttr','#PolicyNameAttr'
+					],
+				GetKeyRotationStatus:[
+					'#KeyIdAttr'
+					],
+				GetParametersForImport:[
+					'#KeyIdAttr','#WrappingAlgorithmAttr','#WrappingKeySpecAttr'
+					],
+				GetPublicKey:[
+					'#KeyIdAttr','#GrantTokensAttr'
+					],
+				ImportKeyMaterial:[
+					'#KeyIdAttr','#ImportTokenAttr','#EncryptedKeyMaterialAttr','#ValidToAttr','#ExpirationModelAttr'
+					],
+				ListAliases:[
+					'#KeyIdAttr','#LimitAttr','#MarkerAttr'
+					],
+				ListGrants:[
+					'#LimitAttr','#MarkerAttr','#KeyIdAttr','#GrantIdAttr','#GranteePrincipalAttr'
+					],
+				ListKeyPolicies:[
+					'#KeyIdAttr','#LimitAttr','#MarkerAttr'
+					],
+				ListKeys:[
+					'#LimitAttr','#MarkerAttr'
+					],
+				ListResourceTags:[
+					'#KeyIdAttr','#LimitAttr','#MarkerAttr'
+					],
+				ListRetirableGrants:[
+					'#LimitAttr','#MarkerAttr','#RetiringPrincipalAttr'
+					],
+				PutKeyPolicy:[
+					'#KeyIdAttr','#PolicyNameAttr','#PolicyAttr','#BypassPolicyLockoutSafetyCheckAttr'
+					],
+				ReEncrypt:[
+					'#CiphertextBlobAttr','#SourceEncryptionContextAttr','#SourceKeyIdAttr','#DestinationKeyIdAttr','#DestinationEncryptionContextAttr','#SourceEncryptionAlgorithmAttr','#DestinationEncryptionAlgorithmAttr','#GrantTokensAttr'
+					],
+				ReplicateKey:[
+					'#KeyIdAttr','#ReplicaRegionAttr','#PolicyAttr','#BypassPolicyLockoutSafetyCheckAttr','#DescriptionAttr','#TagsAttr'
+					],
+				RetireGrant:[
+					'#GrantTokenAttr','#KeyIdAttr','#GrantIdAttr'
+					],
+				RevokeGrant:[
+					'#KeyIdAttr','#GrantIdAttr'
+					],
+				ScheduleKeyDeletion:[
+					'#KeyIdAttr','#PendingWindowInDaysAttr'
+					],
+				Sign:[
+					'#KeyIdAttr','#MessageAttr','#MessageTypeAttr','#GrantTokensAttr','#SigningAlgorithmAttr'
+					],
+				TagResource:[
+					'#KeyIdAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#KeyIdAttr','#TagKeysAttr'
+					],
+				UpdateAlias:[
+					'#AliasNameAttr','#TargetKeyIdAttr'
+					],
+				UpdateCustomKeyStore:[
+					'#CustomKeyStoreIdAttr','#NewCustomKeyStoreNameAttr','#KeyStorePasswordAttr','#CloudHsmClusterIdAttr'
+					],
+				UpdateKeyDescription:[
+					'#KeyIdAttr','#DescriptionAttr'
+					],
+				UpdatePrimaryRegion:[
+					'#KeyIdAttr','#PrimaryRegionAttr'
+					],
+				Verify:[
+					'#KeyIdAttr','#MessageAttr','#MessageTypeAttr','#SignatureAttr','#SigningAlgorithmAttr','#GrantTokensAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS KMS">
+<p>
+AWS KMS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/KMS.html">KMS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS KMS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelKeyDeletion' },
+			
+				KeyId: { value: ""} ,
+				CustomKeyStoreId: { value: ""} ,
+				AliasName: { value: ""} ,
+				TargetKeyId: { value: ""} ,
+				CustomKeyStoreName: { value: ""} ,
+				CloudHsmClusterId: { value: ""} ,
+				TrustAnchorCertificate: { value: ""} ,
+				KeyStorePassword: { value: ""} ,
+				GranteePrincipal: { value: ""} ,
+				RetiringPrincipal: { value: ""} ,
+				Operations: { value: ""} ,
+				Constraints: { value: ""} ,
+				GrantTokens: { value: ""} ,
+				Name: { value: ""} ,
+				Policy: { value: ""} ,
+				Description: { value: ""} ,
+				KeyUsage: { value: ""} ,
+				CustomerMasterKeySpec: { value: ""} ,
+				KeySpec: { value: ""} ,
+				Origin: { value: ""} ,
+				BypassPolicyLockoutSafetyCheck: { value: ""} ,
+				Tags: { value: ""} ,
+				MultiRegion: { value: ""} ,
+				CiphertextBlob: { value: ""} ,
+				EncryptionContext: { value: ""} ,
+				EncryptionAlgorithm: { value: ""} ,
+				Limit: { value: ""} ,
+				Marker: { value: ""} ,
+				Plaintext: { value: ""} ,
+				NumberOfBytes: { value: ""} ,
+				KeyPairSpec: { value: ""} ,
+				PolicyName: { value: ""} ,
+				WrappingAlgorithm: { value: ""} ,
+				WrappingKeySpec: { value: ""} ,
+				ImportToken: { value: ""} ,
+				EncryptedKeyMaterial: { value: ""} ,
+				ValidTo: { value: ""} ,
+				ExpirationModel: { value: ""} ,
+				GrantId: { value: ""} ,
+				SourceEncryptionContext: { value: ""} ,
+				SourceKeyId: { value: ""} ,
+				DestinationKeyId: { value: ""} ,
+				DestinationEncryptionContext: { value: ""} ,
+				SourceEncryptionAlgorithm: { value: ""} ,
+				DestinationEncryptionAlgorithm: { value: ""} ,
+				ReplicaRegion: { value: ""} ,
+				GrantToken: { value: ""} ,
+				PendingWindowInDays: { value: ""} ,
+				Message: { value: ""} ,
+				MessageType: { value: ""} ,
+				SigningAlgorithm: { value: ""} ,
+				TagKeys: { value: ""} ,
+				NewCustomKeyStoreName: { value: ""} ,
+				PrimaryRegion: { value: ""} ,
+				Signature: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "KMS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-KeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomKeyStoreId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AliasName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomKeyStoreName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudHsmClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrustAnchorCertificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyStorePassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GranteePrincipal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetiringPrincipal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Operations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Constraints").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantTokens").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyUsage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomerMasterKeySpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeySpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Origin").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BypassPolicyLockoutSafetyCheck").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MultiRegion").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CiphertextBlob").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-EncryptionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Plaintext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberOfBytes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-KeyPairSpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WrappingAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WrappingKeySpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ImportToken").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-EncryptedKeyMaterial").typedInput({ default: "bin", types: ["bin"]});
+
+$("#node-input-ExpirationModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceEncryptionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationEncryptionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceEncryptionAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationEncryptionAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicaRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PendingWindowInDays").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Message").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SigningAlgorithm").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NewCustomKeyStoreName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrimaryRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Signature").typedInput({ default: "bin", types: ["bin"]});
+		}
+	});
+</script>
+

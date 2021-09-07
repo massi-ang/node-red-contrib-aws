@@ -1,0 +1,368 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Snowball">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelCluster">CancelCluster</option>
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateAddress">CreateAddress</option>
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreateLongTermPricing">CreateLongTermPricing</option>
+		
+			<option value="CreateReturnShippingLabel">CreateReturnShippingLabel</option>
+		
+			<option value="DescribeAddress">DescribeAddress</option>
+		
+			<option value="DescribeAddresses">DescribeAddresses</option>
+		
+			<option value="DescribeCluster">DescribeCluster</option>
+		
+			<option value="DescribeJob">DescribeJob</option>
+		
+			<option value="DescribeReturnShippingLabel">DescribeReturnShippingLabel</option>
+		
+			<option value="GetJobManifest">GetJobManifest</option>
+		
+			<option value="GetJobUnlockCode">GetJobUnlockCode</option>
+		
+			<option value="GetSnowballUsage">GetSnowballUsage</option>
+		
+			<option value="GetSoftwareUpdates">GetSoftwareUpdates</option>
+		
+			<option value="ListClusterJobs">ListClusterJobs</option>
+		
+			<option value="ListClusters">ListClusters</option>
+		
+			<option value="ListCompatibleImages">ListCompatibleImages</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListLongTermPricing">ListLongTermPricing</option>
+		
+			<option value="UpdateCluster">UpdateCluster</option>
+		
+			<option value="UpdateJob">UpdateJob</option>
+		
+			<option value="UpdateJobShipmentState">UpdateJobShipmentState</option>
+		
+			<option value="UpdateLongTermPricing">UpdateLongTermPricing</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterId"><i class="fa fa-tag"></i> ClusterId</label>
+		<input type="text" id="node-input-ClusterId" placeholder="ClusterId"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='AddressAttr' class='hiddenAttrs'>
+		<label for="node-input-Address"><i class="fa fa-tag"></i> Address</label>
+		<input type="text" id="node-input-Address" placeholder="Address"></input>
+	</div> 
+	<div class="form-row" id='JobTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-JobType"><i class="fa fa-tag"></i> JobType</label>
+		<input type="text" id="node-input-JobType" placeholder="JobType"></input>
+	</div> 
+	<div class="form-row" id='ResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-Resources"><i class="fa fa-tag"></i> Resources</label>
+		<input type="text" id="node-input-Resources" placeholder="Resources"></input>
+	</div> 
+	<div class="form-row" id='OnDeviceServiceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-OnDeviceServiceConfiguration"><i class="fa fa-tag"></i> OnDeviceServiceConfiguration</label>
+		<input type="text" id="node-input-OnDeviceServiceConfiguration" placeholder="OnDeviceServiceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='AddressIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AddressId"><i class="fa fa-tag"></i> AddressId</label>
+		<input type="text" id="node-input-AddressId" placeholder="AddressId"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyARNAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyARN"><i class="fa fa-tag"></i> KmsKeyARN</label>
+		<input type="text" id="node-input-KmsKeyARN" placeholder="KmsKeyARN"></input>
+	</div> 
+	<div class="form-row" id='RoleARNAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleARN"><i class="fa fa-tag"></i> RoleARN</label>
+		<input type="text" id="node-input-RoleARN" placeholder="RoleARN"></input>
+	</div> 
+	<div class="form-row" id='SnowballTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SnowballType"><i class="fa fa-tag"></i> SnowballType</label>
+		<input type="text" id="node-input-SnowballType" placeholder="SnowballType"></input>
+	</div> 
+	<div class="form-row" id='ShippingOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ShippingOption"><i class="fa fa-tag"></i> ShippingOption</label>
+		<input type="text" id="node-input-ShippingOption" placeholder="ShippingOption"></input>
+	</div> 
+	<div class="form-row" id='NotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-Notification"><i class="fa fa-tag"></i> Notification</label>
+		<input type="text" id="node-input-Notification" placeholder="Notification"></input>
+	</div> 
+	<div class="form-row" id='ForwardingAddressIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ForwardingAddressId"><i class="fa fa-tag"></i> ForwardingAddressId</label>
+		<input type="text" id="node-input-ForwardingAddressId" placeholder="ForwardingAddressId"></input>
+	</div> 
+	<div class="form-row" id='TaxDocumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-TaxDocuments"><i class="fa fa-tag"></i> TaxDocuments</label>
+		<input type="text" id="node-input-TaxDocuments" placeholder="TaxDocuments"></input>
+	</div> 
+	<div class="form-row" id='RemoteManagementAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoteManagement"><i class="fa fa-tag"></i> RemoteManagement</label>
+		<input type="text" id="node-input-RemoteManagement" placeholder="RemoteManagement"></input>
+	</div> 
+	<div class="form-row" id='SnowballCapacityPreferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-SnowballCapacityPreference"><i class="fa fa-tag"></i> SnowballCapacityPreference</label>
+		<input type="text" id="node-input-SnowballCapacityPreference" placeholder="SnowballCapacityPreference"></input>
+	</div> 
+	<div class="form-row" id='DeviceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceConfiguration"><i class="fa fa-tag"></i> DeviceConfiguration</label>
+		<input type="text" id="node-input-DeviceConfiguration" placeholder="DeviceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='LongTermPricingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LongTermPricingId"><i class="fa fa-tag"></i> LongTermPricingId</label>
+		<input type="text" id="node-input-LongTermPricingId" placeholder="LongTermPricingId"></input>
+	</div> 
+	<div class="form-row" id='LongTermPricingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-LongTermPricingType"><i class="fa fa-tag"></i> LongTermPricingType</label>
+		<input type="text" id="node-input-LongTermPricingType" placeholder="LongTermPricingType"></input>
+	</div> 
+	<div class="form-row" id='IsLongTermPricingAutoRenewAttr' class='hiddenAttrs'>
+		<label for="node-input-IsLongTermPricingAutoRenew"><i class="fa fa-tag"></i> IsLongTermPricingAutoRenew</label>
+		<input type="text" id="node-input-IsLongTermPricingAutoRenew" placeholder="IsLongTermPricingAutoRenew"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ShipmentStateAttr' class='hiddenAttrs'>
+		<label for="node-input-ShipmentState"><i class="fa fa-tag"></i> ShipmentState</label>
+		<input type="text" id="node-input-ShipmentState" placeholder="ShipmentState"></input>
+	</div> 
+	<div class="form-row" id='ReplacementJobAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplacementJob"><i class="fa fa-tag"></i> ReplacementJob</label>
+		<input type="text" id="node-input-ReplacementJob" placeholder="ReplacementJob"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelCluster:[
+					'#ClusterIdAttr'
+					],
+				CancelJob:[
+					'#JobIdAttr'
+					],
+				CreateAddress:[
+					'#AddressAttr'
+					],
+				CreateCluster:[
+					'#JobTypeAttr','#ResourcesAttr','#OnDeviceServiceConfigurationAttr','#DescriptionAttr','#AddressIdAttr','#KmsKeyARNAttr','#RoleARNAttr','#SnowballTypeAttr','#ShippingOptionAttr','#NotificationAttr','#ForwardingAddressIdAttr','#TaxDocumentsAttr','#RemoteManagementAttr'
+					],
+				CreateJob:[
+					'#JobTypeAttr','#ResourcesAttr','#OnDeviceServiceConfigurationAttr','#DescriptionAttr','#AddressIdAttr','#KmsKeyARNAttr','#RoleARNAttr','#SnowballCapacityPreferenceAttr','#ShippingOptionAttr','#NotificationAttr','#ClusterIdAttr','#SnowballTypeAttr','#ForwardingAddressIdAttr','#TaxDocumentsAttr','#DeviceConfigurationAttr','#RemoteManagementAttr','#LongTermPricingIdAttr'
+					],
+				CreateLongTermPricing:[
+					'#LongTermPricingTypeAttr','#IsLongTermPricingAutoRenewAttr','#SnowballTypeAttr'
+					],
+				CreateReturnShippingLabel:[
+					'#JobIdAttr','#ShippingOptionAttr'
+					],
+				DescribeAddress:[
+					'#AddressIdAttr'
+					],
+				DescribeAddresses:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeCluster:[
+					'#ClusterIdAttr'
+					],
+				DescribeJob:[
+					'#JobIdAttr'
+					],
+				DescribeReturnShippingLabel:[
+					'#JobIdAttr'
+					],
+				GetJobManifest:[
+					'#JobIdAttr'
+					],
+				GetJobUnlockCode:[
+					'#JobIdAttr'
+					],
+				GetSnowballUsage:[
+					
+					],
+				GetSoftwareUpdates:[
+					'#JobIdAttr'
+					],
+				ListClusterJobs:[
+					'#ClusterIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListClusters:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCompatibleImages:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListJobs:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListLongTermPricing:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				UpdateCluster:[
+					'#ClusterIdAttr','#RoleARNAttr','#DescriptionAttr','#ResourcesAttr','#OnDeviceServiceConfigurationAttr','#AddressIdAttr','#ShippingOptionAttr','#NotificationAttr','#ForwardingAddressIdAttr'
+					],
+				UpdateJob:[
+					'#JobIdAttr','#RoleARNAttr','#NotificationAttr','#ResourcesAttr','#OnDeviceServiceConfigurationAttr','#AddressIdAttr','#ShippingOptionAttr','#DescriptionAttr','#SnowballCapacityPreferenceAttr','#ForwardingAddressIdAttr'
+					],
+				UpdateJobShipmentState:[
+					'#JobIdAttr','#ShipmentStateAttr'
+					],
+				UpdateLongTermPricing:[
+					'#LongTermPricingIdAttr','#ReplacementJobAttr','#IsLongTermPricingAutoRenewAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Snowball">
+<p>
+AWS Snowball
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Snowball.html">Snowball</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Snowball',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelCluster' },
+			
+				ClusterId: { value: ""} ,
+				JobId: { value: ""} ,
+				Address: { value: ""} ,
+				JobType: { value: ""} ,
+				Resources: { value: ""} ,
+				OnDeviceServiceConfiguration: { value: ""} ,
+				Description: { value: ""} ,
+				AddressId: { value: ""} ,
+				KmsKeyARN: { value: ""} ,
+				RoleARN: { value: ""} ,
+				SnowballType: { value: ""} ,
+				ShippingOption: { value: ""} ,
+				Notification: { value: ""} ,
+				ForwardingAddressId: { value: ""} ,
+				TaxDocuments: { value: ""} ,
+				RemoteManagement: { value: ""} ,
+				SnowballCapacityPreference: { value: ""} ,
+				DeviceConfiguration: { value: ""} ,
+				LongTermPricingId: { value: ""} ,
+				LongTermPricingType: { value: ""} ,
+				IsLongTermPricingAutoRenew: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ShipmentState: { value: ""} ,
+				ReplacementJob: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Snowball " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Address").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnDeviceServiceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AddressId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnowballType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShippingOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Notification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ForwardingAddressId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaxDocuments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemoteManagement").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnowballCapacityPreference").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LongTermPricingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LongTermPricingType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IsLongTermPricingAutoRenew").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShipmentState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplacementJob").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

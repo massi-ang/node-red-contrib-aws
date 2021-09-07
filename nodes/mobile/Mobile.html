@@ -1,0 +1,198 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Mobile">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DescribeBundle">DescribeBundle</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="ExportBundle">ExportBundle</option>
+		
+			<option value="ExportProject">ExportProject</option>
+		
+			<option value="ListBundles">ListBundles</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='regionAttr' class='hiddenAttrs'>
+		<label for="node-input-region"><i class="fa fa-tag"></i> region</label>
+		<input type="text" id="node-input-region" placeholder="region"></input>
+	</div> 
+	<div class="form-row" id='contentsAttr' class='hiddenAttrs'>
+		<label for="node-input-contents"><i class="fa fa-tag"></i> contents</label>
+		<input type="text" id="node-input-contents" placeholder="contents"></input>
+	</div> 
+	<div class="form-row" id='snapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-snapshotId"><i class="fa fa-tag"></i> snapshotId</label>
+		<input type="text" id="node-input-snapshotId" placeholder="snapshotId"></input>
+	</div> 
+	<div class="form-row" id='projectIdAttr' class='hiddenAttrs'>
+		<label for="node-input-projectId"><i class="fa fa-tag"></i> projectId</label>
+		<input type="text" id="node-input-projectId" placeholder="projectId"></input>
+	</div> 
+	<div class="form-row" id='bundleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-bundleId"><i class="fa fa-tag"></i> bundleId</label>
+		<input type="text" id="node-input-bundleId" placeholder="bundleId"></input>
+	</div> 
+	<div class="form-row" id='syncFromResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-syncFromResources"><i class="fa fa-tag"></i> syncFromResources</label>
+		<input type="text" id="node-input-syncFromResources" placeholder="syncFromResources"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i> platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateProject:[
+					'#nameAttr','#regionAttr','#contentsAttr','#snapshotIdAttr'
+					],
+				DeleteProject:[
+					'#projectIdAttr'
+					],
+				DescribeBundle:[
+					'#bundleIdAttr'
+					],
+				DescribeProject:[
+					'#projectIdAttr','#syncFromResourcesAttr'
+					],
+				ExportBundle:[
+					'#bundleIdAttr','#projectIdAttr','#platformAttr'
+					],
+				ExportProject:[
+					'#projectIdAttr'
+					],
+				ListBundles:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListProjects:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				UpdateProject:[
+					'#contentsAttr','#projectIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Mobile">
+<p>
+AWS Mobile
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Mobile.html">Mobile</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Mobile',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateProject' },
+			
+				name: { value: ""} ,
+				region: { value: ""} ,
+				contents: { value: ""} ,
+				snapshotId: { value: ""} ,
+				projectId: { value: ""} ,
+				bundleId: { value: ""} ,
+				syncFromResources: { value: ""} ,
+				platform: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Mobile " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-region").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contents").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-snapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bundleId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-syncFromResources").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-platform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

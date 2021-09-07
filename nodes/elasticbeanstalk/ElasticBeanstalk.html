@@ -1,0 +1,658 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ElasticBeanstalk">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AbortEnvironmentUpdate">AbortEnvironmentUpdate</option>
+		
+			<option value="ApplyEnvironmentManagedAction">ApplyEnvironmentManagedAction</option>
+		
+			<option value="AssociateEnvironmentOperationsRole">AssociateEnvironmentOperationsRole</option>
+		
+			<option value="CheckDNSAvailability">CheckDNSAvailability</option>
+		
+			<option value="ComposeEnvironments">ComposeEnvironments</option>
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateApplicationVersion">CreateApplicationVersion</option>
+		
+			<option value="CreateConfigurationTemplate">CreateConfigurationTemplate</option>
+		
+			<option value="CreateEnvironment">CreateEnvironment</option>
+		
+			<option value="CreatePlatformVersion">CreatePlatformVersion</option>
+		
+			<option value="CreateStorageLocation">CreateStorageLocation</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteApplicationVersion">DeleteApplicationVersion</option>
+		
+			<option value="DeleteConfigurationTemplate">DeleteConfigurationTemplate</option>
+		
+			<option value="DeleteEnvironmentConfiguration">DeleteEnvironmentConfiguration</option>
+		
+			<option value="DeletePlatformVersion">DeletePlatformVersion</option>
+		
+			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
+		
+			<option value="DescribeApplicationVersions">DescribeApplicationVersions</option>
+		
+			<option value="DescribeApplications">DescribeApplications</option>
+		
+			<option value="DescribeConfigurationOptions">DescribeConfigurationOptions</option>
+		
+			<option value="DescribeConfigurationSettings">DescribeConfigurationSettings</option>
+		
+			<option value="DescribeEnvironmentHealth">DescribeEnvironmentHealth</option>
+		
+			<option value="DescribeEnvironmentManagedActionHistory">DescribeEnvironmentManagedActionHistory</option>
+		
+			<option value="DescribeEnvironmentManagedActions">DescribeEnvironmentManagedActions</option>
+		
+			<option value="DescribeEnvironmentResources">DescribeEnvironmentResources</option>
+		
+			<option value="DescribeEnvironments">DescribeEnvironments</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeInstancesHealth">DescribeInstancesHealth</option>
+		
+			<option value="DescribePlatformVersion">DescribePlatformVersion</option>
+		
+			<option value="DisassociateEnvironmentOperationsRole">DisassociateEnvironmentOperationsRole</option>
+		
+			<option value="ListAvailableSolutionStacks">ListAvailableSolutionStacks</option>
+		
+			<option value="ListPlatformBranches">ListPlatformBranches</option>
+		
+			<option value="ListPlatformVersions">ListPlatformVersions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RebuildEnvironment">RebuildEnvironment</option>
+		
+			<option value="RequestEnvironmentInfo">RequestEnvironmentInfo</option>
+		
+			<option value="RestartAppServer">RestartAppServer</option>
+		
+			<option value="RetrieveEnvironmentInfo">RetrieveEnvironmentInfo</option>
+		
+			<option value="SwapEnvironmentCNAMEs">SwapEnvironmentCNAMEs</option>
+		
+			<option value="TerminateEnvironment">TerminateEnvironment</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateApplicationResourceLifecycle">UpdateApplicationResourceLifecycle</option>
+		
+			<option value="UpdateApplicationVersion">UpdateApplicationVersion</option>
+		
+			<option value="UpdateConfigurationTemplate">UpdateConfigurationTemplate</option>
+		
+			<option value="UpdateEnvironment">UpdateEnvironment</option>
+		
+			<option value="UpdateTagsForResource">UpdateTagsForResource</option>
+		
+			<option value="ValidateConfigurationSettings">ValidateConfigurationSettings</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='EnvironmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentId"><i class="fa fa-tag"></i> EnvironmentId</label>
+		<input type="text" id="node-input-EnvironmentId" placeholder="EnvironmentId"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentName"><i class="fa fa-tag"></i> EnvironmentName</label>
+		<input type="text" id="node-input-EnvironmentName" placeholder="EnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='ActionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionId"><i class="fa fa-tag"></i> ActionId</label>
+		<input type="text" id="node-input-ActionId" placeholder="ActionId"></input>
+	</div> 
+	<div class="form-row" id='OperationsRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationsRole"><i class="fa fa-tag"></i> OperationsRole</label>
+		<input type="text" id="node-input-OperationsRole" placeholder="OperationsRole"></input>
+	</div> 
+	<div class="form-row" id='CNAMEPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-CNAMEPrefix"><i class="fa fa-tag"></i> CNAMEPrefix</label>
+		<input type="text" id="node-input-CNAMEPrefix" placeholder="CNAMEPrefix"></input>
+	</div> 
+	<div class="form-row" id='ApplicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationName"><i class="fa fa-tag"></i> ApplicationName</label>
+		<input type="text" id="node-input-ApplicationName" placeholder="ApplicationName"></input>
+	</div> 
+	<div class="form-row" id='GroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupName"><i class="fa fa-tag"></i> GroupName</label>
+		<input type="text" id="node-input-GroupName" placeholder="GroupName"></input>
+	</div> 
+	<div class="form-row" id='VersionLabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionLabels"><i class="fa fa-tag"></i> VersionLabels</label>
+		<input type="text" id="node-input-VersionLabels" placeholder="VersionLabels"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ResourceLifecycleConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceLifecycleConfig"><i class="fa fa-tag"></i> ResourceLifecycleConfig</label>
+		<input type="text" id="node-input-ResourceLifecycleConfig" placeholder="ResourceLifecycleConfig"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='VersionLabelAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionLabel"><i class="fa fa-tag"></i> VersionLabel</label>
+		<input type="text" id="node-input-VersionLabel" placeholder="VersionLabel"></input>
+	</div> 
+	<div class="form-row" id='SourceBuildInformationAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBuildInformation"><i class="fa fa-tag"></i> SourceBuildInformation</label>
+		<input type="text" id="node-input-SourceBuildInformation" placeholder="SourceBuildInformation"></input>
+	</div> 
+	<div class="form-row" id='SourceBundleAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBundle"><i class="fa fa-tag"></i> SourceBundle</label>
+		<input type="text" id="node-input-SourceBundle" placeholder="SourceBundle"></input>
+	</div> 
+	<div class="form-row" id='BuildConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-BuildConfiguration"><i class="fa fa-tag"></i> BuildConfiguration</label>
+		<input type="text" id="node-input-BuildConfiguration" placeholder="BuildConfiguration"></input>
+	</div> 
+	<div class="form-row" id='AutoCreateApplicationAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoCreateApplication"><i class="fa fa-tag"></i> AutoCreateApplication</label>
+		<input type="text" id="node-input-AutoCreateApplication" placeholder="AutoCreateApplication"></input>
+	</div> 
+	<div class="form-row" id='ProcessAttr' class='hiddenAttrs'>
+		<label for="node-input-Process"><i class="fa fa-tag"></i> Process</label>
+		<input type="text" id="node-input-Process" placeholder="Process"></input>
+	</div> 
+	<div class="form-row" id='TemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateName"><i class="fa fa-tag"></i> TemplateName</label>
+		<input type="text" id="node-input-TemplateName" placeholder="TemplateName"></input>
+	</div> 
+	<div class="form-row" id='SolutionStackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SolutionStackName"><i class="fa fa-tag"></i> SolutionStackName</label>
+		<input type="text" id="node-input-SolutionStackName" placeholder="SolutionStackName"></input>
+	</div> 
+	<div class="form-row" id='PlatformArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformArn"><i class="fa fa-tag"></i> PlatformArn</label>
+		<input type="text" id="node-input-PlatformArn" placeholder="PlatformArn"></input>
+	</div> 
+	<div class="form-row" id='SourceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceConfiguration"><i class="fa fa-tag"></i> SourceConfiguration</label>
+		<input type="text" id="node-input-SourceConfiguration" placeholder="SourceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='OptionSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-OptionSettings"><i class="fa fa-tag"></i> OptionSettings</label>
+		<input type="text" id="node-input-OptionSettings" placeholder="OptionSettings"></input>
+	</div> 
+	<div class="form-row" id='TierAttr' class='hiddenAttrs'>
+		<label for="node-input-Tier"><i class="fa fa-tag"></i> Tier</label>
+		<input type="text" id="node-input-Tier" placeholder="Tier"></input>
+	</div> 
+	<div class="form-row" id='OptionsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-OptionsToRemove"><i class="fa fa-tag"></i> OptionsToRemove</label>
+		<input type="text" id="node-input-OptionsToRemove" placeholder="OptionsToRemove"></input>
+	</div> 
+	<div class="form-row" id='PlatformNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformName"><i class="fa fa-tag"></i> PlatformName</label>
+		<input type="text" id="node-input-PlatformName" placeholder="PlatformName"></input>
+	</div> 
+	<div class="form-row" id='PlatformVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformVersion"><i class="fa fa-tag"></i> PlatformVersion</label>
+		<input type="text" id="node-input-PlatformVersion" placeholder="PlatformVersion"></input>
+	</div> 
+	<div class="form-row" id='PlatformDefinitionBundleAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformDefinitionBundle"><i class="fa fa-tag"></i> PlatformDefinitionBundle</label>
+		<input type="text" id="node-input-PlatformDefinitionBundle" placeholder="PlatformDefinitionBundle"></input>
+	</div> 
+	<div class="form-row" id='TerminateEnvByForceAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminateEnvByForce"><i class="fa fa-tag"></i> TerminateEnvByForce</label>
+		<input type="text" id="node-input-TerminateEnvByForce" placeholder="TerminateEnvByForce"></input>
+	</div> 
+	<div class="form-row" id='DeleteSourceBundleAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteSourceBundle"><i class="fa fa-tag"></i> DeleteSourceBundle</label>
+		<input type="text" id="node-input-DeleteSourceBundle" placeholder="DeleteSourceBundle"></input>
+	</div> 
+	<div class="form-row" id='MaxRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRecords"><i class="fa fa-tag"></i> MaxRecords</label>
+		<input type="text" id="node-input-MaxRecords" placeholder="MaxRecords"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ApplicationNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationNames"><i class="fa fa-tag"></i> ApplicationNames</label>
+		<input type="text" id="node-input-ApplicationNames" placeholder="ApplicationNames"></input>
+	</div> 
+	<div class="form-row" id='OptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Options"><i class="fa fa-tag"></i> Options</label>
+		<input type="text" id="node-input-Options" placeholder="Options"></input>
+	</div> 
+	<div class="form-row" id='AttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeNames"><i class="fa fa-tag"></i> AttributeNames</label>
+		<input type="text" id="node-input-AttributeNames" placeholder="AttributeNames"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentIds"><i class="fa fa-tag"></i> EnvironmentIds</label>
+		<input type="text" id="node-input-EnvironmentIds" placeholder="EnvironmentIds"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-EnvironmentNames"><i class="fa fa-tag"></i> EnvironmentNames</label>
+		<input type="text" id="node-input-EnvironmentNames" placeholder="EnvironmentNames"></input>
+	</div> 
+	<div class="form-row" id='IncludeDeletedAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeDeleted"><i class="fa fa-tag"></i> IncludeDeleted</label>
+		<input type="text" id="node-input-IncludeDeleted" placeholder="IncludeDeleted"></input>
+	</div> 
+	<div class="form-row" id='IncludedDeletedBackToAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludedDeletedBackTo"><i class="fa fa-tag"></i> IncludedDeletedBackTo</label>
+		<input type="text" id="node-input-IncludedDeletedBackTo" placeholder="IncludedDeletedBackTo"></input>
+	</div> 
+	<div class="form-row" id='RequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestId"><i class="fa fa-tag"></i> RequestId</label>
+		<input type="text" id="node-input-RequestId" placeholder="RequestId"></input>
+	</div> 
+	<div class="form-row" id='SeverityAttr' class='hiddenAttrs'>
+		<label for="node-input-Severity"><i class="fa fa-tag"></i> Severity</label>
+		<input type="text" id="node-input-Severity" placeholder="Severity"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='InfoTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InfoType"><i class="fa fa-tag"></i> InfoType</label>
+		<input type="text" id="node-input-InfoType" placeholder="InfoType"></input>
+	</div> 
+	<div class="form-row" id='SourceEnvironmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceEnvironmentId"><i class="fa fa-tag"></i> SourceEnvironmentId</label>
+		<input type="text" id="node-input-SourceEnvironmentId" placeholder="SourceEnvironmentId"></input>
+	</div> 
+	<div class="form-row" id='SourceEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceEnvironmentName"><i class="fa fa-tag"></i> SourceEnvironmentName</label>
+		<input type="text" id="node-input-SourceEnvironmentName" placeholder="SourceEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='DestinationEnvironmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationEnvironmentId"><i class="fa fa-tag"></i> DestinationEnvironmentId</label>
+		<input type="text" id="node-input-DestinationEnvironmentId" placeholder="DestinationEnvironmentId"></input>
+	</div> 
+	<div class="form-row" id='DestinationEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationEnvironmentName"><i class="fa fa-tag"></i> DestinationEnvironmentName</label>
+		<input type="text" id="node-input-DestinationEnvironmentName" placeholder="DestinationEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='TerminateResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminateResources"><i class="fa fa-tag"></i> TerminateResources</label>
+		<input type="text" id="node-input-TerminateResources" placeholder="TerminateResources"></input>
+	</div> 
+	<div class="form-row" id='ForceTerminateAttr' class='hiddenAttrs'>
+		<label for="node-input-ForceTerminate"><i class="fa fa-tag"></i> ForceTerminate</label>
+		<input type="text" id="node-input-ForceTerminate" placeholder="ForceTerminate"></input>
+	</div> 
+	<div class="form-row" id='TagsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsToAdd"><i class="fa fa-tag"></i> TagsToAdd</label>
+		<input type="text" id="node-input-TagsToAdd" placeholder="TagsToAdd"></input>
+	</div> 
+	<div class="form-row" id='TagsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsToRemove"><i class="fa fa-tag"></i> TagsToRemove</label>
+		<input type="text" id="node-input-TagsToRemove" placeholder="TagsToRemove"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AbortEnvironmentUpdate:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr'
+					],
+				ApplyEnvironmentManagedAction:[
+					'#EnvironmentNameAttr','#EnvironmentIdAttr','#ActionIdAttr'
+					],
+				AssociateEnvironmentOperationsRole:[
+					'#EnvironmentNameAttr','#OperationsRoleAttr'
+					],
+				CheckDNSAvailability:[
+					'#CNAMEPrefixAttr'
+					],
+				ComposeEnvironments:[
+					'#ApplicationNameAttr','#GroupNameAttr','#VersionLabelsAttr'
+					],
+				CreateApplication:[
+					'#ApplicationNameAttr','#DescriptionAttr','#ResourceLifecycleConfigAttr','#TagsAttr'
+					],
+				CreateApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr','#DescriptionAttr','#SourceBuildInformationAttr','#SourceBundleAttr','#BuildConfigurationAttr','#AutoCreateApplicationAttr','#ProcessAttr','#TagsAttr'
+					],
+				CreateConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr','#SolutionStackNameAttr','#PlatformArnAttr','#SourceConfigurationAttr','#EnvironmentIdAttr','#DescriptionAttr','#OptionSettingsAttr','#TagsAttr'
+					],
+				CreateEnvironment:[
+					'#ApplicationNameAttr','#EnvironmentNameAttr','#GroupNameAttr','#DescriptionAttr','#CNAMEPrefixAttr','#TierAttr','#TagsAttr','#VersionLabelAttr','#TemplateNameAttr','#SolutionStackNameAttr','#PlatformArnAttr','#OptionSettingsAttr','#OptionsToRemoveAttr','#OperationsRoleAttr'
+					],
+				CreatePlatformVersion:[
+					'#PlatformNameAttr','#PlatformVersionAttr','#PlatformDefinitionBundleAttr','#EnvironmentNameAttr','#OptionSettingsAttr','#TagsAttr'
+					],
+				CreateStorageLocation:[
+					
+					],
+				DeleteApplication:[
+					'#ApplicationNameAttr','#TerminateEnvByForceAttr'
+					],
+				DeleteApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr','#DeleteSourceBundleAttr'
+					],
+				DeleteConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr'
+					],
+				DeleteEnvironmentConfiguration:[
+					'#ApplicationNameAttr','#EnvironmentNameAttr'
+					],
+				DeletePlatformVersion:[
+					'#PlatformArnAttr'
+					],
+				DescribeAccountAttributes:[
+					
+					],
+				DescribeApplicationVersions:[
+					'#ApplicationNameAttr','#VersionLabelsAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				DescribeApplications:[
+					'#ApplicationNamesAttr'
+					],
+				DescribeConfigurationOptions:[
+					'#ApplicationNameAttr','#TemplateNameAttr','#EnvironmentNameAttr','#SolutionStackNameAttr','#PlatformArnAttr','#OptionsAttr'
+					],
+				DescribeConfigurationSettings:[
+					'#ApplicationNameAttr','#TemplateNameAttr','#EnvironmentNameAttr'
+					],
+				DescribeEnvironmentHealth:[
+					'#EnvironmentNameAttr','#EnvironmentIdAttr','#AttributeNamesAttr'
+					],
+				DescribeEnvironmentManagedActionHistory:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr','#NextTokenAttr','#MaxItemsAttr'
+					],
+				DescribeEnvironmentManagedActions:[
+					'#EnvironmentNameAttr','#EnvironmentIdAttr','#StatusAttr'
+					],
+				DescribeEnvironmentResources:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr'
+					],
+				DescribeEnvironments:[
+					'#ApplicationNameAttr','#VersionLabelAttr','#EnvironmentIdsAttr','#EnvironmentNamesAttr','#IncludeDeletedAttr','#IncludedDeletedBackToAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				DescribeEvents:[
+					'#ApplicationNameAttr','#VersionLabelAttr','#TemplateNameAttr','#EnvironmentIdAttr','#EnvironmentNameAttr','#PlatformArnAttr','#RequestIdAttr','#SeverityAttr','#StartTimeAttr','#EndTimeAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				DescribeInstancesHealth:[
+					'#EnvironmentNameAttr','#EnvironmentIdAttr','#AttributeNamesAttr','#NextTokenAttr'
+					],
+				DescribePlatformVersion:[
+					'#PlatformArnAttr'
+					],
+				DisassociateEnvironmentOperationsRole:[
+					'#EnvironmentNameAttr'
+					],
+				ListAvailableSolutionStacks:[
+					
+					],
+				ListPlatformBranches:[
+					'#FiltersAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				ListPlatformVersions:[
+					'#FiltersAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RebuildEnvironment:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr'
+					],
+				RequestEnvironmentInfo:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr','#InfoTypeAttr'
+					],
+				RestartAppServer:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr'
+					],
+				RetrieveEnvironmentInfo:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr','#InfoTypeAttr'
+					],
+				SwapEnvironmentCNAMEs:[
+					'#SourceEnvironmentIdAttr','#SourceEnvironmentNameAttr','#DestinationEnvironmentIdAttr','#DestinationEnvironmentNameAttr'
+					],
+				TerminateEnvironment:[
+					'#EnvironmentIdAttr','#EnvironmentNameAttr','#TerminateResourcesAttr','#ForceTerminateAttr'
+					],
+				UpdateApplication:[
+					'#ApplicationNameAttr','#DescriptionAttr'
+					],
+				UpdateApplicationResourceLifecycle:[
+					'#ApplicationNameAttr','#ResourceLifecycleConfigAttr'
+					],
+				UpdateApplicationVersion:[
+					'#ApplicationNameAttr','#VersionLabelAttr','#DescriptionAttr'
+					],
+				UpdateConfigurationTemplate:[
+					'#ApplicationNameAttr','#TemplateNameAttr','#DescriptionAttr','#OptionSettingsAttr','#OptionsToRemoveAttr'
+					],
+				UpdateEnvironment:[
+					'#ApplicationNameAttr','#EnvironmentIdAttr','#EnvironmentNameAttr','#GroupNameAttr','#DescriptionAttr','#TierAttr','#VersionLabelAttr','#TemplateNameAttr','#SolutionStackNameAttr','#PlatformArnAttr','#OptionSettingsAttr','#OptionsToRemoveAttr'
+					],
+				UpdateTagsForResource:[
+					'#ResourceArnAttr','#TagsToAddAttr','#TagsToRemoveAttr'
+					],
+				ValidateConfigurationSettings:[
+					'#ApplicationNameAttr','#TemplateNameAttr','#EnvironmentNameAttr','#OptionSettingsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ElasticBeanstalk">
+<p>
+AWS ElasticBeanstalk
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ElasticBeanstalk.html">ElasticBeanstalk</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ElasticBeanstalk',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AbortEnvironmentUpdate' },
+			
+				EnvironmentId: { value: ""} ,
+				EnvironmentName: { value: ""} ,
+				ActionId: { value: ""} ,
+				OperationsRole: { value: ""} ,
+				CNAMEPrefix: { value: ""} ,
+				ApplicationName: { value: ""} ,
+				GroupName: { value: ""} ,
+				VersionLabels: { value: ""} ,
+				Description: { value: ""} ,
+				ResourceLifecycleConfig: { value: ""} ,
+				Tags: { value: ""} ,
+				VersionLabel: { value: ""} ,
+				SourceBuildInformation: { value: ""} ,
+				SourceBundle: { value: ""} ,
+				BuildConfiguration: { value: ""} ,
+				AutoCreateApplication: { value: ""} ,
+				Process: { value: ""} ,
+				TemplateName: { value: ""} ,
+				SolutionStackName: { value: ""} ,
+				PlatformArn: { value: ""} ,
+				SourceConfiguration: { value: ""} ,
+				OptionSettings: { value: ""} ,
+				Tier: { value: ""} ,
+				OptionsToRemove: { value: ""} ,
+				PlatformName: { value: ""} ,
+				PlatformVersion: { value: ""} ,
+				PlatformDefinitionBundle: { value: ""} ,
+				TerminateEnvByForce: { value: ""} ,
+				DeleteSourceBundle: { value: ""} ,
+				MaxRecords: { value: ""} ,
+				NextToken: { value: ""} ,
+				ApplicationNames: { value: ""} ,
+				Options: { value: ""} ,
+				AttributeNames: { value: ""} ,
+				MaxItems: { value: ""} ,
+				Status: { value: ""} ,
+				EnvironmentIds: { value: ""} ,
+				EnvironmentNames: { value: ""} ,
+				IncludeDeleted: { value: ""} ,
+				IncludedDeletedBackTo: { value: ""} ,
+				RequestId: { value: ""} ,
+				Severity: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				Filters: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				InfoType: { value: ""} ,
+				SourceEnvironmentId: { value: ""} ,
+				SourceEnvironmentName: { value: ""} ,
+				DestinationEnvironmentId: { value: ""} ,
+				DestinationEnvironmentName: { value: ""} ,
+				TerminateResources: { value: ""} ,
+				ForceTerminate: { value: ""} ,
+				TagsToAdd: { value: ""} ,
+				TagsToRemove: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ElasticBeanstalk " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-EnvironmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperationsRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CNAMEPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplicationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionLabels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceLifecycleConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionLabel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceBuildInformation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceBundle").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AutoCreateApplication").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Process").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SolutionStackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-OptionSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OptionsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformDefinitionBundle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TerminateEnvByForce").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DeleteSourceBundle").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MaxRecords").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Options").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-IncludeDeleted").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-RequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Severity").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InfoType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceEnvironmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationEnvironmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TerminateResources").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ForceTerminate").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TagsToAdd").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

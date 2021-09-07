@@ -1,0 +1,402 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS EFS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAccessPoint">CreateAccessPoint</option>
+		
+			<option value="CreateFileSystem">CreateFileSystem</option>
+		
+			<option value="CreateMountTarget">CreateMountTarget</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="DeleteAccessPoint">DeleteAccessPoint</option>
+		
+			<option value="DeleteFileSystem">DeleteFileSystem</option>
+		
+			<option value="DeleteFileSystemPolicy">DeleteFileSystemPolicy</option>
+		
+			<option value="DeleteMountTarget">DeleteMountTarget</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DescribeAccessPoints">DescribeAccessPoints</option>
+		
+			<option value="DescribeAccountPreferences">DescribeAccountPreferences</option>
+		
+			<option value="DescribeBackupPolicy">DescribeBackupPolicy</option>
+		
+			<option value="DescribeFileSystemPolicy">DescribeFileSystemPolicy</option>
+		
+			<option value="DescribeFileSystems">DescribeFileSystems</option>
+		
+			<option value="DescribeLifecycleConfiguration">DescribeLifecycleConfiguration</option>
+		
+			<option value="DescribeMountTargetSecurityGroups">DescribeMountTargetSecurityGroups</option>
+		
+			<option value="DescribeMountTargets">DescribeMountTargets</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyMountTargetSecurityGroups">ModifyMountTargetSecurityGroups</option>
+		
+			<option value="PutAccountPreferences">PutAccountPreferences</option>
+		
+			<option value="PutBackupPolicy">PutBackupPolicy</option>
+		
+			<option value="PutFileSystemPolicy">PutFileSystemPolicy</option>
+		
+			<option value="PutLifecycleConfiguration">PutLifecycleConfiguration</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFileSystem">UpdateFileSystem</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='FileSystemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemId"><i class="fa fa-tag"></i> FileSystemId</label>
+		<input type="text" id="node-input-FileSystemId" placeholder="FileSystemId"></input>
+	</div> 
+	<div class="form-row" id='PosixUserAttr' class='hiddenAttrs'>
+		<label for="node-input-PosixUser"><i class="fa fa-tag"></i> PosixUser</label>
+		<input type="text" id="node-input-PosixUser" placeholder="PosixUser"></input>
+	</div> 
+	<div class="form-row" id='RootDirectoryAttr' class='hiddenAttrs'>
+		<label for="node-input-RootDirectory"><i class="fa fa-tag"></i> RootDirectory</label>
+		<input type="text" id="node-input-RootDirectory" placeholder="RootDirectory"></input>
+	</div> 
+	<div class="form-row" id='CreationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-CreationToken"><i class="fa fa-tag"></i> CreationToken</label>
+		<input type="text" id="node-input-CreationToken" placeholder="CreationToken"></input>
+	</div> 
+	<div class="form-row" id='PerformanceModeAttr' class='hiddenAttrs'>
+		<label for="node-input-PerformanceMode"><i class="fa fa-tag"></i> PerformanceMode</label>
+		<input type="text" id="node-input-PerformanceMode" placeholder="PerformanceMode"></input>
+	</div> 
+	<div class="form-row" id='EncryptedAttr' class='hiddenAttrs'>
+		<label for="node-input-Encrypted"><i class="fa fa-tag"></i> Encrypted</label>
+		<input type="text" id="node-input-Encrypted" placeholder="Encrypted"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='ThroughputModeAttr' class='hiddenAttrs'>
+		<label for="node-input-ThroughputMode"><i class="fa fa-tag"></i> ThroughputMode</label>
+		<input type="text" id="node-input-ThroughputMode" placeholder="ThroughputMode"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedThroughputInMibpsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedThroughputInMibps"><i class="fa fa-tag"></i> ProvisionedThroughputInMibps</label>
+		<input type="text" id="node-input-ProvisionedThroughputInMibps" placeholder="ProvisionedThroughputInMibps"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZoneName"><i class="fa fa-tag"></i> AvailabilityZoneName</label>
+		<input type="text" id="node-input-AvailabilityZoneName" placeholder="AvailabilityZoneName"></input>
+	</div> 
+	<div class="form-row" id='BackupAttr' class='hiddenAttrs'>
+		<label for="node-input-Backup"><i class="fa fa-tag"></i> Backup</label>
+		<input type="text" id="node-input-Backup" placeholder="Backup"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i> SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='IpAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-IpAddress"><i class="fa fa-tag"></i> IpAddress</label>
+		<input type="text" id="node-input-IpAddress" placeholder="IpAddress"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroups"><i class="fa fa-tag"></i> SecurityGroups</label>
+		<input type="text" id="node-input-SecurityGroups" placeholder="SecurityGroups"></input>
+	</div> 
+	<div class="form-row" id='AccessPointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessPointId"><i class="fa fa-tag"></i> AccessPointId</label>
+		<input type="text" id="node-input-AccessPointId" placeholder="AccessPointId"></input>
+	</div> 
+	<div class="form-row" id='MountTargetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MountTargetId"><i class="fa fa-tag"></i> MountTargetId</label>
+		<input type="text" id="node-input-MountTargetId" placeholder="MountTargetId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdType"><i class="fa fa-tag"></i> ResourceIdType</label>
+		<input type="text" id="node-input-ResourceIdType" placeholder="ResourceIdType"></input>
+	</div> 
+	<div class="form-row" id='BackupPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupPolicy"><i class="fa fa-tag"></i> BackupPolicy</label>
+		<input type="text" id="node-input-BackupPolicy" placeholder="BackupPolicy"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='BypassPolicyLockoutSafetyCheckAttr' class='hiddenAttrs'>
+		<label for="node-input-BypassPolicyLockoutSafetyCheck"><i class="fa fa-tag"></i> BypassPolicyLockoutSafetyCheck</label>
+		<input type="text" id="node-input-BypassPolicyLockoutSafetyCheck" placeholder="BypassPolicyLockoutSafetyCheck"></input>
+	</div> 
+	<div class="form-row" id='LifecyclePoliciesAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecyclePolicies"><i class="fa fa-tag"></i> LifecyclePolicies</label>
+		<input type="text" id="node-input-LifecyclePolicies" placeholder="LifecyclePolicies"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAccessPoint:[
+					'#ClientTokenAttr','#TagsAttr','#FileSystemIdAttr','#PosixUserAttr','#RootDirectoryAttr'
+					],
+				CreateFileSystem:[
+					'#CreationTokenAttr','#PerformanceModeAttr','#EncryptedAttr','#KmsKeyIdAttr','#ThroughputModeAttr','#ProvisionedThroughputInMibpsAttr','#AvailabilityZoneNameAttr','#BackupAttr','#TagsAttr'
+					],
+				CreateMountTarget:[
+					'#FileSystemIdAttr','#SubnetIdAttr','#IpAddressAttr','#SecurityGroupsAttr'
+					],
+				CreateTags:[
+					'#FileSystemIdAttr','#TagsAttr'
+					],
+				DeleteAccessPoint:[
+					'#AccessPointIdAttr'
+					],
+				DeleteFileSystem:[
+					'#FileSystemIdAttr'
+					],
+				DeleteFileSystemPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DeleteMountTarget:[
+					'#MountTargetIdAttr'
+					],
+				DeleteTags:[
+					'#FileSystemIdAttr','#TagKeysAttr'
+					],
+				DescribeAccessPoints:[
+					'#MaxResultsAttr','#NextTokenAttr','#AccessPointIdAttr','#FileSystemIdAttr'
+					],
+				DescribeAccountPreferences:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeBackupPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DescribeFileSystemPolicy:[
+					'#FileSystemIdAttr'
+					],
+				DescribeFileSystems:[
+					'#MaxItemsAttr','#MarkerAttr','#CreationTokenAttr','#FileSystemIdAttr'
+					],
+				DescribeLifecycleConfiguration:[
+					'#FileSystemIdAttr'
+					],
+				DescribeMountTargetSecurityGroups:[
+					'#MountTargetIdAttr'
+					],
+				DescribeMountTargets:[
+					'#MaxItemsAttr','#MarkerAttr','#FileSystemIdAttr','#MountTargetIdAttr','#AccessPointIdAttr'
+					],
+				DescribeTags:[
+					'#MaxItemsAttr','#MarkerAttr','#FileSystemIdAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ModifyMountTargetSecurityGroups:[
+					'#MountTargetIdAttr','#SecurityGroupsAttr'
+					],
+				PutAccountPreferences:[
+					'#ResourceIdTypeAttr'
+					],
+				PutBackupPolicy:[
+					'#FileSystemIdAttr','#BackupPolicyAttr'
+					],
+				PutFileSystemPolicy:[
+					'#FileSystemIdAttr','#PolicyAttr','#BypassPolicyLockoutSafetyCheckAttr'
+					],
+				PutLifecycleConfiguration:[
+					'#FileSystemIdAttr','#LifecyclePoliciesAttr'
+					],
+				TagResource:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				UpdateFileSystem:[
+					'#FileSystemIdAttr','#ThroughputModeAttr','#ProvisionedThroughputInMibpsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS EFS">
+<p>
+AWS EFS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EFS.html">EFS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS EFS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAccessPoint' },
+			
+				ClientToken: { value: ""} ,
+				Tags: { value: ""} ,
+				FileSystemId: { value: ""} ,
+				PosixUser: { value: ""} ,
+				RootDirectory: { value: ""} ,
+				CreationToken: { value: ""} ,
+				PerformanceMode: { value: ""} ,
+				Encrypted: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				ThroughputMode: { value: ""} ,
+				ProvisionedThroughputInMibps: { value: ""} ,
+				AvailabilityZoneName: { value: ""} ,
+				Backup: { value: ""} ,
+				SubnetId: { value: ""} ,
+				IpAddress: { value: ""} ,
+				SecurityGroups: { value: ""} ,
+				AccessPointId: { value: ""} ,
+				MountTargetId: { value: ""} ,
+				TagKeys: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxItems: { value: ""} ,
+				Marker: { value: ""} ,
+				ResourceId: { value: ""} ,
+				ResourceIdType: { value: ""} ,
+				BackupPolicy: { value: ""} ,
+				Policy: { value: ""} ,
+				BypassPolicyLockoutSafetyCheck: { value: ""} ,
+				LifecyclePolicies: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "EFS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileSystemId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PosixUser").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RootDirectory").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CreationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PerformanceMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Encrypted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThroughputMode").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AvailabilityZoneName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Backup").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IpAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessPointId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MountTargetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceIdType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BypassPolicyLockoutSafetyCheck").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-LifecyclePolicies").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

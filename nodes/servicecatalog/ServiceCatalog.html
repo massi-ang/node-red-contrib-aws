@@ -1,0 +1,1014 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ServiceCatalog">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptPortfolioShare">AcceptPortfolioShare</option>
+		
+			<option value="AssociateBudgetWithResource">AssociateBudgetWithResource</option>
+		
+			<option value="AssociatePrincipalWithPortfolio">AssociatePrincipalWithPortfolio</option>
+		
+			<option value="AssociateProductWithPortfolio">AssociateProductWithPortfolio</option>
+		
+			<option value="AssociateServiceActionWithProvisioningArtifact">AssociateServiceActionWithProvisioningArtifact</option>
+		
+			<option value="AssociateTagOptionWithResource">AssociateTagOptionWithResource</option>
+		
+			<option value="BatchAssociateServiceActionWithProvisioningArtifact">BatchAssociateServiceActionWithProvisioningArtifact</option>
+		
+			<option value="BatchDisassociateServiceActionFromProvisioningArtifact">BatchDisassociateServiceActionFromProvisioningArtifact</option>
+		
+			<option value="CopyProduct">CopyProduct</option>
+		
+			<option value="CreateConstraint">CreateConstraint</option>
+		
+			<option value="CreatePortfolio">CreatePortfolio</option>
+		
+			<option value="CreatePortfolioShare">CreatePortfolioShare</option>
+		
+			<option value="CreateProduct">CreateProduct</option>
+		
+			<option value="CreateProvisionedProductPlan">CreateProvisionedProductPlan</option>
+		
+			<option value="CreateProvisioningArtifact">CreateProvisioningArtifact</option>
+		
+			<option value="CreateServiceAction">CreateServiceAction</option>
+		
+			<option value="CreateTagOption">CreateTagOption</option>
+		
+			<option value="DeleteConstraint">DeleteConstraint</option>
+		
+			<option value="DeletePortfolio">DeletePortfolio</option>
+		
+			<option value="DeletePortfolioShare">DeletePortfolioShare</option>
+		
+			<option value="DeleteProduct">DeleteProduct</option>
+		
+			<option value="DeleteProvisionedProductPlan">DeleteProvisionedProductPlan</option>
+		
+			<option value="DeleteProvisioningArtifact">DeleteProvisioningArtifact</option>
+		
+			<option value="DeleteServiceAction">DeleteServiceAction</option>
+		
+			<option value="DeleteTagOption">DeleteTagOption</option>
+		
+			<option value="DescribeConstraint">DescribeConstraint</option>
+		
+			<option value="DescribeCopyProductStatus">DescribeCopyProductStatus</option>
+		
+			<option value="DescribePortfolio">DescribePortfolio</option>
+		
+			<option value="DescribePortfolioShareStatus">DescribePortfolioShareStatus</option>
+		
+			<option value="DescribePortfolioShares">DescribePortfolioShares</option>
+		
+			<option value="DescribeProduct">DescribeProduct</option>
+		
+			<option value="DescribeProductAsAdmin">DescribeProductAsAdmin</option>
+		
+			<option value="DescribeProductView">DescribeProductView</option>
+		
+			<option value="DescribeProvisionedProduct">DescribeProvisionedProduct</option>
+		
+			<option value="DescribeProvisionedProductPlan">DescribeProvisionedProductPlan</option>
+		
+			<option value="DescribeProvisioningArtifact">DescribeProvisioningArtifact</option>
+		
+			<option value="DescribeProvisioningParameters">DescribeProvisioningParameters</option>
+		
+			<option value="DescribeRecord">DescribeRecord</option>
+		
+			<option value="DescribeServiceAction">DescribeServiceAction</option>
+		
+			<option value="DescribeServiceActionExecutionParameters">DescribeServiceActionExecutionParameters</option>
+		
+			<option value="DescribeTagOption">DescribeTagOption</option>
+		
+			<option value="DisableAWSOrganizationsAccess">DisableAWSOrganizationsAccess</option>
+		
+			<option value="DisassociateBudgetFromResource">DisassociateBudgetFromResource</option>
+		
+			<option value="DisassociatePrincipalFromPortfolio">DisassociatePrincipalFromPortfolio</option>
+		
+			<option value="DisassociateProductFromPortfolio">DisassociateProductFromPortfolio</option>
+		
+			<option value="DisassociateServiceActionFromProvisioningArtifact">DisassociateServiceActionFromProvisioningArtifact</option>
+		
+			<option value="DisassociateTagOptionFromResource">DisassociateTagOptionFromResource</option>
+		
+			<option value="EnableAWSOrganizationsAccess">EnableAWSOrganizationsAccess</option>
+		
+			<option value="ExecuteProvisionedProductPlan">ExecuteProvisionedProductPlan</option>
+		
+			<option value="ExecuteProvisionedProductServiceAction">ExecuteProvisionedProductServiceAction</option>
+		
+			<option value="GetAWSOrganizationsAccessStatus">GetAWSOrganizationsAccessStatus</option>
+		
+			<option value="GetProvisionedProductOutputs">GetProvisionedProductOutputs</option>
+		
+			<option value="ImportAsProvisionedProduct">ImportAsProvisionedProduct</option>
+		
+			<option value="ListAcceptedPortfolioShares">ListAcceptedPortfolioShares</option>
+		
+			<option value="ListBudgetsForResource">ListBudgetsForResource</option>
+		
+			<option value="ListConstraintsForPortfolio">ListConstraintsForPortfolio</option>
+		
+			<option value="ListLaunchPaths">ListLaunchPaths</option>
+		
+			<option value="ListOrganizationPortfolioAccess">ListOrganizationPortfolioAccess</option>
+		
+			<option value="ListPortfolioAccess">ListPortfolioAccess</option>
+		
+			<option value="ListPortfolios">ListPortfolios</option>
+		
+			<option value="ListPortfoliosForProduct">ListPortfoliosForProduct</option>
+		
+			<option value="ListPrincipalsForPortfolio">ListPrincipalsForPortfolio</option>
+		
+			<option value="ListProvisionedProductPlans">ListProvisionedProductPlans</option>
+		
+			<option value="ListProvisioningArtifacts">ListProvisioningArtifacts</option>
+		
+			<option value="ListProvisioningArtifactsForServiceAction">ListProvisioningArtifactsForServiceAction</option>
+		
+			<option value="ListRecordHistory">ListRecordHistory</option>
+		
+			<option value="ListResourcesForTagOption">ListResourcesForTagOption</option>
+		
+			<option value="ListServiceActions">ListServiceActions</option>
+		
+			<option value="ListServiceActionsForProvisioningArtifact">ListServiceActionsForProvisioningArtifact</option>
+		
+			<option value="ListStackInstancesForProvisionedProduct">ListStackInstancesForProvisionedProduct</option>
+		
+			<option value="ListTagOptions">ListTagOptions</option>
+		
+			<option value="ProvisionProduct">ProvisionProduct</option>
+		
+			<option value="RejectPortfolioShare">RejectPortfolioShare</option>
+		
+			<option value="ScanProvisionedProducts">ScanProvisionedProducts</option>
+		
+			<option value="SearchProducts">SearchProducts</option>
+		
+			<option value="SearchProductsAsAdmin">SearchProductsAsAdmin</option>
+		
+			<option value="SearchProvisionedProducts">SearchProvisionedProducts</option>
+		
+			<option value="TerminateProvisionedProduct">TerminateProvisionedProduct</option>
+		
+			<option value="UpdateConstraint">UpdateConstraint</option>
+		
+			<option value="UpdatePortfolio">UpdatePortfolio</option>
+		
+			<option value="UpdatePortfolioShare">UpdatePortfolioShare</option>
+		
+			<option value="UpdateProduct">UpdateProduct</option>
+		
+			<option value="UpdateProvisionedProduct">UpdateProvisionedProduct</option>
+		
+			<option value="UpdateProvisionedProductProperties">UpdateProvisionedProductProperties</option>
+		
+			<option value="UpdateProvisioningArtifact">UpdateProvisioningArtifact</option>
+		
+			<option value="UpdateServiceAction">UpdateServiceAction</option>
+		
+			<option value="UpdateTagOption">UpdateTagOption</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AcceptLanguageAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptLanguage"><i class="fa fa-tag"></i> AcceptLanguage</label>
+		<input type="text" id="node-input-AcceptLanguage" placeholder="AcceptLanguage"></input>
+	</div> 
+	<div class="form-row" id='PortfolioIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PortfolioId"><i class="fa fa-tag"></i> PortfolioId</label>
+		<input type="text" id="node-input-PortfolioId" placeholder="PortfolioId"></input>
+	</div> 
+	<div class="form-row" id='PortfolioShareTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PortfolioShareType"><i class="fa fa-tag"></i> PortfolioShareType</label>
+		<input type="text" id="node-input-PortfolioShareType" placeholder="PortfolioShareType"></input>
+	</div> 
+	<div class="form-row" id='BudgetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BudgetName"><i class="fa fa-tag"></i> BudgetName</label>
+		<input type="text" id="node-input-BudgetName" placeholder="BudgetName"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='PrincipalARNAttr' class='hiddenAttrs'>
+		<label for="node-input-PrincipalARN"><i class="fa fa-tag"></i> PrincipalARN</label>
+		<input type="text" id="node-input-PrincipalARN" placeholder="PrincipalARN"></input>
+	</div> 
+	<div class="form-row" id='PrincipalTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PrincipalType"><i class="fa fa-tag"></i> PrincipalType</label>
+		<input type="text" id="node-input-PrincipalType" placeholder="PrincipalType"></input>
+	</div> 
+	<div class="form-row" id='ProductIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductId"><i class="fa fa-tag"></i> ProductId</label>
+		<input type="text" id="node-input-ProductId" placeholder="ProductId"></input>
+	</div> 
+	<div class="form-row" id='SourcePortfolioIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourcePortfolioId"><i class="fa fa-tag"></i> SourcePortfolioId</label>
+		<input type="text" id="node-input-SourcePortfolioId" placeholder="SourcePortfolioId"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningArtifactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningArtifactId"><i class="fa fa-tag"></i> ProvisioningArtifactId</label>
+		<input type="text" id="node-input-ProvisioningArtifactId" placeholder="ProvisioningArtifactId"></input>
+	</div> 
+	<div class="form-row" id='ServiceActionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceActionId"><i class="fa fa-tag"></i> ServiceActionId</label>
+		<input type="text" id="node-input-ServiceActionId" placeholder="ServiceActionId"></input>
+	</div> 
+	<div class="form-row" id='TagOptionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TagOptionId"><i class="fa fa-tag"></i> TagOptionId</label>
+		<input type="text" id="node-input-TagOptionId" placeholder="TagOptionId"></input>
+	</div> 
+	<div class="form-row" id='ServiceActionAssociationsAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceActionAssociations"><i class="fa fa-tag"></i> ServiceActionAssociations</label>
+		<input type="text" id="node-input-ServiceActionAssociations" placeholder="ServiceActionAssociations"></input>
+	</div> 
+	<div class="form-row" id='SourceProductArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceProductArn"><i class="fa fa-tag"></i> SourceProductArn</label>
+		<input type="text" id="node-input-SourceProductArn" placeholder="SourceProductArn"></input>
+	</div> 
+	<div class="form-row" id='TargetProductIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetProductId"><i class="fa fa-tag"></i> TargetProductId</label>
+		<input type="text" id="node-input-TargetProductId" placeholder="TargetProductId"></input>
+	</div> 
+	<div class="form-row" id='TargetProductNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetProductName"><i class="fa fa-tag"></i> TargetProductName</label>
+		<input type="text" id="node-input-TargetProductName" placeholder="TargetProductName"></input>
+	</div> 
+	<div class="form-row" id='SourceProvisioningArtifactIdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceProvisioningArtifactIdentifiers"><i class="fa fa-tag"></i> SourceProvisioningArtifactIdentifiers</label>
+		<input type="text" id="node-input-SourceProvisioningArtifactIdentifiers" placeholder="SourceProvisioningArtifactIdentifiers"></input>
+	</div> 
+	<div class="form-row" id='CopyOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-CopyOptions"><i class="fa fa-tag"></i> CopyOptions</label>
+		<input type="text" id="node-input-CopyOptions" placeholder="CopyOptions"></input>
+	</div> 
+	<div class="form-row" id='IdempotencyTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-IdempotencyToken"><i class="fa fa-tag"></i> IdempotencyToken</label>
+		<input type="text" id="node-input-IdempotencyToken" placeholder="IdempotencyToken"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='ProviderNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProviderName"><i class="fa fa-tag"></i> ProviderName</label>
+		<input type="text" id="node-input-ProviderName" placeholder="ProviderName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='OrganizationNodeAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationNode"><i class="fa fa-tag"></i> OrganizationNode</label>
+		<input type="text" id="node-input-OrganizationNode" placeholder="OrganizationNode"></input>
+	</div> 
+	<div class="form-row" id='ShareTagOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareTagOptions"><i class="fa fa-tag"></i> ShareTagOptions</label>
+		<input type="text" id="node-input-ShareTagOptions" placeholder="ShareTagOptions"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='OwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-Owner"><i class="fa fa-tag"></i> Owner</label>
+		<input type="text" id="node-input-Owner" placeholder="Owner"></input>
+	</div> 
+	<div class="form-row" id='DistributorAttr' class='hiddenAttrs'>
+		<label for="node-input-Distributor"><i class="fa fa-tag"></i> Distributor</label>
+		<input type="text" id="node-input-Distributor" placeholder="Distributor"></input>
+	</div> 
+	<div class="form-row" id='SupportDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-SupportDescription"><i class="fa fa-tag"></i> SupportDescription</label>
+		<input type="text" id="node-input-SupportDescription" placeholder="SupportDescription"></input>
+	</div> 
+	<div class="form-row" id='SupportEmailAttr' class='hiddenAttrs'>
+		<label for="node-input-SupportEmail"><i class="fa fa-tag"></i> SupportEmail</label>
+		<input type="text" id="node-input-SupportEmail" placeholder="SupportEmail"></input>
+	</div> 
+	<div class="form-row" id='SupportUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-SupportUrl"><i class="fa fa-tag"></i> SupportUrl</label>
+		<input type="text" id="node-input-SupportUrl" placeholder="SupportUrl"></input>
+	</div> 
+	<div class="form-row" id='ProductTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductType"><i class="fa fa-tag"></i> ProductType</label>
+		<input type="text" id="node-input-ProductType" placeholder="ProductType"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningArtifactParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningArtifactParameters"><i class="fa fa-tag"></i> ProvisioningArtifactParameters</label>
+		<input type="text" id="node-input-ProvisioningArtifactParameters" placeholder="ProvisioningArtifactParameters"></input>
+	</div> 
+	<div class="form-row" id='PlanNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PlanName"><i class="fa fa-tag"></i> PlanName</label>
+		<input type="text" id="node-input-PlanName" placeholder="PlanName"></input>
+	</div> 
+	<div class="form-row" id='PlanTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PlanType"><i class="fa fa-tag"></i> PlanType</label>
+		<input type="text" id="node-input-PlanType" placeholder="PlanType"></input>
+	</div> 
+	<div class="form-row" id='NotificationArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationArns"><i class="fa fa-tag"></i> NotificationArns</label>
+		<input type="text" id="node-input-NotificationArns" placeholder="NotificationArns"></input>
+	</div> 
+	<div class="form-row" id='PathIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PathId"><i class="fa fa-tag"></i> PathId</label>
+		<input type="text" id="node-input-PathId" placeholder="PathId"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedProductNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedProductName"><i class="fa fa-tag"></i> ProvisionedProductName</label>
+		<input type="text" id="node-input-ProvisionedProductName" placeholder="ProvisionedProductName"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningParameters"><i class="fa fa-tag"></i> ProvisioningParameters</label>
+		<input type="text" id="node-input-ProvisioningParameters" placeholder="ProvisioningParameters"></input>
+	</div> 
+	<div class="form-row" id='DefinitionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DefinitionType"><i class="fa fa-tag"></i> DefinitionType</label>
+		<input type="text" id="node-input-DefinitionType" placeholder="DefinitionType"></input>
+	</div> 
+	<div class="form-row" id='DefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-Definition"><i class="fa fa-tag"></i> Definition</label>
+		<input type="text" id="node-input-Definition" placeholder="Definition"></input>
+	</div> 
+	<div class="form-row" id='KeyAttr' class='hiddenAttrs'>
+		<label for="node-input-Key"><i class="fa fa-tag"></i> Key</label>
+		<input type="text" id="node-input-Key" placeholder="Key"></input>
+	</div> 
+	<div class="form-row" id='ValueAttr' class='hiddenAttrs'>
+		<label for="node-input-Value"><i class="fa fa-tag"></i> Value</label>
+		<input type="text" id="node-input-Value" placeholder="Value"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='PlanIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlanId"><i class="fa fa-tag"></i> PlanId</label>
+		<input type="text" id="node-input-PlanId" placeholder="PlanId"></input>
+	</div> 
+	<div class="form-row" id='IgnoreErrorsAttr' class='hiddenAttrs'>
+		<label for="node-input-IgnoreErrors"><i class="fa fa-tag"></i> IgnoreErrors</label>
+		<input type="text" id="node-input-IgnoreErrors" placeholder="IgnoreErrors"></input>
+	</div> 
+	<div class="form-row" id='CopyProductTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-CopyProductToken"><i class="fa fa-tag"></i> CopyProductToken</label>
+		<input type="text" id="node-input-CopyProductToken" placeholder="CopyProductToken"></input>
+	</div> 
+	<div class="form-row" id='PortfolioShareTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-PortfolioShareToken"><i class="fa fa-tag"></i> PortfolioShareToken</label>
+		<input type="text" id="node-input-PortfolioShareToken" placeholder="PortfolioShareToken"></input>
+	</div> 
+	<div class="form-row" id='PageTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-PageToken"><i class="fa fa-tag"></i> PageToken</label>
+		<input type="text" id="node-input-PageToken" placeholder="PageToken"></input>
+	</div> 
+	<div class="form-row" id='PageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-PageSize"><i class="fa fa-tag"></i> PageSize</label>
+		<input type="text" id="node-input-PageSize" placeholder="PageSize"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningArtifactNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningArtifactName"><i class="fa fa-tag"></i> ProvisioningArtifactName</label>
+		<input type="text" id="node-input-ProvisioningArtifactName" placeholder="ProvisioningArtifactName"></input>
+	</div> 
+	<div class="form-row" id='ProductNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductName"><i class="fa fa-tag"></i> ProductName</label>
+		<input type="text" id="node-input-ProductName" placeholder="ProductName"></input>
+	</div> 
+	<div class="form-row" id='VerboseAttr' class='hiddenAttrs'>
+		<label for="node-input-Verbose"><i class="fa fa-tag"></i> Verbose</label>
+		<input type="text" id="node-input-Verbose" placeholder="Verbose"></input>
+	</div> 
+	<div class="form-row" id='PathNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PathName"><i class="fa fa-tag"></i> PathName</label>
+		<input type="text" id="node-input-PathName" placeholder="PathName"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedProductIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedProductId"><i class="fa fa-tag"></i> ProvisionedProductId</label>
+		<input type="text" id="node-input-ProvisionedProductId" placeholder="ProvisionedProductId"></input>
+	</div> 
+	<div class="form-row" id='ExecuteTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecuteToken"><i class="fa fa-tag"></i> ExecuteToken</label>
+		<input type="text" id="node-input-ExecuteToken" placeholder="ExecuteToken"></input>
+	</div> 
+	<div class="form-row" id='OutputKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputKeys"><i class="fa fa-tag"></i> OutputKeys</label>
+		<input type="text" id="node-input-OutputKeys" placeholder="OutputKeys"></input>
+	</div> 
+	<div class="form-row" id='PhysicalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PhysicalId"><i class="fa fa-tag"></i> PhysicalId</label>
+		<input type="text" id="node-input-PhysicalId" placeholder="PhysicalId"></input>
+	</div> 
+	<div class="form-row" id='OrganizationNodeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationNodeType"><i class="fa fa-tag"></i> OrganizationNodeType</label>
+		<input type="text" id="node-input-OrganizationNodeType" placeholder="OrganizationNodeType"></input>
+	</div> 
+	<div class="form-row" id='OrganizationParentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationParentId"><i class="fa fa-tag"></i> OrganizationParentId</label>
+		<input type="text" id="node-input-OrganizationParentId" placeholder="OrganizationParentId"></input>
+	</div> 
+	<div class="form-row" id='ProvisionProductIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionProductId"><i class="fa fa-tag"></i> ProvisionProductId</label>
+		<input type="text" id="node-input-ProvisionProductId" placeholder="ProvisionProductId"></input>
+	</div> 
+	<div class="form-row" id='AccessLevelFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessLevelFilter"><i class="fa fa-tag"></i> AccessLevelFilter</label>
+		<input type="text" id="node-input-AccessLevelFilter" placeholder="AccessLevelFilter"></input>
+	</div> 
+	<div class="form-row" id='SearchFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchFilter"><i class="fa fa-tag"></i> SearchFilter</label>
+		<input type="text" id="node-input-SearchFilter" placeholder="SearchFilter"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningPreferencesAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningPreferences"><i class="fa fa-tag"></i> ProvisioningPreferences</label>
+		<input type="text" id="node-input-ProvisioningPreferences" placeholder="ProvisioningPreferences"></input>
+	</div> 
+	<div class="form-row" id='ProvisionTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionToken"><i class="fa fa-tag"></i> ProvisionToken</label>
+		<input type="text" id="node-input-ProvisionToken" placeholder="ProvisionToken"></input>
+	</div> 
+	<div class="form-row" id='SortByAttr' class='hiddenAttrs'>
+		<label for="node-input-SortBy"><i class="fa fa-tag"></i> SortBy</label>
+		<input type="text" id="node-input-SortBy" placeholder="SortBy"></input>
+	</div> 
+	<div class="form-row" id='SortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-SortOrder"><i class="fa fa-tag"></i> SortOrder</label>
+		<input type="text" id="node-input-SortOrder" placeholder="SortOrder"></input>
+	</div> 
+	<div class="form-row" id='ProductSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductSource"><i class="fa fa-tag"></i> ProductSource</label>
+		<input type="text" id="node-input-ProductSource" placeholder="ProductSource"></input>
+	</div> 
+	<div class="form-row" id='TerminateTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-TerminateToken"><i class="fa fa-tag"></i> TerminateToken</label>
+		<input type="text" id="node-input-TerminateToken" placeholder="TerminateToken"></input>
+	</div> 
+	<div class="form-row" id='RetainPhysicalResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainPhysicalResources"><i class="fa fa-tag"></i> RetainPhysicalResources</label>
+		<input type="text" id="node-input-RetainPhysicalResources" placeholder="RetainPhysicalResources"></input>
+	</div> 
+	<div class="form-row" id='AddTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-AddTags"><i class="fa fa-tag"></i> AddTags</label>
+		<input type="text" id="node-input-AddTags" placeholder="AddTags"></input>
+	</div> 
+	<div class="form-row" id='RemoveTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoveTags"><i class="fa fa-tag"></i> RemoveTags</label>
+		<input type="text" id="node-input-RemoveTags" placeholder="RemoveTags"></input>
+	</div> 
+	<div class="form-row" id='UpdateTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateToken"><i class="fa fa-tag"></i> UpdateToken</label>
+		<input type="text" id="node-input-UpdateToken" placeholder="UpdateToken"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedProductPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedProductProperties"><i class="fa fa-tag"></i> ProvisionedProductProperties</label>
+		<input type="text" id="node-input-ProvisionedProductProperties" placeholder="ProvisionedProductProperties"></input>
+	</div> 
+	<div class="form-row" id='ActiveAttr' class='hiddenAttrs'>
+		<label for="node-input-Active"><i class="fa fa-tag"></i> Active</label>
+		<input type="text" id="node-input-Active" placeholder="Active"></input>
+	</div> 
+	<div class="form-row" id='GuidanceAttr' class='hiddenAttrs'>
+		<label for="node-input-Guidance"><i class="fa fa-tag"></i> Guidance</label>
+		<input type="text" id="node-input-Guidance" placeholder="Guidance"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptPortfolioShare:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#PortfolioShareTypeAttr'
+					],
+				AssociateBudgetWithResource:[
+					'#BudgetNameAttr','#ResourceIdAttr'
+					],
+				AssociatePrincipalWithPortfolio:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#PrincipalARNAttr','#PrincipalTypeAttr'
+					],
+				AssociateProductWithPortfolio:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#PortfolioIdAttr','#SourcePortfolioIdAttr'
+					],
+				AssociateServiceActionWithProvisioningArtifact:[
+					'#ProductIdAttr','#ProvisioningArtifactIdAttr','#ServiceActionIdAttr','#AcceptLanguageAttr'
+					],
+				AssociateTagOptionWithResource:[
+					'#ResourceIdAttr','#TagOptionIdAttr'
+					],
+				BatchAssociateServiceActionWithProvisioningArtifact:[
+					'#ServiceActionAssociationsAttr','#AcceptLanguageAttr'
+					],
+				BatchDisassociateServiceActionFromProvisioningArtifact:[
+					'#ServiceActionAssociationsAttr','#AcceptLanguageAttr'
+					],
+				CopyProduct:[
+					'#AcceptLanguageAttr','#SourceProductArnAttr','#TargetProductIdAttr','#TargetProductNameAttr','#SourceProvisioningArtifactIdentifiersAttr','#CopyOptionsAttr','#IdempotencyTokenAttr'
+					],
+				CreateConstraint:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#ProductIdAttr','#ParametersAttr','#TypeAttr','#DescriptionAttr','#IdempotencyTokenAttr'
+					],
+				CreatePortfolio:[
+					'#AcceptLanguageAttr','#DisplayNameAttr','#DescriptionAttr','#ProviderNameAttr','#TagsAttr','#IdempotencyTokenAttr'
+					],
+				CreatePortfolioShare:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#AccountIdAttr','#OrganizationNodeAttr','#ShareTagOptionsAttr'
+					],
+				CreateProduct:[
+					'#AcceptLanguageAttr','#NameAttr','#OwnerAttr','#DescriptionAttr','#DistributorAttr','#SupportDescriptionAttr','#SupportEmailAttr','#SupportUrlAttr','#ProductTypeAttr','#TagsAttr','#ProvisioningArtifactParametersAttr','#IdempotencyTokenAttr'
+					],
+				CreateProvisionedProductPlan:[
+					'#AcceptLanguageAttr','#PlanNameAttr','#PlanTypeAttr','#NotificationArnsAttr','#PathIdAttr','#ProductIdAttr','#ProvisionedProductNameAttr','#ProvisioningArtifactIdAttr','#ProvisioningParametersAttr','#IdempotencyTokenAttr','#TagsAttr'
+					],
+				CreateProvisioningArtifact:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ParametersAttr','#IdempotencyTokenAttr'
+					],
+				CreateServiceAction:[
+					'#NameAttr','#DefinitionTypeAttr','#DefinitionAttr','#DescriptionAttr','#AcceptLanguageAttr','#IdempotencyTokenAttr'
+					],
+				CreateTagOption:[
+					'#KeyAttr','#ValueAttr'
+					],
+				DeleteConstraint:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DeletePortfolio:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DeletePortfolioShare:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#AccountIdAttr','#OrganizationNodeAttr'
+					],
+				DeleteProduct:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DeleteProvisionedProductPlan:[
+					'#AcceptLanguageAttr','#PlanIdAttr','#IgnoreErrorsAttr'
+					],
+				DeleteProvisioningArtifact:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ProvisioningArtifactIdAttr'
+					],
+				DeleteServiceAction:[
+					'#IdAttr','#AcceptLanguageAttr'
+					],
+				DeleteTagOption:[
+					'#IdAttr'
+					],
+				DescribeConstraint:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DescribeCopyProductStatus:[
+					'#AcceptLanguageAttr','#CopyProductTokenAttr'
+					],
+				DescribePortfolio:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DescribePortfolioShareStatus:[
+					'#PortfolioShareTokenAttr'
+					],
+				DescribePortfolioShares:[
+					'#PortfolioIdAttr','#TypeAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				DescribeProduct:[
+					'#AcceptLanguageAttr','#IdAttr','#NameAttr'
+					],
+				DescribeProductAsAdmin:[
+					'#AcceptLanguageAttr','#IdAttr','#NameAttr','#SourcePortfolioIdAttr'
+					],
+				DescribeProductView:[
+					'#AcceptLanguageAttr','#IdAttr'
+					],
+				DescribeProvisionedProduct:[
+					'#AcceptLanguageAttr','#IdAttr','#NameAttr'
+					],
+				DescribeProvisionedProductPlan:[
+					'#AcceptLanguageAttr','#PlanIdAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				DescribeProvisioningArtifact:[
+					'#AcceptLanguageAttr','#ProvisioningArtifactIdAttr','#ProductIdAttr','#ProvisioningArtifactNameAttr','#ProductNameAttr','#VerboseAttr'
+					],
+				DescribeProvisioningParameters:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ProductNameAttr','#ProvisioningArtifactIdAttr','#ProvisioningArtifactNameAttr','#PathIdAttr','#PathNameAttr'
+					],
+				DescribeRecord:[
+					'#AcceptLanguageAttr','#IdAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				DescribeServiceAction:[
+					'#IdAttr','#AcceptLanguageAttr'
+					],
+				DescribeServiceActionExecutionParameters:[
+					'#ProvisionedProductIdAttr','#ServiceActionIdAttr','#AcceptLanguageAttr'
+					],
+				DescribeTagOption:[
+					'#IdAttr'
+					],
+				DisableAWSOrganizationsAccess:[
+					
+					],
+				DisassociateBudgetFromResource:[
+					'#BudgetNameAttr','#ResourceIdAttr'
+					],
+				DisassociatePrincipalFromPortfolio:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#PrincipalARNAttr'
+					],
+				DisassociateProductFromPortfolio:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#PortfolioIdAttr'
+					],
+				DisassociateServiceActionFromProvisioningArtifact:[
+					'#ProductIdAttr','#ProvisioningArtifactIdAttr','#ServiceActionIdAttr','#AcceptLanguageAttr'
+					],
+				DisassociateTagOptionFromResource:[
+					'#ResourceIdAttr','#TagOptionIdAttr'
+					],
+				EnableAWSOrganizationsAccess:[
+					
+					],
+				ExecuteProvisionedProductPlan:[
+					'#AcceptLanguageAttr','#PlanIdAttr','#IdempotencyTokenAttr'
+					],
+				ExecuteProvisionedProductServiceAction:[
+					'#ProvisionedProductIdAttr','#ServiceActionIdAttr','#ExecuteTokenAttr','#AcceptLanguageAttr','#ParametersAttr'
+					],
+				GetAWSOrganizationsAccessStatus:[
+					
+					],
+				GetProvisionedProductOutputs:[
+					'#AcceptLanguageAttr','#ProvisionedProductIdAttr','#ProvisionedProductNameAttr','#OutputKeysAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ImportAsProvisionedProduct:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ProvisioningArtifactIdAttr','#ProvisionedProductNameAttr','#PhysicalIdAttr','#IdempotencyTokenAttr'
+					],
+				ListAcceptedPortfolioShares:[
+					'#AcceptLanguageAttr','#PageTokenAttr','#PageSizeAttr','#PortfolioShareTypeAttr'
+					],
+				ListBudgetsForResource:[
+					'#AcceptLanguageAttr','#ResourceIdAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListConstraintsForPortfolio:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#ProductIdAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListLaunchPaths:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListOrganizationPortfolioAccess:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#OrganizationNodeTypeAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				ListPortfolioAccess:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#OrganizationParentIdAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				ListPortfolios:[
+					'#AcceptLanguageAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				ListPortfoliosForProduct:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				ListPrincipalsForPortfolio:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListProvisionedProductPlans:[
+					'#AcceptLanguageAttr','#ProvisionProductIdAttr','#PageSizeAttr','#PageTokenAttr','#AccessLevelFilterAttr'
+					],
+				ListProvisioningArtifacts:[
+					'#AcceptLanguageAttr','#ProductIdAttr'
+					],
+				ListProvisioningArtifactsForServiceAction:[
+					'#ServiceActionIdAttr','#PageSizeAttr','#PageTokenAttr','#AcceptLanguageAttr'
+					],
+				ListRecordHistory:[
+					'#AcceptLanguageAttr','#AccessLevelFilterAttr','#SearchFilterAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListResourcesForTagOption:[
+					'#TagOptionIdAttr','#ResourceTypeAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListServiceActions:[
+					'#AcceptLanguageAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ListServiceActionsForProvisioningArtifact:[
+					'#ProductIdAttr','#ProvisioningArtifactIdAttr','#PageSizeAttr','#PageTokenAttr','#AcceptLanguageAttr'
+					],
+				ListStackInstancesForProvisionedProduct:[
+					'#AcceptLanguageAttr','#ProvisionedProductIdAttr','#PageTokenAttr','#PageSizeAttr'
+					],
+				ListTagOptions:[
+					'#FiltersAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				ProvisionProduct:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ProductNameAttr','#ProvisioningArtifactIdAttr','#ProvisioningArtifactNameAttr','#PathIdAttr','#PathNameAttr','#ProvisionedProductNameAttr','#ProvisioningParametersAttr','#ProvisioningPreferencesAttr','#TagsAttr','#NotificationArnsAttr','#ProvisionTokenAttr'
+					],
+				RejectPortfolioShare:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#PortfolioShareTypeAttr'
+					],
+				ScanProvisionedProducts:[
+					'#AcceptLanguageAttr','#AccessLevelFilterAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				SearchProducts:[
+					'#AcceptLanguageAttr','#FiltersAttr','#PageSizeAttr','#SortByAttr','#SortOrderAttr','#PageTokenAttr'
+					],
+				SearchProductsAsAdmin:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#FiltersAttr','#SortByAttr','#SortOrderAttr','#PageTokenAttr','#PageSizeAttr','#ProductSourceAttr'
+					],
+				SearchProvisionedProducts:[
+					'#AcceptLanguageAttr','#AccessLevelFilterAttr','#FiltersAttr','#SortByAttr','#SortOrderAttr','#PageSizeAttr','#PageTokenAttr'
+					],
+				TerminateProvisionedProduct:[
+					'#ProvisionedProductNameAttr','#ProvisionedProductIdAttr','#TerminateTokenAttr','#IgnoreErrorsAttr','#AcceptLanguageAttr','#RetainPhysicalResourcesAttr'
+					],
+				UpdateConstraint:[
+					'#AcceptLanguageAttr','#IdAttr','#DescriptionAttr','#ParametersAttr'
+					],
+				UpdatePortfolio:[
+					'#AcceptLanguageAttr','#IdAttr','#DisplayNameAttr','#DescriptionAttr','#ProviderNameAttr','#AddTagsAttr','#RemoveTagsAttr'
+					],
+				UpdatePortfolioShare:[
+					'#AcceptLanguageAttr','#PortfolioIdAttr','#AccountIdAttr','#OrganizationNodeAttr','#ShareTagOptionsAttr'
+					],
+				UpdateProduct:[
+					'#AcceptLanguageAttr','#IdAttr','#NameAttr','#OwnerAttr','#DescriptionAttr','#DistributorAttr','#SupportDescriptionAttr','#SupportEmailAttr','#SupportUrlAttr','#AddTagsAttr','#RemoveTagsAttr'
+					],
+				UpdateProvisionedProduct:[
+					'#AcceptLanguageAttr','#ProvisionedProductNameAttr','#ProvisionedProductIdAttr','#ProductIdAttr','#ProductNameAttr','#ProvisioningArtifactIdAttr','#ProvisioningArtifactNameAttr','#PathIdAttr','#PathNameAttr','#ProvisioningParametersAttr','#ProvisioningPreferencesAttr','#TagsAttr','#UpdateTokenAttr'
+					],
+				UpdateProvisionedProductProperties:[
+					'#AcceptLanguageAttr','#ProvisionedProductIdAttr','#ProvisionedProductPropertiesAttr','#IdempotencyTokenAttr'
+					],
+				UpdateProvisioningArtifact:[
+					'#AcceptLanguageAttr','#ProductIdAttr','#ProvisioningArtifactIdAttr','#NameAttr','#DescriptionAttr','#ActiveAttr','#GuidanceAttr'
+					],
+				UpdateServiceAction:[
+					'#IdAttr','#NameAttr','#DefinitionAttr','#DescriptionAttr','#AcceptLanguageAttr'
+					],
+				UpdateTagOption:[
+					'#IdAttr','#ValueAttr','#ActiveAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ServiceCatalog">
+<p>
+AWS ServiceCatalog
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ServiceCatalog.html">ServiceCatalog</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ServiceCatalog',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptPortfolioShare' },
+			
+				AcceptLanguage: { value: ""} ,
+				PortfolioId: { value: ""} ,
+				PortfolioShareType: { value: ""} ,
+				BudgetName: { value: ""} ,
+				ResourceId: { value: ""} ,
+				PrincipalARN: { value: ""} ,
+				PrincipalType: { value: ""} ,
+				ProductId: { value: ""} ,
+				SourcePortfolioId: { value: ""} ,
+				ProvisioningArtifactId: { value: ""} ,
+				ServiceActionId: { value: ""} ,
+				TagOptionId: { value: ""} ,
+				ServiceActionAssociations: { value: ""} ,
+				SourceProductArn: { value: ""} ,
+				TargetProductId: { value: ""} ,
+				TargetProductName: { value: ""} ,
+				SourceProvisioningArtifactIdentifiers: { value: ""} ,
+				CopyOptions: { value: ""} ,
+				IdempotencyToken: { value: ""} ,
+				Parameters: { value: ""} ,
+				Type: { value: ""} ,
+				Description: { value: ""} ,
+				DisplayName: { value: ""} ,
+				ProviderName: { value: ""} ,
+				Tags: { value: ""} ,
+				AccountId: { value: ""} ,
+				OrganizationNode: { value: ""} ,
+				ShareTagOptions: { value: ""} ,
+				Name: { value: ""} ,
+				Owner: { value: ""} ,
+				Distributor: { value: ""} ,
+				SupportDescription: { value: ""} ,
+				SupportEmail: { value: ""} ,
+				SupportUrl: { value: ""} ,
+				ProductType: { value: ""} ,
+				ProvisioningArtifactParameters: { value: ""} ,
+				PlanName: { value: ""} ,
+				PlanType: { value: ""} ,
+				NotificationArns: { value: ""} ,
+				PathId: { value: ""} ,
+				ProvisionedProductName: { value: ""} ,
+				ProvisioningParameters: { value: ""} ,
+				DefinitionType: { value: ""} ,
+				Definition: { value: ""} ,
+				Key: { value: ""} ,
+				Value: { value: ""} ,
+				Id: { value: ""} ,
+				PlanId: { value: ""} ,
+				IgnoreErrors: { value: ""} ,
+				CopyProductToken: { value: ""} ,
+				PortfolioShareToken: { value: ""} ,
+				PageToken: { value: ""} ,
+				PageSize: { value: ""} ,
+				ProvisioningArtifactName: { value: ""} ,
+				ProductName: { value: ""} ,
+				Verbose: { value: ""} ,
+				PathName: { value: ""} ,
+				ProvisionedProductId: { value: ""} ,
+				ExecuteToken: { value: ""} ,
+				OutputKeys: { value: ""} ,
+				PhysicalId: { value: ""} ,
+				OrganizationNodeType: { value: ""} ,
+				OrganizationParentId: { value: ""} ,
+				ProvisionProductId: { value: ""} ,
+				AccessLevelFilter: { value: ""} ,
+				SearchFilter: { value: ""} ,
+				ResourceType: { value: ""} ,
+				Filters: { value: ""} ,
+				ProvisioningPreferences: { value: ""} ,
+				ProvisionToken: { value: ""} ,
+				SortBy: { value: ""} ,
+				SortOrder: { value: ""} ,
+				ProductSource: { value: ""} ,
+				TerminateToken: { value: ""} ,
+				RetainPhysicalResources: { value: ""} ,
+				AddTags: { value: ""} ,
+				RemoveTags: { value: ""} ,
+				UpdateToken: { value: ""} ,
+				ProvisionedProductProperties: { value: ""} ,
+				Active: { value: ""} ,
+				Guidance: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ServiceCatalog " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AcceptLanguage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PortfolioId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PortfolioShareType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BudgetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrincipalARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrincipalType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourcePortfolioId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisioningArtifactId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceActionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagOptionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceActionAssociations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceProductArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetProductId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetProductName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-IdempotencyToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProviderName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationNode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShareTagOptions").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Owner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Distributor").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SupportDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SupportEmail").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SupportUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisioningArtifactParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlanName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlanType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PathId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionedProductName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisioningParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefinitionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Definition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Key").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Value").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlanId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IgnoreErrors").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CopyProductToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PortfolioShareToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PageToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PageSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ProvisioningArtifactName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Verbose").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-PathName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionedProductId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecuteToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PhysicalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationNodeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationParentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionProductId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessLevelFilter").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ProvisionToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TerminateToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetainPhysicalResources").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AddTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemoveTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UpdateToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionedProductProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Active").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Guidance").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,234 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Detective">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptInvitation">AcceptInvitation</option>
+		
+			<option value="CreateGraph">CreateGraph</option>
+		
+			<option value="CreateMembers">CreateMembers</option>
+		
+			<option value="DeleteGraph">DeleteGraph</option>
+		
+			<option value="DeleteMembers">DeleteMembers</option>
+		
+			<option value="DisassociateMembership">DisassociateMembership</option>
+		
+			<option value="GetMembers">GetMembers</option>
+		
+			<option value="ListGraphs">ListGraphs</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RejectInvitation">RejectInvitation</option>
+		
+			<option value="StartMonitoringMember">StartMonitoringMember</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='GraphArnAttr' class='hiddenAttrs'>
+		<label for="node-input-GraphArn"><i class="fa fa-tag"></i> GraphArn</label>
+		<input type="text" id="node-input-GraphArn" placeholder="GraphArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='DisableEmailNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-DisableEmailNotification"><i class="fa fa-tag"></i> DisableEmailNotification</label>
+		<input type="text" id="node-input-DisableEmailNotification" placeholder="DisableEmailNotification"></input>
+	</div> 
+	<div class="form-row" id='AccountsAttr' class='hiddenAttrs'>
+		<label for="node-input-Accounts"><i class="fa fa-tag"></i> Accounts</label>
+		<input type="text" id="node-input-Accounts" placeholder="Accounts"></input>
+	</div> 
+	<div class="form-row" id='AccountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountIds"><i class="fa fa-tag"></i> AccountIds</label>
+		<input type="text" id="node-input-AccountIds" placeholder="AccountIds"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptInvitation:[
+					'#GraphArnAttr'
+					],
+				CreateGraph:[
+					'#TagsAttr'
+					],
+				CreateMembers:[
+					'#GraphArnAttr','#MessageAttr','#DisableEmailNotificationAttr','#AccountsAttr'
+					],
+				DeleteGraph:[
+					'#GraphArnAttr'
+					],
+				DeleteMembers:[
+					'#GraphArnAttr','#AccountIdsAttr'
+					],
+				DisassociateMembership:[
+					'#GraphArnAttr'
+					],
+				GetMembers:[
+					'#GraphArnAttr','#AccountIdsAttr'
+					],
+				ListGraphs:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListInvitations:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListMembers:[
+					'#GraphArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RejectInvitation:[
+					'#GraphArnAttr'
+					],
+				StartMonitoringMember:[
+					'#GraphArnAttr','#AccountIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Detective">
+<p>
+AWS Detective
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Detective.html">Detective</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Detective',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptInvitation' },
+			
+				GraphArn: { value: ""} ,
+				Tags: { value: ""} ,
+				Message: { value: ""} ,
+				DisableEmailNotification: { value: ""} ,
+				Accounts: { value: ""} ,
+				AccountIds: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				AccountId: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Detective " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-GraphArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Message").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisableEmailNotification").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-AccountIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

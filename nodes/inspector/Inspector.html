@@ -1,0 +1,476 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Inspector">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddAttributesToFindings">AddAttributesToFindings</option>
+		
+			<option value="CreateAssessmentTarget">CreateAssessmentTarget</option>
+		
+			<option value="CreateAssessmentTemplate">CreateAssessmentTemplate</option>
+		
+			<option value="CreateExclusionsPreview">CreateExclusionsPreview</option>
+		
+			<option value="CreateResourceGroup">CreateResourceGroup</option>
+		
+			<option value="DeleteAssessmentRun">DeleteAssessmentRun</option>
+		
+			<option value="DeleteAssessmentTarget">DeleteAssessmentTarget</option>
+		
+			<option value="DeleteAssessmentTemplate">DeleteAssessmentTemplate</option>
+		
+			<option value="DescribeAssessmentRuns">DescribeAssessmentRuns</option>
+		
+			<option value="DescribeAssessmentTargets">DescribeAssessmentTargets</option>
+		
+			<option value="DescribeAssessmentTemplates">DescribeAssessmentTemplates</option>
+		
+			<option value="DescribeCrossAccountAccessRole">DescribeCrossAccountAccessRole</option>
+		
+			<option value="DescribeExclusions">DescribeExclusions</option>
+		
+			<option value="DescribeFindings">DescribeFindings</option>
+		
+			<option value="DescribeResourceGroups">DescribeResourceGroups</option>
+		
+			<option value="DescribeRulesPackages">DescribeRulesPackages</option>
+		
+			<option value="GetAssessmentReport">GetAssessmentReport</option>
+		
+			<option value="GetExclusionsPreview">GetExclusionsPreview</option>
+		
+			<option value="GetTelemetryMetadata">GetTelemetryMetadata</option>
+		
+			<option value="ListAssessmentRunAgents">ListAssessmentRunAgents</option>
+		
+			<option value="ListAssessmentRuns">ListAssessmentRuns</option>
+		
+			<option value="ListAssessmentTargets">ListAssessmentTargets</option>
+		
+			<option value="ListAssessmentTemplates">ListAssessmentTemplates</option>
+		
+			<option value="ListEventSubscriptions">ListEventSubscriptions</option>
+		
+			<option value="ListExclusions">ListExclusions</option>
+		
+			<option value="ListFindings">ListFindings</option>
+		
+			<option value="ListRulesPackages">ListRulesPackages</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PreviewAgents">PreviewAgents</option>
+		
+			<option value="RegisterCrossAccountAccessRole">RegisterCrossAccountAccessRole</option>
+		
+			<option value="RemoveAttributesFromFindings">RemoveAttributesFromFindings</option>
+		
+			<option value="SetTagsForResource">SetTagsForResource</option>
+		
+			<option value="StartAssessmentRun">StartAssessmentRun</option>
+		
+			<option value="StopAssessmentRun">StopAssessmentRun</option>
+		
+			<option value="SubscribeToEvent">SubscribeToEvent</option>
+		
+			<option value="UnsubscribeFromEvent">UnsubscribeFromEvent</option>
+		
+			<option value="UpdateAssessmentTarget">UpdateAssessmentTarget</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='findingArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-findingArns"><i class="fa fa-tag"></i> findingArns</label>
+		<input type="text" id="node-input-findingArns" placeholder="findingArns"></input>
+	</div> 
+	<div class="form-row" id='attributesAttr' class='hiddenAttrs'>
+		<label for="node-input-attributes"><i class="fa fa-tag"></i> attributes</label>
+		<input type="text" id="node-input-attributes" placeholder="attributes"></input>
+	</div> 
+	<div class="form-row" id='assessmentTargetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTargetName"><i class="fa fa-tag"></i> assessmentTargetName</label>
+		<input type="text" id="node-input-assessmentTargetName" placeholder="assessmentTargetName"></input>
+	</div> 
+	<div class="form-row" id='resourceGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceGroupArn"><i class="fa fa-tag"></i> resourceGroupArn</label>
+		<input type="text" id="node-input-resourceGroupArn" placeholder="resourceGroupArn"></input>
+	</div> 
+	<div class="form-row" id='assessmentTargetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTargetArn"><i class="fa fa-tag"></i> assessmentTargetArn</label>
+		<input type="text" id="node-input-assessmentTargetArn" placeholder="assessmentTargetArn"></input>
+	</div> 
+	<div class="form-row" id='assessmentTemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTemplateName"><i class="fa fa-tag"></i> assessmentTemplateName</label>
+		<input type="text" id="node-input-assessmentTemplateName" placeholder="assessmentTemplateName"></input>
+	</div> 
+	<div class="form-row" id='durationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-durationInSeconds"><i class="fa fa-tag"></i> durationInSeconds</label>
+		<input type="text" id="node-input-durationInSeconds" placeholder="durationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='rulesPackageArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-rulesPackageArns"><i class="fa fa-tag"></i> rulesPackageArns</label>
+		<input type="text" id="node-input-rulesPackageArns" placeholder="rulesPackageArns"></input>
+	</div> 
+	<div class="form-row" id='userAttributesForFindingsAttr' class='hiddenAttrs'>
+		<label for="node-input-userAttributesForFindings"><i class="fa fa-tag"></i> userAttributesForFindings</label>
+		<input type="text" id="node-input-userAttributesForFindings" placeholder="userAttributesForFindings"></input>
+	</div> 
+	<div class="form-row" id='assessmentTemplateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTemplateArn"><i class="fa fa-tag"></i> assessmentTemplateArn</label>
+		<input type="text" id="node-input-assessmentTemplateArn" placeholder="assessmentTemplateArn"></input>
+	</div> 
+	<div class="form-row" id='resourceGroupTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceGroupTags"><i class="fa fa-tag"></i> resourceGroupTags</label>
+		<input type="text" id="node-input-resourceGroupTags" placeholder="resourceGroupTags"></input>
+	</div> 
+	<div class="form-row" id='assessmentRunArnAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentRunArn"><i class="fa fa-tag"></i> assessmentRunArn</label>
+		<input type="text" id="node-input-assessmentRunArn" placeholder="assessmentRunArn"></input>
+	</div> 
+	<div class="form-row" id='assessmentRunArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentRunArns"><i class="fa fa-tag"></i> assessmentRunArns</label>
+		<input type="text" id="node-input-assessmentRunArns" placeholder="assessmentRunArns"></input>
+	</div> 
+	<div class="form-row" id='assessmentTargetArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTargetArns"><i class="fa fa-tag"></i> assessmentTargetArns</label>
+		<input type="text" id="node-input-assessmentTargetArns" placeholder="assessmentTargetArns"></input>
+	</div> 
+	<div class="form-row" id='assessmentTemplateArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentTemplateArns"><i class="fa fa-tag"></i> assessmentTemplateArns</label>
+		<input type="text" id="node-input-assessmentTemplateArns" placeholder="assessmentTemplateArns"></input>
+	</div> 
+	<div class="form-row" id='exclusionArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-exclusionArns"><i class="fa fa-tag"></i> exclusionArns</label>
+		<input type="text" id="node-input-exclusionArns" placeholder="exclusionArns"></input>
+	</div> 
+	<div class="form-row" id='localeAttr' class='hiddenAttrs'>
+		<label for="node-input-locale"><i class="fa fa-tag"></i> locale</label>
+		<input type="text" id="node-input-locale" placeholder="locale"></input>
+	</div> 
+	<div class="form-row" id='resourceGroupArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceGroupArns"><i class="fa fa-tag"></i> resourceGroupArns</label>
+		<input type="text" id="node-input-resourceGroupArns" placeholder="resourceGroupArns"></input>
+	</div> 
+	<div class="form-row" id='reportFileFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-reportFileFormat"><i class="fa fa-tag"></i> reportFileFormat</label>
+		<input type="text" id="node-input-reportFileFormat" placeholder="reportFileFormat"></input>
+	</div> 
+	<div class="form-row" id='reportTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-reportType"><i class="fa fa-tag"></i> reportType</label>
+		<input type="text" id="node-input-reportType" placeholder="reportType"></input>
+	</div> 
+	<div class="form-row" id='previewTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-previewToken"><i class="fa fa-tag"></i> previewToken</label>
+		<input type="text" id="node-input-previewToken" placeholder="previewToken"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='previewAgentsArnAttr' class='hiddenAttrs'>
+		<label for="node-input-previewAgentsArn"><i class="fa fa-tag"></i> previewAgentsArn</label>
+		<input type="text" id="node-input-previewAgentsArn" placeholder="previewAgentsArn"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i> roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='attributeKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeKeys"><i class="fa fa-tag"></i> attributeKeys</label>
+		<input type="text" id="node-input-attributeKeys" placeholder="attributeKeys"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='assessmentRunNameAttr' class='hiddenAttrs'>
+		<label for="node-input-assessmentRunName"><i class="fa fa-tag"></i> assessmentRunName</label>
+		<input type="text" id="node-input-assessmentRunName" placeholder="assessmentRunName"></input>
+	</div> 
+	<div class="form-row" id='stopActionAttr' class='hiddenAttrs'>
+		<label for="node-input-stopAction"><i class="fa fa-tag"></i> stopAction</label>
+		<input type="text" id="node-input-stopAction" placeholder="stopAction"></input>
+	</div> 
+	<div class="form-row" id='eventAttr' class='hiddenAttrs'>
+		<label for="node-input-event"><i class="fa fa-tag"></i> event</label>
+		<input type="text" id="node-input-event" placeholder="event"></input>
+	</div> 
+	<div class="form-row" id='topicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-topicArn"><i class="fa fa-tag"></i> topicArn</label>
+		<input type="text" id="node-input-topicArn" placeholder="topicArn"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddAttributesToFindings:[
+					'#findingArnsAttr','#attributesAttr'
+					],
+				CreateAssessmentTarget:[
+					'#assessmentTargetNameAttr','#resourceGroupArnAttr'
+					],
+				CreateAssessmentTemplate:[
+					'#assessmentTargetArnAttr','#assessmentTemplateNameAttr','#durationInSecondsAttr','#rulesPackageArnsAttr','#userAttributesForFindingsAttr'
+					],
+				CreateExclusionsPreview:[
+					'#assessmentTemplateArnAttr'
+					],
+				CreateResourceGroup:[
+					'#resourceGroupTagsAttr'
+					],
+				DeleteAssessmentRun:[
+					'#assessmentRunArnAttr'
+					],
+				DeleteAssessmentTarget:[
+					'#assessmentTargetArnAttr'
+					],
+				DeleteAssessmentTemplate:[
+					'#assessmentTemplateArnAttr'
+					],
+				DescribeAssessmentRuns:[
+					'#assessmentRunArnsAttr'
+					],
+				DescribeAssessmentTargets:[
+					'#assessmentTargetArnsAttr'
+					],
+				DescribeAssessmentTemplates:[
+					'#assessmentTemplateArnsAttr'
+					],
+				DescribeCrossAccountAccessRole:[
+					
+					],
+				DescribeExclusions:[
+					'#exclusionArnsAttr','#localeAttr'
+					],
+				DescribeFindings:[
+					'#findingArnsAttr','#localeAttr'
+					],
+				DescribeResourceGroups:[
+					'#resourceGroupArnsAttr'
+					],
+				DescribeRulesPackages:[
+					'#rulesPackageArnsAttr','#localeAttr'
+					],
+				GetAssessmentReport:[
+					'#assessmentRunArnAttr','#reportFileFormatAttr','#reportTypeAttr'
+					],
+				GetExclusionsPreview:[
+					'#assessmentTemplateArnAttr','#previewTokenAttr','#nextTokenAttr','#maxResultsAttr','#localeAttr'
+					],
+				GetTelemetryMetadata:[
+					'#assessmentRunArnAttr'
+					],
+				ListAssessmentRunAgents:[
+					'#assessmentRunArnAttr','#filterAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssessmentRuns:[
+					'#assessmentTemplateArnsAttr','#filterAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssessmentTargets:[
+					'#filterAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssessmentTemplates:[
+					'#assessmentTargetArnsAttr','#filterAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListEventSubscriptions:[
+					'#resourceArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListExclusions:[
+					'#assessmentRunArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListFindings:[
+					'#assessmentRunArnsAttr','#filterAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListRulesPackages:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PreviewAgents:[
+					'#previewAgentsArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				RegisterCrossAccountAccessRole:[
+					'#roleArnAttr'
+					],
+				RemoveAttributesFromFindings:[
+					'#findingArnsAttr','#attributeKeysAttr'
+					],
+				SetTagsForResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				StartAssessmentRun:[
+					'#assessmentTemplateArnAttr','#assessmentRunNameAttr'
+					],
+				StopAssessmentRun:[
+					'#assessmentRunArnAttr','#stopActionAttr'
+					],
+				SubscribeToEvent:[
+					'#resourceArnAttr','#eventAttr','#topicArnAttr'
+					],
+				UnsubscribeFromEvent:[
+					'#resourceArnAttr','#eventAttr','#topicArnAttr'
+					],
+				UpdateAssessmentTarget:[
+					'#assessmentTargetArnAttr','#assessmentTargetNameAttr','#resourceGroupArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Inspector">
+<p>
+AWS Inspector
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Inspector.html">Inspector</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Inspector',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddAttributesToFindings' },
+			
+				findingArns: { value: ""} ,
+				attributes: { value: ""} ,
+				assessmentTargetName: { value: ""} ,
+				resourceGroupArn: { value: ""} ,
+				assessmentTargetArn: { value: ""} ,
+				assessmentTemplateName: { value: ""} ,
+				durationInSeconds: { value: ""} ,
+				rulesPackageArns: { value: ""} ,
+				userAttributesForFindings: { value: ""} ,
+				assessmentTemplateArn: { value: ""} ,
+				resourceGroupTags: { value: ""} ,
+				assessmentRunArn: { value: ""} ,
+				assessmentRunArns: { value: ""} ,
+				assessmentTargetArns: { value: ""} ,
+				assessmentTemplateArns: { value: ""} ,
+				exclusionArns: { value: ""} ,
+				locale: { value: ""} ,
+				resourceGroupArns: { value: ""} ,
+				reportFileFormat: { value: ""} ,
+				reportType: { value: ""} ,
+				previewToken: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				filter: { value: ""} ,
+				resourceArn: { value: ""} ,
+				previewAgentsArn: { value: ""} ,
+				roleArn: { value: ""} ,
+				attributeKeys: { value: ""} ,
+				tags: { value: ""} ,
+				assessmentRunName: { value: ""} ,
+				stopAction: { value: ""} ,
+				event: { value: ""} ,
+				topicArn: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Inspector " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-findingArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTargetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTargetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-durationInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-rulesPackageArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-userAttributesForFindings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTemplateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceGroupTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentRunArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentRunArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTargetArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentTemplateArns").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-locale").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceGroupArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportFileFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-previewToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-previewAgentsArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-assessmentRunName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stopAction").typedInput({ default: "str", types: ["str"]});
+$("#node-input-event").typedInput({ default: "str", types: ["str"]});
+$("#node-input-topicArn").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

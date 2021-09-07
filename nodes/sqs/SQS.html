@@ -1,0 +1,355 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SQS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddPermission">AddPermission</option>
+		
+			<option value="ChangeMessageVisibility">ChangeMessageVisibility</option>
+		
+			<option value="ChangeMessageVisibilityBatch">ChangeMessageVisibilityBatch</option>
+		
+			<option value="CreateQueue">CreateQueue</option>
+		
+			<option value="DeleteMessage">DeleteMessage</option>
+		
+			<option value="DeleteMessageBatch">DeleteMessageBatch</option>
+		
+			<option value="DeleteQueue">DeleteQueue</option>
+		
+			<option value="GetQueueAttributes">GetQueueAttributes</option>
+		
+			<option value="GetQueueUrl">GetQueueUrl</option>
+		
+			<option value="ListDeadLetterSourceQueues">ListDeadLetterSourceQueues</option>
+		
+			<option value="ListQueueTags">ListQueueTags</option>
+		
+			<option value="ListQueues">ListQueues</option>
+		
+			<option value="PurgeQueue">PurgeQueue</option>
+		
+			<option value="ReceiveMessage">ReceiveMessage</option>
+		
+			<option value="RemovePermission">RemovePermission</option>
+		
+			<option value="SendMessage">SendMessage</option>
+		
+			<option value="SendMessageBatch">SendMessageBatch</option>
+		
+			<option value="SetQueueAttributes">SetQueueAttributes</option>
+		
+			<option value="TagQueue">TagQueue</option>
+		
+			<option value="UntagQueue">UntagQueue</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='QueueUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueUrl"><i class="fa fa-tag"></i> QueueUrl</label>
+		<input type="text" id="node-input-QueueUrl" placeholder="QueueUrl"></input>
+	</div> 
+	<div class="form-row" id='LabelAttr' class='hiddenAttrs'>
+		<label for="node-input-Label"><i class="fa fa-tag"></i> Label</label>
+		<input type="text" id="node-input-Label" placeholder="Label"></input>
+	</div> 
+	<div class="form-row" id='AWSAccountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AWSAccountIds"><i class="fa fa-tag"></i> AWSAccountIds</label>
+		<input type="text" id="node-input-AWSAccountIds" placeholder="AWSAccountIds"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i> Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='ReceiptHandleAttr' class='hiddenAttrs'>
+		<label for="node-input-ReceiptHandle"><i class="fa fa-tag"></i> ReceiptHandle</label>
+		<input type="text" id="node-input-ReceiptHandle" placeholder="ReceiptHandle"></input>
+	</div> 
+	<div class="form-row" id='VisibilityTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-VisibilityTimeout"><i class="fa fa-tag"></i> VisibilityTimeout</label>
+		<input type="text" id="node-input-VisibilityTimeout" placeholder="VisibilityTimeout"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i> Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='QueueNameAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueName"><i class="fa fa-tag"></i> QueueName</label>
+		<input type="text" id="node-input-QueueName" placeholder="QueueName"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i> Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='AttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeNames"><i class="fa fa-tag"></i> AttributeNames</label>
+		<input type="text" id="node-input-AttributeNames" placeholder="AttributeNames"></input>
+	</div> 
+	<div class="form-row" id='QueueOwnerAWSAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueOwnerAWSAccountId"><i class="fa fa-tag"></i> QueueOwnerAWSAccountId</label>
+		<input type="text" id="node-input-QueueOwnerAWSAccountId" placeholder="QueueOwnerAWSAccountId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='QueueNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-QueueNamePrefix"><i class="fa fa-tag"></i> QueueNamePrefix</label>
+		<input type="text" id="node-input-QueueNamePrefix" placeholder="QueueNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='MessageAttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageAttributeNames"><i class="fa fa-tag"></i> MessageAttributeNames</label>
+		<input type="text" id="node-input-MessageAttributeNames" placeholder="MessageAttributeNames"></input>
+	</div> 
+	<div class="form-row" id='MaxNumberOfMessagesAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxNumberOfMessages"><i class="fa fa-tag"></i> MaxNumberOfMessages</label>
+		<input type="text" id="node-input-MaxNumberOfMessages" placeholder="MaxNumberOfMessages"></input>
+	</div> 
+	<div class="form-row" id='WaitTimeSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-WaitTimeSeconds"><i class="fa fa-tag"></i> WaitTimeSeconds</label>
+		<input type="text" id="node-input-WaitTimeSeconds" placeholder="WaitTimeSeconds"></input>
+	</div> 
+	<div class="form-row" id='ReceiveRequestAttemptIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReceiveRequestAttemptId"><i class="fa fa-tag"></i> ReceiveRequestAttemptId</label>
+		<input type="text" id="node-input-ReceiveRequestAttemptId" placeholder="ReceiveRequestAttemptId"></input>
+	</div> 
+	<div class="form-row" id='MessageBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageBody"><i class="fa fa-tag"></i> MessageBody</label>
+		<input type="text" id="node-input-MessageBody" placeholder="MessageBody"></input>
+	</div> 
+	<div class="form-row" id='DelaySecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-DelaySeconds"><i class="fa fa-tag"></i> DelaySeconds</label>
+		<input type="text" id="node-input-DelaySeconds" placeholder="DelaySeconds"></input>
+	</div> 
+	<div class="form-row" id='MessageAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageAttributes"><i class="fa fa-tag"></i> MessageAttributes</label>
+		<input type="text" id="node-input-MessageAttributes" placeholder="MessageAttributes"></input>
+	</div> 
+	<div class="form-row" id='MessageSystemAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageSystemAttributes"><i class="fa fa-tag"></i> MessageSystemAttributes</label>
+		<input type="text" id="node-input-MessageSystemAttributes" placeholder="MessageSystemAttributes"></input>
+	</div> 
+	<div class="form-row" id='MessageDeduplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageDeduplicationId"><i class="fa fa-tag"></i> MessageDeduplicationId</label>
+		<input type="text" id="node-input-MessageDeduplicationId" placeholder="MessageDeduplicationId"></input>
+	</div> 
+	<div class="form-row" id='MessageGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageGroupId"><i class="fa fa-tag"></i> MessageGroupId</label>
+		<input type="text" id="node-input-MessageGroupId" placeholder="MessageGroupId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddPermission:[
+					'#QueueUrlAttr','#LabelAttr','#AWSAccountIdsAttr','#ActionsAttr'
+					],
+				ChangeMessageVisibility:[
+					'#QueueUrlAttr','#ReceiptHandleAttr','#VisibilityTimeoutAttr'
+					],
+				ChangeMessageVisibilityBatch:[
+					'#QueueUrlAttr','#EntriesAttr'
+					],
+				CreateQueue:[
+					'#QueueNameAttr','#AttributesAttr','#tagsAttr'
+					],
+				DeleteMessage:[
+					'#QueueUrlAttr','#ReceiptHandleAttr'
+					],
+				DeleteMessageBatch:[
+					'#QueueUrlAttr','#EntriesAttr'
+					],
+				DeleteQueue:[
+					'#QueueUrlAttr'
+					],
+				GetQueueAttributes:[
+					'#QueueUrlAttr','#AttributeNamesAttr'
+					],
+				GetQueueUrl:[
+					'#QueueNameAttr','#QueueOwnerAWSAccountIdAttr'
+					],
+				ListDeadLetterSourceQueues:[
+					'#QueueUrlAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListQueueTags:[
+					'#QueueUrlAttr'
+					],
+				ListQueues:[
+					'#QueueNamePrefixAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				PurgeQueue:[
+					'#QueueUrlAttr'
+					],
+				ReceiveMessage:[
+					'#QueueUrlAttr','#AttributeNamesAttr','#MessageAttributeNamesAttr','#MaxNumberOfMessagesAttr','#VisibilityTimeoutAttr','#WaitTimeSecondsAttr','#ReceiveRequestAttemptIdAttr'
+					],
+				RemovePermission:[
+					'#QueueUrlAttr','#LabelAttr'
+					],
+				SendMessage:[
+					'#QueueUrlAttr','#MessageBodyAttr','#DelaySecondsAttr','#MessageAttributesAttr','#MessageSystemAttributesAttr','#MessageDeduplicationIdAttr','#MessageGroupIdAttr'
+					],
+				SendMessageBatch:[
+					'#QueueUrlAttr','#EntriesAttr'
+					],
+				SetQueueAttributes:[
+					'#QueueUrlAttr','#AttributesAttr'
+					],
+				TagQueue:[
+					'#QueueUrlAttr','#TagsAttr'
+					],
+				UntagQueue:[
+					'#QueueUrlAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SQS">
+<p>
+AWS SQS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SQS.html">SQS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SQS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddPermission' },
+			
+				QueueUrl: { value: ""} ,
+				Label: { value: ""} ,
+				AWSAccountIds: { value: ""} ,
+				Actions: { value: ""} ,
+				ReceiptHandle: { value: ""} ,
+				VisibilityTimeout: { value: ""} ,
+				Entries: { value: ""} ,
+				QueueName: { value: ""} ,
+				Attributes: { value: ""} ,
+				tags: { value: ""} ,
+				AttributeNames: { value: ""} ,
+				QueueOwnerAWSAccountId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				QueueNamePrefix: { value: ""} ,
+				MessageAttributeNames: { value: ""} ,
+				MaxNumberOfMessages: { value: ""} ,
+				WaitTimeSeconds: { value: ""} ,
+				ReceiveRequestAttemptId: { value: ""} ,
+				MessageBody: { value: ""} ,
+				DelaySeconds: { value: ""} ,
+				MessageAttributes: { value: ""} ,
+				MessageSystemAttributes: { value: ""} ,
+				MessageDeduplicationId: { value: ""} ,
+				MessageGroupId: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SQS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-QueueUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Label").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ReceiptHandle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VisibilityTimeout").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-QueueName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QueueOwnerAWSAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-QueueNamePrefix").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxNumberOfMessages").typedInput({ default: "num", types: ["num"]});
+$("#node-input-WaitTimeSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ReceiveRequestAttemptId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DelaySeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MessageAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageSystemAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageDeduplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

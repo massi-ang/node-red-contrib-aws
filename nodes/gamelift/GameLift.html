@@ -1,0 +1,1270 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS GameLift">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptMatch">AcceptMatch</option>
+		
+			<option value="ClaimGameServer">ClaimGameServer</option>
+		
+			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateBuild">CreateBuild</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="CreateFleetLocations">CreateFleetLocations</option>
+		
+			<option value="CreateGameServerGroup">CreateGameServerGroup</option>
+		
+			<option value="CreateGameSession">CreateGameSession</option>
+		
+			<option value="CreateGameSessionQueue">CreateGameSessionQueue</option>
+		
+			<option value="CreateMatchmakingConfiguration">CreateMatchmakingConfiguration</option>
+		
+			<option value="CreateMatchmakingRuleSet">CreateMatchmakingRuleSet</option>
+		
+			<option value="CreatePlayerSession">CreatePlayerSession</option>
+		
+			<option value="CreatePlayerSessions">CreatePlayerSessions</option>
+		
+			<option value="CreateScript">CreateScript</option>
+		
+			<option value="CreateVpcPeeringAuthorization">CreateVpcPeeringAuthorization</option>
+		
+			<option value="CreateVpcPeeringConnection">CreateVpcPeeringConnection</option>
+		
+			<option value="DeleteAlias">DeleteAlias</option>
+		
+			<option value="DeleteBuild">DeleteBuild</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DeleteFleetLocations">DeleteFleetLocations</option>
+		
+			<option value="DeleteGameServerGroup">DeleteGameServerGroup</option>
+		
+			<option value="DeleteGameSessionQueue">DeleteGameSessionQueue</option>
+		
+			<option value="DeleteMatchmakingConfiguration">DeleteMatchmakingConfiguration</option>
+		
+			<option value="DeleteMatchmakingRuleSet">DeleteMatchmakingRuleSet</option>
+		
+			<option value="DeleteScalingPolicy">DeleteScalingPolicy</option>
+		
+			<option value="DeleteScript">DeleteScript</option>
+		
+			<option value="DeleteVpcPeeringAuthorization">DeleteVpcPeeringAuthorization</option>
+		
+			<option value="DeleteVpcPeeringConnection">DeleteVpcPeeringConnection</option>
+		
+			<option value="DeregisterGameServer">DeregisterGameServer</option>
+		
+			<option value="DescribeAlias">DescribeAlias</option>
+		
+			<option value="DescribeBuild">DescribeBuild</option>
+		
+			<option value="DescribeEC2InstanceLimits">DescribeEC2InstanceLimits</option>
+		
+			<option value="DescribeFleetAttributes">DescribeFleetAttributes</option>
+		
+			<option value="DescribeFleetCapacity">DescribeFleetCapacity</option>
+		
+			<option value="DescribeFleetEvents">DescribeFleetEvents</option>
+		
+			<option value="DescribeFleetLocationAttributes">DescribeFleetLocationAttributes</option>
+		
+			<option value="DescribeFleetLocationCapacity">DescribeFleetLocationCapacity</option>
+		
+			<option value="DescribeFleetLocationUtilization">DescribeFleetLocationUtilization</option>
+		
+			<option value="DescribeFleetPortSettings">DescribeFleetPortSettings</option>
+		
+			<option value="DescribeFleetUtilization">DescribeFleetUtilization</option>
+		
+			<option value="DescribeGameServer">DescribeGameServer</option>
+		
+			<option value="DescribeGameServerGroup">DescribeGameServerGroup</option>
+		
+			<option value="DescribeGameServerInstances">DescribeGameServerInstances</option>
+		
+			<option value="DescribeGameSessionDetails">DescribeGameSessionDetails</option>
+		
+			<option value="DescribeGameSessionPlacement">DescribeGameSessionPlacement</option>
+		
+			<option value="DescribeGameSessionQueues">DescribeGameSessionQueues</option>
+		
+			<option value="DescribeGameSessions">DescribeGameSessions</option>
+		
+			<option value="DescribeInstances">DescribeInstances</option>
+		
+			<option value="DescribeMatchmaking">DescribeMatchmaking</option>
+		
+			<option value="DescribeMatchmakingConfigurations">DescribeMatchmakingConfigurations</option>
+		
+			<option value="DescribeMatchmakingRuleSets">DescribeMatchmakingRuleSets</option>
+		
+			<option value="DescribePlayerSessions">DescribePlayerSessions</option>
+		
+			<option value="DescribeRuntimeConfiguration">DescribeRuntimeConfiguration</option>
+		
+			<option value="DescribeScalingPolicies">DescribeScalingPolicies</option>
+		
+			<option value="DescribeScript">DescribeScript</option>
+		
+			<option value="DescribeVpcPeeringAuthorizations">DescribeVpcPeeringAuthorizations</option>
+		
+			<option value="DescribeVpcPeeringConnections">DescribeVpcPeeringConnections</option>
+		
+			<option value="GetGameSessionLogUrl">GetGameSessionLogUrl</option>
+		
+			<option value="GetInstanceAccess">GetInstanceAccess</option>
+		
+			<option value="ListAliases">ListAliases</option>
+		
+			<option value="ListBuilds">ListBuilds</option>
+		
+			<option value="ListFleets">ListFleets</option>
+		
+			<option value="ListGameServerGroups">ListGameServerGroups</option>
+		
+			<option value="ListGameServers">ListGameServers</option>
+		
+			<option value="ListScripts">ListScripts</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutScalingPolicy">PutScalingPolicy</option>
+		
+			<option value="RegisterGameServer">RegisterGameServer</option>
+		
+			<option value="RequestUploadCredentials">RequestUploadCredentials</option>
+		
+			<option value="ResolveAlias">ResolveAlias</option>
+		
+			<option value="ResumeGameServerGroup">ResumeGameServerGroup</option>
+		
+			<option value="SearchGameSessions">SearchGameSessions</option>
+		
+			<option value="StartFleetActions">StartFleetActions</option>
+		
+			<option value="StartGameSessionPlacement">StartGameSessionPlacement</option>
+		
+			<option value="StartMatchBackfill">StartMatchBackfill</option>
+		
+			<option value="StartMatchmaking">StartMatchmaking</option>
+		
+			<option value="StopFleetActions">StopFleetActions</option>
+		
+			<option value="StopGameSessionPlacement">StopGameSessionPlacement</option>
+		
+			<option value="StopMatchmaking">StopMatchmaking</option>
+		
+			<option value="SuspendGameServerGroup">SuspendGameServerGroup</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAlias">UpdateAlias</option>
+		
+			<option value="UpdateBuild">UpdateBuild</option>
+		
+			<option value="UpdateFleetAttributes">UpdateFleetAttributes</option>
+		
+			<option value="UpdateFleetCapacity">UpdateFleetCapacity</option>
+		
+			<option value="UpdateFleetPortSettings">UpdateFleetPortSettings</option>
+		
+			<option value="UpdateGameServer">UpdateGameServer</option>
+		
+			<option value="UpdateGameServerGroup">UpdateGameServerGroup</option>
+		
+			<option value="UpdateGameSession">UpdateGameSession</option>
+		
+			<option value="UpdateGameSessionQueue">UpdateGameSessionQueue</option>
+		
+			<option value="UpdateMatchmakingConfiguration">UpdateMatchmakingConfiguration</option>
+		
+			<option value="UpdateRuntimeConfiguration">UpdateRuntimeConfiguration</option>
+		
+			<option value="UpdateScript">UpdateScript</option>
+		
+			<option value="ValidateMatchmakingRuleSet">ValidateMatchmakingRuleSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TicketIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TicketId"><i class="fa fa-tag"></i> TicketId</label>
+		<input type="text" id="node-input-TicketId" placeholder="TicketId"></input>
+	</div> 
+	<div class="form-row" id='PlayerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerIds"><i class="fa fa-tag"></i> PlayerIds</label>
+		<input type="text" id="node-input-PlayerIds" placeholder="PlayerIds"></input>
+	</div> 
+	<div class="form-row" id='AcceptanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptanceType"><i class="fa fa-tag"></i> AcceptanceType</label>
+		<input type="text" id="node-input-AcceptanceType" placeholder="AcceptanceType"></input>
+	</div> 
+	<div class="form-row" id='GameServerGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerGroupName"><i class="fa fa-tag"></i> GameServerGroupName</label>
+		<input type="text" id="node-input-GameServerGroupName" placeholder="GameServerGroupName"></input>
+	</div> 
+	<div class="form-row" id='GameServerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerId"><i class="fa fa-tag"></i> GameServerId</label>
+		<input type="text" id="node-input-GameServerId" placeholder="GameServerId"></input>
+	</div> 
+	<div class="form-row" id='GameServerDataAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerData"><i class="fa fa-tag"></i> GameServerData</label>
+		<input type="text" id="node-input-GameServerData" placeholder="GameServerData"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='RoutingStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-RoutingStrategy"><i class="fa fa-tag"></i> RoutingStrategy</label>
+		<input type="text" id="node-input-RoutingStrategy" placeholder="RoutingStrategy"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='VersionAttr' class='hiddenAttrs'>
+		<label for="node-input-Version"><i class="fa fa-tag"></i> Version</label>
+		<input type="text" id="node-input-Version" placeholder="Version"></input>
+	</div> 
+	<div class="form-row" id='StorageLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageLocation"><i class="fa fa-tag"></i> StorageLocation</label>
+		<input type="text" id="node-input-StorageLocation" placeholder="StorageLocation"></input>
+	</div> 
+	<div class="form-row" id='OperatingSystemAttr' class='hiddenAttrs'>
+		<label for="node-input-OperatingSystem"><i class="fa fa-tag"></i> OperatingSystem</label>
+		<input type="text" id="node-input-OperatingSystem" placeholder="OperatingSystem"></input>
+	</div> 
+	<div class="form-row" id='BuildIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BuildId"><i class="fa fa-tag"></i> BuildId</label>
+		<input type="text" id="node-input-BuildId" placeholder="BuildId"></input>
+	</div> 
+	<div class="form-row" id='ScriptIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ScriptId"><i class="fa fa-tag"></i> ScriptId</label>
+		<input type="text" id="node-input-ScriptId" placeholder="ScriptId"></input>
+	</div> 
+	<div class="form-row" id='ServerLaunchPathAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerLaunchPath"><i class="fa fa-tag"></i> ServerLaunchPath</label>
+		<input type="text" id="node-input-ServerLaunchPath" placeholder="ServerLaunchPath"></input>
+	</div> 
+	<div class="form-row" id='ServerLaunchParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerLaunchParameters"><i class="fa fa-tag"></i> ServerLaunchParameters</label>
+		<input type="text" id="node-input-ServerLaunchParameters" placeholder="ServerLaunchParameters"></input>
+	</div> 
+	<div class="form-row" id='LogPathsAttr' class='hiddenAttrs'>
+		<label for="node-input-LogPaths"><i class="fa fa-tag"></i> LogPaths</label>
+		<input type="text" id="node-input-LogPaths" placeholder="LogPaths"></input>
+	</div> 
+	<div class="form-row" id='EC2InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2InstanceType"><i class="fa fa-tag"></i> EC2InstanceType</label>
+		<input type="text" id="node-input-EC2InstanceType" placeholder="EC2InstanceType"></input>
+	</div> 
+	<div class="form-row" id='EC2InboundPermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2InboundPermissions"><i class="fa fa-tag"></i> EC2InboundPermissions</label>
+		<input type="text" id="node-input-EC2InboundPermissions" placeholder="EC2InboundPermissions"></input>
+	</div> 
+	<div class="form-row" id='NewGameSessionProtectionPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-NewGameSessionProtectionPolicy"><i class="fa fa-tag"></i> NewGameSessionProtectionPolicy</label>
+		<input type="text" id="node-input-NewGameSessionProtectionPolicy" placeholder="NewGameSessionProtectionPolicy"></input>
+	</div> 
+	<div class="form-row" id='RuntimeConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RuntimeConfiguration"><i class="fa fa-tag"></i> RuntimeConfiguration</label>
+		<input type="text" id="node-input-RuntimeConfiguration" placeholder="RuntimeConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ResourceCreationLimitPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceCreationLimitPolicy"><i class="fa fa-tag"></i> ResourceCreationLimitPolicy</label>
+		<input type="text" id="node-input-ResourceCreationLimitPolicy" placeholder="ResourceCreationLimitPolicy"></input>
+	</div> 
+	<div class="form-row" id='MetricGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricGroups"><i class="fa fa-tag"></i> MetricGroups</label>
+		<input type="text" id="node-input-MetricGroups" placeholder="MetricGroups"></input>
+	</div> 
+	<div class="form-row" id='PeerVpcAwsAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PeerVpcAwsAccountId"><i class="fa fa-tag"></i> PeerVpcAwsAccountId</label>
+		<input type="text" id="node-input-PeerVpcAwsAccountId" placeholder="PeerVpcAwsAccountId"></input>
+	</div> 
+	<div class="form-row" id='PeerVpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PeerVpcId"><i class="fa fa-tag"></i> PeerVpcId</label>
+		<input type="text" id="node-input-PeerVpcId" placeholder="PeerVpcId"></input>
+	</div> 
+	<div class="form-row" id='FleetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetType"><i class="fa fa-tag"></i> FleetType</label>
+		<input type="text" id="node-input-FleetType" placeholder="FleetType"></input>
+	</div> 
+	<div class="form-row" id='InstanceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceRoleArn"><i class="fa fa-tag"></i> InstanceRoleArn</label>
+		<input type="text" id="node-input-InstanceRoleArn" placeholder="InstanceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='CertificateConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateConfiguration"><i class="fa fa-tag"></i> CertificateConfiguration</label>
+		<input type="text" id="node-input-CertificateConfiguration" placeholder="CertificateConfiguration"></input>
+	</div> 
+	<div class="form-row" id='LocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Locations"><i class="fa fa-tag"></i> Locations</label>
+		<input type="text" id="node-input-Locations" placeholder="Locations"></input>
+	</div> 
+	<div class="form-row" id='FleetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetId"><i class="fa fa-tag"></i> FleetId</label>
+		<input type="text" id="node-input-FleetId" placeholder="FleetId"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='MinSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MinSize"><i class="fa fa-tag"></i> MinSize</label>
+		<input type="text" id="node-input-MinSize" placeholder="MinSize"></input>
+	</div> 
+	<div class="form-row" id='MaxSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSize"><i class="fa fa-tag"></i> MaxSize</label>
+		<input type="text" id="node-input-MaxSize" placeholder="MaxSize"></input>
+	</div> 
+	<div class="form-row" id='LaunchTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-LaunchTemplate"><i class="fa fa-tag"></i> LaunchTemplate</label>
+		<input type="text" id="node-input-LaunchTemplate" placeholder="LaunchTemplate"></input>
+	</div> 
+	<div class="form-row" id='InstanceDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceDefinitions"><i class="fa fa-tag"></i> InstanceDefinitions</label>
+		<input type="text" id="node-input-InstanceDefinitions" placeholder="InstanceDefinitions"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingPolicy"><i class="fa fa-tag"></i> AutoScalingPolicy</label>
+		<input type="text" id="node-input-AutoScalingPolicy" placeholder="AutoScalingPolicy"></input>
+	</div> 
+	<div class="form-row" id='BalancingStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-BalancingStrategy"><i class="fa fa-tag"></i> BalancingStrategy</label>
+		<input type="text" id="node-input-BalancingStrategy" placeholder="BalancingStrategy"></input>
+	</div> 
+	<div class="form-row" id='GameServerProtectionPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-GameServerProtectionPolicy"><i class="fa fa-tag"></i> GameServerProtectionPolicy</label>
+		<input type="text" id="node-input-GameServerProtectionPolicy" placeholder="GameServerProtectionPolicy"></input>
+	</div> 
+	<div class="form-row" id='VpcSubnetsAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcSubnets"><i class="fa fa-tag"></i> VpcSubnets</label>
+		<input type="text" id="node-input-VpcSubnets" placeholder="VpcSubnets"></input>
+	</div> 
+	<div class="form-row" id='AliasIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AliasId"><i class="fa fa-tag"></i> AliasId</label>
+		<input type="text" id="node-input-AliasId" placeholder="AliasId"></input>
+	</div> 
+	<div class="form-row" id='MaximumPlayerSessionCountAttr' class='hiddenAttrs'>
+		<label for="node-input-MaximumPlayerSessionCount"><i class="fa fa-tag"></i> MaximumPlayerSessionCount</label>
+		<input type="text" id="node-input-MaximumPlayerSessionCount" placeholder="MaximumPlayerSessionCount"></input>
+	</div> 
+	<div class="form-row" id='GamePropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-GameProperties"><i class="fa fa-tag"></i> GameProperties</label>
+		<input type="text" id="node-input-GameProperties" placeholder="GameProperties"></input>
+	</div> 
+	<div class="form-row" id='CreatorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CreatorId"><i class="fa fa-tag"></i> CreatorId</label>
+		<input type="text" id="node-input-CreatorId" placeholder="CreatorId"></input>
+	</div> 
+	<div class="form-row" id='GameSessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionId"><i class="fa fa-tag"></i> GameSessionId</label>
+		<input type="text" id="node-input-GameSessionId" placeholder="GameSessionId"></input>
+	</div> 
+	<div class="form-row" id='IdempotencyTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-IdempotencyToken"><i class="fa fa-tag"></i> IdempotencyToken</label>
+		<input type="text" id="node-input-IdempotencyToken" placeholder="IdempotencyToken"></input>
+	</div> 
+	<div class="form-row" id='GameSessionDataAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionData"><i class="fa fa-tag"></i> GameSessionData</label>
+		<input type="text" id="node-input-GameSessionData" placeholder="GameSessionData"></input>
+	</div> 
+	<div class="form-row" id='LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-Location"><i class="fa fa-tag"></i> Location</label>
+		<input type="text" id="node-input-Location" placeholder="Location"></input>
+	</div> 
+	<div class="form-row" id='TimeoutInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeoutInSeconds"><i class="fa fa-tag"></i> TimeoutInSeconds</label>
+		<input type="text" id="node-input-TimeoutInSeconds" placeholder="TimeoutInSeconds"></input>
+	</div> 
+	<div class="form-row" id='PlayerLatencyPoliciesAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerLatencyPolicies"><i class="fa fa-tag"></i> PlayerLatencyPolicies</label>
+		<input type="text" id="node-input-PlayerLatencyPolicies" placeholder="PlayerLatencyPolicies"></input>
+	</div> 
+	<div class="form-row" id='DestinationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Destinations"><i class="fa fa-tag"></i> Destinations</label>
+		<input type="text" id="node-input-Destinations" placeholder="Destinations"></input>
+	</div> 
+	<div class="form-row" id='FilterConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterConfiguration"><i class="fa fa-tag"></i> FilterConfiguration</label>
+		<input type="text" id="node-input-FilterConfiguration" placeholder="FilterConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PriorityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-PriorityConfiguration"><i class="fa fa-tag"></i> PriorityConfiguration</label>
+		<input type="text" id="node-input-PriorityConfiguration" placeholder="PriorityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='CustomEventDataAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomEventData"><i class="fa fa-tag"></i> CustomEventData</label>
+		<input type="text" id="node-input-CustomEventData" placeholder="CustomEventData"></input>
+	</div> 
+	<div class="form-row" id='NotificationTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationTarget"><i class="fa fa-tag"></i> NotificationTarget</label>
+		<input type="text" id="node-input-NotificationTarget" placeholder="NotificationTarget"></input>
+	</div> 
+	<div class="form-row" id='GameSessionQueueArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionQueueArns"><i class="fa fa-tag"></i> GameSessionQueueArns</label>
+		<input type="text" id="node-input-GameSessionQueueArns" placeholder="GameSessionQueueArns"></input>
+	</div> 
+	<div class="form-row" id='RequestTimeoutSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestTimeoutSeconds"><i class="fa fa-tag"></i> RequestTimeoutSeconds</label>
+		<input type="text" id="node-input-RequestTimeoutSeconds" placeholder="RequestTimeoutSeconds"></input>
+	</div> 
+	<div class="form-row" id='AcceptanceTimeoutSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptanceTimeoutSeconds"><i class="fa fa-tag"></i> AcceptanceTimeoutSeconds</label>
+		<input type="text" id="node-input-AcceptanceTimeoutSeconds" placeholder="AcceptanceTimeoutSeconds"></input>
+	</div> 
+	<div class="form-row" id='AcceptanceRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptanceRequired"><i class="fa fa-tag"></i> AcceptanceRequired</label>
+		<input type="text" id="node-input-AcceptanceRequired" placeholder="AcceptanceRequired"></input>
+	</div> 
+	<div class="form-row" id='RuleSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleSetName"><i class="fa fa-tag"></i> RuleSetName</label>
+		<input type="text" id="node-input-RuleSetName" placeholder="RuleSetName"></input>
+	</div> 
+	<div class="form-row" id='AdditionalPlayerCountAttr' class='hiddenAttrs'>
+		<label for="node-input-AdditionalPlayerCount"><i class="fa fa-tag"></i> AdditionalPlayerCount</label>
+		<input type="text" id="node-input-AdditionalPlayerCount" placeholder="AdditionalPlayerCount"></input>
+	</div> 
+	<div class="form-row" id='BackfillModeAttr' class='hiddenAttrs'>
+		<label for="node-input-BackfillMode"><i class="fa fa-tag"></i> BackfillMode</label>
+		<input type="text" id="node-input-BackfillMode" placeholder="BackfillMode"></input>
+	</div> 
+	<div class="form-row" id='FlexMatchModeAttr' class='hiddenAttrs'>
+		<label for="node-input-FlexMatchMode"><i class="fa fa-tag"></i> FlexMatchMode</label>
+		<input type="text" id="node-input-FlexMatchMode" placeholder="FlexMatchMode"></input>
+	</div> 
+	<div class="form-row" id='RuleSetBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleSetBody"><i class="fa fa-tag"></i> RuleSetBody</label>
+		<input type="text" id="node-input-RuleSetBody" placeholder="RuleSetBody"></input>
+	</div> 
+	<div class="form-row" id='PlayerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerId"><i class="fa fa-tag"></i> PlayerId</label>
+		<input type="text" id="node-input-PlayerId" placeholder="PlayerId"></input>
+	</div> 
+	<div class="form-row" id='PlayerDataAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerData"><i class="fa fa-tag"></i> PlayerData</label>
+		<input type="text" id="node-input-PlayerData" placeholder="PlayerData"></input>
+	</div> 
+	<div class="form-row" id='PlayerDataMapAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerDataMap"><i class="fa fa-tag"></i> PlayerDataMap</label>
+		<input type="text" id="node-input-PlayerDataMap" placeholder="PlayerDataMap"></input>
+	</div> 
+	<div class="form-row" id='ZipFileAttr' class='hiddenAttrs'>
+		<label for="node-input-ZipFile"><i class="fa fa-tag"></i> ZipFile</label>
+		<input type="text" id="node-input-ZipFile" placeholder="ZipFile"></input>
+	</div> 
+	<div class="form-row" id='GameLiftAwsAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GameLiftAwsAccountId"><i class="fa fa-tag"></i> GameLiftAwsAccountId</label>
+		<input type="text" id="node-input-GameLiftAwsAccountId" placeholder="GameLiftAwsAccountId"></input>
+	</div> 
+	<div class="form-row" id='DeleteOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteOption"><i class="fa fa-tag"></i> DeleteOption</label>
+		<input type="text" id="node-input-DeleteOption" placeholder="DeleteOption"></input>
+	</div> 
+	<div class="form-row" id='VpcPeeringConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcPeeringConnectionId"><i class="fa fa-tag"></i> VpcPeeringConnectionId</label>
+		<input type="text" id="node-input-VpcPeeringConnectionId" placeholder="VpcPeeringConnectionId"></input>
+	</div> 
+	<div class="form-row" id='FleetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetIds"><i class="fa fa-tag"></i> FleetIds</label>
+		<input type="text" id="node-input-FleetIds" placeholder="FleetIds"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceIds"><i class="fa fa-tag"></i> InstanceIds</label>
+		<input type="text" id="node-input-InstanceIds" placeholder="InstanceIds"></input>
+	</div> 
+	<div class="form-row" id='StatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusFilter"><i class="fa fa-tag"></i> StatusFilter</label>
+		<input type="text" id="node-input-StatusFilter" placeholder="StatusFilter"></input>
+	</div> 
+	<div class="form-row" id='PlacementIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlacementId"><i class="fa fa-tag"></i> PlacementId</label>
+		<input type="text" id="node-input-PlacementId" placeholder="PlacementId"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i> InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='TicketIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-TicketIds"><i class="fa fa-tag"></i> TicketIds</label>
+		<input type="text" id="node-input-TicketIds" placeholder="TicketIds"></input>
+	</div> 
+	<div class="form-row" id='PlayerSessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerSessionId"><i class="fa fa-tag"></i> PlayerSessionId</label>
+		<input type="text" id="node-input-PlayerSessionId" placeholder="PlayerSessionId"></input>
+	</div> 
+	<div class="form-row" id='PlayerSessionStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerSessionStatusFilter"><i class="fa fa-tag"></i> PlayerSessionStatusFilter</label>
+		<input type="text" id="node-input-PlayerSessionStatusFilter" placeholder="PlayerSessionStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='RoutingStrategyTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-RoutingStrategyType"><i class="fa fa-tag"></i> RoutingStrategyType</label>
+		<input type="text" id="node-input-RoutingStrategyType" placeholder="RoutingStrategyType"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='SortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-SortOrder"><i class="fa fa-tag"></i> SortOrder</label>
+		<input type="text" id="node-input-SortOrder" placeholder="SortOrder"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='ScalingAdjustmentAttr' class='hiddenAttrs'>
+		<label for="node-input-ScalingAdjustment"><i class="fa fa-tag"></i> ScalingAdjustment</label>
+		<input type="text" id="node-input-ScalingAdjustment" placeholder="ScalingAdjustment"></input>
+	</div> 
+	<div class="form-row" id='ScalingAdjustmentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScalingAdjustmentType"><i class="fa fa-tag"></i> ScalingAdjustmentType</label>
+		<input type="text" id="node-input-ScalingAdjustmentType" placeholder="ScalingAdjustmentType"></input>
+	</div> 
+	<div class="form-row" id='ThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-Threshold"><i class="fa fa-tag"></i> Threshold</label>
+		<input type="text" id="node-input-Threshold" placeholder="Threshold"></input>
+	</div> 
+	<div class="form-row" id='ComparisonOperatorAttr' class='hiddenAttrs'>
+		<label for="node-input-ComparisonOperator"><i class="fa fa-tag"></i> ComparisonOperator</label>
+		<input type="text" id="node-input-ComparisonOperator" placeholder="ComparisonOperator"></input>
+	</div> 
+	<div class="form-row" id='EvaluationPeriodsAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationPeriods"><i class="fa fa-tag"></i> EvaluationPeriods</label>
+		<input type="text" id="node-input-EvaluationPeriods" placeholder="EvaluationPeriods"></input>
+	</div> 
+	<div class="form-row" id='MetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricName"><i class="fa fa-tag"></i> MetricName</label>
+		<input type="text" id="node-input-MetricName" placeholder="MetricName"></input>
+	</div> 
+	<div class="form-row" id='PolicyTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyType"><i class="fa fa-tag"></i> PolicyType</label>
+		<input type="text" id="node-input-PolicyType" placeholder="PolicyType"></input>
+	</div> 
+	<div class="form-row" id='TargetConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetConfiguration"><i class="fa fa-tag"></i> TargetConfiguration</label>
+		<input type="text" id="node-input-TargetConfiguration" placeholder="TargetConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ConnectionInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionInfo"><i class="fa fa-tag"></i> ConnectionInfo</label>
+		<input type="text" id="node-input-ConnectionInfo" placeholder="ConnectionInfo"></input>
+	</div> 
+	<div class="form-row" id='ResumeActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResumeActions"><i class="fa fa-tag"></i> ResumeActions</label>
+		<input type="text" id="node-input-ResumeActions" placeholder="ResumeActions"></input>
+	</div> 
+	<div class="form-row" id='FilterExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterExpression"><i class="fa fa-tag"></i> FilterExpression</label>
+		<input type="text" id="node-input-FilterExpression" placeholder="FilterExpression"></input>
+	</div> 
+	<div class="form-row" id='SortExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-SortExpression"><i class="fa fa-tag"></i> SortExpression</label>
+		<input type="text" id="node-input-SortExpression" placeholder="SortExpression"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i> Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='GameSessionQueueNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionQueueName"><i class="fa fa-tag"></i> GameSessionQueueName</label>
+		<input type="text" id="node-input-GameSessionQueueName" placeholder="GameSessionQueueName"></input>
+	</div> 
+	<div class="form-row" id='GameSessionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionName"><i class="fa fa-tag"></i> GameSessionName</label>
+		<input type="text" id="node-input-GameSessionName" placeholder="GameSessionName"></input>
+	</div> 
+	<div class="form-row" id='PlayerLatenciesAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerLatencies"><i class="fa fa-tag"></i> PlayerLatencies</label>
+		<input type="text" id="node-input-PlayerLatencies" placeholder="PlayerLatencies"></input>
+	</div> 
+	<div class="form-row" id='DesiredPlayerSessionsAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredPlayerSessions"><i class="fa fa-tag"></i> DesiredPlayerSessions</label>
+		<input type="text" id="node-input-DesiredPlayerSessions" placeholder="DesiredPlayerSessions"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationName"><i class="fa fa-tag"></i> ConfigurationName</label>
+		<input type="text" id="node-input-ConfigurationName" placeholder="ConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='GameSessionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-GameSessionArn"><i class="fa fa-tag"></i> GameSessionArn</label>
+		<input type="text" id="node-input-GameSessionArn" placeholder="GameSessionArn"></input>
+	</div> 
+	<div class="form-row" id='PlayersAttr' class='hiddenAttrs'>
+		<label for="node-input-Players"><i class="fa fa-tag"></i> Players</label>
+		<input type="text" id="node-input-Players" placeholder="Players"></input>
+	</div> 
+	<div class="form-row" id='SuspendActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-SuspendActions"><i class="fa fa-tag"></i> SuspendActions</label>
+		<input type="text" id="node-input-SuspendActions" placeholder="SuspendActions"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DesiredInstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredInstances"><i class="fa fa-tag"></i> DesiredInstances</label>
+		<input type="text" id="node-input-DesiredInstances" placeholder="DesiredInstances"></input>
+	</div> 
+	<div class="form-row" id='InboundPermissionAuthorizationsAttr' class='hiddenAttrs'>
+		<label for="node-input-InboundPermissionAuthorizations"><i class="fa fa-tag"></i> InboundPermissionAuthorizations</label>
+		<input type="text" id="node-input-InboundPermissionAuthorizations" placeholder="InboundPermissionAuthorizations"></input>
+	</div> 
+	<div class="form-row" id='InboundPermissionRevocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-InboundPermissionRevocations"><i class="fa fa-tag"></i> InboundPermissionRevocations</label>
+		<input type="text" id="node-input-InboundPermissionRevocations" placeholder="InboundPermissionRevocations"></input>
+	</div> 
+	<div class="form-row" id='UtilizationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-UtilizationStatus"><i class="fa fa-tag"></i> UtilizationStatus</label>
+		<input type="text" id="node-input-UtilizationStatus" placeholder="UtilizationStatus"></input>
+	</div> 
+	<div class="form-row" id='HealthCheckAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthCheck"><i class="fa fa-tag"></i> HealthCheck</label>
+		<input type="text" id="node-input-HealthCheck" placeholder="HealthCheck"></input>
+	</div> 
+	<div class="form-row" id='PlayerSessionCreationPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-PlayerSessionCreationPolicy"><i class="fa fa-tag"></i> PlayerSessionCreationPolicy</label>
+		<input type="text" id="node-input-PlayerSessionCreationPolicy" placeholder="PlayerSessionCreationPolicy"></input>
+	</div> 
+	<div class="form-row" id='ProtectionPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-ProtectionPolicy"><i class="fa fa-tag"></i> ProtectionPolicy</label>
+		<input type="text" id="node-input-ProtectionPolicy" placeholder="ProtectionPolicy"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptMatch:[
+					'#TicketIdAttr','#PlayerIdsAttr','#AcceptanceTypeAttr'
+					],
+				ClaimGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr','#GameServerDataAttr'
+					],
+				CreateAlias:[
+					'#NameAttr','#DescriptionAttr','#RoutingStrategyAttr','#TagsAttr'
+					],
+				CreateBuild:[
+					'#NameAttr','#VersionAttr','#StorageLocationAttr','#OperatingSystemAttr','#TagsAttr'
+					],
+				CreateFleet:[
+					'#NameAttr','#DescriptionAttr','#BuildIdAttr','#ScriptIdAttr','#ServerLaunchPathAttr','#ServerLaunchParametersAttr','#LogPathsAttr','#EC2InstanceTypeAttr','#EC2InboundPermissionsAttr','#NewGameSessionProtectionPolicyAttr','#RuntimeConfigurationAttr','#ResourceCreationLimitPolicyAttr','#MetricGroupsAttr','#PeerVpcAwsAccountIdAttr','#PeerVpcIdAttr','#FleetTypeAttr','#InstanceRoleArnAttr','#CertificateConfigurationAttr','#LocationsAttr','#TagsAttr'
+					],
+				CreateFleetLocations:[
+					'#FleetIdAttr','#LocationsAttr'
+					],
+				CreateGameServerGroup:[
+					'#GameServerGroupNameAttr','#RoleArnAttr','#MinSizeAttr','#MaxSizeAttr','#LaunchTemplateAttr','#InstanceDefinitionsAttr','#AutoScalingPolicyAttr','#BalancingStrategyAttr','#GameServerProtectionPolicyAttr','#VpcSubnetsAttr','#TagsAttr'
+					],
+				CreateGameSession:[
+					'#FleetIdAttr','#AliasIdAttr','#MaximumPlayerSessionCountAttr','#NameAttr','#GamePropertiesAttr','#CreatorIdAttr','#GameSessionIdAttr','#IdempotencyTokenAttr','#GameSessionDataAttr','#LocationAttr'
+					],
+				CreateGameSessionQueue:[
+					'#NameAttr','#TimeoutInSecondsAttr','#PlayerLatencyPoliciesAttr','#DestinationsAttr','#FilterConfigurationAttr','#PriorityConfigurationAttr','#CustomEventDataAttr','#NotificationTargetAttr','#TagsAttr'
+					],
+				CreateMatchmakingConfiguration:[
+					'#NameAttr','#DescriptionAttr','#GameSessionQueueArnsAttr','#RequestTimeoutSecondsAttr','#AcceptanceTimeoutSecondsAttr','#AcceptanceRequiredAttr','#RuleSetNameAttr','#NotificationTargetAttr','#AdditionalPlayerCountAttr','#CustomEventDataAttr','#GamePropertiesAttr','#GameSessionDataAttr','#BackfillModeAttr','#FlexMatchModeAttr','#TagsAttr'
+					],
+				CreateMatchmakingRuleSet:[
+					'#NameAttr','#RuleSetBodyAttr','#TagsAttr'
+					],
+				CreatePlayerSession:[
+					'#GameSessionIdAttr','#PlayerIdAttr','#PlayerDataAttr'
+					],
+				CreatePlayerSessions:[
+					'#GameSessionIdAttr','#PlayerIdsAttr','#PlayerDataMapAttr'
+					],
+				CreateScript:[
+					'#NameAttr','#VersionAttr','#StorageLocationAttr','#ZipFileAttr','#TagsAttr'
+					],
+				CreateVpcPeeringAuthorization:[
+					'#GameLiftAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				CreateVpcPeeringConnection:[
+					'#FleetIdAttr','#PeerVpcAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				DeleteAlias:[
+					'#AliasIdAttr'
+					],
+				DeleteBuild:[
+					'#BuildIdAttr'
+					],
+				DeleteFleet:[
+					'#FleetIdAttr'
+					],
+				DeleteFleetLocations:[
+					'#FleetIdAttr','#LocationsAttr'
+					],
+				DeleteGameServerGroup:[
+					'#GameServerGroupNameAttr','#DeleteOptionAttr'
+					],
+				DeleteGameSessionQueue:[
+					'#NameAttr'
+					],
+				DeleteMatchmakingConfiguration:[
+					'#NameAttr'
+					],
+				DeleteMatchmakingRuleSet:[
+					'#NameAttr'
+					],
+				DeleteScalingPolicy:[
+					'#NameAttr','#FleetIdAttr'
+					],
+				DeleteScript:[
+					'#ScriptIdAttr'
+					],
+				DeleteVpcPeeringAuthorization:[
+					'#GameLiftAwsAccountIdAttr','#PeerVpcIdAttr'
+					],
+				DeleteVpcPeeringConnection:[
+					'#FleetIdAttr','#VpcPeeringConnectionIdAttr'
+					],
+				DeregisterGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr'
+					],
+				DescribeAlias:[
+					'#AliasIdAttr'
+					],
+				DescribeBuild:[
+					'#BuildIdAttr'
+					],
+				DescribeEC2InstanceLimits:[
+					'#EC2InstanceTypeAttr','#LocationAttr'
+					],
+				DescribeFleetAttributes:[
+					'#FleetIdsAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeFleetCapacity:[
+					'#FleetIdsAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeFleetEvents:[
+					'#FleetIdAttr','#StartTimeAttr','#EndTimeAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeFleetLocationAttributes:[
+					'#FleetIdAttr','#LocationsAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeFleetLocationCapacity:[
+					'#FleetIdAttr','#LocationAttr'
+					],
+				DescribeFleetLocationUtilization:[
+					'#FleetIdAttr','#LocationAttr'
+					],
+				DescribeFleetPortSettings:[
+					'#FleetIdAttr','#LocationAttr'
+					],
+				DescribeFleetUtilization:[
+					'#FleetIdsAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr'
+					],
+				DescribeGameServerGroup:[
+					'#GameServerGroupNameAttr'
+					],
+				DescribeGameServerInstances:[
+					'#GameServerGroupNameAttr','#InstanceIdsAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeGameSessionDetails:[
+					'#FleetIdAttr','#GameSessionIdAttr','#AliasIdAttr','#LocationAttr','#StatusFilterAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeGameSessionPlacement:[
+					'#PlacementIdAttr'
+					],
+				DescribeGameSessionQueues:[
+					'#NamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeGameSessions:[
+					'#FleetIdAttr','#GameSessionIdAttr','#AliasIdAttr','#LocationAttr','#StatusFilterAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeInstances:[
+					'#FleetIdAttr','#InstanceIdAttr','#LimitAttr','#NextTokenAttr','#LocationAttr'
+					],
+				DescribeMatchmaking:[
+					'#TicketIdsAttr'
+					],
+				DescribeMatchmakingConfigurations:[
+					'#NamesAttr','#RuleSetNameAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeMatchmakingRuleSets:[
+					'#NamesAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribePlayerSessions:[
+					'#GameSessionIdAttr','#PlayerIdAttr','#PlayerSessionIdAttr','#PlayerSessionStatusFilterAttr','#LimitAttr','#NextTokenAttr'
+					],
+				DescribeRuntimeConfiguration:[
+					'#FleetIdAttr'
+					],
+				DescribeScalingPolicies:[
+					'#FleetIdAttr','#StatusFilterAttr','#LimitAttr','#NextTokenAttr','#LocationAttr'
+					],
+				DescribeScript:[
+					'#ScriptIdAttr'
+					],
+				DescribeVpcPeeringAuthorizations:[
+					
+					],
+				DescribeVpcPeeringConnections:[
+					'#FleetIdAttr'
+					],
+				GetGameSessionLogUrl:[
+					'#GameSessionIdAttr'
+					],
+				GetInstanceAccess:[
+					'#FleetIdAttr','#InstanceIdAttr'
+					],
+				ListAliases:[
+					'#RoutingStrategyTypeAttr','#NameAttr','#LimitAttr','#NextTokenAttr'
+					],
+				ListBuilds:[
+					'#StatusAttr','#LimitAttr','#NextTokenAttr'
+					],
+				ListFleets:[
+					'#BuildIdAttr','#ScriptIdAttr','#LimitAttr','#NextTokenAttr'
+					],
+				ListGameServerGroups:[
+					'#LimitAttr','#NextTokenAttr'
+					],
+				ListGameServers:[
+					'#GameServerGroupNameAttr','#SortOrderAttr','#LimitAttr','#NextTokenAttr'
+					],
+				ListScripts:[
+					'#LimitAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				PutScalingPolicy:[
+					'#NameAttr','#FleetIdAttr','#ScalingAdjustmentAttr','#ScalingAdjustmentTypeAttr','#ThresholdAttr','#ComparisonOperatorAttr','#EvaluationPeriodsAttr','#MetricNameAttr','#PolicyTypeAttr','#TargetConfigurationAttr'
+					],
+				RegisterGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr','#InstanceIdAttr','#ConnectionInfoAttr','#GameServerDataAttr'
+					],
+				RequestUploadCredentials:[
+					'#BuildIdAttr'
+					],
+				ResolveAlias:[
+					'#AliasIdAttr'
+					],
+				ResumeGameServerGroup:[
+					'#GameServerGroupNameAttr','#ResumeActionsAttr'
+					],
+				SearchGameSessions:[
+					'#FleetIdAttr','#AliasIdAttr','#LocationAttr','#FilterExpressionAttr','#SortExpressionAttr','#LimitAttr','#NextTokenAttr'
+					],
+				StartFleetActions:[
+					'#FleetIdAttr','#ActionsAttr','#LocationAttr'
+					],
+				StartGameSessionPlacement:[
+					'#PlacementIdAttr','#GameSessionQueueNameAttr','#GamePropertiesAttr','#MaximumPlayerSessionCountAttr','#GameSessionNameAttr','#PlayerLatenciesAttr','#DesiredPlayerSessionsAttr','#GameSessionDataAttr'
+					],
+				StartMatchBackfill:[
+					'#TicketIdAttr','#ConfigurationNameAttr','#GameSessionArnAttr','#PlayersAttr'
+					],
+				StartMatchmaking:[
+					'#TicketIdAttr','#ConfigurationNameAttr','#PlayersAttr'
+					],
+				StopFleetActions:[
+					'#FleetIdAttr','#ActionsAttr','#LocationAttr'
+					],
+				StopGameSessionPlacement:[
+					'#PlacementIdAttr'
+					],
+				StopMatchmaking:[
+					'#TicketIdAttr'
+					],
+				SuspendGameServerGroup:[
+					'#GameServerGroupNameAttr','#SuspendActionsAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateAlias:[
+					'#AliasIdAttr','#NameAttr','#DescriptionAttr','#RoutingStrategyAttr'
+					],
+				UpdateBuild:[
+					'#BuildIdAttr','#NameAttr','#VersionAttr'
+					],
+				UpdateFleetAttributes:[
+					'#FleetIdAttr','#NameAttr','#DescriptionAttr','#NewGameSessionProtectionPolicyAttr','#ResourceCreationLimitPolicyAttr','#MetricGroupsAttr'
+					],
+				UpdateFleetCapacity:[
+					'#FleetIdAttr','#DesiredInstancesAttr','#MinSizeAttr','#MaxSizeAttr','#LocationAttr'
+					],
+				UpdateFleetPortSettings:[
+					'#FleetIdAttr','#InboundPermissionAuthorizationsAttr','#InboundPermissionRevocationsAttr'
+					],
+				UpdateGameServer:[
+					'#GameServerGroupNameAttr','#GameServerIdAttr','#GameServerDataAttr','#UtilizationStatusAttr','#HealthCheckAttr'
+					],
+				UpdateGameServerGroup:[
+					'#GameServerGroupNameAttr','#RoleArnAttr','#InstanceDefinitionsAttr','#GameServerProtectionPolicyAttr','#BalancingStrategyAttr'
+					],
+				UpdateGameSession:[
+					'#GameSessionIdAttr','#MaximumPlayerSessionCountAttr','#NameAttr','#PlayerSessionCreationPolicyAttr','#ProtectionPolicyAttr'
+					],
+				UpdateGameSessionQueue:[
+					'#NameAttr','#TimeoutInSecondsAttr','#PlayerLatencyPoliciesAttr','#DestinationsAttr','#FilterConfigurationAttr','#PriorityConfigurationAttr','#CustomEventDataAttr','#NotificationTargetAttr'
+					],
+				UpdateMatchmakingConfiguration:[
+					'#NameAttr','#DescriptionAttr','#GameSessionQueueArnsAttr','#RequestTimeoutSecondsAttr','#AcceptanceTimeoutSecondsAttr','#AcceptanceRequiredAttr','#RuleSetNameAttr','#NotificationTargetAttr','#AdditionalPlayerCountAttr','#CustomEventDataAttr','#GamePropertiesAttr','#GameSessionDataAttr','#BackfillModeAttr','#FlexMatchModeAttr'
+					],
+				UpdateRuntimeConfiguration:[
+					'#FleetIdAttr','#RuntimeConfigurationAttr'
+					],
+				UpdateScript:[
+					'#ScriptIdAttr','#NameAttr','#VersionAttr','#StorageLocationAttr','#ZipFileAttr'
+					],
+				ValidateMatchmakingRuleSet:[
+					'#RuleSetBodyAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS GameLift">
+<p>
+AWS GameLift
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/GameLift.html">GameLift</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS GameLift',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptMatch' },
+			
+				TicketId: { value: ""} ,
+				PlayerIds: { value: ""} ,
+				AcceptanceType: { value: ""} ,
+				GameServerGroupName: { value: ""} ,
+				GameServerId: { value: ""} ,
+				GameServerData: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				RoutingStrategy: { value: ""} ,
+				Tags: { value: ""} ,
+				Version: { value: ""} ,
+				StorageLocation: { value: ""} ,
+				OperatingSystem: { value: ""} ,
+				BuildId: { value: ""} ,
+				ScriptId: { value: ""} ,
+				ServerLaunchPath: { value: ""} ,
+				ServerLaunchParameters: { value: ""} ,
+				LogPaths: { value: ""} ,
+				EC2InstanceType: { value: ""} ,
+				EC2InboundPermissions: { value: ""} ,
+				NewGameSessionProtectionPolicy: { value: ""} ,
+				RuntimeConfiguration: { value: ""} ,
+				ResourceCreationLimitPolicy: { value: ""} ,
+				MetricGroups: { value: ""} ,
+				PeerVpcAwsAccountId: { value: ""} ,
+				PeerVpcId: { value: ""} ,
+				FleetType: { value: ""} ,
+				InstanceRoleArn: { value: ""} ,
+				CertificateConfiguration: { value: ""} ,
+				Locations: { value: ""} ,
+				FleetId: { value: ""} ,
+				RoleArn: { value: ""} ,
+				MinSize: { value: ""} ,
+				MaxSize: { value: ""} ,
+				LaunchTemplate: { value: ""} ,
+				InstanceDefinitions: { value: ""} ,
+				AutoScalingPolicy: { value: ""} ,
+				BalancingStrategy: { value: ""} ,
+				GameServerProtectionPolicy: { value: ""} ,
+				VpcSubnets: { value: ""} ,
+				AliasId: { value: ""} ,
+				MaximumPlayerSessionCount: { value: ""} ,
+				GameProperties: { value: ""} ,
+				CreatorId: { value: ""} ,
+				GameSessionId: { value: ""} ,
+				IdempotencyToken: { value: ""} ,
+				GameSessionData: { value: ""} ,
+				Location: { value: ""} ,
+				TimeoutInSeconds: { value: ""} ,
+				PlayerLatencyPolicies: { value: ""} ,
+				Destinations: { value: ""} ,
+				FilterConfiguration: { value: ""} ,
+				PriorityConfiguration: { value: ""} ,
+				CustomEventData: { value: ""} ,
+				NotificationTarget: { value: ""} ,
+				GameSessionQueueArns: { value: ""} ,
+				RequestTimeoutSeconds: { value: ""} ,
+				AcceptanceTimeoutSeconds: { value: ""} ,
+				AcceptanceRequired: { value: ""} ,
+				RuleSetName: { value: ""} ,
+				AdditionalPlayerCount: { value: ""} ,
+				BackfillMode: { value: ""} ,
+				FlexMatchMode: { value: ""} ,
+				RuleSetBody: { value: ""} ,
+				PlayerId: { value: ""} ,
+				PlayerData: { value: ""} ,
+				PlayerDataMap: { value: ""} ,
+				ZipFile: { value: ""} ,
+				GameLiftAwsAccountId: { value: ""} ,
+				DeleteOption: { value: ""} ,
+				VpcPeeringConnectionId: { value: ""} ,
+				FleetIds: { value: ""} ,
+				Limit: { value: ""} ,
+				NextToken: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				InstanceIds: { value: ""} ,
+				StatusFilter: { value: ""} ,
+				PlacementId: { value: ""} ,
+				Names: { value: ""} ,
+				InstanceId: { value: ""} ,
+				TicketIds: { value: ""} ,
+				PlayerSessionId: { value: ""} ,
+				PlayerSessionStatusFilter: { value: ""} ,
+				RoutingStrategyType: { value: ""} ,
+				Status: { value: ""} ,
+				SortOrder: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				ScalingAdjustment: { value: ""} ,
+				ScalingAdjustmentType: { value: ""} ,
+				Threshold: { value: ""} ,
+				ComparisonOperator: { value: ""} ,
+				EvaluationPeriods: { value: ""} ,
+				MetricName: { value: ""} ,
+				PolicyType: { value: ""} ,
+				TargetConfiguration: { value: ""} ,
+				ConnectionInfo: { value: ""} ,
+				ResumeActions: { value: ""} ,
+				FilterExpression: { value: ""} ,
+				SortExpression: { value: ""} ,
+				Actions: { value: ""} ,
+				GameSessionQueueName: { value: ""} ,
+				GameSessionName: { value: ""} ,
+				PlayerLatencies: { value: ""} ,
+				DesiredPlayerSessions: { value: ""} ,
+				ConfigurationName: { value: ""} ,
+				GameSessionArn: { value: ""} ,
+				Players: { value: ""} ,
+				SuspendActions: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DesiredInstances: { value: ""} ,
+				InboundPermissionAuthorizations: { value: ""} ,
+				InboundPermissionRevocations: { value: ""} ,
+				UtilizationStatus: { value: ""} ,
+				HealthCheck: { value: ""} ,
+				PlayerSessionCreationPolicy: { value: ""} ,
+				ProtectionPolicy: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "GameLift " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-TicketId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AcceptanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameServerGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameServerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameServerData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoutingStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Version").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperatingSystem").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BuildId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScriptId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerLaunchPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerLaunchParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogPaths").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EC2InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EC2InboundPermissions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewGameSessionProtectionPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuntimeConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceCreationLimitPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PeerVpcAwsAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PeerVpcId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FleetType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Locations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FleetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MinSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxSize").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-InstanceDefinitions").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-BalancingStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameServerProtectionPolicy").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AliasId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaximumPlayerSessionCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-GameProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CreatorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdempotencyToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TimeoutInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PlayerLatencyPolicies").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Destinations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PriorityConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomEventData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationTarget").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionQueueArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestTimeoutSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AcceptanceTimeoutSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AcceptanceRequired").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RuleSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdditionalPlayerCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-BackfillMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FlexMatchMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleSetBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlayerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlayerData").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ZipFile").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-GameLiftAwsAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeleteOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcPeeringConnectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FleetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-StatusFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlacementId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-InstanceId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PlayerSessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlayerSessionStatusFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoutingStrategyType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScalingAdjustment").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ScalingAdjustmentType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ComparisonOperator").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EvaluationPeriods").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MetricName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResumeActions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Actions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionQueueName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlayerLatencies").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ConfigurationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GameSessionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Players").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SuspendActions").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DesiredInstances").typedInput({ default: "num", types: ["num"]});
+$("#node-input-InboundPermissionAuthorizations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InboundPermissionRevocations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UtilizationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HealthCheck").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlayerSessionCreationPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProtectionPolicy").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

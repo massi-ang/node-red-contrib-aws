@@ -1,0 +1,550 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS AppSync">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApiCache">CreateApiCache</option>
+		
+			<option value="CreateApiKey">CreateApiKey</option>
+		
+			<option value="CreateDataSource">CreateDataSource</option>
+		
+			<option value="CreateFunction">CreateFunction</option>
+		
+			<option value="CreateGraphqlApi">CreateGraphqlApi</option>
+		
+			<option value="CreateResolver">CreateResolver</option>
+		
+			<option value="CreateType">CreateType</option>
+		
+			<option value="DeleteApiCache">DeleteApiCache</option>
+		
+			<option value="DeleteApiKey">DeleteApiKey</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteFunction">DeleteFunction</option>
+		
+			<option value="DeleteGraphqlApi">DeleteGraphqlApi</option>
+		
+			<option value="DeleteResolver">DeleteResolver</option>
+		
+			<option value="DeleteType">DeleteType</option>
+		
+			<option value="FlushApiCache">FlushApiCache</option>
+		
+			<option value="GetApiCache">GetApiCache</option>
+		
+			<option value="GetDataSource">GetDataSource</option>
+		
+			<option value="GetFunction">GetFunction</option>
+		
+			<option value="GetGraphqlApi">GetGraphqlApi</option>
+		
+			<option value="GetIntrospectionSchema">GetIntrospectionSchema</option>
+		
+			<option value="GetResolver">GetResolver</option>
+		
+			<option value="GetSchemaCreationStatus">GetSchemaCreationStatus</option>
+		
+			<option value="GetType">GetType</option>
+		
+			<option value="ListApiKeys">ListApiKeys</option>
+		
+			<option value="ListDataSources">ListDataSources</option>
+		
+			<option value="ListFunctions">ListFunctions</option>
+		
+			<option value="ListGraphqlApis">ListGraphqlApis</option>
+		
+			<option value="ListResolvers">ListResolvers</option>
+		
+			<option value="ListResolversByFunction">ListResolversByFunction</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTypes">ListTypes</option>
+		
+			<option value="StartSchemaCreation">StartSchemaCreation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApiCache">UpdateApiCache</option>
+		
+			<option value="UpdateApiKey">UpdateApiKey</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateFunction">UpdateFunction</option>
+		
+			<option value="UpdateGraphqlApi">UpdateGraphqlApi</option>
+		
+			<option value="UpdateResolver">UpdateResolver</option>
+		
+			<option value="UpdateType">UpdateType</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='apiIdAttr' class='hiddenAttrs'>
+		<label for="node-input-apiId"><i class="fa fa-tag"></i> apiId</label>
+		<input type="text" id="node-input-apiId" placeholder="apiId"></input>
+	</div> 
+	<div class="form-row" id='ttlAttr' class='hiddenAttrs'>
+		<label for="node-input-ttl"><i class="fa fa-tag"></i> ttl</label>
+		<input type="text" id="node-input-ttl" placeholder="ttl"></input>
+	</div> 
+	<div class="form-row" id='transitEncryptionEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-transitEncryptionEnabled"><i class="fa fa-tag"></i> transitEncryptionEnabled</label>
+		<input type="text" id="node-input-transitEncryptionEnabled" placeholder="transitEncryptionEnabled"></input>
+	</div> 
+	<div class="form-row" id='atRestEncryptionEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-atRestEncryptionEnabled"><i class="fa fa-tag"></i> atRestEncryptionEnabled</label>
+		<input type="text" id="node-input-atRestEncryptionEnabled" placeholder="atRestEncryptionEnabled"></input>
+	</div> 
+	<div class="form-row" id='apiCachingBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-apiCachingBehavior"><i class="fa fa-tag"></i> apiCachingBehavior</label>
+		<input type="text" id="node-input-apiCachingBehavior" placeholder="apiCachingBehavior"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='expiresAttr' class='hiddenAttrs'>
+		<label for="node-input-expires"><i class="fa fa-tag"></i> expires</label>
+		<input type="text" id="node-input-expires" placeholder="expires"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRoleArn"><i class="fa fa-tag"></i> serviceRoleArn</label>
+		<input type="text" id="node-input-serviceRoleArn" placeholder="serviceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='dynamodbConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-dynamodbConfig"><i class="fa fa-tag"></i> dynamodbConfig</label>
+		<input type="text" id="node-input-dynamodbConfig" placeholder="dynamodbConfig"></input>
+	</div> 
+	<div class="form-row" id='lambdaConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-lambdaConfig"><i class="fa fa-tag"></i> lambdaConfig</label>
+		<input type="text" id="node-input-lambdaConfig" placeholder="lambdaConfig"></input>
+	</div> 
+	<div class="form-row" id='elasticsearchConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-elasticsearchConfig"><i class="fa fa-tag"></i> elasticsearchConfig</label>
+		<input type="text" id="node-input-elasticsearchConfig" placeholder="elasticsearchConfig"></input>
+	</div> 
+	<div class="form-row" id='httpConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-httpConfig"><i class="fa fa-tag"></i> httpConfig</label>
+		<input type="text" id="node-input-httpConfig" placeholder="httpConfig"></input>
+	</div> 
+	<div class="form-row" id='relationalDatabaseConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-relationalDatabaseConfig"><i class="fa fa-tag"></i> relationalDatabaseConfig</label>
+		<input type="text" id="node-input-relationalDatabaseConfig" placeholder="relationalDatabaseConfig"></input>
+	</div> 
+	<div class="form-row" id='dataSourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-dataSourceName"><i class="fa fa-tag"></i> dataSourceName</label>
+		<input type="text" id="node-input-dataSourceName" placeholder="dataSourceName"></input>
+	</div> 
+	<div class="form-row" id='requestMappingTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-requestMappingTemplate"><i class="fa fa-tag"></i> requestMappingTemplate</label>
+		<input type="text" id="node-input-requestMappingTemplate" placeholder="requestMappingTemplate"></input>
+	</div> 
+	<div class="form-row" id='responseMappingTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-responseMappingTemplate"><i class="fa fa-tag"></i> responseMappingTemplate</label>
+		<input type="text" id="node-input-responseMappingTemplate" placeholder="responseMappingTemplate"></input>
+	</div> 
+	<div class="form-row" id='functionVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-functionVersion"><i class="fa fa-tag"></i> functionVersion</label>
+		<input type="text" id="node-input-functionVersion" placeholder="functionVersion"></input>
+	</div> 
+	<div class="form-row" id='syncConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-syncConfig"><i class="fa fa-tag"></i> syncConfig</label>
+		<input type="text" id="node-input-syncConfig" placeholder="syncConfig"></input>
+	</div> 
+	<div class="form-row" id='logConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-logConfig"><i class="fa fa-tag"></i> logConfig</label>
+		<input type="text" id="node-input-logConfig" placeholder="logConfig"></input>
+	</div> 
+	<div class="form-row" id='authenticationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authenticationType"><i class="fa fa-tag"></i> authenticationType</label>
+		<input type="text" id="node-input-authenticationType" placeholder="authenticationType"></input>
+	</div> 
+	<div class="form-row" id='userPoolConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-userPoolConfig"><i class="fa fa-tag"></i> userPoolConfig</label>
+		<input type="text" id="node-input-userPoolConfig" placeholder="userPoolConfig"></input>
+	</div> 
+	<div class="form-row" id='openIDConnectConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-openIDConnectConfig"><i class="fa fa-tag"></i> openIDConnectConfig</label>
+		<input type="text" id="node-input-openIDConnectConfig" placeholder="openIDConnectConfig"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='additionalAuthenticationProvidersAttr' class='hiddenAttrs'>
+		<label for="node-input-additionalAuthenticationProviders"><i class="fa fa-tag"></i> additionalAuthenticationProviders</label>
+		<input type="text" id="node-input-additionalAuthenticationProviders" placeholder="additionalAuthenticationProviders"></input>
+	</div> 
+	<div class="form-row" id='xrayEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-xrayEnabled"><i class="fa fa-tag"></i> xrayEnabled</label>
+		<input type="text" id="node-input-xrayEnabled" placeholder="xrayEnabled"></input>
+	</div> 
+	<div class="form-row" id='lambdaAuthorizerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-lambdaAuthorizerConfig"><i class="fa fa-tag"></i> lambdaAuthorizerConfig</label>
+		<input type="text" id="node-input-lambdaAuthorizerConfig" placeholder="lambdaAuthorizerConfig"></input>
+	</div> 
+	<div class="form-row" id='typeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-typeName"><i class="fa fa-tag"></i> typeName</label>
+		<input type="text" id="node-input-typeName" placeholder="typeName"></input>
+	</div> 
+	<div class="form-row" id='fieldNameAttr' class='hiddenAttrs'>
+		<label for="node-input-fieldName"><i class="fa fa-tag"></i> fieldName</label>
+		<input type="text" id="node-input-fieldName" placeholder="fieldName"></input>
+	</div> 
+	<div class="form-row" id='kindAttr' class='hiddenAttrs'>
+		<label for="node-input-kind"><i class="fa fa-tag"></i> kind</label>
+		<input type="text" id="node-input-kind" placeholder="kind"></input>
+	</div> 
+	<div class="form-row" id='pipelineConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineConfig"><i class="fa fa-tag"></i> pipelineConfig</label>
+		<input type="text" id="node-input-pipelineConfig" placeholder="pipelineConfig"></input>
+	</div> 
+	<div class="form-row" id='cachingConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-cachingConfig"><i class="fa fa-tag"></i> cachingConfig</label>
+		<input type="text" id="node-input-cachingConfig" placeholder="cachingConfig"></input>
+	</div> 
+	<div class="form-row" id='definitionAttr' class='hiddenAttrs'>
+		<label for="node-input-definition"><i class="fa fa-tag"></i> definition</label>
+		<input type="text" id="node-input-definition" placeholder="definition"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i> format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='functionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-functionId"><i class="fa fa-tag"></i> functionId</label>
+		<input type="text" id="node-input-functionId" placeholder="functionId"></input>
+	</div> 
+	<div class="form-row" id='includeDirectivesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeDirectives"><i class="fa fa-tag"></i> includeDirectives</label>
+		<input type="text" id="node-input-includeDirectives" placeholder="includeDirectives"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApiCache:[
+					'#apiIdAttr','#ttlAttr','#transitEncryptionEnabledAttr','#atRestEncryptionEnabledAttr','#apiCachingBehaviorAttr','#typeAttr'
+					],
+				CreateApiKey:[
+					'#apiIdAttr','#descriptionAttr','#expiresAttr'
+					],
+				CreateDataSource:[
+					'#apiIdAttr','#nameAttr','#descriptionAttr','#typeAttr','#serviceRoleArnAttr','#dynamodbConfigAttr','#lambdaConfigAttr','#elasticsearchConfigAttr','#httpConfigAttr','#relationalDatabaseConfigAttr'
+					],
+				CreateFunction:[
+					'#apiIdAttr','#nameAttr','#descriptionAttr','#dataSourceNameAttr','#requestMappingTemplateAttr','#responseMappingTemplateAttr','#functionVersionAttr','#syncConfigAttr'
+					],
+				CreateGraphqlApi:[
+					'#nameAttr','#logConfigAttr','#authenticationTypeAttr','#userPoolConfigAttr','#openIDConnectConfigAttr','#tagsAttr','#additionalAuthenticationProvidersAttr','#xrayEnabledAttr','#lambdaAuthorizerConfigAttr'
+					],
+				CreateResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr','#dataSourceNameAttr','#requestMappingTemplateAttr','#responseMappingTemplateAttr','#kindAttr','#pipelineConfigAttr','#syncConfigAttr','#cachingConfigAttr'
+					],
+				CreateType:[
+					'#apiIdAttr','#definitionAttr','#formatAttr'
+					],
+				DeleteApiCache:[
+					'#apiIdAttr'
+					],
+				DeleteApiKey:[
+					'#apiIdAttr','#idAttr'
+					],
+				DeleteDataSource:[
+					'#apiIdAttr','#nameAttr'
+					],
+				DeleteFunction:[
+					'#apiIdAttr','#functionIdAttr'
+					],
+				DeleteGraphqlApi:[
+					'#apiIdAttr'
+					],
+				DeleteResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				DeleteType:[
+					'#apiIdAttr','#typeNameAttr'
+					],
+				FlushApiCache:[
+					'#apiIdAttr'
+					],
+				GetApiCache:[
+					'#apiIdAttr'
+					],
+				GetDataSource:[
+					'#apiIdAttr','#nameAttr'
+					],
+				GetFunction:[
+					'#apiIdAttr','#functionIdAttr'
+					],
+				GetGraphqlApi:[
+					'#apiIdAttr'
+					],
+				GetIntrospectionSchema:[
+					'#apiIdAttr','#formatAttr','#includeDirectivesAttr'
+					],
+				GetResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr'
+					],
+				GetSchemaCreationStatus:[
+					'#apiIdAttr'
+					],
+				GetType:[
+					'#apiIdAttr','#typeNameAttr','#formatAttr'
+					],
+				ListApiKeys:[
+					'#apiIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDataSources:[
+					'#apiIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListFunctions:[
+					'#apiIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListGraphqlApis:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListResolvers:[
+					'#apiIdAttr','#typeNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListResolversByFunction:[
+					'#apiIdAttr','#functionIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListTypes:[
+					'#apiIdAttr','#formatAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				StartSchemaCreation:[
+					'#apiIdAttr','#definitionAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateApiCache:[
+					'#apiIdAttr','#ttlAttr','#apiCachingBehaviorAttr','#typeAttr'
+					],
+				UpdateApiKey:[
+					'#apiIdAttr','#idAttr','#descriptionAttr','#expiresAttr'
+					],
+				UpdateDataSource:[
+					'#apiIdAttr','#nameAttr','#descriptionAttr','#typeAttr','#serviceRoleArnAttr','#dynamodbConfigAttr','#lambdaConfigAttr','#elasticsearchConfigAttr','#httpConfigAttr','#relationalDatabaseConfigAttr'
+					],
+				UpdateFunction:[
+					'#apiIdAttr','#nameAttr','#descriptionAttr','#functionIdAttr','#dataSourceNameAttr','#requestMappingTemplateAttr','#responseMappingTemplateAttr','#functionVersionAttr','#syncConfigAttr'
+					],
+				UpdateGraphqlApi:[
+					'#apiIdAttr','#nameAttr','#logConfigAttr','#authenticationTypeAttr','#userPoolConfigAttr','#openIDConnectConfigAttr','#additionalAuthenticationProvidersAttr','#xrayEnabledAttr','#lambdaAuthorizerConfigAttr'
+					],
+				UpdateResolver:[
+					'#apiIdAttr','#typeNameAttr','#fieldNameAttr','#dataSourceNameAttr','#requestMappingTemplateAttr','#responseMappingTemplateAttr','#kindAttr','#pipelineConfigAttr','#syncConfigAttr','#cachingConfigAttr'
+					],
+				UpdateType:[
+					'#apiIdAttr','#typeNameAttr','#definitionAttr','#formatAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS AppSync">
+<p>
+AWS AppSync
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppSync.html">AppSync</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppSync',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApiCache' },
+			
+				apiId: { value: ""} ,
+				ttl: { value: ""} ,
+				transitEncryptionEnabled: { value: ""} ,
+				atRestEncryptionEnabled: { value: ""} ,
+				apiCachingBehavior: { value: ""} ,
+				_type: { value: ""} ,
+				description: { value: ""} ,
+				expires: { value: ""} ,
+				name: { value: ""} ,
+				serviceRoleArn: { value: ""} ,
+				dynamodbConfig: { value: ""} ,
+				lambdaConfig: { value: ""} ,
+				elasticsearchConfig: { value: ""} ,
+				httpConfig: { value: ""} ,
+				relationalDatabaseConfig: { value: ""} ,
+				dataSourceName: { value: ""} ,
+				requestMappingTemplate: { value: ""} ,
+				responseMappingTemplate: { value: ""} ,
+				functionVersion: { value: ""} ,
+				syncConfig: { value: ""} ,
+				logConfig: { value: ""} ,
+				authenticationType: { value: ""} ,
+				userPoolConfig: { value: ""} ,
+				openIDConnectConfig: { value: ""} ,
+				tags: { value: ""} ,
+				additionalAuthenticationProviders: { value: ""} ,
+				xrayEnabled: { value: ""} ,
+				lambdaAuthorizerConfig: { value: ""} ,
+				typeName: { value: ""} ,
+				fieldName: { value: ""} ,
+				kind: { value: ""} ,
+				pipelineConfig: { value: ""} ,
+				cachingConfig: { value: ""} ,
+				definition: { value: ""} ,
+				format: { value: ""} ,
+				id: { value: ""} ,
+				functionId: { value: ""} ,
+				includeDirectives: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppSync " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-apiId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-transitEncryptionEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-atRestEncryptionEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-apiCachingBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dynamodbConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lambdaConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-elasticsearchConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-httpConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-relationalDatabaseConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dataSourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestMappingTemplate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-responseMappingTemplate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-functionVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-syncConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-logConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authenticationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-userPoolConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-openIDConnectConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalAuthenticationProviders").typedInput({ default: "str", types: ["str"]});
+$("#node-input-xrayEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-lambdaAuthorizerConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-typeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fieldName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-kind").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cachingConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-definition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-functionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeDirectives").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,404 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS LookoutMetrics">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ActivateAnomalyDetector">ActivateAnomalyDetector</option>
+		
+			<option value="BackTestAnomalyDetector">BackTestAnomalyDetector</option>
+		
+			<option value="CreateAlert">CreateAlert</option>
+		
+			<option value="CreateAnomalyDetector">CreateAnomalyDetector</option>
+		
+			<option value="CreateMetricSet">CreateMetricSet</option>
+		
+			<option value="DeleteAlert">DeleteAlert</option>
+		
+			<option value="DeleteAnomalyDetector">DeleteAnomalyDetector</option>
+		
+			<option value="DescribeAlert">DescribeAlert</option>
+		
+			<option value="DescribeAnomalyDetectionExecutions">DescribeAnomalyDetectionExecutions</option>
+		
+			<option value="DescribeAnomalyDetector">DescribeAnomalyDetector</option>
+		
+			<option value="DescribeMetricSet">DescribeMetricSet</option>
+		
+			<option value="GetAnomalyGroup">GetAnomalyGroup</option>
+		
+			<option value="GetFeedback">GetFeedback</option>
+		
+			<option value="GetSampleData">GetSampleData</option>
+		
+			<option value="ListAlerts">ListAlerts</option>
+		
+			<option value="ListAnomalyDetectors">ListAnomalyDetectors</option>
+		
+			<option value="ListAnomalyGroupSummaries">ListAnomalyGroupSummaries</option>
+		
+			<option value="ListAnomalyGroupTimeSeries">ListAnomalyGroupTimeSeries</option>
+		
+			<option value="ListMetricSets">ListMetricSets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutFeedback">PutFeedback</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAnomalyDetector">UpdateAnomalyDetector</option>
+		
+			<option value="UpdateMetricSet">UpdateMetricSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AnomalyDetectorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyDetectorArn"><i class="fa fa-tag"></i> AnomalyDetectorArn</label>
+		<input type="text" id="node-input-AnomalyDetectorArn" placeholder="AnomalyDetectorArn"></input>
+	</div> 
+	<div class="form-row" id='AlertNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AlertName"><i class="fa fa-tag"></i> AlertName</label>
+		<input type="text" id="node-input-AlertName" placeholder="AlertName"></input>
+	</div> 
+	<div class="form-row" id='AlertSensitivityThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-AlertSensitivityThreshold"><i class="fa fa-tag"></i> AlertSensitivityThreshold</label>
+		<input type="text" id="node-input-AlertSensitivityThreshold" placeholder="AlertSensitivityThreshold"></input>
+	</div> 
+	<div class="form-row" id='AlertDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AlertDescription"><i class="fa fa-tag"></i> AlertDescription</label>
+		<input type="text" id="node-input-AlertDescription" placeholder="AlertDescription"></input>
+	</div> 
+	<div class="form-row" id='ActionAttr' class='hiddenAttrs'>
+		<label for="node-input-Action"><i class="fa fa-tag"></i> Action</label>
+		<input type="text" id="node-input-Action" placeholder="Action"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AnomalyDetectorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyDetectorName"><i class="fa fa-tag"></i> AnomalyDetectorName</label>
+		<input type="text" id="node-input-AnomalyDetectorName" placeholder="AnomalyDetectorName"></input>
+	</div> 
+	<div class="form-row" id='AnomalyDetectorDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyDetectorDescription"><i class="fa fa-tag"></i> AnomalyDetectorDescription</label>
+		<input type="text" id="node-input-AnomalyDetectorDescription" placeholder="AnomalyDetectorDescription"></input>
+	</div> 
+	<div class="form-row" id='AnomalyDetectorConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyDetectorConfig"><i class="fa fa-tag"></i> AnomalyDetectorConfig</label>
+		<input type="text" id="node-input-AnomalyDetectorConfig" placeholder="AnomalyDetectorConfig"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyArn"><i class="fa fa-tag"></i> KmsKeyArn</label>
+		<input type="text" id="node-input-KmsKeyArn" placeholder="KmsKeyArn"></input>
+	</div> 
+	<div class="form-row" id='MetricSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricSetName"><i class="fa fa-tag"></i> MetricSetName</label>
+		<input type="text" id="node-input-MetricSetName" placeholder="MetricSetName"></input>
+	</div> 
+	<div class="form-row" id='MetricSetDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricSetDescription"><i class="fa fa-tag"></i> MetricSetDescription</label>
+		<input type="text" id="node-input-MetricSetDescription" placeholder="MetricSetDescription"></input>
+	</div> 
+	<div class="form-row" id='MetricListAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricList"><i class="fa fa-tag"></i> MetricList</label>
+		<input type="text" id="node-input-MetricList" placeholder="MetricList"></input>
+	</div> 
+	<div class="form-row" id='OffsetAttr' class='hiddenAttrs'>
+		<label for="node-input-Offset"><i class="fa fa-tag"></i> Offset</label>
+		<input type="text" id="node-input-Offset" placeholder="Offset"></input>
+	</div> 
+	<div class="form-row" id='TimestampColumnAttr' class='hiddenAttrs'>
+		<label for="node-input-TimestampColumn"><i class="fa fa-tag"></i> TimestampColumn</label>
+		<input type="text" id="node-input-TimestampColumn" placeholder="TimestampColumn"></input>
+	</div> 
+	<div class="form-row" id='DimensionListAttr' class='hiddenAttrs'>
+		<label for="node-input-DimensionList"><i class="fa fa-tag"></i> DimensionList</label>
+		<input type="text" id="node-input-DimensionList" placeholder="DimensionList"></input>
+	</div> 
+	<div class="form-row" id='MetricSetFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricSetFrequency"><i class="fa fa-tag"></i> MetricSetFrequency</label>
+		<input type="text" id="node-input-MetricSetFrequency" placeholder="MetricSetFrequency"></input>
+	</div> 
+	<div class="form-row" id='MetricSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricSource"><i class="fa fa-tag"></i> MetricSource</label>
+		<input type="text" id="node-input-MetricSource" placeholder="MetricSource"></input>
+	</div> 
+	<div class="form-row" id='TimezoneAttr' class='hiddenAttrs'>
+		<label for="node-input-Timezone"><i class="fa fa-tag"></i> Timezone</label>
+		<input type="text" id="node-input-Timezone" placeholder="Timezone"></input>
+	</div> 
+	<div class="form-row" id='AlertArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AlertArn"><i class="fa fa-tag"></i> AlertArn</label>
+		<input type="text" id="node-input-AlertArn" placeholder="AlertArn"></input>
+	</div> 
+	<div class="form-row" id='TimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-Timestamp"><i class="fa fa-tag"></i> Timestamp</label>
+		<input type="text" id="node-input-Timestamp" placeholder="Timestamp"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MetricSetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricSetArn"><i class="fa fa-tag"></i> MetricSetArn</label>
+		<input type="text" id="node-input-MetricSetArn" placeholder="MetricSetArn"></input>
+	</div> 
+	<div class="form-row" id='AnomalyGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyGroupId"><i class="fa fa-tag"></i> AnomalyGroupId</label>
+		<input type="text" id="node-input-AnomalyGroupId" placeholder="AnomalyGroupId"></input>
+	</div> 
+	<div class="form-row" id='AnomalyGroupTimeSeriesFeedbackAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyGroupTimeSeriesFeedback"><i class="fa fa-tag"></i> AnomalyGroupTimeSeriesFeedback</label>
+		<input type="text" id="node-input-AnomalyGroupTimeSeriesFeedback" placeholder="AnomalyGroupTimeSeriesFeedback"></input>
+	</div> 
+	<div class="form-row" id='S3SourceConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-S3SourceConfig"><i class="fa fa-tag"></i> S3SourceConfig</label>
+		<input type="text" id="node-input-S3SourceConfig" placeholder="S3SourceConfig"></input>
+	</div> 
+	<div class="form-row" id='SensitivityThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-SensitivityThreshold"><i class="fa fa-tag"></i> SensitivityThreshold</label>
+		<input type="text" id="node-input-SensitivityThreshold" placeholder="SensitivityThreshold"></input>
+	</div> 
+	<div class="form-row" id='MetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricName"><i class="fa fa-tag"></i> MetricName</label>
+		<input type="text" id="node-input-MetricName" placeholder="MetricName"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ActivateAnomalyDetector:[
+					'#AnomalyDetectorArnAttr'
+					],
+				BackTestAnomalyDetector:[
+					'#AnomalyDetectorArnAttr'
+					],
+				CreateAlert:[
+					'#AlertNameAttr','#AlertSensitivityThresholdAttr','#AlertDescriptionAttr','#AnomalyDetectorArnAttr','#ActionAttr','#TagsAttr'
+					],
+				CreateAnomalyDetector:[
+					'#AnomalyDetectorNameAttr','#AnomalyDetectorDescriptionAttr','#AnomalyDetectorConfigAttr','#KmsKeyArnAttr','#TagsAttr'
+					],
+				CreateMetricSet:[
+					'#AnomalyDetectorArnAttr','#MetricSetNameAttr','#MetricSetDescriptionAttr','#MetricListAttr','#OffsetAttr','#TimestampColumnAttr','#DimensionListAttr','#MetricSetFrequencyAttr','#MetricSourceAttr','#TimezoneAttr','#TagsAttr'
+					],
+				DeleteAlert:[
+					'#AlertArnAttr'
+					],
+				DeleteAnomalyDetector:[
+					'#AnomalyDetectorArnAttr'
+					],
+				DescribeAlert:[
+					'#AlertArnAttr'
+					],
+				DescribeAnomalyDetectionExecutions:[
+					'#AnomalyDetectorArnAttr','#TimestampAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeAnomalyDetector:[
+					'#AnomalyDetectorArnAttr'
+					],
+				DescribeMetricSet:[
+					'#MetricSetArnAttr'
+					],
+				GetAnomalyGroup:[
+					'#AnomalyGroupIdAttr','#AnomalyDetectorArnAttr'
+					],
+				GetFeedback:[
+					'#AnomalyDetectorArnAttr','#AnomalyGroupTimeSeriesFeedbackAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetSampleData:[
+					'#S3SourceConfigAttr'
+					],
+				ListAlerts:[
+					'#AnomalyDetectorArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAnomalyDetectors:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAnomalyGroupSummaries:[
+					'#AnomalyDetectorArnAttr','#SensitivityThresholdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAnomalyGroupTimeSeries:[
+					'#AnomalyDetectorArnAttr','#AnomalyGroupIdAttr','#MetricNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListMetricSets:[
+					'#AnomalyDetectorArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutFeedback:[
+					'#AnomalyDetectorArnAttr','#AnomalyGroupTimeSeriesFeedbackAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateAnomalyDetector:[
+					'#AnomalyDetectorArnAttr','#KmsKeyArnAttr','#AnomalyDetectorDescriptionAttr','#AnomalyDetectorConfigAttr'
+					],
+				UpdateMetricSet:[
+					'#MetricSetArnAttr','#MetricSetDescriptionAttr','#MetricListAttr','#OffsetAttr','#TimestampColumnAttr','#DimensionListAttr','#MetricSetFrequencyAttr','#MetricSourceAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS LookoutMetrics">
+<p>
+AWS LookoutMetrics
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LookoutMetrics.html">LookoutMetrics</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LookoutMetrics',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ActivateAnomalyDetector' },
+			
+				AnomalyDetectorArn: { value: ""} ,
+				AlertName: { value: ""} ,
+				AlertSensitivityThreshold: { value: ""} ,
+				AlertDescription: { value: ""} ,
+				Action: { value: ""} ,
+				Tags: { value: ""} ,
+				AnomalyDetectorName: { value: ""} ,
+				AnomalyDetectorDescription: { value: ""} ,
+				AnomalyDetectorConfig: { value: ""} ,
+				KmsKeyArn: { value: ""} ,
+				MetricSetName: { value: ""} ,
+				MetricSetDescription: { value: ""} ,
+				MetricList: { value: ""} ,
+				Offset: { value: ""} ,
+				TimestampColumn: { value: ""} ,
+				DimensionList: { value: ""} ,
+				MetricSetFrequency: { value: ""} ,
+				MetricSource: { value: ""} ,
+				Timezone: { value: ""} ,
+				AlertArn: { value: ""} ,
+				Timestamp: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				MetricSetArn: { value: ""} ,
+				AnomalyGroupId: { value: ""} ,
+				AnomalyGroupTimeSeriesFeedback: { value: ""} ,
+				S3SourceConfig: { value: ""} ,
+				SensitivityThreshold: { value: ""} ,
+				MetricName: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LookoutMetrics " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AnomalyDetectorArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlertName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlertSensitivityThreshold").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AlertDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Action").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalyDetectorName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalyDetectorDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalyDetectorConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricSetDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Offset").typedInput({ default: "num", types: ["num"]});
+$("#node-input-TimestampColumn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DimensionList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricSetFrequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Timezone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlertArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Timestamp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricSetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalyGroupId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-SensitivityThreshold").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MetricName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

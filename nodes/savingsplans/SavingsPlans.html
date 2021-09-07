@@ -1,0 +1,312 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SavingsPlans">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateSavingsPlan">CreateSavingsPlan</option>
+		
+			<option value="DeleteQueuedSavingsPlan">DeleteQueuedSavingsPlan</option>
+		
+			<option value="DescribeSavingsPlanRates">DescribeSavingsPlanRates</option>
+		
+			<option value="DescribeSavingsPlans">DescribeSavingsPlans</option>
+		
+			<option value="DescribeSavingsPlansOfferingRates">DescribeSavingsPlansOfferingRates</option>
+		
+			<option value="DescribeSavingsPlansOfferings">DescribeSavingsPlansOfferings</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='savingsPlanOfferingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanOfferingId"><i class="fa fa-tag"></i> savingsPlanOfferingId</label>
+		<input type="text" id="node-input-savingsPlanOfferingId" placeholder="savingsPlanOfferingId"></input>
+	</div> 
+	<div class="form-row" id='commitmentAttr' class='hiddenAttrs'>
+		<label for="node-input-commitment"><i class="fa fa-tag"></i> commitment</label>
+		<input type="text" id="node-input-commitment" placeholder="commitment"></input>
+	</div> 
+	<div class="form-row" id='upfrontPaymentAmountAttr' class='hiddenAttrs'>
+		<label for="node-input-upfrontPaymentAmount"><i class="fa fa-tag"></i> upfrontPaymentAmount</label>
+		<input type="text" id="node-input-upfrontPaymentAmount" placeholder="upfrontPaymentAmount"></input>
+	</div> 
+	<div class="form-row" id='purchaseTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-purchaseTime"><i class="fa fa-tag"></i> purchaseTime</label>
+		<input type="text" id="node-input-purchaseTime" placeholder="purchaseTime"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanIdAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanId"><i class="fa fa-tag"></i> savingsPlanId</label>
+		<input type="text" id="node-input-savingsPlanId" placeholder="savingsPlanId"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanArns"><i class="fa fa-tag"></i> savingsPlanArns</label>
+		<input type="text" id="node-input-savingsPlanArns" placeholder="savingsPlanArns"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanIds"><i class="fa fa-tag"></i> savingsPlanIds</label>
+		<input type="text" id="node-input-savingsPlanIds" placeholder="savingsPlanIds"></input>
+	</div> 
+	<div class="form-row" id='statesAttr' class='hiddenAttrs'>
+		<label for="node-input-states"><i class="fa fa-tag"></i> states</label>
+		<input type="text" id="node-input-states" placeholder="states"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanOfferingIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanOfferingIds"><i class="fa fa-tag"></i> savingsPlanOfferingIds</label>
+		<input type="text" id="node-input-savingsPlanOfferingIds" placeholder="savingsPlanOfferingIds"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanPaymentOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanPaymentOptions"><i class="fa fa-tag"></i> savingsPlanPaymentOptions</label>
+		<input type="text" id="node-input-savingsPlanPaymentOptions" placeholder="savingsPlanPaymentOptions"></input>
+	</div> 
+	<div class="form-row" id='savingsPlanTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-savingsPlanTypes"><i class="fa fa-tag"></i> savingsPlanTypes</label>
+		<input type="text" id="node-input-savingsPlanTypes" placeholder="savingsPlanTypes"></input>
+	</div> 
+	<div class="form-row" id='productsAttr' class='hiddenAttrs'>
+		<label for="node-input-products"><i class="fa fa-tag"></i> products</label>
+		<input type="text" id="node-input-products" placeholder="products"></input>
+	</div> 
+	<div class="form-row" id='serviceCodesAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceCodes"><i class="fa fa-tag"></i> serviceCodes</label>
+		<input type="text" id="node-input-serviceCodes" placeholder="serviceCodes"></input>
+	</div> 
+	<div class="form-row" id='usageTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-usageTypes"><i class="fa fa-tag"></i> usageTypes</label>
+		<input type="text" id="node-input-usageTypes" placeholder="usageTypes"></input>
+	</div> 
+	<div class="form-row" id='operationsAttr' class='hiddenAttrs'>
+		<label for="node-input-operations"><i class="fa fa-tag"></i> operations</label>
+		<input type="text" id="node-input-operations" placeholder="operations"></input>
+	</div> 
+	<div class="form-row" id='offeringIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-offeringIds"><i class="fa fa-tag"></i> offeringIds</label>
+		<input type="text" id="node-input-offeringIds" placeholder="offeringIds"></input>
+	</div> 
+	<div class="form-row" id='paymentOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-paymentOptions"><i class="fa fa-tag"></i> paymentOptions</label>
+		<input type="text" id="node-input-paymentOptions" placeholder="paymentOptions"></input>
+	</div> 
+	<div class="form-row" id='productTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-productType"><i class="fa fa-tag"></i> productType</label>
+		<input type="text" id="node-input-productType" placeholder="productType"></input>
+	</div> 
+	<div class="form-row" id='planTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-planTypes"><i class="fa fa-tag"></i> planTypes</label>
+		<input type="text" id="node-input-planTypes" placeholder="planTypes"></input>
+	</div> 
+	<div class="form-row" id='durationsAttr' class='hiddenAttrs'>
+		<label for="node-input-durations"><i class="fa fa-tag"></i> durations</label>
+		<input type="text" id="node-input-durations" placeholder="durations"></input>
+	</div> 
+	<div class="form-row" id='currenciesAttr' class='hiddenAttrs'>
+		<label for="node-input-currencies"><i class="fa fa-tag"></i> currencies</label>
+		<input type="text" id="node-input-currencies" placeholder="currencies"></input>
+	</div> 
+	<div class="form-row" id='descriptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-descriptions"><i class="fa fa-tag"></i> descriptions</label>
+		<input type="text" id="node-input-descriptions" placeholder="descriptions"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateSavingsPlan:[
+					'#savingsPlanOfferingIdAttr','#commitmentAttr','#upfrontPaymentAmountAttr','#purchaseTimeAttr','#clientTokenAttr','#tagsAttr'
+					],
+				DeleteQueuedSavingsPlan:[
+					'#savingsPlanIdAttr'
+					],
+				DescribeSavingsPlanRates:[
+					'#savingsPlanIdAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				DescribeSavingsPlans:[
+					'#savingsPlanArnsAttr','#savingsPlanIdsAttr','#nextTokenAttr','#maxResultsAttr','#statesAttr','#filtersAttr'
+					],
+				DescribeSavingsPlansOfferingRates:[
+					'#savingsPlanOfferingIdsAttr','#savingsPlanPaymentOptionsAttr','#savingsPlanTypesAttr','#productsAttr','#serviceCodesAttr','#usageTypesAttr','#operationsAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				DescribeSavingsPlansOfferings:[
+					'#offeringIdsAttr','#paymentOptionsAttr','#productTypeAttr','#planTypesAttr','#durationsAttr','#currenciesAttr','#descriptionsAttr','#serviceCodesAttr','#usageTypesAttr','#operationsAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SavingsPlans">
+<p>
+AWS SavingsPlans
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SavingsPlans.html">SavingsPlans</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SavingsPlans',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateSavingsPlan' },
+			
+				savingsPlanOfferingId: { value: ""} ,
+				commitment: { value: ""} ,
+				upfrontPaymentAmount: { value: ""} ,
+				purchaseTime: { value: ""} ,
+				clientToken: { value: ""} ,
+				tags: { value: ""} ,
+				savingsPlanId: { value: ""} ,
+				filters: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				savingsPlanArns: { value: ""} ,
+				savingsPlanIds: { value: ""} ,
+				states: { value: ""} ,
+				savingsPlanOfferingIds: { value: ""} ,
+				savingsPlanPaymentOptions: { value: ""} ,
+				savingsPlanTypes: { value: ""} ,
+				products: { value: ""} ,
+				serviceCodes: { value: ""} ,
+				usageTypes: { value: ""} ,
+				operations: { value: ""} ,
+				offeringIds: { value: ""} ,
+				paymentOptions: { value: ""} ,
+				productType: { value: ""} ,
+				planTypes: { value: ""} ,
+				durations: { value: ""} ,
+				currencies: { value: ""} ,
+				descriptions: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SavingsPlans " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-savingsPlanOfferingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-upfrontPaymentAmount").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-savingsPlanId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-savingsPlanOfferingIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-savingsPlanPaymentOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-savingsPlanTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-products").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-offeringIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-paymentOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-productType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-planTypes").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

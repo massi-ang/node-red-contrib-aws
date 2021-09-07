@@ -1,0 +1,612 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS S3Control">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAccessPoint">CreateAccessPoint</option>
+		
+			<option value="CreateAccessPointForObjectLambda">CreateAccessPointForObjectLambda</option>
+		
+			<option value="CreateBucket">CreateBucket</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreateMultiRegionAccessPoint">CreateMultiRegionAccessPoint</option>
+		
+			<option value="DeleteAccessPoint">DeleteAccessPoint</option>
+		
+			<option value="DeleteAccessPointForObjectLambda">DeleteAccessPointForObjectLambda</option>
+		
+			<option value="DeleteAccessPointPolicy">DeleteAccessPointPolicy</option>
+		
+			<option value="DeleteAccessPointPolicyForObjectLambda">DeleteAccessPointPolicyForObjectLambda</option>
+		
+			<option value="DeleteBucket">DeleteBucket</option>
+		
+			<option value="DeleteBucketLifecycleConfiguration">DeleteBucketLifecycleConfiguration</option>
+		
+			<option value="DeleteBucketPolicy">DeleteBucketPolicy</option>
+		
+			<option value="DeleteBucketTagging">DeleteBucketTagging</option>
+		
+			<option value="DeleteJobTagging">DeleteJobTagging</option>
+		
+			<option value="DeleteMultiRegionAccessPoint">DeleteMultiRegionAccessPoint</option>
+		
+			<option value="DeletePublicAccessBlock">DeletePublicAccessBlock</option>
+		
+			<option value="DeleteStorageLensConfiguration">DeleteStorageLensConfiguration</option>
+		
+			<option value="DeleteStorageLensConfigurationTagging">DeleteStorageLensConfigurationTagging</option>
+		
+			<option value="DescribeJob">DescribeJob</option>
+		
+			<option value="DescribeMultiRegionAccessPointOperation">DescribeMultiRegionAccessPointOperation</option>
+		
+			<option value="GetAccessPoint">GetAccessPoint</option>
+		
+			<option value="GetAccessPointConfigurationForObjectLambda">GetAccessPointConfigurationForObjectLambda</option>
+		
+			<option value="GetAccessPointForObjectLambda">GetAccessPointForObjectLambda</option>
+		
+			<option value="GetAccessPointPolicy">GetAccessPointPolicy</option>
+		
+			<option value="GetAccessPointPolicyForObjectLambda">GetAccessPointPolicyForObjectLambda</option>
+		
+			<option value="GetAccessPointPolicyStatus">GetAccessPointPolicyStatus</option>
+		
+			<option value="GetAccessPointPolicyStatusForObjectLambda">GetAccessPointPolicyStatusForObjectLambda</option>
+		
+			<option value="GetBucket">GetBucket</option>
+		
+			<option value="GetBucketLifecycleConfiguration">GetBucketLifecycleConfiguration</option>
+		
+			<option value="GetBucketPolicy">GetBucketPolicy</option>
+		
+			<option value="GetBucketTagging">GetBucketTagging</option>
+		
+			<option value="GetJobTagging">GetJobTagging</option>
+		
+			<option value="GetMultiRegionAccessPoint">GetMultiRegionAccessPoint</option>
+		
+			<option value="GetMultiRegionAccessPointPolicy">GetMultiRegionAccessPointPolicy</option>
+		
+			<option value="GetMultiRegionAccessPointPolicyStatus">GetMultiRegionAccessPointPolicyStatus</option>
+		
+			<option value="GetPublicAccessBlock">GetPublicAccessBlock</option>
+		
+			<option value="GetStorageLensConfiguration">GetStorageLensConfiguration</option>
+		
+			<option value="GetStorageLensConfigurationTagging">GetStorageLensConfigurationTagging</option>
+		
+			<option value="ListAccessPoints">ListAccessPoints</option>
+		
+			<option value="ListAccessPointsForObjectLambda">ListAccessPointsForObjectLambda</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListMultiRegionAccessPoints">ListMultiRegionAccessPoints</option>
+		
+			<option value="ListRegionalBuckets">ListRegionalBuckets</option>
+		
+			<option value="ListStorageLensConfigurations">ListStorageLensConfigurations</option>
+		
+			<option value="PutAccessPointConfigurationForObjectLambda">PutAccessPointConfigurationForObjectLambda</option>
+		
+			<option value="PutAccessPointPolicy">PutAccessPointPolicy</option>
+		
+			<option value="PutAccessPointPolicyForObjectLambda">PutAccessPointPolicyForObjectLambda</option>
+		
+			<option value="PutBucketLifecycleConfiguration">PutBucketLifecycleConfiguration</option>
+		
+			<option value="PutBucketPolicy">PutBucketPolicy</option>
+		
+			<option value="PutBucketTagging">PutBucketTagging</option>
+		
+			<option value="PutJobTagging">PutJobTagging</option>
+		
+			<option value="PutMultiRegionAccessPointPolicy">PutMultiRegionAccessPointPolicy</option>
+		
+			<option value="PutPublicAccessBlock">PutPublicAccessBlock</option>
+		
+			<option value="PutStorageLensConfiguration">PutStorageLensConfiguration</option>
+		
+			<option value="PutStorageLensConfigurationTagging">PutStorageLensConfigurationTagging</option>
+		
+			<option value="UpdateJobPriority">UpdateJobPriority</option>
+		
+			<option value="UpdateJobStatus">UpdateJobStatus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-Bucket"><i class="fa fa-tag"></i> Bucket</label>
+		<input type="text" id="node-input-Bucket" placeholder="Bucket"></input>
+	</div> 
+	<div class="form-row" id='VpcConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcConfiguration"><i class="fa fa-tag"></i> VpcConfiguration</label>
+		<input type="text" id="node-input-VpcConfiguration" placeholder="VpcConfiguration"></input>
+	</div> 
+	<div class="form-row" id='PublicAccessBlockConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicAccessBlockConfiguration"><i class="fa fa-tag"></i> PublicAccessBlockConfiguration</label>
+		<input type="text" id="node-input-PublicAccessBlockConfiguration" placeholder="PublicAccessBlockConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='ACLAttr' class='hiddenAttrs'>
+		<label for="node-input-ACL"><i class="fa fa-tag"></i> ACL</label>
+		<input type="text" id="node-input-ACL" placeholder="ACL"></input>
+	</div> 
+	<div class="form-row" id='CreateBucketConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateBucketConfiguration"><i class="fa fa-tag"></i> CreateBucketConfiguration</label>
+		<input type="text" id="node-input-CreateBucketConfiguration" placeholder="CreateBucketConfiguration"></input>
+	</div> 
+	<div class="form-row" id='GrantFullControlAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantFullControl"><i class="fa fa-tag"></i> GrantFullControl</label>
+		<input type="text" id="node-input-GrantFullControl" placeholder="GrantFullControl"></input>
+	</div> 
+	<div class="form-row" id='GrantReadAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantRead"><i class="fa fa-tag"></i> GrantRead</label>
+		<input type="text" id="node-input-GrantRead" placeholder="GrantRead"></input>
+	</div> 
+	<div class="form-row" id='GrantReadACPAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantReadACP"><i class="fa fa-tag"></i> GrantReadACP</label>
+		<input type="text" id="node-input-GrantReadACP" placeholder="GrantReadACP"></input>
+	</div> 
+	<div class="form-row" id='GrantWriteAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantWrite"><i class="fa fa-tag"></i> GrantWrite</label>
+		<input type="text" id="node-input-GrantWrite" placeholder="GrantWrite"></input>
+	</div> 
+	<div class="form-row" id='GrantWriteACPAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantWriteACP"><i class="fa fa-tag"></i> GrantWriteACP</label>
+		<input type="text" id="node-input-GrantWriteACP" placeholder="GrantWriteACP"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockEnabledForBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockEnabledForBucket"><i class="fa fa-tag"></i> ObjectLockEnabledForBucket</label>
+		<input type="text" id="node-input-ObjectLockEnabledForBucket" placeholder="ObjectLockEnabledForBucket"></input>
+	</div> 
+	<div class="form-row" id='OutpostIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OutpostId"><i class="fa fa-tag"></i> OutpostId</label>
+		<input type="text" id="node-input-OutpostId" placeholder="OutpostId"></input>
+	</div> 
+	<div class="form-row" id='ConfirmationRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfirmationRequired"><i class="fa fa-tag"></i> ConfirmationRequired</label>
+		<input type="text" id="node-input-ConfirmationRequired" placeholder="ConfirmationRequired"></input>
+	</div> 
+	<div class="form-row" id='OperationAttr' class='hiddenAttrs'>
+		<label for="node-input-Operation"><i class="fa fa-tag"></i> Operation</label>
+		<input type="text" id="node-input-Operation" placeholder="Operation"></input>
+	</div> 
+	<div class="form-row" id='ReportAttr' class='hiddenAttrs'>
+		<label for="node-input-Report"><i class="fa fa-tag"></i> Report</label>
+		<input type="text" id="node-input-Report" placeholder="Report"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='ManifestAttr' class='hiddenAttrs'>
+		<label for="node-input-Manifest"><i class="fa fa-tag"></i> Manifest</label>
+		<input type="text" id="node-input-Manifest" placeholder="Manifest"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='PriorityAttr' class='hiddenAttrs'>
+		<label for="node-input-Priority"><i class="fa fa-tag"></i> Priority</label>
+		<input type="text" id="node-input-Priority" placeholder="Priority"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='DetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-Details"><i class="fa fa-tag"></i> Details</label>
+		<input type="text" id="node-input-Details" placeholder="Details"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='ConfigIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigId"><i class="fa fa-tag"></i> ConfigId</label>
+		<input type="text" id="node-input-ConfigId" placeholder="ConfigId"></input>
+	</div> 
+	<div class="form-row" id='RequestTokenARNAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestTokenARN"><i class="fa fa-tag"></i> RequestTokenARN</label>
+		<input type="text" id="node-input-RequestTokenARN" placeholder="RequestTokenARN"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='JobStatusesAttr' class='hiddenAttrs'>
+		<label for="node-input-JobStatuses"><i class="fa fa-tag"></i> JobStatuses</label>
+		<input type="text" id="node-input-JobStatuses" placeholder="JobStatuses"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='LifecycleConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleConfiguration"><i class="fa fa-tag"></i> LifecycleConfiguration</label>
+		<input type="text" id="node-input-LifecycleConfiguration" placeholder="LifecycleConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ConfirmRemoveSelfBucketAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfirmRemoveSelfBucketAccess"><i class="fa fa-tag"></i> ConfirmRemoveSelfBucketAccess</label>
+		<input type="text" id="node-input-ConfirmRemoveSelfBucketAccess" placeholder="ConfirmRemoveSelfBucketAccess"></input>
+	</div> 
+	<div class="form-row" id='TaggingAttr' class='hiddenAttrs'>
+		<label for="node-input-Tagging"><i class="fa fa-tag"></i> Tagging</label>
+		<input type="text" id="node-input-Tagging" placeholder="Tagging"></input>
+	</div> 
+	<div class="form-row" id='StorageLensConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageLensConfiguration"><i class="fa fa-tag"></i> StorageLensConfiguration</label>
+		<input type="text" id="node-input-StorageLensConfiguration" placeholder="StorageLensConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RequestedJobStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestedJobStatus"><i class="fa fa-tag"></i> RequestedJobStatus</label>
+		<input type="text" id="node-input-RequestedJobStatus" placeholder="RequestedJobStatus"></input>
+	</div> 
+	<div class="form-row" id='StatusUpdateReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusUpdateReason"><i class="fa fa-tag"></i> StatusUpdateReason</label>
+		<input type="text" id="node-input-StatusUpdateReason" placeholder="StatusUpdateReason"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAccessPoint:[
+					'#AccountIdAttr','#NameAttr','#BucketAttr','#VpcConfigurationAttr','#PublicAccessBlockConfigurationAttr'
+					],
+				CreateAccessPointForObjectLambda:[
+					'#AccountIdAttr','#NameAttr','#ConfigurationAttr'
+					],
+				CreateBucket:[
+					'#ACLAttr','#BucketAttr','#CreateBucketConfigurationAttr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteAttr','#GrantWriteACPAttr','#ObjectLockEnabledForBucketAttr','#OutpostIdAttr'
+					],
+				CreateJob:[
+					'#AccountIdAttr','#ConfirmationRequiredAttr','#OperationAttr','#ReportAttr','#ClientRequestTokenAttr','#ManifestAttr','#DescriptionAttr','#PriorityAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreateMultiRegionAccessPoint:[
+					'#AccountIdAttr','#ClientTokenAttr','#DetailsAttr'
+					],
+				DeleteAccessPoint:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				DeleteAccessPointForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				DeleteAccessPointPolicy:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				DeleteAccessPointPolicyForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				DeleteBucket:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				DeleteBucketLifecycleConfiguration:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				DeleteBucketPolicy:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				DeleteBucketTagging:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				DeleteJobTagging:[
+					'#AccountIdAttr','#JobIdAttr'
+					],
+				DeleteMultiRegionAccessPoint:[
+					'#AccountIdAttr','#ClientTokenAttr','#DetailsAttr'
+					],
+				DeletePublicAccessBlock:[
+					'#AccountIdAttr'
+					],
+				DeleteStorageLensConfiguration:[
+					'#ConfigIdAttr','#AccountIdAttr'
+					],
+				DeleteStorageLensConfigurationTagging:[
+					'#ConfigIdAttr','#AccountIdAttr'
+					],
+				DescribeJob:[
+					'#AccountIdAttr','#JobIdAttr'
+					],
+				DescribeMultiRegionAccessPointOperation:[
+					'#AccountIdAttr','#RequestTokenARNAttr'
+					],
+				GetAccessPoint:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointConfigurationForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointPolicy:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointPolicyForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointPolicyStatus:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetAccessPointPolicyStatusForObjectLambda:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetBucket:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				GetBucketLifecycleConfiguration:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				GetBucketPolicy:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				GetBucketTagging:[
+					'#AccountIdAttr','#BucketAttr'
+					],
+				GetJobTagging:[
+					'#AccountIdAttr','#JobIdAttr'
+					],
+				GetMultiRegionAccessPoint:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetMultiRegionAccessPointPolicy:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetMultiRegionAccessPointPolicyStatus:[
+					'#AccountIdAttr','#NameAttr'
+					],
+				GetPublicAccessBlock:[
+					'#AccountIdAttr'
+					],
+				GetStorageLensConfiguration:[
+					'#ConfigIdAttr','#AccountIdAttr'
+					],
+				GetStorageLensConfigurationTagging:[
+					'#ConfigIdAttr','#AccountIdAttr'
+					],
+				ListAccessPoints:[
+					'#AccountIdAttr','#BucketAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAccessPointsForObjectLambda:[
+					'#AccountIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListJobs:[
+					'#AccountIdAttr','#JobStatusesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListMultiRegionAccessPoints:[
+					'#AccountIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListRegionalBuckets:[
+					'#AccountIdAttr','#NextTokenAttr','#MaxResultsAttr','#OutpostIdAttr'
+					],
+				ListStorageLensConfigurations:[
+					'#AccountIdAttr','#NextTokenAttr'
+					],
+				PutAccessPointConfigurationForObjectLambda:[
+					'#AccountIdAttr','#NameAttr','#ConfigurationAttr'
+					],
+				PutAccessPointPolicy:[
+					'#AccountIdAttr','#NameAttr','#PolicyAttr'
+					],
+				PutAccessPointPolicyForObjectLambda:[
+					'#AccountIdAttr','#NameAttr','#PolicyAttr'
+					],
+				PutBucketLifecycleConfiguration:[
+					'#AccountIdAttr','#BucketAttr','#LifecycleConfigurationAttr'
+					],
+				PutBucketPolicy:[
+					'#AccountIdAttr','#BucketAttr','#ConfirmRemoveSelfBucketAccessAttr','#PolicyAttr'
+					],
+				PutBucketTagging:[
+					'#AccountIdAttr','#BucketAttr','#TaggingAttr'
+					],
+				PutJobTagging:[
+					'#AccountIdAttr','#JobIdAttr','#TagsAttr'
+					],
+				PutMultiRegionAccessPointPolicy:[
+					'#AccountIdAttr','#ClientTokenAttr','#DetailsAttr'
+					],
+				PutPublicAccessBlock:[
+					'#PublicAccessBlockConfigurationAttr','#AccountIdAttr'
+					],
+				PutStorageLensConfiguration:[
+					'#ConfigIdAttr','#AccountIdAttr','#StorageLensConfigurationAttr','#TagsAttr'
+					],
+				PutStorageLensConfigurationTagging:[
+					'#ConfigIdAttr','#AccountIdAttr','#TagsAttr'
+					],
+				UpdateJobPriority:[
+					'#AccountIdAttr','#JobIdAttr','#PriorityAttr'
+					],
+				UpdateJobStatus:[
+					'#AccountIdAttr','#JobIdAttr','#RequestedJobStatusAttr','#StatusUpdateReasonAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS S3Control">
+<p>
+AWS S3Control
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3Control.html">S3Control</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS S3Control',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAccessPoint' },
+			
+				AccountId: { value: ""} ,
+				Name: { value: ""} ,
+				Bucket: { value: ""} ,
+				VpcConfiguration: { value: ""} ,
+				PublicAccessBlockConfiguration: { value: ""} ,
+				Configuration: { value: ""} ,
+				ACL: { value: ""} ,
+				CreateBucketConfiguration: { value: ""} ,
+				GrantFullControl: { value: ""} ,
+				GrantRead: { value: ""} ,
+				GrantReadACP: { value: ""} ,
+				GrantWrite: { value: ""} ,
+				GrantWriteACP: { value: ""} ,
+				ObjectLockEnabledForBucket: { value: ""} ,
+				OutpostId: { value: ""} ,
+				ConfirmationRequired: { value: ""} ,
+				Operation: { value: ""} ,
+				Report: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				Manifest: { value: ""} ,
+				Description: { value: ""} ,
+				Priority: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Tags: { value: ""} ,
+				ClientToken: { value: ""} ,
+				Details: { value: ""} ,
+				JobId: { value: ""} ,
+				ConfigId: { value: ""} ,
+				RequestTokenARN: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				JobStatuses: { value: ""} ,
+				Policy: { value: ""} ,
+				LifecycleConfiguration: { value: ""} ,
+				ConfirmRemoveSelfBucketAccess: { value: ""} ,
+				Tagging: { value: ""} ,
+				StorageLensConfiguration: { value: ""} ,
+				RequestedJobStatus: { value: ""} ,
+				StatusUpdateReason: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "S3Control " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Bucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicAccessBlockConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ACL").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-GrantFullControl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantRead").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantReadACP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantWrite").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantWriteACP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockEnabledForBucket").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-OutpostId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfirmationRequired").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Operation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Report").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Manifest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Priority").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Details").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestTokenARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ConfirmRemoveSelfBucketAccess").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-StorageLensConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestedJobStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StatusUpdateReason").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

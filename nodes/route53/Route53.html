@@ -1,0 +1,815 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Route53">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ActivateKeySigningKey">ActivateKeySigningKey</option>
+		
+			<option value="AssociateVPCWithHostedZone">AssociateVPCWithHostedZone</option>
+		
+			<option value="ChangeResourceRecordSets">ChangeResourceRecordSets</option>
+		
+			<option value="ChangeTagsForResource">ChangeTagsForResource</option>
+		
+			<option value="CreateHealthCheck">CreateHealthCheck</option>
+		
+			<option value="CreateHostedZone">CreateHostedZone</option>
+		
+			<option value="CreateKeySigningKey">CreateKeySigningKey</option>
+		
+			<option value="CreateQueryLoggingConfig">CreateQueryLoggingConfig</option>
+		
+			<option value="CreateReusableDelegationSet">CreateReusableDelegationSet</option>
+		
+			<option value="CreateTrafficPolicy">CreateTrafficPolicy</option>
+		
+			<option value="CreateTrafficPolicyInstance">CreateTrafficPolicyInstance</option>
+		
+			<option value="CreateTrafficPolicyVersion">CreateTrafficPolicyVersion</option>
+		
+			<option value="CreateVPCAssociationAuthorization">CreateVPCAssociationAuthorization</option>
+		
+			<option value="DeactivateKeySigningKey">DeactivateKeySigningKey</option>
+		
+			<option value="DeleteHealthCheck">DeleteHealthCheck</option>
+		
+			<option value="DeleteHostedZone">DeleteHostedZone</option>
+		
+			<option value="DeleteKeySigningKey">DeleteKeySigningKey</option>
+		
+			<option value="DeleteQueryLoggingConfig">DeleteQueryLoggingConfig</option>
+		
+			<option value="DeleteReusableDelegationSet">DeleteReusableDelegationSet</option>
+		
+			<option value="DeleteTrafficPolicy">DeleteTrafficPolicy</option>
+		
+			<option value="DeleteTrafficPolicyInstance">DeleteTrafficPolicyInstance</option>
+		
+			<option value="DeleteVPCAssociationAuthorization">DeleteVPCAssociationAuthorization</option>
+		
+			<option value="DisableHostedZoneDNSSEC">DisableHostedZoneDNSSEC</option>
+		
+			<option value="DisassociateVPCFromHostedZone">DisassociateVPCFromHostedZone</option>
+		
+			<option value="EnableHostedZoneDNSSEC">EnableHostedZoneDNSSEC</option>
+		
+			<option value="GetAccountLimit">GetAccountLimit</option>
+		
+			<option value="GetChange">GetChange</option>
+		
+			<option value="GetCheckerIpRanges">GetCheckerIpRanges</option>
+		
+			<option value="GetDNSSEC">GetDNSSEC</option>
+		
+			<option value="GetGeoLocation">GetGeoLocation</option>
+		
+			<option value="GetHealthCheck">GetHealthCheck</option>
+		
+			<option value="GetHealthCheckCount">GetHealthCheckCount</option>
+		
+			<option value="GetHealthCheckLastFailureReason">GetHealthCheckLastFailureReason</option>
+		
+			<option value="GetHealthCheckStatus">GetHealthCheckStatus</option>
+		
+			<option value="GetHostedZone">GetHostedZone</option>
+		
+			<option value="GetHostedZoneCount">GetHostedZoneCount</option>
+		
+			<option value="GetHostedZoneLimit">GetHostedZoneLimit</option>
+		
+			<option value="GetQueryLoggingConfig">GetQueryLoggingConfig</option>
+		
+			<option value="GetReusableDelegationSet">GetReusableDelegationSet</option>
+		
+			<option value="GetReusableDelegationSetLimit">GetReusableDelegationSetLimit</option>
+		
+			<option value="GetTrafficPolicy">GetTrafficPolicy</option>
+		
+			<option value="GetTrafficPolicyInstance">GetTrafficPolicyInstance</option>
+		
+			<option value="GetTrafficPolicyInstanceCount">GetTrafficPolicyInstanceCount</option>
+		
+			<option value="ListGeoLocations">ListGeoLocations</option>
+		
+			<option value="ListHealthChecks">ListHealthChecks</option>
+		
+			<option value="ListHostedZones">ListHostedZones</option>
+		
+			<option value="ListHostedZonesByName">ListHostedZonesByName</option>
+		
+			<option value="ListHostedZonesByVPC">ListHostedZonesByVPC</option>
+		
+			<option value="ListQueryLoggingConfigs">ListQueryLoggingConfigs</option>
+		
+			<option value="ListResourceRecordSets">ListResourceRecordSets</option>
+		
+			<option value="ListReusableDelegationSets">ListReusableDelegationSets</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTagsForResources">ListTagsForResources</option>
+		
+			<option value="ListTrafficPolicies">ListTrafficPolicies</option>
+		
+			<option value="ListTrafficPolicyInstances">ListTrafficPolicyInstances</option>
+		
+			<option value="ListTrafficPolicyInstancesByHostedZone">ListTrafficPolicyInstancesByHostedZone</option>
+		
+			<option value="ListTrafficPolicyInstancesByPolicy">ListTrafficPolicyInstancesByPolicy</option>
+		
+			<option value="ListTrafficPolicyVersions">ListTrafficPolicyVersions</option>
+		
+			<option value="ListVPCAssociationAuthorizations">ListVPCAssociationAuthorizations</option>
+		
+			<option value="TestDNSAnswer">TestDNSAnswer</option>
+		
+			<option value="UpdateHealthCheck">UpdateHealthCheck</option>
+		
+			<option value="UpdateHostedZoneComment">UpdateHostedZoneComment</option>
+		
+			<option value="UpdateTrafficPolicyComment">UpdateTrafficPolicyComment</option>
+		
+			<option value="UpdateTrafficPolicyInstance">UpdateTrafficPolicyInstance</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='HostedZoneIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HostedZoneId"><i class="fa fa-tag"></i> HostedZoneId</label>
+		<input type="text" id="node-input-HostedZoneId" placeholder="HostedZoneId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='VPCAttr' class='hiddenAttrs'>
+		<label for="node-input-VPC"><i class="fa fa-tag"></i> VPC</label>
+		<input type="text" id="node-input-VPC" placeholder="VPC"></input>
+	</div> 
+	<div class="form-row" id='CommentAttr' class='hiddenAttrs'>
+		<label for="node-input-Comment"><i class="fa fa-tag"></i> Comment</label>
+		<input type="text" id="node-input-Comment" placeholder="Comment"></input>
+	</div> 
+	<div class="form-row" id='ChangeBatchAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeBatch"><i class="fa fa-tag"></i> ChangeBatch</label>
+		<input type="text" id="node-input-ChangeBatch" placeholder="ChangeBatch"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='AddTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-AddTags"><i class="fa fa-tag"></i> AddTags</label>
+		<input type="text" id="node-input-AddTags" placeholder="AddTags"></input>
+	</div> 
+	<div class="form-row" id='RemoveTagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoveTagKeys"><i class="fa fa-tag"></i> RemoveTagKeys</label>
+		<input type="text" id="node-input-RemoveTagKeys" placeholder="RemoveTagKeys"></input>
+	</div> 
+	<div class="form-row" id='CallerReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-CallerReference"><i class="fa fa-tag"></i> CallerReference</label>
+		<input type="text" id="node-input-CallerReference" placeholder="CallerReference"></input>
+	</div> 
+	<div class="form-row" id='HealthCheckConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthCheckConfig"><i class="fa fa-tag"></i> HealthCheckConfig</label>
+		<input type="text" id="node-input-HealthCheckConfig" placeholder="HealthCheckConfig"></input>
+	</div> 
+	<div class="form-row" id='HostedZoneConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HostedZoneConfig"><i class="fa fa-tag"></i> HostedZoneConfig</label>
+		<input type="text" id="node-input-HostedZoneConfig" placeholder="HostedZoneConfig"></input>
+	</div> 
+	<div class="form-row" id='DelegationSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DelegationSetId"><i class="fa fa-tag"></i> DelegationSetId</label>
+		<input type="text" id="node-input-DelegationSetId" placeholder="DelegationSetId"></input>
+	</div> 
+	<div class="form-row" id='KeyManagementServiceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyManagementServiceArn"><i class="fa fa-tag"></i> KeyManagementServiceArn</label>
+		<input type="text" id="node-input-KeyManagementServiceArn" placeholder="KeyManagementServiceArn"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchLogsLogGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchLogsLogGroupArn"><i class="fa fa-tag"></i> CloudWatchLogsLogGroupArn</label>
+		<input type="text" id="node-input-CloudWatchLogsLogGroupArn" placeholder="CloudWatchLogsLogGroupArn"></input>
+	</div> 
+	<div class="form-row" id='DocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-Document"><i class="fa fa-tag"></i> Document</label>
+		<input type="text" id="node-input-Document" placeholder="Document"></input>
+	</div> 
+	<div class="form-row" id='TTLAttr' class='hiddenAttrs'>
+		<label for="node-input-TTL"><i class="fa fa-tag"></i> TTL</label>
+		<input type="text" id="node-input-TTL" placeholder="TTL"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyId"><i class="fa fa-tag"></i> TrafficPolicyId</label>
+		<input type="text" id="node-input-TrafficPolicyId" placeholder="TrafficPolicyId"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyVersion"><i class="fa fa-tag"></i> TrafficPolicyVersion</label>
+		<input type="text" id="node-input-TrafficPolicyVersion" placeholder="TrafficPolicyVersion"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='HealthCheckIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthCheckId"><i class="fa fa-tag"></i> HealthCheckId</label>
+		<input type="text" id="node-input-HealthCheckId" placeholder="HealthCheckId"></input>
+	</div> 
+	<div class="form-row" id='VersionAttr' class='hiddenAttrs'>
+		<label for="node-input-Version"><i class="fa fa-tag"></i> Version</label>
+		<input type="text" id="node-input-Version" placeholder="Version"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='ContinentCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContinentCode"><i class="fa fa-tag"></i> ContinentCode</label>
+		<input type="text" id="node-input-ContinentCode" placeholder="ContinentCode"></input>
+	</div> 
+	<div class="form-row" id='CountryCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-CountryCode"><i class="fa fa-tag"></i> CountryCode</label>
+		<input type="text" id="node-input-CountryCode" placeholder="CountryCode"></input>
+	</div> 
+	<div class="form-row" id='SubdivisionCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-SubdivisionCode"><i class="fa fa-tag"></i> SubdivisionCode</label>
+		<input type="text" id="node-input-SubdivisionCode" placeholder="SubdivisionCode"></input>
+	</div> 
+	<div class="form-row" id='StartContinentCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartContinentCode"><i class="fa fa-tag"></i> StartContinentCode</label>
+		<input type="text" id="node-input-StartContinentCode" placeholder="StartContinentCode"></input>
+	</div> 
+	<div class="form-row" id='StartCountryCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartCountryCode"><i class="fa fa-tag"></i> StartCountryCode</label>
+		<input type="text" id="node-input-StartCountryCode" placeholder="StartCountryCode"></input>
+	</div> 
+	<div class="form-row" id='StartSubdivisionCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartSubdivisionCode"><i class="fa fa-tag"></i> StartSubdivisionCode</label>
+		<input type="text" id="node-input-StartSubdivisionCode" placeholder="StartSubdivisionCode"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='DNSNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DNSName"><i class="fa fa-tag"></i> DNSName</label>
+		<input type="text" id="node-input-DNSName" placeholder="DNSName"></input>
+	</div> 
+	<div class="form-row" id='VPCIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VPCId"><i class="fa fa-tag"></i> VPCId</label>
+		<input type="text" id="node-input-VPCId" placeholder="VPCId"></input>
+	</div> 
+	<div class="form-row" id='VPCRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-VPCRegion"><i class="fa fa-tag"></i> VPCRegion</label>
+		<input type="text" id="node-input-VPCRegion" placeholder="VPCRegion"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StartRecordNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StartRecordName"><i class="fa fa-tag"></i> StartRecordName</label>
+		<input type="text" id="node-input-StartRecordName" placeholder="StartRecordName"></input>
+	</div> 
+	<div class="form-row" id='StartRecordTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartRecordType"><i class="fa fa-tag"></i> StartRecordType</label>
+		<input type="text" id="node-input-StartRecordType" placeholder="StartRecordType"></input>
+	</div> 
+	<div class="form-row" id='StartRecordIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-StartRecordIdentifier"><i class="fa fa-tag"></i> StartRecordIdentifier</label>
+		<input type="text" id="node-input-StartRecordIdentifier" placeholder="StartRecordIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIds"><i class="fa fa-tag"></i> ResourceIds</label>
+		<input type="text" id="node-input-ResourceIds" placeholder="ResourceIds"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyIdMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyIdMarker"><i class="fa fa-tag"></i> TrafficPolicyIdMarker</label>
+		<input type="text" id="node-input-TrafficPolicyIdMarker" placeholder="TrafficPolicyIdMarker"></input>
+	</div> 
+	<div class="form-row" id='HostedZoneIdMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-HostedZoneIdMarker"><i class="fa fa-tag"></i> HostedZoneIdMarker</label>
+		<input type="text" id="node-input-HostedZoneIdMarker" placeholder="HostedZoneIdMarker"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyInstanceNameMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyInstanceNameMarker"><i class="fa fa-tag"></i> TrafficPolicyInstanceNameMarker</label>
+		<input type="text" id="node-input-TrafficPolicyInstanceNameMarker" placeholder="TrafficPolicyInstanceNameMarker"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyInstanceTypeMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyInstanceTypeMarker"><i class="fa fa-tag"></i> TrafficPolicyInstanceTypeMarker</label>
+		<input type="text" id="node-input-TrafficPolicyInstanceTypeMarker" placeholder="TrafficPolicyInstanceTypeMarker"></input>
+	</div> 
+	<div class="form-row" id='TrafficPolicyVersionMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-TrafficPolicyVersionMarker"><i class="fa fa-tag"></i> TrafficPolicyVersionMarker</label>
+		<input type="text" id="node-input-TrafficPolicyVersionMarker" placeholder="TrafficPolicyVersionMarker"></input>
+	</div> 
+	<div class="form-row" id='RecordNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RecordName"><i class="fa fa-tag"></i> RecordName</label>
+		<input type="text" id="node-input-RecordName" placeholder="RecordName"></input>
+	</div> 
+	<div class="form-row" id='RecordTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-RecordType"><i class="fa fa-tag"></i> RecordType</label>
+		<input type="text" id="node-input-RecordType" placeholder="RecordType"></input>
+	</div> 
+	<div class="form-row" id='ResolverIPAttr' class='hiddenAttrs'>
+		<label for="node-input-ResolverIP"><i class="fa fa-tag"></i> ResolverIP</label>
+		<input type="text" id="node-input-ResolverIP" placeholder="ResolverIP"></input>
+	</div> 
+	<div class="form-row" id='EDNS0ClientSubnetIPAttr' class='hiddenAttrs'>
+		<label for="node-input-EDNS0ClientSubnetIP"><i class="fa fa-tag"></i> EDNS0ClientSubnetIP</label>
+		<input type="text" id="node-input-EDNS0ClientSubnetIP" placeholder="EDNS0ClientSubnetIP"></input>
+	</div> 
+	<div class="form-row" id='EDNS0ClientSubnetMaskAttr' class='hiddenAttrs'>
+		<label for="node-input-EDNS0ClientSubnetMask"><i class="fa fa-tag"></i> EDNS0ClientSubnetMask</label>
+		<input type="text" id="node-input-EDNS0ClientSubnetMask" placeholder="EDNS0ClientSubnetMask"></input>
+	</div> 
+	<div class="form-row" id='HealthCheckVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthCheckVersion"><i class="fa fa-tag"></i> HealthCheckVersion</label>
+		<input type="text" id="node-input-HealthCheckVersion" placeholder="HealthCheckVersion"></input>
+	</div> 
+	<div class="form-row" id='IPAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-IPAddress"><i class="fa fa-tag"></i> IPAddress</label>
+		<input type="text" id="node-input-IPAddress" placeholder="IPAddress"></input>
+	</div> 
+	<div class="form-row" id='PortAttr' class='hiddenAttrs'>
+		<label for="node-input-Port"><i class="fa fa-tag"></i> Port</label>
+		<input type="text" id="node-input-Port" placeholder="Port"></input>
+	</div> 
+	<div class="form-row" id='ResourcePathAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourcePath"><i class="fa fa-tag"></i> ResourcePath</label>
+		<input type="text" id="node-input-ResourcePath" placeholder="ResourcePath"></input>
+	</div> 
+	<div class="form-row" id='FullyQualifiedDomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FullyQualifiedDomainName"><i class="fa fa-tag"></i> FullyQualifiedDomainName</label>
+		<input type="text" id="node-input-FullyQualifiedDomainName" placeholder="FullyQualifiedDomainName"></input>
+	</div> 
+	<div class="form-row" id='SearchStringAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchString"><i class="fa fa-tag"></i> SearchString</label>
+		<input type="text" id="node-input-SearchString" placeholder="SearchString"></input>
+	</div> 
+	<div class="form-row" id='FailureThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-FailureThreshold"><i class="fa fa-tag"></i> FailureThreshold</label>
+		<input type="text" id="node-input-FailureThreshold" placeholder="FailureThreshold"></input>
+	</div> 
+	<div class="form-row" id='InvertedAttr' class='hiddenAttrs'>
+		<label for="node-input-Inverted"><i class="fa fa-tag"></i> Inverted</label>
+		<input type="text" id="node-input-Inverted" placeholder="Inverted"></input>
+	</div> 
+	<div class="form-row" id='DisabledAttr' class='hiddenAttrs'>
+		<label for="node-input-Disabled"><i class="fa fa-tag"></i> Disabled</label>
+		<input type="text" id="node-input-Disabled" placeholder="Disabled"></input>
+	</div> 
+	<div class="form-row" id='HealthThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthThreshold"><i class="fa fa-tag"></i> HealthThreshold</label>
+		<input type="text" id="node-input-HealthThreshold" placeholder="HealthThreshold"></input>
+	</div> 
+	<div class="form-row" id='ChildHealthChecksAttr' class='hiddenAttrs'>
+		<label for="node-input-ChildHealthChecks"><i class="fa fa-tag"></i> ChildHealthChecks</label>
+		<input type="text" id="node-input-ChildHealthChecks" placeholder="ChildHealthChecks"></input>
+	</div> 
+	<div class="form-row" id='EnableSNIAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableSNI"><i class="fa fa-tag"></i> EnableSNI</label>
+		<input type="text" id="node-input-EnableSNI" placeholder="EnableSNI"></input>
+	</div> 
+	<div class="form-row" id='RegionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Regions"><i class="fa fa-tag"></i> Regions</label>
+		<input type="text" id="node-input-Regions" placeholder="Regions"></input>
+	</div> 
+	<div class="form-row" id='AlarmIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmIdentifier"><i class="fa fa-tag"></i> AlarmIdentifier</label>
+		<input type="text" id="node-input-AlarmIdentifier" placeholder="AlarmIdentifier"></input>
+	</div> 
+	<div class="form-row" id='InsufficientDataHealthStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-InsufficientDataHealthStatus"><i class="fa fa-tag"></i> InsufficientDataHealthStatus</label>
+		<input type="text" id="node-input-InsufficientDataHealthStatus" placeholder="InsufficientDataHealthStatus"></input>
+	</div> 
+	<div class="form-row" id='ResetElementsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResetElements"><i class="fa fa-tag"></i> ResetElements</label>
+		<input type="text" id="node-input-ResetElements" placeholder="ResetElements"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ActivateKeySigningKey:[
+					'#HostedZoneIdAttr','#NameAttr'
+					],
+				AssociateVPCWithHostedZone:[
+					'#HostedZoneIdAttr','#VPCAttr','#CommentAttr'
+					],
+				ChangeResourceRecordSets:[
+					'#HostedZoneIdAttr','#ChangeBatchAttr'
+					],
+				ChangeTagsForResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr','#AddTagsAttr','#RemoveTagKeysAttr'
+					],
+				CreateHealthCheck:[
+					'#CallerReferenceAttr','#HealthCheckConfigAttr'
+					],
+				CreateHostedZone:[
+					'#NameAttr','#VPCAttr','#CallerReferenceAttr','#HostedZoneConfigAttr','#DelegationSetIdAttr'
+					],
+				CreateKeySigningKey:[
+					'#CallerReferenceAttr','#HostedZoneIdAttr','#KeyManagementServiceArnAttr','#NameAttr','#StatusAttr'
+					],
+				CreateQueryLoggingConfig:[
+					'#HostedZoneIdAttr','#CloudWatchLogsLogGroupArnAttr'
+					],
+				CreateReusableDelegationSet:[
+					'#CallerReferenceAttr','#HostedZoneIdAttr'
+					],
+				CreateTrafficPolicy:[
+					'#NameAttr','#DocumentAttr','#CommentAttr'
+					],
+				CreateTrafficPolicyInstance:[
+					'#HostedZoneIdAttr','#NameAttr','#TTLAttr','#TrafficPolicyIdAttr','#TrafficPolicyVersionAttr'
+					],
+				CreateTrafficPolicyVersion:[
+					'#IdAttr','#DocumentAttr','#CommentAttr'
+					],
+				CreateVPCAssociationAuthorization:[
+					'#HostedZoneIdAttr','#VPCAttr'
+					],
+				DeactivateKeySigningKey:[
+					'#HostedZoneIdAttr','#NameAttr'
+					],
+				DeleteHealthCheck:[
+					'#HealthCheckIdAttr'
+					],
+				DeleteHostedZone:[
+					'#IdAttr'
+					],
+				DeleteKeySigningKey:[
+					'#HostedZoneIdAttr','#NameAttr'
+					],
+				DeleteQueryLoggingConfig:[
+					'#IdAttr'
+					],
+				DeleteReusableDelegationSet:[
+					'#IdAttr'
+					],
+				DeleteTrafficPolicy:[
+					'#IdAttr','#VersionAttr'
+					],
+				DeleteTrafficPolicyInstance:[
+					'#IdAttr'
+					],
+				DeleteVPCAssociationAuthorization:[
+					'#HostedZoneIdAttr','#VPCAttr'
+					],
+				DisableHostedZoneDNSSEC:[
+					'#HostedZoneIdAttr'
+					],
+				DisassociateVPCFromHostedZone:[
+					'#HostedZoneIdAttr','#VPCAttr','#CommentAttr'
+					],
+				EnableHostedZoneDNSSEC:[
+					'#HostedZoneIdAttr'
+					],
+				GetAccountLimit:[
+					'#TypeAttr'
+					],
+				GetChange:[
+					'#IdAttr'
+					],
+				GetCheckerIpRanges:[
+					
+					],
+				GetDNSSEC:[
+					'#HostedZoneIdAttr'
+					],
+				GetGeoLocation:[
+					'#ContinentCodeAttr','#CountryCodeAttr','#SubdivisionCodeAttr'
+					],
+				GetHealthCheck:[
+					'#HealthCheckIdAttr'
+					],
+				GetHealthCheckCount:[
+					
+					],
+				GetHealthCheckLastFailureReason:[
+					'#HealthCheckIdAttr'
+					],
+				GetHealthCheckStatus:[
+					'#HealthCheckIdAttr'
+					],
+				GetHostedZone:[
+					'#IdAttr'
+					],
+				GetHostedZoneCount:[
+					
+					],
+				GetHostedZoneLimit:[
+					'#TypeAttr','#HostedZoneIdAttr'
+					],
+				GetQueryLoggingConfig:[
+					'#IdAttr'
+					],
+				GetReusableDelegationSet:[
+					'#IdAttr'
+					],
+				GetReusableDelegationSetLimit:[
+					'#TypeAttr','#DelegationSetIdAttr'
+					],
+				GetTrafficPolicy:[
+					'#IdAttr','#VersionAttr'
+					],
+				GetTrafficPolicyInstance:[
+					'#IdAttr'
+					],
+				GetTrafficPolicyInstanceCount:[
+					
+					],
+				ListGeoLocations:[
+					'#StartContinentCodeAttr','#StartCountryCodeAttr','#StartSubdivisionCodeAttr','#MaxItemsAttr'
+					],
+				ListHealthChecks:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListHostedZones:[
+					'#MarkerAttr','#MaxItemsAttr','#DelegationSetIdAttr'
+					],
+				ListHostedZonesByName:[
+					'#DNSNameAttr','#HostedZoneIdAttr','#MaxItemsAttr'
+					],
+				ListHostedZonesByVPC:[
+					'#VPCIdAttr','#VPCRegionAttr','#MaxItemsAttr','#NextTokenAttr'
+					],
+				ListQueryLoggingConfigs:[
+					'#HostedZoneIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListResourceRecordSets:[
+					'#HostedZoneIdAttr','#StartRecordNameAttr','#StartRecordTypeAttr','#StartRecordIdentifierAttr','#MaxItemsAttr'
+					],
+				ListReusableDelegationSets:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr'
+					],
+				ListTagsForResources:[
+					'#ResourceTypeAttr','#ResourceIdsAttr'
+					],
+				ListTrafficPolicies:[
+					'#TrafficPolicyIdMarkerAttr','#MaxItemsAttr'
+					],
+				ListTrafficPolicyInstances:[
+					'#HostedZoneIdMarkerAttr','#TrafficPolicyInstanceNameMarkerAttr','#TrafficPolicyInstanceTypeMarkerAttr','#MaxItemsAttr'
+					],
+				ListTrafficPolicyInstancesByHostedZone:[
+					'#HostedZoneIdAttr','#TrafficPolicyInstanceNameMarkerAttr','#TrafficPolicyInstanceTypeMarkerAttr','#MaxItemsAttr'
+					],
+				ListTrafficPolicyInstancesByPolicy:[
+					'#TrafficPolicyIdAttr','#TrafficPolicyVersionAttr','#HostedZoneIdMarkerAttr','#TrafficPolicyInstanceNameMarkerAttr','#TrafficPolicyInstanceTypeMarkerAttr','#MaxItemsAttr'
+					],
+				ListTrafficPolicyVersions:[
+					'#IdAttr','#TrafficPolicyVersionMarkerAttr','#MaxItemsAttr'
+					],
+				ListVPCAssociationAuthorizations:[
+					'#HostedZoneIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				TestDNSAnswer:[
+					'#HostedZoneIdAttr','#RecordNameAttr','#RecordTypeAttr','#ResolverIPAttr','#EDNS0ClientSubnetIPAttr','#EDNS0ClientSubnetMaskAttr'
+					],
+				UpdateHealthCheck:[
+					'#HealthCheckIdAttr','#HealthCheckVersionAttr','#IPAddressAttr','#PortAttr','#ResourcePathAttr','#FullyQualifiedDomainNameAttr','#SearchStringAttr','#FailureThresholdAttr','#InvertedAttr','#DisabledAttr','#HealthThresholdAttr','#ChildHealthChecksAttr','#EnableSNIAttr','#RegionsAttr','#AlarmIdentifierAttr','#InsufficientDataHealthStatusAttr','#ResetElementsAttr'
+					],
+				UpdateHostedZoneComment:[
+					'#IdAttr','#CommentAttr'
+					],
+				UpdateTrafficPolicyComment:[
+					'#IdAttr','#VersionAttr','#CommentAttr'
+					],
+				UpdateTrafficPolicyInstance:[
+					'#IdAttr','#TTLAttr','#TrafficPolicyIdAttr','#TrafficPolicyVersionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Route53">
+<p>
+AWS Route53
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Route53.html">Route53</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Route53',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ActivateKeySigningKey' },
+			
+				HostedZoneId: { value: ""} ,
+				Name: { value: ""} ,
+				VPC: { value: ""} ,
+				Comment: { value: ""} ,
+				ChangeBatch: { value: ""} ,
+				ResourceType: { value: ""} ,
+				ResourceId: { value: ""} ,
+				AddTags: { value: ""} ,
+				RemoveTagKeys: { value: ""} ,
+				CallerReference: { value: ""} ,
+				HealthCheckConfig: { value: ""} ,
+				HostedZoneConfig: { value: ""} ,
+				DelegationSetId: { value: ""} ,
+				KeyManagementServiceArn: { value: ""} ,
+				Status: { value: ""} ,
+				CloudWatchLogsLogGroupArn: { value: ""} ,
+				Document: { value: ""} ,
+				TTL: { value: ""} ,
+				TrafficPolicyId: { value: ""} ,
+				TrafficPolicyVersion: { value: ""} ,
+				Id: { value: ""} ,
+				HealthCheckId: { value: ""} ,
+				Version: { value: ""} ,
+				Type: { value: ""} ,
+				ContinentCode: { value: ""} ,
+				CountryCode: { value: ""} ,
+				SubdivisionCode: { value: ""} ,
+				StartContinentCode: { value: ""} ,
+				StartCountryCode: { value: ""} ,
+				StartSubdivisionCode: { value: ""} ,
+				MaxItems: { value: ""} ,
+				Marker: { value: ""} ,
+				DNSName: { value: ""} ,
+				VPCId: { value: ""} ,
+				VPCRegion: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				StartRecordName: { value: ""} ,
+				StartRecordType: { value: ""} ,
+				StartRecordIdentifier: { value: ""} ,
+				ResourceIds: { value: ""} ,
+				TrafficPolicyIdMarker: { value: ""} ,
+				HostedZoneIdMarker: { value: ""} ,
+				TrafficPolicyInstanceNameMarker: { value: ""} ,
+				TrafficPolicyInstanceTypeMarker: { value: ""} ,
+				TrafficPolicyVersionMarker: { value: ""} ,
+				RecordName: { value: ""} ,
+				RecordType: { value: ""} ,
+				ResolverIP: { value: ""} ,
+				EDNS0ClientSubnetIP: { value: ""} ,
+				EDNS0ClientSubnetMask: { value: ""} ,
+				HealthCheckVersion: { value: ""} ,
+				IPAddress: { value: ""} ,
+				Port: { value: ""} ,
+				ResourcePath: { value: ""} ,
+				FullyQualifiedDomainName: { value: ""} ,
+				SearchString: { value: ""} ,
+				FailureThreshold: { value: ""} ,
+				Inverted: { value: ""} ,
+				Disabled: { value: ""} ,
+				HealthThreshold: { value: ""} ,
+				ChildHealthChecks: { value: ""} ,
+				EnableSNI: { value: ""} ,
+				Regions: { value: ""} ,
+				AlarmIdentifier: { value: ""} ,
+				InsufficientDataHealthStatus: { value: ""} ,
+				ResetElements: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Route53 " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-HostedZoneId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VPC").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Comment").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AddTags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CallerReference").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HealthCheckConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HostedZoneConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DelegationSetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyManagementServiceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudWatchLogsLogGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Document").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TrafficPolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrafficPolicyVersion").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HealthCheckId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Version").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContinentCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CountryCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubdivisionCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartContinentCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartCountryCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartSubdivisionCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DNSName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VPCId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VPCRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartRecordName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartRecordType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartRecordIdentifier").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TrafficPolicyIdMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HostedZoneIdMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrafficPolicyInstanceNameMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrafficPolicyInstanceTypeMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrafficPolicyVersionMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecordName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecordType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResolverIP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EDNS0ClientSubnetIP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EDNS0ClientSubnetMask").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-IPAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Port").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourcePath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FullyQualifiedDomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SearchString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FailureThreshold").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Inverted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Disabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-HealthThreshold").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ChildHealthChecks").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableSNI").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Regions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsufficientDataHealthStatus").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

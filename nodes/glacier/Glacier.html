@@ -1,0 +1,390 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Glacier">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AbortMultipartUpload">AbortMultipartUpload</option>
+		
+			<option value="AbortVaultLock">AbortVaultLock</option>
+		
+			<option value="AddTagsToVault">AddTagsToVault</option>
+		
+			<option value="CompleteMultipartUpload">CompleteMultipartUpload</option>
+		
+			<option value="CompleteVaultLock">CompleteVaultLock</option>
+		
+			<option value="CreateVault">CreateVault</option>
+		
+			<option value="DeleteArchive">DeleteArchive</option>
+		
+			<option value="DeleteVault">DeleteVault</option>
+		
+			<option value="DeleteVaultAccessPolicy">DeleteVaultAccessPolicy</option>
+		
+			<option value="DeleteVaultNotifications">DeleteVaultNotifications</option>
+		
+			<option value="DescribeJob">DescribeJob</option>
+		
+			<option value="DescribeVault">DescribeVault</option>
+		
+			<option value="GetDataRetrievalPolicy">GetDataRetrievalPolicy</option>
+		
+			<option value="GetJobOutput">GetJobOutput</option>
+		
+			<option value="GetVaultAccessPolicy">GetVaultAccessPolicy</option>
+		
+			<option value="GetVaultLock">GetVaultLock</option>
+		
+			<option value="GetVaultNotifications">GetVaultNotifications</option>
+		
+			<option value="InitiateJob">InitiateJob</option>
+		
+			<option value="InitiateMultipartUpload">InitiateMultipartUpload</option>
+		
+			<option value="InitiateVaultLock">InitiateVaultLock</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListMultipartUploads">ListMultipartUploads</option>
+		
+			<option value="ListParts">ListParts</option>
+		
+			<option value="ListProvisionedCapacity">ListProvisionedCapacity</option>
+		
+			<option value="ListTagsForVault">ListTagsForVault</option>
+		
+			<option value="ListVaults">ListVaults</option>
+		
+			<option value="PurchaseProvisionedCapacity">PurchaseProvisionedCapacity</option>
+		
+			<option value="RemoveTagsFromVault">RemoveTagsFromVault</option>
+		
+			<option value="SetDataRetrievalPolicy">SetDataRetrievalPolicy</option>
+		
+			<option value="SetVaultAccessPolicy">SetVaultAccessPolicy</option>
+		
+			<option value="SetVaultNotifications">SetVaultNotifications</option>
+		
+			<option value="UploadArchive">UploadArchive</option>
+		
+			<option value="UploadMultipartPart">UploadMultipartPart</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='accountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-accountId"><i class="fa fa-tag"></i> accountId</label>
+		<input type="text" id="node-input-accountId" placeholder="accountId"></input>
+	</div> 
+	<div class="form-row" id='vaultNameAttr' class='hiddenAttrs'>
+		<label for="node-input-vaultName"><i class="fa fa-tag"></i> vaultName</label>
+		<input type="text" id="node-input-vaultName" placeholder="vaultName"></input>
+	</div> 
+	<div class="form-row" id='uploadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-uploadId"><i class="fa fa-tag"></i> uploadId</label>
+		<input type="text" id="node-input-uploadId" placeholder="uploadId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='archiveSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-archiveSize"><i class="fa fa-tag"></i> archiveSize</label>
+		<input type="text" id="node-input-archiveSize" placeholder="archiveSize"></input>
+	</div> 
+	<div class="form-row" id='checksumAttr' class='hiddenAttrs'>
+		<label for="node-input-checksum"><i class="fa fa-tag"></i> checksum</label>
+		<input type="text" id="node-input-checksum" placeholder="checksum"></input>
+	</div> 
+	<div class="form-row" id='lockIdAttr' class='hiddenAttrs'>
+		<label for="node-input-lockId"><i class="fa fa-tag"></i> lockId</label>
+		<input type="text" id="node-input-lockId" placeholder="lockId"></input>
+	</div> 
+	<div class="form-row" id='archiveIdAttr' class='hiddenAttrs'>
+		<label for="node-input-archiveId"><i class="fa fa-tag"></i> archiveId</label>
+		<input type="text" id="node-input-archiveId" placeholder="archiveId"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='rangeAttr' class='hiddenAttrs'>
+		<label for="node-input-range"><i class="fa fa-tag"></i> range</label>
+		<input type="text" id="node-input-range" placeholder="range"></input>
+	</div> 
+	<div class="form-row" id='jobParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-jobParameters"><i class="fa fa-tag"></i> jobParameters</label>
+		<input type="text" id="node-input-jobParameters" placeholder="jobParameters"></input>
+	</div> 
+	<div class="form-row" id='archiveDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-archiveDescription"><i class="fa fa-tag"></i> archiveDescription</label>
+		<input type="text" id="node-input-archiveDescription" placeholder="archiveDescription"></input>
+	</div> 
+	<div class="form-row" id='partSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-partSize"><i class="fa fa-tag"></i> partSize</label>
+		<input type="text" id="node-input-partSize" placeholder="partSize"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i> policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='limitAttr' class='hiddenAttrs'>
+		<label for="node-input-limit"><i class="fa fa-tag"></i> limit</label>
+		<input type="text" id="node-input-limit" placeholder="limit"></input>
+	</div> 
+	<div class="form-row" id='markerAttr' class='hiddenAttrs'>
+		<label for="node-input-marker"><i class="fa fa-tag"></i> marker</label>
+		<input type="text" id="node-input-marker" placeholder="marker"></input>
+	</div> 
+	<div class="form-row" id='statuscodeAttr' class='hiddenAttrs'>
+		<label for="node-input-statuscode"><i class="fa fa-tag"></i> statuscode</label>
+		<input type="text" id="node-input-statuscode" placeholder="statuscode"></input>
+	</div> 
+	<div class="form-row" id='completedAttr' class='hiddenAttrs'>
+		<label for="node-input-completed"><i class="fa fa-tag"></i> completed</label>
+		<input type="text" id="node-input-completed" placeholder="completed"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='vaultNotificationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-vaultNotificationConfig"><i class="fa fa-tag"></i> vaultNotificationConfig</label>
+		<input type="text" id="node-input-vaultNotificationConfig" placeholder="vaultNotificationConfig"></input>
+	</div> 
+	<div class="form-row" id='bodyAttr' class='hiddenAttrs'>
+		<label for="node-input-body"><i class="fa fa-tag"></i> body</label>
+		<input type="text" id="node-input-body" placeholder="body"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AbortMultipartUpload:[
+					'#accountIdAttr','#vaultNameAttr','#uploadIdAttr'
+					],
+				AbortVaultLock:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				AddTagsToVault:[
+					'#accountIdAttr','#vaultNameAttr','#TagsAttr'
+					],
+				CompleteMultipartUpload:[
+					'#accountIdAttr','#vaultNameAttr','#uploadIdAttr','#archiveSizeAttr','#checksumAttr'
+					],
+				CompleteVaultLock:[
+					'#accountIdAttr','#vaultNameAttr','#lockIdAttr'
+					],
+				CreateVault:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				DeleteArchive:[
+					'#accountIdAttr','#vaultNameAttr','#archiveIdAttr'
+					],
+				DeleteVault:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				DeleteVaultAccessPolicy:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				DeleteVaultNotifications:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				DescribeJob:[
+					'#accountIdAttr','#vaultNameAttr','#jobIdAttr'
+					],
+				DescribeVault:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				GetDataRetrievalPolicy:[
+					'#accountIdAttr'
+					],
+				GetJobOutput:[
+					'#accountIdAttr','#vaultNameAttr','#jobIdAttr','#rangeAttr'
+					],
+				GetVaultAccessPolicy:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				GetVaultLock:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				GetVaultNotifications:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				InitiateJob:[
+					'#accountIdAttr','#vaultNameAttr','#jobParametersAttr'
+					],
+				InitiateMultipartUpload:[
+					'#accountIdAttr','#vaultNameAttr','#archiveDescriptionAttr','#partSizeAttr'
+					],
+				InitiateVaultLock:[
+					'#accountIdAttr','#vaultNameAttr','#policyAttr'
+					],
+				ListJobs:[
+					'#accountIdAttr','#vaultNameAttr','#limitAttr','#markerAttr','#statuscodeAttr','#completedAttr'
+					],
+				ListMultipartUploads:[
+					'#accountIdAttr','#vaultNameAttr','#markerAttr','#limitAttr'
+					],
+				ListParts:[
+					'#accountIdAttr','#vaultNameAttr','#uploadIdAttr','#markerAttr','#limitAttr'
+					],
+				ListProvisionedCapacity:[
+					'#accountIdAttr'
+					],
+				ListTagsForVault:[
+					'#accountIdAttr','#vaultNameAttr'
+					],
+				ListVaults:[
+					'#accountIdAttr','#markerAttr','#limitAttr'
+					],
+				PurchaseProvisionedCapacity:[
+					'#accountIdAttr'
+					],
+				RemoveTagsFromVault:[
+					'#accountIdAttr','#vaultNameAttr','#TagKeysAttr'
+					],
+				SetDataRetrievalPolicy:[
+					'#accountIdAttr','#PolicyAttr'
+					],
+				SetVaultAccessPolicy:[
+					'#accountIdAttr','#vaultNameAttr','#policyAttr'
+					],
+				SetVaultNotifications:[
+					'#accountIdAttr','#vaultNameAttr','#vaultNotificationConfigAttr'
+					],
+				UploadArchive:[
+					'#vaultNameAttr','#accountIdAttr','#archiveDescriptionAttr','#checksumAttr','#bodyAttr'
+					],
+				UploadMultipartPart:[
+					'#accountIdAttr','#vaultNameAttr','#uploadIdAttr','#checksumAttr','#rangeAttr','#bodyAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Glacier">
+<p>
+AWS Glacier
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Glacier.html">Glacier</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Glacier',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AbortMultipartUpload' },
+			
+				accountId: { value: ""} ,
+				vaultName: { value: ""} ,
+				uploadId: { value: ""} ,
+				Tags: { value: ""} ,
+				archiveSize: { value: ""} ,
+				checksum: { value: ""} ,
+				lockId: { value: ""} ,
+				archiveId: { value: ""} ,
+				jobId: { value: ""} ,
+				range: { value: ""} ,
+				jobParameters: { value: ""} ,
+				archiveDescription: { value: ""} ,
+				partSize: { value: ""} ,
+				policy: { value: ""} ,
+				limit: { value: ""} ,
+				marker: { value: ""} ,
+				statuscode: { value: ""} ,
+				completed: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Policy: { value: ""} ,
+				vaultNotificationConfig: { value: ""} ,
+				body: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Glacier " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-accountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vaultName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-uploadId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-archiveSize").typedInput({ default: "str", types: ["str"]});
+$("#node-input-checksum").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lockId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-archiveId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-range").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-archiveDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-partSize").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-limit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-statuscode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-completed").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vaultNotificationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-body").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

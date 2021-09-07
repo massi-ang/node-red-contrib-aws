@@ -1,0 +1,320 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS LookoutVision">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeModel">DescribeModel</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="DetectAnomalies">DetectAnomalies</option>
+		
+			<option value="ListDatasetEntries">ListDatasetEntries</option>
+		
+			<option value="ListModels">ListModels</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartModel">StartModel</option>
+		
+			<option value="StopModel">StopModel</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDatasetEntries">UpdateDatasetEntries</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i> ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='DatasetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetType"><i class="fa fa-tag"></i> DatasetType</label>
+		<input type="text" id="node-input-DatasetType" placeholder="DatasetType"></input>
+	</div> 
+	<div class="form-row" id='DatasetSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetSource"><i class="fa fa-tag"></i> DatasetSource</label>
+		<input type="text" id="node-input-DatasetSource" placeholder="DatasetSource"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='OutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputConfig"><i class="fa fa-tag"></i> OutputConfig</label>
+		<input type="text" id="node-input-OutputConfig" placeholder="OutputConfig"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ModelVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelVersion"><i class="fa fa-tag"></i> ModelVersion</label>
+		<input type="text" id="node-input-ModelVersion" placeholder="ModelVersion"></input>
+	</div> 
+	<div class="form-row" id='BodyAttr' class='hiddenAttrs'>
+		<label for="node-input-Body"><i class="fa fa-tag"></i> Body</label>
+		<input type="text" id="node-input-Body" placeholder="Body"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i> ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='LabeledAttr' class='hiddenAttrs'>
+		<label for="node-input-Labeled"><i class="fa fa-tag"></i> Labeled</label>
+		<input type="text" id="node-input-Labeled" placeholder="Labeled"></input>
+	</div> 
+	<div class="form-row" id='AnomalyClassAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyClass"><i class="fa fa-tag"></i> AnomalyClass</label>
+		<input type="text" id="node-input-AnomalyClass" placeholder="AnomalyClass"></input>
+	</div> 
+	<div class="form-row" id='BeforeCreationDateAttr' class='hiddenAttrs'>
+		<label for="node-input-BeforeCreationDate"><i class="fa fa-tag"></i> BeforeCreationDate</label>
+		<input type="text" id="node-input-BeforeCreationDate" placeholder="BeforeCreationDate"></input>
+	</div> 
+	<div class="form-row" id='AfterCreationDateAttr' class='hiddenAttrs'>
+		<label for="node-input-AfterCreationDate"><i class="fa fa-tag"></i> AfterCreationDate</label>
+		<input type="text" id="node-input-AfterCreationDate" placeholder="AfterCreationDate"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='SourceRefContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceRefContains"><i class="fa fa-tag"></i> SourceRefContains</label>
+		<input type="text" id="node-input-SourceRefContains" placeholder="SourceRefContains"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='MinInferenceUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-MinInferenceUnits"><i class="fa fa-tag"></i> MinInferenceUnits</label>
+		<input type="text" id="node-input-MinInferenceUnits" placeholder="MinInferenceUnits"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ChangesAttr' class='hiddenAttrs'>
+		<label for="node-input-Changes"><i class="fa fa-tag"></i> Changes</label>
+		<input type="text" id="node-input-Changes" placeholder="Changes"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr','#DatasetSourceAttr','#ClientTokenAttr'
+					],
+				CreateModel:[
+					'#ProjectNameAttr','#DescriptionAttr','#ClientTokenAttr','#OutputConfigAttr','#KmsKeyIdAttr','#TagsAttr'
+					],
+				CreateProject:[
+					'#ProjectNameAttr','#ClientTokenAttr'
+					],
+				DeleteDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr','#ClientTokenAttr'
+					],
+				DeleteModel:[
+					'#ProjectNameAttr','#ModelVersionAttr','#ClientTokenAttr'
+					],
+				DeleteProject:[
+					'#ProjectNameAttr','#ClientTokenAttr'
+					],
+				DescribeDataset:[
+					'#ProjectNameAttr','#DatasetTypeAttr'
+					],
+				DescribeModel:[
+					'#ProjectNameAttr','#ModelVersionAttr'
+					],
+				DescribeProject:[
+					'#ProjectNameAttr'
+					],
+				DetectAnomalies:[
+					'#ProjectNameAttr','#ModelVersionAttr','#BodyAttr','#ContentTypeAttr'
+					],
+				ListDatasetEntries:[
+					'#ProjectNameAttr','#DatasetTypeAttr','#LabeledAttr','#AnomalyClassAttr','#BeforeCreationDateAttr','#AfterCreationDateAttr','#NextTokenAttr','#MaxResultsAttr','#SourceRefContainsAttr'
+					],
+				ListModels:[
+					'#ProjectNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListProjects:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartModel:[
+					'#ProjectNameAttr','#ModelVersionAttr','#MinInferenceUnitsAttr','#ClientTokenAttr'
+					],
+				StopModel:[
+					'#ProjectNameAttr','#ModelVersionAttr','#ClientTokenAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDatasetEntries:[
+					'#ProjectNameAttr','#DatasetTypeAttr','#ChangesAttr','#ClientTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS LookoutVision">
+<p>
+AWS LookoutVision
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LookoutVision.html">LookoutVision</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LookoutVision',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDataset' },
+			
+				ProjectName: { value: ""} ,
+				DatasetType: { value: ""} ,
+				DatasetSource: { value: ""} ,
+				ClientToken: { value: ""} ,
+				Description: { value: ""} ,
+				OutputConfig: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				Tags: { value: ""} ,
+				ModelVersion: { value: ""} ,
+				Body: { value: ""} ,
+				ContentType: { value: ""} ,
+				Labeled: { value: ""} ,
+				AnomalyClass: { value: ""} ,
+				BeforeCreationDate: { value: ""} ,
+				AfterCreationDate: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				SourceRefContains: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				MinInferenceUnits: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Changes: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LookoutVision " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ProjectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatasetType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Body").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-ContentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Labeled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AnomalyClass").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SourceRefContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MinInferenceUnits").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-Changes").typedInput({ default: "bin", types: ["bin"]});
+		}
+	});
+</script>
+

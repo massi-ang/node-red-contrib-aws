@@ -1,0 +1,752 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudFront">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateAlias">AssociateAlias</option>
+		
+			<option value="CreateCachePolicy">CreateCachePolicy</option>
+		
+			<option value="CreateCloudFrontOriginAccessIdentity">CreateCloudFrontOriginAccessIdentity</option>
+		
+			<option value="CreateDistribution">CreateDistribution</option>
+		
+			<option value="CreateDistributionWithTags">CreateDistributionWithTags</option>
+		
+			<option value="CreateFieldLevelEncryptionConfig">CreateFieldLevelEncryptionConfig</option>
+		
+			<option value="CreateFieldLevelEncryptionProfile">CreateFieldLevelEncryptionProfile</option>
+		
+			<option value="CreateFunction">CreateFunction</option>
+		
+			<option value="CreateInvalidation">CreateInvalidation</option>
+		
+			<option value="CreateKeyGroup">CreateKeyGroup</option>
+		
+			<option value="CreateMonitoringSubscription">CreateMonitoringSubscription</option>
+		
+			<option value="CreateOriginRequestPolicy">CreateOriginRequestPolicy</option>
+		
+			<option value="CreatePublicKey">CreatePublicKey</option>
+		
+			<option value="CreateRealtimeLogConfig">CreateRealtimeLogConfig</option>
+		
+			<option value="CreateStreamingDistribution">CreateStreamingDistribution</option>
+		
+			<option value="CreateStreamingDistributionWithTags">CreateStreamingDistributionWithTags</option>
+		
+			<option value="DeleteCachePolicy">DeleteCachePolicy</option>
+		
+			<option value="DeleteCloudFrontOriginAccessIdentity">DeleteCloudFrontOriginAccessIdentity</option>
+		
+			<option value="DeleteDistribution">DeleteDistribution</option>
+		
+			<option value="DeleteFieldLevelEncryptionConfig">DeleteFieldLevelEncryptionConfig</option>
+		
+			<option value="DeleteFieldLevelEncryptionProfile">DeleteFieldLevelEncryptionProfile</option>
+		
+			<option value="DeleteFunction">DeleteFunction</option>
+		
+			<option value="DeleteKeyGroup">DeleteKeyGroup</option>
+		
+			<option value="DeleteMonitoringSubscription">DeleteMonitoringSubscription</option>
+		
+			<option value="DeleteOriginRequestPolicy">DeleteOriginRequestPolicy</option>
+		
+			<option value="DeletePublicKey">DeletePublicKey</option>
+		
+			<option value="DeleteRealtimeLogConfig">DeleteRealtimeLogConfig</option>
+		
+			<option value="DeleteStreamingDistribution">DeleteStreamingDistribution</option>
+		
+			<option value="DescribeFunction">DescribeFunction</option>
+		
+			<option value="GetCachePolicy">GetCachePolicy</option>
+		
+			<option value="GetCachePolicyConfig">GetCachePolicyConfig</option>
+		
+			<option value="GetCloudFrontOriginAccessIdentity">GetCloudFrontOriginAccessIdentity</option>
+		
+			<option value="GetCloudFrontOriginAccessIdentityConfig">GetCloudFrontOriginAccessIdentityConfig</option>
+		
+			<option value="GetDistribution">GetDistribution</option>
+		
+			<option value="GetDistributionConfig">GetDistributionConfig</option>
+		
+			<option value="GetFieldLevelEncryption">GetFieldLevelEncryption</option>
+		
+			<option value="GetFieldLevelEncryptionConfig">GetFieldLevelEncryptionConfig</option>
+		
+			<option value="GetFieldLevelEncryptionProfile">GetFieldLevelEncryptionProfile</option>
+		
+			<option value="GetFieldLevelEncryptionProfileConfig">GetFieldLevelEncryptionProfileConfig</option>
+		
+			<option value="GetFunction">GetFunction</option>
+		
+			<option value="GetInvalidation">GetInvalidation</option>
+		
+			<option value="GetKeyGroup">GetKeyGroup</option>
+		
+			<option value="GetKeyGroupConfig">GetKeyGroupConfig</option>
+		
+			<option value="GetMonitoringSubscription">GetMonitoringSubscription</option>
+		
+			<option value="GetOriginRequestPolicy">GetOriginRequestPolicy</option>
+		
+			<option value="GetOriginRequestPolicyConfig">GetOriginRequestPolicyConfig</option>
+		
+			<option value="GetPublicKey">GetPublicKey</option>
+		
+			<option value="GetPublicKeyConfig">GetPublicKeyConfig</option>
+		
+			<option value="GetRealtimeLogConfig">GetRealtimeLogConfig</option>
+		
+			<option value="GetStreamingDistribution">GetStreamingDistribution</option>
+		
+			<option value="GetStreamingDistributionConfig">GetStreamingDistributionConfig</option>
+		
+			<option value="ListCachePolicies">ListCachePolicies</option>
+		
+			<option value="ListCloudFrontOriginAccessIdentities">ListCloudFrontOriginAccessIdentities</option>
+		
+			<option value="ListConflictingAliases">ListConflictingAliases</option>
+		
+			<option value="ListDistributions">ListDistributions</option>
+		
+			<option value="ListDistributionsByCachePolicyId">ListDistributionsByCachePolicyId</option>
+		
+			<option value="ListDistributionsByKeyGroup">ListDistributionsByKeyGroup</option>
+		
+			<option value="ListDistributionsByOriginRequestPolicyId">ListDistributionsByOriginRequestPolicyId</option>
+		
+			<option value="ListDistributionsByRealtimeLogConfig">ListDistributionsByRealtimeLogConfig</option>
+		
+			<option value="ListDistributionsByWebACLId">ListDistributionsByWebACLId</option>
+		
+			<option value="ListFieldLevelEncryptionConfigs">ListFieldLevelEncryptionConfigs</option>
+		
+			<option value="ListFieldLevelEncryptionProfiles">ListFieldLevelEncryptionProfiles</option>
+		
+			<option value="ListFunctions">ListFunctions</option>
+		
+			<option value="ListInvalidations">ListInvalidations</option>
+		
+			<option value="ListKeyGroups">ListKeyGroups</option>
+		
+			<option value="ListOriginRequestPolicies">ListOriginRequestPolicies</option>
+		
+			<option value="ListPublicKeys">ListPublicKeys</option>
+		
+			<option value="ListRealtimeLogConfigs">ListRealtimeLogConfigs</option>
+		
+			<option value="ListStreamingDistributions">ListStreamingDistributions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PublishFunction">PublishFunction</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestFunction">TestFunction</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateCachePolicy">UpdateCachePolicy</option>
+		
+			<option value="UpdateCloudFrontOriginAccessIdentity">UpdateCloudFrontOriginAccessIdentity</option>
+		
+			<option value="UpdateDistribution">UpdateDistribution</option>
+		
+			<option value="UpdateFieldLevelEncryptionConfig">UpdateFieldLevelEncryptionConfig</option>
+		
+			<option value="UpdateFieldLevelEncryptionProfile">UpdateFieldLevelEncryptionProfile</option>
+		
+			<option value="UpdateFunction">UpdateFunction</option>
+		
+			<option value="UpdateKeyGroup">UpdateKeyGroup</option>
+		
+			<option value="UpdateOriginRequestPolicy">UpdateOriginRequestPolicy</option>
+		
+			<option value="UpdatePublicKey">UpdatePublicKey</option>
+		
+			<option value="UpdateRealtimeLogConfig">UpdateRealtimeLogConfig</option>
+		
+			<option value="UpdateStreamingDistribution">UpdateStreamingDistribution</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TargetDistributionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDistributionId"><i class="fa fa-tag"></i> TargetDistributionId</label>
+		<input type="text" id="node-input-TargetDistributionId" placeholder="TargetDistributionId"></input>
+	</div> 
+	<div class="form-row" id='AliasAttr' class='hiddenAttrs'>
+		<label for="node-input-Alias"><i class="fa fa-tag"></i> Alias</label>
+		<input type="text" id="node-input-Alias" placeholder="Alias"></input>
+	</div> 
+	<div class="form-row" id='CachePolicyConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-CachePolicyConfig"><i class="fa fa-tag"></i> CachePolicyConfig</label>
+		<input type="text" id="node-input-CachePolicyConfig" placeholder="CachePolicyConfig"></input>
+	</div> 
+	<div class="form-row" id='CloudFrontOriginAccessIdentityConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudFrontOriginAccessIdentityConfig"><i class="fa fa-tag"></i> CloudFrontOriginAccessIdentityConfig</label>
+		<input type="text" id="node-input-CloudFrontOriginAccessIdentityConfig" placeholder="CloudFrontOriginAccessIdentityConfig"></input>
+	</div> 
+	<div class="form-row" id='DistributionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DistributionConfig"><i class="fa fa-tag"></i> DistributionConfig</label>
+		<input type="text" id="node-input-DistributionConfig" placeholder="DistributionConfig"></input>
+	</div> 
+	<div class="form-row" id='DistributionConfigWithTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-DistributionConfigWithTags"><i class="fa fa-tag"></i> DistributionConfigWithTags</label>
+		<input type="text" id="node-input-DistributionConfigWithTags" placeholder="DistributionConfigWithTags"></input>
+	</div> 
+	<div class="form-row" id='FieldLevelEncryptionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-FieldLevelEncryptionConfig"><i class="fa fa-tag"></i> FieldLevelEncryptionConfig</label>
+		<input type="text" id="node-input-FieldLevelEncryptionConfig" placeholder="FieldLevelEncryptionConfig"></input>
+	</div> 
+	<div class="form-row" id='FieldLevelEncryptionProfileConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-FieldLevelEncryptionProfileConfig"><i class="fa fa-tag"></i> FieldLevelEncryptionProfileConfig</label>
+		<input type="text" id="node-input-FieldLevelEncryptionProfileConfig" placeholder="FieldLevelEncryptionProfileConfig"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='FunctionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionConfig"><i class="fa fa-tag"></i> FunctionConfig</label>
+		<input type="text" id="node-input-FunctionConfig" placeholder="FunctionConfig"></input>
+	</div> 
+	<div class="form-row" id='FunctionCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionCode"><i class="fa fa-tag"></i> FunctionCode</label>
+		<input type="text" id="node-input-FunctionCode" placeholder="FunctionCode"></input>
+	</div> 
+	<div class="form-row" id='DistributionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DistributionId"><i class="fa fa-tag"></i> DistributionId</label>
+		<input type="text" id="node-input-DistributionId" placeholder="DistributionId"></input>
+	</div> 
+	<div class="form-row" id='InvalidationBatchAttr' class='hiddenAttrs'>
+		<label for="node-input-InvalidationBatch"><i class="fa fa-tag"></i> InvalidationBatch</label>
+		<input type="text" id="node-input-InvalidationBatch" placeholder="InvalidationBatch"></input>
+	</div> 
+	<div class="form-row" id='KeyGroupConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyGroupConfig"><i class="fa fa-tag"></i> KeyGroupConfig</label>
+		<input type="text" id="node-input-KeyGroupConfig" placeholder="KeyGroupConfig"></input>
+	</div> 
+	<div class="form-row" id='MonitoringSubscriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitoringSubscription"><i class="fa fa-tag"></i> MonitoringSubscription</label>
+		<input type="text" id="node-input-MonitoringSubscription" placeholder="MonitoringSubscription"></input>
+	</div> 
+	<div class="form-row" id='OriginRequestPolicyConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginRequestPolicyConfig"><i class="fa fa-tag"></i> OriginRequestPolicyConfig</label>
+		<input type="text" id="node-input-OriginRequestPolicyConfig" placeholder="OriginRequestPolicyConfig"></input>
+	</div> 
+	<div class="form-row" id='PublicKeyConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicKeyConfig"><i class="fa fa-tag"></i> PublicKeyConfig</label>
+		<input type="text" id="node-input-PublicKeyConfig" placeholder="PublicKeyConfig"></input>
+	</div> 
+	<div class="form-row" id='EndPointsAttr' class='hiddenAttrs'>
+		<label for="node-input-EndPoints"><i class="fa fa-tag"></i> EndPoints</label>
+		<input type="text" id="node-input-EndPoints" placeholder="EndPoints"></input>
+	</div> 
+	<div class="form-row" id='FieldsAttr' class='hiddenAttrs'>
+		<label for="node-input-Fields"><i class="fa fa-tag"></i> Fields</label>
+		<input type="text" id="node-input-Fields" placeholder="Fields"></input>
+	</div> 
+	<div class="form-row" id='SamplingRateAttr' class='hiddenAttrs'>
+		<label for="node-input-SamplingRate"><i class="fa fa-tag"></i> SamplingRate</label>
+		<input type="text" id="node-input-SamplingRate" placeholder="SamplingRate"></input>
+	</div> 
+	<div class="form-row" id='StreamingDistributionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamingDistributionConfig"><i class="fa fa-tag"></i> StreamingDistributionConfig</label>
+		<input type="text" id="node-input-StreamingDistributionConfig" placeholder="StreamingDistributionConfig"></input>
+	</div> 
+	<div class="form-row" id='StreamingDistributionConfigWithTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamingDistributionConfigWithTags"><i class="fa fa-tag"></i> StreamingDistributionConfigWithTags</label>
+		<input type="text" id="node-input-StreamingDistributionConfigWithTags" placeholder="StreamingDistributionConfigWithTags"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='IfMatchAttr' class='hiddenAttrs'>
+		<label for="node-input-IfMatch"><i class="fa fa-tag"></i> IfMatch</label>
+		<input type="text" id="node-input-IfMatch" placeholder="IfMatch"></input>
+	</div> 
+	<div class="form-row" id='ARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ARN"><i class="fa fa-tag"></i> ARN</label>
+		<input type="text" id="node-input-ARN" placeholder="ARN"></input>
+	</div> 
+	<div class="form-row" id='StageAttr' class='hiddenAttrs'>
+		<label for="node-input-Stage"><i class="fa fa-tag"></i> Stage</label>
+		<input type="text" id="node-input-Stage" placeholder="Stage"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='CachePolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CachePolicyId"><i class="fa fa-tag"></i> CachePolicyId</label>
+		<input type="text" id="node-input-CachePolicyId" placeholder="CachePolicyId"></input>
+	</div> 
+	<div class="form-row" id='KeyGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyGroupId"><i class="fa fa-tag"></i> KeyGroupId</label>
+		<input type="text" id="node-input-KeyGroupId" placeholder="KeyGroupId"></input>
+	</div> 
+	<div class="form-row" id='OriginRequestPolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginRequestPolicyId"><i class="fa fa-tag"></i> OriginRequestPolicyId</label>
+		<input type="text" id="node-input-OriginRequestPolicyId" placeholder="OriginRequestPolicyId"></input>
+	</div> 
+	<div class="form-row" id='RealtimeLogConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RealtimeLogConfigName"><i class="fa fa-tag"></i> RealtimeLogConfigName</label>
+		<input type="text" id="node-input-RealtimeLogConfigName" placeholder="RealtimeLogConfigName"></input>
+	</div> 
+	<div class="form-row" id='RealtimeLogConfigArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RealtimeLogConfigArn"><i class="fa fa-tag"></i> RealtimeLogConfigArn</label>
+		<input type="text" id="node-input-RealtimeLogConfigArn" placeholder="RealtimeLogConfigArn"></input>
+	</div> 
+	<div class="form-row" id='WebACLIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebACLId"><i class="fa fa-tag"></i> WebACLId</label>
+		<input type="text" id="node-input-WebACLId" placeholder="WebACLId"></input>
+	</div> 
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i> Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='EventObjectAttr' class='hiddenAttrs'>
+		<label for="node-input-EventObject"><i class="fa fa-tag"></i> EventObject</label>
+		<input type="text" id="node-input-EventObject" placeholder="EventObject"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateAlias:[
+					'#TargetDistributionIdAttr','#AliasAttr'
+					],
+				CreateCachePolicy:[
+					'#CachePolicyConfigAttr'
+					],
+				CreateCloudFrontOriginAccessIdentity:[
+					'#CloudFrontOriginAccessIdentityConfigAttr'
+					],
+				CreateDistribution:[
+					'#DistributionConfigAttr'
+					],
+				CreateDistributionWithTags:[
+					'#DistributionConfigWithTagsAttr'
+					],
+				CreateFieldLevelEncryptionConfig:[
+					'#FieldLevelEncryptionConfigAttr'
+					],
+				CreateFieldLevelEncryptionProfile:[
+					'#FieldLevelEncryptionProfileConfigAttr'
+					],
+				CreateFunction:[
+					'#NameAttr','#FunctionConfigAttr','#FunctionCodeAttr'
+					],
+				CreateInvalidation:[
+					'#DistributionIdAttr','#InvalidationBatchAttr'
+					],
+				CreateKeyGroup:[
+					'#KeyGroupConfigAttr'
+					],
+				CreateMonitoringSubscription:[
+					'#DistributionIdAttr','#MonitoringSubscriptionAttr'
+					],
+				CreateOriginRequestPolicy:[
+					'#OriginRequestPolicyConfigAttr'
+					],
+				CreatePublicKey:[
+					'#PublicKeyConfigAttr'
+					],
+				CreateRealtimeLogConfig:[
+					'#EndPointsAttr','#FieldsAttr','#NameAttr','#SamplingRateAttr'
+					],
+				CreateStreamingDistribution:[
+					'#StreamingDistributionConfigAttr'
+					],
+				CreateStreamingDistributionWithTags:[
+					'#StreamingDistributionConfigWithTagsAttr'
+					],
+				DeleteCachePolicy:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteCloudFrontOriginAccessIdentity:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteDistribution:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteFieldLevelEncryptionConfig:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteFieldLevelEncryptionProfile:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteFunction:[
+					'#NameAttr','#IfMatchAttr'
+					],
+				DeleteKeyGroup:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteMonitoringSubscription:[
+					'#DistributionIdAttr'
+					],
+				DeleteOriginRequestPolicy:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeletePublicKey:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DeleteRealtimeLogConfig:[
+					'#NameAttr','#ARNAttr'
+					],
+				DeleteStreamingDistribution:[
+					'#IdAttr','#IfMatchAttr'
+					],
+				DescribeFunction:[
+					'#NameAttr','#StageAttr'
+					],
+				GetCachePolicy:[
+					'#IdAttr'
+					],
+				GetCachePolicyConfig:[
+					'#IdAttr'
+					],
+				GetCloudFrontOriginAccessIdentity:[
+					'#IdAttr'
+					],
+				GetCloudFrontOriginAccessIdentityConfig:[
+					'#IdAttr'
+					],
+				GetDistribution:[
+					'#IdAttr'
+					],
+				GetDistributionConfig:[
+					'#IdAttr'
+					],
+				GetFieldLevelEncryption:[
+					'#IdAttr'
+					],
+				GetFieldLevelEncryptionConfig:[
+					'#IdAttr'
+					],
+				GetFieldLevelEncryptionProfile:[
+					'#IdAttr'
+					],
+				GetFieldLevelEncryptionProfileConfig:[
+					'#IdAttr'
+					],
+				GetFunction:[
+					'#NameAttr','#StageAttr'
+					],
+				GetInvalidation:[
+					'#DistributionIdAttr','#IdAttr'
+					],
+				GetKeyGroup:[
+					'#IdAttr'
+					],
+				GetKeyGroupConfig:[
+					'#IdAttr'
+					],
+				GetMonitoringSubscription:[
+					'#DistributionIdAttr'
+					],
+				GetOriginRequestPolicy:[
+					'#IdAttr'
+					],
+				GetOriginRequestPolicyConfig:[
+					'#IdAttr'
+					],
+				GetPublicKey:[
+					'#IdAttr'
+					],
+				GetPublicKeyConfig:[
+					'#IdAttr'
+					],
+				GetRealtimeLogConfig:[
+					'#NameAttr','#ARNAttr'
+					],
+				GetStreamingDistribution:[
+					'#IdAttr'
+					],
+				GetStreamingDistributionConfig:[
+					'#IdAttr'
+					],
+				ListCachePolicies:[
+					'#TypeAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListCloudFrontOriginAccessIdentities:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListConflictingAliases:[
+					'#DistributionIdAttr','#AliasAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListDistributions:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListDistributionsByCachePolicyId:[
+					'#MarkerAttr','#MaxItemsAttr','#CachePolicyIdAttr'
+					],
+				ListDistributionsByKeyGroup:[
+					'#MarkerAttr','#MaxItemsAttr','#KeyGroupIdAttr'
+					],
+				ListDistributionsByOriginRequestPolicyId:[
+					'#MarkerAttr','#MaxItemsAttr','#OriginRequestPolicyIdAttr'
+					],
+				ListDistributionsByRealtimeLogConfig:[
+					'#MarkerAttr','#MaxItemsAttr','#RealtimeLogConfigNameAttr','#RealtimeLogConfigArnAttr'
+					],
+				ListDistributionsByWebACLId:[
+					'#MarkerAttr','#MaxItemsAttr','#WebACLIdAttr'
+					],
+				ListFieldLevelEncryptionConfigs:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListFieldLevelEncryptionProfiles:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListFunctions:[
+					'#MarkerAttr','#MaxItemsAttr','#StageAttr'
+					],
+				ListInvalidations:[
+					'#DistributionIdAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListKeyGroups:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListOriginRequestPolicies:[
+					'#TypeAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListPublicKeys:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListRealtimeLogConfigs:[
+					'#MaxItemsAttr','#MarkerAttr'
+					],
+				ListStreamingDistributions:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceAttr'
+					],
+				PublishFunction:[
+					'#NameAttr','#IfMatchAttr'
+					],
+				TagResource:[
+					'#ResourceAttr','#TagsAttr'
+					],
+				TestFunction:[
+					'#NameAttr','#IfMatchAttr','#StageAttr','#EventObjectAttr'
+					],
+				UntagResource:[
+					'#ResourceAttr','#TagKeysAttr'
+					],
+				UpdateCachePolicy:[
+					'#CachePolicyConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateCloudFrontOriginAccessIdentity:[
+					'#CloudFrontOriginAccessIdentityConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateDistribution:[
+					'#DistributionConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateFieldLevelEncryptionConfig:[
+					'#FieldLevelEncryptionConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateFieldLevelEncryptionProfile:[
+					'#FieldLevelEncryptionProfileConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateFunction:[
+					'#NameAttr','#IfMatchAttr','#FunctionConfigAttr','#FunctionCodeAttr'
+					],
+				UpdateKeyGroup:[
+					'#KeyGroupConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateOriginRequestPolicy:[
+					'#OriginRequestPolicyConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdatePublicKey:[
+					'#PublicKeyConfigAttr','#IdAttr','#IfMatchAttr'
+					],
+				UpdateRealtimeLogConfig:[
+					'#EndPointsAttr','#FieldsAttr','#NameAttr','#ARNAttr','#SamplingRateAttr'
+					],
+				UpdateStreamingDistribution:[
+					'#StreamingDistributionConfigAttr','#IdAttr','#IfMatchAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudFront">
+<p>
+AWS CloudFront
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudFront.html">CloudFront</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudFront',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateAlias' },
+			
+				TargetDistributionId: { value: ""} ,
+				Alias: { value: ""} ,
+				CachePolicyConfig: { value: ""} ,
+				CloudFrontOriginAccessIdentityConfig: { value: ""} ,
+				DistributionConfig: { value: ""} ,
+				DistributionConfigWithTags: { value: ""} ,
+				FieldLevelEncryptionConfig: { value: ""} ,
+				FieldLevelEncryptionProfileConfig: { value: ""} ,
+				Name: { value: ""} ,
+				FunctionConfig: { value: ""} ,
+				FunctionCode: { value: ""} ,
+				DistributionId: { value: ""} ,
+				InvalidationBatch: { value: ""} ,
+				KeyGroupConfig: { value: ""} ,
+				MonitoringSubscription: { value: ""} ,
+				OriginRequestPolicyConfig: { value: ""} ,
+				PublicKeyConfig: { value: ""} ,
+				EndPoints: { value: ""} ,
+				Fields: { value: ""} ,
+				SamplingRate: { value: ""} ,
+				StreamingDistributionConfig: { value: ""} ,
+				StreamingDistributionConfigWithTags: { value: ""} ,
+				Id: { value: ""} ,
+				IfMatch: { value: ""} ,
+				ARN: { value: ""} ,
+				Stage: { value: ""} ,
+				Type: { value: ""} ,
+				Marker: { value: ""} ,
+				MaxItems: { value: ""} ,
+				CachePolicyId: { value: ""} ,
+				KeyGroupId: { value: ""} ,
+				OriginRequestPolicyId: { value: ""} ,
+				RealtimeLogConfigName: { value: ""} ,
+				RealtimeLogConfigArn: { value: ""} ,
+				WebACLId: { value: ""} ,
+				Resource: { value: ""} ,
+				Tags: { value: ""} ,
+				EventObject: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudFront " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-TargetDistributionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Alias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CachePolicyConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudFrontOriginAccessIdentityConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DistributionConfig").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-FieldLevelEncryptionConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FieldLevelEncryptionProfileConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DistributionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InvalidationBatch").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyGroupConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitoringSubscription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OriginRequestPolicyConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicKeyConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndPoints").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Fields").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-StreamingDistributionConfig").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IfMatch").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Stage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CachePolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OriginRequestPolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RealtimeLogConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RealtimeLogConfigArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WebACLId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EventObject").typedInput({ default: "bin", types: ["bin"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,624 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SecurityHub">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptAdministratorInvitation">AcceptAdministratorInvitation</option>
+		
+			<option value="AcceptInvitation">AcceptInvitation</option>
+		
+			<option value="BatchDisableStandards">BatchDisableStandards</option>
+		
+			<option value="BatchEnableStandards">BatchEnableStandards</option>
+		
+			<option value="BatchImportFindings">BatchImportFindings</option>
+		
+			<option value="BatchUpdateFindings">BatchUpdateFindings</option>
+		
+			<option value="CreateActionTarget">CreateActionTarget</option>
+		
+			<option value="CreateInsight">CreateInsight</option>
+		
+			<option value="CreateMembers">CreateMembers</option>
+		
+			<option value="DeclineInvitations">DeclineInvitations</option>
+		
+			<option value="DeleteActionTarget">DeleteActionTarget</option>
+		
+			<option value="DeleteInsight">DeleteInsight</option>
+		
+			<option value="DeleteInvitations">DeleteInvitations</option>
+		
+			<option value="DeleteMembers">DeleteMembers</option>
+		
+			<option value="DescribeActionTargets">DescribeActionTargets</option>
+		
+			<option value="DescribeHub">DescribeHub</option>
+		
+			<option value="DescribeOrganizationConfiguration">DescribeOrganizationConfiguration</option>
+		
+			<option value="DescribeProducts">DescribeProducts</option>
+		
+			<option value="DescribeStandards">DescribeStandards</option>
+		
+			<option value="DescribeStandardsControls">DescribeStandardsControls</option>
+		
+			<option value="DisableImportFindingsForProduct">DisableImportFindingsForProduct</option>
+		
+			<option value="DisableOrganizationAdminAccount">DisableOrganizationAdminAccount</option>
+		
+			<option value="DisableSecurityHub">DisableSecurityHub</option>
+		
+			<option value="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</option>
+		
+			<option value="DisassociateFromMasterAccount">DisassociateFromMasterAccount</option>
+		
+			<option value="DisassociateMembers">DisassociateMembers</option>
+		
+			<option value="EnableImportFindingsForProduct">EnableImportFindingsForProduct</option>
+		
+			<option value="EnableOrganizationAdminAccount">EnableOrganizationAdminAccount</option>
+		
+			<option value="EnableSecurityHub">EnableSecurityHub</option>
+		
+			<option value="GetAdministratorAccount">GetAdministratorAccount</option>
+		
+			<option value="GetEnabledStandards">GetEnabledStandards</option>
+		
+			<option value="GetFindings">GetFindings</option>
+		
+			<option value="GetInsightResults">GetInsightResults</option>
+		
+			<option value="GetInsights">GetInsights</option>
+		
+			<option value="GetInvitationsCount">GetInvitationsCount</option>
+		
+			<option value="GetMasterAccount">GetMasterAccount</option>
+		
+			<option value="GetMembers">GetMembers</option>
+		
+			<option value="InviteMembers">InviteMembers</option>
+		
+			<option value="ListEnabledProductsForImport">ListEnabledProductsForImport</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListOrganizationAdminAccounts">ListOrganizationAdminAccounts</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateActionTarget">UpdateActionTarget</option>
+		
+			<option value="UpdateFindings">UpdateFindings</option>
+		
+			<option value="UpdateInsight">UpdateInsight</option>
+		
+			<option value="UpdateOrganizationConfiguration">UpdateOrganizationConfiguration</option>
+		
+			<option value="UpdateSecurityHubConfiguration">UpdateSecurityHubConfiguration</option>
+		
+			<option value="UpdateStandardsControl">UpdateStandardsControl</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AdministratorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AdministratorId"><i class="fa fa-tag"></i> AdministratorId</label>
+		<input type="text" id="node-input-AdministratorId" placeholder="AdministratorId"></input>
+	</div> 
+	<div class="form-row" id='InvitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InvitationId"><i class="fa fa-tag"></i> InvitationId</label>
+		<input type="text" id="node-input-InvitationId" placeholder="InvitationId"></input>
+	</div> 
+	<div class="form-row" id='MasterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MasterId"><i class="fa fa-tag"></i> MasterId</label>
+		<input type="text" id="node-input-MasterId" placeholder="MasterId"></input>
+	</div> 
+	<div class="form-row" id='StandardsSubscriptionArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-StandardsSubscriptionArns"><i class="fa fa-tag"></i> StandardsSubscriptionArns</label>
+		<input type="text" id="node-input-StandardsSubscriptionArns" placeholder="StandardsSubscriptionArns"></input>
+	</div> 
+	<div class="form-row" id='StandardsSubscriptionRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-StandardsSubscriptionRequests"><i class="fa fa-tag"></i> StandardsSubscriptionRequests</label>
+		<input type="text" id="node-input-StandardsSubscriptionRequests" placeholder="StandardsSubscriptionRequests"></input>
+	</div> 
+	<div class="form-row" id='FindingsAttr' class='hiddenAttrs'>
+		<label for="node-input-Findings"><i class="fa fa-tag"></i> Findings</label>
+		<input type="text" id="node-input-Findings" placeholder="Findings"></input>
+	</div> 
+	<div class="form-row" id='FindingIdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-FindingIdentifiers"><i class="fa fa-tag"></i> FindingIdentifiers</label>
+		<input type="text" id="node-input-FindingIdentifiers" placeholder="FindingIdentifiers"></input>
+	</div> 
+	<div class="form-row" id='NoteAttr' class='hiddenAttrs'>
+		<label for="node-input-Note"><i class="fa fa-tag"></i> Note</label>
+		<input type="text" id="node-input-Note" placeholder="Note"></input>
+	</div> 
+	<div class="form-row" id='SeverityAttr' class='hiddenAttrs'>
+		<label for="node-input-Severity"><i class="fa fa-tag"></i> Severity</label>
+		<input type="text" id="node-input-Severity" placeholder="Severity"></input>
+	</div> 
+	<div class="form-row" id='VerificationStateAttr' class='hiddenAttrs'>
+		<label for="node-input-VerificationState"><i class="fa fa-tag"></i> VerificationState</label>
+		<input type="text" id="node-input-VerificationState" placeholder="VerificationState"></input>
+	</div> 
+	<div class="form-row" id='ConfidenceAttr' class='hiddenAttrs'>
+		<label for="node-input-Confidence"><i class="fa fa-tag"></i> Confidence</label>
+		<input type="text" id="node-input-Confidence" placeholder="Confidence"></input>
+	</div> 
+	<div class="form-row" id='CriticalityAttr' class='hiddenAttrs'>
+		<label for="node-input-Criticality"><i class="fa fa-tag"></i> Criticality</label>
+		<input type="text" id="node-input-Criticality" placeholder="Criticality"></input>
+	</div> 
+	<div class="form-row" id='TypesAttr' class='hiddenAttrs'>
+		<label for="node-input-Types"><i class="fa fa-tag"></i> Types</label>
+		<input type="text" id="node-input-Types" placeholder="Types"></input>
+	</div> 
+	<div class="form-row" id='UserDefinedFieldsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserDefinedFields"><i class="fa fa-tag"></i> UserDefinedFields</label>
+		<input type="text" id="node-input-UserDefinedFields" placeholder="UserDefinedFields"></input>
+	</div> 
+	<div class="form-row" id='WorkflowAttr' class='hiddenAttrs'>
+		<label for="node-input-Workflow"><i class="fa fa-tag"></i> Workflow</label>
+		<input type="text" id="node-input-Workflow" placeholder="Workflow"></input>
+	</div> 
+	<div class="form-row" id='RelatedFindingsAttr' class='hiddenAttrs'>
+		<label for="node-input-RelatedFindings"><i class="fa fa-tag"></i> RelatedFindings</label>
+		<input type="text" id="node-input-RelatedFindings" placeholder="RelatedFindings"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='GroupByAttributeAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupByAttribute"><i class="fa fa-tag"></i> GroupByAttribute</label>
+		<input type="text" id="node-input-GroupByAttribute" placeholder="GroupByAttribute"></input>
+	</div> 
+	<div class="form-row" id='AccountDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountDetails"><i class="fa fa-tag"></i> AccountDetails</label>
+		<input type="text" id="node-input-AccountDetails" placeholder="AccountDetails"></input>
+	</div> 
+	<div class="form-row" id='AccountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountIds"><i class="fa fa-tag"></i> AccountIds</label>
+		<input type="text" id="node-input-AccountIds" placeholder="AccountIds"></input>
+	</div> 
+	<div class="form-row" id='ActionTargetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionTargetArn"><i class="fa fa-tag"></i> ActionTargetArn</label>
+		<input type="text" id="node-input-ActionTargetArn" placeholder="ActionTargetArn"></input>
+	</div> 
+	<div class="form-row" id='InsightArnAttr' class='hiddenAttrs'>
+		<label for="node-input-InsightArn"><i class="fa fa-tag"></i> InsightArn</label>
+		<input type="text" id="node-input-InsightArn" placeholder="InsightArn"></input>
+	</div> 
+	<div class="form-row" id='ActionTargetArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionTargetArns"><i class="fa fa-tag"></i> ActionTargetArns</label>
+		<input type="text" id="node-input-ActionTargetArns" placeholder="ActionTargetArns"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='HubArnAttr' class='hiddenAttrs'>
+		<label for="node-input-HubArn"><i class="fa fa-tag"></i> HubArn</label>
+		<input type="text" id="node-input-HubArn" placeholder="HubArn"></input>
+	</div> 
+	<div class="form-row" id='ProductArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductArn"><i class="fa fa-tag"></i> ProductArn</label>
+		<input type="text" id="node-input-ProductArn" placeholder="ProductArn"></input>
+	</div> 
+	<div class="form-row" id='StandardsSubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-StandardsSubscriptionArn"><i class="fa fa-tag"></i> StandardsSubscriptionArn</label>
+		<input type="text" id="node-input-StandardsSubscriptionArn" placeholder="StandardsSubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='ProductSubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductSubscriptionArn"><i class="fa fa-tag"></i> ProductSubscriptionArn</label>
+		<input type="text" id="node-input-ProductSubscriptionArn" placeholder="ProductSubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='AdminAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AdminAccountId"><i class="fa fa-tag"></i> AdminAccountId</label>
+		<input type="text" id="node-input-AdminAccountId" placeholder="AdminAccountId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='EnableDefaultStandardsAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableDefaultStandards"><i class="fa fa-tag"></i> EnableDefaultStandards</label>
+		<input type="text" id="node-input-EnableDefaultStandards" placeholder="EnableDefaultStandards"></input>
+	</div> 
+	<div class="form-row" id='SortCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-SortCriteria"><i class="fa fa-tag"></i> SortCriteria</label>
+		<input type="text" id="node-input-SortCriteria" placeholder="SortCriteria"></input>
+	</div> 
+	<div class="form-row" id='InsightArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-InsightArns"><i class="fa fa-tag"></i> InsightArns</label>
+		<input type="text" id="node-input-InsightArns" placeholder="InsightArns"></input>
+	</div> 
+	<div class="form-row" id='OnlyAssociatedAttr' class='hiddenAttrs'>
+		<label for="node-input-OnlyAssociated"><i class="fa fa-tag"></i> OnlyAssociated</label>
+		<input type="text" id="node-input-OnlyAssociated" placeholder="OnlyAssociated"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='RecordStateAttr' class='hiddenAttrs'>
+		<label for="node-input-RecordState"><i class="fa fa-tag"></i> RecordState</label>
+		<input type="text" id="node-input-RecordState" placeholder="RecordState"></input>
+	</div> 
+	<div class="form-row" id='AutoEnableAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoEnable"><i class="fa fa-tag"></i> AutoEnable</label>
+		<input type="text" id="node-input-AutoEnable" placeholder="AutoEnable"></input>
+	</div> 
+	<div class="form-row" id='AutoEnableControlsAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoEnableControls"><i class="fa fa-tag"></i> AutoEnableControls</label>
+		<input type="text" id="node-input-AutoEnableControls" placeholder="AutoEnableControls"></input>
+	</div> 
+	<div class="form-row" id='StandardsControlArnAttr' class='hiddenAttrs'>
+		<label for="node-input-StandardsControlArn"><i class="fa fa-tag"></i> StandardsControlArn</label>
+		<input type="text" id="node-input-StandardsControlArn" placeholder="StandardsControlArn"></input>
+	</div> 
+	<div class="form-row" id='ControlStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ControlStatus"><i class="fa fa-tag"></i> ControlStatus</label>
+		<input type="text" id="node-input-ControlStatus" placeholder="ControlStatus"></input>
+	</div> 
+	<div class="form-row" id='DisabledReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-DisabledReason"><i class="fa fa-tag"></i> DisabledReason</label>
+		<input type="text" id="node-input-DisabledReason" placeholder="DisabledReason"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptAdministratorInvitation:[
+					'#AdministratorIdAttr','#InvitationIdAttr'
+					],
+				AcceptInvitation:[
+					'#MasterIdAttr','#InvitationIdAttr'
+					],
+				BatchDisableStandards:[
+					'#StandardsSubscriptionArnsAttr'
+					],
+				BatchEnableStandards:[
+					'#StandardsSubscriptionRequestsAttr'
+					],
+				BatchImportFindings:[
+					'#FindingsAttr'
+					],
+				BatchUpdateFindings:[
+					'#FindingIdentifiersAttr','#NoteAttr','#SeverityAttr','#VerificationStateAttr','#ConfidenceAttr','#CriticalityAttr','#TypesAttr','#UserDefinedFieldsAttr','#WorkflowAttr','#RelatedFindingsAttr'
+					],
+				CreateActionTarget:[
+					'#NameAttr','#DescriptionAttr','#IdAttr'
+					],
+				CreateInsight:[
+					'#NameAttr','#FiltersAttr','#GroupByAttributeAttr'
+					],
+				CreateMembers:[
+					'#AccountDetailsAttr'
+					],
+				DeclineInvitations:[
+					'#AccountIdsAttr'
+					],
+				DeleteActionTarget:[
+					'#ActionTargetArnAttr'
+					],
+				DeleteInsight:[
+					'#InsightArnAttr'
+					],
+				DeleteInvitations:[
+					'#AccountIdsAttr'
+					],
+				DeleteMembers:[
+					'#AccountIdsAttr'
+					],
+				DescribeActionTargets:[
+					'#ActionTargetArnsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeHub:[
+					'#HubArnAttr'
+					],
+				DescribeOrganizationConfiguration:[
+					
+					],
+				DescribeProducts:[
+					'#NextTokenAttr','#MaxResultsAttr','#ProductArnAttr'
+					],
+				DescribeStandards:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeStandardsControls:[
+					'#StandardsSubscriptionArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DisableImportFindingsForProduct:[
+					'#ProductSubscriptionArnAttr'
+					],
+				DisableOrganizationAdminAccount:[
+					'#AdminAccountIdAttr'
+					],
+				DisableSecurityHub:[
+					
+					],
+				DisassociateFromAdministratorAccount:[
+					
+					],
+				DisassociateFromMasterAccount:[
+					
+					],
+				DisassociateMembers:[
+					'#AccountIdsAttr'
+					],
+				EnableImportFindingsForProduct:[
+					'#ProductArnAttr'
+					],
+				EnableOrganizationAdminAccount:[
+					'#AdminAccountIdAttr'
+					],
+				EnableSecurityHub:[
+					'#TagsAttr','#EnableDefaultStandardsAttr'
+					],
+				GetAdministratorAccount:[
+					
+					],
+				GetEnabledStandards:[
+					'#StandardsSubscriptionArnsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetFindings:[
+					'#FiltersAttr','#SortCriteriaAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetInsightResults:[
+					'#InsightArnAttr'
+					],
+				GetInsights:[
+					'#InsightArnsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetInvitationsCount:[
+					
+					],
+				GetMasterAccount:[
+					
+					],
+				GetMembers:[
+					'#AccountIdsAttr'
+					],
+				InviteMembers:[
+					'#AccountIdsAttr'
+					],
+				ListEnabledProductsForImport:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListInvitations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListMembers:[
+					'#OnlyAssociatedAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOrganizationAdminAccounts:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateActionTarget:[
+					'#ActionTargetArnAttr','#NameAttr','#DescriptionAttr'
+					],
+				UpdateFindings:[
+					'#FiltersAttr','#NoteAttr','#RecordStateAttr'
+					],
+				UpdateInsight:[
+					'#InsightArnAttr','#NameAttr','#FiltersAttr','#GroupByAttributeAttr'
+					],
+				UpdateOrganizationConfiguration:[
+					'#AutoEnableAttr'
+					],
+				UpdateSecurityHubConfiguration:[
+					'#AutoEnableControlsAttr'
+					],
+				UpdateStandardsControl:[
+					'#StandardsControlArnAttr','#ControlStatusAttr','#DisabledReasonAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SecurityHub">
+<p>
+AWS SecurityHub
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SecurityHub.html">SecurityHub</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SecurityHub',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptAdministratorInvitation' },
+			
+				AdministratorId: { value: ""} ,
+				InvitationId: { value: ""} ,
+				MasterId: { value: ""} ,
+				StandardsSubscriptionArns: { value: ""} ,
+				StandardsSubscriptionRequests: { value: ""} ,
+				Findings: { value: ""} ,
+				FindingIdentifiers: { value: ""} ,
+				Note: { value: ""} ,
+				Severity: { value: ""} ,
+				VerificationState: { value: ""} ,
+				Confidence: { value: ""} ,
+				Criticality: { value: ""} ,
+				Types: { value: ""} ,
+				UserDefinedFields: { value: ""} ,
+				Workflow: { value: ""} ,
+				RelatedFindings: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				Id: { value: ""} ,
+				Filters: { value: ""} ,
+				GroupByAttribute: { value: ""} ,
+				AccountDetails: { value: ""} ,
+				AccountIds: { value: ""} ,
+				ActionTargetArn: { value: ""} ,
+				InsightArn: { value: ""} ,
+				ActionTargetArns: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				HubArn: { value: ""} ,
+				ProductArn: { value: ""} ,
+				StandardsSubscriptionArn: { value: ""} ,
+				ProductSubscriptionArn: { value: ""} ,
+				AdminAccountId: { value: ""} ,
+				Tags: { value: ""} ,
+				EnableDefaultStandards: { value: ""} ,
+				SortCriteria: { value: ""} ,
+				InsightArns: { value: ""} ,
+				OnlyAssociated: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				RecordState: { value: ""} ,
+				AutoEnable: { value: ""} ,
+				AutoEnableControls: { value: ""} ,
+				StandardsControlArn: { value: ""} ,
+				ControlStatus: { value: ""} ,
+				DisabledReason: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SecurityHub " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AdministratorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InvitationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MasterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StandardsSubscriptionArns").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-FindingIdentifiers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Note").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-VerificationState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Confidence").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Criticality").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Types").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserDefinedFields").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RelatedFindings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupByAttribute").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AccountIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionTargetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsightArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionTargetArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-HubArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StandardsSubscriptionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductSubscriptionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdminAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableDefaultStandards").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-InsightArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnlyAssociated").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RecordState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoEnable").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AutoEnableControls").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-StandardsControlArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ControlStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisabledReason").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

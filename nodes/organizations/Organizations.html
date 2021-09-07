@@ -1,0 +1,540 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Organizations">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptHandshake">AcceptHandshake</option>
+		
+			<option value="AttachPolicy">AttachPolicy</option>
+		
+			<option value="CancelHandshake">CancelHandshake</option>
+		
+			<option value="CreateAccount">CreateAccount</option>
+		
+			<option value="CreateGovCloudAccount">CreateGovCloudAccount</option>
+		
+			<option value="CreateOrganization">CreateOrganization</option>
+		
+			<option value="CreateOrganizationalUnit">CreateOrganizationalUnit</option>
+		
+			<option value="CreatePolicy">CreatePolicy</option>
+		
+			<option value="DeclineHandshake">DeclineHandshake</option>
+		
+			<option value="DeleteOrganization">DeleteOrganization</option>
+		
+			<option value="DeleteOrganizationalUnit">DeleteOrganizationalUnit</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DeregisterDelegatedAdministrator">DeregisterDelegatedAdministrator</option>
+		
+			<option value="DescribeAccount">DescribeAccount</option>
+		
+			<option value="DescribeCreateAccountStatus">DescribeCreateAccountStatus</option>
+		
+			<option value="DescribeEffectivePolicy">DescribeEffectivePolicy</option>
+		
+			<option value="DescribeHandshake">DescribeHandshake</option>
+		
+			<option value="DescribeOrganization">DescribeOrganization</option>
+		
+			<option value="DescribeOrganizationalUnit">DescribeOrganizationalUnit</option>
+		
+			<option value="DescribePolicy">DescribePolicy</option>
+		
+			<option value="DetachPolicy">DetachPolicy</option>
+		
+			<option value="DisableAWSServiceAccess">DisableAWSServiceAccess</option>
+		
+			<option value="DisablePolicyType">DisablePolicyType</option>
+		
+			<option value="EnableAWSServiceAccess">EnableAWSServiceAccess</option>
+		
+			<option value="EnableAllFeatures">EnableAllFeatures</option>
+		
+			<option value="EnablePolicyType">EnablePolicyType</option>
+		
+			<option value="InviteAccountToOrganization">InviteAccountToOrganization</option>
+		
+			<option value="LeaveOrganization">LeaveOrganization</option>
+		
+			<option value="ListAWSServiceAccessForOrganization">ListAWSServiceAccessForOrganization</option>
+		
+			<option value="ListAccounts">ListAccounts</option>
+		
+			<option value="ListAccountsForParent">ListAccountsForParent</option>
+		
+			<option value="ListChildren">ListChildren</option>
+		
+			<option value="ListCreateAccountStatus">ListCreateAccountStatus</option>
+		
+			<option value="ListDelegatedAdministrators">ListDelegatedAdministrators</option>
+		
+			<option value="ListDelegatedServicesForAccount">ListDelegatedServicesForAccount</option>
+		
+			<option value="ListHandshakesForAccount">ListHandshakesForAccount</option>
+		
+			<option value="ListHandshakesForOrganization">ListHandshakesForOrganization</option>
+		
+			<option value="ListOrganizationalUnitsForParent">ListOrganizationalUnitsForParent</option>
+		
+			<option value="ListParents">ListParents</option>
+		
+			<option value="ListPolicies">ListPolicies</option>
+		
+			<option value="ListPoliciesForTarget">ListPoliciesForTarget</option>
+		
+			<option value="ListRoots">ListRoots</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTargetsForPolicy">ListTargetsForPolicy</option>
+		
+			<option value="MoveAccount">MoveAccount</option>
+		
+			<option value="RegisterDelegatedAdministrator">RegisterDelegatedAdministrator</option>
+		
+			<option value="RemoveAccountFromOrganization">RemoveAccountFromOrganization</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateOrganizationalUnit">UpdateOrganizationalUnit</option>
+		
+			<option value="UpdatePolicy">UpdatePolicy</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='HandshakeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HandshakeId"><i class="fa fa-tag"></i> HandshakeId</label>
+		<input type="text" id="node-input-HandshakeId" placeholder="HandshakeId"></input>
+	</div> 
+	<div class="form-row" id='PolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyId"><i class="fa fa-tag"></i> PolicyId</label>
+		<input type="text" id="node-input-PolicyId" placeholder="PolicyId"></input>
+	</div> 
+	<div class="form-row" id='TargetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetId"><i class="fa fa-tag"></i> TargetId</label>
+		<input type="text" id="node-input-TargetId" placeholder="TargetId"></input>
+	</div> 
+	<div class="form-row" id='EmailAttr' class='hiddenAttrs'>
+		<label for="node-input-Email"><i class="fa fa-tag"></i> Email</label>
+		<input type="text" id="node-input-Email" placeholder="Email"></input>
+	</div> 
+	<div class="form-row" id='AccountNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountName"><i class="fa fa-tag"></i> AccountName</label>
+		<input type="text" id="node-input-AccountName" placeholder="AccountName"></input>
+	</div> 
+	<div class="form-row" id='RoleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleName"><i class="fa fa-tag"></i> RoleName</label>
+		<input type="text" id="node-input-RoleName" placeholder="RoleName"></input>
+	</div> 
+	<div class="form-row" id='IamUserAccessToBillingAttr' class='hiddenAttrs'>
+		<label for="node-input-IamUserAccessToBilling"><i class="fa fa-tag"></i> IamUserAccessToBilling</label>
+		<input type="text" id="node-input-IamUserAccessToBilling" placeholder="IamUserAccessToBilling"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='FeatureSetAttr' class='hiddenAttrs'>
+		<label for="node-input-FeatureSet"><i class="fa fa-tag"></i> FeatureSet</label>
+		<input type="text" id="node-input-FeatureSet" placeholder="FeatureSet"></input>
+	</div> 
+	<div class="form-row" id='ParentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentId"><i class="fa fa-tag"></i> ParentId</label>
+		<input type="text" id="node-input-ParentId" placeholder="ParentId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i> Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='OrganizationalUnitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationalUnitId"><i class="fa fa-tag"></i> OrganizationalUnitId</label>
+		<input type="text" id="node-input-OrganizationalUnitId" placeholder="OrganizationalUnitId"></input>
+	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='ServicePrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-ServicePrincipal"><i class="fa fa-tag"></i> ServicePrincipal</label>
+		<input type="text" id="node-input-ServicePrincipal" placeholder="ServicePrincipal"></input>
+	</div> 
+	<div class="form-row" id='CreateAccountRequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateAccountRequestId"><i class="fa fa-tag"></i> CreateAccountRequestId</label>
+		<input type="text" id="node-input-CreateAccountRequestId" placeholder="CreateAccountRequestId"></input>
+	</div> 
+	<div class="form-row" id='PolicyTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyType"><i class="fa fa-tag"></i> PolicyType</label>
+		<input type="text" id="node-input-PolicyType" placeholder="PolicyType"></input>
+	</div> 
+	<div class="form-row" id='RootIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RootId"><i class="fa fa-tag"></i> RootId</label>
+		<input type="text" id="node-input-RootId" placeholder="RootId"></input>
+	</div> 
+	<div class="form-row" id='TargetAttr' class='hiddenAttrs'>
+		<label for="node-input-Target"><i class="fa fa-tag"></i> Target</label>
+		<input type="text" id="node-input-Target" placeholder="Target"></input>
+	</div> 
+	<div class="form-row" id='NotesAttr' class='hiddenAttrs'>
+		<label for="node-input-Notes"><i class="fa fa-tag"></i> Notes</label>
+		<input type="text" id="node-input-Notes" placeholder="Notes"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ChildTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ChildType"><i class="fa fa-tag"></i> ChildType</label>
+		<input type="text" id="node-input-ChildType" placeholder="ChildType"></input>
+	</div> 
+	<div class="form-row" id='StatesAttr' class='hiddenAttrs'>
+		<label for="node-input-States"><i class="fa fa-tag"></i> States</label>
+		<input type="text" id="node-input-States" placeholder="States"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='ChildIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChildId"><i class="fa fa-tag"></i> ChildId</label>
+		<input type="text" id="node-input-ChildId" placeholder="ChildId"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='SourceParentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceParentId"><i class="fa fa-tag"></i> SourceParentId</label>
+		<input type="text" id="node-input-SourceParentId" placeholder="SourceParentId"></input>
+	</div> 
+	<div class="form-row" id='DestinationParentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationParentId"><i class="fa fa-tag"></i> DestinationParentId</label>
+		<input type="text" id="node-input-DestinationParentId" placeholder="DestinationParentId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptHandshake:[
+					'#HandshakeIdAttr'
+					],
+				AttachPolicy:[
+					'#PolicyIdAttr','#TargetIdAttr'
+					],
+				CancelHandshake:[
+					'#HandshakeIdAttr'
+					],
+				CreateAccount:[
+					'#EmailAttr','#AccountNameAttr','#RoleNameAttr','#IamUserAccessToBillingAttr','#TagsAttr'
+					],
+				CreateGovCloudAccount:[
+					'#EmailAttr','#AccountNameAttr','#RoleNameAttr','#IamUserAccessToBillingAttr','#TagsAttr'
+					],
+				CreateOrganization:[
+					'#FeatureSetAttr'
+					],
+				CreateOrganizationalUnit:[
+					'#ParentIdAttr','#NameAttr','#TagsAttr'
+					],
+				CreatePolicy:[
+					'#ContentAttr','#DescriptionAttr','#NameAttr','#TypeAttr','#TagsAttr'
+					],
+				DeclineHandshake:[
+					'#HandshakeIdAttr'
+					],
+				DeleteOrganization:[
+					
+					],
+				DeleteOrganizationalUnit:[
+					'#OrganizationalUnitIdAttr'
+					],
+				DeletePolicy:[
+					'#PolicyIdAttr'
+					],
+				DeregisterDelegatedAdministrator:[
+					'#AccountIdAttr','#ServicePrincipalAttr'
+					],
+				DescribeAccount:[
+					'#AccountIdAttr'
+					],
+				DescribeCreateAccountStatus:[
+					'#CreateAccountRequestIdAttr'
+					],
+				DescribeEffectivePolicy:[
+					'#PolicyTypeAttr','#TargetIdAttr'
+					],
+				DescribeHandshake:[
+					'#HandshakeIdAttr'
+					],
+				DescribeOrganization:[
+					
+					],
+				DescribeOrganizationalUnit:[
+					'#OrganizationalUnitIdAttr'
+					],
+				DescribePolicy:[
+					'#PolicyIdAttr'
+					],
+				DetachPolicy:[
+					'#PolicyIdAttr','#TargetIdAttr'
+					],
+				DisableAWSServiceAccess:[
+					'#ServicePrincipalAttr'
+					],
+				DisablePolicyType:[
+					'#RootIdAttr','#PolicyTypeAttr'
+					],
+				EnableAWSServiceAccess:[
+					'#ServicePrincipalAttr'
+					],
+				EnableAllFeatures:[
+					
+					],
+				EnablePolicyType:[
+					'#RootIdAttr','#PolicyTypeAttr'
+					],
+				InviteAccountToOrganization:[
+					'#TargetAttr','#NotesAttr','#TagsAttr'
+					],
+				LeaveOrganization:[
+					
+					],
+				ListAWSServiceAccessForOrganization:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAccounts:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAccountsForParent:[
+					'#ParentIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListChildren:[
+					'#ParentIdAttr','#ChildTypeAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListCreateAccountStatus:[
+					'#StatesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDelegatedAdministrators:[
+					'#ServicePrincipalAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDelegatedServicesForAccount:[
+					'#AccountIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHandshakesForAccount:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHandshakesForOrganization:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListOrganizationalUnitsForParent:[
+					'#ParentIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListParents:[
+					'#ChildIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPolicies:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPoliciesForTarget:[
+					'#TargetIdAttr','#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListRoots:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceIdAttr','#NextTokenAttr'
+					],
+				ListTargetsForPolicy:[
+					'#PolicyIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				MoveAccount:[
+					'#AccountIdAttr','#SourceParentIdAttr','#DestinationParentIdAttr'
+					],
+				RegisterDelegatedAdministrator:[
+					'#AccountIdAttr','#ServicePrincipalAttr'
+					],
+				RemoveAccountFromOrganization:[
+					'#AccountIdAttr'
+					],
+				TagResource:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				UpdateOrganizationalUnit:[
+					'#OrganizationalUnitIdAttr','#NameAttr'
+					],
+				UpdatePolicy:[
+					'#PolicyIdAttr','#NameAttr','#DescriptionAttr','#ContentAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Organizations">
+<p>
+AWS Organizations
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Organizations.html">Organizations</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Organizations',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptHandshake' },
+			
+				HandshakeId: { value: ""} ,
+				PolicyId: { value: ""} ,
+				TargetId: { value: ""} ,
+				Email: { value: ""} ,
+				AccountName: { value: ""} ,
+				RoleName: { value: ""} ,
+				IamUserAccessToBilling: { value: ""} ,
+				Tags: { value: ""} ,
+				FeatureSet: { value: ""} ,
+				ParentId: { value: ""} ,
+				Name: { value: ""} ,
+				Content: { value: ""} ,
+				Description: { value: ""} ,
+				Type: { value: ""} ,
+				OrganizationalUnitId: { value: ""} ,
+				AccountId: { value: ""} ,
+				ServicePrincipal: { value: ""} ,
+				CreateAccountRequestId: { value: ""} ,
+				PolicyType: { value: ""} ,
+				RootId: { value: ""} ,
+				Target: { value: ""} ,
+				Notes: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ChildType: { value: ""} ,
+				States: { value: ""} ,
+				Filter: { value: ""} ,
+				ChildId: { value: ""} ,
+				ResourceId: { value: ""} ,
+				SourceParentId: { value: ""} ,
+				DestinationParentId: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Organizations " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-HandshakeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Email").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IamUserAccessToBilling").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FeatureSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationalUnitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServicePrincipal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CreateAccountRequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RootId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Target").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ChildType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChildId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceParentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationParentId").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,358 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS GreengrassV2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchAssociateClientDeviceWithCoreDevice">BatchAssociateClientDeviceWithCoreDevice</option>
+		
+			<option value="BatchDisassociateClientDeviceFromCoreDevice">BatchDisassociateClientDeviceFromCoreDevice</option>
+		
+			<option value="CancelDeployment">CancelDeployment</option>
+		
+			<option value="CreateComponentVersion">CreateComponentVersion</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="DeleteComponent">DeleteComponent</option>
+		
+			<option value="DeleteCoreDevice">DeleteCoreDevice</option>
+		
+			<option value="DescribeComponent">DescribeComponent</option>
+		
+			<option value="GetComponent">GetComponent</option>
+		
+			<option value="GetComponentVersionArtifact">GetComponentVersionArtifact</option>
+		
+			<option value="GetCoreDevice">GetCoreDevice</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="ListClientDevicesAssociatedWithCoreDevice">ListClientDevicesAssociatedWithCoreDevice</option>
+		
+			<option value="ListComponentVersions">ListComponentVersions</option>
+		
+			<option value="ListComponents">ListComponents</option>
+		
+			<option value="ListCoreDevices">ListCoreDevices</option>
+		
+			<option value="ListDeployments">ListDeployments</option>
+		
+			<option value="ListEffectiveDeployments">ListEffectiveDeployments</option>
+		
+			<option value="ListInstalledComponents">ListInstalledComponents</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ResolveComponentCandidates">ResolveComponentCandidates</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='entriesAttr' class='hiddenAttrs'>
+		<label for="node-input-entries"><i class="fa fa-tag"></i> entries</label>
+		<input type="text" id="node-input-entries" placeholder="entries"></input>
+	</div> 
+	<div class="form-row" id='coreDeviceThingNameAttr' class='hiddenAttrs'>
+		<label for="node-input-coreDeviceThingName"><i class="fa fa-tag"></i> coreDeviceThingName</label>
+		<input type="text" id="node-input-coreDeviceThingName" placeholder="coreDeviceThingName"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentId"><i class="fa fa-tag"></i> deploymentId</label>
+		<input type="text" id="node-input-deploymentId" placeholder="deploymentId"></input>
+	</div> 
+	<div class="form-row" id='inlineRecipeAttr' class='hiddenAttrs'>
+		<label for="node-input-inlineRecipe"><i class="fa fa-tag"></i> inlineRecipe</label>
+		<input type="text" id="node-input-inlineRecipe" placeholder="inlineRecipe"></input>
+	</div> 
+	<div class="form-row" id='lambdaFunctionAttr' class='hiddenAttrs'>
+		<label for="node-input-lambdaFunction"><i class="fa fa-tag"></i> lambdaFunction</label>
+		<input type="text" id="node-input-lambdaFunction" placeholder="lambdaFunction"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='targetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-targetArn"><i class="fa fa-tag"></i> targetArn</label>
+		<input type="text" id="node-input-targetArn" placeholder="targetArn"></input>
+	</div> 
+	<div class="form-row" id='deploymentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentName"><i class="fa fa-tag"></i> deploymentName</label>
+		<input type="text" id="node-input-deploymentName" placeholder="deploymentName"></input>
+	</div> 
+	<div class="form-row" id='componentsAttr' class='hiddenAttrs'>
+		<label for="node-input-components"><i class="fa fa-tag"></i> components</label>
+		<input type="text" id="node-input-components" placeholder="components"></input>
+	</div> 
+	<div class="form-row" id='iotJobConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-iotJobConfiguration"><i class="fa fa-tag"></i> iotJobConfiguration</label>
+		<input type="text" id="node-input-iotJobConfiguration" placeholder="iotJobConfiguration"></input>
+	</div> 
+	<div class="form-row" id='deploymentPoliciesAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentPolicies"><i class="fa fa-tag"></i> deploymentPolicies</label>
+		<input type="text" id="node-input-deploymentPolicies" placeholder="deploymentPolicies"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='recipeOutputFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-recipeOutputFormat"><i class="fa fa-tag"></i> recipeOutputFormat</label>
+		<input type="text" id="node-input-recipeOutputFormat" placeholder="recipeOutputFormat"></input>
+	</div> 
+	<div class="form-row" id='artifactNameAttr' class='hiddenAttrs'>
+		<label for="node-input-artifactName"><i class="fa fa-tag"></i> artifactName</label>
+		<input type="text" id="node-input-artifactName" placeholder="artifactName"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='scopeAttr' class='hiddenAttrs'>
+		<label for="node-input-scope"><i class="fa fa-tag"></i> scope</label>
+		<input type="text" id="node-input-scope" placeholder="scope"></input>
+	</div> 
+	<div class="form-row" id='thingGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupArn"><i class="fa fa-tag"></i> thingGroupArn</label>
+		<input type="text" id="node-input-thingGroupArn" placeholder="thingGroupArn"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='historyFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-historyFilter"><i class="fa fa-tag"></i> historyFilter</label>
+		<input type="text" id="node-input-historyFilter" placeholder="historyFilter"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i> platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='componentCandidatesAttr' class='hiddenAttrs'>
+		<label for="node-input-componentCandidates"><i class="fa fa-tag"></i> componentCandidates</label>
+		<input type="text" id="node-input-componentCandidates" placeholder="componentCandidates"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchAssociateClientDeviceWithCoreDevice:[
+					'#entriesAttr','#coreDeviceThingNameAttr'
+					],
+				BatchDisassociateClientDeviceFromCoreDevice:[
+					'#entriesAttr','#coreDeviceThingNameAttr'
+					],
+				CancelDeployment:[
+					'#deploymentIdAttr'
+					],
+				CreateComponentVersion:[
+					'#inlineRecipeAttr','#lambdaFunctionAttr','#tagsAttr','#clientTokenAttr'
+					],
+				CreateDeployment:[
+					'#targetArnAttr','#deploymentNameAttr','#componentsAttr','#iotJobConfigurationAttr','#deploymentPoliciesAttr','#tagsAttr','#clientTokenAttr'
+					],
+				DeleteComponent:[
+					'#arnAttr'
+					],
+				DeleteCoreDevice:[
+					'#coreDeviceThingNameAttr'
+					],
+				DescribeComponent:[
+					'#arnAttr'
+					],
+				GetComponent:[
+					'#recipeOutputFormatAttr','#arnAttr'
+					],
+				GetComponentVersionArtifact:[
+					'#arnAttr','#artifactNameAttr'
+					],
+				GetCoreDevice:[
+					'#coreDeviceThingNameAttr'
+					],
+				GetDeployment:[
+					'#deploymentIdAttr'
+					],
+				ListClientDevicesAssociatedWithCoreDevice:[
+					'#coreDeviceThingNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListComponentVersions:[
+					'#arnAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListComponents:[
+					'#scopeAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListCoreDevices:[
+					'#thingGroupArnAttr','#statusAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListDeployments:[
+					'#targetArnAttr','#historyFilterAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListEffectiveDeployments:[
+					'#coreDeviceThingNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListInstalledComponents:[
+					'#coreDeviceThingNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ResolveComponentCandidates:[
+					'#platformAttr','#componentCandidatesAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS GreengrassV2">
+<p>
+AWS GreengrassV2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/GreengrassV2.html">GreengrassV2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS GreengrassV2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchAssociateClientDeviceWithCoreDevice' },
+			
+				entries: { value: ""} ,
+				coreDeviceThingName: { value: ""} ,
+				deploymentId: { value: ""} ,
+				inlineRecipe: { value: ""} ,
+				lambdaFunction: { value: ""} ,
+				tags: { value: ""} ,
+				clientToken: { value: ""} ,
+				targetArn: { value: ""} ,
+				deploymentName: { value: ""} ,
+				components: { value: ""} ,
+				iotJobConfiguration: { value: ""} ,
+				deploymentPolicies: { value: ""} ,
+				arn: { value: ""} ,
+				recipeOutputFormat: { value: ""} ,
+				artifactName: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				scope: { value: ""} ,
+				thingGroupArn: { value: ""} ,
+				status: { value: ""} ,
+				historyFilter: { value: ""} ,
+				resourceArn: { value: ""} ,
+				platform: { value: ""} ,
+				componentCandidates: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "GreengrassV2 " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-coreDeviceThingName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inlineRecipe").typedInput({ default: "bin", types: ["bin"]});
+
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-components").typedInput({ default: "str", types: ["str"]});
+$("#node-input-iotJobConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentPolicies").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-recipeOutputFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-artifactName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scope").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-historyFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platform").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

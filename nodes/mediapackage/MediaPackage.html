@@ -1,0 +1,350 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MediaPackage">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ConfigureLogs">ConfigureLogs</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateHarvestJob">CreateHarvestJob</option>
+		
+			<option value="CreateOriginEndpoint">CreateOriginEndpoint</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteOriginEndpoint">DeleteOriginEndpoint</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeHarvestJob">DescribeHarvestJob</option>
+		
+			<option value="DescribeOriginEndpoint">DescribeOriginEndpoint</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListHarvestJobs">ListHarvestJobs</option>
+		
+			<option value="ListOriginEndpoints">ListOriginEndpoints</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RotateChannelCredentials">RotateChannelCredentials</option>
+		
+			<option value="RotateIngestEndpointCredentials">RotateIngestEndpointCredentials</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateOriginEndpoint">UpdateOriginEndpoint</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='EgressAccessLogsAttr' class='hiddenAttrs'>
+		<label for="node-input-EgressAccessLogs"><i class="fa fa-tag"></i> EgressAccessLogs</label>
+		<input type="text" id="node-input-EgressAccessLogs" placeholder="EgressAccessLogs"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='IngressAccessLogsAttr' class='hiddenAttrs'>
+		<label for="node-input-IngressAccessLogs"><i class="fa fa-tag"></i> IngressAccessLogs</label>
+		<input type="text" id="node-input-IngressAccessLogs" placeholder="IngressAccessLogs"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='OriginEndpointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginEndpointId"><i class="fa fa-tag"></i> OriginEndpointId</label>
+		<input type="text" id="node-input-OriginEndpointId" placeholder="OriginEndpointId"></input>
+	</div> 
+	<div class="form-row" id='S3DestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Destination"><i class="fa fa-tag"></i> S3Destination</label>
+		<input type="text" id="node-input-S3Destination" placeholder="S3Destination"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='AuthorizationAttr' class='hiddenAttrs'>
+		<label for="node-input-Authorization"><i class="fa fa-tag"></i> Authorization</label>
+		<input type="text" id="node-input-Authorization" placeholder="Authorization"></input>
+	</div> 
+	<div class="form-row" id='ChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelId"><i class="fa fa-tag"></i> ChannelId</label>
+		<input type="text" id="node-input-ChannelId" placeholder="ChannelId"></input>
+	</div> 
+	<div class="form-row" id='CmafPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-CmafPackage"><i class="fa fa-tag"></i> CmafPackage</label>
+		<input type="text" id="node-input-CmafPackage" placeholder="CmafPackage"></input>
+	</div> 
+	<div class="form-row" id='DashPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-DashPackage"><i class="fa fa-tag"></i> DashPackage</label>
+		<input type="text" id="node-input-DashPackage" placeholder="DashPackage"></input>
+	</div> 
+	<div class="form-row" id='HlsPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-HlsPackage"><i class="fa fa-tag"></i> HlsPackage</label>
+		<input type="text" id="node-input-HlsPackage" placeholder="HlsPackage"></input>
+	</div> 
+	<div class="form-row" id='ManifestNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ManifestName"><i class="fa fa-tag"></i> ManifestName</label>
+		<input type="text" id="node-input-ManifestName" placeholder="ManifestName"></input>
+	</div> 
+	<div class="form-row" id='MssPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-MssPackage"><i class="fa fa-tag"></i> MssPackage</label>
+		<input type="text" id="node-input-MssPackage" placeholder="MssPackage"></input>
+	</div> 
+	<div class="form-row" id='OriginationAttr' class='hiddenAttrs'>
+		<label for="node-input-Origination"><i class="fa fa-tag"></i> Origination</label>
+		<input type="text" id="node-input-Origination" placeholder="Origination"></input>
+	</div> 
+	<div class="form-row" id='StartoverWindowSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-StartoverWindowSeconds"><i class="fa fa-tag"></i> StartoverWindowSeconds</label>
+		<input type="text" id="node-input-StartoverWindowSeconds" placeholder="StartoverWindowSeconds"></input>
+	</div> 
+	<div class="form-row" id='TimeDelaySecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeDelaySeconds"><i class="fa fa-tag"></i> TimeDelaySeconds</label>
+		<input type="text" id="node-input-TimeDelaySeconds" placeholder="TimeDelaySeconds"></input>
+	</div> 
+	<div class="form-row" id='WhitelistAttr' class='hiddenAttrs'>
+		<label for="node-input-Whitelist"><i class="fa fa-tag"></i> Whitelist</label>
+		<input type="text" id="node-input-Whitelist" placeholder="Whitelist"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='IncludeChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeChannelId"><i class="fa fa-tag"></i> IncludeChannelId</label>
+		<input type="text" id="node-input-IncludeChannelId" placeholder="IncludeChannelId"></input>
+	</div> 
+	<div class="form-row" id='IncludeStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeStatus"><i class="fa fa-tag"></i> IncludeStatus</label>
+		<input type="text" id="node-input-IncludeStatus" placeholder="IncludeStatus"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='IngestEndpointIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestEndpointId"><i class="fa fa-tag"></i> IngestEndpointId</label>
+		<input type="text" id="node-input-IngestEndpointId" placeholder="IngestEndpointId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ConfigureLogs:[
+					'#EgressAccessLogsAttr','#IdAttr','#IngressAccessLogsAttr'
+					],
+				CreateChannel:[
+					'#DescriptionAttr','#IdAttr','#TagsAttr'
+					],
+				CreateHarvestJob:[
+					'#EndTimeAttr','#IdAttr','#OriginEndpointIdAttr','#S3DestinationAttr','#StartTimeAttr'
+					],
+				CreateOriginEndpoint:[
+					'#AuthorizationAttr','#ChannelIdAttr','#CmafPackageAttr','#DashPackageAttr','#DescriptionAttr','#HlsPackageAttr','#IdAttr','#ManifestNameAttr','#MssPackageAttr','#OriginationAttr','#StartoverWindowSecondsAttr','#TagsAttr','#TimeDelaySecondsAttr','#WhitelistAttr'
+					],
+				DeleteChannel:[
+					'#IdAttr'
+					],
+				DeleteOriginEndpoint:[
+					'#IdAttr'
+					],
+				DescribeChannel:[
+					'#IdAttr'
+					],
+				DescribeHarvestJob:[
+					'#IdAttr'
+					],
+				DescribeOriginEndpoint:[
+					'#IdAttr'
+					],
+				ListChannels:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListHarvestJobs:[
+					'#IncludeChannelIdAttr','#IncludeStatusAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOriginEndpoints:[
+					'#ChannelIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RotateChannelCredentials:[
+					'#IdAttr'
+					],
+				RotateIngestEndpointCredentials:[
+					'#IdAttr','#IngestEndpointIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateChannel:[
+					'#DescriptionAttr','#IdAttr'
+					],
+				UpdateOriginEndpoint:[
+					'#AuthorizationAttr','#CmafPackageAttr','#DashPackageAttr','#DescriptionAttr','#HlsPackageAttr','#IdAttr','#ManifestNameAttr','#MssPackageAttr','#OriginationAttr','#StartoverWindowSecondsAttr','#TimeDelaySecondsAttr','#WhitelistAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MediaPackage">
+<p>
+AWS MediaPackage
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaPackage.html">MediaPackage</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaPackage',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ConfigureLogs' },
+			
+				EgressAccessLogs: { value: ""} ,
+				Id: { value: ""} ,
+				IngressAccessLogs: { value: ""} ,
+				Description: { value: ""} ,
+				Tags: { value: ""} ,
+				EndTime: { value: ""} ,
+				OriginEndpointId: { value: ""} ,
+				S3Destination: { value: ""} ,
+				StartTime: { value: ""} ,
+				Authorization: { value: ""} ,
+				ChannelId: { value: ""} ,
+				CmafPackage: { value: ""} ,
+				DashPackage: { value: ""} ,
+				HlsPackage: { value: ""} ,
+				ManifestName: { value: ""} ,
+				MssPackage: { value: ""} ,
+				Origination: { value: ""} ,
+				StartoverWindowSeconds: { value: ""} ,
+				TimeDelaySeconds: { value: ""} ,
+				Whitelist: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				IncludeChannelId: { value: ""} ,
+				IncludeStatus: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				IngestEndpointId: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaPackage " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-EgressAccessLogs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IngressAccessLogs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OriginEndpointId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3Destination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Authorization").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CmafPackage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DashPackage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HlsPackage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ManifestName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MssPackage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Origination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartoverWindowSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-TimeDelaySeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Whitelist").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeChannelId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IngestEndpointId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

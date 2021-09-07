@@ -1,0 +1,378 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ApplicationInsights">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateComponent">CreateComponent</option>
+		
+			<option value="CreateLogPattern">CreateLogPattern</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteComponent">DeleteComponent</option>
+		
+			<option value="DeleteLogPattern">DeleteLogPattern</option>
+		
+			<option value="DescribeApplication">DescribeApplication</option>
+		
+			<option value="DescribeComponent">DescribeComponent</option>
+		
+			<option value="DescribeComponentConfiguration">DescribeComponentConfiguration</option>
+		
+			<option value="DescribeComponentConfigurationRecommendation">DescribeComponentConfigurationRecommendation</option>
+		
+			<option value="DescribeLogPattern">DescribeLogPattern</option>
+		
+			<option value="DescribeObservation">DescribeObservation</option>
+		
+			<option value="DescribeProblem">DescribeProblem</option>
+		
+			<option value="DescribeProblemObservations">DescribeProblemObservations</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="ListComponents">ListComponents</option>
+		
+			<option value="ListConfigurationHistory">ListConfigurationHistory</option>
+		
+			<option value="ListLogPatternSets">ListLogPatternSets</option>
+		
+			<option value="ListLogPatterns">ListLogPatterns</option>
+		
+			<option value="ListProblems">ListProblems</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateComponent">UpdateComponent</option>
+		
+			<option value="UpdateComponentConfiguration">UpdateComponentConfiguration</option>
+		
+			<option value="UpdateLogPattern">UpdateLogPattern</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceGroupName"><i class="fa fa-tag"></i> ResourceGroupName</label>
+		<input type="text" id="node-input-ResourceGroupName" placeholder="ResourceGroupName"></input>
+	</div> 
+	<div class="form-row" id='OpsCenterEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsCenterEnabled"><i class="fa fa-tag"></i> OpsCenterEnabled</label>
+		<input type="text" id="node-input-OpsCenterEnabled" placeholder="OpsCenterEnabled"></input>
+	</div> 
+	<div class="form-row" id='CWEMonitorEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-CWEMonitorEnabled"><i class="fa fa-tag"></i> CWEMonitorEnabled</label>
+		<input type="text" id="node-input-CWEMonitorEnabled" placeholder="CWEMonitorEnabled"></input>
+	</div> 
+	<div class="form-row" id='OpsItemSNSTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsItemSNSTopicArn"><i class="fa fa-tag"></i> OpsItemSNSTopicArn</label>
+		<input type="text" id="node-input-OpsItemSNSTopicArn" placeholder="OpsItemSNSTopicArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ComponentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ComponentName"><i class="fa fa-tag"></i> ComponentName</label>
+		<input type="text" id="node-input-ComponentName" placeholder="ComponentName"></input>
+	</div> 
+	<div class="form-row" id='ResourceListAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceList"><i class="fa fa-tag"></i> ResourceList</label>
+		<input type="text" id="node-input-ResourceList" placeholder="ResourceList"></input>
+	</div> 
+	<div class="form-row" id='PatternSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PatternSetName"><i class="fa fa-tag"></i> PatternSetName</label>
+		<input type="text" id="node-input-PatternSetName" placeholder="PatternSetName"></input>
+	</div> 
+	<div class="form-row" id='PatternNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PatternName"><i class="fa fa-tag"></i> PatternName</label>
+		<input type="text" id="node-input-PatternName" placeholder="PatternName"></input>
+	</div> 
+	<div class="form-row" id='PatternAttr' class='hiddenAttrs'>
+		<label for="node-input-Pattern"><i class="fa fa-tag"></i> Pattern</label>
+		<input type="text" id="node-input-Pattern" placeholder="Pattern"></input>
+	</div> 
+	<div class="form-row" id='RankAttr' class='hiddenAttrs'>
+		<label for="node-input-Rank"><i class="fa fa-tag"></i> Rank</label>
+		<input type="text" id="node-input-Rank" placeholder="Rank"></input>
+	</div> 
+	<div class="form-row" id='TierAttr' class='hiddenAttrs'>
+		<label for="node-input-Tier"><i class="fa fa-tag"></i> Tier</label>
+		<input type="text" id="node-input-Tier" placeholder="Tier"></input>
+	</div> 
+	<div class="form-row" id='ObservationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ObservationId"><i class="fa fa-tag"></i> ObservationId</label>
+		<input type="text" id="node-input-ObservationId" placeholder="ObservationId"></input>
+	</div> 
+	<div class="form-row" id='ProblemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProblemId"><i class="fa fa-tag"></i> ProblemId</label>
+		<input type="text" id="node-input-ProblemId" placeholder="ProblemId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='EventStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-EventStatus"><i class="fa fa-tag"></i> EventStatus</label>
+		<input type="text" id="node-input-EventStatus" placeholder="EventStatus"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='RemoveSNSTopicAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoveSNSTopic"><i class="fa fa-tag"></i> RemoveSNSTopic</label>
+		<input type="text" id="node-input-RemoveSNSTopic" placeholder="RemoveSNSTopic"></input>
+	</div> 
+	<div class="form-row" id='NewComponentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NewComponentName"><i class="fa fa-tag"></i> NewComponentName</label>
+		<input type="text" id="node-input-NewComponentName" placeholder="NewComponentName"></input>
+	</div> 
+	<div class="form-row" id='MonitorAttr' class='hiddenAttrs'>
+		<label for="node-input-Monitor"><i class="fa fa-tag"></i> Monitor</label>
+		<input type="text" id="node-input-Monitor" placeholder="Monitor"></input>
+	</div> 
+	<div class="form-row" id='ComponentConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ComponentConfiguration"><i class="fa fa-tag"></i> ComponentConfiguration</label>
+		<input type="text" id="node-input-ComponentConfiguration" placeholder="ComponentConfiguration"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApplication:[
+					'#ResourceGroupNameAttr','#OpsCenterEnabledAttr','#CWEMonitorEnabledAttr','#OpsItemSNSTopicArnAttr','#TagsAttr'
+					],
+				CreateComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#ResourceListAttr'
+					],
+				CreateLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr','#PatternAttr','#RankAttr'
+					],
+				DeleteApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				DeleteComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DeleteLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr'
+					],
+				DescribeApplication:[
+					'#ResourceGroupNameAttr'
+					],
+				DescribeComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DescribeComponentConfiguration:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr'
+					],
+				DescribeComponentConfigurationRecommendation:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#TierAttr'
+					],
+				DescribeLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr'
+					],
+				DescribeObservation:[
+					'#ObservationIdAttr'
+					],
+				DescribeProblem:[
+					'#ProblemIdAttr'
+					],
+				DescribeProblemObservations:[
+					'#ProblemIdAttr'
+					],
+				ListApplications:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListComponents:[
+					'#ResourceGroupNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConfigurationHistory:[
+					'#ResourceGroupNameAttr','#StartTimeAttr','#EndTimeAttr','#EventStatusAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListLogPatternSets:[
+					'#ResourceGroupNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListLogPatterns:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListProblems:[
+					'#ResourceGroupNameAttr','#StartTimeAttr','#EndTimeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateApplication:[
+					'#ResourceGroupNameAttr','#OpsCenterEnabledAttr','#CWEMonitorEnabledAttr','#OpsItemSNSTopicArnAttr','#RemoveSNSTopicAttr'
+					],
+				UpdateComponent:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#NewComponentNameAttr','#ResourceListAttr'
+					],
+				UpdateComponentConfiguration:[
+					'#ResourceGroupNameAttr','#ComponentNameAttr','#MonitorAttr','#TierAttr','#ComponentConfigurationAttr'
+					],
+				UpdateLogPattern:[
+					'#ResourceGroupNameAttr','#PatternSetNameAttr','#PatternNameAttr','#PatternAttr','#RankAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ApplicationInsights">
+<p>
+AWS ApplicationInsights
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ApplicationInsights.html">ApplicationInsights</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ApplicationInsights',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApplication' },
+			
+				ResourceGroupName: { value: ""} ,
+				OpsCenterEnabled: { value: ""} ,
+				CWEMonitorEnabled: { value: ""} ,
+				OpsItemSNSTopicArn: { value: ""} ,
+				Tags: { value: ""} ,
+				ComponentName: { value: ""} ,
+				ResourceList: { value: ""} ,
+				PatternSetName: { value: ""} ,
+				PatternName: { value: ""} ,
+				Pattern: { value: ""} ,
+				Rank: { value: ""} ,
+				Tier: { value: ""} ,
+				ObservationId: { value: ""} ,
+				ProblemId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				EventStatus: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				TagKeys: { value: ""} ,
+				RemoveSNSTopic: { value: ""} ,
+				NewComponentName: { value: ""} ,
+				Monitor: { value: ""} ,
+				ComponentConfiguration: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ApplicationInsights " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ResourceGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OpsCenterEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CWEMonitorEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-OpsItemSNSTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComponentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PatternSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PatternName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Pattern").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Rank").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Tier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObservationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProblemId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-EventStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RemoveSNSTopic").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NewComponentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Monitor").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ComponentConfiguration").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

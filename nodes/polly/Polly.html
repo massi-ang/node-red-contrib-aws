@@ -1,0 +1,252 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Polly">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DeleteLexicon">DeleteLexicon</option>
+		
+			<option value="DescribeVoices">DescribeVoices</option>
+		
+			<option value="GetLexicon">GetLexicon</option>
+		
+			<option value="GetSpeechSynthesisTask">GetSpeechSynthesisTask</option>
+		
+			<option value="ListLexicons">ListLexicons</option>
+		
+			<option value="ListSpeechSynthesisTasks">ListSpeechSynthesisTasks</option>
+		
+			<option value="PutLexicon">PutLexicon</option>
+		
+			<option value="StartSpeechSynthesisTask">StartSpeechSynthesisTask</option>
+		
+			<option value="SynthesizeSpeech">SynthesizeSpeech</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i> Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='LanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-LanguageCode"><i class="fa fa-tag"></i> LanguageCode</label>
+		<input type="text" id="node-input-LanguageCode" placeholder="LanguageCode"></input>
+	</div> 
+	<div class="form-row" id='IncludeAdditionalLanguageCodesAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeAdditionalLanguageCodes"><i class="fa fa-tag"></i> IncludeAdditionalLanguageCodes</label>
+		<input type="text" id="node-input-IncludeAdditionalLanguageCodes" placeholder="IncludeAdditionalLanguageCodes"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='TaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskId"><i class="fa fa-tag"></i> TaskId</label>
+		<input type="text" id="node-input-TaskId" placeholder="TaskId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i> Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='LexiconNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-LexiconNames"><i class="fa fa-tag"></i> LexiconNames</label>
+		<input type="text" id="node-input-LexiconNames" placeholder="LexiconNames"></input>
+	</div> 
+	<div class="form-row" id='OutputFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputFormat"><i class="fa fa-tag"></i> OutputFormat</label>
+		<input type="text" id="node-input-OutputFormat" placeholder="OutputFormat"></input>
+	</div> 
+	<div class="form-row" id='OutputS3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3BucketName"><i class="fa fa-tag"></i> OutputS3BucketName</label>
+		<input type="text" id="node-input-OutputS3BucketName" placeholder="OutputS3BucketName"></input>
+	</div> 
+	<div class="form-row" id='OutputS3KeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3KeyPrefix"><i class="fa fa-tag"></i> OutputS3KeyPrefix</label>
+		<input type="text" id="node-input-OutputS3KeyPrefix" placeholder="OutputS3KeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='SampleRateAttr' class='hiddenAttrs'>
+		<label for="node-input-SampleRate"><i class="fa fa-tag"></i> SampleRate</label>
+		<input type="text" id="node-input-SampleRate" placeholder="SampleRate"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicArn"><i class="fa fa-tag"></i> SnsTopicArn</label>
+		<input type="text" id="node-input-SnsTopicArn" placeholder="SnsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='SpeechMarkTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-SpeechMarkTypes"><i class="fa fa-tag"></i> SpeechMarkTypes</label>
+		<input type="text" id="node-input-SpeechMarkTypes" placeholder="SpeechMarkTypes"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i> Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='TextTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TextType"><i class="fa fa-tag"></i> TextType</label>
+		<input type="text" id="node-input-TextType" placeholder="TextType"></input>
+	</div> 
+	<div class="form-row" id='VoiceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceId"><i class="fa fa-tag"></i> VoiceId</label>
+		<input type="text" id="node-input-VoiceId" placeholder="VoiceId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DeleteLexicon:[
+					'#NameAttr'
+					],
+				DescribeVoices:[
+					'#EngineAttr','#LanguageCodeAttr','#IncludeAdditionalLanguageCodesAttr','#NextTokenAttr'
+					],
+				GetLexicon:[
+					'#NameAttr'
+					],
+				GetSpeechSynthesisTask:[
+					'#TaskIdAttr'
+					],
+				ListLexicons:[
+					'#NextTokenAttr'
+					],
+				ListSpeechSynthesisTasks:[
+					'#MaxResultsAttr','#NextTokenAttr','#StatusAttr'
+					],
+				PutLexicon:[
+					'#NameAttr','#ContentAttr'
+					],
+				StartSpeechSynthesisTask:[
+					'#EngineAttr','#LanguageCodeAttr','#LexiconNamesAttr','#OutputFormatAttr','#OutputS3BucketNameAttr','#OutputS3KeyPrefixAttr','#SampleRateAttr','#SnsTopicArnAttr','#SpeechMarkTypesAttr','#TextAttr','#TextTypeAttr','#VoiceIdAttr'
+					],
+				SynthesizeSpeech:[
+					'#EngineAttr','#LanguageCodeAttr','#LexiconNamesAttr','#OutputFormatAttr','#SampleRateAttr','#SpeechMarkTypesAttr','#TextAttr','#TextTypeAttr','#VoiceIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Polly">
+<p>
+AWS Polly
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Polly.html">Polly</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Polly',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DeleteLexicon' },
+			
+				Name: { value: ""} ,
+				Engine: { value: ""} ,
+				LanguageCode: { value: ""} ,
+				IncludeAdditionalLanguageCodes: { value: ""} ,
+				NextToken: { value: ""} ,
+				TaskId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Status: { value: ""} ,
+				Content: { value: ""} ,
+				LexiconNames: { value: ""} ,
+				OutputFormat: { value: ""} ,
+				OutputS3BucketName: { value: ""} ,
+				OutputS3KeyPrefix: { value: ""} ,
+				SampleRate: { value: ""} ,
+				SnsTopicArn: { value: ""} ,
+				SpeechMarkTypes: { value: ""} ,
+				Text: { value: ""} ,
+				TextType: { value: ""} ,
+				VoiceId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Polly " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Engine").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LanguageCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeAdditionalLanguageCodes").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LexiconNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3BucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3KeyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SampleRate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SpeechMarkTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Text").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TextType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VoiceId").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

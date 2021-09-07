@@ -1,0 +1,537 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MediaConnect">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddFlowMediaStreams">AddFlowMediaStreams</option>
+		
+			<option value="AddFlowOutputs">AddFlowOutputs</option>
+		
+			<option value="AddFlowSources">AddFlowSources</option>
+		
+			<option value="AddFlowVpcInterfaces">AddFlowVpcInterfaces</option>
+		
+			<option value="CreateFlow">CreateFlow</option>
+		
+			<option value="DeleteFlow">DeleteFlow</option>
+		
+			<option value="DescribeFlow">DescribeFlow</option>
+		
+			<option value="DescribeOffering">DescribeOffering</option>
+		
+			<option value="DescribeReservation">DescribeReservation</option>
+		
+			<option value="GrantFlowEntitlements">GrantFlowEntitlements</option>
+		
+			<option value="ListEntitlements">ListEntitlements</option>
+		
+			<option value="ListFlows">ListFlows</option>
+		
+			<option value="ListOfferings">ListOfferings</option>
+		
+			<option value="ListReservations">ListReservations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PurchaseOffering">PurchaseOffering</option>
+		
+			<option value="RemoveFlowMediaStream">RemoveFlowMediaStream</option>
+		
+			<option value="RemoveFlowOutput">RemoveFlowOutput</option>
+		
+			<option value="RemoveFlowSource">RemoveFlowSource</option>
+		
+			<option value="RemoveFlowVpcInterface">RemoveFlowVpcInterface</option>
+		
+			<option value="RevokeFlowEntitlement">RevokeFlowEntitlement</option>
+		
+			<option value="StartFlow">StartFlow</option>
+		
+			<option value="StopFlow">StopFlow</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFlow">UpdateFlow</option>
+		
+			<option value="UpdateFlowEntitlement">UpdateFlowEntitlement</option>
+		
+			<option value="UpdateFlowMediaStream">UpdateFlowMediaStream</option>
+		
+			<option value="UpdateFlowOutput">UpdateFlowOutput</option>
+		
+			<option value="UpdateFlowSource">UpdateFlowSource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FlowArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FlowArn"><i class="fa fa-tag"></i> FlowArn</label>
+		<input type="text" id="node-input-FlowArn" placeholder="FlowArn"></input>
+	</div> 
+	<div class="form-row" id='MediaStreamsAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaStreams"><i class="fa fa-tag"></i> MediaStreams</label>
+		<input type="text" id="node-input-MediaStreams" placeholder="MediaStreams"></input>
+	</div> 
+	<div class="form-row" id='OutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-Outputs"><i class="fa fa-tag"></i> Outputs</label>
+		<input type="text" id="node-input-Outputs" placeholder="Outputs"></input>
+	</div> 
+	<div class="form-row" id='SourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-Sources"><i class="fa fa-tag"></i> Sources</label>
+		<input type="text" id="node-input-Sources" placeholder="Sources"></input>
+	</div> 
+	<div class="form-row" id='VpcInterfacesAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcInterfaces"><i class="fa fa-tag"></i> VpcInterfaces</label>
+		<input type="text" id="node-input-VpcInterfaces" placeholder="VpcInterfaces"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZone"><i class="fa fa-tag"></i> AvailabilityZone</label>
+		<input type="text" id="node-input-AvailabilityZone" placeholder="AvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='EntitlementsAttr' class='hiddenAttrs'>
+		<label for="node-input-Entitlements"><i class="fa fa-tag"></i> Entitlements</label>
+		<input type="text" id="node-input-Entitlements" placeholder="Entitlements"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='SourceFailoverConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceFailoverConfig"><i class="fa fa-tag"></i> SourceFailoverConfig</label>
+		<input type="text" id="node-input-SourceFailoverConfig" placeholder="SourceFailoverConfig"></input>
+	</div> 
+	<div class="form-row" id='OfferingArnAttr' class='hiddenAttrs'>
+		<label for="node-input-OfferingArn"><i class="fa fa-tag"></i> OfferingArn</label>
+		<input type="text" id="node-input-OfferingArn" placeholder="OfferingArn"></input>
+	</div> 
+	<div class="form-row" id='ReservationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservationArn"><i class="fa fa-tag"></i> ReservationArn</label>
+		<input type="text" id="node-input-ReservationArn" placeholder="ReservationArn"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='ReservationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservationName"><i class="fa fa-tag"></i> ReservationName</label>
+		<input type="text" id="node-input-ReservationName" placeholder="ReservationName"></input>
+	</div> 
+	<div class="form-row" id='StartAttr' class='hiddenAttrs'>
+		<label for="node-input-Start"><i class="fa fa-tag"></i> Start</label>
+		<input type="text" id="node-input-Start" placeholder="Start"></input>
+	</div> 
+	<div class="form-row" id='MediaStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaStreamName"><i class="fa fa-tag"></i> MediaStreamName</label>
+		<input type="text" id="node-input-MediaStreamName" placeholder="MediaStreamName"></input>
+	</div> 
+	<div class="form-row" id='OutputArnAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputArn"><i class="fa fa-tag"></i> OutputArn</label>
+		<input type="text" id="node-input-OutputArn" placeholder="OutputArn"></input>
+	</div> 
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i> SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='VpcInterfaceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcInterfaceName"><i class="fa fa-tag"></i> VpcInterfaceName</label>
+		<input type="text" id="node-input-VpcInterfaceName" placeholder="VpcInterfaceName"></input>
+	</div> 
+	<div class="form-row" id='EntitlementArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EntitlementArn"><i class="fa fa-tag"></i> EntitlementArn</label>
+		<input type="text" id="node-input-EntitlementArn" placeholder="EntitlementArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='EncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Encryption"><i class="fa fa-tag"></i> Encryption</label>
+		<input type="text" id="node-input-Encryption" placeholder="Encryption"></input>
+	</div> 
+	<div class="form-row" id='EntitlementStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-EntitlementStatus"><i class="fa fa-tag"></i> EntitlementStatus</label>
+		<input type="text" id="node-input-EntitlementStatus" placeholder="EntitlementStatus"></input>
+	</div> 
+	<div class="form-row" id='SubscribersAttr' class='hiddenAttrs'>
+		<label for="node-input-Subscribers"><i class="fa fa-tag"></i> Subscribers</label>
+		<input type="text" id="node-input-Subscribers" placeholder="Subscribers"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i> Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='ClockRateAttr' class='hiddenAttrs'>
+		<label for="node-input-ClockRate"><i class="fa fa-tag"></i> ClockRate</label>
+		<input type="text" id="node-input-ClockRate" placeholder="ClockRate"></input>
+	</div> 
+	<div class="form-row" id='MediaStreamTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaStreamType"><i class="fa fa-tag"></i> MediaStreamType</label>
+		<input type="text" id="node-input-MediaStreamType" placeholder="MediaStreamType"></input>
+	</div> 
+	<div class="form-row" id='VideoFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-VideoFormat"><i class="fa fa-tag"></i> VideoFormat</label>
+		<input type="text" id="node-input-VideoFormat" placeholder="VideoFormat"></input>
+	</div> 
+	<div class="form-row" id='CidrAllowListAttr' class='hiddenAttrs'>
+		<label for="node-input-CidrAllowList"><i class="fa fa-tag"></i> CidrAllowList</label>
+		<input type="text" id="node-input-CidrAllowList" placeholder="CidrAllowList"></input>
+	</div> 
+	<div class="form-row" id='DestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-Destination"><i class="fa fa-tag"></i> Destination</label>
+		<input type="text" id="node-input-Destination" placeholder="Destination"></input>
+	</div> 
+	<div class="form-row" id='MaxLatencyAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxLatency"><i class="fa fa-tag"></i> MaxLatency</label>
+		<input type="text" id="node-input-MaxLatency" placeholder="MaxLatency"></input>
+	</div> 
+	<div class="form-row" id='MediaStreamOutputConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaStreamOutputConfigurations"><i class="fa fa-tag"></i> MediaStreamOutputConfigurations</label>
+		<input type="text" id="node-input-MediaStreamOutputConfigurations" placeholder="MediaStreamOutputConfigurations"></input>
+	</div> 
+	<div class="form-row" id='MinLatencyAttr' class='hiddenAttrs'>
+		<label for="node-input-MinLatency"><i class="fa fa-tag"></i> MinLatency</label>
+		<input type="text" id="node-input-MinLatency" placeholder="MinLatency"></input>
+	</div> 
+	<div class="form-row" id='PortAttr' class='hiddenAttrs'>
+		<label for="node-input-Port"><i class="fa fa-tag"></i> Port</label>
+		<input type="text" id="node-input-Port" placeholder="Port"></input>
+	</div> 
+	<div class="form-row" id='ProtocolAttr' class='hiddenAttrs'>
+		<label for="node-input-Protocol"><i class="fa fa-tag"></i> Protocol</label>
+		<input type="text" id="node-input-Protocol" placeholder="Protocol"></input>
+	</div> 
+	<div class="form-row" id='RemoteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoteId"><i class="fa fa-tag"></i> RemoteId</label>
+		<input type="text" id="node-input-RemoteId" placeholder="RemoteId"></input>
+	</div> 
+	<div class="form-row" id='SmoothingLatencyAttr' class='hiddenAttrs'>
+		<label for="node-input-SmoothingLatency"><i class="fa fa-tag"></i> SmoothingLatency</label>
+		<input type="text" id="node-input-SmoothingLatency" placeholder="SmoothingLatency"></input>
+	</div> 
+	<div class="form-row" id='StreamIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamId"><i class="fa fa-tag"></i> StreamId</label>
+		<input type="text" id="node-input-StreamId" placeholder="StreamId"></input>
+	</div> 
+	<div class="form-row" id='VpcInterfaceAttachmentAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcInterfaceAttachment"><i class="fa fa-tag"></i> VpcInterfaceAttachment</label>
+		<input type="text" id="node-input-VpcInterfaceAttachment" placeholder="VpcInterfaceAttachment"></input>
+	</div> 
+	<div class="form-row" id='DecryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Decryption"><i class="fa fa-tag"></i> Decryption</label>
+		<input type="text" id="node-input-Decryption" placeholder="Decryption"></input>
+	</div> 
+	<div class="form-row" id='IngestPortAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestPort"><i class="fa fa-tag"></i> IngestPort</label>
+		<input type="text" id="node-input-IngestPort" placeholder="IngestPort"></input>
+	</div> 
+	<div class="form-row" id='MaxBitrateAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxBitrate"><i class="fa fa-tag"></i> MaxBitrate</label>
+		<input type="text" id="node-input-MaxBitrate" placeholder="MaxBitrate"></input>
+	</div> 
+	<div class="form-row" id='MaxSyncBufferAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSyncBuffer"><i class="fa fa-tag"></i> MaxSyncBuffer</label>
+		<input type="text" id="node-input-MaxSyncBuffer" placeholder="MaxSyncBuffer"></input>
+	</div> 
+	<div class="form-row" id='MediaStreamSourceConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaStreamSourceConfigurations"><i class="fa fa-tag"></i> MediaStreamSourceConfigurations</label>
+		<input type="text" id="node-input-MediaStreamSourceConfigurations" placeholder="MediaStreamSourceConfigurations"></input>
+	</div> 
+	<div class="form-row" id='WhitelistCidrAttr' class='hiddenAttrs'>
+		<label for="node-input-WhitelistCidr"><i class="fa fa-tag"></i> WhitelistCidr</label>
+		<input type="text" id="node-input-WhitelistCidr" placeholder="WhitelistCidr"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddFlowMediaStreams:[
+					'#FlowArnAttr','#MediaStreamsAttr'
+					],
+				AddFlowOutputs:[
+					'#FlowArnAttr','#OutputsAttr'
+					],
+				AddFlowSources:[
+					'#FlowArnAttr','#SourcesAttr'
+					],
+				AddFlowVpcInterfaces:[
+					'#FlowArnAttr','#VpcInterfacesAttr'
+					],
+				CreateFlow:[
+					'#AvailabilityZoneAttr','#EntitlementsAttr','#MediaStreamsAttr','#NameAttr','#OutputsAttr','#SourceAttr','#SourceFailoverConfigAttr','#SourcesAttr','#VpcInterfacesAttr'
+					],
+				DeleteFlow:[
+					'#FlowArnAttr'
+					],
+				DescribeFlow:[
+					'#FlowArnAttr'
+					],
+				DescribeOffering:[
+					'#OfferingArnAttr'
+					],
+				DescribeReservation:[
+					'#ReservationArnAttr'
+					],
+				GrantFlowEntitlements:[
+					'#EntitlementsAttr','#FlowArnAttr'
+					],
+				ListEntitlements:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFlows:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOfferings:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListReservations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PurchaseOffering:[
+					'#OfferingArnAttr','#ReservationNameAttr','#StartAttr'
+					],
+				RemoveFlowMediaStream:[
+					'#FlowArnAttr','#MediaStreamNameAttr'
+					],
+				RemoveFlowOutput:[
+					'#FlowArnAttr','#OutputArnAttr'
+					],
+				RemoveFlowSource:[
+					'#FlowArnAttr','#SourceArnAttr'
+					],
+				RemoveFlowVpcInterface:[
+					'#FlowArnAttr','#VpcInterfaceNameAttr'
+					],
+				RevokeFlowEntitlement:[
+					'#EntitlementArnAttr','#FlowArnAttr'
+					],
+				StartFlow:[
+					'#FlowArnAttr'
+					],
+				StopFlow:[
+					'#FlowArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateFlow:[
+					'#FlowArnAttr','#SourceFailoverConfigAttr'
+					],
+				UpdateFlowEntitlement:[
+					'#DescriptionAttr','#EncryptionAttr','#EntitlementArnAttr','#EntitlementStatusAttr','#FlowArnAttr','#SubscribersAttr'
+					],
+				UpdateFlowMediaStream:[
+					'#AttributesAttr','#ClockRateAttr','#DescriptionAttr','#FlowArnAttr','#MediaStreamNameAttr','#MediaStreamTypeAttr','#VideoFormatAttr'
+					],
+				UpdateFlowOutput:[
+					'#CidrAllowListAttr','#DescriptionAttr','#DestinationAttr','#EncryptionAttr','#FlowArnAttr','#MaxLatencyAttr','#MediaStreamOutputConfigurationsAttr','#MinLatencyAttr','#OutputArnAttr','#PortAttr','#ProtocolAttr','#RemoteIdAttr','#SmoothingLatencyAttr','#StreamIdAttr','#VpcInterfaceAttachmentAttr'
+					],
+				UpdateFlowSource:[
+					'#DecryptionAttr','#DescriptionAttr','#EntitlementArnAttr','#FlowArnAttr','#IngestPortAttr','#MaxBitrateAttr','#MaxLatencyAttr','#MaxSyncBufferAttr','#MediaStreamSourceConfigurationsAttr','#MinLatencyAttr','#ProtocolAttr','#SourceArnAttr','#StreamIdAttr','#VpcInterfaceNameAttr','#WhitelistCidrAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MediaConnect">
+<p>
+AWS MediaConnect
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaConnect.html">MediaConnect</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaConnect',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddFlowMediaStreams' },
+			
+				FlowArn: { value: ""} ,
+				MediaStreams: { value: ""} ,
+				Outputs: { value: ""} ,
+				Sources: { value: ""} ,
+				VpcInterfaces: { value: ""} ,
+				AvailabilityZone: { value: ""} ,
+				Entitlements: { value: ""} ,
+				Name: { value: ""} ,
+				Source: { value: ""} ,
+				SourceFailoverConfig: { value: ""} ,
+				OfferingArn: { value: ""} ,
+				ReservationArn: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				ReservationName: { value: ""} ,
+				Start: { value: ""} ,
+				MediaStreamName: { value: ""} ,
+				OutputArn: { value: ""} ,
+				SourceArn: { value: ""} ,
+				VpcInterfaceName: { value: ""} ,
+				EntitlementArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Description: { value: ""} ,
+				Encryption: { value: ""} ,
+				EntitlementStatus: { value: ""} ,
+				Subscribers: { value: ""} ,
+				Attributes: { value: ""} ,
+				ClockRate: { value: ""} ,
+				MediaStreamType: { value: ""} ,
+				VideoFormat: { value: ""} ,
+				CidrAllowList: { value: ""} ,
+				Destination: { value: ""} ,
+				MaxLatency: { value: ""} ,
+				MediaStreamOutputConfigurations: { value: ""} ,
+				MinLatency: { value: ""} ,
+				Port: { value: ""} ,
+				Protocol: { value: ""} ,
+				RemoteId: { value: ""} ,
+				SmoothingLatency: { value: ""} ,
+				StreamId: { value: ""} ,
+				VpcInterfaceAttachment: { value: ""} ,
+				Decryption: { value: ""} ,
+				IngestPort: { value: ""} ,
+				MaxBitrate: { value: ""} ,
+				MaxSyncBuffer: { value: ""} ,
+				MediaStreamSourceConfigurations: { value: ""} ,
+				WhitelistCidr: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaConnect " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-FlowArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaStreams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Outputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcInterfaces").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Entitlements").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-OfferingArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReservationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReservationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Start").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaStreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcInterfaceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntitlementArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Encryption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntitlementStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subscribers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClockRate").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MediaStreamType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VideoFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CidrAllowList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Destination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxLatency").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MediaStreamOutputConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MinLatency").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Port").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Protocol").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemoteId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SmoothingLatency").typedInput({ default: "num", types: ["num"]});
+$("#node-input-StreamId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcInterfaceAttachment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Decryption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IngestPort").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxBitrate").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxSyncBuffer").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MediaStreamSourceConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WhitelistCidr").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

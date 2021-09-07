@@ -1,0 +1,460 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SMS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApp">CreateApp</option>
+		
+			<option value="CreateReplicationJob">CreateReplicationJob</option>
+		
+			<option value="DeleteApp">DeleteApp</option>
+		
+			<option value="DeleteAppLaunchConfiguration">DeleteAppLaunchConfiguration</option>
+		
+			<option value="DeleteAppReplicationConfiguration">DeleteAppReplicationConfiguration</option>
+		
+			<option value="DeleteAppValidationConfiguration">DeleteAppValidationConfiguration</option>
+		
+			<option value="DeleteReplicationJob">DeleteReplicationJob</option>
+		
+			<option value="DeleteServerCatalog">DeleteServerCatalog</option>
+		
+			<option value="DisassociateConnector">DisassociateConnector</option>
+		
+			<option value="GenerateChangeSet">GenerateChangeSet</option>
+		
+			<option value="GenerateTemplate">GenerateTemplate</option>
+		
+			<option value="GetApp">GetApp</option>
+		
+			<option value="GetAppLaunchConfiguration">GetAppLaunchConfiguration</option>
+		
+			<option value="GetAppReplicationConfiguration">GetAppReplicationConfiguration</option>
+		
+			<option value="GetAppValidationConfiguration">GetAppValidationConfiguration</option>
+		
+			<option value="GetAppValidationOutput">GetAppValidationOutput</option>
+		
+			<option value="GetConnectors">GetConnectors</option>
+		
+			<option value="GetReplicationJobs">GetReplicationJobs</option>
+		
+			<option value="GetReplicationRuns">GetReplicationRuns</option>
+		
+			<option value="GetServers">GetServers</option>
+		
+			<option value="ImportAppCatalog">ImportAppCatalog</option>
+		
+			<option value="ImportServerCatalog">ImportServerCatalog</option>
+		
+			<option value="LaunchApp">LaunchApp</option>
+		
+			<option value="ListApps">ListApps</option>
+		
+			<option value="NotifyAppValidationOutput">NotifyAppValidationOutput</option>
+		
+			<option value="PutAppLaunchConfiguration">PutAppLaunchConfiguration</option>
+		
+			<option value="PutAppReplicationConfiguration">PutAppReplicationConfiguration</option>
+		
+			<option value="PutAppValidationConfiguration">PutAppValidationConfiguration</option>
+		
+			<option value="StartAppReplication">StartAppReplication</option>
+		
+			<option value="StartOnDemandAppReplication">StartOnDemandAppReplication</option>
+		
+			<option value="StartOnDemandReplicationRun">StartOnDemandReplicationRun</option>
+		
+			<option value="StopAppReplication">StopAppReplication</option>
+		
+			<option value="TerminateApp">TerminateApp</option>
+		
+			<option value="UpdateApp">UpdateApp</option>
+		
+			<option value="UpdateReplicationJob">UpdateReplicationJob</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='roleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-roleName"><i class="fa fa-tag"></i> roleName</label>
+		<input type="text" id="node-input-roleName" placeholder="roleName"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='serverGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-serverGroups"><i class="fa fa-tag"></i> serverGroups</label>
+		<input type="text" id="node-input-serverGroups" placeholder="serverGroups"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='serverIdAttr' class='hiddenAttrs'>
+		<label for="node-input-serverId"><i class="fa fa-tag"></i> serverId</label>
+		<input type="text" id="node-input-serverId" placeholder="serverId"></input>
+	</div> 
+	<div class="form-row" id='seedReplicationTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-seedReplicationTime"><i class="fa fa-tag"></i> seedReplicationTime</label>
+		<input type="text" id="node-input-seedReplicationTime" placeholder="seedReplicationTime"></input>
+	</div> 
+	<div class="form-row" id='frequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-frequency"><i class="fa fa-tag"></i> frequency</label>
+		<input type="text" id="node-input-frequency" placeholder="frequency"></input>
+	</div> 
+	<div class="form-row" id='runOnceAttr' class='hiddenAttrs'>
+		<label for="node-input-runOnce"><i class="fa fa-tag"></i> runOnce</label>
+		<input type="text" id="node-input-runOnce" placeholder="runOnce"></input>
+	</div> 
+	<div class="form-row" id='licenseTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-licenseType"><i class="fa fa-tag"></i> licenseType</label>
+		<input type="text" id="node-input-licenseType" placeholder="licenseType"></input>
+	</div> 
+	<div class="form-row" id='numberOfRecentAmisToKeepAttr' class='hiddenAttrs'>
+		<label for="node-input-numberOfRecentAmisToKeep"><i class="fa fa-tag"></i> numberOfRecentAmisToKeep</label>
+		<input type="text" id="node-input-numberOfRecentAmisToKeep" placeholder="numberOfRecentAmisToKeep"></input>
+	</div> 
+	<div class="form-row" id='encryptedAttr' class='hiddenAttrs'>
+		<label for="node-input-encrypted"><i class="fa fa-tag"></i> encrypted</label>
+		<input type="text" id="node-input-encrypted" placeholder="encrypted"></input>
+	</div> 
+	<div class="form-row" id='kmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsKeyId"><i class="fa fa-tag"></i> kmsKeyId</label>
+		<input type="text" id="node-input-kmsKeyId" placeholder="kmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='appIdAttr' class='hiddenAttrs'>
+		<label for="node-input-appId"><i class="fa fa-tag"></i> appId</label>
+		<input type="text" id="node-input-appId" placeholder="appId"></input>
+	</div> 
+	<div class="form-row" id='forceStopAppReplicationAttr' class='hiddenAttrs'>
+		<label for="node-input-forceStopAppReplication"><i class="fa fa-tag"></i> forceStopAppReplication</label>
+		<input type="text" id="node-input-forceStopAppReplication" placeholder="forceStopAppReplication"></input>
+	</div> 
+	<div class="form-row" id='forceTerminateAppAttr' class='hiddenAttrs'>
+		<label for="node-input-forceTerminateApp"><i class="fa fa-tag"></i> forceTerminateApp</label>
+		<input type="text" id="node-input-forceTerminateApp" placeholder="forceTerminateApp"></input>
+	</div> 
+	<div class="form-row" id='replicationJobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationJobId"><i class="fa fa-tag"></i> replicationJobId</label>
+		<input type="text" id="node-input-replicationJobId" placeholder="replicationJobId"></input>
+	</div> 
+	<div class="form-row" id='connectorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorId"><i class="fa fa-tag"></i> connectorId</label>
+		<input type="text" id="node-input-connectorId" placeholder="connectorId"></input>
+	</div> 
+	<div class="form-row" id='changesetFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-changesetFormat"><i class="fa fa-tag"></i> changesetFormat</label>
+		<input type="text" id="node-input-changesetFormat" placeholder="changesetFormat"></input>
+	</div> 
+	<div class="form-row" id='templateFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-templateFormat"><i class="fa fa-tag"></i> templateFormat</label>
+		<input type="text" id="node-input-templateFormat" placeholder="templateFormat"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='vmServerAddressListAttr' class='hiddenAttrs'>
+		<label for="node-input-vmServerAddressList"><i class="fa fa-tag"></i> vmServerAddressList</label>
+		<input type="text" id="node-input-vmServerAddressList" placeholder="vmServerAddressList"></input>
+	</div> 
+	<div class="form-row" id='appIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-appIds"><i class="fa fa-tag"></i> appIds</label>
+		<input type="text" id="node-input-appIds" placeholder="appIds"></input>
+	</div> 
+	<div class="form-row" id='notificationContextAttr' class='hiddenAttrs'>
+		<label for="node-input-notificationContext"><i class="fa fa-tag"></i> notificationContext</label>
+		<input type="text" id="node-input-notificationContext" placeholder="notificationContext"></input>
+	</div> 
+	<div class="form-row" id='autoLaunchAttr' class='hiddenAttrs'>
+		<label for="node-input-autoLaunch"><i class="fa fa-tag"></i> autoLaunch</label>
+		<input type="text" id="node-input-autoLaunch" placeholder="autoLaunch"></input>
+	</div> 
+	<div class="form-row" id='serverGroupLaunchConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-serverGroupLaunchConfigurations"><i class="fa fa-tag"></i> serverGroupLaunchConfigurations</label>
+		<input type="text" id="node-input-serverGroupLaunchConfigurations" placeholder="serverGroupLaunchConfigurations"></input>
+	</div> 
+	<div class="form-row" id='serverGroupReplicationConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-serverGroupReplicationConfigurations"><i class="fa fa-tag"></i> serverGroupReplicationConfigurations</label>
+		<input type="text" id="node-input-serverGroupReplicationConfigurations" placeholder="serverGroupReplicationConfigurations"></input>
+	</div> 
+	<div class="form-row" id='appValidationConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-appValidationConfigurations"><i class="fa fa-tag"></i> appValidationConfigurations</label>
+		<input type="text" id="node-input-appValidationConfigurations" placeholder="appValidationConfigurations"></input>
+	</div> 
+	<div class="form-row" id='serverGroupValidationConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-serverGroupValidationConfigurations"><i class="fa fa-tag"></i> serverGroupValidationConfigurations</label>
+		<input type="text" id="node-input-serverGroupValidationConfigurations" placeholder="serverGroupValidationConfigurations"></input>
+	</div> 
+	<div class="form-row" id='nextReplicationRunStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-nextReplicationRunStartTime"><i class="fa fa-tag"></i> nextReplicationRunStartTime</label>
+		<input type="text" id="node-input-nextReplicationRunStartTime" placeholder="nextReplicationRunStartTime"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApp:[
+					'#nameAttr','#descriptionAttr','#roleNameAttr','#clientTokenAttr','#serverGroupsAttr','#tagsAttr'
+					],
+				CreateReplicationJob:[
+					'#serverIdAttr','#seedReplicationTimeAttr','#frequencyAttr','#runOnceAttr','#licenseTypeAttr','#roleNameAttr','#descriptionAttr','#numberOfRecentAmisToKeepAttr','#encryptedAttr','#kmsKeyIdAttr'
+					],
+				DeleteApp:[
+					'#appIdAttr','#forceStopAppReplicationAttr','#forceTerminateAppAttr'
+					],
+				DeleteAppLaunchConfiguration:[
+					'#appIdAttr'
+					],
+				DeleteAppReplicationConfiguration:[
+					'#appIdAttr'
+					],
+				DeleteAppValidationConfiguration:[
+					'#appIdAttr'
+					],
+				DeleteReplicationJob:[
+					'#replicationJobIdAttr'
+					],
+				DeleteServerCatalog:[
+					
+					],
+				DisassociateConnector:[
+					'#connectorIdAttr'
+					],
+				GenerateChangeSet:[
+					'#appIdAttr','#changesetFormatAttr'
+					],
+				GenerateTemplate:[
+					'#appIdAttr','#templateFormatAttr'
+					],
+				GetApp:[
+					'#appIdAttr'
+					],
+				GetAppLaunchConfiguration:[
+					'#appIdAttr'
+					],
+				GetAppReplicationConfiguration:[
+					'#appIdAttr'
+					],
+				GetAppValidationConfiguration:[
+					'#appIdAttr'
+					],
+				GetAppValidationOutput:[
+					'#appIdAttr'
+					],
+				GetConnectors:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				GetReplicationJobs:[
+					'#replicationJobIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetReplicationRuns:[
+					'#replicationJobIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetServers:[
+					'#nextTokenAttr','#maxResultsAttr','#vmServerAddressListAttr'
+					],
+				ImportAppCatalog:[
+					'#roleNameAttr'
+					],
+				ImportServerCatalog:[
+					
+					],
+				LaunchApp:[
+					'#appIdAttr'
+					],
+				ListApps:[
+					'#appIdsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				NotifyAppValidationOutput:[
+					'#appIdAttr','#notificationContextAttr'
+					],
+				PutAppLaunchConfiguration:[
+					'#appIdAttr','#roleNameAttr','#autoLaunchAttr','#serverGroupLaunchConfigurationsAttr'
+					],
+				PutAppReplicationConfiguration:[
+					'#appIdAttr','#serverGroupReplicationConfigurationsAttr'
+					],
+				PutAppValidationConfiguration:[
+					'#appIdAttr','#appValidationConfigurationsAttr','#serverGroupValidationConfigurationsAttr'
+					],
+				StartAppReplication:[
+					'#appIdAttr'
+					],
+				StartOnDemandAppReplication:[
+					'#appIdAttr','#descriptionAttr'
+					],
+				StartOnDemandReplicationRun:[
+					'#replicationJobIdAttr','#descriptionAttr'
+					],
+				StopAppReplication:[
+					'#appIdAttr'
+					],
+				TerminateApp:[
+					'#appIdAttr'
+					],
+				UpdateApp:[
+					'#appIdAttr','#nameAttr','#descriptionAttr','#roleNameAttr','#serverGroupsAttr','#tagsAttr'
+					],
+				UpdateReplicationJob:[
+					'#replicationJobIdAttr','#frequencyAttr','#nextReplicationRunStartTimeAttr','#licenseTypeAttr','#roleNameAttr','#descriptionAttr','#numberOfRecentAmisToKeepAttr','#encryptedAttr','#kmsKeyIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SMS">
+<p>
+AWS SMS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SMS.html">SMS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SMS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApp' },
+			
+				name: { value: ""} ,
+				description: { value: ""} ,
+				roleName: { value: ""} ,
+				clientToken: { value: ""} ,
+				serverGroups: { value: ""} ,
+				tags: { value: ""} ,
+				serverId: { value: ""} ,
+				seedReplicationTime: { value: ""} ,
+				frequency: { value: ""} ,
+				runOnce: { value: ""} ,
+				licenseType: { value: ""} ,
+				numberOfRecentAmisToKeep: { value: ""} ,
+				encrypted: { value: ""} ,
+				kmsKeyId: { value: ""} ,
+				appId: { value: ""} ,
+				forceStopAppReplication: { value: ""} ,
+				forceTerminateApp: { value: ""} ,
+				replicationJobId: { value: ""} ,
+				connectorId: { value: ""} ,
+				changesetFormat: { value: ""} ,
+				templateFormat: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				vmServerAddressList: { value: ""} ,
+				appIds: { value: ""} ,
+				notificationContext: { value: ""} ,
+				autoLaunch: { value: ""} ,
+				serverGroupLaunchConfigurations: { value: ""} ,
+				serverGroupReplicationConfigurations: { value: ""} ,
+				appValidationConfigurations: { value: ""} ,
+				serverGroupValidationConfigurations: { value: ""} ,
+				nextReplicationRunStartTime: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SMS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serverGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serverId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-frequency").typedInput({ default: "num", types: ["num"]});
+$("#node-input-runOnce").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-licenseType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-numberOfRecentAmisToKeep").typedInput({ default: "num", types: ["num"]});
+$("#node-input-encrypted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-kmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-appId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-forceStopAppReplication").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-forceTerminateApp").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-replicationJobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-changesetFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-autoLaunch").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-serverGroupLaunchConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serverGroupReplicationConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-appValidationConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serverGroupValidationConfigurations").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,537 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CostExplorer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAnomalyMonitor">CreateAnomalyMonitor</option>
+		
+			<option value="CreateAnomalySubscription">CreateAnomalySubscription</option>
+		
+			<option value="CreateCostCategoryDefinition">CreateCostCategoryDefinition</option>
+		
+			<option value="DeleteAnomalyMonitor">DeleteAnomalyMonitor</option>
+		
+			<option value="DeleteAnomalySubscription">DeleteAnomalySubscription</option>
+		
+			<option value="DeleteCostCategoryDefinition">DeleteCostCategoryDefinition</option>
+		
+			<option value="DescribeCostCategoryDefinition">DescribeCostCategoryDefinition</option>
+		
+			<option value="GetAnomalies">GetAnomalies</option>
+		
+			<option value="GetAnomalyMonitors">GetAnomalyMonitors</option>
+		
+			<option value="GetAnomalySubscriptions">GetAnomalySubscriptions</option>
+		
+			<option value="GetCostAndUsage">GetCostAndUsage</option>
+		
+			<option value="GetCostAndUsageWithResources">GetCostAndUsageWithResources</option>
+		
+			<option value="GetCostCategories">GetCostCategories</option>
+		
+			<option value="GetCostForecast">GetCostForecast</option>
+		
+			<option value="GetDimensionValues">GetDimensionValues</option>
+		
+			<option value="GetReservationCoverage">GetReservationCoverage</option>
+		
+			<option value="GetReservationPurchaseRecommendation">GetReservationPurchaseRecommendation</option>
+		
+			<option value="GetReservationUtilization">GetReservationUtilization</option>
+		
+			<option value="GetRightsizingRecommendation">GetRightsizingRecommendation</option>
+		
+			<option value="GetSavingsPlansCoverage">GetSavingsPlansCoverage</option>
+		
+			<option value="GetSavingsPlansPurchaseRecommendation">GetSavingsPlansPurchaseRecommendation</option>
+		
+			<option value="GetSavingsPlansUtilization">GetSavingsPlansUtilization</option>
+		
+			<option value="GetSavingsPlansUtilizationDetails">GetSavingsPlansUtilizationDetails</option>
+		
+			<option value="GetTags">GetTags</option>
+		
+			<option value="GetUsageForecast">GetUsageForecast</option>
+		
+			<option value="ListCostCategoryDefinitions">ListCostCategoryDefinitions</option>
+		
+			<option value="ProvideAnomalyFeedback">ProvideAnomalyFeedback</option>
+		
+			<option value="UpdateAnomalyMonitor">UpdateAnomalyMonitor</option>
+		
+			<option value="UpdateAnomalySubscription">UpdateAnomalySubscription</option>
+		
+			<option value="UpdateCostCategoryDefinition">UpdateCostCategoryDefinition</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AnomalyMonitorAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyMonitor"><i class="fa fa-tag"></i> AnomalyMonitor</label>
+		<input type="text" id="node-input-AnomalyMonitor" placeholder="AnomalyMonitor"></input>
+	</div> 
+	<div class="form-row" id='AnomalySubscriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalySubscription"><i class="fa fa-tag"></i> AnomalySubscription</label>
+		<input type="text" id="node-input-AnomalySubscription" placeholder="AnomalySubscription"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RuleVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleVersion"><i class="fa fa-tag"></i> RuleVersion</label>
+		<input type="text" id="node-input-RuleVersion" placeholder="RuleVersion"></input>
+	</div> 
+	<div class="form-row" id='RulesAttr' class='hiddenAttrs'>
+		<label for="node-input-Rules"><i class="fa fa-tag"></i> Rules</label>
+		<input type="text" id="node-input-Rules" placeholder="Rules"></input>
+	</div> 
+	<div class="form-row" id='DefaultValueAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultValue"><i class="fa fa-tag"></i> DefaultValue</label>
+		<input type="text" id="node-input-DefaultValue" placeholder="DefaultValue"></input>
+	</div> 
+	<div class="form-row" id='SplitChargeRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-SplitChargeRules"><i class="fa fa-tag"></i> SplitChargeRules</label>
+		<input type="text" id="node-input-SplitChargeRules" placeholder="SplitChargeRules"></input>
+	</div> 
+	<div class="form-row" id='MonitorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitorArn"><i class="fa fa-tag"></i> MonitorArn</label>
+		<input type="text" id="node-input-MonitorArn" placeholder="MonitorArn"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionArn"><i class="fa fa-tag"></i> SubscriptionArn</label>
+		<input type="text" id="node-input-SubscriptionArn" placeholder="SubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='CostCategoryArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CostCategoryArn"><i class="fa fa-tag"></i> CostCategoryArn</label>
+		<input type="text" id="node-input-CostCategoryArn" placeholder="CostCategoryArn"></input>
+	</div> 
+	<div class="form-row" id='EffectiveOnAttr' class='hiddenAttrs'>
+		<label for="node-input-EffectiveOn"><i class="fa fa-tag"></i> EffectiveOn</label>
+		<input type="text" id="node-input-EffectiveOn" placeholder="EffectiveOn"></input>
+	</div> 
+	<div class="form-row" id='DateIntervalAttr' class='hiddenAttrs'>
+		<label for="node-input-DateInterval"><i class="fa fa-tag"></i> DateInterval</label>
+		<input type="text" id="node-input-DateInterval" placeholder="DateInterval"></input>
+	</div> 
+	<div class="form-row" id='FeedbackAttr' class='hiddenAttrs'>
+		<label for="node-input-Feedback"><i class="fa fa-tag"></i> Feedback</label>
+		<input type="text" id="node-input-Feedback" placeholder="Feedback"></input>
+	</div> 
+	<div class="form-row" id='TotalImpactAttr' class='hiddenAttrs'>
+		<label for="node-input-TotalImpact"><i class="fa fa-tag"></i> TotalImpact</label>
+		<input type="text" id="node-input-TotalImpact" placeholder="TotalImpact"></input>
+	</div> 
+	<div class="form-row" id='NextPageTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextPageToken"><i class="fa fa-tag"></i> NextPageToken</label>
+		<input type="text" id="node-input-NextPageToken" placeholder="NextPageToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='MonitorArnListAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitorArnList"><i class="fa fa-tag"></i> MonitorArnList</label>
+		<input type="text" id="node-input-MonitorArnList" placeholder="MonitorArnList"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionArnListAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionArnList"><i class="fa fa-tag"></i> SubscriptionArnList</label>
+		<input type="text" id="node-input-SubscriptionArnList" placeholder="SubscriptionArnList"></input>
+	</div> 
+	<div class="form-row" id='TimePeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-TimePeriod"><i class="fa fa-tag"></i> TimePeriod</label>
+		<input type="text" id="node-input-TimePeriod" placeholder="TimePeriod"></input>
+	</div> 
+	<div class="form-row" id='GranularityAttr' class='hiddenAttrs'>
+		<label for="node-input-Granularity"><i class="fa fa-tag"></i> Granularity</label>
+		<input type="text" id="node-input-Granularity" placeholder="Granularity"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='MetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-Metrics"><i class="fa fa-tag"></i> Metrics</label>
+		<input type="text" id="node-input-Metrics" placeholder="Metrics"></input>
+	</div> 
+	<div class="form-row" id='GroupByAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupBy"><i class="fa fa-tag"></i> GroupBy</label>
+		<input type="text" id="node-input-GroupBy" placeholder="GroupBy"></input>
+	</div> 
+	<div class="form-row" id='SearchStringAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchString"><i class="fa fa-tag"></i> SearchString</label>
+		<input type="text" id="node-input-SearchString" placeholder="SearchString"></input>
+	</div> 
+	<div class="form-row" id='CostCategoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CostCategoryName"><i class="fa fa-tag"></i> CostCategoryName</label>
+		<input type="text" id="node-input-CostCategoryName" placeholder="CostCategoryName"></input>
+	</div> 
+	<div class="form-row" id='SortByAttr' class='hiddenAttrs'>
+		<label for="node-input-SortBy"><i class="fa fa-tag"></i> SortBy</label>
+		<input type="text" id="node-input-SortBy" placeholder="SortBy"></input>
+	</div> 
+	<div class="form-row" id='MetricAttr' class='hiddenAttrs'>
+		<label for="node-input-Metric"><i class="fa fa-tag"></i> Metric</label>
+		<input type="text" id="node-input-Metric" placeholder="Metric"></input>
+	</div> 
+	<div class="form-row" id='PredictionIntervalLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-PredictionIntervalLevel"><i class="fa fa-tag"></i> PredictionIntervalLevel</label>
+		<input type="text" id="node-input-PredictionIntervalLevel" placeholder="PredictionIntervalLevel"></input>
+	</div> 
+	<div class="form-row" id='DimensionAttr' class='hiddenAttrs'>
+		<label for="node-input-Dimension"><i class="fa fa-tag"></i> Dimension</label>
+		<input type="text" id="node-input-Dimension" placeholder="Dimension"></input>
+	</div> 
+	<div class="form-row" id='ContextAttr' class='hiddenAttrs'>
+		<label for="node-input-Context"><i class="fa fa-tag"></i> Context</label>
+		<input type="text" id="node-input-Context" placeholder="Context"></input>
+	</div> 
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='ServiceAttr' class='hiddenAttrs'>
+		<label for="node-input-Service"><i class="fa fa-tag"></i> Service</label>
+		<input type="text" id="node-input-Service" placeholder="Service"></input>
+	</div> 
+	<div class="form-row" id='AccountScopeAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountScope"><i class="fa fa-tag"></i> AccountScope</label>
+		<input type="text" id="node-input-AccountScope" placeholder="AccountScope"></input>
+	</div> 
+	<div class="form-row" id='LookbackPeriodInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-LookbackPeriodInDays"><i class="fa fa-tag"></i> LookbackPeriodInDays</label>
+		<input type="text" id="node-input-LookbackPeriodInDays" placeholder="LookbackPeriodInDays"></input>
+	</div> 
+	<div class="form-row" id='TermInYearsAttr' class='hiddenAttrs'>
+		<label for="node-input-TermInYears"><i class="fa fa-tag"></i> TermInYears</label>
+		<input type="text" id="node-input-TermInYears" placeholder="TermInYears"></input>
+	</div> 
+	<div class="form-row" id='PaymentOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PaymentOption"><i class="fa fa-tag"></i> PaymentOption</label>
+		<input type="text" id="node-input-PaymentOption" placeholder="PaymentOption"></input>
+	</div> 
+	<div class="form-row" id='ServiceSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceSpecification"><i class="fa fa-tag"></i> ServiceSpecification</label>
+		<input type="text" id="node-input-ServiceSpecification" placeholder="ServiceSpecification"></input>
+	</div> 
+	<div class="form-row" id='PageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-PageSize"><i class="fa fa-tag"></i> PageSize</label>
+		<input type="text" id="node-input-PageSize" placeholder="PageSize"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='SavingsPlansTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SavingsPlansType"><i class="fa fa-tag"></i> SavingsPlansType</label>
+		<input type="text" id="node-input-SavingsPlansType" placeholder="SavingsPlansType"></input>
+	</div> 
+	<div class="form-row" id='DataTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DataType"><i class="fa fa-tag"></i> DataType</label>
+		<input type="text" id="node-input-DataType" placeholder="DataType"></input>
+	</div> 
+	<div class="form-row" id='TagKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKey"><i class="fa fa-tag"></i> TagKey</label>
+		<input type="text" id="node-input-TagKey" placeholder="TagKey"></input>
+	</div> 
+	<div class="form-row" id='AnomalyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AnomalyId"><i class="fa fa-tag"></i> AnomalyId</label>
+		<input type="text" id="node-input-AnomalyId" placeholder="AnomalyId"></input>
+	</div> 
+	<div class="form-row" id='MonitorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitorName"><i class="fa fa-tag"></i> MonitorName</label>
+		<input type="text" id="node-input-MonitorName" placeholder="MonitorName"></input>
+	</div> 
+	<div class="form-row" id='ThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-Threshold"><i class="fa fa-tag"></i> Threshold</label>
+		<input type="text" id="node-input-Threshold" placeholder="Threshold"></input>
+	</div> 
+	<div class="form-row" id='FrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-Frequency"><i class="fa fa-tag"></i> Frequency</label>
+		<input type="text" id="node-input-Frequency" placeholder="Frequency"></input>
+	</div> 
+	<div class="form-row" id='SubscribersAttr' class='hiddenAttrs'>
+		<label for="node-input-Subscribers"><i class="fa fa-tag"></i> Subscribers</label>
+		<input type="text" id="node-input-Subscribers" placeholder="Subscribers"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionName"><i class="fa fa-tag"></i> SubscriptionName</label>
+		<input type="text" id="node-input-SubscriptionName" placeholder="SubscriptionName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAnomalyMonitor:[
+					'#AnomalyMonitorAttr'
+					],
+				CreateAnomalySubscription:[
+					'#AnomalySubscriptionAttr'
+					],
+				CreateCostCategoryDefinition:[
+					'#NameAttr','#RuleVersionAttr','#RulesAttr','#DefaultValueAttr','#SplitChargeRulesAttr'
+					],
+				DeleteAnomalyMonitor:[
+					'#MonitorArnAttr'
+					],
+				DeleteAnomalySubscription:[
+					'#SubscriptionArnAttr'
+					],
+				DeleteCostCategoryDefinition:[
+					'#CostCategoryArnAttr'
+					],
+				DescribeCostCategoryDefinition:[
+					'#CostCategoryArnAttr','#EffectiveOnAttr'
+					],
+				GetAnomalies:[
+					'#MonitorArnAttr','#DateIntervalAttr','#FeedbackAttr','#TotalImpactAttr','#NextPageTokenAttr','#MaxResultsAttr'
+					],
+				GetAnomalyMonitors:[
+					'#MonitorArnListAttr','#NextPageTokenAttr','#MaxResultsAttr'
+					],
+				GetAnomalySubscriptions:[
+					'#SubscriptionArnListAttr','#MonitorArnAttr','#NextPageTokenAttr','#MaxResultsAttr'
+					],
+				GetCostAndUsage:[
+					'#TimePeriodAttr','#GranularityAttr','#FilterAttr','#MetricsAttr','#GroupByAttr','#NextPageTokenAttr'
+					],
+				GetCostAndUsageWithResources:[
+					'#TimePeriodAttr','#GranularityAttr','#FilterAttr','#MetricsAttr','#GroupByAttr','#NextPageTokenAttr'
+					],
+				GetCostCategories:[
+					'#SearchStringAttr','#TimePeriodAttr','#CostCategoryNameAttr','#FilterAttr','#SortByAttr','#MaxResultsAttr','#NextPageTokenAttr'
+					],
+				GetCostForecast:[
+					'#TimePeriodAttr','#MetricAttr','#GranularityAttr','#FilterAttr','#PredictionIntervalLevelAttr'
+					],
+				GetDimensionValues:[
+					'#SearchStringAttr','#TimePeriodAttr','#DimensionAttr','#ContextAttr','#FilterAttr','#SortByAttr','#MaxResultsAttr','#NextPageTokenAttr'
+					],
+				GetReservationCoverage:[
+					'#TimePeriodAttr','#GroupByAttr','#GranularityAttr','#FilterAttr','#MetricsAttr','#NextPageTokenAttr','#SortByAttr','#MaxResultsAttr'
+					],
+				GetReservationPurchaseRecommendation:[
+					'#AccountIdAttr','#ServiceAttr','#FilterAttr','#AccountScopeAttr','#LookbackPeriodInDaysAttr','#TermInYearsAttr','#PaymentOptionAttr','#ServiceSpecificationAttr','#PageSizeAttr','#NextPageTokenAttr'
+					],
+				GetReservationUtilization:[
+					'#TimePeriodAttr','#GroupByAttr','#GranularityAttr','#FilterAttr','#SortByAttr','#NextPageTokenAttr','#MaxResultsAttr'
+					],
+				GetRightsizingRecommendation:[
+					'#FilterAttr','#ConfigurationAttr','#ServiceAttr','#PageSizeAttr','#NextPageTokenAttr'
+					],
+				GetSavingsPlansCoverage:[
+					'#TimePeriodAttr','#GroupByAttr','#GranularityAttr','#FilterAttr','#MetricsAttr','#NextTokenAttr','#MaxResultsAttr','#SortByAttr'
+					],
+				GetSavingsPlansPurchaseRecommendation:[
+					'#SavingsPlansTypeAttr','#TermInYearsAttr','#PaymentOptionAttr','#AccountScopeAttr','#NextPageTokenAttr','#PageSizeAttr','#LookbackPeriodInDaysAttr','#FilterAttr'
+					],
+				GetSavingsPlansUtilization:[
+					'#TimePeriodAttr','#GranularityAttr','#FilterAttr','#SortByAttr'
+					],
+				GetSavingsPlansUtilizationDetails:[
+					'#TimePeriodAttr','#FilterAttr','#DataTypeAttr','#NextTokenAttr','#MaxResultsAttr','#SortByAttr'
+					],
+				GetTags:[
+					'#SearchStringAttr','#TimePeriodAttr','#TagKeyAttr','#FilterAttr','#SortByAttr','#MaxResultsAttr','#NextPageTokenAttr'
+					],
+				GetUsageForecast:[
+					'#TimePeriodAttr','#MetricAttr','#GranularityAttr','#FilterAttr','#PredictionIntervalLevelAttr'
+					],
+				ListCostCategoryDefinitions:[
+					'#EffectiveOnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ProvideAnomalyFeedback:[
+					'#AnomalyIdAttr','#FeedbackAttr'
+					],
+				UpdateAnomalyMonitor:[
+					'#MonitorArnAttr','#MonitorNameAttr'
+					],
+				UpdateAnomalySubscription:[
+					'#SubscriptionArnAttr','#ThresholdAttr','#FrequencyAttr','#MonitorArnListAttr','#SubscribersAttr','#SubscriptionNameAttr'
+					],
+				UpdateCostCategoryDefinition:[
+					'#CostCategoryArnAttr','#RuleVersionAttr','#RulesAttr','#DefaultValueAttr','#SplitChargeRulesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CostExplorer">
+<p>
+AWS CostExplorer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CostExplorer.html">CostExplorer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CostExplorer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAnomalyMonitor' },
+			
+				AnomalyMonitor: { value: ""} ,
+				AnomalySubscription: { value: ""} ,
+				Name: { value: ""} ,
+				RuleVersion: { value: ""} ,
+				Rules: { value: ""} ,
+				DefaultValue: { value: ""} ,
+				SplitChargeRules: { value: ""} ,
+				MonitorArn: { value: ""} ,
+				SubscriptionArn: { value: ""} ,
+				CostCategoryArn: { value: ""} ,
+				EffectiveOn: { value: ""} ,
+				DateInterval: { value: ""} ,
+				Feedback: { value: ""} ,
+				TotalImpact: { value: ""} ,
+				NextPageToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				MonitorArnList: { value: ""} ,
+				SubscriptionArnList: { value: ""} ,
+				TimePeriod: { value: ""} ,
+				Granularity: { value: ""} ,
+				Filter: { value: ""} ,
+				Metrics: { value: ""} ,
+				GroupBy: { value: ""} ,
+				SearchString: { value: ""} ,
+				CostCategoryName: { value: ""} ,
+				SortBy: { value: ""} ,
+				Metric: { value: ""} ,
+				PredictionIntervalLevel: { value: ""} ,
+				Dimension: { value: ""} ,
+				Context: { value: ""} ,
+				AccountId: { value: ""} ,
+				Service: { value: ""} ,
+				AccountScope: { value: ""} ,
+				LookbackPeriodInDays: { value: ""} ,
+				TermInYears: { value: ""} ,
+				PaymentOption: { value: ""} ,
+				ServiceSpecification: { value: ""} ,
+				PageSize: { value: ""} ,
+				Configuration: { value: ""} ,
+				NextToken: { value: ""} ,
+				SavingsPlansType: { value: ""} ,
+				DataType: { value: ""} ,
+				TagKey: { value: ""} ,
+				AnomalyId: { value: ""} ,
+				MonitorName: { value: ""} ,
+				Threshold: { value: ""} ,
+				Frequency: { value: ""} ,
+				Subscribers: { value: ""} ,
+				SubscriptionName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CostExplorer " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AnomalyMonitor").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalySubscription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Rules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SplitChargeRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitorArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CostCategoryArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EffectiveOn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Feedback").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NextPageToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MonitorArnList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionArnList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TimePeriod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Granularity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Metrics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SearchString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CostCategoryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Metric").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PredictionIntervalLevel").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Dimension").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Context").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Service").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountScope").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LookbackPeriodInDays").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TermInYears").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PaymentOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PageSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SavingsPlansType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TagKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnomalyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitorName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Frequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subscribers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionName").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,685 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Macie2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptInvitation">AcceptInvitation</option>
+		
+			<option value="BatchGetCustomDataIdentifiers">BatchGetCustomDataIdentifiers</option>
+		
+			<option value="CreateClassificationJob">CreateClassificationJob</option>
+		
+			<option value="CreateCustomDataIdentifier">CreateCustomDataIdentifier</option>
+		
+			<option value="CreateFindingsFilter">CreateFindingsFilter</option>
+		
+			<option value="CreateInvitations">CreateInvitations</option>
+		
+			<option value="CreateMember">CreateMember</option>
+		
+			<option value="CreateSampleFindings">CreateSampleFindings</option>
+		
+			<option value="DeclineInvitations">DeclineInvitations</option>
+		
+			<option value="DeleteCustomDataIdentifier">DeleteCustomDataIdentifier</option>
+		
+			<option value="DeleteFindingsFilter">DeleteFindingsFilter</option>
+		
+			<option value="DeleteInvitations">DeleteInvitations</option>
+		
+			<option value="DeleteMember">DeleteMember</option>
+		
+			<option value="DescribeBuckets">DescribeBuckets</option>
+		
+			<option value="DescribeClassificationJob">DescribeClassificationJob</option>
+		
+			<option value="DescribeOrganizationConfiguration">DescribeOrganizationConfiguration</option>
+		
+			<option value="DisableMacie">DisableMacie</option>
+		
+			<option value="DisableOrganizationAdminAccount">DisableOrganizationAdminAccount</option>
+		
+			<option value="DisassociateFromAdministratorAccount">DisassociateFromAdministratorAccount</option>
+		
+			<option value="DisassociateFromMasterAccount">DisassociateFromMasterAccount</option>
+		
+			<option value="DisassociateMember">DisassociateMember</option>
+		
+			<option value="EnableMacie">EnableMacie</option>
+		
+			<option value="EnableOrganizationAdminAccount">EnableOrganizationAdminAccount</option>
+		
+			<option value="GetAdministratorAccount">GetAdministratorAccount</option>
+		
+			<option value="GetBucketStatistics">GetBucketStatistics</option>
+		
+			<option value="GetClassificationExportConfiguration">GetClassificationExportConfiguration</option>
+		
+			<option value="GetCustomDataIdentifier">GetCustomDataIdentifier</option>
+		
+			<option value="GetFindingStatistics">GetFindingStatistics</option>
+		
+			<option value="GetFindings">GetFindings</option>
+		
+			<option value="GetFindingsFilter">GetFindingsFilter</option>
+		
+			<option value="GetFindingsPublicationConfiguration">GetFindingsPublicationConfiguration</option>
+		
+			<option value="GetInvitationsCount">GetInvitationsCount</option>
+		
+			<option value="GetMacieSession">GetMacieSession</option>
+		
+			<option value="GetMasterAccount">GetMasterAccount</option>
+		
+			<option value="GetMember">GetMember</option>
+		
+			<option value="GetUsageStatistics">GetUsageStatistics</option>
+		
+			<option value="GetUsageTotals">GetUsageTotals</option>
+		
+			<option value="ListClassificationJobs">ListClassificationJobs</option>
+		
+			<option value="ListCustomDataIdentifiers">ListCustomDataIdentifiers</option>
+		
+			<option value="ListFindings">ListFindings</option>
+		
+			<option value="ListFindingsFilters">ListFindingsFilters</option>
+		
+			<option value="ListInvitations">ListInvitations</option>
+		
+			<option value="ListMembers">ListMembers</option>
+		
+			<option value="ListOrganizationAdminAccounts">ListOrganizationAdminAccounts</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutClassificationExportConfiguration">PutClassificationExportConfiguration</option>
+		
+			<option value="PutFindingsPublicationConfiguration">PutFindingsPublicationConfiguration</option>
+		
+			<option value="SearchResources">SearchResources</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestCustomDataIdentifier">TestCustomDataIdentifier</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateClassificationJob">UpdateClassificationJob</option>
+		
+			<option value="UpdateFindingsFilter">UpdateFindingsFilter</option>
+		
+			<option value="UpdateMacieSession">UpdateMacieSession</option>
+		
+			<option value="UpdateMemberSession">UpdateMemberSession</option>
+		
+			<option value="UpdateOrganizationConfiguration">UpdateOrganizationConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='administratorAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-administratorAccountId"><i class="fa fa-tag"></i> administratorAccountId</label>
+		<input type="text" id="node-input-administratorAccountId" placeholder="administratorAccountId"></input>
+	</div> 
+	<div class="form-row" id='invitationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-invitationId"><i class="fa fa-tag"></i> invitationId</label>
+		<input type="text" id="node-input-invitationId" placeholder="invitationId"></input>
+	</div> 
+	<div class="form-row" id='masterAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-masterAccount"><i class="fa fa-tag"></i> masterAccount</label>
+		<input type="text" id="node-input-masterAccount" placeholder="masterAccount"></input>
+	</div> 
+	<div class="form-row" id='idsAttr' class='hiddenAttrs'>
+		<label for="node-input-ids"><i class="fa fa-tag"></i> ids</label>
+		<input type="text" id="node-input-ids" placeholder="ids"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='customDataIdentifierIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-customDataIdentifierIds"><i class="fa fa-tag"></i> customDataIdentifierIds</label>
+		<input type="text" id="node-input-customDataIdentifierIds" placeholder="customDataIdentifierIds"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='initialRunAttr' class='hiddenAttrs'>
+		<label for="node-input-initialRun"><i class="fa fa-tag"></i> initialRun</label>
+		<input type="text" id="node-input-initialRun" placeholder="initialRun"></input>
+	</div> 
+	<div class="form-row" id='jobTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-jobType"><i class="fa fa-tag"></i> jobType</label>
+		<input type="text" id="node-input-jobType" placeholder="jobType"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='s3JobDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-s3JobDefinition"><i class="fa fa-tag"></i> s3JobDefinition</label>
+		<input type="text" id="node-input-s3JobDefinition" placeholder="s3JobDefinition"></input>
+	</div> 
+	<div class="form-row" id='samplingPercentageAttr' class='hiddenAttrs'>
+		<label for="node-input-samplingPercentage"><i class="fa fa-tag"></i> samplingPercentage</label>
+		<input type="text" id="node-input-samplingPercentage" placeholder="samplingPercentage"></input>
+	</div> 
+	<div class="form-row" id='scheduleFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-scheduleFrequency"><i class="fa fa-tag"></i> scheduleFrequency</label>
+		<input type="text" id="node-input-scheduleFrequency" placeholder="scheduleFrequency"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='ignoreWordsAttr' class='hiddenAttrs'>
+		<label for="node-input-ignoreWords"><i class="fa fa-tag"></i> ignoreWords</label>
+		<input type="text" id="node-input-ignoreWords" placeholder="ignoreWords"></input>
+	</div> 
+	<div class="form-row" id='keywordsAttr' class='hiddenAttrs'>
+		<label for="node-input-keywords"><i class="fa fa-tag"></i> keywords</label>
+		<input type="text" id="node-input-keywords" placeholder="keywords"></input>
+	</div> 
+	<div class="form-row" id='maximumMatchDistanceAttr' class='hiddenAttrs'>
+		<label for="node-input-maximumMatchDistance"><i class="fa fa-tag"></i> maximumMatchDistance</label>
+		<input type="text" id="node-input-maximumMatchDistance" placeholder="maximumMatchDistance"></input>
+	</div> 
+	<div class="form-row" id='regexAttr' class='hiddenAttrs'>
+		<label for="node-input-regex"><i class="fa fa-tag"></i> regex</label>
+		<input type="text" id="node-input-regex" placeholder="regex"></input>
+	</div> 
+	<div class="form-row" id='actionAttr' class='hiddenAttrs'>
+		<label for="node-input-action"><i class="fa fa-tag"></i> action</label>
+		<input type="text" id="node-input-action" placeholder="action"></input>
+	</div> 
+	<div class="form-row" id='findingCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-findingCriteria"><i class="fa fa-tag"></i> findingCriteria</label>
+		<input type="text" id="node-input-findingCriteria" placeholder="findingCriteria"></input>
+	</div> 
+	<div class="form-row" id='positionAttr' class='hiddenAttrs'>
+		<label for="node-input-position"><i class="fa fa-tag"></i> position</label>
+		<input type="text" id="node-input-position" placeholder="position"></input>
+	</div> 
+	<div class="form-row" id='accountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-accountIds"><i class="fa fa-tag"></i> accountIds</label>
+		<input type="text" id="node-input-accountIds" placeholder="accountIds"></input>
+	</div> 
+	<div class="form-row" id='disableEmailNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-disableEmailNotification"><i class="fa fa-tag"></i> disableEmailNotification</label>
+		<input type="text" id="node-input-disableEmailNotification" placeholder="disableEmailNotification"></input>
+	</div> 
+	<div class="form-row" id='messageAttr' class='hiddenAttrs'>
+		<label for="node-input-message"><i class="fa fa-tag"></i> message</label>
+		<input type="text" id="node-input-message" placeholder="message"></input>
+	</div> 
+	<div class="form-row" id='accountAttr' class='hiddenAttrs'>
+		<label for="node-input-account"><i class="fa fa-tag"></i> account</label>
+		<input type="text" id="node-input-account" placeholder="account"></input>
+	</div> 
+	<div class="form-row" id='findingTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-findingTypes"><i class="fa fa-tag"></i> findingTypes</label>
+		<input type="text" id="node-input-findingTypes" placeholder="findingTypes"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='criteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-criteria"><i class="fa fa-tag"></i> criteria</label>
+		<input type="text" id="node-input-criteria" placeholder="criteria"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='sortCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-sortCriteria"><i class="fa fa-tag"></i> sortCriteria</label>
+		<input type="text" id="node-input-sortCriteria" placeholder="sortCriteria"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='adminAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-adminAccountId"><i class="fa fa-tag"></i> adminAccountId</label>
+		<input type="text" id="node-input-adminAccountId" placeholder="adminAccountId"></input>
+	</div> 
+	<div class="form-row" id='findingPublishingFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-findingPublishingFrequency"><i class="fa fa-tag"></i> findingPublishingFrequency</label>
+		<input type="text" id="node-input-findingPublishingFrequency" placeholder="findingPublishingFrequency"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='accountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-accountId"><i class="fa fa-tag"></i> accountId</label>
+		<input type="text" id="node-input-accountId" placeholder="accountId"></input>
+	</div> 
+	<div class="form-row" id='groupByAttr' class='hiddenAttrs'>
+		<label for="node-input-groupBy"><i class="fa fa-tag"></i> groupBy</label>
+		<input type="text" id="node-input-groupBy" placeholder="groupBy"></input>
+	</div> 
+	<div class="form-row" id='sizeAttr' class='hiddenAttrs'>
+		<label for="node-input-size"><i class="fa fa-tag"></i> size</label>
+		<input type="text" id="node-input-size" placeholder="size"></input>
+	</div> 
+	<div class="form-row" id='findingIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-findingIds"><i class="fa fa-tag"></i> findingIds</label>
+		<input type="text" id="node-input-findingIds" placeholder="findingIds"></input>
+	</div> 
+	<div class="form-row" id='filterByAttr' class='hiddenAttrs'>
+		<label for="node-input-filterBy"><i class="fa fa-tag"></i> filterBy</label>
+		<input type="text" id="node-input-filterBy" placeholder="filterBy"></input>
+	</div> 
+	<div class="form-row" id='sortByAttr' class='hiddenAttrs'>
+		<label for="node-input-sortBy"><i class="fa fa-tag"></i> sortBy</label>
+		<input type="text" id="node-input-sortBy" placeholder="sortBy"></input>
+	</div> 
+	<div class="form-row" id='timeRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-timeRange"><i class="fa fa-tag"></i> timeRange</label>
+		<input type="text" id="node-input-timeRange" placeholder="timeRange"></input>
+	</div> 
+	<div class="form-row" id='filterCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-filterCriteria"><i class="fa fa-tag"></i> filterCriteria</label>
+		<input type="text" id="node-input-filterCriteria" placeholder="filterCriteria"></input>
+	</div> 
+	<div class="form-row" id='onlyAssociatedAttr' class='hiddenAttrs'>
+		<label for="node-input-onlyAssociated"><i class="fa fa-tag"></i> onlyAssociated</label>
+		<input type="text" id="node-input-onlyAssociated" placeholder="onlyAssociated"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='configurationAttr' class='hiddenAttrs'>
+		<label for="node-input-configuration"><i class="fa fa-tag"></i> configuration</label>
+		<input type="text" id="node-input-configuration" placeholder="configuration"></input>
+	</div> 
+	<div class="form-row" id='securityHubConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-securityHubConfiguration"><i class="fa fa-tag"></i> securityHubConfiguration</label>
+		<input type="text" id="node-input-securityHubConfiguration" placeholder="securityHubConfiguration"></input>
+	</div> 
+	<div class="form-row" id='bucketCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-bucketCriteria"><i class="fa fa-tag"></i> bucketCriteria</label>
+		<input type="text" id="node-input-bucketCriteria" placeholder="bucketCriteria"></input>
+	</div> 
+	<div class="form-row" id='sampleTextAttr' class='hiddenAttrs'>
+		<label for="node-input-sampleText"><i class="fa fa-tag"></i> sampleText</label>
+		<input type="text" id="node-input-sampleText" placeholder="sampleText"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='jobStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-jobStatus"><i class="fa fa-tag"></i> jobStatus</label>
+		<input type="text" id="node-input-jobStatus" placeholder="jobStatus"></input>
+	</div> 
+	<div class="form-row" id='autoEnableAttr' class='hiddenAttrs'>
+		<label for="node-input-autoEnable"><i class="fa fa-tag"></i> autoEnable</label>
+		<input type="text" id="node-input-autoEnable" placeholder="autoEnable"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptInvitation:[
+					'#administratorAccountIdAttr','#invitationIdAttr','#masterAccountAttr'
+					],
+				BatchGetCustomDataIdentifiers:[
+					'#idsAttr'
+					],
+				CreateClassificationJob:[
+					'#clientTokenAttr','#customDataIdentifierIdsAttr','#descriptionAttr','#initialRunAttr','#jobTypeAttr','#nameAttr','#s3JobDefinitionAttr','#samplingPercentageAttr','#scheduleFrequencyAttr','#tagsAttr'
+					],
+				CreateCustomDataIdentifier:[
+					'#clientTokenAttr','#descriptionAttr','#ignoreWordsAttr','#keywordsAttr','#maximumMatchDistanceAttr','#nameAttr','#regexAttr','#tagsAttr'
+					],
+				CreateFindingsFilter:[
+					'#actionAttr','#clientTokenAttr','#descriptionAttr','#findingCriteriaAttr','#nameAttr','#positionAttr','#tagsAttr'
+					],
+				CreateInvitations:[
+					'#accountIdsAttr','#disableEmailNotificationAttr','#messageAttr'
+					],
+				CreateMember:[
+					'#accountAttr','#tagsAttr'
+					],
+				CreateSampleFindings:[
+					'#findingTypesAttr'
+					],
+				DeclineInvitations:[
+					'#accountIdsAttr'
+					],
+				DeleteCustomDataIdentifier:[
+					'#idAttr'
+					],
+				DeleteFindingsFilter:[
+					'#idAttr'
+					],
+				DeleteInvitations:[
+					'#accountIdsAttr'
+					],
+				DeleteMember:[
+					'#idAttr'
+					],
+				DescribeBuckets:[
+					'#criteriaAttr','#maxResultsAttr','#nextTokenAttr','#sortCriteriaAttr'
+					],
+				DescribeClassificationJob:[
+					'#jobIdAttr'
+					],
+				DescribeOrganizationConfiguration:[
+					
+					],
+				DisableMacie:[
+					
+					],
+				DisableOrganizationAdminAccount:[
+					'#adminAccountIdAttr'
+					],
+				DisassociateFromAdministratorAccount:[
+					
+					],
+				DisassociateFromMasterAccount:[
+					
+					],
+				DisassociateMember:[
+					'#idAttr'
+					],
+				EnableMacie:[
+					'#clientTokenAttr','#findingPublishingFrequencyAttr','#statusAttr'
+					],
+				EnableOrganizationAdminAccount:[
+					'#adminAccountIdAttr','#clientTokenAttr'
+					],
+				GetAdministratorAccount:[
+					
+					],
+				GetBucketStatistics:[
+					'#accountIdAttr'
+					],
+				GetClassificationExportConfiguration:[
+					
+					],
+				GetCustomDataIdentifier:[
+					'#idAttr'
+					],
+				GetFindingStatistics:[
+					'#findingCriteriaAttr','#groupByAttr','#sizeAttr','#sortCriteriaAttr'
+					],
+				GetFindings:[
+					'#findingIdsAttr','#sortCriteriaAttr'
+					],
+				GetFindingsFilter:[
+					'#idAttr'
+					],
+				GetFindingsPublicationConfiguration:[
+					
+					],
+				GetInvitationsCount:[
+					
+					],
+				GetMacieSession:[
+					
+					],
+				GetMasterAccount:[
+					
+					],
+				GetMember:[
+					'#idAttr'
+					],
+				GetUsageStatistics:[
+					'#filterByAttr','#maxResultsAttr','#nextTokenAttr','#sortByAttr','#timeRangeAttr'
+					],
+				GetUsageTotals:[
+					'#timeRangeAttr'
+					],
+				ListClassificationJobs:[
+					'#filterCriteriaAttr','#maxResultsAttr','#nextTokenAttr','#sortCriteriaAttr'
+					],
+				ListCustomDataIdentifiers:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListFindings:[
+					'#findingCriteriaAttr','#maxResultsAttr','#nextTokenAttr','#sortCriteriaAttr'
+					],
+				ListFindingsFilters:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListInvitations:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListMembers:[
+					'#maxResultsAttr','#nextTokenAttr','#onlyAssociatedAttr'
+					],
+				ListOrganizationAdminAccounts:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutClassificationExportConfiguration:[
+					'#configurationAttr'
+					],
+				PutFindingsPublicationConfiguration:[
+					'#clientTokenAttr','#securityHubConfigurationAttr'
+					],
+				SearchResources:[
+					'#bucketCriteriaAttr','#maxResultsAttr','#nextTokenAttr','#sortCriteriaAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TestCustomDataIdentifier:[
+					'#ignoreWordsAttr','#keywordsAttr','#maximumMatchDistanceAttr','#regexAttr','#sampleTextAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateClassificationJob:[
+					'#jobIdAttr','#jobStatusAttr'
+					],
+				UpdateFindingsFilter:[
+					'#actionAttr','#descriptionAttr','#findingCriteriaAttr','#idAttr','#nameAttr','#positionAttr','#clientTokenAttr'
+					],
+				UpdateMacieSession:[
+					'#findingPublishingFrequencyAttr','#statusAttr'
+					],
+				UpdateMemberSession:[
+					'#idAttr','#statusAttr'
+					],
+				UpdateOrganizationConfiguration:[
+					'#autoEnableAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Macie2">
+<p>
+AWS Macie2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Macie2.html">Macie2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Macie2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptInvitation' },
+			
+				administratorAccountId: { value: ""} ,
+				invitationId: { value: ""} ,
+				masterAccount: { value: ""} ,
+				ids: { value: ""} ,
+				clientToken: { value: ""} ,
+				customDataIdentifierIds: { value: ""} ,
+				description: { value: ""} ,
+				initialRun: { value: ""} ,
+				jobType: { value: ""} ,
+				name: { value: ""} ,
+				s3JobDefinition: { value: ""} ,
+				samplingPercentage: { value: ""} ,
+				scheduleFrequency: { value: ""} ,
+				tags: { value: ""} ,
+				ignoreWords: { value: ""} ,
+				keywords: { value: ""} ,
+				maximumMatchDistance: { value: ""} ,
+				regex: { value: ""} ,
+				action: { value: ""} ,
+				findingCriteria: { value: ""} ,
+				position: { value: ""} ,
+				accountIds: { value: ""} ,
+				disableEmailNotification: { value: ""} ,
+				message: { value: ""} ,
+				account: { value: ""} ,
+				findingTypes: { value: ""} ,
+				id: { value: ""} ,
+				criteria: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				sortCriteria: { value: ""} ,
+				jobId: { value: ""} ,
+				adminAccountId: { value: ""} ,
+				findingPublishingFrequency: { value: ""} ,
+				status: { value: ""} ,
+				accountId: { value: ""} ,
+				groupBy: { value: ""} ,
+				size: { value: ""} ,
+				findingIds: { value: ""} ,
+				filterBy: { value: ""} ,
+				sortBy: { value: ""} ,
+				timeRange: { value: ""} ,
+				filterCriteria: { value: ""} ,
+				onlyAssociated: { value: ""} ,
+				resourceArn: { value: ""} ,
+				configuration: { value: ""} ,
+				securityHubConfiguration: { value: ""} ,
+				bucketCriteria: { value: ""} ,
+				sampleText: { value: ""} ,
+				tagKeys: { value: ""} ,
+				jobStatus: { value: ""} ,
+				autoEnable: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Macie2 " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-administratorAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-invitationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-masterAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ids").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-customDataIdentifierIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-initialRun").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-jobType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3JobDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-samplingPercentage").typedInput({ default: "num", types: ["num"]});
+$("#node-input-scheduleFrequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ignoreWords").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keywords").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maximumMatchDistance").typedInput({ default: "num", types: ["num"]});
+$("#node-input-regex").typedInput({ default: "str", types: ["str"]});
+$("#node-input-action").typedInput({ default: "str", types: ["str"]});
+$("#node-input-findingCriteria").typedInput({ default: "str", types: ["str"]});
+$("#node-input-position").typedInput({ default: "num", types: ["num"]});
+$("#node-input-accountIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-disableEmailNotification").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-message").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-adminAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-findingPublishingFrequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-groupBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-size").typedInput({ default: "num", types: ["num"]});
+$("#node-input-findingIds").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-timeRange").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-onlyAssociated").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityHubConfiguration").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-sampleText").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoEnable").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

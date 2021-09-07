@@ -1,0 +1,626 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Kendra">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteDocument">BatchDeleteDocument</option>
+		
+			<option value="BatchGetDocumentStatus">BatchGetDocumentStatus</option>
+		
+			<option value="BatchPutDocument">BatchPutDocument</option>
+		
+			<option value="ClearQuerySuggestions">ClearQuerySuggestions</option>
+		
+			<option value="CreateDataSource">CreateDataSource</option>
+		
+			<option value="CreateFaq">CreateFaq</option>
+		
+			<option value="CreateIndex">CreateIndex</option>
+		
+			<option value="CreateQuerySuggestionsBlockList">CreateQuerySuggestionsBlockList</option>
+		
+			<option value="CreateThesaurus">CreateThesaurus</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteFaq">DeleteFaq</option>
+		
+			<option value="DeleteIndex">DeleteIndex</option>
+		
+			<option value="DeletePrincipalMapping">DeletePrincipalMapping</option>
+		
+			<option value="DeleteQuerySuggestionsBlockList">DeleteQuerySuggestionsBlockList</option>
+		
+			<option value="DeleteThesaurus">DeleteThesaurus</option>
+		
+			<option value="DescribeDataSource">DescribeDataSource</option>
+		
+			<option value="DescribeFaq">DescribeFaq</option>
+		
+			<option value="DescribeIndex">DescribeIndex</option>
+		
+			<option value="DescribePrincipalMapping">DescribePrincipalMapping</option>
+		
+			<option value="DescribeQuerySuggestionsBlockList">DescribeQuerySuggestionsBlockList</option>
+		
+			<option value="DescribeQuerySuggestionsConfig">DescribeQuerySuggestionsConfig</option>
+		
+			<option value="DescribeThesaurus">DescribeThesaurus</option>
+		
+			<option value="GetQuerySuggestions">GetQuerySuggestions</option>
+		
+			<option value="ListDataSourceSyncJobs">ListDataSourceSyncJobs</option>
+		
+			<option value="ListDataSources">ListDataSources</option>
+		
+			<option value="ListFaqs">ListFaqs</option>
+		
+			<option value="ListGroupsOlderThanOrderingId">ListGroupsOlderThanOrderingId</option>
+		
+			<option value="ListIndices">ListIndices</option>
+		
+			<option value="ListQuerySuggestionsBlockLists">ListQuerySuggestionsBlockLists</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListThesauri">ListThesauri</option>
+		
+			<option value="PutPrincipalMapping">PutPrincipalMapping</option>
+		
+			<option value="Query">Query</option>
+		
+			<option value="StartDataSourceSyncJob">StartDataSourceSyncJob</option>
+		
+			<option value="StopDataSourceSyncJob">StopDataSourceSyncJob</option>
+		
+			<option value="SubmitFeedback">SubmitFeedback</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateIndex">UpdateIndex</option>
+		
+			<option value="UpdateQuerySuggestionsBlockList">UpdateQuerySuggestionsBlockList</option>
+		
+			<option value="UpdateQuerySuggestionsConfig">UpdateQuerySuggestionsConfig</option>
+		
+			<option value="UpdateThesaurus">UpdateThesaurus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='IndexIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexId"><i class="fa fa-tag"></i> IndexId</label>
+		<input type="text" id="node-input-IndexId" placeholder="IndexId"></input>
+	</div> 
+	<div class="form-row" id='DocumentIdListAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentIdList"><i class="fa fa-tag"></i> DocumentIdList</label>
+		<input type="text" id="node-input-DocumentIdList" placeholder="DocumentIdList"></input>
+	</div> 
+	<div class="form-row" id='DataSourceSyncJobMetricTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceSyncJobMetricTarget"><i class="fa fa-tag"></i> DataSourceSyncJobMetricTarget</label>
+		<input type="text" id="node-input-DataSourceSyncJobMetricTarget" placeholder="DataSourceSyncJobMetricTarget"></input>
+	</div> 
+	<div class="form-row" id='DocumentInfoListAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentInfoList"><i class="fa fa-tag"></i> DocumentInfoList</label>
+		<input type="text" id="node-input-DocumentInfoList" placeholder="DocumentInfoList"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='DocumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Documents"><i class="fa fa-tag"></i> Documents</label>
+		<input type="text" id="node-input-Documents" placeholder="Documents"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ScheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-Schedule"><i class="fa fa-tag"></i> Schedule</label>
+		<input type="text" id="node-input-Schedule" placeholder="Schedule"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='S3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Path"><i class="fa fa-tag"></i> S3Path</label>
+		<input type="text" id="node-input-S3Path" placeholder="S3Path"></input>
+	</div> 
+	<div class="form-row" id='FileFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-FileFormat"><i class="fa fa-tag"></i> FileFormat</label>
+		<input type="text" id="node-input-FileFormat" placeholder="FileFormat"></input>
+	</div> 
+	<div class="form-row" id='EditionAttr' class='hiddenAttrs'>
+		<label for="node-input-Edition"><i class="fa fa-tag"></i> Edition</label>
+		<input type="text" id="node-input-Edition" placeholder="Edition"></input>
+	</div> 
+	<div class="form-row" id='ServerSideEncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerSideEncryptionConfiguration"><i class="fa fa-tag"></i> ServerSideEncryptionConfiguration</label>
+		<input type="text" id="node-input-ServerSideEncryptionConfiguration" placeholder="ServerSideEncryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='UserTokenConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserTokenConfigurations"><i class="fa fa-tag"></i> UserTokenConfigurations</label>
+		<input type="text" id="node-input-UserTokenConfigurations" placeholder="UserTokenConfigurations"></input>
+	</div> 
+	<div class="form-row" id='UserContextPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-UserContextPolicy"><i class="fa fa-tag"></i> UserContextPolicy</label>
+		<input type="text" id="node-input-UserContextPolicy" placeholder="UserContextPolicy"></input>
+	</div> 
+	<div class="form-row" id='SourceS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceS3Path"><i class="fa fa-tag"></i> SourceS3Path</label>
+		<input type="text" id="node-input-SourceS3Path" placeholder="SourceS3Path"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='DataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceId"><i class="fa fa-tag"></i> DataSourceId</label>
+		<input type="text" id="node-input-DataSourceId" placeholder="DataSourceId"></input>
+	</div> 
+	<div class="form-row" id='GroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupId"><i class="fa fa-tag"></i> GroupId</label>
+		<input type="text" id="node-input-GroupId" placeholder="GroupId"></input>
+	</div> 
+	<div class="form-row" id='OrderingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrderingId"><i class="fa fa-tag"></i> OrderingId</label>
+		<input type="text" id="node-input-OrderingId" placeholder="OrderingId"></input>
+	</div> 
+	<div class="form-row" id='QueryTextAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryText"><i class="fa fa-tag"></i> QueryText</label>
+		<input type="text" id="node-input-QueryText" placeholder="QueryText"></input>
+	</div> 
+	<div class="form-row" id='MaxSuggestionsCountAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSuggestionsCount"><i class="fa fa-tag"></i> MaxSuggestionsCount</label>
+		<input type="text" id="node-input-MaxSuggestionsCount" placeholder="MaxSuggestionsCount"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StartTimeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTimeFilter"><i class="fa fa-tag"></i> StartTimeFilter</label>
+		<input type="text" id="node-input-StartTimeFilter" placeholder="StartTimeFilter"></input>
+	</div> 
+	<div class="form-row" id='StatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusFilter"><i class="fa fa-tag"></i> StatusFilter</label>
+		<input type="text" id="node-input-StatusFilter" placeholder="StatusFilter"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='GroupMembersAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupMembers"><i class="fa fa-tag"></i> GroupMembers</label>
+		<input type="text" id="node-input-GroupMembers" placeholder="GroupMembers"></input>
+	</div> 
+	<div class="form-row" id='AttributeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeFilter"><i class="fa fa-tag"></i> AttributeFilter</label>
+		<input type="text" id="node-input-AttributeFilter" placeholder="AttributeFilter"></input>
+	</div> 
+	<div class="form-row" id='FacetsAttr' class='hiddenAttrs'>
+		<label for="node-input-Facets"><i class="fa fa-tag"></i> Facets</label>
+		<input type="text" id="node-input-Facets" placeholder="Facets"></input>
+	</div> 
+	<div class="form-row" id='RequestedDocumentAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestedDocumentAttributes"><i class="fa fa-tag"></i> RequestedDocumentAttributes</label>
+		<input type="text" id="node-input-RequestedDocumentAttributes" placeholder="RequestedDocumentAttributes"></input>
+	</div> 
+	<div class="form-row" id='QueryResultTypeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryResultTypeFilter"><i class="fa fa-tag"></i> QueryResultTypeFilter</label>
+		<input type="text" id="node-input-QueryResultTypeFilter" placeholder="QueryResultTypeFilter"></input>
+	</div> 
+	<div class="form-row" id='DocumentRelevanceOverrideConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentRelevanceOverrideConfigurations"><i class="fa fa-tag"></i> DocumentRelevanceOverrideConfigurations</label>
+		<input type="text" id="node-input-DocumentRelevanceOverrideConfigurations" placeholder="DocumentRelevanceOverrideConfigurations"></input>
+	</div> 
+	<div class="form-row" id='PageNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-PageNumber"><i class="fa fa-tag"></i> PageNumber</label>
+		<input type="text" id="node-input-PageNumber" placeholder="PageNumber"></input>
+	</div> 
+	<div class="form-row" id='PageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-PageSize"><i class="fa fa-tag"></i> PageSize</label>
+		<input type="text" id="node-input-PageSize" placeholder="PageSize"></input>
+	</div> 
+	<div class="form-row" id='SortingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SortingConfiguration"><i class="fa fa-tag"></i> SortingConfiguration</label>
+		<input type="text" id="node-input-SortingConfiguration" placeholder="SortingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='UserContextAttr' class='hiddenAttrs'>
+		<label for="node-input-UserContext"><i class="fa fa-tag"></i> UserContext</label>
+		<input type="text" id="node-input-UserContext" placeholder="UserContext"></input>
+	</div> 
+	<div class="form-row" id='VisitorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VisitorId"><i class="fa fa-tag"></i> VisitorId</label>
+		<input type="text" id="node-input-VisitorId" placeholder="VisitorId"></input>
+	</div> 
+	<div class="form-row" id='QueryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryId"><i class="fa fa-tag"></i> QueryId</label>
+		<input type="text" id="node-input-QueryId" placeholder="QueryId"></input>
+	</div> 
+	<div class="form-row" id='ClickFeedbackItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-ClickFeedbackItems"><i class="fa fa-tag"></i> ClickFeedbackItems</label>
+		<input type="text" id="node-input-ClickFeedbackItems" placeholder="ClickFeedbackItems"></input>
+	</div> 
+	<div class="form-row" id='RelevanceFeedbackItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-RelevanceFeedbackItems"><i class="fa fa-tag"></i> RelevanceFeedbackItems</label>
+		<input type="text" id="node-input-RelevanceFeedbackItems" placeholder="RelevanceFeedbackItems"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DocumentMetadataConfigurationUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentMetadataConfigurationUpdates"><i class="fa fa-tag"></i> DocumentMetadataConfigurationUpdates</label>
+		<input type="text" id="node-input-DocumentMetadataConfigurationUpdates" placeholder="DocumentMetadataConfigurationUpdates"></input>
+	</div> 
+	<div class="form-row" id='CapacityUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-CapacityUnits"><i class="fa fa-tag"></i> CapacityUnits</label>
+		<input type="text" id="node-input-CapacityUnits" placeholder="CapacityUnits"></input>
+	</div> 
+	<div class="form-row" id='ModeAttr' class='hiddenAttrs'>
+		<label for="node-input-Mode"><i class="fa fa-tag"></i> Mode</label>
+		<input type="text" id="node-input-Mode" placeholder="Mode"></input>
+	</div> 
+	<div class="form-row" id='QueryLogLookBackWindowInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryLogLookBackWindowInDays"><i class="fa fa-tag"></i> QueryLogLookBackWindowInDays</label>
+		<input type="text" id="node-input-QueryLogLookBackWindowInDays" placeholder="QueryLogLookBackWindowInDays"></input>
+	</div> 
+	<div class="form-row" id='IncludeQueriesWithoutUserInformationAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeQueriesWithoutUserInformation"><i class="fa fa-tag"></i> IncludeQueriesWithoutUserInformation</label>
+		<input type="text" id="node-input-IncludeQueriesWithoutUserInformation" placeholder="IncludeQueriesWithoutUserInformation"></input>
+	</div> 
+	<div class="form-row" id='MinimumNumberOfQueryingUsersAttr' class='hiddenAttrs'>
+		<label for="node-input-MinimumNumberOfQueryingUsers"><i class="fa fa-tag"></i> MinimumNumberOfQueryingUsers</label>
+		<input type="text" id="node-input-MinimumNumberOfQueryingUsers" placeholder="MinimumNumberOfQueryingUsers"></input>
+	</div> 
+	<div class="form-row" id='MinimumQueryCountAttr' class='hiddenAttrs'>
+		<label for="node-input-MinimumQueryCount"><i class="fa fa-tag"></i> MinimumQueryCount</label>
+		<input type="text" id="node-input-MinimumQueryCount" placeholder="MinimumQueryCount"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteDocument:[
+					'#IndexIdAttr','#DocumentIdListAttr','#DataSourceSyncJobMetricTargetAttr'
+					],
+				BatchGetDocumentStatus:[
+					'#IndexIdAttr','#DocumentInfoListAttr'
+					],
+				BatchPutDocument:[
+					'#IndexIdAttr','#RoleArnAttr','#DocumentsAttr'
+					],
+				ClearQuerySuggestions:[
+					'#IndexIdAttr'
+					],
+				CreateDataSource:[
+					'#NameAttr','#IndexIdAttr','#TypeAttr','#ConfigurationAttr','#DescriptionAttr','#ScheduleAttr','#RoleArnAttr','#TagsAttr','#ClientTokenAttr'
+					],
+				CreateFaq:[
+					'#IndexIdAttr','#NameAttr','#DescriptionAttr','#S3PathAttr','#RoleArnAttr','#TagsAttr','#FileFormatAttr','#ClientTokenAttr'
+					],
+				CreateIndex:[
+					'#NameAttr','#EditionAttr','#RoleArnAttr','#ServerSideEncryptionConfigurationAttr','#DescriptionAttr','#ClientTokenAttr','#TagsAttr','#UserTokenConfigurationsAttr','#UserContextPolicyAttr'
+					],
+				CreateQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#NameAttr','#DescriptionAttr','#SourceS3PathAttr','#ClientTokenAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreateThesaurus:[
+					'#IndexIdAttr','#NameAttr','#DescriptionAttr','#RoleArnAttr','#TagsAttr','#SourceS3PathAttr','#ClientTokenAttr'
+					],
+				DeleteDataSource:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DeleteFaq:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DeleteIndex:[
+					'#IdAttr'
+					],
+				DeletePrincipalMapping:[
+					'#IndexIdAttr','#DataSourceIdAttr','#GroupIdAttr','#OrderingIdAttr'
+					],
+				DeleteQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr'
+					],
+				DeleteThesaurus:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeDataSource:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeFaq:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				DescribeIndex:[
+					'#IdAttr'
+					],
+				DescribePrincipalMapping:[
+					'#IndexIdAttr','#DataSourceIdAttr','#GroupIdAttr'
+					],
+				DescribeQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr'
+					],
+				DescribeQuerySuggestionsConfig:[
+					'#IndexIdAttr'
+					],
+				DescribeThesaurus:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				GetQuerySuggestions:[
+					'#IndexIdAttr','#QueryTextAttr','#MaxSuggestionsCountAttr'
+					],
+				ListDataSourceSyncJobs:[
+					'#IdAttr','#IndexIdAttr','#NextTokenAttr','#MaxResultsAttr','#StartTimeFilterAttr','#StatusFilterAttr'
+					],
+				ListDataSources:[
+					'#IndexIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListFaqs:[
+					'#IndexIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListGroupsOlderThanOrderingId:[
+					'#IndexIdAttr','#DataSourceIdAttr','#OrderingIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListIndices:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListQuerySuggestionsBlockLists:[
+					'#IndexIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListThesauri:[
+					'#IndexIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				PutPrincipalMapping:[
+					'#IndexIdAttr','#DataSourceIdAttr','#GroupIdAttr','#GroupMembersAttr','#OrderingIdAttr','#RoleArnAttr'
+					],
+				Query:[
+					'#IndexIdAttr','#QueryTextAttr','#AttributeFilterAttr','#FacetsAttr','#RequestedDocumentAttributesAttr','#QueryResultTypeFilterAttr','#DocumentRelevanceOverrideConfigurationsAttr','#PageNumberAttr','#PageSizeAttr','#SortingConfigurationAttr','#UserContextAttr','#VisitorIdAttr'
+					],
+				StartDataSourceSyncJob:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				StopDataSourceSyncJob:[
+					'#IdAttr','#IndexIdAttr'
+					],
+				SubmitFeedback:[
+					'#IndexIdAttr','#QueryIdAttr','#ClickFeedbackItemsAttr','#RelevanceFeedbackItemsAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateDataSource:[
+					'#IdAttr','#NameAttr','#IndexIdAttr','#ConfigurationAttr','#DescriptionAttr','#ScheduleAttr','#RoleArnAttr'
+					],
+				UpdateIndex:[
+					'#IdAttr','#NameAttr','#RoleArnAttr','#DescriptionAttr','#DocumentMetadataConfigurationUpdatesAttr','#CapacityUnitsAttr','#UserTokenConfigurationsAttr','#UserContextPolicyAttr'
+					],
+				UpdateQuerySuggestionsBlockList:[
+					'#IndexIdAttr','#IdAttr','#NameAttr','#DescriptionAttr','#SourceS3PathAttr','#RoleArnAttr'
+					],
+				UpdateQuerySuggestionsConfig:[
+					'#IndexIdAttr','#ModeAttr','#QueryLogLookBackWindowInDaysAttr','#IncludeQueriesWithoutUserInformationAttr','#MinimumNumberOfQueryingUsersAttr','#MinimumQueryCountAttr'
+					],
+				UpdateThesaurus:[
+					'#IdAttr','#NameAttr','#IndexIdAttr','#DescriptionAttr','#RoleArnAttr','#SourceS3PathAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Kendra">
+<p>
+AWS Kendra
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kendra.html">Kendra</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Kendra',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteDocument' },
+			
+				IndexId: { value: ""} ,
+				DocumentIdList: { value: ""} ,
+				DataSourceSyncJobMetricTarget: { value: ""} ,
+				DocumentInfoList: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Documents: { value: ""} ,
+				Name: { value: ""} ,
+				Type: { value: ""} ,
+				Configuration: { value: ""} ,
+				Description: { value: ""} ,
+				Schedule: { value: ""} ,
+				Tags: { value: ""} ,
+				ClientToken: { value: ""} ,
+				S3Path: { value: ""} ,
+				FileFormat: { value: ""} ,
+				Edition: { value: ""} ,
+				ServerSideEncryptionConfiguration: { value: ""} ,
+				UserTokenConfigurations: { value: ""} ,
+				UserContextPolicy: { value: ""} ,
+				SourceS3Path: { value: ""} ,
+				Id: { value: ""} ,
+				DataSourceId: { value: ""} ,
+				GroupId: { value: ""} ,
+				OrderingId: { value: ""} ,
+				QueryText: { value: ""} ,
+				MaxSuggestionsCount: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				StartTimeFilter: { value: ""} ,
+				StatusFilter: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				GroupMembers: { value: ""} ,
+				AttributeFilter: { value: ""} ,
+				Facets: { value: ""} ,
+				RequestedDocumentAttributes: { value: ""} ,
+				QueryResultTypeFilter: { value: ""} ,
+				DocumentRelevanceOverrideConfigurations: { value: ""} ,
+				PageNumber: { value: ""} ,
+				PageSize: { value: ""} ,
+				SortingConfiguration: { value: ""} ,
+				UserContext: { value: ""} ,
+				VisitorId: { value: ""} ,
+				QueryId: { value: ""} ,
+				ClickFeedbackItems: { value: ""} ,
+				RelevanceFeedbackItems: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DocumentMetadataConfigurationUpdates: { value: ""} ,
+				CapacityUnits: { value: ""} ,
+				Mode: { value: ""} ,
+				QueryLogLookBackWindowInDays: { value: ""} ,
+				IncludeQueriesWithoutUserInformation: { value: ""} ,
+				MinimumNumberOfQueryingUsers: { value: ""} ,
+				MinimumQueryCount: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Kendra " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-IndexId").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Schedule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Edition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerSideEncryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserTokenConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserContextPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-QueryText").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxSuggestionsCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-StatusFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AttributeFilter").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-QueryResultTypeFilter").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PageNumber").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PageSize").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-VisitorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QueryId").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-DocumentMetadataConfigurationUpdates").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CapacityUnits").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Mode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QueryLogLookBackWindowInDays").typedInput({ default: "num", types: ["num"]});
+$("#node-input-IncludeQueriesWithoutUserInformation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MinimumNumberOfQueryingUsers").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MinimumQueryCount").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,504 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SNS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddPermission">AddPermission</option>
+		
+			<option value="CheckIfPhoneNumberIsOptedOut">CheckIfPhoneNumberIsOptedOut</option>
+		
+			<option value="ConfirmSubscription">ConfirmSubscription</option>
+		
+			<option value="CreatePlatformApplication">CreatePlatformApplication</option>
+		
+			<option value="CreatePlatformEndpoint">CreatePlatformEndpoint</option>
+		
+			<option value="CreateSMSSandboxPhoneNumber">CreateSMSSandboxPhoneNumber</option>
+		
+			<option value="CreateTopic">CreateTopic</option>
+		
+			<option value="DeleteEndpoint">DeleteEndpoint</option>
+		
+			<option value="DeletePlatformApplication">DeletePlatformApplication</option>
+		
+			<option value="DeleteSMSSandboxPhoneNumber">DeleteSMSSandboxPhoneNumber</option>
+		
+			<option value="DeleteTopic">DeleteTopic</option>
+		
+			<option value="GetEndpointAttributes">GetEndpointAttributes</option>
+		
+			<option value="GetPlatformApplicationAttributes">GetPlatformApplicationAttributes</option>
+		
+			<option value="GetSMSAttributes">GetSMSAttributes</option>
+		
+			<option value="GetSMSSandboxAccountStatus">GetSMSSandboxAccountStatus</option>
+		
+			<option value="GetSubscriptionAttributes">GetSubscriptionAttributes</option>
+		
+			<option value="GetTopicAttributes">GetTopicAttributes</option>
+		
+			<option value="ListEndpointsByPlatformApplication">ListEndpointsByPlatformApplication</option>
+		
+			<option value="ListOriginationNumbers">ListOriginationNumbers</option>
+		
+			<option value="ListPhoneNumbersOptedOut">ListPhoneNumbersOptedOut</option>
+		
+			<option value="ListPlatformApplications">ListPlatformApplications</option>
+		
+			<option value="ListSMSSandboxPhoneNumbers">ListSMSSandboxPhoneNumbers</option>
+		
+			<option value="ListSubscriptions">ListSubscriptions</option>
+		
+			<option value="ListSubscriptionsByTopic">ListSubscriptionsByTopic</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTopics">ListTopics</option>
+		
+			<option value="OptInPhoneNumber">OptInPhoneNumber</option>
+		
+			<option value="Publish">Publish</option>
+		
+			<option value="RemovePermission">RemovePermission</option>
+		
+			<option value="SetEndpointAttributes">SetEndpointAttributes</option>
+		
+			<option value="SetPlatformApplicationAttributes">SetPlatformApplicationAttributes</option>
+		
+			<option value="SetSMSAttributes">SetSMSAttributes</option>
+		
+			<option value="SetSubscriptionAttributes">SetSubscriptionAttributes</option>
+		
+			<option value="SetTopicAttributes">SetTopicAttributes</option>
+		
+			<option value="Subscribe">Subscribe</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="Unsubscribe">Unsubscribe</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="VerifySMSSandboxPhoneNumber">VerifySMSSandboxPhoneNumber</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TopicArn"><i class="fa fa-tag"></i> TopicArn</label>
+		<input type="text" id="node-input-TopicArn" placeholder="TopicArn"></input>
+	</div> 
+	<div class="form-row" id='LabelAttr' class='hiddenAttrs'>
+		<label for="node-input-Label"><i class="fa fa-tag"></i> Label</label>
+		<input type="text" id="node-input-Label" placeholder="Label"></input>
+	</div> 
+	<div class="form-row" id='AWSAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AWSAccountId"><i class="fa fa-tag"></i> AWSAccountId</label>
+		<input type="text" id="node-input-AWSAccountId" placeholder="AWSAccountId"></input>
+	</div> 
+	<div class="form-row" id='ActionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionName"><i class="fa fa-tag"></i> ActionName</label>
+		<input type="text" id="node-input-ActionName" placeholder="ActionName"></input>
+	</div> 
+	<div class="form-row" id='phoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-phoneNumber"><i class="fa fa-tag"></i> phoneNumber</label>
+		<input type="text" id="node-input-phoneNumber" placeholder="phoneNumber"></input>
+	</div> 
+	<div class="form-row" id='TokenAttr' class='hiddenAttrs'>
+		<label for="node-input-Token"><i class="fa fa-tag"></i> Token</label>
+		<input type="text" id="node-input-Token" placeholder="Token"></input>
+	</div> 
+	<div class="form-row" id='AuthenticateOnUnsubscribeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticateOnUnsubscribe"><i class="fa fa-tag"></i> AuthenticateOnUnsubscribe</label>
+		<input type="text" id="node-input-AuthenticateOnUnsubscribe" placeholder="AuthenticateOnUnsubscribe"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='PlatformAttr' class='hiddenAttrs'>
+		<label for="node-input-Platform"><i class="fa fa-tag"></i> Platform</label>
+		<input type="text" id="node-input-Platform" placeholder="Platform"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i> Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='PlatformApplicationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformApplicationArn"><i class="fa fa-tag"></i> PlatformApplicationArn</label>
+		<input type="text" id="node-input-PlatformApplicationArn" placeholder="PlatformApplicationArn"></input>
+	</div> 
+	<div class="form-row" id='CustomUserDataAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomUserData"><i class="fa fa-tag"></i> CustomUserData</label>
+		<input type="text" id="node-input-CustomUserData" placeholder="CustomUserData"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumber"><i class="fa fa-tag"></i> PhoneNumber</label>
+		<input type="text" id="node-input-PhoneNumber" placeholder="PhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='LanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-LanguageCode"><i class="fa fa-tag"></i> LanguageCode</label>
+		<input type="text" id="node-input-LanguageCode" placeholder="LanguageCode"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='EndpointArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointArn"><i class="fa fa-tag"></i> EndpointArn</label>
+		<input type="text" id="node-input-EndpointArn" placeholder="EndpointArn"></input>
+	</div> 
+	<div class="form-row" id='attributesAttr' class='hiddenAttrs'>
+		<label for="node-input-attributes"><i class="fa fa-tag"></i> attributes</label>
+		<input type="text" id="node-input-attributes" placeholder="attributes"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionArn"><i class="fa fa-tag"></i> SubscriptionArn</label>
+		<input type="text" id="node-input-SubscriptionArn" placeholder="SubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TargetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetArn"><i class="fa fa-tag"></i> TargetArn</label>
+		<input type="text" id="node-input-TargetArn" placeholder="TargetArn"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='SubjectAttr' class='hiddenAttrs'>
+		<label for="node-input-Subject"><i class="fa fa-tag"></i> Subject</label>
+		<input type="text" id="node-input-Subject" placeholder="Subject"></input>
+	</div> 
+	<div class="form-row" id='MessageStructureAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageStructure"><i class="fa fa-tag"></i> MessageStructure</label>
+		<input type="text" id="node-input-MessageStructure" placeholder="MessageStructure"></input>
+	</div> 
+	<div class="form-row" id='MessageAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageAttributes"><i class="fa fa-tag"></i> MessageAttributes</label>
+		<input type="text" id="node-input-MessageAttributes" placeholder="MessageAttributes"></input>
+	</div> 
+	<div class="form-row" id='MessageDeduplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageDeduplicationId"><i class="fa fa-tag"></i> MessageDeduplicationId</label>
+		<input type="text" id="node-input-MessageDeduplicationId" placeholder="MessageDeduplicationId"></input>
+	</div> 
+	<div class="form-row" id='MessageGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageGroupId"><i class="fa fa-tag"></i> MessageGroupId</label>
+		<input type="text" id="node-input-MessageGroupId" placeholder="MessageGroupId"></input>
+	</div> 
+	<div class="form-row" id='AttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeName"><i class="fa fa-tag"></i> AttributeName</label>
+		<input type="text" id="node-input-AttributeName" placeholder="AttributeName"></input>
+	</div> 
+	<div class="form-row" id='AttributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeValue"><i class="fa fa-tag"></i> AttributeValue</label>
+		<input type="text" id="node-input-AttributeValue" placeholder="AttributeValue"></input>
+	</div> 
+	<div class="form-row" id='ProtocolAttr' class='hiddenAttrs'>
+		<label for="node-input-Protocol"><i class="fa fa-tag"></i> Protocol</label>
+		<input type="text" id="node-input-Protocol" placeholder="Protocol"></input>
+	</div> 
+	<div class="form-row" id='EndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-Endpoint"><i class="fa fa-tag"></i> Endpoint</label>
+		<input type="text" id="node-input-Endpoint" placeholder="Endpoint"></input>
+	</div> 
+	<div class="form-row" id='ReturnSubscriptionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnSubscriptionArn"><i class="fa fa-tag"></i> ReturnSubscriptionArn</label>
+		<input type="text" id="node-input-ReturnSubscriptionArn" placeholder="ReturnSubscriptionArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='OneTimePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-OneTimePassword"><i class="fa fa-tag"></i> OneTimePassword</label>
+		<input type="text" id="node-input-OneTimePassword" placeholder="OneTimePassword"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddPermission:[
+					'#TopicArnAttr','#LabelAttr','#AWSAccountIdAttr','#ActionNameAttr'
+					],
+				CheckIfPhoneNumberIsOptedOut:[
+					'#phoneNumberAttr'
+					],
+				ConfirmSubscription:[
+					'#TopicArnAttr','#TokenAttr','#AuthenticateOnUnsubscribeAttr'
+					],
+				CreatePlatformApplication:[
+					'#NameAttr','#PlatformAttr','#AttributesAttr'
+					],
+				CreatePlatformEndpoint:[
+					'#PlatformApplicationArnAttr','#TokenAttr','#CustomUserDataAttr','#AttributesAttr'
+					],
+				CreateSMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr','#LanguageCodeAttr'
+					],
+				CreateTopic:[
+					'#NameAttr','#AttributesAttr','#TagsAttr'
+					],
+				DeleteEndpoint:[
+					'#EndpointArnAttr'
+					],
+				DeletePlatformApplication:[
+					'#PlatformApplicationArnAttr'
+					],
+				DeleteSMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr'
+					],
+				DeleteTopic:[
+					'#TopicArnAttr'
+					],
+				GetEndpointAttributes:[
+					'#EndpointArnAttr'
+					],
+				GetPlatformApplicationAttributes:[
+					'#PlatformApplicationArnAttr'
+					],
+				GetSMSAttributes:[
+					'#attributesAttr'
+					],
+				GetSMSSandboxAccountStatus:[
+					
+					],
+				GetSubscriptionAttributes:[
+					'#SubscriptionArnAttr'
+					],
+				GetTopicAttributes:[
+					'#TopicArnAttr'
+					],
+				ListEndpointsByPlatformApplication:[
+					'#PlatformApplicationArnAttr','#NextTokenAttr'
+					],
+				ListOriginationNumbers:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPhoneNumbersOptedOut:[
+					'#nextTokenAttr'
+					],
+				ListPlatformApplications:[
+					'#NextTokenAttr'
+					],
+				ListSMSSandboxPhoneNumbers:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListSubscriptions:[
+					'#NextTokenAttr'
+					],
+				ListSubscriptionsByTopic:[
+					'#TopicArnAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTopics:[
+					'#NextTokenAttr'
+					],
+				OptInPhoneNumber:[
+					'#phoneNumberAttr'
+					],
+				Publish:[
+					'#TopicArnAttr','#TargetArnAttr','#PhoneNumberAttr','#MessageAttr','#SubjectAttr','#MessageStructureAttr','#MessageAttributesAttr','#MessageDeduplicationIdAttr','#MessageGroupIdAttr'
+					],
+				RemovePermission:[
+					'#TopicArnAttr','#LabelAttr'
+					],
+				SetEndpointAttributes:[
+					'#EndpointArnAttr','#AttributesAttr'
+					],
+				SetPlatformApplicationAttributes:[
+					'#PlatformApplicationArnAttr','#AttributesAttr'
+					],
+				SetSMSAttributes:[
+					'#attributesAttr'
+					],
+				SetSubscriptionAttributes:[
+					'#SubscriptionArnAttr','#AttributeNameAttr','#AttributeValueAttr'
+					],
+				SetTopicAttributes:[
+					'#TopicArnAttr','#AttributeNameAttr','#AttributeValueAttr'
+					],
+				Subscribe:[
+					'#TopicArnAttr','#ProtocolAttr','#EndpointAttr','#AttributesAttr','#ReturnSubscriptionArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				Unsubscribe:[
+					'#SubscriptionArnAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				VerifySMSSandboxPhoneNumber:[
+					'#PhoneNumberAttr','#OneTimePasswordAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SNS">
+<p>
+AWS SNS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SNS.html">SNS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SNS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddPermission' },
+			
+				TopicArn: { value: ""} ,
+				Label: { value: ""} ,
+				AWSAccountId: { value: ""} ,
+				ActionName: { value: ""} ,
+				phoneNumber: { value: ""} ,
+				Token: { value: ""} ,
+				AuthenticateOnUnsubscribe: { value: ""} ,
+				Name: { value: ""} ,
+				Platform: { value: ""} ,
+				Attributes: { value: ""} ,
+				PlatformApplicationArn: { value: ""} ,
+				CustomUserData: { value: ""} ,
+				PhoneNumber: { value: ""} ,
+				LanguageCode: { value: ""} ,
+				Tags: { value: ""} ,
+				EndpointArn: { value: ""} ,
+				attributes: { value: ""} ,
+				SubscriptionArn: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TargetArn: { value: ""} ,
+				Message: { value: ""} ,
+				Subject: { value: ""} ,
+				MessageStructure: { value: ""} ,
+				MessageAttributes: { value: ""} ,
+				MessageDeduplicationId: { value: ""} ,
+				MessageGroupId: { value: ""} ,
+				AttributeName: { value: ""} ,
+				AttributeValue: { value: ""} ,
+				Protocol: { value: ""} ,
+				Endpoint: { value: ""} ,
+				ReturnSubscriptionArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				OneTimePassword: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SNS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-TopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Label").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-phoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Token").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthenticateOnUnsubscribe").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Platform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformApplicationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomUserData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PhoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LanguageCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Message").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subject").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageStructure").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MessageDeduplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Protocol").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Endpoint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnSubscriptionArn").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-OneTimePassword").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,325 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudHSM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="CreateHapg">CreateHapg</option>
+		
+			<option value="CreateHsm">CreateHsm</option>
+		
+			<option value="CreateLunaClient">CreateLunaClient</option>
+		
+			<option value="DeleteHapg">DeleteHapg</option>
+		
+			<option value="DeleteHsm">DeleteHsm</option>
+		
+			<option value="DeleteLunaClient">DeleteLunaClient</option>
+		
+			<option value="DescribeHapg">DescribeHapg</option>
+		
+			<option value="DescribeHsm">DescribeHsm</option>
+		
+			<option value="DescribeLunaClient">DescribeLunaClient</option>
+		
+			<option value="GetConfig">GetConfig</option>
+		
+			<option value="ListAvailableZones">ListAvailableZones</option>
+		
+			<option value="ListHapgs">ListHapgs</option>
+		
+			<option value="ListHsms">ListHsms</option>
+		
+			<option value="ListLunaClients">ListLunaClients</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyHapg">ModifyHapg</option>
+		
+			<option value="ModifyHsm">ModifyHsm</option>
+		
+			<option value="ModifyLunaClient">ModifyLunaClient</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagList"><i class="fa fa-tag"></i> TagList</label>
+		<input type="text" id="node-input-TagList" placeholder="TagList"></input>
+	</div> 
+	<div class="form-row" id='LabelAttr' class='hiddenAttrs'>
+		<label for="node-input-Label"><i class="fa fa-tag"></i> Label</label>
+		<input type="text" id="node-input-Label" placeholder="Label"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i> SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='SshKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-SshKey"><i class="fa fa-tag"></i> SshKey</label>
+		<input type="text" id="node-input-SshKey" placeholder="SshKey"></input>
+	</div> 
+	<div class="form-row" id='EniIpAttr' class='hiddenAttrs'>
+		<label for="node-input-EniIp"><i class="fa fa-tag"></i> EniIp</label>
+		<input type="text" id="node-input-EniIp" placeholder="EniIp"></input>
+	</div> 
+	<div class="form-row" id='IamRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-IamRoleArn"><i class="fa fa-tag"></i> IamRoleArn</label>
+		<input type="text" id="node-input-IamRoleArn" placeholder="IamRoleArn"></input>
+	</div> 
+	<div class="form-row" id='ExternalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalId"><i class="fa fa-tag"></i> ExternalId</label>
+		<input type="text" id="node-input-ExternalId" placeholder="ExternalId"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionType"><i class="fa fa-tag"></i> SubscriptionType</label>
+		<input type="text" id="node-input-SubscriptionType" placeholder="SubscriptionType"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='SyslogIpAttr' class='hiddenAttrs'>
+		<label for="node-input-SyslogIp"><i class="fa fa-tag"></i> SyslogIp</label>
+		<input type="text" id="node-input-SyslogIp" placeholder="SyslogIp"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i> Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='HapgArnAttr' class='hiddenAttrs'>
+		<label for="node-input-HapgArn"><i class="fa fa-tag"></i> HapgArn</label>
+		<input type="text" id="node-input-HapgArn" placeholder="HapgArn"></input>
+	</div> 
+	<div class="form-row" id='HsmArnAttr' class='hiddenAttrs'>
+		<label for="node-input-HsmArn"><i class="fa fa-tag"></i> HsmArn</label>
+		<input type="text" id="node-input-HsmArn" placeholder="HsmArn"></input>
+	</div> 
+	<div class="form-row" id='ClientArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientArn"><i class="fa fa-tag"></i> ClientArn</label>
+		<input type="text" id="node-input-ClientArn" placeholder="ClientArn"></input>
+	</div> 
+	<div class="form-row" id='HsmSerialNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-HsmSerialNumber"><i class="fa fa-tag"></i> HsmSerialNumber</label>
+		<input type="text" id="node-input-HsmSerialNumber" placeholder="HsmSerialNumber"></input>
+	</div> 
+	<div class="form-row" id='CertificateFingerprintAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateFingerprint"><i class="fa fa-tag"></i> CertificateFingerprint</label>
+		<input type="text" id="node-input-CertificateFingerprint" placeholder="CertificateFingerprint"></input>
+	</div> 
+	<div class="form-row" id='ClientVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientVersion"><i class="fa fa-tag"></i> ClientVersion</label>
+		<input type="text" id="node-input-ClientVersion" placeholder="ClientVersion"></input>
+	</div> 
+	<div class="form-row" id='HapgListAttr' class='hiddenAttrs'>
+		<label for="node-input-HapgList"><i class="fa fa-tag"></i> HapgList</label>
+		<input type="text" id="node-input-HapgList" placeholder="HapgList"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='PartitionSerialListAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionSerialList"><i class="fa fa-tag"></i> PartitionSerialList</label>
+		<input type="text" id="node-input-PartitionSerialList" placeholder="PartitionSerialList"></input>
+	</div> 
+	<div class="form-row" id='TagKeyListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeyList"><i class="fa fa-tag"></i> TagKeyList</label>
+		<input type="text" id="node-input-TagKeyList" placeholder="TagKeyList"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToResource:[
+					'#ResourceArnAttr','#TagListAttr'
+					],
+				CreateHapg:[
+					'#LabelAttr'
+					],
+				CreateHsm:[
+					'#SubnetIdAttr','#SshKeyAttr','#EniIpAttr','#IamRoleArnAttr','#ExternalIdAttr','#SubscriptionTypeAttr','#ClientTokenAttr','#SyslogIpAttr'
+					],
+				CreateLunaClient:[
+					'#LabelAttr','#CertificateAttr'
+					],
+				DeleteHapg:[
+					'#HapgArnAttr'
+					],
+				DeleteHsm:[
+					'#HsmArnAttr'
+					],
+				DeleteLunaClient:[
+					'#ClientArnAttr'
+					],
+				DescribeHapg:[
+					'#HapgArnAttr'
+					],
+				DescribeHsm:[
+					'#HsmArnAttr','#HsmSerialNumberAttr'
+					],
+				DescribeLunaClient:[
+					'#ClientArnAttr','#CertificateFingerprintAttr'
+					],
+				GetConfig:[
+					'#ClientArnAttr','#ClientVersionAttr','#HapgListAttr'
+					],
+				ListAvailableZones:[
+					
+					],
+				ListHapgs:[
+					'#NextTokenAttr'
+					],
+				ListHsms:[
+					'#NextTokenAttr'
+					],
+				ListLunaClients:[
+					'#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ModifyHapg:[
+					'#HapgArnAttr','#LabelAttr','#PartitionSerialListAttr'
+					],
+				ModifyHsm:[
+					'#HsmArnAttr','#SubnetIdAttr','#EniIpAttr','#IamRoleArnAttr','#ExternalIdAttr','#SyslogIpAttr'
+					],
+				ModifyLunaClient:[
+					'#ClientArnAttr','#CertificateAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceArnAttr','#TagKeyListAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudHSM">
+<p>
+AWS CloudHSM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudHSM.html">CloudHSM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudHSM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToResource' },
+			
+				ResourceArn: { value: ""} ,
+				TagList: { value: ""} ,
+				Label: { value: ""} ,
+				SubnetId: { value: ""} ,
+				SshKey: { value: ""} ,
+				EniIp: { value: ""} ,
+				IamRoleArn: { value: ""} ,
+				ExternalId: { value: ""} ,
+				SubscriptionType: { value: ""} ,
+				ClientToken: { value: ""} ,
+				SyslogIp: { value: ""} ,
+				Certificate: { value: ""} ,
+				HapgArn: { value: ""} ,
+				HsmArn: { value: ""} ,
+				ClientArn: { value: ""} ,
+				HsmSerialNumber: { value: ""} ,
+				CertificateFingerprint: { value: ""} ,
+				ClientVersion: { value: ""} ,
+				HapgList: { value: ""} ,
+				NextToken: { value: ""} ,
+				PartitionSerialList: { value: ""} ,
+				TagKeyList: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudHSM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Label").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EniIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IamRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExternalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SyslogIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Certificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HapgArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HsmArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HsmSerialNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateFingerprint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HapgList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PartitionSerialList").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

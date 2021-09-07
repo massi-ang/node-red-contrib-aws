@@ -1,0 +1,1335 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS S3">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AbortMultipartUpload">AbortMultipartUpload</option>
+		
+			<option value="CompleteMultipartUpload">CompleteMultipartUpload</option>
+		
+			<option value="CopyObject">CopyObject</option>
+		
+			<option value="CreateBucket">CreateBucket</option>
+		
+			<option value="CreateMultipartUpload">CreateMultipartUpload</option>
+		
+			<option value="DeleteBucket">DeleteBucket</option>
+		
+			<option value="DeleteBucketAnalyticsConfiguration">DeleteBucketAnalyticsConfiguration</option>
+		
+			<option value="DeleteBucketCors">DeleteBucketCors</option>
+		
+			<option value="DeleteBucketEncryption">DeleteBucketEncryption</option>
+		
+			<option value="DeleteBucketIntelligentTieringConfiguration">DeleteBucketIntelligentTieringConfiguration</option>
+		
+			<option value="DeleteBucketInventoryConfiguration">DeleteBucketInventoryConfiguration</option>
+		
+			<option value="DeleteBucketLifecycle">DeleteBucketLifecycle</option>
+		
+			<option value="DeleteBucketMetricsConfiguration">DeleteBucketMetricsConfiguration</option>
+		
+			<option value="DeleteBucketOwnershipControls">DeleteBucketOwnershipControls</option>
+		
+			<option value="DeleteBucketPolicy">DeleteBucketPolicy</option>
+		
+			<option value="DeleteBucketReplication">DeleteBucketReplication</option>
+		
+			<option value="DeleteBucketTagging">DeleteBucketTagging</option>
+		
+			<option value="DeleteBucketWebsite">DeleteBucketWebsite</option>
+		
+			<option value="DeleteObject">DeleteObject</option>
+		
+			<option value="DeleteObjectTagging">DeleteObjectTagging</option>
+		
+			<option value="DeleteObjects">DeleteObjects</option>
+		
+			<option value="DeletePublicAccessBlock">DeletePublicAccessBlock</option>
+		
+			<option value="GetBucketAccelerateConfiguration">GetBucketAccelerateConfiguration</option>
+		
+			<option value="GetBucketAcl">GetBucketAcl</option>
+		
+			<option value="GetBucketAnalyticsConfiguration">GetBucketAnalyticsConfiguration</option>
+		
+			<option value="GetBucketCors">GetBucketCors</option>
+		
+			<option value="GetBucketEncryption">GetBucketEncryption</option>
+		
+			<option value="GetBucketIntelligentTieringConfiguration">GetBucketIntelligentTieringConfiguration</option>
+		
+			<option value="GetBucketInventoryConfiguration">GetBucketInventoryConfiguration</option>
+		
+			<option value="GetBucketLifecycle">GetBucketLifecycle</option>
+		
+			<option value="GetBucketLifecycleConfiguration">GetBucketLifecycleConfiguration</option>
+		
+			<option value="GetBucketLocation">GetBucketLocation</option>
+		
+			<option value="GetBucketLogging">GetBucketLogging</option>
+		
+			<option value="GetBucketMetricsConfiguration">GetBucketMetricsConfiguration</option>
+		
+			<option value="GetBucketNotification">GetBucketNotification</option>
+		
+			<option value="GetBucketNotificationConfiguration">GetBucketNotificationConfiguration</option>
+		
+			<option value="GetBucketOwnershipControls">GetBucketOwnershipControls</option>
+		
+			<option value="GetBucketPolicy">GetBucketPolicy</option>
+		
+			<option value="GetBucketPolicyStatus">GetBucketPolicyStatus</option>
+		
+			<option value="GetBucketReplication">GetBucketReplication</option>
+		
+			<option value="GetBucketRequestPayment">GetBucketRequestPayment</option>
+		
+			<option value="GetBucketTagging">GetBucketTagging</option>
+		
+			<option value="GetBucketVersioning">GetBucketVersioning</option>
+		
+			<option value="GetBucketWebsite">GetBucketWebsite</option>
+		
+			<option value="GetObject">GetObject</option>
+		
+			<option value="GetObjectAcl">GetObjectAcl</option>
+		
+			<option value="GetObjectLegalHold">GetObjectLegalHold</option>
+		
+			<option value="GetObjectLockConfiguration">GetObjectLockConfiguration</option>
+		
+			<option value="GetObjectRetention">GetObjectRetention</option>
+		
+			<option value="GetObjectTagging">GetObjectTagging</option>
+		
+			<option value="GetObjectTorrent">GetObjectTorrent</option>
+		
+			<option value="GetPublicAccessBlock">GetPublicAccessBlock</option>
+		
+			<option value="HeadBucket">HeadBucket</option>
+		
+			<option value="HeadObject">HeadObject</option>
+		
+			<option value="ListBucketAnalyticsConfigurations">ListBucketAnalyticsConfigurations</option>
+		
+			<option value="ListBucketIntelligentTieringConfigurations">ListBucketIntelligentTieringConfigurations</option>
+		
+			<option value="ListBucketInventoryConfigurations">ListBucketInventoryConfigurations</option>
+		
+			<option value="ListBucketMetricsConfigurations">ListBucketMetricsConfigurations</option>
+		
+			<option value="ListBuckets">ListBuckets</option>
+		
+			<option value="ListMultipartUploads">ListMultipartUploads</option>
+		
+			<option value="ListObjectVersions">ListObjectVersions</option>
+		
+			<option value="ListObjects">ListObjects</option>
+		
+			<option value="ListObjectsV2">ListObjectsV2</option>
+		
+			<option value="ListParts">ListParts</option>
+		
+			<option value="PutBucketAccelerateConfiguration">PutBucketAccelerateConfiguration</option>
+		
+			<option value="PutBucketAcl">PutBucketAcl</option>
+		
+			<option value="PutBucketAnalyticsConfiguration">PutBucketAnalyticsConfiguration</option>
+		
+			<option value="PutBucketCors">PutBucketCors</option>
+		
+			<option value="PutBucketEncryption">PutBucketEncryption</option>
+		
+			<option value="PutBucketIntelligentTieringConfiguration">PutBucketIntelligentTieringConfiguration</option>
+		
+			<option value="PutBucketInventoryConfiguration">PutBucketInventoryConfiguration</option>
+		
+			<option value="PutBucketLifecycle">PutBucketLifecycle</option>
+		
+			<option value="PutBucketLifecycleConfiguration">PutBucketLifecycleConfiguration</option>
+		
+			<option value="PutBucketLogging">PutBucketLogging</option>
+		
+			<option value="PutBucketMetricsConfiguration">PutBucketMetricsConfiguration</option>
+		
+			<option value="PutBucketNotification">PutBucketNotification</option>
+		
+			<option value="PutBucketNotificationConfiguration">PutBucketNotificationConfiguration</option>
+		
+			<option value="PutBucketOwnershipControls">PutBucketOwnershipControls</option>
+		
+			<option value="PutBucketPolicy">PutBucketPolicy</option>
+		
+			<option value="PutBucketReplication">PutBucketReplication</option>
+		
+			<option value="PutBucketRequestPayment">PutBucketRequestPayment</option>
+		
+			<option value="PutBucketTagging">PutBucketTagging</option>
+		
+			<option value="PutBucketVersioning">PutBucketVersioning</option>
+		
+			<option value="PutBucketWebsite">PutBucketWebsite</option>
+		
+			<option value="PutObject">PutObject</option>
+		
+			<option value="PutObjectAcl">PutObjectAcl</option>
+		
+			<option value="PutObjectLegalHold">PutObjectLegalHold</option>
+		
+			<option value="PutObjectLockConfiguration">PutObjectLockConfiguration</option>
+		
+			<option value="PutObjectRetention">PutObjectRetention</option>
+		
+			<option value="PutObjectTagging">PutObjectTagging</option>
+		
+			<option value="PutPublicAccessBlock">PutPublicAccessBlock</option>
+		
+			<option value="RestoreObject">RestoreObject</option>
+		
+			<option value="SelectObjectContent">SelectObjectContent</option>
+		
+			<option value="UploadPart">UploadPart</option>
+		
+			<option value="UploadPartCopy">UploadPartCopy</option>
+		
+			<option value="WriteGetObjectResponse">WriteGetObjectResponse</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-Bucket"><i class="fa fa-tag"></i> Bucket</label>
+		<input type="text" id="node-input-Bucket" placeholder="Bucket"></input>
+	</div> 
+	<div class="form-row" id='KeyAttr' class='hiddenAttrs'>
+		<label for="node-input-Key"><i class="fa fa-tag"></i> Key</label>
+		<input type="text" id="node-input-Key" placeholder="Key"></input>
+	</div> 
+	<div class="form-row" id='UploadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UploadId"><i class="fa fa-tag"></i> UploadId</label>
+		<input type="text" id="node-input-UploadId" placeholder="UploadId"></input>
+	</div> 
+	<div class="form-row" id='RequestPayerAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestPayer"><i class="fa fa-tag"></i> RequestPayer</label>
+		<input type="text" id="node-input-RequestPayer" placeholder="RequestPayer"></input>
+	</div> 
+	<div class="form-row" id='ExpectedBucketOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpectedBucketOwner"><i class="fa fa-tag"></i> ExpectedBucketOwner</label>
+		<input type="text" id="node-input-ExpectedBucketOwner" placeholder="ExpectedBucketOwner"></input>
+	</div> 
+	<div class="form-row" id='MultipartUploadAttr' class='hiddenAttrs'>
+		<label for="node-input-MultipartUpload"><i class="fa fa-tag"></i> MultipartUpload</label>
+		<input type="text" id="node-input-MultipartUpload" placeholder="MultipartUpload"></input>
+	</div> 
+	<div class="form-row" id='ACLAttr' class='hiddenAttrs'>
+		<label for="node-input-ACL"><i class="fa fa-tag"></i> ACL</label>
+		<input type="text" id="node-input-ACL" placeholder="ACL"></input>
+	</div> 
+	<div class="form-row" id='CacheControlAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheControl"><i class="fa fa-tag"></i> CacheControl</label>
+		<input type="text" id="node-input-CacheControl" placeholder="CacheControl"></input>
+	</div> 
+	<div class="form-row" id='ContentDispositionAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentDisposition"><i class="fa fa-tag"></i> ContentDisposition</label>
+		<input type="text" id="node-input-ContentDisposition" placeholder="ContentDisposition"></input>
+	</div> 
+	<div class="form-row" id='ContentEncodingAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentEncoding"><i class="fa fa-tag"></i> ContentEncoding</label>
+		<input type="text" id="node-input-ContentEncoding" placeholder="ContentEncoding"></input>
+	</div> 
+	<div class="form-row" id='ContentLanguageAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentLanguage"><i class="fa fa-tag"></i> ContentLanguage</label>
+		<input type="text" id="node-input-ContentLanguage" placeholder="ContentLanguage"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i> ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='CopySourceAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySource"><i class="fa fa-tag"></i> CopySource</label>
+		<input type="text" id="node-input-CopySource" placeholder="CopySource"></input>
+	</div> 
+	<div class="form-row" id='CopySourceIfMatchAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceIfMatch"><i class="fa fa-tag"></i> CopySourceIfMatch</label>
+		<input type="text" id="node-input-CopySourceIfMatch" placeholder="CopySourceIfMatch"></input>
+	</div> 
+	<div class="form-row" id='CopySourceIfModifiedSinceAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceIfModifiedSince"><i class="fa fa-tag"></i> CopySourceIfModifiedSince</label>
+		<input type="text" id="node-input-CopySourceIfModifiedSince" placeholder="CopySourceIfModifiedSince"></input>
+	</div> 
+	<div class="form-row" id='CopySourceIfNoneMatchAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceIfNoneMatch"><i class="fa fa-tag"></i> CopySourceIfNoneMatch</label>
+		<input type="text" id="node-input-CopySourceIfNoneMatch" placeholder="CopySourceIfNoneMatch"></input>
+	</div> 
+	<div class="form-row" id='CopySourceIfUnmodifiedSinceAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceIfUnmodifiedSince"><i class="fa fa-tag"></i> CopySourceIfUnmodifiedSince</label>
+		<input type="text" id="node-input-CopySourceIfUnmodifiedSince" placeholder="CopySourceIfUnmodifiedSince"></input>
+	</div> 
+	<div class="form-row" id='ExpiresAttr' class='hiddenAttrs'>
+		<label for="node-input-Expires"><i class="fa fa-tag"></i> Expires</label>
+		<input type="text" id="node-input-Expires" placeholder="Expires"></input>
+	</div> 
+	<div class="form-row" id='GrantFullControlAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantFullControl"><i class="fa fa-tag"></i> GrantFullControl</label>
+		<input type="text" id="node-input-GrantFullControl" placeholder="GrantFullControl"></input>
+	</div> 
+	<div class="form-row" id='GrantReadAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantRead"><i class="fa fa-tag"></i> GrantRead</label>
+		<input type="text" id="node-input-GrantRead" placeholder="GrantRead"></input>
+	</div> 
+	<div class="form-row" id='GrantReadACPAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantReadACP"><i class="fa fa-tag"></i> GrantReadACP</label>
+		<input type="text" id="node-input-GrantReadACP" placeholder="GrantReadACP"></input>
+	</div> 
+	<div class="form-row" id='GrantWriteACPAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantWriteACP"><i class="fa fa-tag"></i> GrantWriteACP</label>
+		<input type="text" id="node-input-GrantWriteACP" placeholder="GrantWriteACP"></input>
+	</div> 
+	<div class="form-row" id='MetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-Metadata"><i class="fa fa-tag"></i> Metadata</label>
+		<input type="text" id="node-input-Metadata" placeholder="Metadata"></input>
+	</div> 
+	<div class="form-row" id='MetadataDirectiveAttr' class='hiddenAttrs'>
+		<label for="node-input-MetadataDirective"><i class="fa fa-tag"></i> MetadataDirective</label>
+		<input type="text" id="node-input-MetadataDirective" placeholder="MetadataDirective"></input>
+	</div> 
+	<div class="form-row" id='TaggingDirectiveAttr' class='hiddenAttrs'>
+		<label for="node-input-TaggingDirective"><i class="fa fa-tag"></i> TaggingDirective</label>
+		<input type="text" id="node-input-TaggingDirective" placeholder="TaggingDirective"></input>
+	</div> 
+	<div class="form-row" id='ServerSideEncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerSideEncryption"><i class="fa fa-tag"></i> ServerSideEncryption</label>
+		<input type="text" id="node-input-ServerSideEncryption" placeholder="ServerSideEncryption"></input>
+	</div> 
+	<div class="form-row" id='StorageClassAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageClass"><i class="fa fa-tag"></i> StorageClass</label>
+		<input type="text" id="node-input-StorageClass" placeholder="StorageClass"></input>
+	</div> 
+	<div class="form-row" id='WebsiteRedirectLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-WebsiteRedirectLocation"><i class="fa fa-tag"></i> WebsiteRedirectLocation</label>
+		<input type="text" id="node-input-WebsiteRedirectLocation" placeholder="WebsiteRedirectLocation"></input>
+	</div> 
+	<div class="form-row" id='SSECustomerAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-SSECustomerAlgorithm"><i class="fa fa-tag"></i> SSECustomerAlgorithm</label>
+		<input type="text" id="node-input-SSECustomerAlgorithm" placeholder="SSECustomerAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='SSECustomerKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-SSECustomerKey"><i class="fa fa-tag"></i> SSECustomerKey</label>
+		<input type="text" id="node-input-SSECustomerKey" placeholder="SSECustomerKey"></input>
+	</div> 
+	<div class="form-row" id='SSECustomerKeyMD5Attr' class='hiddenAttrs'>
+		<label for="node-input-SSECustomerKeyMD5"><i class="fa fa-tag"></i> SSECustomerKeyMD5</label>
+		<input type="text" id="node-input-SSECustomerKeyMD5" placeholder="SSECustomerKeyMD5"></input>
+	</div> 
+	<div class="form-row" id='SSEKMSKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SSEKMSKeyId"><i class="fa fa-tag"></i> SSEKMSKeyId</label>
+		<input type="text" id="node-input-SSEKMSKeyId" placeholder="SSEKMSKeyId"></input>
+	</div> 
+	<div class="form-row" id='SSEKMSEncryptionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-SSEKMSEncryptionContext"><i class="fa fa-tag"></i> SSEKMSEncryptionContext</label>
+		<input type="text" id="node-input-SSEKMSEncryptionContext" placeholder="SSEKMSEncryptionContext"></input>
+	</div> 
+	<div class="form-row" id='BucketKeyEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-BucketKeyEnabled"><i class="fa fa-tag"></i> BucketKeyEnabled</label>
+		<input type="text" id="node-input-BucketKeyEnabled" placeholder="BucketKeyEnabled"></input>
+	</div> 
+	<div class="form-row" id='CopySourceSSECustomerAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceSSECustomerAlgorithm"><i class="fa fa-tag"></i> CopySourceSSECustomerAlgorithm</label>
+		<input type="text" id="node-input-CopySourceSSECustomerAlgorithm" placeholder="CopySourceSSECustomerAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='CopySourceSSECustomerKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceSSECustomerKey"><i class="fa fa-tag"></i> CopySourceSSECustomerKey</label>
+		<input type="text" id="node-input-CopySourceSSECustomerKey" placeholder="CopySourceSSECustomerKey"></input>
+	</div> 
+	<div class="form-row" id='CopySourceSSECustomerKeyMD5Attr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceSSECustomerKeyMD5"><i class="fa fa-tag"></i> CopySourceSSECustomerKeyMD5</label>
+		<input type="text" id="node-input-CopySourceSSECustomerKeyMD5" placeholder="CopySourceSSECustomerKeyMD5"></input>
+	</div> 
+	<div class="form-row" id='TaggingAttr' class='hiddenAttrs'>
+		<label for="node-input-Tagging"><i class="fa fa-tag"></i> Tagging</label>
+		<input type="text" id="node-input-Tagging" placeholder="Tagging"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockModeAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockMode"><i class="fa fa-tag"></i> ObjectLockMode</label>
+		<input type="text" id="node-input-ObjectLockMode" placeholder="ObjectLockMode"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockRetainUntilDateAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockRetainUntilDate"><i class="fa fa-tag"></i> ObjectLockRetainUntilDate</label>
+		<input type="text" id="node-input-ObjectLockRetainUntilDate" placeholder="ObjectLockRetainUntilDate"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockLegalHoldStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockLegalHoldStatus"><i class="fa fa-tag"></i> ObjectLockLegalHoldStatus</label>
+		<input type="text" id="node-input-ObjectLockLegalHoldStatus" placeholder="ObjectLockLegalHoldStatus"></input>
+	</div> 
+	<div class="form-row" id='ExpectedSourceBucketOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpectedSourceBucketOwner"><i class="fa fa-tag"></i> ExpectedSourceBucketOwner</label>
+		<input type="text" id="node-input-ExpectedSourceBucketOwner" placeholder="ExpectedSourceBucketOwner"></input>
+	</div> 
+	<div class="form-row" id='CreateBucketConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateBucketConfiguration"><i class="fa fa-tag"></i> CreateBucketConfiguration</label>
+		<input type="text" id="node-input-CreateBucketConfiguration" placeholder="CreateBucketConfiguration"></input>
+	</div> 
+	<div class="form-row" id='GrantWriteAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantWrite"><i class="fa fa-tag"></i> GrantWrite</label>
+		<input type="text" id="node-input-GrantWrite" placeholder="GrantWrite"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockEnabledForBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockEnabledForBucket"><i class="fa fa-tag"></i> ObjectLockEnabledForBucket</label>
+		<input type="text" id="node-input-ObjectLockEnabledForBucket" placeholder="ObjectLockEnabledForBucket"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='MFAAttr' class='hiddenAttrs'>
+		<label for="node-input-MFA"><i class="fa fa-tag"></i> MFA</label>
+		<input type="text" id="node-input-MFA" placeholder="MFA"></input>
+	</div> 
+	<div class="form-row" id='VersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionId"><i class="fa fa-tag"></i> VersionId</label>
+		<input type="text" id="node-input-VersionId" placeholder="VersionId"></input>
+	</div> 
+	<div class="form-row" id='BypassGovernanceRetentionAttr' class='hiddenAttrs'>
+		<label for="node-input-BypassGovernanceRetention"><i class="fa fa-tag"></i> BypassGovernanceRetention</label>
+		<input type="text" id="node-input-BypassGovernanceRetention" placeholder="BypassGovernanceRetention"></input>
+	</div> 
+	<div class="form-row" id='DeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-Delete"><i class="fa fa-tag"></i> Delete</label>
+		<input type="text" id="node-input-Delete" placeholder="Delete"></input>
+	</div> 
+	<div class="form-row" id='IfMatchAttr' class='hiddenAttrs'>
+		<label for="node-input-IfMatch"><i class="fa fa-tag"></i> IfMatch</label>
+		<input type="text" id="node-input-IfMatch" placeholder="IfMatch"></input>
+	</div> 
+	<div class="form-row" id='IfModifiedSinceAttr' class='hiddenAttrs'>
+		<label for="node-input-IfModifiedSince"><i class="fa fa-tag"></i> IfModifiedSince</label>
+		<input type="text" id="node-input-IfModifiedSince" placeholder="IfModifiedSince"></input>
+	</div> 
+	<div class="form-row" id='IfNoneMatchAttr' class='hiddenAttrs'>
+		<label for="node-input-IfNoneMatch"><i class="fa fa-tag"></i> IfNoneMatch</label>
+		<input type="text" id="node-input-IfNoneMatch" placeholder="IfNoneMatch"></input>
+	</div> 
+	<div class="form-row" id='IfUnmodifiedSinceAttr' class='hiddenAttrs'>
+		<label for="node-input-IfUnmodifiedSince"><i class="fa fa-tag"></i> IfUnmodifiedSince</label>
+		<input type="text" id="node-input-IfUnmodifiedSince" placeholder="IfUnmodifiedSince"></input>
+	</div> 
+	<div class="form-row" id='RangeAttr' class='hiddenAttrs'>
+		<label for="node-input-Range"><i class="fa fa-tag"></i> Range</label>
+		<input type="text" id="node-input-Range" placeholder="Range"></input>
+	</div> 
+	<div class="form-row" id='ResponseCacheControlAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseCacheControl"><i class="fa fa-tag"></i> ResponseCacheControl</label>
+		<input type="text" id="node-input-ResponseCacheControl" placeholder="ResponseCacheControl"></input>
+	</div> 
+	<div class="form-row" id='ResponseContentDispositionAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseContentDisposition"><i class="fa fa-tag"></i> ResponseContentDisposition</label>
+		<input type="text" id="node-input-ResponseContentDisposition" placeholder="ResponseContentDisposition"></input>
+	</div> 
+	<div class="form-row" id='ResponseContentEncodingAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseContentEncoding"><i class="fa fa-tag"></i> ResponseContentEncoding</label>
+		<input type="text" id="node-input-ResponseContentEncoding" placeholder="ResponseContentEncoding"></input>
+	</div> 
+	<div class="form-row" id='ResponseContentLanguageAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseContentLanguage"><i class="fa fa-tag"></i> ResponseContentLanguage</label>
+		<input type="text" id="node-input-ResponseContentLanguage" placeholder="ResponseContentLanguage"></input>
+	</div> 
+	<div class="form-row" id='ResponseContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseContentType"><i class="fa fa-tag"></i> ResponseContentType</label>
+		<input type="text" id="node-input-ResponseContentType" placeholder="ResponseContentType"></input>
+	</div> 
+	<div class="form-row" id='ResponseExpiresAttr' class='hiddenAttrs'>
+		<label for="node-input-ResponseExpires"><i class="fa fa-tag"></i> ResponseExpires</label>
+		<input type="text" id="node-input-ResponseExpires" placeholder="ResponseExpires"></input>
+	</div> 
+	<div class="form-row" id='PartNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-PartNumber"><i class="fa fa-tag"></i> PartNumber</label>
+		<input type="text" id="node-input-PartNumber" placeholder="PartNumber"></input>
+	</div> 
+	<div class="form-row" id='ContinuationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ContinuationToken"><i class="fa fa-tag"></i> ContinuationToken</label>
+		<input type="text" id="node-input-ContinuationToken" placeholder="ContinuationToken"></input>
+	</div> 
+	<div class="form-row" id='DelimiterAttr' class='hiddenAttrs'>
+		<label for="node-input-Delimiter"><i class="fa fa-tag"></i> Delimiter</label>
+		<input type="text" id="node-input-Delimiter" placeholder="Delimiter"></input>
+	</div> 
+	<div class="form-row" id='EncodingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EncodingType"><i class="fa fa-tag"></i> EncodingType</label>
+		<input type="text" id="node-input-EncodingType" placeholder="EncodingType"></input>
+	</div> 
+	<div class="form-row" id='KeyMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyMarker"><i class="fa fa-tag"></i> KeyMarker</label>
+		<input type="text" id="node-input-KeyMarker" placeholder="KeyMarker"></input>
+	</div> 
+	<div class="form-row" id='MaxUploadsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxUploads"><i class="fa fa-tag"></i> MaxUploads</label>
+		<input type="text" id="node-input-MaxUploads" placeholder="MaxUploads"></input>
+	</div> 
+	<div class="form-row" id='PrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-Prefix"><i class="fa fa-tag"></i> Prefix</label>
+		<input type="text" id="node-input-Prefix" placeholder="Prefix"></input>
+	</div> 
+	<div class="form-row" id='UploadIdMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-UploadIdMarker"><i class="fa fa-tag"></i> UploadIdMarker</label>
+		<input type="text" id="node-input-UploadIdMarker" placeholder="UploadIdMarker"></input>
+	</div> 
+	<div class="form-row" id='MaxKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxKeys"><i class="fa fa-tag"></i> MaxKeys</label>
+		<input type="text" id="node-input-MaxKeys" placeholder="MaxKeys"></input>
+	</div> 
+	<div class="form-row" id='VersionIdMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionIdMarker"><i class="fa fa-tag"></i> VersionIdMarker</label>
+		<input type="text" id="node-input-VersionIdMarker" placeholder="VersionIdMarker"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='FetchOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-FetchOwner"><i class="fa fa-tag"></i> FetchOwner</label>
+		<input type="text" id="node-input-FetchOwner" placeholder="FetchOwner"></input>
+	</div> 
+	<div class="form-row" id='StartAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-StartAfter"><i class="fa fa-tag"></i> StartAfter</label>
+		<input type="text" id="node-input-StartAfter" placeholder="StartAfter"></input>
+	</div> 
+	<div class="form-row" id='MaxPartsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxParts"><i class="fa fa-tag"></i> MaxParts</label>
+		<input type="text" id="node-input-MaxParts" placeholder="MaxParts"></input>
+	</div> 
+	<div class="form-row" id='PartNumberMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-PartNumberMarker"><i class="fa fa-tag"></i> PartNumberMarker</label>
+		<input type="text" id="node-input-PartNumberMarker" placeholder="PartNumberMarker"></input>
+	</div> 
+	<div class="form-row" id='AccelerateConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-AccelerateConfiguration"><i class="fa fa-tag"></i> AccelerateConfiguration</label>
+		<input type="text" id="node-input-AccelerateConfiguration" placeholder="AccelerateConfiguration"></input>
+	</div> 
+	<div class="form-row" id='AccessControlPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessControlPolicy"><i class="fa fa-tag"></i> AccessControlPolicy</label>
+		<input type="text" id="node-input-AccessControlPolicy" placeholder="AccessControlPolicy"></input>
+	</div> 
+	<div class="form-row" id='ContentMD5Attr' class='hiddenAttrs'>
+		<label for="node-input-ContentMD5"><i class="fa fa-tag"></i> ContentMD5</label>
+		<input type="text" id="node-input-ContentMD5" placeholder="ContentMD5"></input>
+	</div> 
+	<div class="form-row" id='AnalyticsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-AnalyticsConfiguration"><i class="fa fa-tag"></i> AnalyticsConfiguration</label>
+		<input type="text" id="node-input-AnalyticsConfiguration" placeholder="AnalyticsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='CORSConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CORSConfiguration"><i class="fa fa-tag"></i> CORSConfiguration</label>
+		<input type="text" id="node-input-CORSConfiguration" placeholder="CORSConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ServerSideEncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerSideEncryptionConfiguration"><i class="fa fa-tag"></i> ServerSideEncryptionConfiguration</label>
+		<input type="text" id="node-input-ServerSideEncryptionConfiguration" placeholder="ServerSideEncryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='IntelligentTieringConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-IntelligentTieringConfiguration"><i class="fa fa-tag"></i> IntelligentTieringConfiguration</label>
+		<input type="text" id="node-input-IntelligentTieringConfiguration" placeholder="IntelligentTieringConfiguration"></input>
+	</div> 
+	<div class="form-row" id='InventoryConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-InventoryConfiguration"><i class="fa fa-tag"></i> InventoryConfiguration</label>
+		<input type="text" id="node-input-InventoryConfiguration" placeholder="InventoryConfiguration"></input>
+	</div> 
+	<div class="form-row" id='LifecycleConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleConfiguration"><i class="fa fa-tag"></i> LifecycleConfiguration</label>
+		<input type="text" id="node-input-LifecycleConfiguration" placeholder="LifecycleConfiguration"></input>
+	</div> 
+	<div class="form-row" id='BucketLoggingStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-BucketLoggingStatus"><i class="fa fa-tag"></i> BucketLoggingStatus</label>
+		<input type="text" id="node-input-BucketLoggingStatus" placeholder="BucketLoggingStatus"></input>
+	</div> 
+	<div class="form-row" id='MetricsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricsConfiguration"><i class="fa fa-tag"></i> MetricsConfiguration</label>
+		<input type="text" id="node-input-MetricsConfiguration" placeholder="MetricsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NotificationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationConfiguration"><i class="fa fa-tag"></i> NotificationConfiguration</label>
+		<input type="text" id="node-input-NotificationConfiguration" placeholder="NotificationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='OwnershipControlsAttr' class='hiddenAttrs'>
+		<label for="node-input-OwnershipControls"><i class="fa fa-tag"></i> OwnershipControls</label>
+		<input type="text" id="node-input-OwnershipControls" placeholder="OwnershipControls"></input>
+	</div> 
+	<div class="form-row" id='ConfirmRemoveSelfBucketAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfirmRemoveSelfBucketAccess"><i class="fa fa-tag"></i> ConfirmRemoveSelfBucketAccess</label>
+		<input type="text" id="node-input-ConfirmRemoveSelfBucketAccess" placeholder="ConfirmRemoveSelfBucketAccess"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='ReplicationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationConfiguration"><i class="fa fa-tag"></i> ReplicationConfiguration</label>
+		<input type="text" id="node-input-ReplicationConfiguration" placeholder="ReplicationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TokenAttr' class='hiddenAttrs'>
+		<label for="node-input-Token"><i class="fa fa-tag"></i> Token</label>
+		<input type="text" id="node-input-Token" placeholder="Token"></input>
+	</div> 
+	<div class="form-row" id='RequestPaymentConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestPaymentConfiguration"><i class="fa fa-tag"></i> RequestPaymentConfiguration</label>
+		<input type="text" id="node-input-RequestPaymentConfiguration" placeholder="RequestPaymentConfiguration"></input>
+	</div> 
+	<div class="form-row" id='VersioningConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-VersioningConfiguration"><i class="fa fa-tag"></i> VersioningConfiguration</label>
+		<input type="text" id="node-input-VersioningConfiguration" placeholder="VersioningConfiguration"></input>
+	</div> 
+	<div class="form-row" id='WebsiteConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-WebsiteConfiguration"><i class="fa fa-tag"></i> WebsiteConfiguration</label>
+		<input type="text" id="node-input-WebsiteConfiguration" placeholder="WebsiteConfiguration"></input>
+	</div> 
+	<div class="form-row" id='BodyAttr' class='hiddenAttrs'>
+		<label for="node-input-Body"><i class="fa fa-tag"></i> Body</label>
+		<input type="text" id="node-input-Body" placeholder="Body"></input>
+	</div> 
+	<div class="form-row" id='ContentLengthAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentLength"><i class="fa fa-tag"></i> ContentLength</label>
+		<input type="text" id="node-input-ContentLength" placeholder="ContentLength"></input>
+	</div> 
+	<div class="form-row" id='LegalHoldAttr' class='hiddenAttrs'>
+		<label for="node-input-LegalHold"><i class="fa fa-tag"></i> LegalHold</label>
+		<input type="text" id="node-input-LegalHold" placeholder="LegalHold"></input>
+	</div> 
+	<div class="form-row" id='ObjectLockConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectLockConfiguration"><i class="fa fa-tag"></i> ObjectLockConfiguration</label>
+		<input type="text" id="node-input-ObjectLockConfiguration" placeholder="ObjectLockConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RetentionAttr' class='hiddenAttrs'>
+		<label for="node-input-Retention"><i class="fa fa-tag"></i> Retention</label>
+		<input type="text" id="node-input-Retention" placeholder="Retention"></input>
+	</div> 
+	<div class="form-row" id='PublicAccessBlockConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicAccessBlockConfiguration"><i class="fa fa-tag"></i> PublicAccessBlockConfiguration</label>
+		<input type="text" id="node-input-PublicAccessBlockConfiguration" placeholder="PublicAccessBlockConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RestoreRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-RestoreRequest"><i class="fa fa-tag"></i> RestoreRequest</label>
+		<input type="text" id="node-input-RestoreRequest" placeholder="RestoreRequest"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i> Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='ExpressionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpressionType"><i class="fa fa-tag"></i> ExpressionType</label>
+		<input type="text" id="node-input-ExpressionType" placeholder="ExpressionType"></input>
+	</div> 
+	<div class="form-row" id='RequestProgressAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestProgress"><i class="fa fa-tag"></i> RequestProgress</label>
+		<input type="text" id="node-input-RequestProgress" placeholder="RequestProgress"></input>
+	</div> 
+	<div class="form-row" id='InputSerializationAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSerialization"><i class="fa fa-tag"></i> InputSerialization</label>
+		<input type="text" id="node-input-InputSerialization" placeholder="InputSerialization"></input>
+	</div> 
+	<div class="form-row" id='OutputSerializationAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputSerialization"><i class="fa fa-tag"></i> OutputSerialization</label>
+		<input type="text" id="node-input-OutputSerialization" placeholder="OutputSerialization"></input>
+	</div> 
+	<div class="form-row" id='ScanRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScanRange"><i class="fa fa-tag"></i> ScanRange</label>
+		<input type="text" id="node-input-ScanRange" placeholder="ScanRange"></input>
+	</div> 
+	<div class="form-row" id='CopySourceRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-CopySourceRange"><i class="fa fa-tag"></i> CopySourceRange</label>
+		<input type="text" id="node-input-CopySourceRange" placeholder="CopySourceRange"></input>
+	</div> 
+	<div class="form-row" id='RequestRouteAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestRoute"><i class="fa fa-tag"></i> RequestRoute</label>
+		<input type="text" id="node-input-RequestRoute" placeholder="RequestRoute"></input>
+	</div> 
+	<div class="form-row" id='RequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestToken"><i class="fa fa-tag"></i> RequestToken</label>
+		<input type="text" id="node-input-RequestToken" placeholder="RequestToken"></input>
+	</div> 
+	<div class="form-row" id='StatusCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusCode"><i class="fa fa-tag"></i> StatusCode</label>
+		<input type="text" id="node-input-StatusCode" placeholder="StatusCode"></input>
+	</div> 
+	<div class="form-row" id='ErrorCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ErrorCode"><i class="fa fa-tag"></i> ErrorCode</label>
+		<input type="text" id="node-input-ErrorCode" placeholder="ErrorCode"></input>
+	</div> 
+	<div class="form-row" id='ErrorMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-ErrorMessage"><i class="fa fa-tag"></i> ErrorMessage</label>
+		<input type="text" id="node-input-ErrorMessage" placeholder="ErrorMessage"></input>
+	</div> 
+	<div class="form-row" id='AcceptRangesAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptRanges"><i class="fa fa-tag"></i> AcceptRanges</label>
+		<input type="text" id="node-input-AcceptRanges" placeholder="AcceptRanges"></input>
+	</div> 
+	<div class="form-row" id='ContentRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentRange"><i class="fa fa-tag"></i> ContentRange</label>
+		<input type="text" id="node-input-ContentRange" placeholder="ContentRange"></input>
+	</div> 
+	<div class="form-row" id='DeleteMarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteMarker"><i class="fa fa-tag"></i> DeleteMarker</label>
+		<input type="text" id="node-input-DeleteMarker" placeholder="DeleteMarker"></input>
+	</div> 
+	<div class="form-row" id='ETagAttr' class='hiddenAttrs'>
+		<label for="node-input-ETag"><i class="fa fa-tag"></i> ETag</label>
+		<input type="text" id="node-input-ETag" placeholder="ETag"></input>
+	</div> 
+	<div class="form-row" id='ExpirationAttr' class='hiddenAttrs'>
+		<label for="node-input-Expiration"><i class="fa fa-tag"></i> Expiration</label>
+		<input type="text" id="node-input-Expiration" placeholder="Expiration"></input>
+	</div> 
+	<div class="form-row" id='LastModifiedAttr' class='hiddenAttrs'>
+		<label for="node-input-LastModified"><i class="fa fa-tag"></i> LastModified</label>
+		<input type="text" id="node-input-LastModified" placeholder="LastModified"></input>
+	</div> 
+	<div class="form-row" id='MissingMetaAttr' class='hiddenAttrs'>
+		<label for="node-input-MissingMeta"><i class="fa fa-tag"></i> MissingMeta</label>
+		<input type="text" id="node-input-MissingMeta" placeholder="MissingMeta"></input>
+	</div> 
+	<div class="form-row" id='PartsCountAttr' class='hiddenAttrs'>
+		<label for="node-input-PartsCount"><i class="fa fa-tag"></i> PartsCount</label>
+		<input type="text" id="node-input-PartsCount" placeholder="PartsCount"></input>
+	</div> 
+	<div class="form-row" id='ReplicationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationStatus"><i class="fa fa-tag"></i> ReplicationStatus</label>
+		<input type="text" id="node-input-ReplicationStatus" placeholder="ReplicationStatus"></input>
+	</div> 
+	<div class="form-row" id='RequestChargedAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestCharged"><i class="fa fa-tag"></i> RequestCharged</label>
+		<input type="text" id="node-input-RequestCharged" placeholder="RequestCharged"></input>
+	</div> 
+	<div class="form-row" id='RestoreAttr' class='hiddenAttrs'>
+		<label for="node-input-Restore"><i class="fa fa-tag"></i> Restore</label>
+		<input type="text" id="node-input-Restore" placeholder="Restore"></input>
+	</div> 
+	<div class="form-row" id='TagCountAttr' class='hiddenAttrs'>
+		<label for="node-input-TagCount"><i class="fa fa-tag"></i> TagCount</label>
+		<input type="text" id="node-input-TagCount" placeholder="TagCount"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AbortMultipartUpload:[
+					'#BucketAttr','#KeyAttr','#UploadIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				CompleteMultipartUpload:[
+					'#BucketAttr','#KeyAttr','#MultipartUploadAttr','#UploadIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				CopyObject:[
+					'#ACLAttr','#BucketAttr','#CacheControlAttr','#ContentDispositionAttr','#ContentEncodingAttr','#ContentLanguageAttr','#ContentTypeAttr','#CopySourceAttr','#CopySourceIfMatchAttr','#CopySourceIfModifiedSinceAttr','#CopySourceIfNoneMatchAttr','#CopySourceIfUnmodifiedSinceAttr','#ExpiresAttr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteACPAttr','#KeyAttr','#MetadataAttr','#MetadataDirectiveAttr','#TaggingDirectiveAttr','#ServerSideEncryptionAttr','#StorageClassAttr','#WebsiteRedirectLocationAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#SSEKMSKeyIdAttr','#SSEKMSEncryptionContextAttr','#BucketKeyEnabledAttr','#CopySourceSSECustomerAlgorithmAttr','#CopySourceSSECustomerKeyAttr','#CopySourceSSECustomerKeyMD5Attr','#RequestPayerAttr','#TaggingAttr','#ObjectLockModeAttr','#ObjectLockRetainUntilDateAttr','#ObjectLockLegalHoldStatusAttr','#ExpectedBucketOwnerAttr','#ExpectedSourceBucketOwnerAttr'
+					],
+				CreateBucket:[
+					'#ACLAttr','#BucketAttr','#CreateBucketConfigurationAttr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteAttr','#GrantWriteACPAttr','#ObjectLockEnabledForBucketAttr'
+					],
+				CreateMultipartUpload:[
+					'#ACLAttr','#BucketAttr','#CacheControlAttr','#ContentDispositionAttr','#ContentEncodingAttr','#ContentLanguageAttr','#ContentTypeAttr','#ExpiresAttr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteACPAttr','#KeyAttr','#MetadataAttr','#ServerSideEncryptionAttr','#StorageClassAttr','#WebsiteRedirectLocationAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#SSEKMSKeyIdAttr','#SSEKMSEncryptionContextAttr','#BucketKeyEnabledAttr','#RequestPayerAttr','#TaggingAttr','#ObjectLockModeAttr','#ObjectLockRetainUntilDateAttr','#ObjectLockLegalHoldStatusAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucket:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketAnalyticsConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketCors:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketEncryption:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr'
+					],
+				DeleteBucketInventoryConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketLifecycle:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketMetricsConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketOwnershipControls:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketPolicy:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketReplication:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketTagging:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteBucketWebsite:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteObject:[
+					'#BucketAttr','#KeyAttr','#MFAAttr','#VersionIdAttr','#RequestPayerAttr','#BypassGovernanceRetentionAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteObjectTagging:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeleteObjects:[
+					'#BucketAttr','#DeleteAttr','#MFAAttr','#RequestPayerAttr','#BypassGovernanceRetentionAttr','#ExpectedBucketOwnerAttr'
+					],
+				DeletePublicAccessBlock:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketAccelerateConfiguration:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketAcl:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketAnalyticsConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketCors:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketEncryption:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr'
+					],
+				GetBucketInventoryConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketLifecycle:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketLifecycleConfiguration:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketLocation:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketLogging:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketMetricsConfiguration:[
+					'#BucketAttr','#IdAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketNotification:[
+					
+					],
+				GetBucketNotificationConfiguration:[
+					
+					],
+				GetBucketOwnershipControls:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketPolicy:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketPolicyStatus:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketReplication:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketRequestPayment:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketTagging:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketVersioning:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetBucketWebsite:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObject:[
+					'#BucketAttr','#IfMatchAttr','#IfModifiedSinceAttr','#IfNoneMatchAttr','#IfUnmodifiedSinceAttr','#KeyAttr','#RangeAttr','#ResponseCacheControlAttr','#ResponseContentDispositionAttr','#ResponseContentEncodingAttr','#ResponseContentLanguageAttr','#ResponseContentTypeAttr','#ResponseExpiresAttr','#VersionIdAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#RequestPayerAttr','#PartNumberAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObjectAcl:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObjectLegalHold:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObjectLockConfiguration:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObjectRetention:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetObjectTagging:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#ExpectedBucketOwnerAttr','#RequestPayerAttr'
+					],
+				GetObjectTorrent:[
+					'#BucketAttr','#KeyAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				GetPublicAccessBlock:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				HeadBucket:[
+					'#BucketAttr','#ExpectedBucketOwnerAttr'
+					],
+				HeadObject:[
+					'#BucketAttr','#IfMatchAttr','#IfModifiedSinceAttr','#IfNoneMatchAttr','#IfUnmodifiedSinceAttr','#KeyAttr','#RangeAttr','#VersionIdAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#RequestPayerAttr','#PartNumberAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListBucketAnalyticsConfigurations:[
+					'#BucketAttr','#ContinuationTokenAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListBucketIntelligentTieringConfigurations:[
+					'#BucketAttr','#ContinuationTokenAttr'
+					],
+				ListBucketInventoryConfigurations:[
+					'#BucketAttr','#ContinuationTokenAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListBucketMetricsConfigurations:[
+					'#BucketAttr','#ContinuationTokenAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListBuckets:[
+					
+					],
+				ListMultipartUploads:[
+					'#BucketAttr','#DelimiterAttr','#EncodingTypeAttr','#KeyMarkerAttr','#MaxUploadsAttr','#PrefixAttr','#UploadIdMarkerAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListObjectVersions:[
+					'#BucketAttr','#DelimiterAttr','#EncodingTypeAttr','#KeyMarkerAttr','#MaxKeysAttr','#PrefixAttr','#VersionIdMarkerAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListObjects:[
+					'#BucketAttr','#DelimiterAttr','#EncodingTypeAttr','#MarkerAttr','#MaxKeysAttr','#PrefixAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListObjectsV2:[
+					'#BucketAttr','#DelimiterAttr','#EncodingTypeAttr','#MaxKeysAttr','#PrefixAttr','#ContinuationTokenAttr','#FetchOwnerAttr','#StartAfterAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				ListParts:[
+					'#BucketAttr','#KeyAttr','#MaxPartsAttr','#PartNumberMarkerAttr','#UploadIdAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketAccelerateConfiguration:[
+					'#BucketAttr','#AccelerateConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketAcl:[
+					'#ACLAttr','#AccessControlPolicyAttr','#BucketAttr','#ContentMD5Attr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteAttr','#GrantWriteACPAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketAnalyticsConfiguration:[
+					'#BucketAttr','#IdAttr','#AnalyticsConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketCors:[
+					'#BucketAttr','#CORSConfigurationAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketEncryption:[
+					'#BucketAttr','#ContentMD5Attr','#ServerSideEncryptionConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketIntelligentTieringConfiguration:[
+					'#BucketAttr','#IdAttr','#IntelligentTieringConfigurationAttr'
+					],
+				PutBucketInventoryConfiguration:[
+					'#BucketAttr','#IdAttr','#InventoryConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketLifecycle:[
+					'#BucketAttr','#ContentMD5Attr','#LifecycleConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketLifecycleConfiguration:[
+					'#BucketAttr','#LifecycleConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketLogging:[
+					'#BucketAttr','#BucketLoggingStatusAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketMetricsConfiguration:[
+					'#BucketAttr','#IdAttr','#MetricsConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketNotification:[
+					'#BucketAttr','#ContentMD5Attr','#NotificationConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketNotificationConfiguration:[
+					'#BucketAttr','#NotificationConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketOwnershipControls:[
+					'#BucketAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr','#OwnershipControlsAttr'
+					],
+				PutBucketPolicy:[
+					'#BucketAttr','#ContentMD5Attr','#ConfirmRemoveSelfBucketAccessAttr','#PolicyAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketReplication:[
+					'#BucketAttr','#ContentMD5Attr','#ReplicationConfigurationAttr','#TokenAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketRequestPayment:[
+					'#BucketAttr','#ContentMD5Attr','#RequestPaymentConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketTagging:[
+					'#BucketAttr','#ContentMD5Attr','#TaggingAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketVersioning:[
+					'#BucketAttr','#ContentMD5Attr','#MFAAttr','#VersioningConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutBucketWebsite:[
+					'#BucketAttr','#ContentMD5Attr','#WebsiteConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutObject:[
+					'#ACLAttr','#BodyAttr','#BucketAttr','#CacheControlAttr','#ContentDispositionAttr','#ContentEncodingAttr','#ContentLanguageAttr','#ContentLengthAttr','#ContentMD5Attr','#ContentTypeAttr','#ExpiresAttr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteACPAttr','#KeyAttr','#MetadataAttr','#ServerSideEncryptionAttr','#StorageClassAttr','#WebsiteRedirectLocationAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#SSEKMSKeyIdAttr','#SSEKMSEncryptionContextAttr','#BucketKeyEnabledAttr','#RequestPayerAttr','#TaggingAttr','#ObjectLockModeAttr','#ObjectLockRetainUntilDateAttr','#ObjectLockLegalHoldStatusAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutObjectAcl:[
+					'#ACLAttr','#AccessControlPolicyAttr','#BucketAttr','#ContentMD5Attr','#GrantFullControlAttr','#GrantReadAttr','#GrantReadACPAttr','#GrantWriteAttr','#GrantWriteACPAttr','#KeyAttr','#RequestPayerAttr','#VersionIdAttr','#ExpectedBucketOwnerAttr'
+					],
+				PutObjectLegalHold:[
+					'#BucketAttr','#KeyAttr','#LegalHoldAttr','#RequestPayerAttr','#VersionIdAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr'
+					],
+				PutObjectLockConfiguration:[
+					'#BucketAttr','#ObjectLockConfigurationAttr','#RequestPayerAttr','#TokenAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr'
+					],
+				PutObjectRetention:[
+					'#BucketAttr','#KeyAttr','#RetentionAttr','#RequestPayerAttr','#VersionIdAttr','#BypassGovernanceRetentionAttr','#ContentMD5Attr','#ExpectedBucketOwnerAttr'
+					],
+				PutObjectTagging:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#ContentMD5Attr','#TaggingAttr','#ExpectedBucketOwnerAttr','#RequestPayerAttr'
+					],
+				PutPublicAccessBlock:[
+					'#BucketAttr','#ContentMD5Attr','#PublicAccessBlockConfigurationAttr','#ExpectedBucketOwnerAttr'
+					],
+				RestoreObject:[
+					'#BucketAttr','#KeyAttr','#VersionIdAttr','#RestoreRequestAttr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				SelectObjectContent:[
+					'#BucketAttr','#KeyAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#ExpressionAttr','#ExpressionTypeAttr','#RequestProgressAttr','#InputSerializationAttr','#OutputSerializationAttr','#ScanRangeAttr','#ExpectedBucketOwnerAttr'
+					],
+				UploadPart:[
+					'#BodyAttr','#BucketAttr','#ContentLengthAttr','#ContentMD5Attr','#KeyAttr','#PartNumberAttr','#UploadIdAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#RequestPayerAttr','#ExpectedBucketOwnerAttr'
+					],
+				UploadPartCopy:[
+					'#BucketAttr','#CopySourceAttr','#CopySourceIfMatchAttr','#CopySourceIfModifiedSinceAttr','#CopySourceIfNoneMatchAttr','#CopySourceIfUnmodifiedSinceAttr','#CopySourceRangeAttr','#KeyAttr','#PartNumberAttr','#UploadIdAttr','#SSECustomerAlgorithmAttr','#SSECustomerKeyAttr','#SSECustomerKeyMD5Attr','#CopySourceSSECustomerAlgorithmAttr','#CopySourceSSECustomerKeyAttr','#CopySourceSSECustomerKeyMD5Attr','#RequestPayerAttr','#ExpectedBucketOwnerAttr','#ExpectedSourceBucketOwnerAttr'
+					],
+				WriteGetObjectResponse:[
+					'#RequestRouteAttr','#RequestTokenAttr','#BodyAttr','#StatusCodeAttr','#ErrorCodeAttr','#ErrorMessageAttr','#AcceptRangesAttr','#CacheControlAttr','#ContentDispositionAttr','#ContentEncodingAttr','#ContentLanguageAttr','#ContentLengthAttr','#ContentRangeAttr','#ContentTypeAttr','#DeleteMarkerAttr','#ETagAttr','#ExpiresAttr','#ExpirationAttr','#LastModifiedAttr','#MissingMetaAttr','#MetadataAttr','#ObjectLockModeAttr','#ObjectLockLegalHoldStatusAttr','#ObjectLockRetainUntilDateAttr','#PartsCountAttr','#ReplicationStatusAttr','#RequestChargedAttr','#RestoreAttr','#ServerSideEncryptionAttr','#SSECustomerAlgorithmAttr','#SSEKMSKeyIdAttr','#SSECustomerKeyMD5Attr','#StorageClassAttr','#TagCountAttr','#VersionIdAttr','#BucketKeyEnabledAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS S3">
+<p>
+AWS S3
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/S3.html">S3</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS S3',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AbortMultipartUpload' },
+			
+				Bucket: { value: ""} ,
+				Key: { value: ""} ,
+				UploadId: { value: ""} ,
+				RequestPayer: { value: ""} ,
+				ExpectedBucketOwner: { value: ""} ,
+				MultipartUpload: { value: ""} ,
+				ACL: { value: ""} ,
+				CacheControl: { value: ""} ,
+				ContentDisposition: { value: ""} ,
+				ContentEncoding: { value: ""} ,
+				ContentLanguage: { value: ""} ,
+				ContentType: { value: ""} ,
+				CopySource: { value: ""} ,
+				CopySourceIfMatch: { value: ""} ,
+				CopySourceIfModifiedSince: { value: ""} ,
+				CopySourceIfNoneMatch: { value: ""} ,
+				CopySourceIfUnmodifiedSince: { value: ""} ,
+				Expires: { value: ""} ,
+				GrantFullControl: { value: ""} ,
+				GrantRead: { value: ""} ,
+				GrantReadACP: { value: ""} ,
+				GrantWriteACP: { value: ""} ,
+				Metadata: { value: ""} ,
+				MetadataDirective: { value: ""} ,
+				TaggingDirective: { value: ""} ,
+				ServerSideEncryption: { value: ""} ,
+				StorageClass: { value: ""} ,
+				WebsiteRedirectLocation: { value: ""} ,
+				SSECustomerAlgorithm: { value: ""} ,
+				SSECustomerKey: { value: ""} ,
+				SSECustomerKeyMD5: { value: ""} ,
+				SSEKMSKeyId: { value: ""} ,
+				SSEKMSEncryptionContext: { value: ""} ,
+				BucketKeyEnabled: { value: ""} ,
+				CopySourceSSECustomerAlgorithm: { value: ""} ,
+				CopySourceSSECustomerKey: { value: ""} ,
+				CopySourceSSECustomerKeyMD5: { value: ""} ,
+				Tagging: { value: ""} ,
+				ObjectLockMode: { value: ""} ,
+				ObjectLockRetainUntilDate: { value: ""} ,
+				ObjectLockLegalHoldStatus: { value: ""} ,
+				ExpectedSourceBucketOwner: { value: ""} ,
+				CreateBucketConfiguration: { value: ""} ,
+				GrantWrite: { value: ""} ,
+				ObjectLockEnabledForBucket: { value: ""} ,
+				Id: { value: ""} ,
+				MFA: { value: ""} ,
+				VersionId: { value: ""} ,
+				BypassGovernanceRetention: { value: ""} ,
+				Delete: { value: ""} ,
+				IfMatch: { value: ""} ,
+				IfModifiedSince: { value: ""} ,
+				IfNoneMatch: { value: ""} ,
+				IfUnmodifiedSince: { value: ""} ,
+				Range: { value: ""} ,
+				ResponseCacheControl: { value: ""} ,
+				ResponseContentDisposition: { value: ""} ,
+				ResponseContentEncoding: { value: ""} ,
+				ResponseContentLanguage: { value: ""} ,
+				ResponseContentType: { value: ""} ,
+				ResponseExpires: { value: ""} ,
+				PartNumber: { value: ""} ,
+				ContinuationToken: { value: ""} ,
+				Delimiter: { value: ""} ,
+				EncodingType: { value: ""} ,
+				KeyMarker: { value: ""} ,
+				MaxUploads: { value: ""} ,
+				Prefix: { value: ""} ,
+				UploadIdMarker: { value: ""} ,
+				MaxKeys: { value: ""} ,
+				VersionIdMarker: { value: ""} ,
+				Marker: { value: ""} ,
+				FetchOwner: { value: ""} ,
+				StartAfter: { value: ""} ,
+				MaxParts: { value: ""} ,
+				PartNumberMarker: { value: ""} ,
+				AccelerateConfiguration: { value: ""} ,
+				AccessControlPolicy: { value: ""} ,
+				ContentMD5: { value: ""} ,
+				AnalyticsConfiguration: { value: ""} ,
+				CORSConfiguration: { value: ""} ,
+				ServerSideEncryptionConfiguration: { value: ""} ,
+				IntelligentTieringConfiguration: { value: ""} ,
+				InventoryConfiguration: { value: ""} ,
+				LifecycleConfiguration: { value: ""} ,
+				BucketLoggingStatus: { value: ""} ,
+				MetricsConfiguration: { value: ""} ,
+				NotificationConfiguration: { value: ""} ,
+				OwnershipControls: { value: ""} ,
+				ConfirmRemoveSelfBucketAccess: { value: ""} ,
+				Policy: { value: ""} ,
+				ReplicationConfiguration: { value: ""} ,
+				Token: { value: ""} ,
+				RequestPaymentConfiguration: { value: ""} ,
+				VersioningConfiguration: { value: ""} ,
+				WebsiteConfiguration: { value: ""} ,
+				Body: { value: ""} ,
+				ContentLength: { value: ""} ,
+				LegalHold: { value: ""} ,
+				ObjectLockConfiguration: { value: ""} ,
+				Retention: { value: ""} ,
+				PublicAccessBlockConfiguration: { value: ""} ,
+				RestoreRequest: { value: ""} ,
+				Expression: { value: ""} ,
+				ExpressionType: { value: ""} ,
+				RequestProgress: { value: ""} ,
+				InputSerialization: { value: ""} ,
+				OutputSerialization: { value: ""} ,
+				ScanRange: { value: ""} ,
+				CopySourceRange: { value: ""} ,
+				RequestRoute: { value: ""} ,
+				RequestToken: { value: ""} ,
+				StatusCode: { value: ""} ,
+				ErrorCode: { value: ""} ,
+				ErrorMessage: { value: ""} ,
+				AcceptRanges: { value: ""} ,
+				ContentRange: { value: ""} ,
+				DeleteMarker: { value: ""} ,
+				ETag: { value: ""} ,
+				Expiration: { value: ""} ,
+				LastModified: { value: ""} ,
+				MissingMeta: { value: ""} ,
+				PartsCount: { value: ""} ,
+				ReplicationStatus: { value: ""} ,
+				RequestCharged: { value: ""} ,
+				Restore: { value: ""} ,
+				TagCount: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "S3 " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Bucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Key").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UploadId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestPayer").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExpectedBucketOwner").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ACL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheControl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentDisposition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentEncoding").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentLanguage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopySource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopySourceIfMatch").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CopySourceIfNoneMatch").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-GrantFullControl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantRead").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantReadACP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantWriteACP").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Metadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetadataDirective").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaggingDirective").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerSideEncryption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WebsiteRedirectLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSECustomerAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSECustomerKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSECustomerKeyMD5").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSEKMSKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSEKMSEncryptionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BucketKeyEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CopySourceSSECustomerAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopySourceSSECustomerKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopySourceSSECustomerKeyMD5").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tagging").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockRetainUntilDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockLegalHoldStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExpectedSourceBucketOwner").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-GrantWrite").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockEnabledForBucket").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MFA").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BypassGovernanceRetention").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-IfMatch").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-IfNoneMatch").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Range").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResponseCacheControl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResponseContentDisposition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResponseContentEncoding").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResponseContentLanguage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResponseContentType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PartNumber").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ContinuationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Delimiter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncodingType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxUploads").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Prefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UploadIdMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxKeys").typedInput({ default: "num", types: ["num"]});
+$("#node-input-VersionIdMarker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FetchOwner").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-StartAfter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxParts").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PartNumberMarker").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-AccessControlPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentMD5").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnalyticsConfiguration").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ServerSideEncryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IntelligentTieringConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InventoryConfiguration").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MetricsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OwnershipControls").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfirmRemoveSelfBucketAccess").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicationConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Token").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-Body").typedInput({ default: "bin", types: ["bin"]});
+
+$("#node-input-LegalHold").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectLockConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Retention").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicAccessBlockConfiguration").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Expression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExpressionType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-InputSerialization").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputSerialization").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CopySourceRange").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestRoute").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StatusCode").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ErrorCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ErrorMessage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AcceptRanges").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContentRange").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeleteMarker").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ETag").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Expiration").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MissingMeta").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PartsCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ReplicationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestCharged").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Restore").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagCount").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

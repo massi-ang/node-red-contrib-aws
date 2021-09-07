@@ -1,0 +1,309 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Appflow">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateConnectorProfile">CreateConnectorProfile</option>
+		
+			<option value="CreateFlow">CreateFlow</option>
+		
+			<option value="DeleteConnectorProfile">DeleteConnectorProfile</option>
+		
+			<option value="DeleteFlow">DeleteFlow</option>
+		
+			<option value="DescribeConnectorEntity">DescribeConnectorEntity</option>
+		
+			<option value="DescribeConnectorProfiles">DescribeConnectorProfiles</option>
+		
+			<option value="DescribeConnectors">DescribeConnectors</option>
+		
+			<option value="DescribeFlow">DescribeFlow</option>
+		
+			<option value="DescribeFlowExecutionRecords">DescribeFlowExecutionRecords</option>
+		
+			<option value="ListConnectorEntities">ListConnectorEntities</option>
+		
+			<option value="ListFlows">ListFlows</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartFlow">StartFlow</option>
+		
+			<option value="StopFlow">StopFlow</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConnectorProfile">UpdateConnectorProfile</option>
+		
+			<option value="UpdateFlow">UpdateFlow</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='connectorProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorProfileName"><i class="fa fa-tag"></i> connectorProfileName</label>
+		<input type="text" id="node-input-connectorProfileName" placeholder="connectorProfileName"></input>
+	</div> 
+	<div class="form-row" id='kmsArnAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsArn"><i class="fa fa-tag"></i> kmsArn</label>
+		<input type="text" id="node-input-kmsArn" placeholder="kmsArn"></input>
+	</div> 
+	<div class="form-row" id='connectorTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorType"><i class="fa fa-tag"></i> connectorType</label>
+		<input type="text" id="node-input-connectorType" placeholder="connectorType"></input>
+	</div> 
+	<div class="form-row" id='connectionModeAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionMode"><i class="fa fa-tag"></i> connectionMode</label>
+		<input type="text" id="node-input-connectionMode" placeholder="connectionMode"></input>
+	</div> 
+	<div class="form-row" id='connectorProfileConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorProfileConfig"><i class="fa fa-tag"></i> connectorProfileConfig</label>
+		<input type="text" id="node-input-connectorProfileConfig" placeholder="connectorProfileConfig"></input>
+	</div> 
+	<div class="form-row" id='flowNameAttr' class='hiddenAttrs'>
+		<label for="node-input-flowName"><i class="fa fa-tag"></i> flowName</label>
+		<input type="text" id="node-input-flowName" placeholder="flowName"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='triggerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-triggerConfig"><i class="fa fa-tag"></i> triggerConfig</label>
+		<input type="text" id="node-input-triggerConfig" placeholder="triggerConfig"></input>
+	</div> 
+	<div class="form-row" id='sourceFlowConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceFlowConfig"><i class="fa fa-tag"></i> sourceFlowConfig</label>
+		<input type="text" id="node-input-sourceFlowConfig" placeholder="sourceFlowConfig"></input>
+	</div> 
+	<div class="form-row" id='destinationFlowConfigListAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationFlowConfigList"><i class="fa fa-tag"></i> destinationFlowConfigList</label>
+		<input type="text" id="node-input-destinationFlowConfigList" placeholder="destinationFlowConfigList"></input>
+	</div> 
+	<div class="form-row" id='tasksAttr' class='hiddenAttrs'>
+		<label for="node-input-tasks"><i class="fa fa-tag"></i> tasks</label>
+		<input type="text" id="node-input-tasks" placeholder="tasks"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='forceDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-forceDelete"><i class="fa fa-tag"></i> forceDelete</label>
+		<input type="text" id="node-input-forceDelete" placeholder="forceDelete"></input>
+	</div> 
+	<div class="form-row" id='connectorEntityNameAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorEntityName"><i class="fa fa-tag"></i> connectorEntityName</label>
+		<input type="text" id="node-input-connectorEntityName" placeholder="connectorEntityName"></input>
+	</div> 
+	<div class="form-row" id='connectorProfileNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorProfileNames"><i class="fa fa-tag"></i> connectorProfileNames</label>
+		<input type="text" id="node-input-connectorProfileNames" placeholder="connectorProfileNames"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='connectorTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-connectorTypes"><i class="fa fa-tag"></i> connectorTypes</label>
+		<input type="text" id="node-input-connectorTypes" placeholder="connectorTypes"></input>
+	</div> 
+	<div class="form-row" id='entitiesPathAttr' class='hiddenAttrs'>
+		<label for="node-input-entitiesPath"><i class="fa fa-tag"></i> entitiesPath</label>
+		<input type="text" id="node-input-entitiesPath" placeholder="entitiesPath"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateConnectorProfile:[
+					'#connectorProfileNameAttr','#kmsArnAttr','#connectorTypeAttr','#connectionModeAttr','#connectorProfileConfigAttr'
+					],
+				CreateFlow:[
+					'#flowNameAttr','#descriptionAttr','#kmsArnAttr','#triggerConfigAttr','#sourceFlowConfigAttr','#destinationFlowConfigListAttr','#tasksAttr','#tagsAttr'
+					],
+				DeleteConnectorProfile:[
+					'#connectorProfileNameAttr','#forceDeleteAttr'
+					],
+				DeleteFlow:[
+					'#flowNameAttr','#forceDeleteAttr'
+					],
+				DescribeConnectorEntity:[
+					'#connectorEntityNameAttr','#connectorTypeAttr','#connectorProfileNameAttr'
+					],
+				DescribeConnectorProfiles:[
+					'#connectorProfileNamesAttr','#connectorTypeAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeConnectors:[
+					'#connectorTypesAttr','#nextTokenAttr'
+					],
+				DescribeFlow:[
+					'#flowNameAttr'
+					],
+				DescribeFlowExecutionRecords:[
+					'#flowNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListConnectorEntities:[
+					'#connectorProfileNameAttr','#connectorTypeAttr','#entitiesPathAttr'
+					],
+				ListFlows:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				StartFlow:[
+					'#flowNameAttr'
+					],
+				StopFlow:[
+					'#flowNameAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateConnectorProfile:[
+					'#connectorProfileNameAttr','#connectionModeAttr','#connectorProfileConfigAttr'
+					],
+				UpdateFlow:[
+					'#flowNameAttr','#descriptionAttr','#triggerConfigAttr','#sourceFlowConfigAttr','#destinationFlowConfigListAttr','#tasksAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Appflow">
+<p>
+AWS Appflow
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Appflow.html">Appflow</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Appflow',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateConnectorProfile' },
+			
+				connectorProfileName: { value: ""} ,
+				kmsArn: { value: ""} ,
+				connectorType: { value: ""} ,
+				connectionMode: { value: ""} ,
+				connectorProfileConfig: { value: ""} ,
+				flowName: { value: ""} ,
+				description: { value: ""} ,
+				triggerConfig: { value: ""} ,
+				sourceFlowConfig: { value: ""} ,
+				destinationFlowConfigList: { value: ""} ,
+				tasks: { value: ""} ,
+				tags: { value: ""} ,
+				forceDelete: { value: ""} ,
+				connectorEntityName: { value: ""} ,
+				connectorProfileNames: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				connectorTypes: { value: ""} ,
+				entitiesPath: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Appflow " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-connectorProfileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-kmsArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectorType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectionMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectorProfileConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-flowName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-triggerConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceFlowConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-destinationFlowConfigList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tasks").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-forceDelete").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-connectorEntityName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectorTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-entitiesPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

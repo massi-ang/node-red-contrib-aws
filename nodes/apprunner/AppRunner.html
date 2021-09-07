@@ -1,0 +1,335 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS AppRunner">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateCustomDomain">AssociateCustomDomain</option>
+		
+			<option value="CreateAutoScalingConfiguration">CreateAutoScalingConfiguration</option>
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateService">CreateService</option>
+		
+			<option value="DeleteAutoScalingConfiguration">DeleteAutoScalingConfiguration</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteService">DeleteService</option>
+		
+			<option value="DescribeAutoScalingConfiguration">DescribeAutoScalingConfiguration</option>
+		
+			<option value="DescribeCustomDomains">DescribeCustomDomains</option>
+		
+			<option value="DescribeService">DescribeService</option>
+		
+			<option value="DisassociateCustomDomain">DisassociateCustomDomain</option>
+		
+			<option value="ListAutoScalingConfigurations">ListAutoScalingConfigurations</option>
+		
+			<option value="ListConnections">ListConnections</option>
+		
+			<option value="ListOperations">ListOperations</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PauseService">PauseService</option>
+		
+			<option value="ResumeService">ResumeService</option>
+		
+			<option value="StartDeployment">StartDeployment</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateService">UpdateService</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ServiceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceArn"><i class="fa fa-tag"></i> ServiceArn</label>
+		<input type="text" id="node-input-ServiceArn" placeholder="ServiceArn"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i> DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='EnableWWWSubdomainAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableWWWSubdomain"><i class="fa fa-tag"></i> EnableWWWSubdomain</label>
+		<input type="text" id="node-input-EnableWWWSubdomain" placeholder="EnableWWWSubdomain"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingConfigurationName"><i class="fa fa-tag"></i> AutoScalingConfigurationName</label>
+		<input type="text" id="node-input-AutoScalingConfigurationName" placeholder="AutoScalingConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='MaxConcurrencyAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxConcurrency"><i class="fa fa-tag"></i> MaxConcurrency</label>
+		<input type="text" id="node-input-MaxConcurrency" placeholder="MaxConcurrency"></input>
+	</div> 
+	<div class="form-row" id='MinSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MinSize"><i class="fa fa-tag"></i> MinSize</label>
+		<input type="text" id="node-input-MinSize" placeholder="MinSize"></input>
+	</div> 
+	<div class="form-row" id='MaxSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSize"><i class="fa fa-tag"></i> MaxSize</label>
+		<input type="text" id="node-input-MaxSize" placeholder="MaxSize"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ConnectionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionName"><i class="fa fa-tag"></i> ConnectionName</label>
+		<input type="text" id="node-input-ConnectionName" placeholder="ConnectionName"></input>
+	</div> 
+	<div class="form-row" id='ProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProviderType"><i class="fa fa-tag"></i> ProviderType</label>
+		<input type="text" id="node-input-ProviderType" placeholder="ProviderType"></input>
+	</div> 
+	<div class="form-row" id='ServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceName"><i class="fa fa-tag"></i> ServiceName</label>
+		<input type="text" id="node-input-ServiceName" placeholder="ServiceName"></input>
+	</div> 
+	<div class="form-row" id='SourceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceConfiguration"><i class="fa fa-tag"></i> SourceConfiguration</label>
+		<input type="text" id="node-input-SourceConfiguration" placeholder="SourceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='InstanceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceConfiguration"><i class="fa fa-tag"></i> InstanceConfiguration</label>
+		<input type="text" id="node-input-InstanceConfiguration" placeholder="InstanceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='EncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionConfiguration"><i class="fa fa-tag"></i> EncryptionConfiguration</label>
+		<input type="text" id="node-input-EncryptionConfiguration" placeholder="EncryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='HealthCheckConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-HealthCheckConfiguration"><i class="fa fa-tag"></i> HealthCheckConfiguration</label>
+		<input type="text" id="node-input-HealthCheckConfiguration" placeholder="HealthCheckConfiguration"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingConfigurationArn"><i class="fa fa-tag"></i> AutoScalingConfigurationArn</label>
+		<input type="text" id="node-input-AutoScalingConfigurationArn" placeholder="AutoScalingConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='ConnectionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionArn"><i class="fa fa-tag"></i> ConnectionArn</label>
+		<input type="text" id="node-input-ConnectionArn" placeholder="ConnectionArn"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='LatestOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-LatestOnly"><i class="fa fa-tag"></i> LatestOnly</label>
+		<input type="text" id="node-input-LatestOnly" placeholder="LatestOnly"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateCustomDomain:[
+					'#ServiceArnAttr','#DomainNameAttr','#EnableWWWSubdomainAttr'
+					],
+				CreateAutoScalingConfiguration:[
+					'#AutoScalingConfigurationNameAttr','#MaxConcurrencyAttr','#MinSizeAttr','#MaxSizeAttr','#TagsAttr'
+					],
+				CreateConnection:[
+					'#ConnectionNameAttr','#ProviderTypeAttr','#TagsAttr'
+					],
+				CreateService:[
+					'#ServiceNameAttr','#SourceConfigurationAttr','#InstanceConfigurationAttr','#TagsAttr','#EncryptionConfigurationAttr','#HealthCheckConfigurationAttr','#AutoScalingConfigurationArnAttr'
+					],
+				DeleteAutoScalingConfiguration:[
+					'#AutoScalingConfigurationArnAttr'
+					],
+				DeleteConnection:[
+					'#ConnectionArnAttr'
+					],
+				DeleteService:[
+					'#ServiceArnAttr'
+					],
+				DescribeAutoScalingConfiguration:[
+					'#AutoScalingConfigurationArnAttr'
+					],
+				DescribeCustomDomains:[
+					'#ServiceArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeService:[
+					'#ServiceArnAttr'
+					],
+				DisassociateCustomDomain:[
+					'#ServiceArnAttr','#DomainNameAttr'
+					],
+				ListAutoScalingConfigurations:[
+					'#AutoScalingConfigurationNameAttr','#LatestOnlyAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConnections:[
+					'#ConnectionNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOperations:[
+					'#ServiceArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListServices:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PauseService:[
+					'#ServiceArnAttr'
+					],
+				ResumeService:[
+					'#ServiceArnAttr'
+					],
+				StartDeployment:[
+					'#ServiceArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateService:[
+					'#ServiceArnAttr','#SourceConfigurationAttr','#InstanceConfigurationAttr','#AutoScalingConfigurationArnAttr','#HealthCheckConfigurationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS AppRunner">
+<p>
+AWS AppRunner
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppRunner.html">AppRunner</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppRunner',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateCustomDomain' },
+			
+				ServiceArn: { value: ""} ,
+				DomainName: { value: ""} ,
+				EnableWWWSubdomain: { value: ""} ,
+				AutoScalingConfigurationName: { value: ""} ,
+				MaxConcurrency: { value: ""} ,
+				MinSize: { value: ""} ,
+				MaxSize: { value: ""} ,
+				Tags: { value: ""} ,
+				ConnectionName: { value: ""} ,
+				ProviderType: { value: ""} ,
+				ServiceName: { value: ""} ,
+				SourceConfiguration: { value: ""} ,
+				InstanceConfiguration: { value: ""} ,
+				EncryptionConfiguration: { value: ""} ,
+				HealthCheckConfiguration: { value: ""} ,
+				AutoScalingConfigurationArn: { value: ""} ,
+				ConnectionArn: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				LatestOnly: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppRunner " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ServiceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableWWWSubdomain").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AutoScalingConfigurationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxConcurrency").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MinSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProviderType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HealthCheckConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoScalingConfigurationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-LatestOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

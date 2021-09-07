@@ -1,0 +1,341 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Budgets">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateBudget">CreateBudget</option>
+		
+			<option value="CreateBudgetAction">CreateBudgetAction</option>
+		
+			<option value="CreateNotification">CreateNotification</option>
+		
+			<option value="CreateSubscriber">CreateSubscriber</option>
+		
+			<option value="DeleteBudget">DeleteBudget</option>
+		
+			<option value="DeleteBudgetAction">DeleteBudgetAction</option>
+		
+			<option value="DeleteNotification">DeleteNotification</option>
+		
+			<option value="DeleteSubscriber">DeleteSubscriber</option>
+		
+			<option value="DescribeBudget">DescribeBudget</option>
+		
+			<option value="DescribeBudgetAction">DescribeBudgetAction</option>
+		
+			<option value="DescribeBudgetActionHistories">DescribeBudgetActionHistories</option>
+		
+			<option value="DescribeBudgetActionsForAccount">DescribeBudgetActionsForAccount</option>
+		
+			<option value="DescribeBudgetActionsForBudget">DescribeBudgetActionsForBudget</option>
+		
+			<option value="DescribeBudgetPerformanceHistory">DescribeBudgetPerformanceHistory</option>
+		
+			<option value="DescribeBudgets">DescribeBudgets</option>
+		
+			<option value="DescribeNotificationsForBudget">DescribeNotificationsForBudget</option>
+		
+			<option value="DescribeSubscribersForNotification">DescribeSubscribersForNotification</option>
+		
+			<option value="ExecuteBudgetAction">ExecuteBudgetAction</option>
+		
+			<option value="UpdateBudget">UpdateBudget</option>
+		
+			<option value="UpdateBudgetAction">UpdateBudgetAction</option>
+		
+			<option value="UpdateNotification">UpdateNotification</option>
+		
+			<option value="UpdateSubscriber">UpdateSubscriber</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='BudgetAttr' class='hiddenAttrs'>
+		<label for="node-input-Budget"><i class="fa fa-tag"></i> Budget</label>
+		<input type="text" id="node-input-Budget" placeholder="Budget"></input>
+	</div> 
+	<div class="form-row" id='NotificationsWithSubscribersAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationsWithSubscribers"><i class="fa fa-tag"></i> NotificationsWithSubscribers</label>
+		<input type="text" id="node-input-NotificationsWithSubscribers" placeholder="NotificationsWithSubscribers"></input>
+	</div> 
+	<div class="form-row" id='BudgetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BudgetName"><i class="fa fa-tag"></i> BudgetName</label>
+		<input type="text" id="node-input-BudgetName" placeholder="BudgetName"></input>
+	</div> 
+	<div class="form-row" id='NotificationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationType"><i class="fa fa-tag"></i> NotificationType</label>
+		<input type="text" id="node-input-NotificationType" placeholder="NotificationType"></input>
+	</div> 
+	<div class="form-row" id='ActionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionType"><i class="fa fa-tag"></i> ActionType</label>
+		<input type="text" id="node-input-ActionType" placeholder="ActionType"></input>
+	</div> 
+	<div class="form-row" id='ActionThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionThreshold"><i class="fa fa-tag"></i> ActionThreshold</label>
+		<input type="text" id="node-input-ActionThreshold" placeholder="ActionThreshold"></input>
+	</div> 
+	<div class="form-row" id='DefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-Definition"><i class="fa fa-tag"></i> Definition</label>
+		<input type="text" id="node-input-Definition" placeholder="Definition"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleArn"><i class="fa fa-tag"></i> ExecutionRoleArn</label>
+		<input type="text" id="node-input-ExecutionRoleArn" placeholder="ExecutionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='ApprovalModelAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovalModel"><i class="fa fa-tag"></i> ApprovalModel</label>
+		<input type="text" id="node-input-ApprovalModel" placeholder="ApprovalModel"></input>
+	</div> 
+	<div class="form-row" id='SubscribersAttr' class='hiddenAttrs'>
+		<label for="node-input-Subscribers"><i class="fa fa-tag"></i> Subscribers</label>
+		<input type="text" id="node-input-Subscribers" placeholder="Subscribers"></input>
+	</div> 
+	<div class="form-row" id='NotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-Notification"><i class="fa fa-tag"></i> Notification</label>
+		<input type="text" id="node-input-Notification" placeholder="Notification"></input>
+	</div> 
+	<div class="form-row" id='SubscriberAttr' class='hiddenAttrs'>
+		<label for="node-input-Subscriber"><i class="fa fa-tag"></i> Subscriber</label>
+		<input type="text" id="node-input-Subscriber" placeholder="Subscriber"></input>
+	</div> 
+	<div class="form-row" id='ActionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionId"><i class="fa fa-tag"></i> ActionId</label>
+		<input type="text" id="node-input-ActionId" placeholder="ActionId"></input>
+	</div> 
+	<div class="form-row" id='TimePeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-TimePeriod"><i class="fa fa-tag"></i> TimePeriod</label>
+		<input type="text" id="node-input-TimePeriod" placeholder="TimePeriod"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ExecutionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionType"><i class="fa fa-tag"></i> ExecutionType</label>
+		<input type="text" id="node-input-ExecutionType" placeholder="ExecutionType"></input>
+	</div> 
+	<div class="form-row" id='NewBudgetAttr' class='hiddenAttrs'>
+		<label for="node-input-NewBudget"><i class="fa fa-tag"></i> NewBudget</label>
+		<input type="text" id="node-input-NewBudget" placeholder="NewBudget"></input>
+	</div> 
+	<div class="form-row" id='OldNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-OldNotification"><i class="fa fa-tag"></i> OldNotification</label>
+		<input type="text" id="node-input-OldNotification" placeholder="OldNotification"></input>
+	</div> 
+	<div class="form-row" id='NewNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-NewNotification"><i class="fa fa-tag"></i> NewNotification</label>
+		<input type="text" id="node-input-NewNotification" placeholder="NewNotification"></input>
+	</div> 
+	<div class="form-row" id='OldSubscriberAttr' class='hiddenAttrs'>
+		<label for="node-input-OldSubscriber"><i class="fa fa-tag"></i> OldSubscriber</label>
+		<input type="text" id="node-input-OldSubscriber" placeholder="OldSubscriber"></input>
+	</div> 
+	<div class="form-row" id='NewSubscriberAttr' class='hiddenAttrs'>
+		<label for="node-input-NewSubscriber"><i class="fa fa-tag"></i> NewSubscriber</label>
+		<input type="text" id="node-input-NewSubscriber" placeholder="NewSubscriber"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateBudget:[
+					'#AccountIdAttr','#BudgetAttr','#NotificationsWithSubscribersAttr'
+					],
+				CreateBudgetAction:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationTypeAttr','#ActionTypeAttr','#ActionThresholdAttr','#DefinitionAttr','#ExecutionRoleArnAttr','#ApprovalModelAttr','#SubscribersAttr'
+					],
+				CreateNotification:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr','#SubscribersAttr'
+					],
+				CreateSubscriber:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr','#SubscriberAttr'
+					],
+				DeleteBudget:[
+					'#AccountIdAttr','#BudgetNameAttr'
+					],
+				DeleteBudgetAction:[
+					'#AccountIdAttr','#BudgetNameAttr','#ActionIdAttr'
+					],
+				DeleteNotification:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr'
+					],
+				DeleteSubscriber:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr','#SubscriberAttr'
+					],
+				DescribeBudget:[
+					'#AccountIdAttr','#BudgetNameAttr'
+					],
+				DescribeBudgetAction:[
+					'#AccountIdAttr','#BudgetNameAttr','#ActionIdAttr'
+					],
+				DescribeBudgetActionHistories:[
+					'#AccountIdAttr','#BudgetNameAttr','#ActionIdAttr','#TimePeriodAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeBudgetActionsForAccount:[
+					'#AccountIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeBudgetActionsForBudget:[
+					'#AccountIdAttr','#BudgetNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeBudgetPerformanceHistory:[
+					'#AccountIdAttr','#BudgetNameAttr','#TimePeriodAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeBudgets:[
+					'#AccountIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeNotificationsForBudget:[
+					'#AccountIdAttr','#BudgetNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeSubscribersForNotification:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ExecuteBudgetAction:[
+					'#AccountIdAttr','#BudgetNameAttr','#ActionIdAttr','#ExecutionTypeAttr'
+					],
+				UpdateBudget:[
+					'#AccountIdAttr','#NewBudgetAttr'
+					],
+				UpdateBudgetAction:[
+					'#AccountIdAttr','#BudgetNameAttr','#ActionIdAttr','#NotificationTypeAttr','#ActionThresholdAttr','#DefinitionAttr','#ExecutionRoleArnAttr','#ApprovalModelAttr','#SubscribersAttr'
+					],
+				UpdateNotification:[
+					'#AccountIdAttr','#BudgetNameAttr','#OldNotificationAttr','#NewNotificationAttr'
+					],
+				UpdateSubscriber:[
+					'#AccountIdAttr','#BudgetNameAttr','#NotificationAttr','#OldSubscriberAttr','#NewSubscriberAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Budgets">
+<p>
+AWS Budgets
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Budgets.html">Budgets</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Budgets',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateBudget' },
+			
+				AccountId: { value: ""} ,
+				Budget: { value: ""} ,
+				NotificationsWithSubscribers: { value: ""} ,
+				BudgetName: { value: ""} ,
+				NotificationType: { value: ""} ,
+				ActionType: { value: ""} ,
+				ActionThreshold: { value: ""} ,
+				Definition: { value: ""} ,
+				ExecutionRoleArn: { value: ""} ,
+				ApprovalModel: { value: ""} ,
+				Subscribers: { value: ""} ,
+				Notification: { value: ""} ,
+				Subscriber: { value: ""} ,
+				ActionId: { value: ""} ,
+				TimePeriod: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ExecutionType: { value: ""} ,
+				NewBudget: { value: ""} ,
+				OldNotification: { value: ""} ,
+				NewNotification: { value: ""} ,
+				OldSubscriber: { value: ""} ,
+				NewSubscriber: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Budgets " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Budget").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-BudgetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionThreshold").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Definition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovalModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subscribers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Notification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subscriber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TimePeriod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewBudget").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OldNotification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewNotification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OldSubscriber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewSubscriber").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

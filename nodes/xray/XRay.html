@@ -1,0 +1,414 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS XRay">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchGetTraces">BatchGetTraces</option>
+		
+			<option value="CreateGroup">CreateGroup</option>
+		
+			<option value="CreateSamplingRule">CreateSamplingRule</option>
+		
+			<option value="DeleteGroup">DeleteGroup</option>
+		
+			<option value="DeleteSamplingRule">DeleteSamplingRule</option>
+		
+			<option value="GetEncryptionConfig">GetEncryptionConfig</option>
+		
+			<option value="GetGroup">GetGroup</option>
+		
+			<option value="GetGroups">GetGroups</option>
+		
+			<option value="GetInsight">GetInsight</option>
+		
+			<option value="GetInsightEvents">GetInsightEvents</option>
+		
+			<option value="GetInsightImpactGraph">GetInsightImpactGraph</option>
+		
+			<option value="GetInsightSummaries">GetInsightSummaries</option>
+		
+			<option value="GetSamplingRules">GetSamplingRules</option>
+		
+			<option value="GetSamplingStatisticSummaries">GetSamplingStatisticSummaries</option>
+		
+			<option value="GetSamplingTargets">GetSamplingTargets</option>
+		
+			<option value="GetServiceGraph">GetServiceGraph</option>
+		
+			<option value="GetTimeSeriesServiceStatistics">GetTimeSeriesServiceStatistics</option>
+		
+			<option value="GetTraceGraph">GetTraceGraph</option>
+		
+			<option value="GetTraceSummaries">GetTraceSummaries</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutEncryptionConfig">PutEncryptionConfig</option>
+		
+			<option value="PutTelemetryRecords">PutTelemetryRecords</option>
+		
+			<option value="PutTraceSegments">PutTraceSegments</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateGroup">UpdateGroup</option>
+		
+			<option value="UpdateSamplingRule">UpdateSamplingRule</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TraceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-TraceIds"><i class="fa fa-tag"></i> TraceIds</label>
+		<input type="text" id="node-input-TraceIds" placeholder="TraceIds"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='GroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupName"><i class="fa fa-tag"></i> GroupName</label>
+		<input type="text" id="node-input-GroupName" placeholder="GroupName"></input>
+	</div> 
+	<div class="form-row" id='FilterExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterExpression"><i class="fa fa-tag"></i> FilterExpression</label>
+		<input type="text" id="node-input-FilterExpression" placeholder="FilterExpression"></input>
+	</div> 
+	<div class="form-row" id='InsightsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-InsightsConfiguration"><i class="fa fa-tag"></i> InsightsConfiguration</label>
+		<input type="text" id="node-input-InsightsConfiguration" placeholder="InsightsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='SamplingRuleAttr' class='hiddenAttrs'>
+		<label for="node-input-SamplingRule"><i class="fa fa-tag"></i> SamplingRule</label>
+		<input type="text" id="node-input-SamplingRule" placeholder="SamplingRule"></input>
+	</div> 
+	<div class="form-row" id='GroupARNAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupARN"><i class="fa fa-tag"></i> GroupARN</label>
+		<input type="text" id="node-input-GroupARN" placeholder="GroupARN"></input>
+	</div> 
+	<div class="form-row" id='RuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleName"><i class="fa fa-tag"></i> RuleName</label>
+		<input type="text" id="node-input-RuleName" placeholder="RuleName"></input>
+	</div> 
+	<div class="form-row" id='RuleARNAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleARN"><i class="fa fa-tag"></i> RuleARN</label>
+		<input type="text" id="node-input-RuleARN" placeholder="RuleARN"></input>
+	</div> 
+	<div class="form-row" id='InsightIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InsightId"><i class="fa fa-tag"></i> InsightId</label>
+		<input type="text" id="node-input-InsightId" placeholder="InsightId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='StatesAttr' class='hiddenAttrs'>
+		<label for="node-input-States"><i class="fa fa-tag"></i> States</label>
+		<input type="text" id="node-input-States" placeholder="States"></input>
+	</div> 
+	<div class="form-row" id='SamplingStatisticsDocumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-SamplingStatisticsDocuments"><i class="fa fa-tag"></i> SamplingStatisticsDocuments</label>
+		<input type="text" id="node-input-SamplingStatisticsDocuments" placeholder="SamplingStatisticsDocuments"></input>
+	</div> 
+	<div class="form-row" id='EntitySelectorExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-EntitySelectorExpression"><i class="fa fa-tag"></i> EntitySelectorExpression</label>
+		<input type="text" id="node-input-EntitySelectorExpression" placeholder="EntitySelectorExpression"></input>
+	</div> 
+	<div class="form-row" id='PeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-Period"><i class="fa fa-tag"></i> Period</label>
+		<input type="text" id="node-input-Period" placeholder="Period"></input>
+	</div> 
+	<div class="form-row" id='ForecastStatisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-ForecastStatistics"><i class="fa fa-tag"></i> ForecastStatistics</label>
+		<input type="text" id="node-input-ForecastStatistics" placeholder="ForecastStatistics"></input>
+	</div> 
+	<div class="form-row" id='TimeRangeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeRangeType"><i class="fa fa-tag"></i> TimeRangeType</label>
+		<input type="text" id="node-input-TimeRangeType" placeholder="TimeRangeType"></input>
+	</div> 
+	<div class="form-row" id='SamplingAttr' class='hiddenAttrs'>
+		<label for="node-input-Sampling"><i class="fa fa-tag"></i> Sampling</label>
+		<input type="text" id="node-input-Sampling" placeholder="Sampling"></input>
+	</div> 
+	<div class="form-row" id='SamplingStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-SamplingStrategy"><i class="fa fa-tag"></i> SamplingStrategy</label>
+		<input type="text" id="node-input-SamplingStrategy" placeholder="SamplingStrategy"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='KeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyId"><i class="fa fa-tag"></i> KeyId</label>
+		<input type="text" id="node-input-KeyId" placeholder="KeyId"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='TelemetryRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-TelemetryRecords"><i class="fa fa-tag"></i> TelemetryRecords</label>
+		<input type="text" id="node-input-TelemetryRecords" placeholder="TelemetryRecords"></input>
+	</div> 
+	<div class="form-row" id='EC2InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EC2InstanceId"><i class="fa fa-tag"></i> EC2InstanceId</label>
+		<input type="text" id="node-input-EC2InstanceId" placeholder="EC2InstanceId"></input>
+	</div> 
+	<div class="form-row" id='HostnameAttr' class='hiddenAttrs'>
+		<label for="node-input-Hostname"><i class="fa fa-tag"></i> Hostname</label>
+		<input type="text" id="node-input-Hostname" placeholder="Hostname"></input>
+	</div> 
+	<div class="form-row" id='TraceSegmentDocumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-TraceSegmentDocuments"><i class="fa fa-tag"></i> TraceSegmentDocuments</label>
+		<input type="text" id="node-input-TraceSegmentDocuments" placeholder="TraceSegmentDocuments"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='SamplingRuleUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-SamplingRuleUpdate"><i class="fa fa-tag"></i> SamplingRuleUpdate</label>
+		<input type="text" id="node-input-SamplingRuleUpdate" placeholder="SamplingRuleUpdate"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchGetTraces:[
+					'#TraceIdsAttr','#NextTokenAttr'
+					],
+				CreateGroup:[
+					'#GroupNameAttr','#FilterExpressionAttr','#InsightsConfigurationAttr','#TagsAttr'
+					],
+				CreateSamplingRule:[
+					'#SamplingRuleAttr','#TagsAttr'
+					],
+				DeleteGroup:[
+					'#GroupNameAttr','#GroupARNAttr'
+					],
+				DeleteSamplingRule:[
+					'#RuleNameAttr','#RuleARNAttr'
+					],
+				GetEncryptionConfig:[
+					
+					],
+				GetGroup:[
+					'#GroupNameAttr','#GroupARNAttr'
+					],
+				GetGroups:[
+					'#NextTokenAttr'
+					],
+				GetInsight:[
+					'#InsightIdAttr'
+					],
+				GetInsightEvents:[
+					'#InsightIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetInsightImpactGraph:[
+					'#InsightIdAttr','#StartTimeAttr','#EndTimeAttr','#NextTokenAttr'
+					],
+				GetInsightSummaries:[
+					'#StatesAttr','#GroupARNAttr','#GroupNameAttr','#StartTimeAttr','#EndTimeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetSamplingRules:[
+					'#NextTokenAttr'
+					],
+				GetSamplingStatisticSummaries:[
+					'#NextTokenAttr'
+					],
+				GetSamplingTargets:[
+					'#SamplingStatisticsDocumentsAttr'
+					],
+				GetServiceGraph:[
+					'#StartTimeAttr','#EndTimeAttr','#GroupNameAttr','#GroupARNAttr','#NextTokenAttr'
+					],
+				GetTimeSeriesServiceStatistics:[
+					'#StartTimeAttr','#EndTimeAttr','#GroupNameAttr','#GroupARNAttr','#EntitySelectorExpressionAttr','#PeriodAttr','#ForecastStatisticsAttr','#NextTokenAttr'
+					],
+				GetTraceGraph:[
+					'#TraceIdsAttr','#NextTokenAttr'
+					],
+				GetTraceSummaries:[
+					'#StartTimeAttr','#EndTimeAttr','#TimeRangeTypeAttr','#SamplingAttr','#SamplingStrategyAttr','#FilterExpressionAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr','#NextTokenAttr'
+					],
+				PutEncryptionConfig:[
+					'#KeyIdAttr','#TypeAttr'
+					],
+				PutTelemetryRecords:[
+					'#TelemetryRecordsAttr','#EC2InstanceIdAttr','#HostnameAttr','#ResourceARNAttr'
+					],
+				PutTraceSegments:[
+					'#TraceSegmentDocumentsAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateGroup:[
+					'#GroupNameAttr','#GroupARNAttr','#FilterExpressionAttr','#InsightsConfigurationAttr'
+					],
+				UpdateSamplingRule:[
+					'#SamplingRuleUpdateAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS XRay">
+<p>
+AWS XRay
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/XRay.html">XRay</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS XRay',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchGetTraces' },
+			
+				TraceIds: { value: ""} ,
+				NextToken: { value: ""} ,
+				GroupName: { value: ""} ,
+				FilterExpression: { value: ""} ,
+				InsightsConfiguration: { value: ""} ,
+				Tags: { value: ""} ,
+				SamplingRule: { value: ""} ,
+				GroupARN: { value: ""} ,
+				RuleName: { value: ""} ,
+				RuleARN: { value: ""} ,
+				InsightId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				States: { value: ""} ,
+				SamplingStatisticsDocuments: { value: ""} ,
+				EntitySelectorExpression: { value: ""} ,
+				Period: { value: ""} ,
+				ForecastStatistics: { value: ""} ,
+				TimeRangeType: { value: ""} ,
+				Sampling: { value: ""} ,
+				SamplingStrategy: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				KeyId: { value: ""} ,
+				Type: { value: ""} ,
+				TelemetryRecords: { value: ""} ,
+				EC2InstanceId: { value: ""} ,
+				Hostname: { value: ""} ,
+				TraceSegmentDocuments: { value: ""} ,
+				TagKeys: { value: ""} ,
+				SamplingRuleUpdate: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "XRay " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-TraceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsightsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SamplingRule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsightId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+
+
+
+$("#node-input-EntitySelectorExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Period").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ForecastStatistics").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TimeRangeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sampling").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-EC2InstanceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Hostname").typedInput({ default: "str", types: ["str"]});
+
+
+
+		}
+	});
+</script>
+

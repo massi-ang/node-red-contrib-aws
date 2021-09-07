@@ -1,0 +1,355 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS FMS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateAdminAccount">AssociateAdminAccount</option>
+		
+			<option value="DeleteAppsList">DeleteAppsList</option>
+		
+			<option value="DeleteNotificationChannel">DeleteNotificationChannel</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DeleteProtocolsList">DeleteProtocolsList</option>
+		
+			<option value="DisassociateAdminAccount">DisassociateAdminAccount</option>
+		
+			<option value="GetAdminAccount">GetAdminAccount</option>
+		
+			<option value="GetAppsList">GetAppsList</option>
+		
+			<option value="GetComplianceDetail">GetComplianceDetail</option>
+		
+			<option value="GetNotificationChannel">GetNotificationChannel</option>
+		
+			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="GetProtectionStatus">GetProtectionStatus</option>
+		
+			<option value="GetProtocolsList">GetProtocolsList</option>
+		
+			<option value="GetViolationDetails">GetViolationDetails</option>
+		
+			<option value="ListAppsLists">ListAppsLists</option>
+		
+			<option value="ListComplianceStatus">ListComplianceStatus</option>
+		
+			<option value="ListMemberAccounts">ListMemberAccounts</option>
+		
+			<option value="ListPolicies">ListPolicies</option>
+		
+			<option value="ListProtocolsLists">ListProtocolsLists</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutAppsList">PutAppsList</option>
+		
+			<option value="PutNotificationChannel">PutNotificationChannel</option>
+		
+			<option value="PutPolicy">PutPolicy</option>
+		
+			<option value="PutProtocolsList">PutProtocolsList</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AdminAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-AdminAccount"><i class="fa fa-tag"></i> AdminAccount</label>
+		<input type="text" id="node-input-AdminAccount" placeholder="AdminAccount"></input>
+	</div> 
+	<div class="form-row" id='ListIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ListId"><i class="fa fa-tag"></i> ListId</label>
+		<input type="text" id="node-input-ListId" placeholder="ListId"></input>
+	</div> 
+	<div class="form-row" id='PolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyId"><i class="fa fa-tag"></i> PolicyId</label>
+		<input type="text" id="node-input-PolicyId" placeholder="PolicyId"></input>
+	</div> 
+	<div class="form-row" id='DeleteAllPolicyResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteAllPolicyResources"><i class="fa fa-tag"></i> DeleteAllPolicyResources</label>
+		<input type="text" id="node-input-DeleteAllPolicyResources" placeholder="DeleteAllPolicyResources"></input>
+	</div> 
+	<div class="form-row" id='DefaultListAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultList"><i class="fa fa-tag"></i> DefaultList</label>
+		<input type="text" id="node-input-DefaultList" placeholder="DefaultList"></input>
+	</div> 
+	<div class="form-row" id='MemberAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberAccount"><i class="fa fa-tag"></i> MemberAccount</label>
+		<input type="text" id="node-input-MemberAccount" placeholder="MemberAccount"></input>
+	</div> 
+	<div class="form-row" id='MemberAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberAccountId"><i class="fa fa-tag"></i> MemberAccountId</label>
+		<input type="text" id="node-input-MemberAccountId" placeholder="MemberAccountId"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='DefaultListsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultLists"><i class="fa fa-tag"></i> DefaultLists</label>
+		<input type="text" id="node-input-DefaultLists" placeholder="DefaultLists"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='AppsListAttr' class='hiddenAttrs'>
+		<label for="node-input-AppsList"><i class="fa fa-tag"></i> AppsList</label>
+		<input type="text" id="node-input-AppsList" placeholder="AppsList"></input>
+	</div> 
+	<div class="form-row" id='TagListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagList"><i class="fa fa-tag"></i> TagList</label>
+		<input type="text" id="node-input-TagList" placeholder="TagList"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicArn"><i class="fa fa-tag"></i> SnsTopicArn</label>
+		<input type="text" id="node-input-SnsTopicArn" placeholder="SnsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='SnsRoleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsRoleName"><i class="fa fa-tag"></i> SnsRoleName</label>
+		<input type="text" id="node-input-SnsRoleName" placeholder="SnsRoleName"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='ProtocolsListAttr' class='hiddenAttrs'>
+		<label for="node-input-ProtocolsList"><i class="fa fa-tag"></i> ProtocolsList</label>
+		<input type="text" id="node-input-ProtocolsList" placeholder="ProtocolsList"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateAdminAccount:[
+					'#AdminAccountAttr'
+					],
+				DeleteAppsList:[
+					'#ListIdAttr'
+					],
+				DeleteNotificationChannel:[
+					
+					],
+				DeletePolicy:[
+					'#PolicyIdAttr','#DeleteAllPolicyResourcesAttr'
+					],
+				DeleteProtocolsList:[
+					'#ListIdAttr'
+					],
+				DisassociateAdminAccount:[
+					
+					],
+				GetAdminAccount:[
+					
+					],
+				GetAppsList:[
+					'#ListIdAttr','#DefaultListAttr'
+					],
+				GetComplianceDetail:[
+					'#PolicyIdAttr','#MemberAccountAttr'
+					],
+				GetNotificationChannel:[
+					
+					],
+				GetPolicy:[
+					'#PolicyIdAttr'
+					],
+				GetProtectionStatus:[
+					'#PolicyIdAttr','#MemberAccountIdAttr','#StartTimeAttr','#EndTimeAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetProtocolsList:[
+					'#ListIdAttr','#DefaultListAttr'
+					],
+				GetViolationDetails:[
+					'#PolicyIdAttr','#MemberAccountAttr','#ResourceIdAttr','#ResourceTypeAttr'
+					],
+				ListAppsLists:[
+					'#DefaultListsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListComplianceStatus:[
+					'#PolicyIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListMemberAccounts:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPolicies:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListProtocolsLists:[
+					'#DefaultListsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutAppsList:[
+					'#AppsListAttr','#TagListAttr'
+					],
+				PutNotificationChannel:[
+					'#SnsTopicArnAttr','#SnsRoleNameAttr'
+					],
+				PutPolicy:[
+					'#PolicyAttr','#TagListAttr'
+					],
+				PutProtocolsList:[
+					'#ProtocolsListAttr','#TagListAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagListAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS FMS">
+<p>
+AWS FMS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/FMS.html">FMS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS FMS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateAdminAccount' },
+			
+				AdminAccount: { value: ""} ,
+				ListId: { value: ""} ,
+				PolicyId: { value: ""} ,
+				DeleteAllPolicyResources: { value: ""} ,
+				DefaultList: { value: ""} ,
+				MemberAccount: { value: ""} ,
+				MemberAccountId: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceId: { value: ""} ,
+				ResourceType: { value: ""} ,
+				DefaultLists: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				AppsList: { value: ""} ,
+				TagList: { value: ""} ,
+				SnsTopicArn: { value: ""} ,
+				SnsRoleName: { value: ""} ,
+				Policy: { value: ""} ,
+				ProtocolsList: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "FMS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AdminAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ListId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeleteAllPolicyResources").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DefaultList").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MemberAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberAccountId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultLists").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppsList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsRoleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProtocolsList").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

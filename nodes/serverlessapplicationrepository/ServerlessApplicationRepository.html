@@ -1,0 +1,343 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ServerlessApplicationRepository">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateApplicationVersion">CreateApplicationVersion</option>
+		
+			<option value="CreateCloudFormationChangeSet">CreateCloudFormationChangeSet</option>
+		
+			<option value="CreateCloudFormationTemplate">CreateCloudFormationTemplate</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="GetApplication">GetApplication</option>
+		
+			<option value="GetApplicationPolicy">GetApplicationPolicy</option>
+		
+			<option value="GetCloudFormationTemplate">GetCloudFormationTemplate</option>
+		
+			<option value="ListApplicationDependencies">ListApplicationDependencies</option>
+		
+			<option value="ListApplicationVersions">ListApplicationVersions</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="PutApplicationPolicy">PutApplicationPolicy</option>
+		
+			<option value="UnshareApplication">UnshareApplication</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AuthorAttr' class='hiddenAttrs'>
+		<label for="node-input-Author"><i class="fa fa-tag"></i> Author</label>
+		<input type="text" id="node-input-Author" placeholder="Author"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='HomePageUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-HomePageUrl"><i class="fa fa-tag"></i> HomePageUrl</label>
+		<input type="text" id="node-input-HomePageUrl" placeholder="HomePageUrl"></input>
+	</div> 
+	<div class="form-row" id='LabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-Labels"><i class="fa fa-tag"></i> Labels</label>
+		<input type="text" id="node-input-Labels" placeholder="Labels"></input>
+	</div> 
+	<div class="form-row" id='LicenseBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-LicenseBody"><i class="fa fa-tag"></i> LicenseBody</label>
+		<input type="text" id="node-input-LicenseBody" placeholder="LicenseBody"></input>
+	</div> 
+	<div class="form-row" id='LicenseUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-LicenseUrl"><i class="fa fa-tag"></i> LicenseUrl</label>
+		<input type="text" id="node-input-LicenseUrl" placeholder="LicenseUrl"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ReadmeBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-ReadmeBody"><i class="fa fa-tag"></i> ReadmeBody</label>
+		<input type="text" id="node-input-ReadmeBody" placeholder="ReadmeBody"></input>
+	</div> 
+	<div class="form-row" id='ReadmeUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-ReadmeUrl"><i class="fa fa-tag"></i> ReadmeUrl</label>
+		<input type="text" id="node-input-ReadmeUrl" placeholder="ReadmeUrl"></input>
+	</div> 
+	<div class="form-row" id='SemanticVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-SemanticVersion"><i class="fa fa-tag"></i> SemanticVersion</label>
+		<input type="text" id="node-input-SemanticVersion" placeholder="SemanticVersion"></input>
+	</div> 
+	<div class="form-row" id='SourceCodeArchiveUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceCodeArchiveUrl"><i class="fa fa-tag"></i> SourceCodeArchiveUrl</label>
+		<input type="text" id="node-input-SourceCodeArchiveUrl" placeholder="SourceCodeArchiveUrl"></input>
+	</div> 
+	<div class="form-row" id='SourceCodeUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceCodeUrl"><i class="fa fa-tag"></i> SourceCodeUrl</label>
+		<input type="text" id="node-input-SourceCodeUrl" placeholder="SourceCodeUrl"></input>
+	</div> 
+	<div class="form-row" id='SpdxLicenseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SpdxLicenseId"><i class="fa fa-tag"></i> SpdxLicenseId</label>
+		<input type="text" id="node-input-SpdxLicenseId" placeholder="SpdxLicenseId"></input>
+	</div> 
+	<div class="form-row" id='TemplateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateBody"><i class="fa fa-tag"></i> TemplateBody</label>
+		<input type="text" id="node-input-TemplateBody" placeholder="TemplateBody"></input>
+	</div> 
+	<div class="form-row" id='TemplateUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateUrl"><i class="fa fa-tag"></i> TemplateUrl</label>
+		<input type="text" id="node-input-TemplateUrl" placeholder="TemplateUrl"></input>
+	</div> 
+	<div class="form-row" id='ApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationId"><i class="fa fa-tag"></i> ApplicationId</label>
+		<input type="text" id="node-input-ApplicationId" placeholder="ApplicationId"></input>
+	</div> 
+	<div class="form-row" id='CapabilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-Capabilities"><i class="fa fa-tag"></i> Capabilities</label>
+		<input type="text" id="node-input-Capabilities" placeholder="Capabilities"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetName"><i class="fa fa-tag"></i> ChangeSetName</label>
+		<input type="text" id="node-input-ChangeSetName" placeholder="ChangeSetName"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='NotificationArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationArns"><i class="fa fa-tag"></i> NotificationArns</label>
+		<input type="text" id="node-input-NotificationArns" placeholder="NotificationArns"></input>
+	</div> 
+	<div class="form-row" id='ParameterOverridesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterOverrides"><i class="fa fa-tag"></i> ParameterOverrides</label>
+		<input type="text" id="node-input-ParameterOverrides" placeholder="ParameterOverrides"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceTypes"><i class="fa fa-tag"></i> ResourceTypes</label>
+		<input type="text" id="node-input-ResourceTypes" placeholder="ResourceTypes"></input>
+	</div> 
+	<div class="form-row" id='RollbackConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RollbackConfiguration"><i class="fa fa-tag"></i> RollbackConfiguration</label>
+		<input type="text" id="node-input-RollbackConfiguration" placeholder="RollbackConfiguration"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i> StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateId"><i class="fa fa-tag"></i> TemplateId</label>
+		<input type="text" id="node-input-TemplateId" placeholder="TemplateId"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StatementsAttr' class='hiddenAttrs'>
+		<label for="node-input-Statements"><i class="fa fa-tag"></i> Statements</label>
+		<input type="text" id="node-input-Statements" placeholder="Statements"></input>
+	</div> 
+	<div class="form-row" id='OrganizationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationId"><i class="fa fa-tag"></i> OrganizationId</label>
+		<input type="text" id="node-input-OrganizationId" placeholder="OrganizationId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApplication:[
+					'#AuthorAttr','#DescriptionAttr','#HomePageUrlAttr','#LabelsAttr','#LicenseBodyAttr','#LicenseUrlAttr','#NameAttr','#ReadmeBodyAttr','#ReadmeUrlAttr','#SemanticVersionAttr','#SourceCodeArchiveUrlAttr','#SourceCodeUrlAttr','#SpdxLicenseIdAttr','#TemplateBodyAttr','#TemplateUrlAttr'
+					],
+				CreateApplicationVersion:[
+					'#ApplicationIdAttr','#SemanticVersionAttr','#SourceCodeArchiveUrlAttr','#SourceCodeUrlAttr','#TemplateBodyAttr','#TemplateUrlAttr'
+					],
+				CreateCloudFormationChangeSet:[
+					'#ApplicationIdAttr','#CapabilitiesAttr','#ChangeSetNameAttr','#ClientTokenAttr','#DescriptionAttr','#NotificationArnsAttr','#ParameterOverridesAttr','#ResourceTypesAttr','#RollbackConfigurationAttr','#SemanticVersionAttr','#StackNameAttr','#TagsAttr','#TemplateIdAttr'
+					],
+				CreateCloudFormationTemplate:[
+					'#ApplicationIdAttr','#SemanticVersionAttr'
+					],
+				DeleteApplication:[
+					'#ApplicationIdAttr'
+					],
+				GetApplication:[
+					'#ApplicationIdAttr','#SemanticVersionAttr'
+					],
+				GetApplicationPolicy:[
+					'#ApplicationIdAttr'
+					],
+				GetCloudFormationTemplate:[
+					'#ApplicationIdAttr','#TemplateIdAttr'
+					],
+				ListApplicationDependencies:[
+					'#ApplicationIdAttr','#MaxItemsAttr','#NextTokenAttr','#SemanticVersionAttr'
+					],
+				ListApplicationVersions:[
+					'#ApplicationIdAttr','#MaxItemsAttr','#NextTokenAttr'
+					],
+				ListApplications:[
+					'#MaxItemsAttr','#NextTokenAttr'
+					],
+				PutApplicationPolicy:[
+					'#ApplicationIdAttr','#StatementsAttr'
+					],
+				UnshareApplication:[
+					'#ApplicationIdAttr','#OrganizationIdAttr'
+					],
+				UpdateApplication:[
+					'#ApplicationIdAttr','#AuthorAttr','#DescriptionAttr','#HomePageUrlAttr','#LabelsAttr','#ReadmeBodyAttr','#ReadmeUrlAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ServerlessApplicationRepository">
+<p>
+AWS ServerlessApplicationRepository
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ServerlessApplicationRepository.html">ServerlessApplicationRepository</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ServerlessApplicationRepository',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApplication' },
+			
+				Author: { value: ""} ,
+				Description: { value: ""} ,
+				HomePageUrl: { value: ""} ,
+				Labels: { value: ""} ,
+				LicenseBody: { value: ""} ,
+				LicenseUrl: { value: ""} ,
+				Name: { value: ""} ,
+				ReadmeBody: { value: ""} ,
+				ReadmeUrl: { value: ""} ,
+				SemanticVersion: { value: ""} ,
+				SourceCodeArchiveUrl: { value: ""} ,
+				SourceCodeUrl: { value: ""} ,
+				SpdxLicenseId: { value: ""} ,
+				TemplateBody: { value: ""} ,
+				TemplateUrl: { value: ""} ,
+				ApplicationId: { value: ""} ,
+				Capabilities: { value: ""} ,
+				ChangeSetName: { value: ""} ,
+				ClientToken: { value: ""} ,
+				NotificationArns: { value: ""} ,
+				ParameterOverrides: { value: ""} ,
+				ResourceTypes: { value: ""} ,
+				RollbackConfiguration: { value: ""} ,
+				StackName: { value: ""} ,
+				Tags: { value: ""} ,
+				TemplateId: { value: ""} ,
+				MaxItems: { value: ""} ,
+				NextToken: { value: ""} ,
+				Statements: { value: ""} ,
+				OrganizationId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ServerlessApplicationRepository " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Author").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HomePageUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Labels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LicenseBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LicenseUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReadmeBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReadmeUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SemanticVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceCodeArchiveUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceCodeUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SpdxLicenseId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Capabilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChangeSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationArns").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResourceTypes").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-StackName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TemplateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Statements").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationId").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

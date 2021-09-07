@@ -1,0 +1,1135 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS OpsWorks">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssignInstance">AssignInstance</option>
+		
+			<option value="AssignVolume">AssignVolume</option>
+		
+			<option value="AssociateElasticIp">AssociateElasticIp</option>
+		
+			<option value="AttachElasticLoadBalancer">AttachElasticLoadBalancer</option>
+		
+			<option value="CloneStack">CloneStack</option>
+		
+			<option value="CreateApp">CreateApp</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateInstance">CreateInstance</option>
+		
+			<option value="CreateLayer">CreateLayer</option>
+		
+			<option value="CreateStack">CreateStack</option>
+		
+			<option value="CreateUserProfile">CreateUserProfile</option>
+		
+			<option value="DeleteApp">DeleteApp</option>
+		
+			<option value="DeleteInstance">DeleteInstance</option>
+		
+			<option value="DeleteLayer">DeleteLayer</option>
+		
+			<option value="DeleteStack">DeleteStack</option>
+		
+			<option value="DeleteUserProfile">DeleteUserProfile</option>
+		
+			<option value="DeregisterEcsCluster">DeregisterEcsCluster</option>
+		
+			<option value="DeregisterElasticIp">DeregisterElasticIp</option>
+		
+			<option value="DeregisterInstance">DeregisterInstance</option>
+		
+			<option value="DeregisterRdsDbInstance">DeregisterRdsDbInstance</option>
+		
+			<option value="DeregisterVolume">DeregisterVolume</option>
+		
+			<option value="DescribeAgentVersions">DescribeAgentVersions</option>
+		
+			<option value="DescribeApps">DescribeApps</option>
+		
+			<option value="DescribeCommands">DescribeCommands</option>
+		
+			<option value="DescribeDeployments">DescribeDeployments</option>
+		
+			<option value="DescribeEcsClusters">DescribeEcsClusters</option>
+		
+			<option value="DescribeElasticIps">DescribeElasticIps</option>
+		
+			<option value="DescribeElasticLoadBalancers">DescribeElasticLoadBalancers</option>
+		
+			<option value="DescribeInstances">DescribeInstances</option>
+		
+			<option value="DescribeLayers">DescribeLayers</option>
+		
+			<option value="DescribeLoadBasedAutoScaling">DescribeLoadBasedAutoScaling</option>
+		
+			<option value="DescribeMyUserProfile">DescribeMyUserProfile</option>
+		
+			<option value="DescribeOperatingSystems">DescribeOperatingSystems</option>
+		
+			<option value="DescribePermissions">DescribePermissions</option>
+		
+			<option value="DescribeRaidArrays">DescribeRaidArrays</option>
+		
+			<option value="DescribeRdsDbInstances">DescribeRdsDbInstances</option>
+		
+			<option value="DescribeServiceErrors">DescribeServiceErrors</option>
+		
+			<option value="DescribeStackProvisioningParameters">DescribeStackProvisioningParameters</option>
+		
+			<option value="DescribeStackSummary">DescribeStackSummary</option>
+		
+			<option value="DescribeStacks">DescribeStacks</option>
+		
+			<option value="DescribeTimeBasedAutoScaling">DescribeTimeBasedAutoScaling</option>
+		
+			<option value="DescribeUserProfiles">DescribeUserProfiles</option>
+		
+			<option value="DescribeVolumes">DescribeVolumes</option>
+		
+			<option value="DetachElasticLoadBalancer">DetachElasticLoadBalancer</option>
+		
+			<option value="DisassociateElasticIp">DisassociateElasticIp</option>
+		
+			<option value="GetHostnameSuggestion">GetHostnameSuggestion</option>
+		
+			<option value="GrantAccess">GrantAccess</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="RebootInstance">RebootInstance</option>
+		
+			<option value="RegisterEcsCluster">RegisterEcsCluster</option>
+		
+			<option value="RegisterElasticIp">RegisterElasticIp</option>
+		
+			<option value="RegisterInstance">RegisterInstance</option>
+		
+			<option value="RegisterRdsDbInstance">RegisterRdsDbInstance</option>
+		
+			<option value="RegisterVolume">RegisterVolume</option>
+		
+			<option value="SetLoadBasedAutoScaling">SetLoadBasedAutoScaling</option>
+		
+			<option value="SetPermission">SetPermission</option>
+		
+			<option value="SetTimeBasedAutoScaling">SetTimeBasedAutoScaling</option>
+		
+			<option value="StartInstance">StartInstance</option>
+		
+			<option value="StartStack">StartStack</option>
+		
+			<option value="StopInstance">StopInstance</option>
+		
+			<option value="StopStack">StopStack</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UnassignInstance">UnassignInstance</option>
+		
+			<option value="UnassignVolume">UnassignVolume</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApp">UpdateApp</option>
+		
+			<option value="UpdateElasticIp">UpdateElasticIp</option>
+		
+			<option value="UpdateInstance">UpdateInstance</option>
+		
+			<option value="UpdateLayer">UpdateLayer</option>
+		
+			<option value="UpdateMyUserProfile">UpdateMyUserProfile</option>
+		
+			<option value="UpdateRdsDbInstance">UpdateRdsDbInstance</option>
+		
+			<option value="UpdateStack">UpdateStack</option>
+		
+			<option value="UpdateUserProfile">UpdateUserProfile</option>
+		
+			<option value="UpdateVolume">UpdateVolume</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i> InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='LayerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-LayerIds"><i class="fa fa-tag"></i> LayerIds</label>
+		<input type="text" id="node-input-LayerIds" placeholder="LayerIds"></input>
+	</div> 
+	<div class="form-row" id='VolumeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeId"><i class="fa fa-tag"></i> VolumeId</label>
+		<input type="text" id="node-input-VolumeId" placeholder="VolumeId"></input>
+	</div> 
+	<div class="form-row" id='ElasticIpAttr' class='hiddenAttrs'>
+		<label for="node-input-ElasticIp"><i class="fa fa-tag"></i> ElasticIp</label>
+		<input type="text" id="node-input-ElasticIp" placeholder="ElasticIp"></input>
+	</div> 
+	<div class="form-row" id='ElasticLoadBalancerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ElasticLoadBalancerName"><i class="fa fa-tag"></i> ElasticLoadBalancerName</label>
+		<input type="text" id="node-input-ElasticLoadBalancerName" placeholder="ElasticLoadBalancerName"></input>
+	</div> 
+	<div class="form-row" id='LayerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LayerId"><i class="fa fa-tag"></i> LayerId</label>
+		<input type="text" id="node-input-LayerId" placeholder="LayerId"></input>
+	</div> 
+	<div class="form-row" id='SourceStackIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceStackId"><i class="fa fa-tag"></i> SourceStackId</label>
+		<input type="text" id="node-input-SourceStackId" placeholder="SourceStackId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RegionAttr' class='hiddenAttrs'>
+		<label for="node-input-Region"><i class="fa fa-tag"></i> Region</label>
+		<input type="text" id="node-input-Region" placeholder="Region"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i> VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i> Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='ServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceRoleArn"><i class="fa fa-tag"></i> ServiceRoleArn</label>
+		<input type="text" id="node-input-ServiceRoleArn" placeholder="ServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='DefaultInstanceProfileArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultInstanceProfileArn"><i class="fa fa-tag"></i> DefaultInstanceProfileArn</label>
+		<input type="text" id="node-input-DefaultInstanceProfileArn" placeholder="DefaultInstanceProfileArn"></input>
+	</div> 
+	<div class="form-row" id='DefaultOsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultOs"><i class="fa fa-tag"></i> DefaultOs</label>
+		<input type="text" id="node-input-DefaultOs" placeholder="DefaultOs"></input>
+	</div> 
+	<div class="form-row" id='HostnameThemeAttr' class='hiddenAttrs'>
+		<label for="node-input-HostnameTheme"><i class="fa fa-tag"></i> HostnameTheme</label>
+		<input type="text" id="node-input-HostnameTheme" placeholder="HostnameTheme"></input>
+	</div> 
+	<div class="form-row" id='DefaultAvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultAvailabilityZone"><i class="fa fa-tag"></i> DefaultAvailabilityZone</label>
+		<input type="text" id="node-input-DefaultAvailabilityZone" placeholder="DefaultAvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='DefaultSubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultSubnetId"><i class="fa fa-tag"></i> DefaultSubnetId</label>
+		<input type="text" id="node-input-DefaultSubnetId" placeholder="DefaultSubnetId"></input>
+	</div> 
+	<div class="form-row" id='CustomJsonAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomJson"><i class="fa fa-tag"></i> CustomJson</label>
+		<input type="text" id="node-input-CustomJson" placeholder="CustomJson"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationManagerAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationManager"><i class="fa fa-tag"></i> ConfigurationManager</label>
+		<input type="text" id="node-input-ConfigurationManager" placeholder="ConfigurationManager"></input>
+	</div> 
+	<div class="form-row" id='ChefConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ChefConfiguration"><i class="fa fa-tag"></i> ChefConfiguration</label>
+		<input type="text" id="node-input-ChefConfiguration" placeholder="ChefConfiguration"></input>
+	</div> 
+	<div class="form-row" id='UseCustomCookbooksAttr' class='hiddenAttrs'>
+		<label for="node-input-UseCustomCookbooks"><i class="fa fa-tag"></i> UseCustomCookbooks</label>
+		<input type="text" id="node-input-UseCustomCookbooks" placeholder="UseCustomCookbooks"></input>
+	</div> 
+	<div class="form-row" id='UseOpsworksSecurityGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-UseOpsworksSecurityGroups"><i class="fa fa-tag"></i> UseOpsworksSecurityGroups</label>
+		<input type="text" id="node-input-UseOpsworksSecurityGroups" placeholder="UseOpsworksSecurityGroups"></input>
+	</div> 
+	<div class="form-row" id='CustomCookbooksSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomCookbooksSource"><i class="fa fa-tag"></i> CustomCookbooksSource</label>
+		<input type="text" id="node-input-CustomCookbooksSource" placeholder="CustomCookbooksSource"></input>
+	</div> 
+	<div class="form-row" id='DefaultSshKeyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultSshKeyName"><i class="fa fa-tag"></i> DefaultSshKeyName</label>
+		<input type="text" id="node-input-DefaultSshKeyName" placeholder="DefaultSshKeyName"></input>
+	</div> 
+	<div class="form-row" id='ClonePermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ClonePermissions"><i class="fa fa-tag"></i> ClonePermissions</label>
+		<input type="text" id="node-input-ClonePermissions" placeholder="ClonePermissions"></input>
+	</div> 
+	<div class="form-row" id='CloneAppIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-CloneAppIds"><i class="fa fa-tag"></i> CloneAppIds</label>
+		<input type="text" id="node-input-CloneAppIds" placeholder="CloneAppIds"></input>
+	</div> 
+	<div class="form-row" id='DefaultRootDeviceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultRootDeviceType"><i class="fa fa-tag"></i> DefaultRootDeviceType</label>
+		<input type="text" id="node-input-DefaultRootDeviceType" placeholder="DefaultRootDeviceType"></input>
+	</div> 
+	<div class="form-row" id='AgentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-AgentVersion"><i class="fa fa-tag"></i> AgentVersion</label>
+		<input type="text" id="node-input-AgentVersion" placeholder="AgentVersion"></input>
+	</div> 
+	<div class="form-row" id='StackIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StackId"><i class="fa fa-tag"></i> StackId</label>
+		<input type="text" id="node-input-StackId" placeholder="StackId"></input>
+	</div> 
+	<div class="form-row" id='ShortnameAttr' class='hiddenAttrs'>
+		<label for="node-input-Shortname"><i class="fa fa-tag"></i> Shortname</label>
+		<input type="text" id="node-input-Shortname" placeholder="Shortname"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DataSourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSources"><i class="fa fa-tag"></i> DataSources</label>
+		<input type="text" id="node-input-DataSources" placeholder="DataSources"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='AppSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-AppSource"><i class="fa fa-tag"></i> AppSource</label>
+		<input type="text" id="node-input-AppSource" placeholder="AppSource"></input>
+	</div> 
+	<div class="form-row" id='DomainsAttr' class='hiddenAttrs'>
+		<label for="node-input-Domains"><i class="fa fa-tag"></i> Domains</label>
+		<input type="text" id="node-input-Domains" placeholder="Domains"></input>
+	</div> 
+	<div class="form-row" id='EnableSslAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableSsl"><i class="fa fa-tag"></i> EnableSsl</label>
+		<input type="text" id="node-input-EnableSsl" placeholder="EnableSsl"></input>
+	</div> 
+	<div class="form-row" id='SslConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SslConfiguration"><i class="fa fa-tag"></i> SslConfiguration</label>
+		<input type="text" id="node-input-SslConfiguration" placeholder="SslConfiguration"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Environment"><i class="fa fa-tag"></i> Environment</label>
+		<input type="text" id="node-input-Environment" placeholder="Environment"></input>
+	</div> 
+	<div class="form-row" id='AppIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AppId"><i class="fa fa-tag"></i> AppId</label>
+		<input type="text" id="node-input-AppId" placeholder="AppId"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceIds"><i class="fa fa-tag"></i> InstanceIds</label>
+		<input type="text" id="node-input-InstanceIds" placeholder="InstanceIds"></input>
+	</div> 
+	<div class="form-row" id='CommandAttr' class='hiddenAttrs'>
+		<label for="node-input-Command"><i class="fa fa-tag"></i> Command</label>
+		<input type="text" id="node-input-Command" placeholder="Command"></input>
+	</div> 
+	<div class="form-row" id='CommentAttr' class='hiddenAttrs'>
+		<label for="node-input-Comment"><i class="fa fa-tag"></i> Comment</label>
+		<input type="text" id="node-input-Comment" placeholder="Comment"></input>
+	</div> 
+	<div class="form-row" id='InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceType"><i class="fa fa-tag"></i> InstanceType</label>
+		<input type="text" id="node-input-InstanceType" placeholder="InstanceType"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingType"><i class="fa fa-tag"></i> AutoScalingType</label>
+		<input type="text" id="node-input-AutoScalingType" placeholder="AutoScalingType"></input>
+	</div> 
+	<div class="form-row" id='HostnameAttr' class='hiddenAttrs'>
+		<label for="node-input-Hostname"><i class="fa fa-tag"></i> Hostname</label>
+		<input type="text" id="node-input-Hostname" placeholder="Hostname"></input>
+	</div> 
+	<div class="form-row" id='OsAttr' class='hiddenAttrs'>
+		<label for="node-input-Os"><i class="fa fa-tag"></i> Os</label>
+		<input type="text" id="node-input-Os" placeholder="Os"></input>
+	</div> 
+	<div class="form-row" id='AmiIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AmiId"><i class="fa fa-tag"></i> AmiId</label>
+		<input type="text" id="node-input-AmiId" placeholder="AmiId"></input>
+	</div> 
+	<div class="form-row" id='SshKeyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SshKeyName"><i class="fa fa-tag"></i> SshKeyName</label>
+		<input type="text" id="node-input-SshKeyName" placeholder="SshKeyName"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZone"><i class="fa fa-tag"></i> AvailabilityZone</label>
+		<input type="text" id="node-input-AvailabilityZone" placeholder="AvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='VirtualizationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-VirtualizationType"><i class="fa fa-tag"></i> VirtualizationType</label>
+		<input type="text" id="node-input-VirtualizationType" placeholder="VirtualizationType"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i> SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='ArchitectureAttr' class='hiddenAttrs'>
+		<label for="node-input-Architecture"><i class="fa fa-tag"></i> Architecture</label>
+		<input type="text" id="node-input-Architecture" placeholder="Architecture"></input>
+	</div> 
+	<div class="form-row" id='RootDeviceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-RootDeviceType"><i class="fa fa-tag"></i> RootDeviceType</label>
+		<input type="text" id="node-input-RootDeviceType" placeholder="RootDeviceType"></input>
+	</div> 
+	<div class="form-row" id='BlockDeviceMappingsAttr' class='hiddenAttrs'>
+		<label for="node-input-BlockDeviceMappings"><i class="fa fa-tag"></i> BlockDeviceMappings</label>
+		<input type="text" id="node-input-BlockDeviceMappings" placeholder="BlockDeviceMappings"></input>
+	</div> 
+	<div class="form-row" id='InstallUpdatesOnBootAttr' class='hiddenAttrs'>
+		<label for="node-input-InstallUpdatesOnBoot"><i class="fa fa-tag"></i> InstallUpdatesOnBoot</label>
+		<input type="text" id="node-input-InstallUpdatesOnBoot" placeholder="InstallUpdatesOnBoot"></input>
+	</div> 
+	<div class="form-row" id='EbsOptimizedAttr' class='hiddenAttrs'>
+		<label for="node-input-EbsOptimized"><i class="fa fa-tag"></i> EbsOptimized</label>
+		<input type="text" id="node-input-EbsOptimized" placeholder="EbsOptimized"></input>
+	</div> 
+	<div class="form-row" id='TenancyAttr' class='hiddenAttrs'>
+		<label for="node-input-Tenancy"><i class="fa fa-tag"></i> Tenancy</label>
+		<input type="text" id="node-input-Tenancy" placeholder="Tenancy"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchLogsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchLogsConfiguration"><i class="fa fa-tag"></i> CloudWatchLogsConfiguration</label>
+		<input type="text" id="node-input-CloudWatchLogsConfiguration" placeholder="CloudWatchLogsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='CustomInstanceProfileArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomInstanceProfileArn"><i class="fa fa-tag"></i> CustomInstanceProfileArn</label>
+		<input type="text" id="node-input-CustomInstanceProfileArn" placeholder="CustomInstanceProfileArn"></input>
+	</div> 
+	<div class="form-row" id='CustomSecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomSecurityGroupIds"><i class="fa fa-tag"></i> CustomSecurityGroupIds</label>
+		<input type="text" id="node-input-CustomSecurityGroupIds" placeholder="CustomSecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='PackagesAttr' class='hiddenAttrs'>
+		<label for="node-input-Packages"><i class="fa fa-tag"></i> Packages</label>
+		<input type="text" id="node-input-Packages" placeholder="Packages"></input>
+	</div> 
+	<div class="form-row" id='VolumeConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeConfigurations"><i class="fa fa-tag"></i> VolumeConfigurations</label>
+		<input type="text" id="node-input-VolumeConfigurations" placeholder="VolumeConfigurations"></input>
+	</div> 
+	<div class="form-row" id='EnableAutoHealingAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableAutoHealing"><i class="fa fa-tag"></i> EnableAutoHealing</label>
+		<input type="text" id="node-input-EnableAutoHealing" placeholder="EnableAutoHealing"></input>
+	</div> 
+	<div class="form-row" id='AutoAssignElasticIpsAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoAssignElasticIps"><i class="fa fa-tag"></i> AutoAssignElasticIps</label>
+		<input type="text" id="node-input-AutoAssignElasticIps" placeholder="AutoAssignElasticIps"></input>
+	</div> 
+	<div class="form-row" id='AutoAssignPublicIpsAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoAssignPublicIps"><i class="fa fa-tag"></i> AutoAssignPublicIps</label>
+		<input type="text" id="node-input-AutoAssignPublicIps" placeholder="AutoAssignPublicIps"></input>
+	</div> 
+	<div class="form-row" id='CustomRecipesAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomRecipes"><i class="fa fa-tag"></i> CustomRecipes</label>
+		<input type="text" id="node-input-CustomRecipes" placeholder="CustomRecipes"></input>
+	</div> 
+	<div class="form-row" id='UseEbsOptimizedInstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-UseEbsOptimizedInstances"><i class="fa fa-tag"></i> UseEbsOptimizedInstances</label>
+		<input type="text" id="node-input-UseEbsOptimizedInstances" placeholder="UseEbsOptimizedInstances"></input>
+	</div> 
+	<div class="form-row" id='LifecycleEventConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleEventConfiguration"><i class="fa fa-tag"></i> LifecycleEventConfiguration</label>
+		<input type="text" id="node-input-LifecycleEventConfiguration" placeholder="LifecycleEventConfiguration"></input>
+	</div> 
+	<div class="form-row" id='IamUserArnAttr' class='hiddenAttrs'>
+		<label for="node-input-IamUserArn"><i class="fa fa-tag"></i> IamUserArn</label>
+		<input type="text" id="node-input-IamUserArn" placeholder="IamUserArn"></input>
+	</div> 
+	<div class="form-row" id='SshUsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-SshUsername"><i class="fa fa-tag"></i> SshUsername</label>
+		<input type="text" id="node-input-SshUsername" placeholder="SshUsername"></input>
+	</div> 
+	<div class="form-row" id='SshPublicKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-SshPublicKey"><i class="fa fa-tag"></i> SshPublicKey</label>
+		<input type="text" id="node-input-SshPublicKey" placeholder="SshPublicKey"></input>
+	</div> 
+	<div class="form-row" id='AllowSelfManagementAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowSelfManagement"><i class="fa fa-tag"></i> AllowSelfManagement</label>
+		<input type="text" id="node-input-AllowSelfManagement" placeholder="AllowSelfManagement"></input>
+	</div> 
+	<div class="form-row" id='DeleteElasticIpAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteElasticIp"><i class="fa fa-tag"></i> DeleteElasticIp</label>
+		<input type="text" id="node-input-DeleteElasticIp" placeholder="DeleteElasticIp"></input>
+	</div> 
+	<div class="form-row" id='DeleteVolumesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteVolumes"><i class="fa fa-tag"></i> DeleteVolumes</label>
+		<input type="text" id="node-input-DeleteVolumes" placeholder="DeleteVolumes"></input>
+	</div> 
+	<div class="form-row" id='EcsClusterArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EcsClusterArn"><i class="fa fa-tag"></i> EcsClusterArn</label>
+		<input type="text" id="node-input-EcsClusterArn" placeholder="EcsClusterArn"></input>
+	</div> 
+	<div class="form-row" id='RdsDbInstanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RdsDbInstanceArn"><i class="fa fa-tag"></i> RdsDbInstanceArn</label>
+		<input type="text" id="node-input-RdsDbInstanceArn" placeholder="RdsDbInstanceArn"></input>
+	</div> 
+	<div class="form-row" id='AppIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AppIds"><i class="fa fa-tag"></i> AppIds</label>
+		<input type="text" id="node-input-AppIds" placeholder="AppIds"></input>
+	</div> 
+	<div class="form-row" id='DeploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentId"><i class="fa fa-tag"></i> DeploymentId</label>
+		<input type="text" id="node-input-DeploymentId" placeholder="DeploymentId"></input>
+	</div> 
+	<div class="form-row" id='CommandIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-CommandIds"><i class="fa fa-tag"></i> CommandIds</label>
+		<input type="text" id="node-input-CommandIds" placeholder="CommandIds"></input>
+	</div> 
+	<div class="form-row" id='DeploymentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentIds"><i class="fa fa-tag"></i> DeploymentIds</label>
+		<input type="text" id="node-input-DeploymentIds" placeholder="DeploymentIds"></input>
+	</div> 
+	<div class="form-row" id='EcsClusterArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-EcsClusterArns"><i class="fa fa-tag"></i> EcsClusterArns</label>
+		<input type="text" id="node-input-EcsClusterArns" placeholder="EcsClusterArns"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='IpsAttr' class='hiddenAttrs'>
+		<label for="node-input-Ips"><i class="fa fa-tag"></i> Ips</label>
+		<input type="text" id="node-input-Ips" placeholder="Ips"></input>
+	</div> 
+	<div class="form-row" id='RaidArrayIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-RaidArrayIds"><i class="fa fa-tag"></i> RaidArrayIds</label>
+		<input type="text" id="node-input-RaidArrayIds" placeholder="RaidArrayIds"></input>
+	</div> 
+	<div class="form-row" id='RdsDbInstanceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-RdsDbInstanceArns"><i class="fa fa-tag"></i> RdsDbInstanceArns</label>
+		<input type="text" id="node-input-RdsDbInstanceArns" placeholder="RdsDbInstanceArns"></input>
+	</div> 
+	<div class="form-row" id='ServiceErrorIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceErrorIds"><i class="fa fa-tag"></i> ServiceErrorIds</label>
+		<input type="text" id="node-input-ServiceErrorIds" placeholder="ServiceErrorIds"></input>
+	</div> 
+	<div class="form-row" id='StackIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-StackIds"><i class="fa fa-tag"></i> StackIds</label>
+		<input type="text" id="node-input-StackIds" placeholder="StackIds"></input>
+	</div> 
+	<div class="form-row" id='IamUserArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-IamUserArns"><i class="fa fa-tag"></i> IamUserArns</label>
+		<input type="text" id="node-input-IamUserArns" placeholder="IamUserArns"></input>
+	</div> 
+	<div class="form-row" id='RaidArrayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RaidArrayId"><i class="fa fa-tag"></i> RaidArrayId</label>
+		<input type="text" id="node-input-RaidArrayId" placeholder="RaidArrayId"></input>
+	</div> 
+	<div class="form-row" id='VolumeIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeIds"><i class="fa fa-tag"></i> VolumeIds</label>
+		<input type="text" id="node-input-VolumeIds" placeholder="VolumeIds"></input>
+	</div> 
+	<div class="form-row" id='ValidForInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidForInMinutes"><i class="fa fa-tag"></i> ValidForInMinutes</label>
+		<input type="text" id="node-input-ValidForInMinutes" placeholder="ValidForInMinutes"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='PublicIpAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicIp"><i class="fa fa-tag"></i> PublicIp</label>
+		<input type="text" id="node-input-PublicIp" placeholder="PublicIp"></input>
+	</div> 
+	<div class="form-row" id='PrivateIpAttr' class='hiddenAttrs'>
+		<label for="node-input-PrivateIp"><i class="fa fa-tag"></i> PrivateIp</label>
+		<input type="text" id="node-input-PrivateIp" placeholder="PrivateIp"></input>
+	</div> 
+	<div class="form-row" id='RsaPublicKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-RsaPublicKey"><i class="fa fa-tag"></i> RsaPublicKey</label>
+		<input type="text" id="node-input-RsaPublicKey" placeholder="RsaPublicKey"></input>
+	</div> 
+	<div class="form-row" id='RsaPublicKeyFingerprintAttr' class='hiddenAttrs'>
+		<label for="node-input-RsaPublicKeyFingerprint"><i class="fa fa-tag"></i> RsaPublicKeyFingerprint</label>
+		<input type="text" id="node-input-RsaPublicKeyFingerprint" placeholder="RsaPublicKeyFingerprint"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdentityAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceIdentity"><i class="fa fa-tag"></i> InstanceIdentity</label>
+		<input type="text" id="node-input-InstanceIdentity" placeholder="InstanceIdentity"></input>
+	</div> 
+	<div class="form-row" id='DbUserAttr' class='hiddenAttrs'>
+		<label for="node-input-DbUser"><i class="fa fa-tag"></i> DbUser</label>
+		<input type="text" id="node-input-DbUser" placeholder="DbUser"></input>
+	</div> 
+	<div class="form-row" id='DbPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-DbPassword"><i class="fa fa-tag"></i> DbPassword</label>
+		<input type="text" id="node-input-DbPassword" placeholder="DbPassword"></input>
+	</div> 
+	<div class="form-row" id='Ec2VolumeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-Ec2VolumeId"><i class="fa fa-tag"></i> Ec2VolumeId</label>
+		<input type="text" id="node-input-Ec2VolumeId" placeholder="Ec2VolumeId"></input>
+	</div> 
+	<div class="form-row" id='EnableAttr' class='hiddenAttrs'>
+		<label for="node-input-Enable"><i class="fa fa-tag"></i> Enable</label>
+		<input type="text" id="node-input-Enable" placeholder="Enable"></input>
+	</div> 
+	<div class="form-row" id='UpScalingAttr' class='hiddenAttrs'>
+		<label for="node-input-UpScaling"><i class="fa fa-tag"></i> UpScaling</label>
+		<input type="text" id="node-input-UpScaling" placeholder="UpScaling"></input>
+	</div> 
+	<div class="form-row" id='DownScalingAttr' class='hiddenAttrs'>
+		<label for="node-input-DownScaling"><i class="fa fa-tag"></i> DownScaling</label>
+		<input type="text" id="node-input-DownScaling" placeholder="DownScaling"></input>
+	</div> 
+	<div class="form-row" id='AllowSshAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowSsh"><i class="fa fa-tag"></i> AllowSsh</label>
+		<input type="text" id="node-input-AllowSsh" placeholder="AllowSsh"></input>
+	</div> 
+	<div class="form-row" id='AllowSudoAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowSudo"><i class="fa fa-tag"></i> AllowSudo</label>
+		<input type="text" id="node-input-AllowSudo" placeholder="AllowSudo"></input>
+	</div> 
+	<div class="form-row" id='LevelAttr' class='hiddenAttrs'>
+		<label for="node-input-Level"><i class="fa fa-tag"></i> Level</label>
+		<input type="text" id="node-input-Level" placeholder="Level"></input>
+	</div> 
+	<div class="form-row" id='AutoScalingScheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoScalingSchedule"><i class="fa fa-tag"></i> AutoScalingSchedule</label>
+		<input type="text" id="node-input-AutoScalingSchedule" placeholder="AutoScalingSchedule"></input>
+	</div> 
+	<div class="form-row" id='ForceAttr' class='hiddenAttrs'>
+		<label for="node-input-Force"><i class="fa fa-tag"></i> Force</label>
+		<input type="text" id="node-input-Force" placeholder="Force"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='MountPointAttr' class='hiddenAttrs'>
+		<label for="node-input-MountPoint"><i class="fa fa-tag"></i> MountPoint</label>
+		<input type="text" id="node-input-MountPoint" placeholder="MountPoint"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssignInstance:[
+					'#InstanceIdAttr','#LayerIdsAttr'
+					],
+				AssignVolume:[
+					'#VolumeIdAttr','#InstanceIdAttr'
+					],
+				AssociateElasticIp:[
+					'#ElasticIpAttr','#InstanceIdAttr'
+					],
+				AttachElasticLoadBalancer:[
+					'#ElasticLoadBalancerNameAttr','#LayerIdAttr'
+					],
+				CloneStack:[
+					'#SourceStackIdAttr','#NameAttr','#RegionAttr','#VpcIdAttr','#AttributesAttr','#ServiceRoleArnAttr','#DefaultInstanceProfileArnAttr','#DefaultOsAttr','#HostnameThemeAttr','#DefaultAvailabilityZoneAttr','#DefaultSubnetIdAttr','#CustomJsonAttr','#ConfigurationManagerAttr','#ChefConfigurationAttr','#UseCustomCookbooksAttr','#UseOpsworksSecurityGroupsAttr','#CustomCookbooksSourceAttr','#DefaultSshKeyNameAttr','#ClonePermissionsAttr','#CloneAppIdsAttr','#DefaultRootDeviceTypeAttr','#AgentVersionAttr'
+					],
+				CreateApp:[
+					'#StackIdAttr','#ShortnameAttr','#NameAttr','#DescriptionAttr','#DataSourcesAttr','#TypeAttr','#AppSourceAttr','#DomainsAttr','#EnableSslAttr','#SslConfigurationAttr','#AttributesAttr','#EnvironmentAttr'
+					],
+				CreateDeployment:[
+					'#StackIdAttr','#AppIdAttr','#InstanceIdsAttr','#LayerIdsAttr','#CommandAttr','#CommentAttr','#CustomJsonAttr'
+					],
+				CreateInstance:[
+					'#StackIdAttr','#LayerIdsAttr','#InstanceTypeAttr','#AutoScalingTypeAttr','#HostnameAttr','#OsAttr','#AmiIdAttr','#SshKeyNameAttr','#AvailabilityZoneAttr','#VirtualizationTypeAttr','#SubnetIdAttr','#ArchitectureAttr','#RootDeviceTypeAttr','#BlockDeviceMappingsAttr','#InstallUpdatesOnBootAttr','#EbsOptimizedAttr','#AgentVersionAttr','#TenancyAttr'
+					],
+				CreateLayer:[
+					'#StackIdAttr','#TypeAttr','#NameAttr','#ShortnameAttr','#AttributesAttr','#CloudWatchLogsConfigurationAttr','#CustomInstanceProfileArnAttr','#CustomJsonAttr','#CustomSecurityGroupIdsAttr','#PackagesAttr','#VolumeConfigurationsAttr','#EnableAutoHealingAttr','#AutoAssignElasticIpsAttr','#AutoAssignPublicIpsAttr','#CustomRecipesAttr','#InstallUpdatesOnBootAttr','#UseEbsOptimizedInstancesAttr','#LifecycleEventConfigurationAttr'
+					],
+				CreateStack:[
+					'#NameAttr','#RegionAttr','#VpcIdAttr','#AttributesAttr','#ServiceRoleArnAttr','#DefaultInstanceProfileArnAttr','#DefaultOsAttr','#HostnameThemeAttr','#DefaultAvailabilityZoneAttr','#DefaultSubnetIdAttr','#CustomJsonAttr','#ConfigurationManagerAttr','#ChefConfigurationAttr','#UseCustomCookbooksAttr','#UseOpsworksSecurityGroupsAttr','#CustomCookbooksSourceAttr','#DefaultSshKeyNameAttr','#DefaultRootDeviceTypeAttr','#AgentVersionAttr'
+					],
+				CreateUserProfile:[
+					'#IamUserArnAttr','#SshUsernameAttr','#SshPublicKeyAttr','#AllowSelfManagementAttr'
+					],
+				DeleteApp:[
+					'#AppIdAttr'
+					],
+				DeleteInstance:[
+					'#InstanceIdAttr','#DeleteElasticIpAttr','#DeleteVolumesAttr'
+					],
+				DeleteLayer:[
+					'#LayerIdAttr'
+					],
+				DeleteStack:[
+					'#StackIdAttr'
+					],
+				DeleteUserProfile:[
+					'#IamUserArnAttr'
+					],
+				DeregisterEcsCluster:[
+					'#EcsClusterArnAttr'
+					],
+				DeregisterElasticIp:[
+					'#ElasticIpAttr'
+					],
+				DeregisterInstance:[
+					'#InstanceIdAttr'
+					],
+				DeregisterRdsDbInstance:[
+					'#RdsDbInstanceArnAttr'
+					],
+				DeregisterVolume:[
+					'#VolumeIdAttr'
+					],
+				DescribeAgentVersions:[
+					'#StackIdAttr','#ConfigurationManagerAttr'
+					],
+				DescribeApps:[
+					'#StackIdAttr','#AppIdsAttr'
+					],
+				DescribeCommands:[
+					'#DeploymentIdAttr','#InstanceIdAttr','#CommandIdsAttr'
+					],
+				DescribeDeployments:[
+					'#StackIdAttr','#AppIdAttr','#DeploymentIdsAttr'
+					],
+				DescribeEcsClusters:[
+					'#EcsClusterArnsAttr','#StackIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeElasticIps:[
+					'#InstanceIdAttr','#StackIdAttr','#IpsAttr'
+					],
+				DescribeElasticLoadBalancers:[
+					'#StackIdAttr','#LayerIdsAttr'
+					],
+				DescribeInstances:[
+					'#StackIdAttr','#LayerIdAttr','#InstanceIdsAttr'
+					],
+				DescribeLayers:[
+					'#StackIdAttr','#LayerIdsAttr'
+					],
+				DescribeLoadBasedAutoScaling:[
+					'#LayerIdsAttr'
+					],
+				DescribeMyUserProfile:[
+					
+					],
+				DescribeOperatingSystems:[
+					
+					],
+				DescribePermissions:[
+					'#IamUserArnAttr','#StackIdAttr'
+					],
+				DescribeRaidArrays:[
+					'#InstanceIdAttr','#StackIdAttr','#RaidArrayIdsAttr'
+					],
+				DescribeRdsDbInstances:[
+					'#StackIdAttr','#RdsDbInstanceArnsAttr'
+					],
+				DescribeServiceErrors:[
+					'#StackIdAttr','#InstanceIdAttr','#ServiceErrorIdsAttr'
+					],
+				DescribeStackProvisioningParameters:[
+					'#StackIdAttr'
+					],
+				DescribeStackSummary:[
+					'#StackIdAttr'
+					],
+				DescribeStacks:[
+					'#StackIdsAttr'
+					],
+				DescribeTimeBasedAutoScaling:[
+					'#InstanceIdsAttr'
+					],
+				DescribeUserProfiles:[
+					'#IamUserArnsAttr'
+					],
+				DescribeVolumes:[
+					'#InstanceIdAttr','#StackIdAttr','#RaidArrayIdAttr','#VolumeIdsAttr'
+					],
+				DetachElasticLoadBalancer:[
+					'#ElasticLoadBalancerNameAttr','#LayerIdAttr'
+					],
+				DisassociateElasticIp:[
+					'#ElasticIpAttr'
+					],
+				GetHostnameSuggestion:[
+					'#LayerIdAttr'
+					],
+				GrantAccess:[
+					'#InstanceIdAttr','#ValidForInMinutesAttr'
+					],
+				ListTags:[
+					'#ResourceArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				RebootInstance:[
+					'#InstanceIdAttr'
+					],
+				RegisterEcsCluster:[
+					'#EcsClusterArnAttr','#StackIdAttr'
+					],
+				RegisterElasticIp:[
+					'#ElasticIpAttr','#StackIdAttr'
+					],
+				RegisterInstance:[
+					'#StackIdAttr','#HostnameAttr','#PublicIpAttr','#PrivateIpAttr','#RsaPublicKeyAttr','#RsaPublicKeyFingerprintAttr','#InstanceIdentityAttr'
+					],
+				RegisterRdsDbInstance:[
+					'#StackIdAttr','#RdsDbInstanceArnAttr','#DbUserAttr','#DbPasswordAttr'
+					],
+				RegisterVolume:[
+					'#Ec2VolumeIdAttr','#StackIdAttr'
+					],
+				SetLoadBasedAutoScaling:[
+					'#LayerIdAttr','#EnableAttr','#UpScalingAttr','#DownScalingAttr'
+					],
+				SetPermission:[
+					'#StackIdAttr','#IamUserArnAttr','#AllowSshAttr','#AllowSudoAttr','#LevelAttr'
+					],
+				SetTimeBasedAutoScaling:[
+					'#InstanceIdAttr','#AutoScalingScheduleAttr'
+					],
+				StartInstance:[
+					'#InstanceIdAttr'
+					],
+				StartStack:[
+					'#StackIdAttr'
+					],
+				StopInstance:[
+					'#InstanceIdAttr','#ForceAttr'
+					],
+				StopStack:[
+					'#StackIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UnassignInstance:[
+					'#InstanceIdAttr'
+					],
+				UnassignVolume:[
+					'#VolumeIdAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateApp:[
+					'#AppIdAttr','#NameAttr','#DescriptionAttr','#DataSourcesAttr','#TypeAttr','#AppSourceAttr','#DomainsAttr','#EnableSslAttr','#SslConfigurationAttr','#AttributesAttr','#EnvironmentAttr'
+					],
+				UpdateElasticIp:[
+					'#ElasticIpAttr','#NameAttr'
+					],
+				UpdateInstance:[
+					'#InstanceIdAttr','#LayerIdsAttr','#InstanceTypeAttr','#AutoScalingTypeAttr','#HostnameAttr','#OsAttr','#AmiIdAttr','#SshKeyNameAttr','#ArchitectureAttr','#InstallUpdatesOnBootAttr','#EbsOptimizedAttr','#AgentVersionAttr'
+					],
+				UpdateLayer:[
+					'#LayerIdAttr','#NameAttr','#ShortnameAttr','#AttributesAttr','#CloudWatchLogsConfigurationAttr','#CustomInstanceProfileArnAttr','#CustomJsonAttr','#CustomSecurityGroupIdsAttr','#PackagesAttr','#VolumeConfigurationsAttr','#EnableAutoHealingAttr','#AutoAssignElasticIpsAttr','#AutoAssignPublicIpsAttr','#CustomRecipesAttr','#InstallUpdatesOnBootAttr','#UseEbsOptimizedInstancesAttr','#LifecycleEventConfigurationAttr'
+					],
+				UpdateMyUserProfile:[
+					'#SshPublicKeyAttr'
+					],
+				UpdateRdsDbInstance:[
+					'#RdsDbInstanceArnAttr','#DbUserAttr','#DbPasswordAttr'
+					],
+				UpdateStack:[
+					'#StackIdAttr','#NameAttr','#AttributesAttr','#ServiceRoleArnAttr','#DefaultInstanceProfileArnAttr','#DefaultOsAttr','#HostnameThemeAttr','#DefaultAvailabilityZoneAttr','#DefaultSubnetIdAttr','#CustomJsonAttr','#ConfigurationManagerAttr','#ChefConfigurationAttr','#UseCustomCookbooksAttr','#CustomCookbooksSourceAttr','#DefaultSshKeyNameAttr','#DefaultRootDeviceTypeAttr','#UseOpsworksSecurityGroupsAttr','#AgentVersionAttr'
+					],
+				UpdateUserProfile:[
+					'#IamUserArnAttr','#SshUsernameAttr','#SshPublicKeyAttr','#AllowSelfManagementAttr'
+					],
+				UpdateVolume:[
+					'#VolumeIdAttr','#NameAttr','#MountPointAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS OpsWorks">
+<p>
+AWS OpsWorks
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/OpsWorks.html">OpsWorks</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS OpsWorks',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssignInstance' },
+			
+				InstanceId: { value: ""} ,
+				LayerIds: { value: ""} ,
+				VolumeId: { value: ""} ,
+				ElasticIp: { value: ""} ,
+				ElasticLoadBalancerName: { value: ""} ,
+				LayerId: { value: ""} ,
+				SourceStackId: { value: ""} ,
+				Name: { value: ""} ,
+				Region: { value: ""} ,
+				VpcId: { value: ""} ,
+				Attributes: { value: ""} ,
+				ServiceRoleArn: { value: ""} ,
+				DefaultInstanceProfileArn: { value: ""} ,
+				DefaultOs: { value: ""} ,
+				HostnameTheme: { value: ""} ,
+				DefaultAvailabilityZone: { value: ""} ,
+				DefaultSubnetId: { value: ""} ,
+				CustomJson: { value: ""} ,
+				ConfigurationManager: { value: ""} ,
+				ChefConfiguration: { value: ""} ,
+				UseCustomCookbooks: { value: ""} ,
+				UseOpsworksSecurityGroups: { value: ""} ,
+				CustomCookbooksSource: { value: ""} ,
+				DefaultSshKeyName: { value: ""} ,
+				ClonePermissions: { value: ""} ,
+				CloneAppIds: { value: ""} ,
+				DefaultRootDeviceType: { value: ""} ,
+				AgentVersion: { value: ""} ,
+				StackId: { value: ""} ,
+				Shortname: { value: ""} ,
+				Description: { value: ""} ,
+				DataSources: { value: ""} ,
+				Type: { value: ""} ,
+				AppSource: { value: ""} ,
+				Domains: { value: ""} ,
+				EnableSsl: { value: ""} ,
+				SslConfiguration: { value: ""} ,
+				Environment: { value: ""} ,
+				AppId: { value: ""} ,
+				InstanceIds: { value: ""} ,
+				Command: { value: ""} ,
+				Comment: { value: ""} ,
+				InstanceType: { value: ""} ,
+				AutoScalingType: { value: ""} ,
+				Hostname: { value: ""} ,
+				Os: { value: ""} ,
+				AmiId: { value: ""} ,
+				SshKeyName: { value: ""} ,
+				AvailabilityZone: { value: ""} ,
+				VirtualizationType: { value: ""} ,
+				SubnetId: { value: ""} ,
+				Architecture: { value: ""} ,
+				RootDeviceType: { value: ""} ,
+				BlockDeviceMappings: { value: ""} ,
+				InstallUpdatesOnBoot: { value: ""} ,
+				EbsOptimized: { value: ""} ,
+				Tenancy: { value: ""} ,
+				CloudWatchLogsConfiguration: { value: ""} ,
+				CustomInstanceProfileArn: { value: ""} ,
+				CustomSecurityGroupIds: { value: ""} ,
+				Packages: { value: ""} ,
+				VolumeConfigurations: { value: ""} ,
+				EnableAutoHealing: { value: ""} ,
+				AutoAssignElasticIps: { value: ""} ,
+				AutoAssignPublicIps: { value: ""} ,
+				CustomRecipes: { value: ""} ,
+				UseEbsOptimizedInstances: { value: ""} ,
+				LifecycleEventConfiguration: { value: ""} ,
+				IamUserArn: { value: ""} ,
+				SshUsername: { value: ""} ,
+				SshPublicKey: { value: ""} ,
+				AllowSelfManagement: { value: ""} ,
+				DeleteElasticIp: { value: ""} ,
+				DeleteVolumes: { value: ""} ,
+				EcsClusterArn: { value: ""} ,
+				RdsDbInstanceArn: { value: ""} ,
+				AppIds: { value: ""} ,
+				DeploymentId: { value: ""} ,
+				CommandIds: { value: ""} ,
+				DeploymentIds: { value: ""} ,
+				EcsClusterArns: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Ips: { value: ""} ,
+				RaidArrayIds: { value: ""} ,
+				RdsDbInstanceArns: { value: ""} ,
+				ServiceErrorIds: { value: ""} ,
+				StackIds: { value: ""} ,
+				IamUserArns: { value: ""} ,
+				RaidArrayId: { value: ""} ,
+				VolumeIds: { value: ""} ,
+				ValidForInMinutes: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				PublicIp: { value: ""} ,
+				PrivateIp: { value: ""} ,
+				RsaPublicKey: { value: ""} ,
+				RsaPublicKeyFingerprint: { value: ""} ,
+				InstanceIdentity: { value: ""} ,
+				DbUser: { value: ""} ,
+				DbPassword: { value: ""} ,
+				Ec2VolumeId: { value: ""} ,
+				Enable: { value: ""} ,
+				UpScaling: { value: ""} ,
+				DownScaling: { value: ""} ,
+				AllowSsh: { value: ""} ,
+				AllowSudo: { value: ""} ,
+				Level: { value: ""} ,
+				AutoScalingSchedule: { value: ""} ,
+				Force: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				MountPoint: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "OpsWorks " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-InstanceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LayerIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ElasticIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ElasticLoadBalancerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LayerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceStackId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Region").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultInstanceProfileArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultOs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HostnameTheme").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultAvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultSubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomJson").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationManager").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChefConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UseCustomCookbooks").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UseOpsworksSecurityGroups").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CustomCookbooksSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultSshKeyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClonePermissions").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CloneAppIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultRootDeviceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AgentVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Shortname").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Domains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableSsl").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SslConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Environment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Command").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Comment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoScalingType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Hostname").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Os").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AmiId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshKeyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VirtualizationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Architecture").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RootDeviceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BlockDeviceMappings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstallUpdatesOnBoot").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EbsOptimized").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tenancy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudWatchLogsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomInstanceProfileArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomSecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Packages").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableAutoHealing").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AutoAssignElasticIps").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AutoAssignPublicIps").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CustomRecipes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UseEbsOptimizedInstances").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-LifecycleEventConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IamUserArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshUsername").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshPublicKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AllowSelfManagement").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DeleteElasticIp").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DeleteVolumes").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EcsClusterArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RdsDbInstanceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CommandIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EcsClusterArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Ips").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RaidArrayIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RdsDbInstanceArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceErrorIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IamUserArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RaidArrayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidForInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrivateIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RsaPublicKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RsaPublicKeyFingerprint").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DbUser").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DbPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Ec2VolumeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Enable").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UpScaling").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DownScaling").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AllowSsh").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AllowSudo").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Level").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoScalingSchedule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MountPoint").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

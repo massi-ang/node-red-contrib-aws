@@ -1,0 +1,481 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Transfer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAccess">CreateAccess</option>
+		
+			<option value="CreateServer">CreateServer</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateWorkflow">CreateWorkflow</option>
+		
+			<option value="DeleteAccess">DeleteAccess</option>
+		
+			<option value="DeleteServer">DeleteServer</option>
+		
+			<option value="DeleteSshPublicKey">DeleteSshPublicKey</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteWorkflow">DeleteWorkflow</option>
+		
+			<option value="DescribeAccess">DescribeAccess</option>
+		
+			<option value="DescribeExecution">DescribeExecution</option>
+		
+			<option value="DescribeSecurityPolicy">DescribeSecurityPolicy</option>
+		
+			<option value="DescribeServer">DescribeServer</option>
+		
+			<option value="DescribeUser">DescribeUser</option>
+		
+			<option value="DescribeWorkflow">DescribeWorkflow</option>
+		
+			<option value="ImportSshPublicKey">ImportSshPublicKey</option>
+		
+			<option value="ListAccesses">ListAccesses</option>
+		
+			<option value="ListExecutions">ListExecutions</option>
+		
+			<option value="ListSecurityPolicies">ListSecurityPolicies</option>
+		
+			<option value="ListServers">ListServers</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="ListWorkflows">ListWorkflows</option>
+		
+			<option value="SendWorkflowStepState">SendWorkflowStepState</option>
+		
+			<option value="StartServer">StartServer</option>
+		
+			<option value="StopServer">StopServer</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestIdentityProvider">TestIdentityProvider</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccess">UpdateAccess</option>
+		
+			<option value="UpdateServer">UpdateServer</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='HomeDirectoryAttr' class='hiddenAttrs'>
+		<label for="node-input-HomeDirectory"><i class="fa fa-tag"></i> HomeDirectory</label>
+		<input type="text" id="node-input-HomeDirectory" placeholder="HomeDirectory"></input>
+	</div> 
+	<div class="form-row" id='HomeDirectoryTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-HomeDirectoryType"><i class="fa fa-tag"></i> HomeDirectoryType</label>
+		<input type="text" id="node-input-HomeDirectoryType" placeholder="HomeDirectoryType"></input>
+	</div> 
+	<div class="form-row" id='HomeDirectoryMappingsAttr' class='hiddenAttrs'>
+		<label for="node-input-HomeDirectoryMappings"><i class="fa fa-tag"></i> HomeDirectoryMappings</label>
+		<input type="text" id="node-input-HomeDirectoryMappings" placeholder="HomeDirectoryMappings"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='PosixProfileAttr' class='hiddenAttrs'>
+		<label for="node-input-PosixProfile"><i class="fa fa-tag"></i> PosixProfile</label>
+		<input type="text" id="node-input-PosixProfile" placeholder="PosixProfile"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i> Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='ServerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerId"><i class="fa fa-tag"></i> ServerId</label>
+		<input type="text" id="node-input-ServerId" placeholder="ServerId"></input>
+	</div> 
+	<div class="form-row" id='ExternalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalId"><i class="fa fa-tag"></i> ExternalId</label>
+		<input type="text" id="node-input-ExternalId" placeholder="ExternalId"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i> Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='DomainAttr' class='hiddenAttrs'>
+		<label for="node-input-Domain"><i class="fa fa-tag"></i> Domain</label>
+		<input type="text" id="node-input-Domain" placeholder="Domain"></input>
+	</div> 
+	<div class="form-row" id='EndpointDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointDetails"><i class="fa fa-tag"></i> EndpointDetails</label>
+		<input type="text" id="node-input-EndpointDetails" placeholder="EndpointDetails"></input>
+	</div> 
+	<div class="form-row" id='EndpointTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointType"><i class="fa fa-tag"></i> EndpointType</label>
+		<input type="text" id="node-input-EndpointType" placeholder="EndpointType"></input>
+	</div> 
+	<div class="form-row" id='HostKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-HostKey"><i class="fa fa-tag"></i> HostKey</label>
+		<input type="text" id="node-input-HostKey" placeholder="HostKey"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderDetails"><i class="fa fa-tag"></i> IdentityProviderDetails</label>
+		<input type="text" id="node-input-IdentityProviderDetails" placeholder="IdentityProviderDetails"></input>
+	</div> 
+	<div class="form-row" id='IdentityProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityProviderType"><i class="fa fa-tag"></i> IdentityProviderType</label>
+		<input type="text" id="node-input-IdentityProviderType" placeholder="IdentityProviderType"></input>
+	</div> 
+	<div class="form-row" id='LoggingRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingRole"><i class="fa fa-tag"></i> LoggingRole</label>
+		<input type="text" id="node-input-LoggingRole" placeholder="LoggingRole"></input>
+	</div> 
+	<div class="form-row" id='ProtocolsAttr' class='hiddenAttrs'>
+		<label for="node-input-Protocols"><i class="fa fa-tag"></i> Protocols</label>
+		<input type="text" id="node-input-Protocols" placeholder="Protocols"></input>
+	</div> 
+	<div class="form-row" id='SecurityPolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityPolicyName"><i class="fa fa-tag"></i> SecurityPolicyName</label>
+		<input type="text" id="node-input-SecurityPolicyName" placeholder="SecurityPolicyName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='WorkflowDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkflowDetails"><i class="fa fa-tag"></i> WorkflowDetails</label>
+		<input type="text" id="node-input-WorkflowDetails" placeholder="WorkflowDetails"></input>
+	</div> 
+	<div class="form-row" id='SshPublicKeyBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-SshPublicKeyBody"><i class="fa fa-tag"></i> SshPublicKeyBody</label>
+		<input type="text" id="node-input-SshPublicKeyBody" placeholder="SshPublicKeyBody"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='StepsAttr' class='hiddenAttrs'>
+		<label for="node-input-Steps"><i class="fa fa-tag"></i> Steps</label>
+		<input type="text" id="node-input-Steps" placeholder="Steps"></input>
+	</div> 
+	<div class="form-row" id='OnExceptionStepsAttr' class='hiddenAttrs'>
+		<label for="node-input-OnExceptionSteps"><i class="fa fa-tag"></i> OnExceptionSteps</label>
+		<input type="text" id="node-input-OnExceptionSteps" placeholder="OnExceptionSteps"></input>
+	</div> 
+	<div class="form-row" id='SshPublicKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SshPublicKeyId"><i class="fa fa-tag"></i> SshPublicKeyId</label>
+		<input type="text" id="node-input-SshPublicKeyId" placeholder="SshPublicKeyId"></input>
+	</div> 
+	<div class="form-row" id='WorkflowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkflowId"><i class="fa fa-tag"></i> WorkflowId</label>
+		<input type="text" id="node-input-WorkflowId" placeholder="WorkflowId"></input>
+	</div> 
+	<div class="form-row" id='ExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionId"><i class="fa fa-tag"></i> ExecutionId</label>
+		<input type="text" id="node-input-ExecutionId" placeholder="ExecutionId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i> Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
+	</div> 
+	<div class="form-row" id='TokenAttr' class='hiddenAttrs'>
+		<label for="node-input-Token"><i class="fa fa-tag"></i> Token</label>
+		<input type="text" id="node-input-Token" placeholder="Token"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='ServerProtocolAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerProtocol"><i class="fa fa-tag"></i> ServerProtocol</label>
+		<input type="text" id="node-input-ServerProtocol" placeholder="ServerProtocol"></input>
+	</div> 
+	<div class="form-row" id='SourceIpAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIp"><i class="fa fa-tag"></i> SourceIp</label>
+		<input type="text" id="node-input-SourceIp" placeholder="SourceIp"></input>
+	</div> 
+	<div class="form-row" id='UserPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-UserPassword"><i class="fa fa-tag"></i> UserPassword</label>
+		<input type="text" id="node-input-UserPassword" placeholder="UserPassword"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ProtocolDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProtocolDetails"><i class="fa fa-tag"></i> ProtocolDetails</label>
+		<input type="text" id="node-input-ProtocolDetails" placeholder="ProtocolDetails"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAccess:[
+					'#HomeDirectoryAttr','#HomeDirectoryTypeAttr','#HomeDirectoryMappingsAttr','#PolicyAttr','#PosixProfileAttr','#RoleAttr','#ServerIdAttr','#ExternalIdAttr'
+					],
+				CreateServer:[
+					'#CertificateAttr','#DomainAttr','#EndpointDetailsAttr','#EndpointTypeAttr','#HostKeyAttr','#IdentityProviderDetailsAttr','#IdentityProviderTypeAttr','#LoggingRoleAttr','#ProtocolsAttr','#SecurityPolicyNameAttr','#TagsAttr','#WorkflowDetailsAttr'
+					],
+				CreateUser:[
+					'#HomeDirectoryAttr','#HomeDirectoryTypeAttr','#HomeDirectoryMappingsAttr','#PolicyAttr','#PosixProfileAttr','#RoleAttr','#ServerIdAttr','#SshPublicKeyBodyAttr','#TagsAttr','#UserNameAttr'
+					],
+				CreateWorkflow:[
+					'#DescriptionAttr','#StepsAttr','#OnExceptionStepsAttr','#TagsAttr'
+					],
+				DeleteAccess:[
+					'#ServerIdAttr','#ExternalIdAttr'
+					],
+				DeleteServer:[
+					'#ServerIdAttr'
+					],
+				DeleteSshPublicKey:[
+					'#ServerIdAttr','#SshPublicKeyIdAttr','#UserNameAttr'
+					],
+				DeleteUser:[
+					'#ServerIdAttr','#UserNameAttr'
+					],
+				DeleteWorkflow:[
+					'#WorkflowIdAttr'
+					],
+				DescribeAccess:[
+					'#ServerIdAttr','#ExternalIdAttr'
+					],
+				DescribeExecution:[
+					'#ExecutionIdAttr','#WorkflowIdAttr'
+					],
+				DescribeSecurityPolicy:[
+					'#SecurityPolicyNameAttr'
+					],
+				DescribeServer:[
+					'#ServerIdAttr'
+					],
+				DescribeUser:[
+					'#ServerIdAttr','#UserNameAttr'
+					],
+				DescribeWorkflow:[
+					'#WorkflowIdAttr'
+					],
+				ImportSshPublicKey:[
+					'#ServerIdAttr','#SshPublicKeyBodyAttr','#UserNameAttr'
+					],
+				ListAccesses:[
+					'#MaxResultsAttr','#NextTokenAttr','#ServerIdAttr'
+					],
+				ListExecutions:[
+					'#MaxResultsAttr','#NextTokenAttr','#WorkflowIdAttr'
+					],
+				ListSecurityPolicies:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListServers:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListUsers:[
+					'#MaxResultsAttr','#NextTokenAttr','#ServerIdAttr'
+					],
+				ListWorkflows:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				SendWorkflowStepState:[
+					'#WorkflowIdAttr','#ExecutionIdAttr','#TokenAttr','#StatusAttr'
+					],
+				StartServer:[
+					'#ServerIdAttr'
+					],
+				StopServer:[
+					'#ServerIdAttr'
+					],
+				TagResource:[
+					'#ArnAttr','#TagsAttr'
+					],
+				TestIdentityProvider:[
+					'#ServerIdAttr','#ServerProtocolAttr','#SourceIpAttr','#UserNameAttr','#UserPasswordAttr'
+					],
+				UntagResource:[
+					'#ArnAttr','#TagKeysAttr'
+					],
+				UpdateAccess:[
+					'#HomeDirectoryAttr','#HomeDirectoryTypeAttr','#HomeDirectoryMappingsAttr','#PolicyAttr','#PosixProfileAttr','#RoleAttr','#ServerIdAttr','#ExternalIdAttr'
+					],
+				UpdateServer:[
+					'#CertificateAttr','#ProtocolDetailsAttr','#EndpointDetailsAttr','#EndpointTypeAttr','#HostKeyAttr','#IdentityProviderDetailsAttr','#LoggingRoleAttr','#ProtocolsAttr','#SecurityPolicyNameAttr','#ServerIdAttr','#WorkflowDetailsAttr'
+					],
+				UpdateUser:[
+					'#HomeDirectoryAttr','#HomeDirectoryTypeAttr','#HomeDirectoryMappingsAttr','#PolicyAttr','#PosixProfileAttr','#RoleAttr','#ServerIdAttr','#UserNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Transfer">
+<p>
+AWS Transfer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Transfer.html">Transfer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Transfer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAccess' },
+			
+				HomeDirectory: { value: ""} ,
+				HomeDirectoryType: { value: ""} ,
+				HomeDirectoryMappings: { value: ""} ,
+				Policy: { value: ""} ,
+				PosixProfile: { value: ""} ,
+				Role: { value: ""} ,
+				ServerId: { value: ""} ,
+				ExternalId: { value: ""} ,
+				Certificate: { value: ""} ,
+				Domain: { value: ""} ,
+				EndpointDetails: { value: ""} ,
+				EndpointType: { value: ""} ,
+				HostKey: { value: ""} ,
+				IdentityProviderDetails: { value: ""} ,
+				IdentityProviderType: { value: ""} ,
+				LoggingRole: { value: ""} ,
+				Protocols: { value: ""} ,
+				SecurityPolicyName: { value: ""} ,
+				Tags: { value: ""} ,
+				WorkflowDetails: { value: ""} ,
+				SshPublicKeyBody: { value: ""} ,
+				UserName: { value: ""} ,
+				Description: { value: ""} ,
+				Steps: { value: ""} ,
+				OnExceptionSteps: { value: ""} ,
+				SshPublicKeyId: { value: ""} ,
+				WorkflowId: { value: ""} ,
+				ExecutionId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				Arn: { value: ""} ,
+				Token: { value: ""} ,
+				Status: { value: ""} ,
+				ServerProtocol: { value: ""} ,
+				SourceIp: { value: ""} ,
+				UserPassword: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ProtocolDetails: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Transfer " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-HomeDirectory").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HomeDirectoryType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HomeDirectoryMappings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PosixProfile").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExternalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Certificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Domain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HostKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdentityProviderDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdentityProviderType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggingRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Protocols").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityPolicyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkflowDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshPublicKeyBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Steps").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnExceptionSteps").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SshPublicKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkflowId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Token").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerProtocol").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceIp").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ProtocolDetails").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

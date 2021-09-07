@@ -1,0 +1,2476 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Iot">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptCertificateTransfer">AcceptCertificateTransfer</option>
+		
+			<option value="AddThingToBillingGroup">AddThingToBillingGroup</option>
+		
+			<option value="AddThingToThingGroup">AddThingToThingGroup</option>
+		
+			<option value="AssociateTargetsWithJob">AssociateTargetsWithJob</option>
+		
+			<option value="AttachPolicy">AttachPolicy</option>
+		
+			<option value="AttachPrincipalPolicy">AttachPrincipalPolicy</option>
+		
+			<option value="AttachSecurityProfile">AttachSecurityProfile</option>
+		
+			<option value="AttachThingPrincipal">AttachThingPrincipal</option>
+		
+			<option value="CancelAuditMitigationActionsTask">CancelAuditMitigationActionsTask</option>
+		
+			<option value="CancelAuditTask">CancelAuditTask</option>
+		
+			<option value="CancelCertificateTransfer">CancelCertificateTransfer</option>
+		
+			<option value="CancelDetectMitigationActionsTask">CancelDetectMitigationActionsTask</option>
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CancelJobExecution">CancelJobExecution</option>
+		
+			<option value="ClearDefaultAuthorizer">ClearDefaultAuthorizer</option>
+		
+			<option value="ConfirmTopicRuleDestination">ConfirmTopicRuleDestination</option>
+		
+			<option value="CreateAuditSuppression">CreateAuditSuppression</option>
+		
+			<option value="CreateAuthorizer">CreateAuthorizer</option>
+		
+			<option value="CreateBillingGroup">CreateBillingGroup</option>
+		
+			<option value="CreateCertificateFromCsr">CreateCertificateFromCsr</option>
+		
+			<option value="CreateCustomMetric">CreateCustomMetric</option>
+		
+			<option value="CreateDimension">CreateDimension</option>
+		
+			<option value="CreateDomainConfiguration">CreateDomainConfiguration</option>
+		
+			<option value="CreateDynamicThingGroup">CreateDynamicThingGroup</option>
+		
+			<option value="CreateFleetMetric">CreateFleetMetric</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreateJobTemplate">CreateJobTemplate</option>
+		
+			<option value="CreateKeysAndCertificate">CreateKeysAndCertificate</option>
+		
+			<option value="CreateMitigationAction">CreateMitigationAction</option>
+		
+			<option value="CreateOTAUpdate">CreateOTAUpdate</option>
+		
+			<option value="CreatePolicy">CreatePolicy</option>
+		
+			<option value="CreatePolicyVersion">CreatePolicyVersion</option>
+		
+			<option value="CreateProvisioningClaim">CreateProvisioningClaim</option>
+		
+			<option value="CreateProvisioningTemplate">CreateProvisioningTemplate</option>
+		
+			<option value="CreateProvisioningTemplateVersion">CreateProvisioningTemplateVersion</option>
+		
+			<option value="CreateRoleAlias">CreateRoleAlias</option>
+		
+			<option value="CreateScheduledAudit">CreateScheduledAudit</option>
+		
+			<option value="CreateSecurityProfile">CreateSecurityProfile</option>
+		
+			<option value="CreateStream">CreateStream</option>
+		
+			<option value="CreateThing">CreateThing</option>
+		
+			<option value="CreateThingGroup">CreateThingGroup</option>
+		
+			<option value="CreateThingType">CreateThingType</option>
+		
+			<option value="CreateTopicRule">CreateTopicRule</option>
+		
+			<option value="CreateTopicRuleDestination">CreateTopicRuleDestination</option>
+		
+			<option value="DeleteAccountAuditConfiguration">DeleteAccountAuditConfiguration</option>
+		
+			<option value="DeleteAuditSuppression">DeleteAuditSuppression</option>
+		
+			<option value="DeleteAuthorizer">DeleteAuthorizer</option>
+		
+			<option value="DeleteBillingGroup">DeleteBillingGroup</option>
+		
+			<option value="DeleteCACertificate">DeleteCACertificate</option>
+		
+			<option value="DeleteCertificate">DeleteCertificate</option>
+		
+			<option value="DeleteCustomMetric">DeleteCustomMetric</option>
+		
+			<option value="DeleteDimension">DeleteDimension</option>
+		
+			<option value="DeleteDomainConfiguration">DeleteDomainConfiguration</option>
+		
+			<option value="DeleteDynamicThingGroup">DeleteDynamicThingGroup</option>
+		
+			<option value="DeleteFleetMetric">DeleteFleetMetric</option>
+		
+			<option value="DeleteJob">DeleteJob</option>
+		
+			<option value="DeleteJobExecution">DeleteJobExecution</option>
+		
+			<option value="DeleteJobTemplate">DeleteJobTemplate</option>
+		
+			<option value="DeleteMitigationAction">DeleteMitigationAction</option>
+		
+			<option value="DeleteOTAUpdate">DeleteOTAUpdate</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DeletePolicyVersion">DeletePolicyVersion</option>
+		
+			<option value="DeleteProvisioningTemplate">DeleteProvisioningTemplate</option>
+		
+			<option value="DeleteProvisioningTemplateVersion">DeleteProvisioningTemplateVersion</option>
+		
+			<option value="DeleteRegistrationCode">DeleteRegistrationCode</option>
+		
+			<option value="DeleteRoleAlias">DeleteRoleAlias</option>
+		
+			<option value="DeleteScheduledAudit">DeleteScheduledAudit</option>
+		
+			<option value="DeleteSecurityProfile">DeleteSecurityProfile</option>
+		
+			<option value="DeleteStream">DeleteStream</option>
+		
+			<option value="DeleteThing">DeleteThing</option>
+		
+			<option value="DeleteThingGroup">DeleteThingGroup</option>
+		
+			<option value="DeleteThingType">DeleteThingType</option>
+		
+			<option value="DeleteTopicRule">DeleteTopicRule</option>
+		
+			<option value="DeleteTopicRuleDestination">DeleteTopicRuleDestination</option>
+		
+			<option value="DeleteV2LoggingLevel">DeleteV2LoggingLevel</option>
+		
+			<option value="DeprecateThingType">DeprecateThingType</option>
+		
+			<option value="DescribeAccountAuditConfiguration">DescribeAccountAuditConfiguration</option>
+		
+			<option value="DescribeAuditFinding">DescribeAuditFinding</option>
+		
+			<option value="DescribeAuditMitigationActionsTask">DescribeAuditMitigationActionsTask</option>
+		
+			<option value="DescribeAuditSuppression">DescribeAuditSuppression</option>
+		
+			<option value="DescribeAuditTask">DescribeAuditTask</option>
+		
+			<option value="DescribeAuthorizer">DescribeAuthorizer</option>
+		
+			<option value="DescribeBillingGroup">DescribeBillingGroup</option>
+		
+			<option value="DescribeCACertificate">DescribeCACertificate</option>
+		
+			<option value="DescribeCertificate">DescribeCertificate</option>
+		
+			<option value="DescribeCustomMetric">DescribeCustomMetric</option>
+		
+			<option value="DescribeDefaultAuthorizer">DescribeDefaultAuthorizer</option>
+		
+			<option value="DescribeDetectMitigationActionsTask">DescribeDetectMitigationActionsTask</option>
+		
+			<option value="DescribeDimension">DescribeDimension</option>
+		
+			<option value="DescribeDomainConfiguration">DescribeDomainConfiguration</option>
+		
+			<option value="DescribeEndpoint">DescribeEndpoint</option>
+		
+			<option value="DescribeEventConfigurations">DescribeEventConfigurations</option>
+		
+			<option value="DescribeFleetMetric">DescribeFleetMetric</option>
+		
+			<option value="DescribeIndex">DescribeIndex</option>
+		
+			<option value="DescribeJob">DescribeJob</option>
+		
+			<option value="DescribeJobExecution">DescribeJobExecution</option>
+		
+			<option value="DescribeJobTemplate">DescribeJobTemplate</option>
+		
+			<option value="DescribeMitigationAction">DescribeMitigationAction</option>
+		
+			<option value="DescribeProvisioningTemplate">DescribeProvisioningTemplate</option>
+		
+			<option value="DescribeProvisioningTemplateVersion">DescribeProvisioningTemplateVersion</option>
+		
+			<option value="DescribeRoleAlias">DescribeRoleAlias</option>
+		
+			<option value="DescribeScheduledAudit">DescribeScheduledAudit</option>
+		
+			<option value="DescribeSecurityProfile">DescribeSecurityProfile</option>
+		
+			<option value="DescribeStream">DescribeStream</option>
+		
+			<option value="DescribeThing">DescribeThing</option>
+		
+			<option value="DescribeThingGroup">DescribeThingGroup</option>
+		
+			<option value="DescribeThingRegistrationTask">DescribeThingRegistrationTask</option>
+		
+			<option value="DescribeThingType">DescribeThingType</option>
+		
+			<option value="DetachPolicy">DetachPolicy</option>
+		
+			<option value="DetachPrincipalPolicy">DetachPrincipalPolicy</option>
+		
+			<option value="DetachSecurityProfile">DetachSecurityProfile</option>
+		
+			<option value="DetachThingPrincipal">DetachThingPrincipal</option>
+		
+			<option value="DisableTopicRule">DisableTopicRule</option>
+		
+			<option value="EnableTopicRule">EnableTopicRule</option>
+		
+			<option value="GetBehaviorModelTrainingSummaries">GetBehaviorModelTrainingSummaries</option>
+		
+			<option value="GetBucketsAggregation">GetBucketsAggregation</option>
+		
+			<option value="GetCardinality">GetCardinality</option>
+		
+			<option value="GetEffectivePolicies">GetEffectivePolicies</option>
+		
+			<option value="GetIndexingConfiguration">GetIndexingConfiguration</option>
+		
+			<option value="GetJobDocument">GetJobDocument</option>
+		
+			<option value="GetLoggingOptions">GetLoggingOptions</option>
+		
+			<option value="GetOTAUpdate">GetOTAUpdate</option>
+		
+			<option value="GetPercentiles">GetPercentiles</option>
+		
+			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="GetPolicyVersion">GetPolicyVersion</option>
+		
+			<option value="GetRegistrationCode">GetRegistrationCode</option>
+		
+			<option value="GetStatistics">GetStatistics</option>
+		
+			<option value="GetTopicRule">GetTopicRule</option>
+		
+			<option value="GetTopicRuleDestination">GetTopicRuleDestination</option>
+		
+			<option value="GetV2LoggingOptions">GetV2LoggingOptions</option>
+		
+			<option value="ListActiveViolations">ListActiveViolations</option>
+		
+			<option value="ListAttachedPolicies">ListAttachedPolicies</option>
+		
+			<option value="ListAuditFindings">ListAuditFindings</option>
+		
+			<option value="ListAuditMitigationActionsExecutions">ListAuditMitigationActionsExecutions</option>
+		
+			<option value="ListAuditMitigationActionsTasks">ListAuditMitigationActionsTasks</option>
+		
+			<option value="ListAuditSuppressions">ListAuditSuppressions</option>
+		
+			<option value="ListAuditTasks">ListAuditTasks</option>
+		
+			<option value="ListAuthorizers">ListAuthorizers</option>
+		
+			<option value="ListBillingGroups">ListBillingGroups</option>
+		
+			<option value="ListCACertificates">ListCACertificates</option>
+		
+			<option value="ListCertificates">ListCertificates</option>
+		
+			<option value="ListCertificatesByCA">ListCertificatesByCA</option>
+		
+			<option value="ListCustomMetrics">ListCustomMetrics</option>
+		
+			<option value="ListDetectMitigationActionsExecutions">ListDetectMitigationActionsExecutions</option>
+		
+			<option value="ListDetectMitigationActionsTasks">ListDetectMitigationActionsTasks</option>
+		
+			<option value="ListDimensions">ListDimensions</option>
+		
+			<option value="ListDomainConfigurations">ListDomainConfigurations</option>
+		
+			<option value="ListFleetMetrics">ListFleetMetrics</option>
+		
+			<option value="ListIndices">ListIndices</option>
+		
+			<option value="ListJobExecutionsForJob">ListJobExecutionsForJob</option>
+		
+			<option value="ListJobExecutionsForThing">ListJobExecutionsForThing</option>
+		
+			<option value="ListJobTemplates">ListJobTemplates</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListMitigationActions">ListMitigationActions</option>
+		
+			<option value="ListOTAUpdates">ListOTAUpdates</option>
+		
+			<option value="ListOutgoingCertificates">ListOutgoingCertificates</option>
+		
+			<option value="ListPolicies">ListPolicies</option>
+		
+			<option value="ListPolicyPrincipals">ListPolicyPrincipals</option>
+		
+			<option value="ListPolicyVersions">ListPolicyVersions</option>
+		
+			<option value="ListPrincipalPolicies">ListPrincipalPolicies</option>
+		
+			<option value="ListPrincipalThings">ListPrincipalThings</option>
+		
+			<option value="ListProvisioningTemplateVersions">ListProvisioningTemplateVersions</option>
+		
+			<option value="ListProvisioningTemplates">ListProvisioningTemplates</option>
+		
+			<option value="ListRoleAliases">ListRoleAliases</option>
+		
+			<option value="ListScheduledAudits">ListScheduledAudits</option>
+		
+			<option value="ListSecurityProfiles">ListSecurityProfiles</option>
+		
+			<option value="ListSecurityProfilesForTarget">ListSecurityProfilesForTarget</option>
+		
+			<option value="ListStreams">ListStreams</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTargetsForPolicy">ListTargetsForPolicy</option>
+		
+			<option value="ListTargetsForSecurityProfile">ListTargetsForSecurityProfile</option>
+		
+			<option value="ListThingGroups">ListThingGroups</option>
+		
+			<option value="ListThingGroupsForThing">ListThingGroupsForThing</option>
+		
+			<option value="ListThingPrincipals">ListThingPrincipals</option>
+		
+			<option value="ListThingRegistrationTaskReports">ListThingRegistrationTaskReports</option>
+		
+			<option value="ListThingRegistrationTasks">ListThingRegistrationTasks</option>
+		
+			<option value="ListThingTypes">ListThingTypes</option>
+		
+			<option value="ListThings">ListThings</option>
+		
+			<option value="ListThingsInBillingGroup">ListThingsInBillingGroup</option>
+		
+			<option value="ListThingsInThingGroup">ListThingsInThingGroup</option>
+		
+			<option value="ListTopicRuleDestinations">ListTopicRuleDestinations</option>
+		
+			<option value="ListTopicRules">ListTopicRules</option>
+		
+			<option value="ListV2LoggingLevels">ListV2LoggingLevels</option>
+		
+			<option value="ListViolationEvents">ListViolationEvents</option>
+		
+			<option value="RegisterCACertificate">RegisterCACertificate</option>
+		
+			<option value="RegisterCertificate">RegisterCertificate</option>
+		
+			<option value="RegisterCertificateWithoutCA">RegisterCertificateWithoutCA</option>
+		
+			<option value="RegisterThing">RegisterThing</option>
+		
+			<option value="RejectCertificateTransfer">RejectCertificateTransfer</option>
+		
+			<option value="RemoveThingFromBillingGroup">RemoveThingFromBillingGroup</option>
+		
+			<option value="RemoveThingFromThingGroup">RemoveThingFromThingGroup</option>
+		
+			<option value="ReplaceTopicRule">ReplaceTopicRule</option>
+		
+			<option value="SearchIndex">SearchIndex</option>
+		
+			<option value="SetDefaultAuthorizer">SetDefaultAuthorizer</option>
+		
+			<option value="SetDefaultPolicyVersion">SetDefaultPolicyVersion</option>
+		
+			<option value="SetLoggingOptions">SetLoggingOptions</option>
+		
+			<option value="SetV2LoggingLevel">SetV2LoggingLevel</option>
+		
+			<option value="SetV2LoggingOptions">SetV2LoggingOptions</option>
+		
+			<option value="StartAuditMitigationActionsTask">StartAuditMitigationActionsTask</option>
+		
+			<option value="StartDetectMitigationActionsTask">StartDetectMitigationActionsTask</option>
+		
+			<option value="StartOnDemandAuditTask">StartOnDemandAuditTask</option>
+		
+			<option value="StartThingRegistrationTask">StartThingRegistrationTask</option>
+		
+			<option value="StopThingRegistrationTask">StopThingRegistrationTask</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestAuthorization">TestAuthorization</option>
+		
+			<option value="TestInvokeAuthorizer">TestInvokeAuthorizer</option>
+		
+			<option value="TransferCertificate">TransferCertificate</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccountAuditConfiguration">UpdateAccountAuditConfiguration</option>
+		
+			<option value="UpdateAuditSuppression">UpdateAuditSuppression</option>
+		
+			<option value="UpdateAuthorizer">UpdateAuthorizer</option>
+		
+			<option value="UpdateBillingGroup">UpdateBillingGroup</option>
+		
+			<option value="UpdateCACertificate">UpdateCACertificate</option>
+		
+			<option value="UpdateCertificate">UpdateCertificate</option>
+		
+			<option value="UpdateCustomMetric">UpdateCustomMetric</option>
+		
+			<option value="UpdateDimension">UpdateDimension</option>
+		
+			<option value="UpdateDomainConfiguration">UpdateDomainConfiguration</option>
+		
+			<option value="UpdateDynamicThingGroup">UpdateDynamicThingGroup</option>
+		
+			<option value="UpdateEventConfigurations">UpdateEventConfigurations</option>
+		
+			<option value="UpdateFleetMetric">UpdateFleetMetric</option>
+		
+			<option value="UpdateIndexingConfiguration">UpdateIndexingConfiguration</option>
+		
+			<option value="UpdateJob">UpdateJob</option>
+		
+			<option value="UpdateMitigationAction">UpdateMitigationAction</option>
+		
+			<option value="UpdateProvisioningTemplate">UpdateProvisioningTemplate</option>
+		
+			<option value="UpdateRoleAlias">UpdateRoleAlias</option>
+		
+			<option value="UpdateScheduledAudit">UpdateScheduledAudit</option>
+		
+			<option value="UpdateSecurityProfile">UpdateSecurityProfile</option>
+		
+			<option value="UpdateStream">UpdateStream</option>
+		
+			<option value="UpdateThing">UpdateThing</option>
+		
+			<option value="UpdateThingGroup">UpdateThingGroup</option>
+		
+			<option value="UpdateThingGroupsForThing">UpdateThingGroupsForThing</option>
+		
+			<option value="UpdateTopicRuleDestination">UpdateTopicRuleDestination</option>
+		
+			<option value="ValidateSecurityProfileBehaviors">ValidateSecurityProfileBehaviors</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='certificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateId"><i class="fa fa-tag"></i> certificateId</label>
+		<input type="text" id="node-input-certificateId" placeholder="certificateId"></input>
+	</div> 
+	<div class="form-row" id='setAsActiveAttr' class='hiddenAttrs'>
+		<label for="node-input-setAsActive"><i class="fa fa-tag"></i> setAsActive</label>
+		<input type="text" id="node-input-setAsActive" placeholder="setAsActive"></input>
+	</div> 
+	<div class="form-row" id='billingGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-billingGroupName"><i class="fa fa-tag"></i> billingGroupName</label>
+		<input type="text" id="node-input-billingGroupName" placeholder="billingGroupName"></input>
+	</div> 
+	<div class="form-row" id='billingGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-billingGroupArn"><i class="fa fa-tag"></i> billingGroupArn</label>
+		<input type="text" id="node-input-billingGroupArn" placeholder="billingGroupArn"></input>
+	</div> 
+	<div class="form-row" id='thingNameAttr' class='hiddenAttrs'>
+		<label for="node-input-thingName"><i class="fa fa-tag"></i> thingName</label>
+		<input type="text" id="node-input-thingName" placeholder="thingName"></input>
+	</div> 
+	<div class="form-row" id='thingArnAttr' class='hiddenAttrs'>
+		<label for="node-input-thingArn"><i class="fa fa-tag"></i> thingArn</label>
+		<input type="text" id="node-input-thingArn" placeholder="thingArn"></input>
+	</div> 
+	<div class="form-row" id='thingGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupName"><i class="fa fa-tag"></i> thingGroupName</label>
+		<input type="text" id="node-input-thingGroupName" placeholder="thingGroupName"></input>
+	</div> 
+	<div class="form-row" id='thingGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupArn"><i class="fa fa-tag"></i> thingGroupArn</label>
+		<input type="text" id="node-input-thingGroupArn" placeholder="thingGroupArn"></input>
+	</div> 
+	<div class="form-row" id='overrideDynamicGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-overrideDynamicGroups"><i class="fa fa-tag"></i> overrideDynamicGroups</label>
+		<input type="text" id="node-input-overrideDynamicGroups" placeholder="overrideDynamicGroups"></input>
+	</div> 
+	<div class="form-row" id='targetsAttr' class='hiddenAttrs'>
+		<label for="node-input-targets"><i class="fa fa-tag"></i> targets</label>
+		<input type="text" id="node-input-targets" placeholder="targets"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='commentAttr' class='hiddenAttrs'>
+		<label for="node-input-comment"><i class="fa fa-tag"></i> comment</label>
+		<input type="text" id="node-input-comment" placeholder="comment"></input>
+	</div> 
+	<div class="form-row" id='namespaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-namespaceId"><i class="fa fa-tag"></i> namespaceId</label>
+		<input type="text" id="node-input-namespaceId" placeholder="namespaceId"></input>
+	</div> 
+	<div class="form-row" id='policyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-policyName"><i class="fa fa-tag"></i> policyName</label>
+		<input type="text" id="node-input-policyName" placeholder="policyName"></input>
+	</div> 
+	<div class="form-row" id='targetAttr' class='hiddenAttrs'>
+		<label for="node-input-target"><i class="fa fa-tag"></i> target</label>
+		<input type="text" id="node-input-target" placeholder="target"></input>
+	</div> 
+	<div class="form-row" id='principalAttr' class='hiddenAttrs'>
+		<label for="node-input-principal"><i class="fa fa-tag"></i> principal</label>
+		<input type="text" id="node-input-principal" placeholder="principal"></input>
+	</div> 
+	<div class="form-row" id='securityProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-securityProfileName"><i class="fa fa-tag"></i> securityProfileName</label>
+		<input type="text" id="node-input-securityProfileName" placeholder="securityProfileName"></input>
+	</div> 
+	<div class="form-row" id='securityProfileTargetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-securityProfileTargetArn"><i class="fa fa-tag"></i> securityProfileTargetArn</label>
+		<input type="text" id="node-input-securityProfileTargetArn" placeholder="securityProfileTargetArn"></input>
+	</div> 
+	<div class="form-row" id='taskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-taskId"><i class="fa fa-tag"></i> taskId</label>
+		<input type="text" id="node-input-taskId" placeholder="taskId"></input>
+	</div> 
+	<div class="form-row" id='reasonCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-reasonCode"><i class="fa fa-tag"></i> reasonCode</label>
+		<input type="text" id="node-input-reasonCode" placeholder="reasonCode"></input>
+	</div> 
+	<div class="form-row" id='forceAttr' class='hiddenAttrs'>
+		<label for="node-input-force"><i class="fa fa-tag"></i> force</label>
+		<input type="text" id="node-input-force" placeholder="force"></input>
+	</div> 
+	<div class="form-row" id='expectedVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-expectedVersion"><i class="fa fa-tag"></i> expectedVersion</label>
+		<input type="text" id="node-input-expectedVersion" placeholder="expectedVersion"></input>
+	</div> 
+	<div class="form-row" id='statusDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-statusDetails"><i class="fa fa-tag"></i> statusDetails</label>
+		<input type="text" id="node-input-statusDetails" placeholder="statusDetails"></input>
+	</div> 
+	<div class="form-row" id='confirmationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-confirmationToken"><i class="fa fa-tag"></i> confirmationToken</label>
+		<input type="text" id="node-input-confirmationToken" placeholder="confirmationToken"></input>
+	</div> 
+	<div class="form-row" id='checkNameAttr' class='hiddenAttrs'>
+		<label for="node-input-checkName"><i class="fa fa-tag"></i> checkName</label>
+		<input type="text" id="node-input-checkName" placeholder="checkName"></input>
+	</div> 
+	<div class="form-row" id='resourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceIdentifier"><i class="fa fa-tag"></i> resourceIdentifier</label>
+		<input type="text" id="node-input-resourceIdentifier" placeholder="resourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='expirationDateAttr' class='hiddenAttrs'>
+		<label for="node-input-expirationDate"><i class="fa fa-tag"></i> expirationDate</label>
+		<input type="text" id="node-input-expirationDate" placeholder="expirationDate"></input>
+	</div> 
+	<div class="form-row" id='suppressIndefinitelyAttr' class='hiddenAttrs'>
+		<label for="node-input-suppressIndefinitely"><i class="fa fa-tag"></i> suppressIndefinitely</label>
+		<input type="text" id="node-input-suppressIndefinitely" placeholder="suppressIndefinitely"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i> clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='authorizerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerName"><i class="fa fa-tag"></i> authorizerName</label>
+		<input type="text" id="node-input-authorizerName" placeholder="authorizerName"></input>
+	</div> 
+	<div class="form-row" id='authorizerFunctionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerFunctionArn"><i class="fa fa-tag"></i> authorizerFunctionArn</label>
+		<input type="text" id="node-input-authorizerFunctionArn" placeholder="authorizerFunctionArn"></input>
+	</div> 
+	<div class="form-row" id='tokenKeyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-tokenKeyName"><i class="fa fa-tag"></i> tokenKeyName</label>
+		<input type="text" id="node-input-tokenKeyName" placeholder="tokenKeyName"></input>
+	</div> 
+	<div class="form-row" id='tokenSigningPublicKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tokenSigningPublicKeys"><i class="fa fa-tag"></i> tokenSigningPublicKeys</label>
+		<input type="text" id="node-input-tokenSigningPublicKeys" placeholder="tokenSigningPublicKeys"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='signingDisabledAttr' class='hiddenAttrs'>
+		<label for="node-input-signingDisabled"><i class="fa fa-tag"></i> signingDisabled</label>
+		<input type="text" id="node-input-signingDisabled" placeholder="signingDisabled"></input>
+	</div> 
+	<div class="form-row" id='billingGroupPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-billingGroupProperties"><i class="fa fa-tag"></i> billingGroupProperties</label>
+		<input type="text" id="node-input-billingGroupProperties" placeholder="billingGroupProperties"></input>
+	</div> 
+	<div class="form-row" id='certificateSigningRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateSigningRequest"><i class="fa fa-tag"></i> certificateSigningRequest</label>
+		<input type="text" id="node-input-certificateSigningRequest" placeholder="certificateSigningRequest"></input>
+	</div> 
+	<div class="form-row" id='metricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-metricName"><i class="fa fa-tag"></i> metricName</label>
+		<input type="text" id="node-input-metricName" placeholder="metricName"></input>
+	</div> 
+	<div class="form-row" id='displayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-displayName"><i class="fa fa-tag"></i> displayName</label>
+		<input type="text" id="node-input-displayName" placeholder="displayName"></input>
+	</div> 
+	<div class="form-row" id='metricTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-metricType"><i class="fa fa-tag"></i> metricType</label>
+		<input type="text" id="node-input-metricType" placeholder="metricType"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='stringValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-stringValues"><i class="fa fa-tag"></i> stringValues</label>
+		<input type="text" id="node-input-stringValues" placeholder="stringValues"></input>
+	</div> 
+	<div class="form-row" id='domainConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-domainConfigurationName"><i class="fa fa-tag"></i> domainConfigurationName</label>
+		<input type="text" id="node-input-domainConfigurationName" placeholder="domainConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='domainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-domainName"><i class="fa fa-tag"></i> domainName</label>
+		<input type="text" id="node-input-domainName" placeholder="domainName"></input>
+	</div> 
+	<div class="form-row" id='serverCertificateArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-serverCertificateArns"><i class="fa fa-tag"></i> serverCertificateArns</label>
+		<input type="text" id="node-input-serverCertificateArns" placeholder="serverCertificateArns"></input>
+	</div> 
+	<div class="form-row" id='validationCertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-validationCertificateArn"><i class="fa fa-tag"></i> validationCertificateArn</label>
+		<input type="text" id="node-input-validationCertificateArn" placeholder="validationCertificateArn"></input>
+	</div> 
+	<div class="form-row" id='authorizerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-authorizerConfig"><i class="fa fa-tag"></i> authorizerConfig</label>
+		<input type="text" id="node-input-authorizerConfig" placeholder="authorizerConfig"></input>
+	</div> 
+	<div class="form-row" id='serviceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceType"><i class="fa fa-tag"></i> serviceType</label>
+		<input type="text" id="node-input-serviceType" placeholder="serviceType"></input>
+	</div> 
+	<div class="form-row" id='thingGroupPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupProperties"><i class="fa fa-tag"></i> thingGroupProperties</label>
+		<input type="text" id="node-input-thingGroupProperties" placeholder="thingGroupProperties"></input>
+	</div> 
+	<div class="form-row" id='indexNameAttr' class='hiddenAttrs'>
+		<label for="node-input-indexName"><i class="fa fa-tag"></i> indexName</label>
+		<input type="text" id="node-input-indexName" placeholder="indexName"></input>
+	</div> 
+	<div class="form-row" id='queryStringAttr' class='hiddenAttrs'>
+		<label for="node-input-queryString"><i class="fa fa-tag"></i> queryString</label>
+		<input type="text" id="node-input-queryString" placeholder="queryString"></input>
+	</div> 
+	<div class="form-row" id='queryVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-queryVersion"><i class="fa fa-tag"></i> queryVersion</label>
+		<input type="text" id="node-input-queryVersion" placeholder="queryVersion"></input>
+	</div> 
+	<div class="form-row" id='aggregationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-aggregationType"><i class="fa fa-tag"></i> aggregationType</label>
+		<input type="text" id="node-input-aggregationType" placeholder="aggregationType"></input>
+	</div> 
+	<div class="form-row" id='periodAttr' class='hiddenAttrs'>
+		<label for="node-input-period"><i class="fa fa-tag"></i> period</label>
+		<input type="text" id="node-input-period" placeholder="period"></input>
+	</div> 
+	<div class="form-row" id='aggregationFieldAttr' class='hiddenAttrs'>
+		<label for="node-input-aggregationField"><i class="fa fa-tag"></i> aggregationField</label>
+		<input type="text" id="node-input-aggregationField" placeholder="aggregationField"></input>
+	</div> 
+	<div class="form-row" id='unitAttr' class='hiddenAttrs'>
+		<label for="node-input-unit"><i class="fa fa-tag"></i> unit</label>
+		<input type="text" id="node-input-unit" placeholder="unit"></input>
+	</div> 
+	<div class="form-row" id='documentSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-documentSource"><i class="fa fa-tag"></i> documentSource</label>
+		<input type="text" id="node-input-documentSource" placeholder="documentSource"></input>
+	</div> 
+	<div class="form-row" id='documentAttr' class='hiddenAttrs'>
+		<label for="node-input-document"><i class="fa fa-tag"></i> document</label>
+		<input type="text" id="node-input-document" placeholder="document"></input>
+	</div> 
+	<div class="form-row" id='presignedUrlConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-presignedUrlConfig"><i class="fa fa-tag"></i> presignedUrlConfig</label>
+		<input type="text" id="node-input-presignedUrlConfig" placeholder="presignedUrlConfig"></input>
+	</div> 
+	<div class="form-row" id='targetSelectionAttr' class='hiddenAttrs'>
+		<label for="node-input-targetSelection"><i class="fa fa-tag"></i> targetSelection</label>
+		<input type="text" id="node-input-targetSelection" placeholder="targetSelection"></input>
+	</div> 
+	<div class="form-row" id='jobExecutionsRolloutConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-jobExecutionsRolloutConfig"><i class="fa fa-tag"></i> jobExecutionsRolloutConfig</label>
+		<input type="text" id="node-input-jobExecutionsRolloutConfig" placeholder="jobExecutionsRolloutConfig"></input>
+	</div> 
+	<div class="form-row" id='abortConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-abortConfig"><i class="fa fa-tag"></i> abortConfig</label>
+		<input type="text" id="node-input-abortConfig" placeholder="abortConfig"></input>
+	</div> 
+	<div class="form-row" id='timeoutConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-timeoutConfig"><i class="fa fa-tag"></i> timeoutConfig</label>
+		<input type="text" id="node-input-timeoutConfig" placeholder="timeoutConfig"></input>
+	</div> 
+	<div class="form-row" id='jobTemplateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-jobTemplateArn"><i class="fa fa-tag"></i> jobTemplateArn</label>
+		<input type="text" id="node-input-jobTemplateArn" placeholder="jobTemplateArn"></input>
+	</div> 
+	<div class="form-row" id='jobTemplateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobTemplateId"><i class="fa fa-tag"></i> jobTemplateId</label>
+		<input type="text" id="node-input-jobTemplateId" placeholder="jobTemplateId"></input>
+	</div> 
+	<div class="form-row" id='jobArnAttr' class='hiddenAttrs'>
+		<label for="node-input-jobArn"><i class="fa fa-tag"></i> jobArn</label>
+		<input type="text" id="node-input-jobArn" placeholder="jobArn"></input>
+	</div> 
+	<div class="form-row" id='actionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-actionName"><i class="fa fa-tag"></i> actionName</label>
+		<input type="text" id="node-input-actionName" placeholder="actionName"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i> roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='actionParamsAttr' class='hiddenAttrs'>
+		<label for="node-input-actionParams"><i class="fa fa-tag"></i> actionParams</label>
+		<input type="text" id="node-input-actionParams" placeholder="actionParams"></input>
+	</div> 
+	<div class="form-row" id='otaUpdateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-otaUpdateId"><i class="fa fa-tag"></i> otaUpdateId</label>
+		<input type="text" id="node-input-otaUpdateId" placeholder="otaUpdateId"></input>
+	</div> 
+	<div class="form-row" id='protocolsAttr' class='hiddenAttrs'>
+		<label for="node-input-protocols"><i class="fa fa-tag"></i> protocols</label>
+		<input type="text" id="node-input-protocols" placeholder="protocols"></input>
+	</div> 
+	<div class="form-row" id='awsJobExecutionsRolloutConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-awsJobExecutionsRolloutConfig"><i class="fa fa-tag"></i> awsJobExecutionsRolloutConfig</label>
+		<input type="text" id="node-input-awsJobExecutionsRolloutConfig" placeholder="awsJobExecutionsRolloutConfig"></input>
+	</div> 
+	<div class="form-row" id='awsJobPresignedUrlConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-awsJobPresignedUrlConfig"><i class="fa fa-tag"></i> awsJobPresignedUrlConfig</label>
+		<input type="text" id="node-input-awsJobPresignedUrlConfig" placeholder="awsJobPresignedUrlConfig"></input>
+	</div> 
+	<div class="form-row" id='awsJobAbortConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-awsJobAbortConfig"><i class="fa fa-tag"></i> awsJobAbortConfig</label>
+		<input type="text" id="node-input-awsJobAbortConfig" placeholder="awsJobAbortConfig"></input>
+	</div> 
+	<div class="form-row" id='awsJobTimeoutConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-awsJobTimeoutConfig"><i class="fa fa-tag"></i> awsJobTimeoutConfig</label>
+		<input type="text" id="node-input-awsJobTimeoutConfig" placeholder="awsJobTimeoutConfig"></input>
+	</div> 
+	<div class="form-row" id='filesAttr' class='hiddenAttrs'>
+		<label for="node-input-files"><i class="fa fa-tag"></i> files</label>
+		<input type="text" id="node-input-files" placeholder="files"></input>
+	</div> 
+	<div class="form-row" id='additionalParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-additionalParameters"><i class="fa fa-tag"></i> additionalParameters</label>
+		<input type="text" id="node-input-additionalParameters" placeholder="additionalParameters"></input>
+	</div> 
+	<div class="form-row" id='policyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-policyDocument"><i class="fa fa-tag"></i> policyDocument</label>
+		<input type="text" id="node-input-policyDocument" placeholder="policyDocument"></input>
+	</div> 
+	<div class="form-row" id='setAsDefaultAttr' class='hiddenAttrs'>
+		<label for="node-input-setAsDefault"><i class="fa fa-tag"></i> setAsDefault</label>
+		<input type="text" id="node-input-setAsDefault" placeholder="setAsDefault"></input>
+	</div> 
+	<div class="form-row" id='templateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-templateName"><i class="fa fa-tag"></i> templateName</label>
+		<input type="text" id="node-input-templateName" placeholder="templateName"></input>
+	</div> 
+	<div class="form-row" id='templateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-templateBody"><i class="fa fa-tag"></i> templateBody</label>
+		<input type="text" id="node-input-templateBody" placeholder="templateBody"></input>
+	</div> 
+	<div class="form-row" id='enabledAttr' class='hiddenAttrs'>
+		<label for="node-input-enabled"><i class="fa fa-tag"></i> enabled</label>
+		<input type="text" id="node-input-enabled" placeholder="enabled"></input>
+	</div> 
+	<div class="form-row" id='provisioningRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-provisioningRoleArn"><i class="fa fa-tag"></i> provisioningRoleArn</label>
+		<input type="text" id="node-input-provisioningRoleArn" placeholder="provisioningRoleArn"></input>
+	</div> 
+	<div class="form-row" id='preProvisioningHookAttr' class='hiddenAttrs'>
+		<label for="node-input-preProvisioningHook"><i class="fa fa-tag"></i> preProvisioningHook</label>
+		<input type="text" id="node-input-preProvisioningHook" placeholder="preProvisioningHook"></input>
+	</div> 
+	<div class="form-row" id='roleAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-roleAlias"><i class="fa fa-tag"></i> roleAlias</label>
+		<input type="text" id="node-input-roleAlias" placeholder="roleAlias"></input>
+	</div> 
+	<div class="form-row" id='credentialDurationSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-credentialDurationSeconds"><i class="fa fa-tag"></i> credentialDurationSeconds</label>
+		<input type="text" id="node-input-credentialDurationSeconds" placeholder="credentialDurationSeconds"></input>
+	</div> 
+	<div class="form-row" id='frequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-frequency"><i class="fa fa-tag"></i> frequency</label>
+		<input type="text" id="node-input-frequency" placeholder="frequency"></input>
+	</div> 
+	<div class="form-row" id='dayOfMonthAttr' class='hiddenAttrs'>
+		<label for="node-input-dayOfMonth"><i class="fa fa-tag"></i> dayOfMonth</label>
+		<input type="text" id="node-input-dayOfMonth" placeholder="dayOfMonth"></input>
+	</div> 
+	<div class="form-row" id='dayOfWeekAttr' class='hiddenAttrs'>
+		<label for="node-input-dayOfWeek"><i class="fa fa-tag"></i> dayOfWeek</label>
+		<input type="text" id="node-input-dayOfWeek" placeholder="dayOfWeek"></input>
+	</div> 
+	<div class="form-row" id='targetCheckNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-targetCheckNames"><i class="fa fa-tag"></i> targetCheckNames</label>
+		<input type="text" id="node-input-targetCheckNames" placeholder="targetCheckNames"></input>
+	</div> 
+	<div class="form-row" id='scheduledAuditNameAttr' class='hiddenAttrs'>
+		<label for="node-input-scheduledAuditName"><i class="fa fa-tag"></i> scheduledAuditName</label>
+		<input type="text" id="node-input-scheduledAuditName" placeholder="scheduledAuditName"></input>
+	</div> 
+	<div class="form-row" id='securityProfileDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-securityProfileDescription"><i class="fa fa-tag"></i> securityProfileDescription</label>
+		<input type="text" id="node-input-securityProfileDescription" placeholder="securityProfileDescription"></input>
+	</div> 
+	<div class="form-row" id='behaviorsAttr' class='hiddenAttrs'>
+		<label for="node-input-behaviors"><i class="fa fa-tag"></i> behaviors</label>
+		<input type="text" id="node-input-behaviors" placeholder="behaviors"></input>
+	</div> 
+	<div class="form-row" id='alertTargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-alertTargets"><i class="fa fa-tag"></i> alertTargets</label>
+		<input type="text" id="node-input-alertTargets" placeholder="alertTargets"></input>
+	</div> 
+	<div class="form-row" id='additionalMetricsToRetainAttr' class='hiddenAttrs'>
+		<label for="node-input-additionalMetricsToRetain"><i class="fa fa-tag"></i> additionalMetricsToRetain</label>
+		<input type="text" id="node-input-additionalMetricsToRetain" placeholder="additionalMetricsToRetain"></input>
+	</div> 
+	<div class="form-row" id='additionalMetricsToRetainV2Attr' class='hiddenAttrs'>
+		<label for="node-input-additionalMetricsToRetainV2"><i class="fa fa-tag"></i> additionalMetricsToRetainV2</label>
+		<input type="text" id="node-input-additionalMetricsToRetainV2" placeholder="additionalMetricsToRetainV2"></input>
+	</div> 
+	<div class="form-row" id='streamIdAttr' class='hiddenAttrs'>
+		<label for="node-input-streamId"><i class="fa fa-tag"></i> streamId</label>
+		<input type="text" id="node-input-streamId" placeholder="streamId"></input>
+	</div> 
+	<div class="form-row" id='thingTypeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-thingTypeName"><i class="fa fa-tag"></i> thingTypeName</label>
+		<input type="text" id="node-input-thingTypeName" placeholder="thingTypeName"></input>
+	</div> 
+	<div class="form-row" id='attributePayloadAttr' class='hiddenAttrs'>
+		<label for="node-input-attributePayload"><i class="fa fa-tag"></i> attributePayload</label>
+		<input type="text" id="node-input-attributePayload" placeholder="attributePayload"></input>
+	</div> 
+	<div class="form-row" id='parentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-parentGroupName"><i class="fa fa-tag"></i> parentGroupName</label>
+		<input type="text" id="node-input-parentGroupName" placeholder="parentGroupName"></input>
+	</div> 
+	<div class="form-row" id='thingTypePropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-thingTypeProperties"><i class="fa fa-tag"></i> thingTypeProperties</label>
+		<input type="text" id="node-input-thingTypeProperties" placeholder="thingTypeProperties"></input>
+	</div> 
+	<div class="form-row" id='ruleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ruleName"><i class="fa fa-tag"></i> ruleName</label>
+		<input type="text" id="node-input-ruleName" placeholder="ruleName"></input>
+	</div> 
+	<div class="form-row" id='topicRulePayloadAttr' class='hiddenAttrs'>
+		<label for="node-input-topicRulePayload"><i class="fa fa-tag"></i> topicRulePayload</label>
+		<input type="text" id="node-input-topicRulePayload" placeholder="topicRulePayload"></input>
+	</div> 
+	<div class="form-row" id='destinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationConfiguration"><i class="fa fa-tag"></i> destinationConfiguration</label>
+		<input type="text" id="node-input-destinationConfiguration" placeholder="destinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='deleteScheduledAuditsAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteScheduledAudits"><i class="fa fa-tag"></i> deleteScheduledAudits</label>
+		<input type="text" id="node-input-deleteScheduledAudits" placeholder="deleteScheduledAudits"></input>
+	</div> 
+	<div class="form-row" id='forceDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-forceDelete"><i class="fa fa-tag"></i> forceDelete</label>
+		<input type="text" id="node-input-forceDelete" placeholder="forceDelete"></input>
+	</div> 
+	<div class="form-row" id='executionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-executionNumber"><i class="fa fa-tag"></i> executionNumber</label>
+		<input type="text" id="node-input-executionNumber" placeholder="executionNumber"></input>
+	</div> 
+	<div class="form-row" id='deleteStreamAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteStream"><i class="fa fa-tag"></i> deleteStream</label>
+		<input type="text" id="node-input-deleteStream" placeholder="deleteStream"></input>
+	</div> 
+	<div class="form-row" id='forceDeleteAWSJobAttr' class='hiddenAttrs'>
+		<label for="node-input-forceDeleteAWSJob"><i class="fa fa-tag"></i> forceDeleteAWSJob</label>
+		<input type="text" id="node-input-forceDeleteAWSJob" placeholder="forceDeleteAWSJob"></input>
+	</div> 
+	<div class="form-row" id='policyVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-policyVersionId"><i class="fa fa-tag"></i> policyVersionId</label>
+		<input type="text" id="node-input-policyVersionId" placeholder="policyVersionId"></input>
+	</div> 
+	<div class="form-row" id='versionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-versionId"><i class="fa fa-tag"></i> versionId</label>
+		<input type="text" id="node-input-versionId" placeholder="versionId"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='targetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-targetType"><i class="fa fa-tag"></i> targetType</label>
+		<input type="text" id="node-input-targetType" placeholder="targetType"></input>
+	</div> 
+	<div class="form-row" id='targetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-targetName"><i class="fa fa-tag"></i> targetName</label>
+		<input type="text" id="node-input-targetName" placeholder="targetName"></input>
+	</div> 
+	<div class="form-row" id='undoDeprecateAttr' class='hiddenAttrs'>
+		<label for="node-input-undoDeprecate"><i class="fa fa-tag"></i> undoDeprecate</label>
+		<input type="text" id="node-input-undoDeprecate" placeholder="undoDeprecate"></input>
+	</div> 
+	<div class="form-row" id='findingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-findingId"><i class="fa fa-tag"></i> findingId</label>
+		<input type="text" id="node-input-findingId" placeholder="findingId"></input>
+	</div> 
+	<div class="form-row" id='endpointTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-endpointType"><i class="fa fa-tag"></i> endpointType</label>
+		<input type="text" id="node-input-endpointType" placeholder="endpointType"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='bucketsAggregationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-bucketsAggregationType"><i class="fa fa-tag"></i> bucketsAggregationType</label>
+		<input type="text" id="node-input-bucketsAggregationType" placeholder="bucketsAggregationType"></input>
+	</div> 
+	<div class="form-row" id='cognitoIdentityPoolIdAttr' class='hiddenAttrs'>
+		<label for="node-input-cognitoIdentityPoolId"><i class="fa fa-tag"></i> cognitoIdentityPoolId</label>
+		<input type="text" id="node-input-cognitoIdentityPoolId" placeholder="cognitoIdentityPoolId"></input>
+	</div> 
+	<div class="form-row" id='percentsAttr' class='hiddenAttrs'>
+		<label for="node-input-percents"><i class="fa fa-tag"></i> percents</label>
+		<input type="text" id="node-input-percents" placeholder="percents"></input>
+	</div> 
+	<div class="form-row" id='behaviorCriteriaTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-behaviorCriteriaType"><i class="fa fa-tag"></i> behaviorCriteriaType</label>
+		<input type="text" id="node-input-behaviorCriteriaType" placeholder="behaviorCriteriaType"></input>
+	</div> 
+	<div class="form-row" id='listSuppressedAlertsAttr' class='hiddenAttrs'>
+		<label for="node-input-listSuppressedAlerts"><i class="fa fa-tag"></i> listSuppressedAlerts</label>
+		<input type="text" id="node-input-listSuppressedAlerts" placeholder="listSuppressedAlerts"></input>
+	</div> 
+	<div class="form-row" id='recursiveAttr' class='hiddenAttrs'>
+		<label for="node-input-recursive"><i class="fa fa-tag"></i> recursive</label>
+		<input type="text" id="node-input-recursive" placeholder="recursive"></input>
+	</div> 
+	<div class="form-row" id='markerAttr' class='hiddenAttrs'>
+		<label for="node-input-marker"><i class="fa fa-tag"></i> marker</label>
+		<input type="text" id="node-input-marker" placeholder="marker"></input>
+	</div> 
+	<div class="form-row" id='pageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-pageSize"><i class="fa fa-tag"></i> pageSize</label>
+		<input type="text" id="node-input-pageSize" placeholder="pageSize"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='listSuppressedFindingsAttr' class='hiddenAttrs'>
+		<label for="node-input-listSuppressedFindings"><i class="fa fa-tag"></i> listSuppressedFindings</label>
+		<input type="text" id="node-input-listSuppressedFindings" placeholder="listSuppressedFindings"></input>
+	</div> 
+	<div class="form-row" id='actionStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-actionStatus"><i class="fa fa-tag"></i> actionStatus</label>
+		<input type="text" id="node-input-actionStatus" placeholder="actionStatus"></input>
+	</div> 
+	<div class="form-row" id='auditTaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-auditTaskId"><i class="fa fa-tag"></i> auditTaskId</label>
+		<input type="text" id="node-input-auditTaskId" placeholder="auditTaskId"></input>
+	</div> 
+	<div class="form-row" id='taskStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-taskStatus"><i class="fa fa-tag"></i> taskStatus</label>
+		<input type="text" id="node-input-taskStatus" placeholder="taskStatus"></input>
+	</div> 
+	<div class="form-row" id='ascendingOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-ascendingOrder"><i class="fa fa-tag"></i> ascendingOrder</label>
+		<input type="text" id="node-input-ascendingOrder" placeholder="ascendingOrder"></input>
+	</div> 
+	<div class="form-row" id='taskTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-taskType"><i class="fa fa-tag"></i> taskType</label>
+		<input type="text" id="node-input-taskType" placeholder="taskType"></input>
+	</div> 
+	<div class="form-row" id='namePrefixFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-namePrefixFilter"><i class="fa fa-tag"></i> namePrefixFilter</label>
+		<input type="text" id="node-input-namePrefixFilter" placeholder="namePrefixFilter"></input>
+	</div> 
+	<div class="form-row" id='caCertificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-caCertificateId"><i class="fa fa-tag"></i> caCertificateId</label>
+		<input type="text" id="node-input-caCertificateId" placeholder="caCertificateId"></input>
+	</div> 
+	<div class="form-row" id='violationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-violationId"><i class="fa fa-tag"></i> violationId</label>
+		<input type="text" id="node-input-violationId" placeholder="violationId"></input>
+	</div> 
+	<div class="form-row" id='thingGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupId"><i class="fa fa-tag"></i> thingGroupId</label>
+		<input type="text" id="node-input-thingGroupId" placeholder="thingGroupId"></input>
+	</div> 
+	<div class="form-row" id='actionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-actionType"><i class="fa fa-tag"></i> actionType</label>
+		<input type="text" id="node-input-actionType" placeholder="actionType"></input>
+	</div> 
+	<div class="form-row" id='otaUpdateStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-otaUpdateStatus"><i class="fa fa-tag"></i> otaUpdateStatus</label>
+		<input type="text" id="node-input-otaUpdateStatus" placeholder="otaUpdateStatus"></input>
+	</div> 
+	<div class="form-row" id='dimensionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-dimensionName"><i class="fa fa-tag"></i> dimensionName</label>
+		<input type="text" id="node-input-dimensionName" placeholder="dimensionName"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='parentGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-parentGroup"><i class="fa fa-tag"></i> parentGroup</label>
+		<input type="text" id="node-input-parentGroup" placeholder="parentGroup"></input>
+	</div> 
+	<div class="form-row" id='reportTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-reportType"><i class="fa fa-tag"></i> reportType</label>
+		<input type="text" id="node-input-reportType" placeholder="reportType"></input>
+	</div> 
+	<div class="form-row" id='attributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeName"><i class="fa fa-tag"></i> attributeName</label>
+		<input type="text" id="node-input-attributeName" placeholder="attributeName"></input>
+	</div> 
+	<div class="form-row" id='attributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeValue"><i class="fa fa-tag"></i> attributeValue</label>
+		<input type="text" id="node-input-attributeValue" placeholder="attributeValue"></input>
+	</div> 
+	<div class="form-row" id='usePrefixAttributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-usePrefixAttributeValue"><i class="fa fa-tag"></i> usePrefixAttributeValue</label>
+		<input type="text" id="node-input-usePrefixAttributeValue" placeholder="usePrefixAttributeValue"></input>
+	</div> 
+	<div class="form-row" id='topicAttr' class='hiddenAttrs'>
+		<label for="node-input-topic"><i class="fa fa-tag"></i> topic</label>
+		<input type="text" id="node-input-topic" placeholder="topic"></input>
+	</div> 
+	<div class="form-row" id='ruleDisabledAttr' class='hiddenAttrs'>
+		<label for="node-input-ruleDisabled"><i class="fa fa-tag"></i> ruleDisabled</label>
+		<input type="text" id="node-input-ruleDisabled" placeholder="ruleDisabled"></input>
+	</div> 
+	<div class="form-row" id='caCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-caCertificate"><i class="fa fa-tag"></i> caCertificate</label>
+		<input type="text" id="node-input-caCertificate" placeholder="caCertificate"></input>
+	</div> 
+	<div class="form-row" id='verificationCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-verificationCertificate"><i class="fa fa-tag"></i> verificationCertificate</label>
+		<input type="text" id="node-input-verificationCertificate" placeholder="verificationCertificate"></input>
+	</div> 
+	<div class="form-row" id='allowAutoRegistrationAttr' class='hiddenAttrs'>
+		<label for="node-input-allowAutoRegistration"><i class="fa fa-tag"></i> allowAutoRegistration</label>
+		<input type="text" id="node-input-allowAutoRegistration" placeholder="allowAutoRegistration"></input>
+	</div> 
+	<div class="form-row" id='registrationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-registrationConfig"><i class="fa fa-tag"></i> registrationConfig</label>
+		<input type="text" id="node-input-registrationConfig" placeholder="registrationConfig"></input>
+	</div> 
+	<div class="form-row" id='certificatePemAttr' class='hiddenAttrs'>
+		<label for="node-input-certificatePem"><i class="fa fa-tag"></i> certificatePem</label>
+		<input type="text" id="node-input-certificatePem" placeholder="certificatePem"></input>
+	</div> 
+	<div class="form-row" id='caCertificatePemAttr' class='hiddenAttrs'>
+		<label for="node-input-caCertificatePem"><i class="fa fa-tag"></i> caCertificatePem</label>
+		<input type="text" id="node-input-caCertificatePem" placeholder="caCertificatePem"></input>
+	</div> 
+	<div class="form-row" id='parametersAttr' class='hiddenAttrs'>
+		<label for="node-input-parameters"><i class="fa fa-tag"></i> parameters</label>
+		<input type="text" id="node-input-parameters" placeholder="parameters"></input>
+	</div> 
+	<div class="form-row" id='rejectReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-rejectReason"><i class="fa fa-tag"></i> rejectReason</label>
+		<input type="text" id="node-input-rejectReason" placeholder="rejectReason"></input>
+	</div> 
+	<div class="form-row" id='loggingOptionsPayloadAttr' class='hiddenAttrs'>
+		<label for="node-input-loggingOptionsPayload"><i class="fa fa-tag"></i> loggingOptionsPayload</label>
+		<input type="text" id="node-input-loggingOptionsPayload" placeholder="loggingOptionsPayload"></input>
+	</div> 
+	<div class="form-row" id='logTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-logTarget"><i class="fa fa-tag"></i> logTarget</label>
+		<input type="text" id="node-input-logTarget" placeholder="logTarget"></input>
+	</div> 
+	<div class="form-row" id='logLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-logLevel"><i class="fa fa-tag"></i> logLevel</label>
+		<input type="text" id="node-input-logLevel" placeholder="logLevel"></input>
+	</div> 
+	<div class="form-row" id='defaultLogLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultLogLevel"><i class="fa fa-tag"></i> defaultLogLevel</label>
+		<input type="text" id="node-input-defaultLogLevel" placeholder="defaultLogLevel"></input>
+	</div> 
+	<div class="form-row" id='disableAllLogsAttr' class='hiddenAttrs'>
+		<label for="node-input-disableAllLogs"><i class="fa fa-tag"></i> disableAllLogs</label>
+		<input type="text" id="node-input-disableAllLogs" placeholder="disableAllLogs"></input>
+	</div> 
+	<div class="form-row" id='auditCheckToActionsMappingAttr' class='hiddenAttrs'>
+		<label for="node-input-auditCheckToActionsMapping"><i class="fa fa-tag"></i> auditCheckToActionsMapping</label>
+		<input type="text" id="node-input-auditCheckToActionsMapping" placeholder="auditCheckToActionsMapping"></input>
+	</div> 
+	<div class="form-row" id='actionsAttr' class='hiddenAttrs'>
+		<label for="node-input-actions"><i class="fa fa-tag"></i> actions</label>
+		<input type="text" id="node-input-actions" placeholder="actions"></input>
+	</div> 
+	<div class="form-row" id='violationEventOccurrenceRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-violationEventOccurrenceRange"><i class="fa fa-tag"></i> violationEventOccurrenceRange</label>
+		<input type="text" id="node-input-violationEventOccurrenceRange" placeholder="violationEventOccurrenceRange"></input>
+	</div> 
+	<div class="form-row" id='includeOnlyActiveViolationsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeOnlyActiveViolations"><i class="fa fa-tag"></i> includeOnlyActiveViolations</label>
+		<input type="text" id="node-input-includeOnlyActiveViolations" placeholder="includeOnlyActiveViolations"></input>
+	</div> 
+	<div class="form-row" id='includeSuppressedAlertsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeSuppressedAlerts"><i class="fa fa-tag"></i> includeSuppressedAlerts</label>
+		<input type="text" id="node-input-includeSuppressedAlerts" placeholder="includeSuppressedAlerts"></input>
+	</div> 
+	<div class="form-row" id='inputFileBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-inputFileBucket"><i class="fa fa-tag"></i> inputFileBucket</label>
+		<input type="text" id="node-input-inputFileBucket" placeholder="inputFileBucket"></input>
+	</div> 
+	<div class="form-row" id='inputFileKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-inputFileKey"><i class="fa fa-tag"></i> inputFileKey</label>
+		<input type="text" id="node-input-inputFileKey" placeholder="inputFileKey"></input>
+	</div> 
+	<div class="form-row" id='authInfosAttr' class='hiddenAttrs'>
+		<label for="node-input-authInfos"><i class="fa fa-tag"></i> authInfos</label>
+		<input type="text" id="node-input-authInfos" placeholder="authInfos"></input>
+	</div> 
+	<div class="form-row" id='clientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-clientId"><i class="fa fa-tag"></i> clientId</label>
+		<input type="text" id="node-input-clientId" placeholder="clientId"></input>
+	</div> 
+	<div class="form-row" id='policyNamesToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-policyNamesToAdd"><i class="fa fa-tag"></i> policyNamesToAdd</label>
+		<input type="text" id="node-input-policyNamesToAdd" placeholder="policyNamesToAdd"></input>
+	</div> 
+	<div class="form-row" id='policyNamesToSkipAttr' class='hiddenAttrs'>
+		<label for="node-input-policyNamesToSkip"><i class="fa fa-tag"></i> policyNamesToSkip</label>
+		<input type="text" id="node-input-policyNamesToSkip" placeholder="policyNamesToSkip"></input>
+	</div> 
+	<div class="form-row" id='tokenAttr' class='hiddenAttrs'>
+		<label for="node-input-token"><i class="fa fa-tag"></i> token</label>
+		<input type="text" id="node-input-token" placeholder="token"></input>
+	</div> 
+	<div class="form-row" id='tokenSignatureAttr' class='hiddenAttrs'>
+		<label for="node-input-tokenSignature"><i class="fa fa-tag"></i> tokenSignature</label>
+		<input type="text" id="node-input-tokenSignature" placeholder="tokenSignature"></input>
+	</div> 
+	<div class="form-row" id='httpContextAttr' class='hiddenAttrs'>
+		<label for="node-input-httpContext"><i class="fa fa-tag"></i> httpContext</label>
+		<input type="text" id="node-input-httpContext" placeholder="httpContext"></input>
+	</div> 
+	<div class="form-row" id='mqttContextAttr' class='hiddenAttrs'>
+		<label for="node-input-mqttContext"><i class="fa fa-tag"></i> mqttContext</label>
+		<input type="text" id="node-input-mqttContext" placeholder="mqttContext"></input>
+	</div> 
+	<div class="form-row" id='tlsContextAttr' class='hiddenAttrs'>
+		<label for="node-input-tlsContext"><i class="fa fa-tag"></i> tlsContext</label>
+		<input type="text" id="node-input-tlsContext" placeholder="tlsContext"></input>
+	</div> 
+	<div class="form-row" id='targetAwsAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-targetAwsAccount"><i class="fa fa-tag"></i> targetAwsAccount</label>
+		<input type="text" id="node-input-targetAwsAccount" placeholder="targetAwsAccount"></input>
+	</div> 
+	<div class="form-row" id='transferMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-transferMessage"><i class="fa fa-tag"></i> transferMessage</label>
+		<input type="text" id="node-input-transferMessage" placeholder="transferMessage"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='auditNotificationTargetConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-auditNotificationTargetConfigurations"><i class="fa fa-tag"></i> auditNotificationTargetConfigurations</label>
+		<input type="text" id="node-input-auditNotificationTargetConfigurations" placeholder="auditNotificationTargetConfigurations"></input>
+	</div> 
+	<div class="form-row" id='auditCheckConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-auditCheckConfigurations"><i class="fa fa-tag"></i> auditCheckConfigurations</label>
+		<input type="text" id="node-input-auditCheckConfigurations" placeholder="auditCheckConfigurations"></input>
+	</div> 
+	<div class="form-row" id='newStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-newStatus"><i class="fa fa-tag"></i> newStatus</label>
+		<input type="text" id="node-input-newStatus" placeholder="newStatus"></input>
+	</div> 
+	<div class="form-row" id='newAutoRegistrationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-newAutoRegistrationStatus"><i class="fa fa-tag"></i> newAutoRegistrationStatus</label>
+		<input type="text" id="node-input-newAutoRegistrationStatus" placeholder="newAutoRegistrationStatus"></input>
+	</div> 
+	<div class="form-row" id='removeAutoRegistrationAttr' class='hiddenAttrs'>
+		<label for="node-input-removeAutoRegistration"><i class="fa fa-tag"></i> removeAutoRegistration</label>
+		<input type="text" id="node-input-removeAutoRegistration" placeholder="removeAutoRegistration"></input>
+	</div> 
+	<div class="form-row" id='domainConfigurationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-domainConfigurationStatus"><i class="fa fa-tag"></i> domainConfigurationStatus</label>
+		<input type="text" id="node-input-domainConfigurationStatus" placeholder="domainConfigurationStatus"></input>
+	</div> 
+	<div class="form-row" id='removeAuthorizerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-removeAuthorizerConfig"><i class="fa fa-tag"></i> removeAuthorizerConfig</label>
+		<input type="text" id="node-input-removeAuthorizerConfig" placeholder="removeAuthorizerConfig"></input>
+	</div> 
+	<div class="form-row" id='eventConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-eventConfigurations"><i class="fa fa-tag"></i> eventConfigurations</label>
+		<input type="text" id="node-input-eventConfigurations" placeholder="eventConfigurations"></input>
+	</div> 
+	<div class="form-row" id='thingIndexingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-thingIndexingConfiguration"><i class="fa fa-tag"></i> thingIndexingConfiguration</label>
+		<input type="text" id="node-input-thingIndexingConfiguration" placeholder="thingIndexingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='thingGroupIndexingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupIndexingConfiguration"><i class="fa fa-tag"></i> thingGroupIndexingConfiguration</label>
+		<input type="text" id="node-input-thingGroupIndexingConfiguration" placeholder="thingGroupIndexingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='defaultVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultVersionId"><i class="fa fa-tag"></i> defaultVersionId</label>
+		<input type="text" id="node-input-defaultVersionId" placeholder="defaultVersionId"></input>
+	</div> 
+	<div class="form-row" id='removePreProvisioningHookAttr' class='hiddenAttrs'>
+		<label for="node-input-removePreProvisioningHook"><i class="fa fa-tag"></i> removePreProvisioningHook</label>
+		<input type="text" id="node-input-removePreProvisioningHook" placeholder="removePreProvisioningHook"></input>
+	</div> 
+	<div class="form-row" id='deleteBehaviorsAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteBehaviors"><i class="fa fa-tag"></i> deleteBehaviors</label>
+		<input type="text" id="node-input-deleteBehaviors" placeholder="deleteBehaviors"></input>
+	</div> 
+	<div class="form-row" id='deleteAlertTargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteAlertTargets"><i class="fa fa-tag"></i> deleteAlertTargets</label>
+		<input type="text" id="node-input-deleteAlertTargets" placeholder="deleteAlertTargets"></input>
+	</div> 
+	<div class="form-row" id='deleteAdditionalMetricsToRetainAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteAdditionalMetricsToRetain"><i class="fa fa-tag"></i> deleteAdditionalMetricsToRetain</label>
+		<input type="text" id="node-input-deleteAdditionalMetricsToRetain" placeholder="deleteAdditionalMetricsToRetain"></input>
+	</div> 
+	<div class="form-row" id='removeThingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-removeThingType"><i class="fa fa-tag"></i> removeThingType</label>
+		<input type="text" id="node-input-removeThingType" placeholder="removeThingType"></input>
+	</div> 
+	<div class="form-row" id='thingGroupsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupsToAdd"><i class="fa fa-tag"></i> thingGroupsToAdd</label>
+		<input type="text" id="node-input-thingGroupsToAdd" placeholder="thingGroupsToAdd"></input>
+	</div> 
+	<div class="form-row" id='thingGroupsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-thingGroupsToRemove"><i class="fa fa-tag"></i> thingGroupsToRemove</label>
+		<input type="text" id="node-input-thingGroupsToRemove" placeholder="thingGroupsToRemove"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptCertificateTransfer:[
+					'#certificateIdAttr','#setAsActiveAttr'
+					],
+				AddThingToBillingGroup:[
+					'#billingGroupNameAttr','#billingGroupArnAttr','#thingNameAttr','#thingArnAttr'
+					],
+				AddThingToThingGroup:[
+					'#thingGroupNameAttr','#thingGroupArnAttr','#thingNameAttr','#thingArnAttr','#overrideDynamicGroupsAttr'
+					],
+				AssociateTargetsWithJob:[
+					'#targetsAttr','#jobIdAttr','#commentAttr','#namespaceIdAttr'
+					],
+				AttachPolicy:[
+					'#policyNameAttr','#targetAttr'
+					],
+				AttachPrincipalPolicy:[
+					'#policyNameAttr','#principalAttr'
+					],
+				AttachSecurityProfile:[
+					'#securityProfileNameAttr','#securityProfileTargetArnAttr'
+					],
+				AttachThingPrincipal:[
+					'#thingNameAttr','#principalAttr'
+					],
+				CancelAuditMitigationActionsTask:[
+					'#taskIdAttr'
+					],
+				CancelAuditTask:[
+					'#taskIdAttr'
+					],
+				CancelCertificateTransfer:[
+					'#certificateIdAttr'
+					],
+				CancelDetectMitigationActionsTask:[
+					'#taskIdAttr'
+					],
+				CancelJob:[
+					'#jobIdAttr','#reasonCodeAttr','#commentAttr','#forceAttr'
+					],
+				CancelJobExecution:[
+					'#jobIdAttr','#thingNameAttr','#forceAttr','#expectedVersionAttr','#statusDetailsAttr'
+					],
+				ClearDefaultAuthorizer:[
+					
+					],
+				ConfirmTopicRuleDestination:[
+					'#confirmationTokenAttr'
+					],
+				CreateAuditSuppression:[
+					'#checkNameAttr','#resourceIdentifierAttr','#expirationDateAttr','#suppressIndefinitelyAttr','#descriptionAttr','#clientRequestTokenAttr'
+					],
+				CreateAuthorizer:[
+					'#authorizerNameAttr','#authorizerFunctionArnAttr','#tokenKeyNameAttr','#tokenSigningPublicKeysAttr','#statusAttr','#tagsAttr','#signingDisabledAttr'
+					],
+				CreateBillingGroup:[
+					'#billingGroupNameAttr','#billingGroupPropertiesAttr','#tagsAttr'
+					],
+				CreateCertificateFromCsr:[
+					'#certificateSigningRequestAttr','#setAsActiveAttr'
+					],
+				CreateCustomMetric:[
+					'#metricNameAttr','#displayNameAttr','#metricTypeAttr','#tagsAttr','#clientRequestTokenAttr'
+					],
+				CreateDimension:[
+					'#nameAttr','#typeAttr','#stringValuesAttr','#tagsAttr','#clientRequestTokenAttr'
+					],
+				CreateDomainConfiguration:[
+					'#domainConfigurationNameAttr','#domainNameAttr','#serverCertificateArnsAttr','#validationCertificateArnAttr','#authorizerConfigAttr','#serviceTypeAttr','#tagsAttr'
+					],
+				CreateDynamicThingGroup:[
+					'#thingGroupNameAttr','#thingGroupPropertiesAttr','#indexNameAttr','#queryStringAttr','#queryVersionAttr','#tagsAttr'
+					],
+				CreateFleetMetric:[
+					'#metricNameAttr','#queryStringAttr','#aggregationTypeAttr','#periodAttr','#aggregationFieldAttr','#descriptionAttr','#queryVersionAttr','#indexNameAttr','#unitAttr','#tagsAttr'
+					],
+				CreateJob:[
+					'#jobIdAttr','#targetsAttr','#documentSourceAttr','#documentAttr','#descriptionAttr','#presignedUrlConfigAttr','#targetSelectionAttr','#jobExecutionsRolloutConfigAttr','#abortConfigAttr','#timeoutConfigAttr','#tagsAttr','#namespaceIdAttr','#jobTemplateArnAttr'
+					],
+				CreateJobTemplate:[
+					'#jobTemplateIdAttr','#jobArnAttr','#documentSourceAttr','#documentAttr','#descriptionAttr','#presignedUrlConfigAttr','#jobExecutionsRolloutConfigAttr','#abortConfigAttr','#timeoutConfigAttr','#tagsAttr'
+					],
+				CreateKeysAndCertificate:[
+					'#setAsActiveAttr'
+					],
+				CreateMitigationAction:[
+					'#actionNameAttr','#roleArnAttr','#actionParamsAttr','#tagsAttr'
+					],
+				CreateOTAUpdate:[
+					'#otaUpdateIdAttr','#descriptionAttr','#targetsAttr','#protocolsAttr','#targetSelectionAttr','#awsJobExecutionsRolloutConfigAttr','#awsJobPresignedUrlConfigAttr','#awsJobAbortConfigAttr','#awsJobTimeoutConfigAttr','#filesAttr','#roleArnAttr','#additionalParametersAttr','#tagsAttr'
+					],
+				CreatePolicy:[
+					'#policyNameAttr','#policyDocumentAttr','#tagsAttr'
+					],
+				CreatePolicyVersion:[
+					'#policyNameAttr','#policyDocumentAttr','#setAsDefaultAttr'
+					],
+				CreateProvisioningClaim:[
+					'#templateNameAttr'
+					],
+				CreateProvisioningTemplate:[
+					'#templateNameAttr','#descriptionAttr','#templateBodyAttr','#enabledAttr','#provisioningRoleArnAttr','#preProvisioningHookAttr','#tagsAttr'
+					],
+				CreateProvisioningTemplateVersion:[
+					'#templateNameAttr','#templateBodyAttr','#setAsDefaultAttr'
+					],
+				CreateRoleAlias:[
+					'#roleAliasAttr','#roleArnAttr','#credentialDurationSecondsAttr','#tagsAttr'
+					],
+				CreateScheduledAudit:[
+					'#frequencyAttr','#dayOfMonthAttr','#dayOfWeekAttr','#targetCheckNamesAttr','#scheduledAuditNameAttr','#tagsAttr'
+					],
+				CreateSecurityProfile:[
+					'#securityProfileNameAttr','#securityProfileDescriptionAttr','#behaviorsAttr','#alertTargetsAttr','#additionalMetricsToRetainAttr','#additionalMetricsToRetainV2Attr','#tagsAttr'
+					],
+				CreateStream:[
+					'#streamIdAttr','#descriptionAttr','#filesAttr','#roleArnAttr','#tagsAttr'
+					],
+				CreateThing:[
+					'#thingNameAttr','#thingTypeNameAttr','#attributePayloadAttr','#billingGroupNameAttr'
+					],
+				CreateThingGroup:[
+					'#thingGroupNameAttr','#parentGroupNameAttr','#thingGroupPropertiesAttr','#tagsAttr'
+					],
+				CreateThingType:[
+					'#thingTypeNameAttr','#thingTypePropertiesAttr','#tagsAttr'
+					],
+				CreateTopicRule:[
+					'#ruleNameAttr','#topicRulePayloadAttr','#tagsAttr'
+					],
+				CreateTopicRuleDestination:[
+					'#destinationConfigurationAttr'
+					],
+				DeleteAccountAuditConfiguration:[
+					'#deleteScheduledAuditsAttr'
+					],
+				DeleteAuditSuppression:[
+					'#checkNameAttr','#resourceIdentifierAttr'
+					],
+				DeleteAuthorizer:[
+					'#authorizerNameAttr'
+					],
+				DeleteBillingGroup:[
+					'#billingGroupNameAttr','#expectedVersionAttr'
+					],
+				DeleteCACertificate:[
+					'#certificateIdAttr'
+					],
+				DeleteCertificate:[
+					'#certificateIdAttr','#forceDeleteAttr'
+					],
+				DeleteCustomMetric:[
+					'#metricNameAttr'
+					],
+				DeleteDimension:[
+					'#nameAttr'
+					],
+				DeleteDomainConfiguration:[
+					'#domainConfigurationNameAttr'
+					],
+				DeleteDynamicThingGroup:[
+					'#thingGroupNameAttr','#expectedVersionAttr'
+					],
+				DeleteFleetMetric:[
+					'#metricNameAttr','#expectedVersionAttr'
+					],
+				DeleteJob:[
+					'#jobIdAttr','#forceAttr','#namespaceIdAttr'
+					],
+				DeleteJobExecution:[
+					'#jobIdAttr','#thingNameAttr','#executionNumberAttr','#forceAttr','#namespaceIdAttr'
+					],
+				DeleteJobTemplate:[
+					'#jobTemplateIdAttr'
+					],
+				DeleteMitigationAction:[
+					'#actionNameAttr'
+					],
+				DeleteOTAUpdate:[
+					'#otaUpdateIdAttr','#deleteStreamAttr','#forceDeleteAWSJobAttr'
+					],
+				DeletePolicy:[
+					'#policyNameAttr'
+					],
+				DeletePolicyVersion:[
+					'#policyNameAttr','#policyVersionIdAttr'
+					],
+				DeleteProvisioningTemplate:[
+					'#templateNameAttr'
+					],
+				DeleteProvisioningTemplateVersion:[
+					'#templateNameAttr','#versionIdAttr'
+					],
+				DeleteRegistrationCode:[
+					
+					],
+				DeleteRoleAlias:[
+					'#roleAliasAttr'
+					],
+				DeleteScheduledAudit:[
+					'#scheduledAuditNameAttr'
+					],
+				DeleteSecurityProfile:[
+					'#securityProfileNameAttr','#expectedVersionAttr'
+					],
+				DeleteStream:[
+					'#streamIdAttr'
+					],
+				DeleteThing:[
+					'#thingNameAttr','#expectedVersionAttr'
+					],
+				DeleteThingGroup:[
+					'#thingGroupNameAttr','#expectedVersionAttr'
+					],
+				DeleteThingType:[
+					'#thingTypeNameAttr'
+					],
+				DeleteTopicRule:[
+					'#ruleNameAttr'
+					],
+				DeleteTopicRuleDestination:[
+					'#arnAttr'
+					],
+				DeleteV2LoggingLevel:[
+					'#targetTypeAttr','#targetNameAttr'
+					],
+				DeprecateThingType:[
+					'#thingTypeNameAttr','#undoDeprecateAttr'
+					],
+				DescribeAccountAuditConfiguration:[
+					
+					],
+				DescribeAuditFinding:[
+					'#findingIdAttr'
+					],
+				DescribeAuditMitigationActionsTask:[
+					'#taskIdAttr'
+					],
+				DescribeAuditSuppression:[
+					'#checkNameAttr','#resourceIdentifierAttr'
+					],
+				DescribeAuditTask:[
+					'#taskIdAttr'
+					],
+				DescribeAuthorizer:[
+					'#authorizerNameAttr'
+					],
+				DescribeBillingGroup:[
+					'#billingGroupNameAttr'
+					],
+				DescribeCACertificate:[
+					'#certificateIdAttr'
+					],
+				DescribeCertificate:[
+					'#certificateIdAttr'
+					],
+				DescribeCustomMetric:[
+					'#metricNameAttr'
+					],
+				DescribeDefaultAuthorizer:[
+					
+					],
+				DescribeDetectMitigationActionsTask:[
+					'#taskIdAttr'
+					],
+				DescribeDimension:[
+					'#nameAttr'
+					],
+				DescribeDomainConfiguration:[
+					'#domainConfigurationNameAttr'
+					],
+				DescribeEndpoint:[
+					'#endpointTypeAttr'
+					],
+				DescribeEventConfigurations:[
+					
+					],
+				DescribeFleetMetric:[
+					'#metricNameAttr'
+					],
+				DescribeIndex:[
+					'#indexNameAttr'
+					],
+				DescribeJob:[
+					'#jobIdAttr'
+					],
+				DescribeJobExecution:[
+					'#jobIdAttr','#thingNameAttr','#executionNumberAttr'
+					],
+				DescribeJobTemplate:[
+					'#jobTemplateIdAttr'
+					],
+				DescribeMitigationAction:[
+					'#actionNameAttr'
+					],
+				DescribeProvisioningTemplate:[
+					'#templateNameAttr'
+					],
+				DescribeProvisioningTemplateVersion:[
+					'#templateNameAttr','#versionIdAttr'
+					],
+				DescribeRoleAlias:[
+					'#roleAliasAttr'
+					],
+				DescribeScheduledAudit:[
+					'#scheduledAuditNameAttr'
+					],
+				DescribeSecurityProfile:[
+					'#securityProfileNameAttr'
+					],
+				DescribeStream:[
+					'#streamIdAttr'
+					],
+				DescribeThing:[
+					'#thingNameAttr'
+					],
+				DescribeThingGroup:[
+					'#thingGroupNameAttr'
+					],
+				DescribeThingRegistrationTask:[
+					'#taskIdAttr'
+					],
+				DescribeThingType:[
+					'#thingTypeNameAttr'
+					],
+				DetachPolicy:[
+					'#policyNameAttr','#targetAttr'
+					],
+				DetachPrincipalPolicy:[
+					'#policyNameAttr','#principalAttr'
+					],
+				DetachSecurityProfile:[
+					'#securityProfileNameAttr','#securityProfileTargetArnAttr'
+					],
+				DetachThingPrincipal:[
+					'#thingNameAttr','#principalAttr'
+					],
+				DisableTopicRule:[
+					'#ruleNameAttr'
+					],
+				EnableTopicRule:[
+					'#ruleNameAttr'
+					],
+				GetBehaviorModelTrainingSummaries:[
+					'#securityProfileNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				GetBucketsAggregation:[
+					'#indexNameAttr','#queryStringAttr','#aggregationFieldAttr','#queryVersionAttr','#bucketsAggregationTypeAttr'
+					],
+				GetCardinality:[
+					'#indexNameAttr','#queryStringAttr','#aggregationFieldAttr','#queryVersionAttr'
+					],
+				GetEffectivePolicies:[
+					'#principalAttr','#cognitoIdentityPoolIdAttr','#thingNameAttr'
+					],
+				GetIndexingConfiguration:[
+					
+					],
+				GetJobDocument:[
+					'#jobIdAttr'
+					],
+				GetLoggingOptions:[
+					
+					],
+				GetOTAUpdate:[
+					'#otaUpdateIdAttr'
+					],
+				GetPercentiles:[
+					'#indexNameAttr','#queryStringAttr','#aggregationFieldAttr','#queryVersionAttr','#percentsAttr'
+					],
+				GetPolicy:[
+					'#policyNameAttr'
+					],
+				GetPolicyVersion:[
+					'#policyNameAttr','#policyVersionIdAttr'
+					],
+				GetRegistrationCode:[
+					
+					],
+				GetStatistics:[
+					'#indexNameAttr','#queryStringAttr','#aggregationFieldAttr','#queryVersionAttr'
+					],
+				GetTopicRule:[
+					'#ruleNameAttr'
+					],
+				GetTopicRuleDestination:[
+					'#arnAttr'
+					],
+				GetV2LoggingOptions:[
+					
+					],
+				ListActiveViolations:[
+					'#thingNameAttr','#securityProfileNameAttr','#behaviorCriteriaTypeAttr','#listSuppressedAlertsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAttachedPolicies:[
+					'#targetAttr','#recursiveAttr','#markerAttr','#pageSizeAttr'
+					],
+				ListAuditFindings:[
+					'#taskIdAttr','#checkNameAttr','#resourceIdentifierAttr','#maxResultsAttr','#nextTokenAttr','#startTimeAttr','#endTimeAttr','#listSuppressedFindingsAttr'
+					],
+				ListAuditMitigationActionsExecutions:[
+					'#taskIdAttr','#actionStatusAttr','#findingIdAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListAuditMitigationActionsTasks:[
+					'#auditTaskIdAttr','#findingIdAttr','#taskStatusAttr','#maxResultsAttr','#nextTokenAttr','#startTimeAttr','#endTimeAttr'
+					],
+				ListAuditSuppressions:[
+					'#checkNameAttr','#resourceIdentifierAttr','#ascendingOrderAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAuditTasks:[
+					'#startTimeAttr','#endTimeAttr','#taskTypeAttr','#taskStatusAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAuthorizers:[
+					'#pageSizeAttr','#markerAttr','#ascendingOrderAttr','#statusAttr'
+					],
+				ListBillingGroups:[
+					'#nextTokenAttr','#maxResultsAttr','#namePrefixFilterAttr'
+					],
+				ListCACertificates:[
+					'#pageSizeAttr','#markerAttr','#ascendingOrderAttr'
+					],
+				ListCertificates:[
+					'#pageSizeAttr','#markerAttr','#ascendingOrderAttr'
+					],
+				ListCertificatesByCA:[
+					'#caCertificateIdAttr','#pageSizeAttr','#markerAttr','#ascendingOrderAttr'
+					],
+				ListCustomMetrics:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDetectMitigationActionsExecutions:[
+					'#taskIdAttr','#violationIdAttr','#thingNameAttr','#startTimeAttr','#endTimeAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListDetectMitigationActionsTasks:[
+					'#maxResultsAttr','#nextTokenAttr','#startTimeAttr','#endTimeAttr'
+					],
+				ListDimensions:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDomainConfigurations:[
+					'#markerAttr','#pageSizeAttr','#serviceTypeAttr'
+					],
+				ListFleetMetrics:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListIndices:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListJobExecutionsForJob:[
+					'#jobIdAttr','#statusAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListJobExecutionsForThing:[
+					'#thingNameAttr','#statusAttr','#namespaceIdAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListJobTemplates:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListJobs:[
+					'#statusAttr','#targetSelectionAttr','#maxResultsAttr','#nextTokenAttr','#thingGroupNameAttr','#thingGroupIdAttr','#namespaceIdAttr'
+					],
+				ListMitigationActions:[
+					'#actionTypeAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListOTAUpdates:[
+					'#maxResultsAttr','#nextTokenAttr','#otaUpdateStatusAttr'
+					],
+				ListOutgoingCertificates:[
+					'#pageSizeAttr','#markerAttr','#ascendingOrderAttr'
+					],
+				ListPolicies:[
+					'#markerAttr','#pageSizeAttr','#ascendingOrderAttr'
+					],
+				ListPolicyPrincipals:[
+					'#policyNameAttr','#markerAttr','#pageSizeAttr','#ascendingOrderAttr'
+					],
+				ListPolicyVersions:[
+					'#policyNameAttr'
+					],
+				ListPrincipalPolicies:[
+					'#principalAttr','#markerAttr','#pageSizeAttr','#ascendingOrderAttr'
+					],
+				ListPrincipalThings:[
+					'#nextTokenAttr','#maxResultsAttr','#principalAttr'
+					],
+				ListProvisioningTemplateVersions:[
+					'#templateNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListProvisioningTemplates:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListRoleAliases:[
+					'#pageSizeAttr','#markerAttr','#ascendingOrderAttr'
+					],
+				ListScheduledAudits:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListSecurityProfiles:[
+					'#nextTokenAttr','#maxResultsAttr','#dimensionNameAttr','#metricNameAttr'
+					],
+				ListSecurityProfilesForTarget:[
+					'#nextTokenAttr','#maxResultsAttr','#recursiveAttr','#securityProfileTargetArnAttr'
+					],
+				ListStreams:[
+					'#maxResultsAttr','#nextTokenAttr','#ascendingOrderAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr','#nextTokenAttr'
+					],
+				ListTargetsForPolicy:[
+					'#policyNameAttr','#markerAttr','#pageSizeAttr'
+					],
+				ListTargetsForSecurityProfile:[
+					'#securityProfileNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListThingGroups:[
+					'#nextTokenAttr','#maxResultsAttr','#parentGroupAttr','#namePrefixFilterAttr','#recursiveAttr'
+					],
+				ListThingGroupsForThing:[
+					'#thingNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListThingPrincipals:[
+					'#nextTokenAttr','#maxResultsAttr','#thingNameAttr'
+					],
+				ListThingRegistrationTaskReports:[
+					'#taskIdAttr','#reportTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListThingRegistrationTasks:[
+					'#nextTokenAttr','#maxResultsAttr','#statusAttr'
+					],
+				ListThingTypes:[
+					'#nextTokenAttr','#maxResultsAttr','#thingTypeNameAttr'
+					],
+				ListThings:[
+					'#nextTokenAttr','#maxResultsAttr','#attributeNameAttr','#attributeValueAttr','#thingTypeNameAttr','#usePrefixAttributeValueAttr'
+					],
+				ListThingsInBillingGroup:[
+					'#billingGroupNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListThingsInThingGroup:[
+					'#thingGroupNameAttr','#recursiveAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTopicRuleDestinations:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTopicRules:[
+					'#topicAttr','#maxResultsAttr','#nextTokenAttr','#ruleDisabledAttr'
+					],
+				ListV2LoggingLevels:[
+					'#targetTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListViolationEvents:[
+					'#startTimeAttr','#endTimeAttr','#thingNameAttr','#securityProfileNameAttr','#behaviorCriteriaTypeAttr','#listSuppressedAlertsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				RegisterCACertificate:[
+					'#caCertificateAttr','#verificationCertificateAttr','#setAsActiveAttr','#allowAutoRegistrationAttr','#registrationConfigAttr','#tagsAttr'
+					],
+				RegisterCertificate:[
+					'#certificatePemAttr','#caCertificatePemAttr','#setAsActiveAttr','#statusAttr'
+					],
+				RegisterCertificateWithoutCA:[
+					'#certificatePemAttr','#statusAttr'
+					],
+				RegisterThing:[
+					'#templateBodyAttr','#parametersAttr'
+					],
+				RejectCertificateTransfer:[
+					'#certificateIdAttr','#rejectReasonAttr'
+					],
+				RemoveThingFromBillingGroup:[
+					'#billingGroupNameAttr','#billingGroupArnAttr','#thingNameAttr','#thingArnAttr'
+					],
+				RemoveThingFromThingGroup:[
+					'#thingGroupNameAttr','#thingGroupArnAttr','#thingNameAttr','#thingArnAttr'
+					],
+				ReplaceTopicRule:[
+					'#ruleNameAttr','#topicRulePayloadAttr'
+					],
+				SearchIndex:[
+					'#indexNameAttr','#queryStringAttr','#nextTokenAttr','#maxResultsAttr','#queryVersionAttr'
+					],
+				SetDefaultAuthorizer:[
+					'#authorizerNameAttr'
+					],
+				SetDefaultPolicyVersion:[
+					'#policyNameAttr','#policyVersionIdAttr'
+					],
+				SetLoggingOptions:[
+					'#loggingOptionsPayloadAttr'
+					],
+				SetV2LoggingLevel:[
+					'#logTargetAttr','#logLevelAttr'
+					],
+				SetV2LoggingOptions:[
+					'#roleArnAttr','#defaultLogLevelAttr','#disableAllLogsAttr'
+					],
+				StartAuditMitigationActionsTask:[
+					'#taskIdAttr','#targetAttr','#auditCheckToActionsMappingAttr','#clientRequestTokenAttr'
+					],
+				StartDetectMitigationActionsTask:[
+					'#taskIdAttr','#targetAttr','#actionsAttr','#violationEventOccurrenceRangeAttr','#includeOnlyActiveViolationsAttr','#includeSuppressedAlertsAttr','#clientRequestTokenAttr'
+					],
+				StartOnDemandAuditTask:[
+					'#targetCheckNamesAttr'
+					],
+				StartThingRegistrationTask:[
+					'#templateBodyAttr','#inputFileBucketAttr','#inputFileKeyAttr','#roleArnAttr'
+					],
+				StopThingRegistrationTask:[
+					'#taskIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TestAuthorization:[
+					'#principalAttr','#cognitoIdentityPoolIdAttr','#authInfosAttr','#clientIdAttr','#policyNamesToAddAttr','#policyNamesToSkipAttr'
+					],
+				TestInvokeAuthorizer:[
+					'#authorizerNameAttr','#tokenAttr','#tokenSignatureAttr','#httpContextAttr','#mqttContextAttr','#tlsContextAttr'
+					],
+				TransferCertificate:[
+					'#certificateIdAttr','#targetAwsAccountAttr','#transferMessageAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAccountAuditConfiguration:[
+					'#roleArnAttr','#auditNotificationTargetConfigurationsAttr','#auditCheckConfigurationsAttr'
+					],
+				UpdateAuditSuppression:[
+					'#checkNameAttr','#resourceIdentifierAttr','#expirationDateAttr','#suppressIndefinitelyAttr','#descriptionAttr'
+					],
+				UpdateAuthorizer:[
+					'#authorizerNameAttr','#authorizerFunctionArnAttr','#tokenKeyNameAttr','#tokenSigningPublicKeysAttr','#statusAttr'
+					],
+				UpdateBillingGroup:[
+					'#billingGroupNameAttr','#billingGroupPropertiesAttr','#expectedVersionAttr'
+					],
+				UpdateCACertificate:[
+					'#certificateIdAttr','#newStatusAttr','#newAutoRegistrationStatusAttr','#registrationConfigAttr','#removeAutoRegistrationAttr'
+					],
+				UpdateCertificate:[
+					'#certificateIdAttr','#newStatusAttr'
+					],
+				UpdateCustomMetric:[
+					'#metricNameAttr','#displayNameAttr'
+					],
+				UpdateDimension:[
+					'#nameAttr','#stringValuesAttr'
+					],
+				UpdateDomainConfiguration:[
+					'#domainConfigurationNameAttr','#authorizerConfigAttr','#domainConfigurationStatusAttr','#removeAuthorizerConfigAttr'
+					],
+				UpdateDynamicThingGroup:[
+					'#thingGroupNameAttr','#thingGroupPropertiesAttr','#expectedVersionAttr','#indexNameAttr','#queryStringAttr','#queryVersionAttr'
+					],
+				UpdateEventConfigurations:[
+					'#eventConfigurationsAttr'
+					],
+				UpdateFleetMetric:[
+					'#metricNameAttr','#queryStringAttr','#aggregationTypeAttr','#periodAttr','#aggregationFieldAttr','#descriptionAttr','#queryVersionAttr','#indexNameAttr','#unitAttr','#expectedVersionAttr'
+					],
+				UpdateIndexingConfiguration:[
+					'#thingIndexingConfigurationAttr','#thingGroupIndexingConfigurationAttr'
+					],
+				UpdateJob:[
+					'#jobIdAttr','#descriptionAttr','#presignedUrlConfigAttr','#jobExecutionsRolloutConfigAttr','#abortConfigAttr','#timeoutConfigAttr','#namespaceIdAttr'
+					],
+				UpdateMitigationAction:[
+					'#actionNameAttr','#roleArnAttr','#actionParamsAttr'
+					],
+				UpdateProvisioningTemplate:[
+					'#templateNameAttr','#descriptionAttr','#enabledAttr','#defaultVersionIdAttr','#provisioningRoleArnAttr','#preProvisioningHookAttr','#removePreProvisioningHookAttr'
+					],
+				UpdateRoleAlias:[
+					'#roleAliasAttr','#roleArnAttr','#credentialDurationSecondsAttr'
+					],
+				UpdateScheduledAudit:[
+					'#frequencyAttr','#dayOfMonthAttr','#dayOfWeekAttr','#targetCheckNamesAttr','#scheduledAuditNameAttr'
+					],
+				UpdateSecurityProfile:[
+					'#securityProfileNameAttr','#securityProfileDescriptionAttr','#behaviorsAttr','#alertTargetsAttr','#additionalMetricsToRetainAttr','#additionalMetricsToRetainV2Attr','#deleteBehaviorsAttr','#deleteAlertTargetsAttr','#deleteAdditionalMetricsToRetainAttr','#expectedVersionAttr'
+					],
+				UpdateStream:[
+					'#streamIdAttr','#descriptionAttr','#filesAttr','#roleArnAttr'
+					],
+				UpdateThing:[
+					'#thingNameAttr','#thingTypeNameAttr','#attributePayloadAttr','#expectedVersionAttr','#removeThingTypeAttr'
+					],
+				UpdateThingGroup:[
+					'#thingGroupNameAttr','#thingGroupPropertiesAttr','#expectedVersionAttr'
+					],
+				UpdateThingGroupsForThing:[
+					'#thingNameAttr','#thingGroupsToAddAttr','#thingGroupsToRemoveAttr','#overrideDynamicGroupsAttr'
+					],
+				UpdateTopicRuleDestination:[
+					'#arnAttr','#statusAttr'
+					],
+				ValidateSecurityProfileBehaviors:[
+					'#behaviorsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Iot">
+<p>
+AWS Iot
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Iot.html">Iot</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Iot',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptCertificateTransfer' },
+			
+				certificateId: { value: ""} ,
+				setAsActive: { value: ""} ,
+				billingGroupName: { value: ""} ,
+				billingGroupArn: { value: ""} ,
+				thingName: { value: ""} ,
+				thingArn: { value: ""} ,
+				thingGroupName: { value: ""} ,
+				thingGroupArn: { value: ""} ,
+				overrideDynamicGroups: { value: ""} ,
+				targets: { value: ""} ,
+				jobId: { value: ""} ,
+				comment: { value: ""} ,
+				namespaceId: { value: ""} ,
+				policyName: { value: ""} ,
+				target: { value: ""} ,
+				principal: { value: ""} ,
+				securityProfileName: { value: ""} ,
+				securityProfileTargetArn: { value: ""} ,
+				taskId: { value: ""} ,
+				reasonCode: { value: ""} ,
+				force: { value: ""} ,
+				expectedVersion: { value: ""} ,
+				statusDetails: { value: ""} ,
+				confirmationToken: { value: ""} ,
+				checkName: { value: ""} ,
+				resourceIdentifier: { value: ""} ,
+				expirationDate: { value: ""} ,
+				suppressIndefinitely: { value: ""} ,
+				description: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+				authorizerName: { value: ""} ,
+				authorizerFunctionArn: { value: ""} ,
+				tokenKeyName: { value: ""} ,
+				tokenSigningPublicKeys: { value: ""} ,
+				status: { value: ""} ,
+				tags: { value: ""} ,
+				signingDisabled: { value: ""} ,
+				billingGroupProperties: { value: ""} ,
+				certificateSigningRequest: { value: ""} ,
+				metricName: { value: ""} ,
+				displayName: { value: ""} ,
+				metricType: { value: ""} ,
+				name: { value: ""} ,
+				_type: { value: ""} ,
+				stringValues: { value: ""} ,
+				domainConfigurationName: { value: ""} ,
+				domainName: { value: ""} ,
+				serverCertificateArns: { value: ""} ,
+				validationCertificateArn: { value: ""} ,
+				authorizerConfig: { value: ""} ,
+				serviceType: { value: ""} ,
+				thingGroupProperties: { value: ""} ,
+				indexName: { value: ""} ,
+				queryString: { value: ""} ,
+				queryVersion: { value: ""} ,
+				aggregationType: { value: ""} ,
+				period: { value: ""} ,
+				aggregationField: { value: ""} ,
+				unit: { value: ""} ,
+				documentSource: { value: ""} ,
+				document: { value: ""} ,
+				presignedUrlConfig: { value: ""} ,
+				targetSelection: { value: ""} ,
+				jobExecutionsRolloutConfig: { value: ""} ,
+				abortConfig: { value: ""} ,
+				timeoutConfig: { value: ""} ,
+				jobTemplateArn: { value: ""} ,
+				jobTemplateId: { value: ""} ,
+				jobArn: { value: ""} ,
+				actionName: { value: ""} ,
+				roleArn: { value: ""} ,
+				actionParams: { value: ""} ,
+				otaUpdateId: { value: ""} ,
+				protocols: { value: ""} ,
+				awsJobExecutionsRolloutConfig: { value: ""} ,
+				awsJobPresignedUrlConfig: { value: ""} ,
+				awsJobAbortConfig: { value: ""} ,
+				awsJobTimeoutConfig: { value: ""} ,
+				files: { value: ""} ,
+				additionalParameters: { value: ""} ,
+				policyDocument: { value: ""} ,
+				setAsDefault: { value: ""} ,
+				templateName: { value: ""} ,
+				templateBody: { value: ""} ,
+				enabled: { value: ""} ,
+				provisioningRoleArn: { value: ""} ,
+				preProvisioningHook: { value: ""} ,
+				roleAlias: { value: ""} ,
+				credentialDurationSeconds: { value: ""} ,
+				frequency: { value: ""} ,
+				dayOfMonth: { value: ""} ,
+				dayOfWeek: { value: ""} ,
+				targetCheckNames: { value: ""} ,
+				scheduledAuditName: { value: ""} ,
+				securityProfileDescription: { value: ""} ,
+				behaviors: { value: ""} ,
+				alertTargets: { value: ""} ,
+				additionalMetricsToRetain: { value: ""} ,
+				additionalMetricsToRetainV2: { value: ""} ,
+				streamId: { value: ""} ,
+				thingTypeName: { value: ""} ,
+				attributePayload: { value: ""} ,
+				parentGroupName: { value: ""} ,
+				thingTypeProperties: { value: ""} ,
+				ruleName: { value: ""} ,
+				topicRulePayload: { value: ""} ,
+				destinationConfiguration: { value: ""} ,
+				deleteScheduledAudits: { value: ""} ,
+				forceDelete: { value: ""} ,
+				executionNumber: { value: ""} ,
+				deleteStream: { value: ""} ,
+				forceDeleteAWSJob: { value: ""} ,
+				policyVersionId: { value: ""} ,
+				versionId: { value: ""} ,
+				arn: { value: ""} ,
+				targetType: { value: ""} ,
+				targetName: { value: ""} ,
+				undoDeprecate: { value: ""} ,
+				findingId: { value: ""} ,
+				endpointType: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				bucketsAggregationType: { value: ""} ,
+				cognitoIdentityPoolId: { value: ""} ,
+				percents: { value: ""} ,
+				behaviorCriteriaType: { value: ""} ,
+				listSuppressedAlerts: { value: ""} ,
+				recursive: { value: ""} ,
+				marker: { value: ""} ,
+				pageSize: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				listSuppressedFindings: { value: ""} ,
+				actionStatus: { value: ""} ,
+				auditTaskId: { value: ""} ,
+				taskStatus: { value: ""} ,
+				ascendingOrder: { value: ""} ,
+				taskType: { value: ""} ,
+				namePrefixFilter: { value: ""} ,
+				caCertificateId: { value: ""} ,
+				violationId: { value: ""} ,
+				thingGroupId: { value: ""} ,
+				actionType: { value: ""} ,
+				otaUpdateStatus: { value: ""} ,
+				dimensionName: { value: ""} ,
+				resourceArn: { value: ""} ,
+				parentGroup: { value: ""} ,
+				reportType: { value: ""} ,
+				attributeName: { value: ""} ,
+				attributeValue: { value: ""} ,
+				usePrefixAttributeValue: { value: ""} ,
+				topic: { value: ""} ,
+				ruleDisabled: { value: ""} ,
+				caCertificate: { value: ""} ,
+				verificationCertificate: { value: ""} ,
+				allowAutoRegistration: { value: ""} ,
+				registrationConfig: { value: ""} ,
+				certificatePem: { value: ""} ,
+				caCertificatePem: { value: ""} ,
+				parameters: { value: ""} ,
+				rejectReason: { value: ""} ,
+				loggingOptionsPayload: { value: ""} ,
+				logTarget: { value: ""} ,
+				logLevel: { value: ""} ,
+				defaultLogLevel: { value: ""} ,
+				disableAllLogs: { value: ""} ,
+				auditCheckToActionsMapping: { value: ""} ,
+				actions: { value: ""} ,
+				violationEventOccurrenceRange: { value: ""} ,
+				includeOnlyActiveViolations: { value: ""} ,
+				includeSuppressedAlerts: { value: ""} ,
+				inputFileBucket: { value: ""} ,
+				inputFileKey: { value: ""} ,
+				authInfos: { value: ""} ,
+				clientId: { value: ""} ,
+				policyNamesToAdd: { value: ""} ,
+				policyNamesToSkip: { value: ""} ,
+				token: { value: ""} ,
+				tokenSignature: { value: ""} ,
+				httpContext: { value: ""} ,
+				mqttContext: { value: ""} ,
+				tlsContext: { value: ""} ,
+				targetAwsAccount: { value: ""} ,
+				transferMessage: { value: ""} ,
+				tagKeys: { value: ""} ,
+				auditNotificationTargetConfigurations: { value: ""} ,
+				auditCheckConfigurations: { value: ""} ,
+				newStatus: { value: ""} ,
+				newAutoRegistrationStatus: { value: ""} ,
+				removeAutoRegistration: { value: ""} ,
+				domainConfigurationStatus: { value: ""} ,
+				removeAuthorizerConfig: { value: ""} ,
+				eventConfigurations: { value: ""} ,
+				thingIndexingConfiguration: { value: ""} ,
+				thingGroupIndexingConfiguration: { value: ""} ,
+				defaultVersionId: { value: ""} ,
+				removePreProvisioningHook: { value: ""} ,
+				deleteBehaviors: { value: ""} ,
+				deleteAlertTargets: { value: ""} ,
+				deleteAdditionalMetricsToRetain: { value: ""} ,
+				removeThingType: { value: ""} ,
+				thingGroupsToAdd: { value: ""} ,
+				thingGroupsToRemove: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Iot " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-certificateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-setAsActive").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-billingGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-billingGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-overrideDynamicGroups").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-targets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-comment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-namespaceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-target").typedInput({ default: "str", types: ["str"]});
+$("#node-input-principal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityProfileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityProfileTargetArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reasonCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-force").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-statusDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-confirmationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-checkName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceIdentifier").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-suppressIndefinitely").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerFunctionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tokenKeyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tokenSigningPublicKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-signingDisabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-billingGroupProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateSigningRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-metricName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-displayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-metricType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stringValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-domainConfigurationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-domainName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-validationCertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorizerConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-indexName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-queryString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-queryVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-aggregationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-period").typedInput({ default: "num", types: ["num"]});
+$("#node-input-aggregationField").typedInput({ default: "str", types: ["str"]});
+$("#node-input-unit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-documentSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-document").typedInput({ default: "str", types: ["str"]});
+$("#node-input-presignedUrlConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetSelection").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobExecutionsRolloutConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-abortConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-timeoutConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobTemplateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobTemplateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionParams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-otaUpdateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-protocols").typedInput({ default: "str", types: ["str"]});
+$("#node-input-awsJobExecutionsRolloutConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-awsJobPresignedUrlConfig").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-files").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyDocument").typedInput({ default: "str", types: ["str"]});
+$("#node-input-setAsDefault").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-templateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-provisioningRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-preProvisioningHook").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleAlias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-credentialDurationSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-frequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dayOfMonth").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dayOfWeek").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetCheckNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scheduledAuditName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityProfileDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-behaviors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alertTargets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalMetricsToRetain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalMetricsToRetainV2").typedInput({ default: "str", types: ["str"]});
+$("#node-input-streamId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingTypeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributePayload").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parentGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingTypeProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ruleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-topicRulePayload").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-deleteScheduledAudits").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-forceDelete").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-deleteStream").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-forceDeleteAWSJob").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-policyVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versionId").typedInput({ default: "num", types: ["num"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-undoDeprecate").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-findingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-endpointType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-cognitoIdentityPoolId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-behaviorCriteriaType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-listSuppressedAlerts").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-recursive").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pageSize").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-listSuppressedFindings").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-actionStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-auditTaskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ascendingOrder").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-taskType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-namePrefixFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-caCertificateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-violationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-otaUpdateStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dimensionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parentGroup").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributeValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-usePrefixAttributeValue").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-topic").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ruleDisabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-caCertificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-verificationCertificate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-allowAutoRegistration").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-registrationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificatePem").typedInput({ default: "str", types: ["str"]});
+$("#node-input-caCertificatePem").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-rejectReason").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-logTarget").typedInput({ default: "str", types: ["str"]});
+$("#node-input-logLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultLogLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-disableAllLogs").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-auditCheckToActionsMapping").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-violationEventOccurrenceRange").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeOnlyActiveViolations").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-includeSuppressedAlerts").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-inputFileBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inputFileKey").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-clientId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyNamesToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyNamesToSkip").typedInput({ default: "str", types: ["str"]});
+$("#node-input-token").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tokenSignature").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-targetAwsAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-transferMessage").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-auditNotificationTargetConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-auditCheckConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newAutoRegistrationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-removeAutoRegistration").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-domainConfigurationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-removeAuthorizerConfig").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-eventConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingIndexingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupIndexingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultVersionId").typedInput({ default: "num", types: ["num"]});
+$("#node-input-removePreProvisioningHook").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-deleteBehaviors").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-deleteAlertTargets").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-deleteAdditionalMetricsToRetain").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-removeThingType").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-thingGroupsToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-thingGroupsToRemove").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,300 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS EMRcontainers">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJobRun">CancelJobRun</option>
+		
+			<option value="CreateManagedEndpoint">CreateManagedEndpoint</option>
+		
+			<option value="CreateVirtualCluster">CreateVirtualCluster</option>
+		
+			<option value="DeleteManagedEndpoint">DeleteManagedEndpoint</option>
+		
+			<option value="DeleteVirtualCluster">DeleteVirtualCluster</option>
+		
+			<option value="DescribeJobRun">DescribeJobRun</option>
+		
+			<option value="DescribeManagedEndpoint">DescribeManagedEndpoint</option>
+		
+			<option value="DescribeVirtualCluster">DescribeVirtualCluster</option>
+		
+			<option value="ListJobRuns">ListJobRuns</option>
+		
+			<option value="ListManagedEndpoints">ListManagedEndpoints</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListVirtualClusters">ListVirtualClusters</option>
+		
+			<option value="StartJobRun">StartJobRun</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='virtualClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualClusterId"><i class="fa fa-tag"></i> virtualClusterId</label>
+		<input type="text" id="node-input-virtualClusterId" placeholder="virtualClusterId"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='releaseLabelAttr' class='hiddenAttrs'>
+		<label for="node-input-releaseLabel"><i class="fa fa-tag"></i> releaseLabel</label>
+		<input type="text" id="node-input-releaseLabel" placeholder="releaseLabel"></input>
+	</div> 
+	<div class="form-row" id='executionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-executionRoleArn"><i class="fa fa-tag"></i> executionRoleArn</label>
+		<input type="text" id="node-input-executionRoleArn" placeholder="executionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='certificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateArn"><i class="fa fa-tag"></i> certificateArn</label>
+		<input type="text" id="node-input-certificateArn" placeholder="certificateArn"></input>
+	</div> 
+	<div class="form-row" id='configurationOverridesAttr' class='hiddenAttrs'>
+		<label for="node-input-configurationOverrides"><i class="fa fa-tag"></i> configurationOverrides</label>
+		<input type="text" id="node-input-configurationOverrides" placeholder="configurationOverrides"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='containerProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-containerProvider"><i class="fa fa-tag"></i> containerProvider</label>
+		<input type="text" id="node-input-containerProvider" placeholder="containerProvider"></input>
+	</div> 
+	<div class="form-row" id='createdBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-createdBefore"><i class="fa fa-tag"></i> createdBefore</label>
+		<input type="text" id="node-input-createdBefore" placeholder="createdBefore"></input>
+	</div> 
+	<div class="form-row" id='createdAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-createdAfter"><i class="fa fa-tag"></i> createdAfter</label>
+		<input type="text" id="node-input-createdAfter" placeholder="createdAfter"></input>
+	</div> 
+	<div class="form-row" id='statesAttr' class='hiddenAttrs'>
+		<label for="node-input-states"><i class="fa fa-tag"></i> states</label>
+		<input type="text" id="node-input-states" placeholder="states"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='typesAttr' class='hiddenAttrs'>
+		<label for="node-input-types"><i class="fa fa-tag"></i> types</label>
+		<input type="text" id="node-input-types" placeholder="types"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='containerProviderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-containerProviderId"><i class="fa fa-tag"></i> containerProviderId</label>
+		<input type="text" id="node-input-containerProviderId" placeholder="containerProviderId"></input>
+	</div> 
+	<div class="form-row" id='containerProviderTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-containerProviderType"><i class="fa fa-tag"></i> containerProviderType</label>
+		<input type="text" id="node-input-containerProviderType" placeholder="containerProviderType"></input>
+	</div> 
+	<div class="form-row" id='jobDriverAttr' class='hiddenAttrs'>
+		<label for="node-input-jobDriver"><i class="fa fa-tag"></i> jobDriver</label>
+		<input type="text" id="node-input-jobDriver" placeholder="jobDriver"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJobRun:[
+					'#idAttr','#virtualClusterIdAttr'
+					],
+				CreateManagedEndpoint:[
+					'#nameAttr','#virtualClusterIdAttr','#typeAttr','#releaseLabelAttr','#executionRoleArnAttr','#certificateArnAttr','#configurationOverridesAttr','#clientTokenAttr','#tagsAttr'
+					],
+				CreateVirtualCluster:[
+					'#nameAttr','#containerProviderAttr','#clientTokenAttr','#tagsAttr'
+					],
+				DeleteManagedEndpoint:[
+					'#idAttr','#virtualClusterIdAttr'
+					],
+				DeleteVirtualCluster:[
+					'#idAttr'
+					],
+				DescribeJobRun:[
+					'#idAttr','#virtualClusterIdAttr'
+					],
+				DescribeManagedEndpoint:[
+					'#idAttr','#virtualClusterIdAttr'
+					],
+				DescribeVirtualCluster:[
+					'#idAttr'
+					],
+				ListJobRuns:[
+					'#virtualClusterIdAttr','#createdBeforeAttr','#createdAfterAttr','#nameAttr','#statesAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListManagedEndpoints:[
+					'#virtualClusterIdAttr','#createdBeforeAttr','#createdAfterAttr','#typesAttr','#statesAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListVirtualClusters:[
+					'#containerProviderIdAttr','#containerProviderTypeAttr','#createdAfterAttr','#createdBeforeAttr','#statesAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				StartJobRun:[
+					'#nameAttr','#virtualClusterIdAttr','#clientTokenAttr','#executionRoleArnAttr','#releaseLabelAttr','#jobDriverAttr','#configurationOverridesAttr','#tagsAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS EMRcontainers">
+<p>
+AWS EMRcontainers
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EMRcontainers.html">EMRcontainers</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS EMRcontainers',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJobRun' },
+			
+				id: { value: ""} ,
+				virtualClusterId: { value: ""} ,
+				name: { value: ""} ,
+				_type: { value: ""} ,
+				releaseLabel: { value: ""} ,
+				executionRoleArn: { value: ""} ,
+				certificateArn: { value: ""} ,
+				configurationOverrides: { value: ""} ,
+				clientToken: { value: ""} ,
+				tags: { value: ""} ,
+				containerProvider: { value: ""} ,
+				createdBefore: { value: ""} ,
+				createdAfter: { value: ""} ,
+				states: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				types: { value: ""} ,
+				resourceArn: { value: ""} ,
+				containerProviderId: { value: ""} ,
+				containerProviderType: { value: ""} ,
+				jobDriver: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "EMRcontainers " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-virtualClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-releaseLabel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-executionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configurationOverrides").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerProvider").typedInput({ default: "str", types: ["str"]});
+$("#node-input-createdBefore").typedInput({ default: "str", types: ["str"]});
+$("#node-input-createdAfter").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerProviderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerProviderType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobDriver").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

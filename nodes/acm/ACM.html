@@ -1,0 +1,288 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ACM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToCertificate">AddTagsToCertificate</option>
+		
+			<option value="DeleteCertificate">DeleteCertificate</option>
+		
+			<option value="DescribeCertificate">DescribeCertificate</option>
+		
+			<option value="ExportCertificate">ExportCertificate</option>
+		
+			<option value="GetAccountConfiguration">GetAccountConfiguration</option>
+		
+			<option value="GetCertificate">GetCertificate</option>
+		
+			<option value="ImportCertificate">ImportCertificate</option>
+		
+			<option value="ListCertificates">ListCertificates</option>
+		
+			<option value="ListTagsForCertificate">ListTagsForCertificate</option>
+		
+			<option value="PutAccountConfiguration">PutAccountConfiguration</option>
+		
+			<option value="RemoveTagsFromCertificate">RemoveTagsFromCertificate</option>
+		
+			<option value="RenewCertificate">RenewCertificate</option>
+		
+			<option value="RequestCertificate">RequestCertificate</option>
+		
+			<option value="ResendValidationEmail">ResendValidationEmail</option>
+		
+			<option value="UpdateCertificateOptions">UpdateCertificateOptions</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateArn"><i class="fa fa-tag"></i> CertificateArn</label>
+		<input type="text" id="node-input-CertificateArn" placeholder="CertificateArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='PassphraseAttr' class='hiddenAttrs'>
+		<label for="node-input-Passphrase"><i class="fa fa-tag"></i> Passphrase</label>
+		<input type="text" id="node-input-Passphrase" placeholder="Passphrase"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i> Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='PrivateKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-PrivateKey"><i class="fa fa-tag"></i> PrivateKey</label>
+		<input type="text" id="node-input-PrivateKey" placeholder="PrivateKey"></input>
+	</div> 
+	<div class="form-row" id='CertificateChainAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateChain"><i class="fa fa-tag"></i> CertificateChain</label>
+		<input type="text" id="node-input-CertificateChain" placeholder="CertificateChain"></input>
+	</div> 
+	<div class="form-row" id='CertificateStatusesAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateStatuses"><i class="fa fa-tag"></i> CertificateStatuses</label>
+		<input type="text" id="node-input-CertificateStatuses" placeholder="CertificateStatuses"></input>
+	</div> 
+	<div class="form-row" id='IncludesAttr' class='hiddenAttrs'>
+		<label for="node-input-Includes"><i class="fa fa-tag"></i> Includes</label>
+		<input type="text" id="node-input-Includes" placeholder="Includes"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='ExpiryEventsAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpiryEvents"><i class="fa fa-tag"></i> ExpiryEvents</label>
+		<input type="text" id="node-input-ExpiryEvents" placeholder="ExpiryEvents"></input>
+	</div> 
+	<div class="form-row" id='IdempotencyTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-IdempotencyToken"><i class="fa fa-tag"></i> IdempotencyToken</label>
+		<input type="text" id="node-input-IdempotencyToken" placeholder="IdempotencyToken"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i> DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='ValidationMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidationMethod"><i class="fa fa-tag"></i> ValidationMethod</label>
+		<input type="text" id="node-input-ValidationMethod" placeholder="ValidationMethod"></input>
+	</div> 
+	<div class="form-row" id='SubjectAlternativeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-SubjectAlternativeNames"><i class="fa fa-tag"></i> SubjectAlternativeNames</label>
+		<input type="text" id="node-input-SubjectAlternativeNames" placeholder="SubjectAlternativeNames"></input>
+	</div> 
+	<div class="form-row" id='DomainValidationOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainValidationOptions"><i class="fa fa-tag"></i> DomainValidationOptions</label>
+		<input type="text" id="node-input-DomainValidationOptions" placeholder="DomainValidationOptions"></input>
+	</div> 
+	<div class="form-row" id='OptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Options"><i class="fa fa-tag"></i> Options</label>
+		<input type="text" id="node-input-Options" placeholder="Options"></input>
+	</div> 
+	<div class="form-row" id='CertificateAuthorityArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateAuthorityArn"><i class="fa fa-tag"></i> CertificateAuthorityArn</label>
+		<input type="text" id="node-input-CertificateAuthorityArn" placeholder="CertificateAuthorityArn"></input>
+	</div> 
+	<div class="form-row" id='DomainAttr' class='hiddenAttrs'>
+		<label for="node-input-Domain"><i class="fa fa-tag"></i> Domain</label>
+		<input type="text" id="node-input-Domain" placeholder="Domain"></input>
+	</div> 
+	<div class="form-row" id='ValidationDomainAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidationDomain"><i class="fa fa-tag"></i> ValidationDomain</label>
+		<input type="text" id="node-input-ValidationDomain" placeholder="ValidationDomain"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToCertificate:[
+					'#CertificateArnAttr','#TagsAttr'
+					],
+				DeleteCertificate:[
+					'#CertificateArnAttr'
+					],
+				DescribeCertificate:[
+					'#CertificateArnAttr'
+					],
+				ExportCertificate:[
+					'#CertificateArnAttr','#PassphraseAttr'
+					],
+				GetAccountConfiguration:[
+					
+					],
+				GetCertificate:[
+					'#CertificateArnAttr'
+					],
+				ImportCertificate:[
+					'#CertificateArnAttr','#CertificateAttr','#PrivateKeyAttr','#CertificateChainAttr','#TagsAttr'
+					],
+				ListCertificates:[
+					'#CertificateStatusesAttr','#IncludesAttr','#NextTokenAttr','#MaxItemsAttr'
+					],
+				ListTagsForCertificate:[
+					'#CertificateArnAttr'
+					],
+				PutAccountConfiguration:[
+					'#ExpiryEventsAttr','#IdempotencyTokenAttr'
+					],
+				RemoveTagsFromCertificate:[
+					'#CertificateArnAttr','#TagsAttr'
+					],
+				RenewCertificate:[
+					'#CertificateArnAttr'
+					],
+				RequestCertificate:[
+					'#DomainNameAttr','#ValidationMethodAttr','#SubjectAlternativeNamesAttr','#IdempotencyTokenAttr','#DomainValidationOptionsAttr','#OptionsAttr','#CertificateAuthorityArnAttr','#TagsAttr'
+					],
+				ResendValidationEmail:[
+					'#CertificateArnAttr','#DomainAttr','#ValidationDomainAttr'
+					],
+				UpdateCertificateOptions:[
+					'#CertificateArnAttr','#OptionsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ACM">
+<p>
+AWS ACM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ACM.html">ACM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ACM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToCertificate' },
+			
+				CertificateArn: { value: ""} ,
+				Tags: { value: ""} ,
+				Passphrase: { value: ""} ,
+				Certificate: { value: ""} ,
+				PrivateKey: { value: ""} ,
+				CertificateChain: { value: ""} ,
+				CertificateStatuses: { value: ""} ,
+				Includes: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxItems: { value: ""} ,
+				ExpiryEvents: { value: ""} ,
+				IdempotencyToken: { value: ""} ,
+				DomainName: { value: ""} ,
+				ValidationMethod: { value: ""} ,
+				SubjectAlternativeNames: { value: ""} ,
+				DomainValidationOptions: { value: ""} ,
+				Options: { value: ""} ,
+				CertificateAuthorityArn: { value: ""} ,
+				Domain: { value: ""} ,
+				ValidationDomain: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ACM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-CertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Passphrase").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-Certificate").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-PrivateKey").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-CertificateChain").typedInput({ default: "bin", types: ["bin"]});
+
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExpiryEvents").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdempotencyToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidationMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubjectAlternativeNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Options").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateAuthorityArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Domain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidationDomain").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

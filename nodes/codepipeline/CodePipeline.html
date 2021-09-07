@@ -1,0 +1,564 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodePipeline">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcknowledgeJob">AcknowledgeJob</option>
+		
+			<option value="AcknowledgeThirdPartyJob">AcknowledgeThirdPartyJob</option>
+		
+			<option value="CreateCustomActionType">CreateCustomActionType</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="DeleteCustomActionType">DeleteCustomActionType</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DeleteWebhook">DeleteWebhook</option>
+		
+			<option value="DeregisterWebhookWithThirdParty">DeregisterWebhookWithThirdParty</option>
+		
+			<option value="DisableStageTransition">DisableStageTransition</option>
+		
+			<option value="EnableStageTransition">EnableStageTransition</option>
+		
+			<option value="GetActionType">GetActionType</option>
+		
+			<option value="GetJobDetails">GetJobDetails</option>
+		
+			<option value="GetPipeline">GetPipeline</option>
+		
+			<option value="GetPipelineExecution">GetPipelineExecution</option>
+		
+			<option value="GetPipelineState">GetPipelineState</option>
+		
+			<option value="GetThirdPartyJobDetails">GetThirdPartyJobDetails</option>
+		
+			<option value="ListActionExecutions">ListActionExecutions</option>
+		
+			<option value="ListActionTypes">ListActionTypes</option>
+		
+			<option value="ListPipelineExecutions">ListPipelineExecutions</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebhooks">ListWebhooks</option>
+		
+			<option value="PollForJobs">PollForJobs</option>
+		
+			<option value="PollForThirdPartyJobs">PollForThirdPartyJobs</option>
+		
+			<option value="PutActionRevision">PutActionRevision</option>
+		
+			<option value="PutApprovalResult">PutApprovalResult</option>
+		
+			<option value="PutJobFailureResult">PutJobFailureResult</option>
+		
+			<option value="PutJobSuccessResult">PutJobSuccessResult</option>
+		
+			<option value="PutThirdPartyJobFailureResult">PutThirdPartyJobFailureResult</option>
+		
+			<option value="PutThirdPartyJobSuccessResult">PutThirdPartyJobSuccessResult</option>
+		
+			<option value="PutWebhook">PutWebhook</option>
+		
+			<option value="RegisterWebhookWithThirdParty">RegisterWebhookWithThirdParty</option>
+		
+			<option value="RetryStageExecution">RetryStageExecution</option>
+		
+			<option value="StartPipelineExecution">StartPipelineExecution</option>
+		
+			<option value="StopPipelineExecution">StopPipelineExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateActionType">UpdateActionType</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='nonceAttr' class='hiddenAttrs'>
+		<label for="node-input-nonce"><i class="fa fa-tag"></i> nonce</label>
+		<input type="text" id="node-input-nonce" placeholder="nonce"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='categoryAttr' class='hiddenAttrs'>
+		<label for="node-input-category"><i class="fa fa-tag"></i> category</label>
+		<input type="text" id="node-input-category" placeholder="category"></input>
+	</div> 
+	<div class="form-row" id='providerAttr' class='hiddenAttrs'>
+		<label for="node-input-provider"><i class="fa fa-tag"></i> provider</label>
+		<input type="text" id="node-input-provider" placeholder="provider"></input>
+	</div> 
+	<div class="form-row" id='versionAttr' class='hiddenAttrs'>
+		<label for="node-input-version"><i class="fa fa-tag"></i> version</label>
+		<input type="text" id="node-input-version" placeholder="version"></input>
+	</div> 
+	<div class="form-row" id='settingsAttr' class='hiddenAttrs'>
+		<label for="node-input-settings"><i class="fa fa-tag"></i> settings</label>
+		<input type="text" id="node-input-settings" placeholder="settings"></input>
+	</div> 
+	<div class="form-row" id='configurationPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-configurationProperties"><i class="fa fa-tag"></i> configurationProperties</label>
+		<input type="text" id="node-input-configurationProperties" placeholder="configurationProperties"></input>
+	</div> 
+	<div class="form-row" id='inputArtifactDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-inputArtifactDetails"><i class="fa fa-tag"></i> inputArtifactDetails</label>
+		<input type="text" id="node-input-inputArtifactDetails" placeholder="inputArtifactDetails"></input>
+	</div> 
+	<div class="form-row" id='outputArtifactDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-outputArtifactDetails"><i class="fa fa-tag"></i> outputArtifactDetails</label>
+		<input type="text" id="node-input-outputArtifactDetails" placeholder="outputArtifactDetails"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='pipelineAttr' class='hiddenAttrs'>
+		<label for="node-input-pipeline"><i class="fa fa-tag"></i> pipeline</label>
+		<input type="text" id="node-input-pipeline" placeholder="pipeline"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='webhookNameAttr' class='hiddenAttrs'>
+		<label for="node-input-webhookName"><i class="fa fa-tag"></i> webhookName</label>
+		<input type="text" id="node-input-webhookName" placeholder="webhookName"></input>
+	</div> 
+	<div class="form-row" id='pipelineNameAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineName"><i class="fa fa-tag"></i> pipelineName</label>
+		<input type="text" id="node-input-pipelineName" placeholder="pipelineName"></input>
+	</div> 
+	<div class="form-row" id='stageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-stageName"><i class="fa fa-tag"></i> stageName</label>
+		<input type="text" id="node-input-stageName" placeholder="stageName"></input>
+	</div> 
+	<div class="form-row" id='transitionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-transitionType"><i class="fa fa-tag"></i> transitionType</label>
+		<input type="text" id="node-input-transitionType" placeholder="transitionType"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i> reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='ownerAttr' class='hiddenAttrs'>
+		<label for="node-input-owner"><i class="fa fa-tag"></i> owner</label>
+		<input type="text" id="node-input-owner" placeholder="owner"></input>
+	</div> 
+	<div class="form-row" id='pipelineExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineExecutionId"><i class="fa fa-tag"></i> pipelineExecutionId</label>
+		<input type="text" id="node-input-pipelineExecutionId" placeholder="pipelineExecutionId"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='actionOwnerFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-actionOwnerFilter"><i class="fa fa-tag"></i> actionOwnerFilter</label>
+		<input type="text" id="node-input-actionOwnerFilter" placeholder="actionOwnerFilter"></input>
+	</div> 
+	<div class="form-row" id='regionFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-regionFilter"><i class="fa fa-tag"></i> regionFilter</label>
+		<input type="text" id="node-input-regionFilter" placeholder="regionFilter"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='actionTypeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-actionTypeId"><i class="fa fa-tag"></i> actionTypeId</label>
+		<input type="text" id="node-input-actionTypeId" placeholder="actionTypeId"></input>
+	</div> 
+	<div class="form-row" id='maxBatchSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-maxBatchSize"><i class="fa fa-tag"></i> maxBatchSize</label>
+		<input type="text" id="node-input-maxBatchSize" placeholder="maxBatchSize"></input>
+	</div> 
+	<div class="form-row" id='queryParamAttr' class='hiddenAttrs'>
+		<label for="node-input-queryParam"><i class="fa fa-tag"></i> queryParam</label>
+		<input type="text" id="node-input-queryParam" placeholder="queryParam"></input>
+	</div> 
+	<div class="form-row" id='actionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-actionName"><i class="fa fa-tag"></i> actionName</label>
+		<input type="text" id="node-input-actionName" placeholder="actionName"></input>
+	</div> 
+	<div class="form-row" id='actionRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-actionRevision"><i class="fa fa-tag"></i> actionRevision</label>
+		<input type="text" id="node-input-actionRevision" placeholder="actionRevision"></input>
+	</div> 
+	<div class="form-row" id='resultAttr' class='hiddenAttrs'>
+		<label for="node-input-result"><i class="fa fa-tag"></i> result</label>
+		<input type="text" id="node-input-result" placeholder="result"></input>
+	</div> 
+	<div class="form-row" id='tokenAttr' class='hiddenAttrs'>
+		<label for="node-input-token"><i class="fa fa-tag"></i> token</label>
+		<input type="text" id="node-input-token" placeholder="token"></input>
+	</div> 
+	<div class="form-row" id='failureDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-failureDetails"><i class="fa fa-tag"></i> failureDetails</label>
+		<input type="text" id="node-input-failureDetails" placeholder="failureDetails"></input>
+	</div> 
+	<div class="form-row" id='currentRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-currentRevision"><i class="fa fa-tag"></i> currentRevision</label>
+		<input type="text" id="node-input-currentRevision" placeholder="currentRevision"></input>
+	</div> 
+	<div class="form-row" id='continuationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-continuationToken"><i class="fa fa-tag"></i> continuationToken</label>
+		<input type="text" id="node-input-continuationToken" placeholder="continuationToken"></input>
+	</div> 
+	<div class="form-row" id='executionDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-executionDetails"><i class="fa fa-tag"></i> executionDetails</label>
+		<input type="text" id="node-input-executionDetails" placeholder="executionDetails"></input>
+	</div> 
+	<div class="form-row" id='outputVariablesAttr' class='hiddenAttrs'>
+		<label for="node-input-outputVariables"><i class="fa fa-tag"></i> outputVariables</label>
+		<input type="text" id="node-input-outputVariables" placeholder="outputVariables"></input>
+	</div> 
+	<div class="form-row" id='webhookAttr' class='hiddenAttrs'>
+		<label for="node-input-webhook"><i class="fa fa-tag"></i> webhook</label>
+		<input type="text" id="node-input-webhook" placeholder="webhook"></input>
+	</div> 
+	<div class="form-row" id='retryModeAttr' class='hiddenAttrs'>
+		<label for="node-input-retryMode"><i class="fa fa-tag"></i> retryMode</label>
+		<input type="text" id="node-input-retryMode" placeholder="retryMode"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i> clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='abandonAttr' class='hiddenAttrs'>
+		<label for="node-input-abandon"><i class="fa fa-tag"></i> abandon</label>
+		<input type="text" id="node-input-abandon" placeholder="abandon"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='actionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-actionType"><i class="fa fa-tag"></i> actionType</label>
+		<input type="text" id="node-input-actionType" placeholder="actionType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcknowledgeJob:[
+					'#jobIdAttr','#nonceAttr'
+					],
+				AcknowledgeThirdPartyJob:[
+					'#jobIdAttr','#nonceAttr','#clientTokenAttr'
+					],
+				CreateCustomActionType:[
+					'#categoryAttr','#providerAttr','#versionAttr','#settingsAttr','#configurationPropertiesAttr','#inputArtifactDetailsAttr','#outputArtifactDetailsAttr','#tagsAttr'
+					],
+				CreatePipeline:[
+					'#pipelineAttr','#tagsAttr'
+					],
+				DeleteCustomActionType:[
+					'#categoryAttr','#providerAttr','#versionAttr'
+					],
+				DeletePipeline:[
+					'#nameAttr'
+					],
+				DeleteWebhook:[
+					'#nameAttr'
+					],
+				DeregisterWebhookWithThirdParty:[
+					'#webhookNameAttr'
+					],
+				DisableStageTransition:[
+					'#pipelineNameAttr','#stageNameAttr','#transitionTypeAttr','#reasonAttr'
+					],
+				EnableStageTransition:[
+					'#pipelineNameAttr','#stageNameAttr','#transitionTypeAttr'
+					],
+				GetActionType:[
+					'#categoryAttr','#ownerAttr','#providerAttr','#versionAttr'
+					],
+				GetJobDetails:[
+					'#jobIdAttr'
+					],
+				GetPipeline:[
+					'#nameAttr','#versionAttr'
+					],
+				GetPipelineExecution:[
+					'#pipelineNameAttr','#pipelineExecutionIdAttr'
+					],
+				GetPipelineState:[
+					'#nameAttr'
+					],
+				GetThirdPartyJobDetails:[
+					'#jobIdAttr','#clientTokenAttr'
+					],
+				ListActionExecutions:[
+					'#pipelineNameAttr','#filterAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListActionTypes:[
+					'#actionOwnerFilterAttr','#nextTokenAttr','#regionFilterAttr'
+					],
+				ListPipelineExecutions:[
+					'#pipelineNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListPipelines:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListWebhooks:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				PollForJobs:[
+					'#actionTypeIdAttr','#maxBatchSizeAttr','#queryParamAttr'
+					],
+				PollForThirdPartyJobs:[
+					'#actionTypeIdAttr','#maxBatchSizeAttr'
+					],
+				PutActionRevision:[
+					'#pipelineNameAttr','#stageNameAttr','#actionNameAttr','#actionRevisionAttr'
+					],
+				PutApprovalResult:[
+					'#pipelineNameAttr','#stageNameAttr','#actionNameAttr','#resultAttr','#tokenAttr'
+					],
+				PutJobFailureResult:[
+					'#jobIdAttr','#failureDetailsAttr'
+					],
+				PutJobSuccessResult:[
+					'#jobIdAttr','#currentRevisionAttr','#continuationTokenAttr','#executionDetailsAttr','#outputVariablesAttr'
+					],
+				PutThirdPartyJobFailureResult:[
+					'#jobIdAttr','#clientTokenAttr','#failureDetailsAttr'
+					],
+				PutThirdPartyJobSuccessResult:[
+					'#jobIdAttr','#clientTokenAttr','#currentRevisionAttr','#continuationTokenAttr','#executionDetailsAttr'
+					],
+				PutWebhook:[
+					'#webhookAttr','#tagsAttr'
+					],
+				RegisterWebhookWithThirdParty:[
+					'#webhookNameAttr'
+					],
+				RetryStageExecution:[
+					'#pipelineNameAttr','#stageNameAttr','#pipelineExecutionIdAttr','#retryModeAttr'
+					],
+				StartPipelineExecution:[
+					'#nameAttr','#clientRequestTokenAttr'
+					],
+				StopPipelineExecution:[
+					'#pipelineNameAttr','#pipelineExecutionIdAttr','#abandonAttr','#reasonAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateActionType:[
+					'#actionTypeAttr'
+					],
+				UpdatePipeline:[
+					'#pipelineAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodePipeline">
+<p>
+AWS CodePipeline
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodePipeline.html">CodePipeline</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodePipeline',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcknowledgeJob' },
+			
+				jobId: { value: ""} ,
+				nonce: { value: ""} ,
+				clientToken: { value: ""} ,
+				category: { value: ""} ,
+				provider: { value: ""} ,
+				version: { value: ""} ,
+				settings: { value: ""} ,
+				configurationProperties: { value: ""} ,
+				inputArtifactDetails: { value: ""} ,
+				outputArtifactDetails: { value: ""} ,
+				tags: { value: ""} ,
+				pipeline: { value: ""} ,
+				name: { value: ""} ,
+				webhookName: { value: ""} ,
+				pipelineName: { value: ""} ,
+				stageName: { value: ""} ,
+				transitionType: { value: ""} ,
+				reason: { value: ""} ,
+				owner: { value: ""} ,
+				pipelineExecutionId: { value: ""} ,
+				filter: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				actionOwnerFilter: { value: ""} ,
+				regionFilter: { value: ""} ,
+				resourceArn: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				actionTypeId: { value: ""} ,
+				maxBatchSize: { value: ""} ,
+				queryParam: { value: ""} ,
+				actionName: { value: ""} ,
+				actionRevision: { value: ""} ,
+				result: { value: ""} ,
+				token: { value: ""} ,
+				failureDetails: { value: ""} ,
+				currentRevision: { value: ""} ,
+				continuationToken: { value: ""} ,
+				executionDetails: { value: ""} ,
+				outputVariables: { value: ""} ,
+				webhook: { value: ""} ,
+				retryMode: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+				abandon: { value: ""} ,
+				tagKeys: { value: ""} ,
+				actionType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodePipeline " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nonce").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-category").typedInput({ default: "str", types: ["str"]});
+$("#node-input-provider").typedInput({ default: "str", types: ["str"]});
+$("#node-input-version").typedInput({ default: "num", types: ["num"]});
+$("#node-input-settings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configurationProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inputArtifactDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-outputArtifactDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipeline").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-webhookName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-transitionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-owner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineExecutionId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionOwnerFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-regionFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-actionTypeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxBatchSize").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-actionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionRevision").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-token").typedInput({ default: "str", types: ["str"]});
+$("#node-input-failureDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-currentRevision").typedInput({ default: "str", types: ["str"]});
+$("#node-input-continuationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-executionDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-outputVariables").typedInput({ default: "str", types: ["str"]});
+$("#node-input-webhook").typedInput({ default: "str", types: ["str"]});
+$("#node-input-retryMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-abandon").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-actionType").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

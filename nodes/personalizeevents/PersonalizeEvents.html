@@ -1,0 +1,150 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS PersonalizeEvents">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="PutEvents">PutEvents</option>
+		
+			<option value="PutItems">PutItems</option>
+		
+			<option value="PutUsers">PutUsers</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='trackingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-trackingId"><i class="fa fa-tag"></i> trackingId</label>
+		<input type="text" id="node-input-trackingId" placeholder="trackingId"></input>
+	</div> 
+	<div class="form-row" id='userIdAttr' class='hiddenAttrs'>
+		<label for="node-input-userId"><i class="fa fa-tag"></i> userId</label>
+		<input type="text" id="node-input-userId" placeholder="userId"></input>
+	</div> 
+	<div class="form-row" id='sessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-sessionId"><i class="fa fa-tag"></i> sessionId</label>
+		<input type="text" id="node-input-sessionId" placeholder="sessionId"></input>
+	</div> 
+	<div class="form-row" id='eventListAttr' class='hiddenAttrs'>
+		<label for="node-input-eventList"><i class="fa fa-tag"></i> eventList</label>
+		<input type="text" id="node-input-eventList" placeholder="eventList"></input>
+	</div> 
+	<div class="form-row" id='datasetArnAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetArn"><i class="fa fa-tag"></i> datasetArn</label>
+		<input type="text" id="node-input-datasetArn" placeholder="datasetArn"></input>
+	</div> 
+	<div class="form-row" id='itemsAttr' class='hiddenAttrs'>
+		<label for="node-input-items"><i class="fa fa-tag"></i> items</label>
+		<input type="text" id="node-input-items" placeholder="items"></input>
+	</div> 
+	<div class="form-row" id='usersAttr' class='hiddenAttrs'>
+		<label for="node-input-users"><i class="fa fa-tag"></i> users</label>
+		<input type="text" id="node-input-users" placeholder="users"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				PutEvents:[
+					'#trackingIdAttr','#userIdAttr','#sessionIdAttr','#eventListAttr'
+					],
+				PutItems:[
+					'#datasetArnAttr','#itemsAttr'
+					],
+				PutUsers:[
+					'#datasetArnAttr','#usersAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS PersonalizeEvents">
+<p>
+AWS PersonalizeEvents
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/PersonalizeEvents.html">PersonalizeEvents</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS PersonalizeEvents',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'PutEvents' },
+			
+				trackingId: { value: ""} ,
+				userId: { value: ""} ,
+				sessionId: { value: ""} ,
+				eventList: { value: ""} ,
+				datasetArn: { value: ""} ,
+				items: { value: ""} ,
+				users: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "PersonalizeEvents " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-trackingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-userId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sessionId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-datasetArn").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

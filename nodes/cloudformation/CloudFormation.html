@@ -1,0 +1,958 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudFormation">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ActivateType">ActivateType</option>
+		
+			<option value="BatchDescribeTypeConfigurations">BatchDescribeTypeConfigurations</option>
+		
+			<option value="CancelUpdateStack">CancelUpdateStack</option>
+		
+			<option value="ContinueUpdateRollback">ContinueUpdateRollback</option>
+		
+			<option value="CreateChangeSet">CreateChangeSet</option>
+		
+			<option value="CreateStack">CreateStack</option>
+		
+			<option value="CreateStackInstances">CreateStackInstances</option>
+		
+			<option value="CreateStackSet">CreateStackSet</option>
+		
+			<option value="DeactivateType">DeactivateType</option>
+		
+			<option value="DeleteChangeSet">DeleteChangeSet</option>
+		
+			<option value="DeleteStack">DeleteStack</option>
+		
+			<option value="DeleteStackInstances">DeleteStackInstances</option>
+		
+			<option value="DeleteStackSet">DeleteStackSet</option>
+		
+			<option value="DeregisterType">DeregisterType</option>
+		
+			<option value="DescribeAccountLimits">DescribeAccountLimits</option>
+		
+			<option value="DescribeChangeSet">DescribeChangeSet</option>
+		
+			<option value="DescribePublisher">DescribePublisher</option>
+		
+			<option value="DescribeStackDriftDetectionStatus">DescribeStackDriftDetectionStatus</option>
+		
+			<option value="DescribeStackEvents">DescribeStackEvents</option>
+		
+			<option value="DescribeStackInstance">DescribeStackInstance</option>
+		
+			<option value="DescribeStackResource">DescribeStackResource</option>
+		
+			<option value="DescribeStackResourceDrifts">DescribeStackResourceDrifts</option>
+		
+			<option value="DescribeStackResources">DescribeStackResources</option>
+		
+			<option value="DescribeStackSet">DescribeStackSet</option>
+		
+			<option value="DescribeStackSetOperation">DescribeStackSetOperation</option>
+		
+			<option value="DescribeStacks">DescribeStacks</option>
+		
+			<option value="DescribeType">DescribeType</option>
+		
+			<option value="DescribeTypeRegistration">DescribeTypeRegistration</option>
+		
+			<option value="DetectStackDrift">DetectStackDrift</option>
+		
+			<option value="DetectStackResourceDrift">DetectStackResourceDrift</option>
+		
+			<option value="DetectStackSetDrift">DetectStackSetDrift</option>
+		
+			<option value="EstimateTemplateCost">EstimateTemplateCost</option>
+		
+			<option value="ExecuteChangeSet">ExecuteChangeSet</option>
+		
+			<option value="GetStackPolicy">GetStackPolicy</option>
+		
+			<option value="GetTemplate">GetTemplate</option>
+		
+			<option value="GetTemplateSummary">GetTemplateSummary</option>
+		
+			<option value="ImportStacksToStackSet">ImportStacksToStackSet</option>
+		
+			<option value="ListChangeSets">ListChangeSets</option>
+		
+			<option value="ListExports">ListExports</option>
+		
+			<option value="ListImports">ListImports</option>
+		
+			<option value="ListStackInstances">ListStackInstances</option>
+		
+			<option value="ListStackResources">ListStackResources</option>
+		
+			<option value="ListStackSetOperationResults">ListStackSetOperationResults</option>
+		
+			<option value="ListStackSetOperations">ListStackSetOperations</option>
+		
+			<option value="ListStackSets">ListStackSets</option>
+		
+			<option value="ListStacks">ListStacks</option>
+		
+			<option value="ListTypeRegistrations">ListTypeRegistrations</option>
+		
+			<option value="ListTypeVersions">ListTypeVersions</option>
+		
+			<option value="ListTypes">ListTypes</option>
+		
+			<option value="PublishType">PublishType</option>
+		
+			<option value="RecordHandlerProgress">RecordHandlerProgress</option>
+		
+			<option value="RegisterPublisher">RegisterPublisher</option>
+		
+			<option value="RegisterType">RegisterType</option>
+		
+			<option value="RollbackStack">RollbackStack</option>
+		
+			<option value="SetStackPolicy">SetStackPolicy</option>
+		
+			<option value="SetTypeConfiguration">SetTypeConfiguration</option>
+		
+			<option value="SetTypeDefaultVersion">SetTypeDefaultVersion</option>
+		
+			<option value="SignalResource">SignalResource</option>
+		
+			<option value="StopStackSetOperation">StopStackSetOperation</option>
+		
+			<option value="TestType">TestType</option>
+		
+			<option value="UpdateStack">UpdateStack</option>
+		
+			<option value="UpdateStackInstances">UpdateStackInstances</option>
+		
+			<option value="UpdateStackSet">UpdateStackSet</option>
+		
+			<option value="UpdateTerminationProtection">UpdateTerminationProtection</option>
+		
+			<option value="ValidateTemplate">ValidateTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='PublicTypeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicTypeArn"><i class="fa fa-tag"></i> PublicTypeArn</label>
+		<input type="text" id="node-input-PublicTypeArn" placeholder="PublicTypeArn"></input>
+	</div> 
+	<div class="form-row" id='PublisherIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PublisherId"><i class="fa fa-tag"></i> PublisherId</label>
+		<input type="text" id="node-input-PublisherId" placeholder="PublisherId"></input>
+	</div> 
+	<div class="form-row" id='TypeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeName"><i class="fa fa-tag"></i> TypeName</label>
+		<input type="text" id="node-input-TypeName" placeholder="TypeName"></input>
+	</div> 
+	<div class="form-row" id='TypeNameAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeNameAlias"><i class="fa fa-tag"></i> TypeNameAlias</label>
+		<input type="text" id="node-input-TypeNameAlias" placeholder="TypeNameAlias"></input>
+	</div> 
+	<div class="form-row" id='AutoUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoUpdate"><i class="fa fa-tag"></i> AutoUpdate</label>
+		<input type="text" id="node-input-AutoUpdate" placeholder="AutoUpdate"></input>
+	</div> 
+	<div class="form-row" id='LoggingConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingConfig"><i class="fa fa-tag"></i> LoggingConfig</label>
+		<input type="text" id="node-input-LoggingConfig" placeholder="LoggingConfig"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleArn"><i class="fa fa-tag"></i> ExecutionRoleArn</label>
+		<input type="text" id="node-input-ExecutionRoleArn" placeholder="ExecutionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='VersionBumpAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionBump"><i class="fa fa-tag"></i> VersionBump</label>
+		<input type="text" id="node-input-VersionBump" placeholder="VersionBump"></input>
+	</div> 
+	<div class="form-row" id='MajorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-MajorVersion"><i class="fa fa-tag"></i> MajorVersion</label>
+		<input type="text" id="node-input-MajorVersion" placeholder="MajorVersion"></input>
+	</div> 
+	<div class="form-row" id='TypeConfigurationIdentifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeConfigurationIdentifiers"><i class="fa fa-tag"></i> TypeConfigurationIdentifiers</label>
+		<input type="text" id="node-input-TypeConfigurationIdentifiers" placeholder="TypeConfigurationIdentifiers"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i> StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='RoleARNAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleARN"><i class="fa fa-tag"></i> RoleARN</label>
+		<input type="text" id="node-input-RoleARN" placeholder="RoleARN"></input>
+	</div> 
+	<div class="form-row" id='ResourcesToSkipAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourcesToSkip"><i class="fa fa-tag"></i> ResourcesToSkip</label>
+		<input type="text" id="node-input-ResourcesToSkip" placeholder="ResourcesToSkip"></input>
+	</div> 
+	<div class="form-row" id='TemplateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateBody"><i class="fa fa-tag"></i> TemplateBody</label>
+		<input type="text" id="node-input-TemplateBody" placeholder="TemplateBody"></input>
+	</div> 
+	<div class="form-row" id='TemplateURLAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateURL"><i class="fa fa-tag"></i> TemplateURL</label>
+		<input type="text" id="node-input-TemplateURL" placeholder="TemplateURL"></input>
+	</div> 
+	<div class="form-row" id='UsePreviousTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-UsePreviousTemplate"><i class="fa fa-tag"></i> UsePreviousTemplate</label>
+		<input type="text" id="node-input-UsePreviousTemplate" placeholder="UsePreviousTemplate"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='CapabilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-Capabilities"><i class="fa fa-tag"></i> Capabilities</label>
+		<input type="text" id="node-input-Capabilities" placeholder="Capabilities"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceTypes"><i class="fa fa-tag"></i> ResourceTypes</label>
+		<input type="text" id="node-input-ResourceTypes" placeholder="ResourceTypes"></input>
+	</div> 
+	<div class="form-row" id='RollbackConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RollbackConfiguration"><i class="fa fa-tag"></i> RollbackConfiguration</label>
+		<input type="text" id="node-input-RollbackConfiguration" placeholder="RollbackConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NotificationARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationARNs"><i class="fa fa-tag"></i> NotificationARNs</label>
+		<input type="text" id="node-input-NotificationARNs" placeholder="NotificationARNs"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetName"><i class="fa fa-tag"></i> ChangeSetName</label>
+		<input type="text" id="node-input-ChangeSetName" placeholder="ChangeSetName"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetType"><i class="fa fa-tag"></i> ChangeSetType</label>
+		<input type="text" id="node-input-ChangeSetType" placeholder="ChangeSetType"></input>
+	</div> 
+	<div class="form-row" id='ResourcesToImportAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourcesToImport"><i class="fa fa-tag"></i> ResourcesToImport</label>
+		<input type="text" id="node-input-ResourcesToImport" placeholder="ResourcesToImport"></input>
+	</div> 
+	<div class="form-row" id='IncludeNestedStacksAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeNestedStacks"><i class="fa fa-tag"></i> IncludeNestedStacks</label>
+		<input type="text" id="node-input-IncludeNestedStacks" placeholder="IncludeNestedStacks"></input>
+	</div> 
+	<div class="form-row" id='DisableRollbackAttr' class='hiddenAttrs'>
+		<label for="node-input-DisableRollback"><i class="fa fa-tag"></i> DisableRollback</label>
+		<input type="text" id="node-input-DisableRollback" placeholder="DisableRollback"></input>
+	</div> 
+	<div class="form-row" id='TimeoutInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeoutInMinutes"><i class="fa fa-tag"></i> TimeoutInMinutes</label>
+		<input type="text" id="node-input-TimeoutInMinutes" placeholder="TimeoutInMinutes"></input>
+	</div> 
+	<div class="form-row" id='OnFailureAttr' class='hiddenAttrs'>
+		<label for="node-input-OnFailure"><i class="fa fa-tag"></i> OnFailure</label>
+		<input type="text" id="node-input-OnFailure" placeholder="OnFailure"></input>
+	</div> 
+	<div class="form-row" id='StackPolicyBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-StackPolicyBody"><i class="fa fa-tag"></i> StackPolicyBody</label>
+		<input type="text" id="node-input-StackPolicyBody" placeholder="StackPolicyBody"></input>
+	</div> 
+	<div class="form-row" id='StackPolicyURLAttr' class='hiddenAttrs'>
+		<label for="node-input-StackPolicyURL"><i class="fa fa-tag"></i> StackPolicyURL</label>
+		<input type="text" id="node-input-StackPolicyURL" placeholder="StackPolicyURL"></input>
+	</div> 
+	<div class="form-row" id='EnableTerminationProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableTerminationProtection"><i class="fa fa-tag"></i> EnableTerminationProtection</label>
+		<input type="text" id="node-input-EnableTerminationProtection" placeholder="EnableTerminationProtection"></input>
+	</div> 
+	<div class="form-row" id='StackSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackSetName"><i class="fa fa-tag"></i> StackSetName</label>
+		<input type="text" id="node-input-StackSetName" placeholder="StackSetName"></input>
+	</div> 
+	<div class="form-row" id='AccountsAttr' class='hiddenAttrs'>
+		<label for="node-input-Accounts"><i class="fa fa-tag"></i> Accounts</label>
+		<input type="text" id="node-input-Accounts" placeholder="Accounts"></input>
+	</div> 
+	<div class="form-row" id='DeploymentTargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentTargets"><i class="fa fa-tag"></i> DeploymentTargets</label>
+		<input type="text" id="node-input-DeploymentTargets" placeholder="DeploymentTargets"></input>
+	</div> 
+	<div class="form-row" id='RegionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Regions"><i class="fa fa-tag"></i> Regions</label>
+		<input type="text" id="node-input-Regions" placeholder="Regions"></input>
+	</div> 
+	<div class="form-row" id='ParameterOverridesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterOverrides"><i class="fa fa-tag"></i> ParameterOverrides</label>
+		<input type="text" id="node-input-ParameterOverrides" placeholder="ParameterOverrides"></input>
+	</div> 
+	<div class="form-row" id='OperationPreferencesAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationPreferences"><i class="fa fa-tag"></i> OperationPreferences</label>
+		<input type="text" id="node-input-OperationPreferences" placeholder="OperationPreferences"></input>
+	</div> 
+	<div class="form-row" id='OperationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationId"><i class="fa fa-tag"></i> OperationId</label>
+		<input type="text" id="node-input-OperationId" placeholder="OperationId"></input>
+	</div> 
+	<div class="form-row" id='CallAsAttr' class='hiddenAttrs'>
+		<label for="node-input-CallAs"><i class="fa fa-tag"></i> CallAs</label>
+		<input type="text" id="node-input-CallAs" placeholder="CallAs"></input>
+	</div> 
+	<div class="form-row" id='StackIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StackId"><i class="fa fa-tag"></i> StackId</label>
+		<input type="text" id="node-input-StackId" placeholder="StackId"></input>
+	</div> 
+	<div class="form-row" id='AdministrationRoleARNAttr' class='hiddenAttrs'>
+		<label for="node-input-AdministrationRoleARN"><i class="fa fa-tag"></i> AdministrationRoleARN</label>
+		<input type="text" id="node-input-AdministrationRoleARN" placeholder="AdministrationRoleARN"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleName"><i class="fa fa-tag"></i> ExecutionRoleName</label>
+		<input type="text" id="node-input-ExecutionRoleName" placeholder="ExecutionRoleName"></input>
+	</div> 
+	<div class="form-row" id='PermissionModelAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionModel"><i class="fa fa-tag"></i> PermissionModel</label>
+		<input type="text" id="node-input-PermissionModel" placeholder="PermissionModel"></input>
+	</div> 
+	<div class="form-row" id='AutoDeploymentAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoDeployment"><i class="fa fa-tag"></i> AutoDeployment</label>
+		<input type="text" id="node-input-AutoDeployment" placeholder="AutoDeployment"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i> Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
+	</div> 
+	<div class="form-row" id='RetainResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainResources"><i class="fa fa-tag"></i> RetainResources</label>
+		<input type="text" id="node-input-RetainResources" placeholder="RetainResources"></input>
+	</div> 
+	<div class="form-row" id='RetainStacksAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainStacks"><i class="fa fa-tag"></i> RetainStacks</label>
+		<input type="text" id="node-input-RetainStacks" placeholder="RetainStacks"></input>
+	</div> 
+	<div class="form-row" id='VersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionId"><i class="fa fa-tag"></i> VersionId</label>
+		<input type="text" id="node-input-VersionId" placeholder="VersionId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StackDriftDetectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StackDriftDetectionId"><i class="fa fa-tag"></i> StackDriftDetectionId</label>
+		<input type="text" id="node-input-StackDriftDetectionId" placeholder="StackDriftDetectionId"></input>
+	</div> 
+	<div class="form-row" id='StackInstanceAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-StackInstanceAccount"><i class="fa fa-tag"></i> StackInstanceAccount</label>
+		<input type="text" id="node-input-StackInstanceAccount" placeholder="StackInstanceAccount"></input>
+	</div> 
+	<div class="form-row" id='StackInstanceRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-StackInstanceRegion"><i class="fa fa-tag"></i> StackInstanceRegion</label>
+		<input type="text" id="node-input-StackInstanceRegion" placeholder="StackInstanceRegion"></input>
+	</div> 
+	<div class="form-row" id='LogicalResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LogicalResourceId"><i class="fa fa-tag"></i> LogicalResourceId</label>
+		<input type="text" id="node-input-LogicalResourceId" placeholder="LogicalResourceId"></input>
+	</div> 
+	<div class="form-row" id='StackResourceDriftStatusFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-StackResourceDriftStatusFilters"><i class="fa fa-tag"></i> StackResourceDriftStatusFilters</label>
+		<input type="text" id="node-input-StackResourceDriftStatusFilters" placeholder="StackResourceDriftStatusFilters"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='PhysicalResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PhysicalResourceId"><i class="fa fa-tag"></i> PhysicalResourceId</label>
+		<input type="text" id="node-input-PhysicalResourceId" placeholder="PhysicalResourceId"></input>
+	</div> 
+	<div class="form-row" id='PublicVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicVersionNumber"><i class="fa fa-tag"></i> PublicVersionNumber</label>
+		<input type="text" id="node-input-PublicVersionNumber" placeholder="PublicVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='RegistrationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistrationToken"><i class="fa fa-tag"></i> RegistrationToken</label>
+		<input type="text" id="node-input-RegistrationToken" placeholder="RegistrationToken"></input>
+	</div> 
+	<div class="form-row" id='LogicalResourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-LogicalResourceIds"><i class="fa fa-tag"></i> LogicalResourceIds</label>
+		<input type="text" id="node-input-LogicalResourceIds" placeholder="LogicalResourceIds"></input>
+	</div> 
+	<div class="form-row" id='TemplateStageAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateStage"><i class="fa fa-tag"></i> TemplateStage</label>
+		<input type="text" id="node-input-TemplateStage" placeholder="TemplateStage"></input>
+	</div> 
+	<div class="form-row" id='StackIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-StackIds"><i class="fa fa-tag"></i> StackIds</label>
+		<input type="text" id="node-input-StackIds" placeholder="StackIds"></input>
+	</div> 
+	<div class="form-row" id='ExportNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportName"><i class="fa fa-tag"></i> ExportName</label>
+		<input type="text" id="node-input-ExportName" placeholder="ExportName"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='StackStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-StackStatusFilter"><i class="fa fa-tag"></i> StackStatusFilter</label>
+		<input type="text" id="node-input-StackStatusFilter" placeholder="StackStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='TypeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeArn"><i class="fa fa-tag"></i> TypeArn</label>
+		<input type="text" id="node-input-TypeArn" placeholder="TypeArn"></input>
+	</div> 
+	<div class="form-row" id='RegistrationStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistrationStatusFilter"><i class="fa fa-tag"></i> RegistrationStatusFilter</label>
+		<input type="text" id="node-input-RegistrationStatusFilter" placeholder="RegistrationStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='DeprecatedStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-DeprecatedStatus"><i class="fa fa-tag"></i> DeprecatedStatus</label>
+		<input type="text" id="node-input-DeprecatedStatus" placeholder="DeprecatedStatus"></input>
+	</div> 
+	<div class="form-row" id='VisibilityAttr' class='hiddenAttrs'>
+		<label for="node-input-Visibility"><i class="fa fa-tag"></i> Visibility</label>
+		<input type="text" id="node-input-Visibility" placeholder="Visibility"></input>
+	</div> 
+	<div class="form-row" id='ProvisioningTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisioningType"><i class="fa fa-tag"></i> ProvisioningType</label>
+		<input type="text" id="node-input-ProvisioningType" placeholder="ProvisioningType"></input>
+	</div> 
+	<div class="form-row" id='BearerTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-BearerToken"><i class="fa fa-tag"></i> BearerToken</label>
+		<input type="text" id="node-input-BearerToken" placeholder="BearerToken"></input>
+	</div> 
+	<div class="form-row" id='OperationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationStatus"><i class="fa fa-tag"></i> OperationStatus</label>
+		<input type="text" id="node-input-OperationStatus" placeholder="OperationStatus"></input>
+	</div> 
+	<div class="form-row" id='CurrentOperationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-CurrentOperationStatus"><i class="fa fa-tag"></i> CurrentOperationStatus</label>
+		<input type="text" id="node-input-CurrentOperationStatus" placeholder="CurrentOperationStatus"></input>
+	</div> 
+	<div class="form-row" id='StatusMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusMessage"><i class="fa fa-tag"></i> StatusMessage</label>
+		<input type="text" id="node-input-StatusMessage" placeholder="StatusMessage"></input>
+	</div> 
+	<div class="form-row" id='ErrorCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ErrorCode"><i class="fa fa-tag"></i> ErrorCode</label>
+		<input type="text" id="node-input-ErrorCode" placeholder="ErrorCode"></input>
+	</div> 
+	<div class="form-row" id='ResourceModelAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceModel"><i class="fa fa-tag"></i> ResourceModel</label>
+		<input type="text" id="node-input-ResourceModel" placeholder="ResourceModel"></input>
+	</div> 
+	<div class="form-row" id='AcceptTermsAndConditionsAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceptTermsAndConditions"><i class="fa fa-tag"></i> AcceptTermsAndConditions</label>
+		<input type="text" id="node-input-AcceptTermsAndConditions" placeholder="AcceptTermsAndConditions"></input>
+	</div> 
+	<div class="form-row" id='ConnectionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionArn"><i class="fa fa-tag"></i> ConnectionArn</label>
+		<input type="text" id="node-input-ConnectionArn" placeholder="ConnectionArn"></input>
+	</div> 
+	<div class="form-row" id='SchemaHandlerPackageAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaHandlerPackage"><i class="fa fa-tag"></i> SchemaHandlerPackage</label>
+		<input type="text" id="node-input-SchemaHandlerPackage" placeholder="SchemaHandlerPackage"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationAlias"><i class="fa fa-tag"></i> ConfigurationAlias</label>
+		<input type="text" id="node-input-ConfigurationAlias" placeholder="ConfigurationAlias"></input>
+	</div> 
+	<div class="form-row" id='UniqueIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UniqueId"><i class="fa fa-tag"></i> UniqueId</label>
+		<input type="text" id="node-input-UniqueId" placeholder="UniqueId"></input>
+	</div> 
+	<div class="form-row" id='LogDeliveryBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-LogDeliveryBucket"><i class="fa fa-tag"></i> LogDeliveryBucket</label>
+		<input type="text" id="node-input-LogDeliveryBucket" placeholder="LogDeliveryBucket"></input>
+	</div> 
+	<div class="form-row" id='StackPolicyDuringUpdateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-StackPolicyDuringUpdateBody"><i class="fa fa-tag"></i> StackPolicyDuringUpdateBody</label>
+		<input type="text" id="node-input-StackPolicyDuringUpdateBody" placeholder="StackPolicyDuringUpdateBody"></input>
+	</div> 
+	<div class="form-row" id='StackPolicyDuringUpdateURLAttr' class='hiddenAttrs'>
+		<label for="node-input-StackPolicyDuringUpdateURL"><i class="fa fa-tag"></i> StackPolicyDuringUpdateURL</label>
+		<input type="text" id="node-input-StackPolicyDuringUpdateURL" placeholder="StackPolicyDuringUpdateURL"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ActivateType:[
+					'#TypeAttr','#PublicTypeArnAttr','#PublisherIdAttr','#TypeNameAttr','#TypeNameAliasAttr','#AutoUpdateAttr','#LoggingConfigAttr','#ExecutionRoleArnAttr','#VersionBumpAttr','#MajorVersionAttr'
+					],
+				BatchDescribeTypeConfigurations:[
+					'#TypeConfigurationIdentifiersAttr'
+					],
+				CancelUpdateStack:[
+					'#StackNameAttr','#ClientRequestTokenAttr'
+					],
+				ContinueUpdateRollback:[
+					'#StackNameAttr','#RoleARNAttr','#ResourcesToSkipAttr','#ClientRequestTokenAttr'
+					],
+				CreateChangeSet:[
+					'#StackNameAttr','#TemplateBodyAttr','#TemplateURLAttr','#UsePreviousTemplateAttr','#ParametersAttr','#CapabilitiesAttr','#ResourceTypesAttr','#RoleARNAttr','#RollbackConfigurationAttr','#NotificationARNsAttr','#TagsAttr','#ChangeSetNameAttr','#ClientTokenAttr','#DescriptionAttr','#ChangeSetTypeAttr','#ResourcesToImportAttr','#IncludeNestedStacksAttr'
+					],
+				CreateStack:[
+					'#StackNameAttr','#TemplateBodyAttr','#TemplateURLAttr','#ParametersAttr','#DisableRollbackAttr','#RollbackConfigurationAttr','#TimeoutInMinutesAttr','#NotificationARNsAttr','#CapabilitiesAttr','#ResourceTypesAttr','#RoleARNAttr','#OnFailureAttr','#StackPolicyBodyAttr','#StackPolicyURLAttr','#TagsAttr','#ClientRequestTokenAttr','#EnableTerminationProtectionAttr'
+					],
+				CreateStackInstances:[
+					'#StackSetNameAttr','#AccountsAttr','#DeploymentTargetsAttr','#RegionsAttr','#ParameterOverridesAttr','#OperationPreferencesAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				CreateStackSet:[
+					'#StackSetNameAttr','#DescriptionAttr','#TemplateBodyAttr','#TemplateURLAttr','#StackIdAttr','#ParametersAttr','#CapabilitiesAttr','#TagsAttr','#AdministrationRoleARNAttr','#ExecutionRoleNameAttr','#PermissionModelAttr','#AutoDeploymentAttr','#CallAsAttr','#ClientRequestTokenAttr'
+					],
+				DeactivateType:[
+					'#TypeNameAttr','#TypeAttr','#ArnAttr'
+					],
+				DeleteChangeSet:[
+					'#ChangeSetNameAttr','#StackNameAttr'
+					],
+				DeleteStack:[
+					'#StackNameAttr','#RetainResourcesAttr','#RoleARNAttr','#ClientRequestTokenAttr'
+					],
+				DeleteStackInstances:[
+					'#StackSetNameAttr','#AccountsAttr','#DeploymentTargetsAttr','#RegionsAttr','#OperationPreferencesAttr','#RetainStacksAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				DeleteStackSet:[
+					'#StackSetNameAttr','#CallAsAttr'
+					],
+				DeregisterType:[
+					'#ArnAttr','#TypeAttr','#TypeNameAttr','#VersionIdAttr'
+					],
+				DescribeAccountLimits:[
+					'#NextTokenAttr'
+					],
+				DescribeChangeSet:[
+					'#ChangeSetNameAttr','#StackNameAttr','#NextTokenAttr'
+					],
+				DescribePublisher:[
+					'#PublisherIdAttr'
+					],
+				DescribeStackDriftDetectionStatus:[
+					'#StackDriftDetectionIdAttr'
+					],
+				DescribeStackEvents:[
+					'#StackNameAttr','#NextTokenAttr'
+					],
+				DescribeStackInstance:[
+					'#StackSetNameAttr','#StackInstanceAccountAttr','#StackInstanceRegionAttr','#CallAsAttr'
+					],
+				DescribeStackResource:[
+					'#StackNameAttr','#LogicalResourceIdAttr'
+					],
+				DescribeStackResourceDrifts:[
+					'#StackNameAttr','#StackResourceDriftStatusFiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeStackResources:[
+					'#StackNameAttr','#LogicalResourceIdAttr','#PhysicalResourceIdAttr'
+					],
+				DescribeStackSet:[
+					'#StackSetNameAttr','#CallAsAttr'
+					],
+				DescribeStackSetOperation:[
+					'#StackSetNameAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				DescribeStacks:[
+					'#StackNameAttr','#NextTokenAttr'
+					],
+				DescribeType:[
+					'#TypeAttr','#TypeNameAttr','#ArnAttr','#VersionIdAttr','#PublisherIdAttr','#PublicVersionNumberAttr'
+					],
+				DescribeTypeRegistration:[
+					'#RegistrationTokenAttr'
+					],
+				DetectStackDrift:[
+					'#StackNameAttr','#LogicalResourceIdsAttr'
+					],
+				DetectStackResourceDrift:[
+					'#StackNameAttr','#LogicalResourceIdAttr'
+					],
+				DetectStackSetDrift:[
+					'#StackSetNameAttr','#OperationPreferencesAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				EstimateTemplateCost:[
+					'#TemplateBodyAttr','#TemplateURLAttr','#ParametersAttr'
+					],
+				ExecuteChangeSet:[
+					'#ChangeSetNameAttr','#StackNameAttr','#ClientRequestTokenAttr','#DisableRollbackAttr'
+					],
+				GetStackPolicy:[
+					'#StackNameAttr'
+					],
+				GetTemplate:[
+					'#StackNameAttr','#ChangeSetNameAttr','#TemplateStageAttr'
+					],
+				GetTemplateSummary:[
+					'#TemplateBodyAttr','#TemplateURLAttr','#StackNameAttr','#StackSetNameAttr','#CallAsAttr'
+					],
+				ImportStacksToStackSet:[
+					'#StackSetNameAttr','#StackIdsAttr','#OperationPreferencesAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				ListChangeSets:[
+					'#StackNameAttr','#NextTokenAttr'
+					],
+				ListExports:[
+					'#NextTokenAttr'
+					],
+				ListImports:[
+					'#ExportNameAttr','#NextTokenAttr'
+					],
+				ListStackInstances:[
+					'#StackSetNameAttr','#NextTokenAttr','#MaxResultsAttr','#FiltersAttr','#StackInstanceAccountAttr','#StackInstanceRegionAttr','#CallAsAttr'
+					],
+				ListStackResources:[
+					'#StackNameAttr','#NextTokenAttr'
+					],
+				ListStackSetOperationResults:[
+					'#StackSetNameAttr','#OperationIdAttr','#NextTokenAttr','#MaxResultsAttr','#CallAsAttr'
+					],
+				ListStackSetOperations:[
+					'#StackSetNameAttr','#NextTokenAttr','#MaxResultsAttr','#CallAsAttr'
+					],
+				ListStackSets:[
+					'#NextTokenAttr','#MaxResultsAttr','#StatusAttr','#CallAsAttr'
+					],
+				ListStacks:[
+					'#NextTokenAttr','#StackStatusFilterAttr'
+					],
+				ListTypeRegistrations:[
+					'#TypeAttr','#TypeNameAttr','#TypeArnAttr','#RegistrationStatusFilterAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTypeVersions:[
+					'#TypeAttr','#TypeNameAttr','#ArnAttr','#MaxResultsAttr','#NextTokenAttr','#DeprecatedStatusAttr','#PublisherIdAttr'
+					],
+				ListTypes:[
+					'#VisibilityAttr','#ProvisioningTypeAttr','#DeprecatedStatusAttr','#TypeAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				PublishType:[
+					'#TypeAttr','#ArnAttr','#TypeNameAttr','#PublicVersionNumberAttr'
+					],
+				RecordHandlerProgress:[
+					'#BearerTokenAttr','#OperationStatusAttr','#CurrentOperationStatusAttr','#StatusMessageAttr','#ErrorCodeAttr','#ResourceModelAttr','#ClientRequestTokenAttr'
+					],
+				RegisterPublisher:[
+					'#AcceptTermsAndConditionsAttr','#ConnectionArnAttr'
+					],
+				RegisterType:[
+					'#TypeAttr','#TypeNameAttr','#SchemaHandlerPackageAttr','#LoggingConfigAttr','#ExecutionRoleArnAttr','#ClientRequestTokenAttr'
+					],
+				RollbackStack:[
+					'#StackNameAttr','#RoleARNAttr','#ClientRequestTokenAttr'
+					],
+				SetStackPolicy:[
+					'#StackNameAttr','#StackPolicyBodyAttr','#StackPolicyURLAttr'
+					],
+				SetTypeConfiguration:[
+					'#TypeArnAttr','#ConfigurationAttr','#ConfigurationAliasAttr','#TypeNameAttr','#TypeAttr'
+					],
+				SetTypeDefaultVersion:[
+					'#ArnAttr','#TypeAttr','#TypeNameAttr','#VersionIdAttr'
+					],
+				SignalResource:[
+					'#StackNameAttr','#LogicalResourceIdAttr','#UniqueIdAttr','#StatusAttr'
+					],
+				StopStackSetOperation:[
+					'#StackSetNameAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				TestType:[
+					'#ArnAttr','#TypeAttr','#TypeNameAttr','#VersionIdAttr','#LogDeliveryBucketAttr'
+					],
+				UpdateStack:[
+					'#StackNameAttr','#TemplateBodyAttr','#TemplateURLAttr','#UsePreviousTemplateAttr','#StackPolicyDuringUpdateBodyAttr','#StackPolicyDuringUpdateURLAttr','#ParametersAttr','#CapabilitiesAttr','#ResourceTypesAttr','#RoleARNAttr','#RollbackConfigurationAttr','#StackPolicyBodyAttr','#StackPolicyURLAttr','#NotificationARNsAttr','#TagsAttr','#DisableRollbackAttr','#ClientRequestTokenAttr'
+					],
+				UpdateStackInstances:[
+					'#StackSetNameAttr','#AccountsAttr','#DeploymentTargetsAttr','#RegionsAttr','#ParameterOverridesAttr','#OperationPreferencesAttr','#OperationIdAttr','#CallAsAttr'
+					],
+				UpdateStackSet:[
+					'#StackSetNameAttr','#DescriptionAttr','#TemplateBodyAttr','#TemplateURLAttr','#UsePreviousTemplateAttr','#ParametersAttr','#CapabilitiesAttr','#TagsAttr','#OperationPreferencesAttr','#AdministrationRoleARNAttr','#ExecutionRoleNameAttr','#DeploymentTargetsAttr','#PermissionModelAttr','#AutoDeploymentAttr','#OperationIdAttr','#AccountsAttr','#RegionsAttr','#CallAsAttr'
+					],
+				UpdateTerminationProtection:[
+					'#EnableTerminationProtectionAttr','#StackNameAttr'
+					],
+				ValidateTemplate:[
+					'#TemplateBodyAttr','#TemplateURLAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudFormation">
+<p>
+AWS CloudFormation
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudFormation.html">CloudFormation</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudFormation',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ActivateType' },
+			
+				Type: { value: ""} ,
+				PublicTypeArn: { value: ""} ,
+				PublisherId: { value: ""} ,
+				TypeName: { value: ""} ,
+				TypeNameAlias: { value: ""} ,
+				AutoUpdate: { value: ""} ,
+				LoggingConfig: { value: ""} ,
+				ExecutionRoleArn: { value: ""} ,
+				VersionBump: { value: ""} ,
+				MajorVersion: { value: ""} ,
+				TypeConfigurationIdentifiers: { value: ""} ,
+				StackName: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				RoleARN: { value: ""} ,
+				ResourcesToSkip: { value: ""} ,
+				TemplateBody: { value: ""} ,
+				TemplateURL: { value: ""} ,
+				UsePreviousTemplate: { value: ""} ,
+				Parameters: { value: ""} ,
+				Capabilities: { value: ""} ,
+				ResourceTypes: { value: ""} ,
+				RollbackConfiguration: { value: ""} ,
+				NotificationARNs: { value: ""} ,
+				Tags: { value: ""} ,
+				ChangeSetName: { value: ""} ,
+				ClientToken: { value: ""} ,
+				Description: { value: ""} ,
+				ChangeSetType: { value: ""} ,
+				ResourcesToImport: { value: ""} ,
+				IncludeNestedStacks: { value: ""} ,
+				DisableRollback: { value: ""} ,
+				TimeoutInMinutes: { value: ""} ,
+				OnFailure: { value: ""} ,
+				StackPolicyBody: { value: ""} ,
+				StackPolicyURL: { value: ""} ,
+				EnableTerminationProtection: { value: ""} ,
+				StackSetName: { value: ""} ,
+				Accounts: { value: ""} ,
+				DeploymentTargets: { value: ""} ,
+				Regions: { value: ""} ,
+				ParameterOverrides: { value: ""} ,
+				OperationPreferences: { value: ""} ,
+				OperationId: { value: ""} ,
+				CallAs: { value: ""} ,
+				StackId: { value: ""} ,
+				AdministrationRoleARN: { value: ""} ,
+				ExecutionRoleName: { value: ""} ,
+				PermissionModel: { value: ""} ,
+				AutoDeployment: { value: ""} ,
+				Arn: { value: ""} ,
+				RetainResources: { value: ""} ,
+				RetainStacks: { value: ""} ,
+				VersionId: { value: ""} ,
+				NextToken: { value: ""} ,
+				StackDriftDetectionId: { value: ""} ,
+				StackInstanceAccount: { value: ""} ,
+				StackInstanceRegion: { value: ""} ,
+				LogicalResourceId: { value: ""} ,
+				StackResourceDriftStatusFilters: { value: ""} ,
+				MaxResults: { value: ""} ,
+				PhysicalResourceId: { value: ""} ,
+				PublicVersionNumber: { value: ""} ,
+				RegistrationToken: { value: ""} ,
+				LogicalResourceIds: { value: ""} ,
+				TemplateStage: { value: ""} ,
+				StackIds: { value: ""} ,
+				ExportName: { value: ""} ,
+				Filters: { value: ""} ,
+				Status: { value: ""} ,
+				StackStatusFilter: { value: ""} ,
+				TypeArn: { value: ""} ,
+				RegistrationStatusFilter: { value: ""} ,
+				DeprecatedStatus: { value: ""} ,
+				Visibility: { value: ""} ,
+				ProvisioningType: { value: ""} ,
+				BearerToken: { value: ""} ,
+				OperationStatus: { value: ""} ,
+				CurrentOperationStatus: { value: ""} ,
+				StatusMessage: { value: ""} ,
+				ErrorCode: { value: ""} ,
+				ResourceModel: { value: ""} ,
+				AcceptTermsAndConditions: { value: ""} ,
+				ConnectionArn: { value: ""} ,
+				SchemaHandlerPackage: { value: ""} ,
+				Configuration: { value: ""} ,
+				ConfigurationAlias: { value: ""} ,
+				UniqueId: { value: ""} ,
+				LogDeliveryBucket: { value: ""} ,
+				StackPolicyDuringUpdateBody: { value: ""} ,
+				StackPolicyDuringUpdateURL: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudFormation " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicTypeArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublisherId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TypeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TypeNameAlias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoUpdate").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-LoggingConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionBump").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-StackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleARN").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TemplateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UsePreviousTemplate").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Capabilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RollbackConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationARNs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChangeSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChangeSetType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-IncludeNestedStacks").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DisableRollback").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TimeoutInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-OnFailure").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackPolicyBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackPolicyURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableTerminationProtection").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-StackSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Accounts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentTargets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Regions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParameterOverrides").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperationPreferences").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CallAs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdministrationRoleARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionRoleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PermissionModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoDeployment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Arn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RetainStacks").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-VersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackDriftDetectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackInstanceAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackInstanceRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogicalResourceId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PhysicalResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicVersionNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistrationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogicalResourceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateStage").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ExportName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TypeArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistrationStatusFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeprecatedStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Visibility").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisioningType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BearerToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CurrentOperationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StatusMessage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ErrorCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AcceptTermsAndConditions").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ConnectionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaHandlerPackage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationAlias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UniqueId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogDeliveryBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackPolicyDuringUpdateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackPolicyDuringUpdateURL").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

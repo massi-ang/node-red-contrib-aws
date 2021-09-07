@@ -1,0 +1,868 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DocDB">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddSourceIdentifierToSubscription">AddSourceIdentifierToSubscription</option>
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="ApplyPendingMaintenanceAction">ApplyPendingMaintenanceAction</option>
+		
+			<option value="CopyDBClusterParameterGroup">CopyDBClusterParameterGroup</option>
+		
+			<option value="CopyDBClusterSnapshot">CopyDBClusterSnapshot</option>
+		
+			<option value="CreateDBCluster">CreateDBCluster</option>
+		
+			<option value="CreateDBClusterParameterGroup">CreateDBClusterParameterGroup</option>
+		
+			<option value="CreateDBClusterSnapshot">CreateDBClusterSnapshot</option>
+		
+			<option value="CreateDBInstance">CreateDBInstance</option>
+		
+			<option value="CreateDBSubnetGroup">CreateDBSubnetGroup</option>
+		
+			<option value="CreateEventSubscription">CreateEventSubscription</option>
+		
+			<option value="CreateGlobalCluster">CreateGlobalCluster</option>
+		
+			<option value="DeleteDBCluster">DeleteDBCluster</option>
+		
+			<option value="DeleteDBClusterParameterGroup">DeleteDBClusterParameterGroup</option>
+		
+			<option value="DeleteDBClusterSnapshot">DeleteDBClusterSnapshot</option>
+		
+			<option value="DeleteDBInstance">DeleteDBInstance</option>
+		
+			<option value="DeleteDBSubnetGroup">DeleteDBSubnetGroup</option>
+		
+			<option value="DeleteEventSubscription">DeleteEventSubscription</option>
+		
+			<option value="DeleteGlobalCluster">DeleteGlobalCluster</option>
+		
+			<option value="DescribeCertificates">DescribeCertificates</option>
+		
+			<option value="DescribeDBClusterParameterGroups">DescribeDBClusterParameterGroups</option>
+		
+			<option value="DescribeDBClusterParameters">DescribeDBClusterParameters</option>
+		
+			<option value="DescribeDBClusterSnapshotAttributes">DescribeDBClusterSnapshotAttributes</option>
+		
+			<option value="DescribeDBClusterSnapshots">DescribeDBClusterSnapshots</option>
+		
+			<option value="DescribeDBClusters">DescribeDBClusters</option>
+		
+			<option value="DescribeDBEngineVersions">DescribeDBEngineVersions</option>
+		
+			<option value="DescribeDBInstances">DescribeDBInstances</option>
+		
+			<option value="DescribeDBSubnetGroups">DescribeDBSubnetGroups</option>
+		
+			<option value="DescribeEngineDefaultClusterParameters">DescribeEngineDefaultClusterParameters</option>
+		
+			<option value="DescribeEventCategories">DescribeEventCategories</option>
+		
+			<option value="DescribeEventSubscriptions">DescribeEventSubscriptions</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeGlobalClusters">DescribeGlobalClusters</option>
+		
+			<option value="DescribeOrderableDBInstanceOptions">DescribeOrderableDBInstanceOptions</option>
+		
+			<option value="DescribePendingMaintenanceActions">DescribePendingMaintenanceActions</option>
+		
+			<option value="FailoverDBCluster">FailoverDBCluster</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyDBCluster">ModifyDBCluster</option>
+		
+			<option value="ModifyDBClusterParameterGroup">ModifyDBClusterParameterGroup</option>
+		
+			<option value="ModifyDBClusterSnapshotAttribute">ModifyDBClusterSnapshotAttribute</option>
+		
+			<option value="ModifyDBInstance">ModifyDBInstance</option>
+		
+			<option value="ModifyDBSubnetGroup">ModifyDBSubnetGroup</option>
+		
+			<option value="ModifyEventSubscription">ModifyEventSubscription</option>
+		
+			<option value="ModifyGlobalCluster">ModifyGlobalCluster</option>
+		
+			<option value="RebootDBInstance">RebootDBInstance</option>
+		
+			<option value="RemoveFromGlobalCluster">RemoveFromGlobalCluster</option>
+		
+			<option value="RemoveSourceIdentifierFromSubscription">RemoveSourceIdentifierFromSubscription</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetDBClusterParameterGroup">ResetDBClusterParameterGroup</option>
+		
+			<option value="RestoreDBClusterFromSnapshot">RestoreDBClusterFromSnapshot</option>
+		
+			<option value="RestoreDBClusterToPointInTime">RestoreDBClusterToPointInTime</option>
+		
+			<option value="StartDBCluster">StartDBCluster</option>
+		
+			<option value="StopDBCluster">StopDBCluster</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SubscriptionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionName"><i class="fa fa-tag"></i> SubscriptionName</label>
+		<input type="text" id="node-input-SubscriptionName" placeholder="SubscriptionName"></input>
+	</div> 
+	<div class="form-row" id='SourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIdentifier"><i class="fa fa-tag"></i> SourceIdentifier</label>
+		<input type="text" id="node-input-SourceIdentifier" placeholder="SourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i> ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIdentifier"><i class="fa fa-tag"></i> ResourceIdentifier</label>
+		<input type="text" id="node-input-ResourceIdentifier" placeholder="ResourceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ApplyActionAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyAction"><i class="fa fa-tag"></i> ApplyAction</label>
+		<input type="text" id="node-input-ApplyAction" placeholder="ApplyAction"></input>
+	</div> 
+	<div class="form-row" id='OptInTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OptInType"><i class="fa fa-tag"></i> OptInType</label>
+		<input type="text" id="node-input-OptInType" placeholder="OptInType"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterParameterGroupIdentifier"><i class="fa fa-tag"></i> SourceDBClusterParameterGroupIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterParameterGroupIdentifier" placeholder="SourceDBClusterParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterParameterGroupIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterParameterGroupIdentifier"><i class="fa fa-tag"></i> TargetDBClusterParameterGroupIdentifier</label>
+		<input type="text" id="node-input-TargetDBClusterParameterGroupIdentifier" placeholder="TargetDBClusterParameterGroupIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterParameterGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterParameterGroupDescription"><i class="fa fa-tag"></i> TargetDBClusterParameterGroupDescription</label>
+		<input type="text" id="node-input-TargetDBClusterParameterGroupDescription" placeholder="TargetDBClusterParameterGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterSnapshotIdentifier"><i class="fa fa-tag"></i> SourceDBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterSnapshotIdentifier" placeholder="SourceDBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TargetDBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBClusterSnapshotIdentifier"><i class="fa fa-tag"></i> TargetDBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-TargetDBClusterSnapshotIdentifier" placeholder="TargetDBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='PreSignedUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-PreSignedUrl"><i class="fa fa-tag"></i> PreSignedUrl</label>
+		<input type="text" id="node-input-PreSignedUrl" placeholder="PreSignedUrl"></input>
+	</div> 
+	<div class="form-row" id='CopyTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-CopyTags"><i class="fa fa-tag"></i> CopyTags</label>
+		<input type="text" id="node-input-CopyTags" placeholder="CopyTags"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZones"><i class="fa fa-tag"></i> AvailabilityZones</label>
+		<input type="text" id="node-input-AvailabilityZones" placeholder="AvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='BackupRetentionPeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupRetentionPeriod"><i class="fa fa-tag"></i> BackupRetentionPeriod</label>
+		<input type="text" id="node-input-BackupRetentionPeriod" placeholder="BackupRetentionPeriod"></input>
+	</div> 
+	<div class="form-row" id='DBClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterIdentifier"><i class="fa fa-tag"></i> DBClusterIdentifier</label>
+		<input type="text" id="node-input-DBClusterIdentifier" placeholder="DBClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBClusterParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterParameterGroupName"><i class="fa fa-tag"></i> DBClusterParameterGroupName</label>
+		<input type="text" id="node-input-DBClusterParameterGroupName" placeholder="DBClusterParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='VpcSecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcSecurityGroupIds"><i class="fa fa-tag"></i> VpcSecurityGroupIds</label>
+		<input type="text" id="node-input-VpcSecurityGroupIds" placeholder="VpcSecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='DBSubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DBSubnetGroupName"><i class="fa fa-tag"></i> DBSubnetGroupName</label>
+		<input type="text" id="node-input-DBSubnetGroupName" placeholder="DBSubnetGroupName"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i> Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i> EngineVersion</label>
+		<input type="text" id="node-input-EngineVersion" placeholder="EngineVersion"></input>
+	</div> 
+	<div class="form-row" id='PortAttr' class='hiddenAttrs'>
+		<label for="node-input-Port"><i class="fa fa-tag"></i> Port</label>
+		<input type="text" id="node-input-Port" placeholder="Port"></input>
+	</div> 
+	<div class="form-row" id='MasterUsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-MasterUsername"><i class="fa fa-tag"></i> MasterUsername</label>
+		<input type="text" id="node-input-MasterUsername" placeholder="MasterUsername"></input>
+	</div> 
+	<div class="form-row" id='MasterUserPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-MasterUserPassword"><i class="fa fa-tag"></i> MasterUserPassword</label>
+		<input type="text" id="node-input-MasterUserPassword" placeholder="MasterUserPassword"></input>
+	</div> 
+	<div class="form-row" id='PreferredBackupWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredBackupWindow"><i class="fa fa-tag"></i> PreferredBackupWindow</label>
+		<input type="text" id="node-input-PreferredBackupWindow" placeholder="PreferredBackupWindow"></input>
+	</div> 
+	<div class="form-row" id='PreferredMaintenanceWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredMaintenanceWindow"><i class="fa fa-tag"></i> PreferredMaintenanceWindow</label>
+		<input type="text" id="node-input-PreferredMaintenanceWindow" placeholder="PreferredMaintenanceWindow"></input>
+	</div> 
+	<div class="form-row" id='StorageEncryptedAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageEncrypted"><i class="fa fa-tag"></i> StorageEncrypted</label>
+		<input type="text" id="node-input-StorageEncrypted" placeholder="StorageEncrypted"></input>
+	</div> 
+	<div class="form-row" id='EnableCloudwatchLogsExportsAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableCloudwatchLogsExports"><i class="fa fa-tag"></i> EnableCloudwatchLogsExports</label>
+		<input type="text" id="node-input-EnableCloudwatchLogsExports" placeholder="EnableCloudwatchLogsExports"></input>
+	</div> 
+	<div class="form-row" id='DeletionProtectionAttr' class='hiddenAttrs'>
+		<label for="node-input-DeletionProtection"><i class="fa fa-tag"></i> DeletionProtection</label>
+		<input type="text" id="node-input-DeletionProtection" placeholder="DeletionProtection"></input>
+	</div> 
+	<div class="form-row" id='GlobalClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalClusterIdentifier"><i class="fa fa-tag"></i> GlobalClusterIdentifier</label>
+		<input type="text" id="node-input-GlobalClusterIdentifier" placeholder="GlobalClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBParameterGroupFamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-DBParameterGroupFamily"><i class="fa fa-tag"></i> DBParameterGroupFamily</label>
+		<input type="text" id="node-input-DBParameterGroupFamily" placeholder="DBParameterGroupFamily"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DBClusterSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBClusterSnapshotIdentifier"><i class="fa fa-tag"></i> DBClusterSnapshotIdentifier</label>
+		<input type="text" id="node-input-DBClusterSnapshotIdentifier" placeholder="DBClusterSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBInstanceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DBInstanceIdentifier"><i class="fa fa-tag"></i> DBInstanceIdentifier</label>
+		<input type="text" id="node-input-DBInstanceIdentifier" placeholder="DBInstanceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DBInstanceClassAttr' class='hiddenAttrs'>
+		<label for="node-input-DBInstanceClass"><i class="fa fa-tag"></i> DBInstanceClass</label>
+		<input type="text" id="node-input-DBInstanceClass" placeholder="DBInstanceClass"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZone"><i class="fa fa-tag"></i> AvailabilityZone</label>
+		<input type="text" id="node-input-AvailabilityZone" placeholder="AvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='AutoMinorVersionUpgradeAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMinorVersionUpgrade"><i class="fa fa-tag"></i> AutoMinorVersionUpgrade</label>
+		<input type="text" id="node-input-AutoMinorVersionUpgrade" placeholder="AutoMinorVersionUpgrade"></input>
+	</div> 
+	<div class="form-row" id='PromotionTierAttr' class='hiddenAttrs'>
+		<label for="node-input-PromotionTier"><i class="fa fa-tag"></i> PromotionTier</label>
+		<input type="text" id="node-input-PromotionTier" placeholder="PromotionTier"></input>
+	</div> 
+	<div class="form-row" id='DBSubnetGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-DBSubnetGroupDescription"><i class="fa fa-tag"></i> DBSubnetGroupDescription</label>
+		<input type="text" id="node-input-DBSubnetGroupDescription" placeholder="DBSubnetGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicArn"><i class="fa fa-tag"></i> SnsTopicArn</label>
+		<input type="text" id="node-input-SnsTopicArn" placeholder="SnsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i> SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='EventCategoriesAttr' class='hiddenAttrs'>
+		<label for="node-input-EventCategories"><i class="fa fa-tag"></i> EventCategories</label>
+		<input type="text" id="node-input-EventCategories" placeholder="EventCategories"></input>
+	</div> 
+	<div class="form-row" id='SourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIds"><i class="fa fa-tag"></i> SourceIds</label>
+		<input type="text" id="node-input-SourceIds" placeholder="SourceIds"></input>
+	</div> 
+	<div class="form-row" id='EnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-Enabled"><i class="fa fa-tag"></i> Enabled</label>
+		<input type="text" id="node-input-Enabled" placeholder="Enabled"></input>
+	</div> 
+	<div class="form-row" id='SourceDBClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceDBClusterIdentifier"><i class="fa fa-tag"></i> SourceDBClusterIdentifier</label>
+		<input type="text" id="node-input-SourceDBClusterIdentifier" placeholder="SourceDBClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='DatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DatabaseName"><i class="fa fa-tag"></i> DatabaseName</label>
+		<input type="text" id="node-input-DatabaseName" placeholder="DatabaseName"></input>
+	</div> 
+	<div class="form-row" id='SkipFinalSnapshotAttr' class='hiddenAttrs'>
+		<label for="node-input-SkipFinalSnapshot"><i class="fa fa-tag"></i> SkipFinalSnapshot</label>
+		<input type="text" id="node-input-SkipFinalSnapshot" placeholder="SkipFinalSnapshot"></input>
+	</div> 
+	<div class="form-row" id='FinalDBSnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-FinalDBSnapshotIdentifier"><i class="fa fa-tag"></i> FinalDBSnapshotIdentifier</label>
+		<input type="text" id="node-input-FinalDBSnapshotIdentifier" placeholder="FinalDBSnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='CertificateIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateIdentifier"><i class="fa fa-tag"></i> CertificateIdentifier</label>
+		<input type="text" id="node-input-CertificateIdentifier" placeholder="CertificateIdentifier"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='MaxRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRecords"><i class="fa fa-tag"></i> MaxRecords</label>
+		<input type="text" id="node-input-MaxRecords" placeholder="MaxRecords"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='SnapshotTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotType"><i class="fa fa-tag"></i> SnapshotType</label>
+		<input type="text" id="node-input-SnapshotType" placeholder="SnapshotType"></input>
+	</div> 
+	<div class="form-row" id='IncludeSharedAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeShared"><i class="fa fa-tag"></i> IncludeShared</label>
+		<input type="text" id="node-input-IncludeShared" placeholder="IncludeShared"></input>
+	</div> 
+	<div class="form-row" id='IncludePublicAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludePublic"><i class="fa fa-tag"></i> IncludePublic</label>
+		<input type="text" id="node-input-IncludePublic" placeholder="IncludePublic"></input>
+	</div> 
+	<div class="form-row" id='DefaultOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultOnly"><i class="fa fa-tag"></i> DefaultOnly</label>
+		<input type="text" id="node-input-DefaultOnly" placeholder="DefaultOnly"></input>
+	</div> 
+	<div class="form-row" id='ListSupportedCharacterSetsAttr' class='hiddenAttrs'>
+		<label for="node-input-ListSupportedCharacterSets"><i class="fa fa-tag"></i> ListSupportedCharacterSets</label>
+		<input type="text" id="node-input-ListSupportedCharacterSets" placeholder="ListSupportedCharacterSets"></input>
+	</div> 
+	<div class="form-row" id='ListSupportedTimezonesAttr' class='hiddenAttrs'>
+		<label for="node-input-ListSupportedTimezones"><i class="fa fa-tag"></i> ListSupportedTimezones</label>
+		<input type="text" id="node-input-ListSupportedTimezones" placeholder="ListSupportedTimezones"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='DurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Duration"><i class="fa fa-tag"></i> Duration</label>
+		<input type="text" id="node-input-Duration" placeholder="Duration"></input>
+	</div> 
+	<div class="form-row" id='LicenseModelAttr' class='hiddenAttrs'>
+		<label for="node-input-LicenseModel"><i class="fa fa-tag"></i> LicenseModel</label>
+		<input type="text" id="node-input-LicenseModel" placeholder="LicenseModel"></input>
+	</div> 
+	<div class="form-row" id='VpcAttr' class='hiddenAttrs'>
+		<label for="node-input-Vpc"><i class="fa fa-tag"></i> Vpc</label>
+		<input type="text" id="node-input-Vpc" placeholder="Vpc"></input>
+	</div> 
+	<div class="form-row" id='TargetDBInstanceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetDBInstanceIdentifier"><i class="fa fa-tag"></i> TargetDBInstanceIdentifier</label>
+		<input type="text" id="node-input-TargetDBInstanceIdentifier" placeholder="TargetDBInstanceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='NewDBClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-NewDBClusterIdentifier"><i class="fa fa-tag"></i> NewDBClusterIdentifier</label>
+		<input type="text" id="node-input-NewDBClusterIdentifier" placeholder="NewDBClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ApplyImmediatelyAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyImmediately"><i class="fa fa-tag"></i> ApplyImmediately</label>
+		<input type="text" id="node-input-ApplyImmediately" placeholder="ApplyImmediately"></input>
+	</div> 
+	<div class="form-row" id='CloudwatchLogsExportConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudwatchLogsExportConfiguration"><i class="fa fa-tag"></i> CloudwatchLogsExportConfiguration</label>
+		<input type="text" id="node-input-CloudwatchLogsExportConfiguration" placeholder="CloudwatchLogsExportConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='AttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeName"><i class="fa fa-tag"></i> AttributeName</label>
+		<input type="text" id="node-input-AttributeName" placeholder="AttributeName"></input>
+	</div> 
+	<div class="form-row" id='ValuesToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-ValuesToAdd"><i class="fa fa-tag"></i> ValuesToAdd</label>
+		<input type="text" id="node-input-ValuesToAdd" placeholder="ValuesToAdd"></input>
+	</div> 
+	<div class="form-row" id='ValuesToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-ValuesToRemove"><i class="fa fa-tag"></i> ValuesToRemove</label>
+		<input type="text" id="node-input-ValuesToRemove" placeholder="ValuesToRemove"></input>
+	</div> 
+	<div class="form-row" id='NewDBInstanceIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-NewDBInstanceIdentifier"><i class="fa fa-tag"></i> NewDBInstanceIdentifier</label>
+		<input type="text" id="node-input-NewDBInstanceIdentifier" placeholder="NewDBInstanceIdentifier"></input>
+	</div> 
+	<div class="form-row" id='CACertificateIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-CACertificateIdentifier"><i class="fa fa-tag"></i> CACertificateIdentifier</label>
+		<input type="text" id="node-input-CACertificateIdentifier" placeholder="CACertificateIdentifier"></input>
+	</div> 
+	<div class="form-row" id='NewGlobalClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-NewGlobalClusterIdentifier"><i class="fa fa-tag"></i> NewGlobalClusterIdentifier</label>
+		<input type="text" id="node-input-NewGlobalClusterIdentifier" placeholder="NewGlobalClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='ForceFailoverAttr' class='hiddenAttrs'>
+		<label for="node-input-ForceFailover"><i class="fa fa-tag"></i> ForceFailover</label>
+		<input type="text" id="node-input-ForceFailover" placeholder="ForceFailover"></input>
+	</div> 
+	<div class="form-row" id='DbClusterIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-DbClusterIdentifier"><i class="fa fa-tag"></i> DbClusterIdentifier</label>
+		<input type="text" id="node-input-DbClusterIdentifier" placeholder="DbClusterIdentifier"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ResetAllParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-ResetAllParameters"><i class="fa fa-tag"></i> ResetAllParameters</label>
+		<input type="text" id="node-input-ResetAllParameters" placeholder="ResetAllParameters"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotIdentifier"><i class="fa fa-tag"></i> SnapshotIdentifier</label>
+		<input type="text" id="node-input-SnapshotIdentifier" placeholder="SnapshotIdentifier"></input>
+	</div> 
+	<div class="form-row" id='RestoreToTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-RestoreToTime"><i class="fa fa-tag"></i> RestoreToTime</label>
+		<input type="text" id="node-input-RestoreToTime" placeholder="RestoreToTime"></input>
+	</div> 
+	<div class="form-row" id='UseLatestRestorableTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-UseLatestRestorableTime"><i class="fa fa-tag"></i> UseLatestRestorableTime</label>
+		<input type="text" id="node-input-UseLatestRestorableTime" placeholder="UseLatestRestorableTime"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddSourceIdentifierToSubscription:[
+					'#SubscriptionNameAttr','#SourceIdentifierAttr'
+					],
+				AddTagsToResource:[
+					'#ResourceNameAttr','#TagsAttr'
+					],
+				ApplyPendingMaintenanceAction:[
+					'#ResourceIdentifierAttr','#ApplyActionAttr','#OptInTypeAttr'
+					],
+				CopyDBClusterParameterGroup:[
+					'#SourceDBClusterParameterGroupIdentifierAttr','#TargetDBClusterParameterGroupIdentifierAttr','#TargetDBClusterParameterGroupDescriptionAttr','#TagsAttr'
+					],
+				CopyDBClusterSnapshot:[
+					'#SourceDBClusterSnapshotIdentifierAttr','#TargetDBClusterSnapshotIdentifierAttr','#KmsKeyIdAttr','#PreSignedUrlAttr','#CopyTagsAttr','#TagsAttr'
+					],
+				CreateDBCluster:[
+					'#AvailabilityZonesAttr','#BackupRetentionPeriodAttr','#DBClusterIdentifierAttr','#DBClusterParameterGroupNameAttr','#VpcSecurityGroupIdsAttr','#DBSubnetGroupNameAttr','#EngineAttr','#EngineVersionAttr','#PortAttr','#MasterUsernameAttr','#MasterUserPasswordAttr','#PreferredBackupWindowAttr','#PreferredMaintenanceWindowAttr','#TagsAttr','#StorageEncryptedAttr','#KmsKeyIdAttr','#PreSignedUrlAttr','#EnableCloudwatchLogsExportsAttr','#DeletionProtectionAttr','#GlobalClusterIdentifierAttr'
+					],
+				CreateDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr','#DBParameterGroupFamilyAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateDBClusterSnapshot:[
+					'#DBClusterSnapshotIdentifierAttr','#DBClusterIdentifierAttr','#TagsAttr'
+					],
+				CreateDBInstance:[
+					'#DBInstanceIdentifierAttr','#DBInstanceClassAttr','#EngineAttr','#AvailabilityZoneAttr','#PreferredMaintenanceWindowAttr','#AutoMinorVersionUpgradeAttr','#TagsAttr','#DBClusterIdentifierAttr','#PromotionTierAttr'
+					],
+				CreateDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr','#DBSubnetGroupDescriptionAttr','#SubnetIdsAttr','#TagsAttr'
+					],
+				CreateEventSubscription:[
+					'#SubscriptionNameAttr','#SnsTopicArnAttr','#SourceTypeAttr','#EventCategoriesAttr','#SourceIdsAttr','#EnabledAttr','#TagsAttr'
+					],
+				CreateGlobalCluster:[
+					'#GlobalClusterIdentifierAttr','#SourceDBClusterIdentifierAttr','#EngineAttr','#EngineVersionAttr','#DeletionProtectionAttr','#DatabaseNameAttr','#StorageEncryptedAttr'
+					],
+				DeleteDBCluster:[
+					'#DBClusterIdentifierAttr','#SkipFinalSnapshotAttr','#FinalDBSnapshotIdentifierAttr'
+					],
+				DeleteDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr'
+					],
+				DeleteDBClusterSnapshot:[
+					'#DBClusterSnapshotIdentifierAttr'
+					],
+				DeleteDBInstance:[
+					'#DBInstanceIdentifierAttr'
+					],
+				DeleteDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr'
+					],
+				DeleteEventSubscription:[
+					'#SubscriptionNameAttr'
+					],
+				DeleteGlobalCluster:[
+					'#GlobalClusterIdentifierAttr'
+					],
+				DescribeCertificates:[
+					'#CertificateIdentifierAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeDBClusterParameterGroups:[
+					'#DBClusterParameterGroupNameAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeDBClusterParameters:[
+					'#DBClusterParameterGroupNameAttr','#SourceAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeDBClusterSnapshotAttributes:[
+					'#DBClusterSnapshotIdentifierAttr'
+					],
+				DescribeDBClusterSnapshots:[
+					'#DBClusterIdentifierAttr','#DBClusterSnapshotIdentifierAttr','#SnapshotTypeAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr','#IncludeSharedAttr','#IncludePublicAttr'
+					],
+				DescribeDBClusters:[
+					'#DBClusterIdentifierAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeDBEngineVersions:[
+					'#EngineAttr','#EngineVersionAttr','#DBParameterGroupFamilyAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr','#DefaultOnlyAttr','#ListSupportedCharacterSetsAttr','#ListSupportedTimezonesAttr'
+					],
+				DescribeDBInstances:[
+					'#DBInstanceIdentifierAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeDBSubnetGroups:[
+					'#DBSubnetGroupNameAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeEngineDefaultClusterParameters:[
+					'#DBParameterGroupFamilyAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeEventCategories:[
+					'#SourceTypeAttr','#FiltersAttr'
+					],
+				DescribeEventSubscriptions:[
+					'#SubscriptionNameAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeEvents:[
+					'#SourceIdentifierAttr','#SourceTypeAttr','#StartTimeAttr','#EndTimeAttr','#DurationAttr','#EventCategoriesAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeGlobalClusters:[
+					'#GlobalClusterIdentifierAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribeOrderableDBInstanceOptions:[
+					'#EngineAttr','#EngineVersionAttr','#DBInstanceClassAttr','#LicenseModelAttr','#VpcAttr','#FiltersAttr','#MaxRecordsAttr','#MarkerAttr'
+					],
+				DescribePendingMaintenanceActions:[
+					'#ResourceIdentifierAttr','#FiltersAttr','#MarkerAttr','#MaxRecordsAttr'
+					],
+				FailoverDBCluster:[
+					'#DBClusterIdentifierAttr','#TargetDBInstanceIdentifierAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceNameAttr','#FiltersAttr'
+					],
+				ModifyDBCluster:[
+					'#DBClusterIdentifierAttr','#NewDBClusterIdentifierAttr','#ApplyImmediatelyAttr','#BackupRetentionPeriodAttr','#DBClusterParameterGroupNameAttr','#VpcSecurityGroupIdsAttr','#PortAttr','#MasterUserPasswordAttr','#PreferredBackupWindowAttr','#PreferredMaintenanceWindowAttr','#CloudwatchLogsExportConfigurationAttr','#EngineVersionAttr','#DeletionProtectionAttr'
+					],
+				ModifyDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr','#ParametersAttr'
+					],
+				ModifyDBClusterSnapshotAttribute:[
+					'#DBClusterSnapshotIdentifierAttr','#AttributeNameAttr','#ValuesToAddAttr','#ValuesToRemoveAttr'
+					],
+				ModifyDBInstance:[
+					'#DBInstanceIdentifierAttr','#DBInstanceClassAttr','#ApplyImmediatelyAttr','#PreferredMaintenanceWindowAttr','#AutoMinorVersionUpgradeAttr','#NewDBInstanceIdentifierAttr','#CACertificateIdentifierAttr','#PromotionTierAttr'
+					],
+				ModifyDBSubnetGroup:[
+					'#DBSubnetGroupNameAttr','#DBSubnetGroupDescriptionAttr','#SubnetIdsAttr'
+					],
+				ModifyEventSubscription:[
+					'#SubscriptionNameAttr','#SnsTopicArnAttr','#SourceTypeAttr','#EventCategoriesAttr','#EnabledAttr'
+					],
+				ModifyGlobalCluster:[
+					'#GlobalClusterIdentifierAttr','#NewGlobalClusterIdentifierAttr','#DeletionProtectionAttr'
+					],
+				RebootDBInstance:[
+					'#DBInstanceIdentifierAttr','#ForceFailoverAttr'
+					],
+				RemoveFromGlobalCluster:[
+					'#GlobalClusterIdentifierAttr','#DbClusterIdentifierAttr'
+					],
+				RemoveSourceIdentifierFromSubscription:[
+					'#SubscriptionNameAttr','#SourceIdentifierAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceNameAttr','#TagKeysAttr'
+					],
+				ResetDBClusterParameterGroup:[
+					'#DBClusterParameterGroupNameAttr','#ResetAllParametersAttr','#ParametersAttr'
+					],
+				RestoreDBClusterFromSnapshot:[
+					'#AvailabilityZonesAttr','#DBClusterIdentifierAttr','#SnapshotIdentifierAttr','#EngineAttr','#EngineVersionAttr','#PortAttr','#DBSubnetGroupNameAttr','#VpcSecurityGroupIdsAttr','#TagsAttr','#KmsKeyIdAttr','#EnableCloudwatchLogsExportsAttr','#DeletionProtectionAttr'
+					],
+				RestoreDBClusterToPointInTime:[
+					'#DBClusterIdentifierAttr','#SourceDBClusterIdentifierAttr','#RestoreToTimeAttr','#UseLatestRestorableTimeAttr','#PortAttr','#DBSubnetGroupNameAttr','#VpcSecurityGroupIdsAttr','#TagsAttr','#KmsKeyIdAttr','#EnableCloudwatchLogsExportsAttr','#DeletionProtectionAttr'
+					],
+				StartDBCluster:[
+					'#DBClusterIdentifierAttr'
+					],
+				StopDBCluster:[
+					'#DBClusterIdentifierAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DocDB">
+<p>
+AWS DocDB
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DocDB.html">DocDB</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DocDB',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddSourceIdentifierToSubscription' },
+			
+				SubscriptionName: { value: ""} ,
+				SourceIdentifier: { value: ""} ,
+				ResourceName: { value: ""} ,
+				Tags: { value: ""} ,
+				ResourceIdentifier: { value: ""} ,
+				ApplyAction: { value: ""} ,
+				OptInType: { value: ""} ,
+				SourceDBClusterParameterGroupIdentifier: { value: ""} ,
+				TargetDBClusterParameterGroupIdentifier: { value: ""} ,
+				TargetDBClusterParameterGroupDescription: { value: ""} ,
+				SourceDBClusterSnapshotIdentifier: { value: ""} ,
+				TargetDBClusterSnapshotIdentifier: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				PreSignedUrl: { value: ""} ,
+				CopyTags: { value: ""} ,
+				AvailabilityZones: { value: ""} ,
+				BackupRetentionPeriod: { value: ""} ,
+				DBClusterIdentifier: { value: ""} ,
+				DBClusterParameterGroupName: { value: ""} ,
+				VpcSecurityGroupIds: { value: ""} ,
+				DBSubnetGroupName: { value: ""} ,
+				Engine: { value: ""} ,
+				EngineVersion: { value: ""} ,
+				Port: { value: ""} ,
+				MasterUsername: { value: ""} ,
+				MasterUserPassword: { value: ""} ,
+				PreferredBackupWindow: { value: ""} ,
+				PreferredMaintenanceWindow: { value: ""} ,
+				StorageEncrypted: { value: ""} ,
+				EnableCloudwatchLogsExports: { value: ""} ,
+				DeletionProtection: { value: ""} ,
+				GlobalClusterIdentifier: { value: ""} ,
+				DBParameterGroupFamily: { value: ""} ,
+				Description: { value: ""} ,
+				DBClusterSnapshotIdentifier: { value: ""} ,
+				DBInstanceIdentifier: { value: ""} ,
+				DBInstanceClass: { value: ""} ,
+				AvailabilityZone: { value: ""} ,
+				AutoMinorVersionUpgrade: { value: ""} ,
+				PromotionTier: { value: ""} ,
+				DBSubnetGroupDescription: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				SnsTopicArn: { value: ""} ,
+				SourceType: { value: ""} ,
+				EventCategories: { value: ""} ,
+				SourceIds: { value: ""} ,
+				Enabled: { value: ""} ,
+				SourceDBClusterIdentifier: { value: ""} ,
+				DatabaseName: { value: ""} ,
+				SkipFinalSnapshot: { value: ""} ,
+				FinalDBSnapshotIdentifier: { value: ""} ,
+				CertificateIdentifier: { value: ""} ,
+				Filters: { value: ""} ,
+				MaxRecords: { value: ""} ,
+				Marker: { value: ""} ,
+				Source: { value: ""} ,
+				SnapshotType: { value: ""} ,
+				IncludeShared: { value: ""} ,
+				IncludePublic: { value: ""} ,
+				DefaultOnly: { value: ""} ,
+				ListSupportedCharacterSets: { value: ""} ,
+				ListSupportedTimezones: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				Duration: { value: ""} ,
+				LicenseModel: { value: ""} ,
+				Vpc: { value: ""} ,
+				TargetDBInstanceIdentifier: { value: ""} ,
+				NewDBClusterIdentifier: { value: ""} ,
+				ApplyImmediately: { value: ""} ,
+				CloudwatchLogsExportConfiguration: { value: ""} ,
+				Parameters: { value: ""} ,
+				AttributeName: { value: ""} ,
+				ValuesToAdd: { value: ""} ,
+				ValuesToRemove: { value: ""} ,
+				NewDBInstanceIdentifier: { value: ""} ,
+				CACertificateIdentifier: { value: ""} ,
+				NewGlobalClusterIdentifier: { value: ""} ,
+				ForceFailover: { value: ""} ,
+				DbClusterIdentifier: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ResetAllParameters: { value: ""} ,
+				SnapshotIdentifier: { value: ""} ,
+				RestoreToTime: { value: ""} ,
+				UseLatestRestorableTime: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DocDB " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SubscriptionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplyAction").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OptInType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceDBClusterParameterGroupIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetDBClusterParameterGroupIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetDBClusterParameterGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceDBClusterSnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetDBClusterSnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreSignedUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopyTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AvailabilityZones").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupRetentionPeriod").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DBClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBClusterParameterGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcSecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBSubnetGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Engine").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Port").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MasterUsername").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MasterUserPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredBackupWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredMaintenanceWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageEncrypted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EnableCloudwatchLogsExports").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeletionProtection").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-GlobalClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBParameterGroupFamily").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBClusterSnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBInstanceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DBInstanceClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMinorVersionUpgrade").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-PromotionTier").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DBSubnetGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EventCategories").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Enabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SourceDBClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatabaseName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SkipFinalSnapshot").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-FinalDBSnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxRecords").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeShared").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-IncludePublic").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DefaultOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ListSupportedCharacterSets").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ListSupportedTimezones").typedInput({ default: "bool", types: ["bool"]});
+
+
+$("#node-input-Duration").typedInput({ default: "num", types: ["num"]});
+$("#node-input-LicenseModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Vpc").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TargetDBInstanceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewDBClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplyImmediately").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValuesToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValuesToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewDBInstanceIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CACertificateIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewGlobalClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ForceFailover").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DbClusterIdentifier").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResetAllParameters").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SnapshotIdentifier").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UseLatestRestorableTime").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

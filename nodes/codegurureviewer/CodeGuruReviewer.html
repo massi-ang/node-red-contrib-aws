@@ -1,0 +1,301 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeGuruReviewer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateRepository">AssociateRepository</option>
+		
+			<option value="CreateCodeReview">CreateCodeReview</option>
+		
+			<option value="DescribeCodeReview">DescribeCodeReview</option>
+		
+			<option value="DescribeRecommendationFeedback">DescribeRecommendationFeedback</option>
+		
+			<option value="DescribeRepositoryAssociation">DescribeRepositoryAssociation</option>
+		
+			<option value="DisassociateRepository">DisassociateRepository</option>
+		
+			<option value="ListCodeReviews">ListCodeReviews</option>
+		
+			<option value="ListRecommendationFeedback">ListRecommendationFeedback</option>
+		
+			<option value="ListRecommendations">ListRecommendations</option>
+		
+			<option value="ListRepositoryAssociations">ListRepositoryAssociations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutRecommendationFeedback">PutRecommendationFeedback</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='RepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-Repository"><i class="fa fa-tag"></i> Repository</label>
+		<input type="text" id="node-input-Repository" placeholder="Repository"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='KMSKeyDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-KMSKeyDetails"><i class="fa fa-tag"></i> KMSKeyDetails</label>
+		<input type="text" id="node-input-KMSKeyDetails" placeholder="KMSKeyDetails"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RepositoryAssociationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RepositoryAssociationArn"><i class="fa fa-tag"></i> RepositoryAssociationArn</label>
+		<input type="text" id="node-input-RepositoryAssociationArn" placeholder="RepositoryAssociationArn"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='CodeReviewArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CodeReviewArn"><i class="fa fa-tag"></i> CodeReviewArn</label>
+		<input type="text" id="node-input-CodeReviewArn" placeholder="CodeReviewArn"></input>
+	</div> 
+	<div class="form-row" id='RecommendationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RecommendationId"><i class="fa fa-tag"></i> RecommendationId</label>
+		<input type="text" id="node-input-RecommendationId" placeholder="RecommendationId"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='AssociationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationArn"><i class="fa fa-tag"></i> AssociationArn</label>
+		<input type="text" id="node-input-AssociationArn" placeholder="AssociationArn"></input>
+	</div> 
+	<div class="form-row" id='ProviderTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ProviderTypes"><i class="fa fa-tag"></i> ProviderTypes</label>
+		<input type="text" id="node-input-ProviderTypes" placeholder="ProviderTypes"></input>
+	</div> 
+	<div class="form-row" id='StatesAttr' class='hiddenAttrs'>
+		<label for="node-input-States"><i class="fa fa-tag"></i> States</label>
+		<input type="text" id="node-input-States" placeholder="States"></input>
+	</div> 
+	<div class="form-row" id='RepositoryNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-RepositoryNames"><i class="fa fa-tag"></i> RepositoryNames</label>
+		<input type="text" id="node-input-RepositoryNames" placeholder="RepositoryNames"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='UserIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIds"><i class="fa fa-tag"></i> UserIds</label>
+		<input type="text" id="node-input-UserIds" placeholder="UserIds"></input>
+	</div> 
+	<div class="form-row" id='RecommendationIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-RecommendationIds"><i class="fa fa-tag"></i> RecommendationIds</label>
+		<input type="text" id="node-input-RecommendationIds" placeholder="RecommendationIds"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='OwnersAttr' class='hiddenAttrs'>
+		<label for="node-input-Owners"><i class="fa fa-tag"></i> Owners</label>
+		<input type="text" id="node-input-Owners" placeholder="Owners"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='ReactionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Reactions"><i class="fa fa-tag"></i> Reactions</label>
+		<input type="text" id="node-input-Reactions" placeholder="Reactions"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateRepository:[
+					'#RepositoryAttr','#ClientRequestTokenAttr','#TagsAttr','#KMSKeyDetailsAttr'
+					],
+				CreateCodeReview:[
+					'#NameAttr','#RepositoryAssociationArnAttr','#TypeAttr','#ClientRequestTokenAttr'
+					],
+				DescribeCodeReview:[
+					'#CodeReviewArnAttr'
+					],
+				DescribeRecommendationFeedback:[
+					'#CodeReviewArnAttr','#RecommendationIdAttr','#UserIdAttr'
+					],
+				DescribeRepositoryAssociation:[
+					'#AssociationArnAttr'
+					],
+				DisassociateRepository:[
+					'#AssociationArnAttr'
+					],
+				ListCodeReviews:[
+					'#ProviderTypesAttr','#StatesAttr','#RepositoryNamesAttr','#TypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListRecommendationFeedback:[
+					'#NextTokenAttr','#MaxResultsAttr','#CodeReviewArnAttr','#UserIdsAttr','#RecommendationIdsAttr'
+					],
+				ListRecommendations:[
+					'#NextTokenAttr','#MaxResultsAttr','#CodeReviewArnAttr'
+					],
+				ListRepositoryAssociations:[
+					'#ProviderTypesAttr','#StatesAttr','#NamesAttr','#OwnersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutRecommendationFeedback:[
+					'#CodeReviewArnAttr','#RecommendationIdAttr','#ReactionsAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeGuruReviewer">
+<p>
+AWS CodeGuruReviewer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeGuruReviewer.html">CodeGuruReviewer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeGuruReviewer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateRepository' },
+			
+				Repository: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				Tags: { value: ""} ,
+				KMSKeyDetails: { value: ""} ,
+				Name: { value: ""} ,
+				RepositoryAssociationArn: { value: ""} ,
+				Type: { value: ""} ,
+				CodeReviewArn: { value: ""} ,
+				RecommendationId: { value: ""} ,
+				UserId: { value: ""} ,
+				AssociationArn: { value: ""} ,
+				ProviderTypes: { value: ""} ,
+				States: { value: ""} ,
+				RepositoryNames: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				UserIds: { value: ""} ,
+				RecommendationIds: { value: ""} ,
+				Names: { value: ""} ,
+				Owners: { value: ""} ,
+				resourceArn: { value: ""} ,
+				Reactions: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeGuruReviewer " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KMSKeyDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RepositoryAssociationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CodeReviewArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecommendationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProviderTypes").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Reactions").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

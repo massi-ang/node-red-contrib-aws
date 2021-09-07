@@ -1,0 +1,1854 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SSM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="AssociateOpsItemRelatedItem">AssociateOpsItemRelatedItem</option>
+		
+			<option value="CancelCommand">CancelCommand</option>
+		
+			<option value="CancelMaintenanceWindowExecution">CancelMaintenanceWindowExecution</option>
+		
+			<option value="CreateActivation">CreateActivation</option>
+		
+			<option value="CreateAssociation">CreateAssociation</option>
+		
+			<option value="CreateAssociationBatch">CreateAssociationBatch</option>
+		
+			<option value="CreateDocument">CreateDocument</option>
+		
+			<option value="CreateMaintenanceWindow">CreateMaintenanceWindow</option>
+		
+			<option value="CreateOpsItem">CreateOpsItem</option>
+		
+			<option value="CreateOpsMetadata">CreateOpsMetadata</option>
+		
+			<option value="CreatePatchBaseline">CreatePatchBaseline</option>
+		
+			<option value="CreateResourceDataSync">CreateResourceDataSync</option>
+		
+			<option value="DeleteActivation">DeleteActivation</option>
+		
+			<option value="DeleteAssociation">DeleteAssociation</option>
+		
+			<option value="DeleteDocument">DeleteDocument</option>
+		
+			<option value="DeleteInventory">DeleteInventory</option>
+		
+			<option value="DeleteMaintenanceWindow">DeleteMaintenanceWindow</option>
+		
+			<option value="DeleteOpsMetadata">DeleteOpsMetadata</option>
+		
+			<option value="DeleteParameter">DeleteParameter</option>
+		
+			<option value="DeleteParameters">DeleteParameters</option>
+		
+			<option value="DeletePatchBaseline">DeletePatchBaseline</option>
+		
+			<option value="DeleteResourceDataSync">DeleteResourceDataSync</option>
+		
+			<option value="DeregisterManagedInstance">DeregisterManagedInstance</option>
+		
+			<option value="DeregisterPatchBaselineForPatchGroup">DeregisterPatchBaselineForPatchGroup</option>
+		
+			<option value="DeregisterTargetFromMaintenanceWindow">DeregisterTargetFromMaintenanceWindow</option>
+		
+			<option value="DeregisterTaskFromMaintenanceWindow">DeregisterTaskFromMaintenanceWindow</option>
+		
+			<option value="DescribeActivations">DescribeActivations</option>
+		
+			<option value="DescribeAssociation">DescribeAssociation</option>
+		
+			<option value="DescribeAssociationExecutionTargets">DescribeAssociationExecutionTargets</option>
+		
+			<option value="DescribeAssociationExecutions">DescribeAssociationExecutions</option>
+		
+			<option value="DescribeAutomationExecutions">DescribeAutomationExecutions</option>
+		
+			<option value="DescribeAutomationStepExecutions">DescribeAutomationStepExecutions</option>
+		
+			<option value="DescribeAvailablePatches">DescribeAvailablePatches</option>
+		
+			<option value="DescribeDocument">DescribeDocument</option>
+		
+			<option value="DescribeDocumentPermission">DescribeDocumentPermission</option>
+		
+			<option value="DescribeEffectiveInstanceAssociations">DescribeEffectiveInstanceAssociations</option>
+		
+			<option value="DescribeEffectivePatchesForPatchBaseline">DescribeEffectivePatchesForPatchBaseline</option>
+		
+			<option value="DescribeInstanceAssociationsStatus">DescribeInstanceAssociationsStatus</option>
+		
+			<option value="DescribeInstanceInformation">DescribeInstanceInformation</option>
+		
+			<option value="DescribeInstancePatchStates">DescribeInstancePatchStates</option>
+		
+			<option value="DescribeInstancePatchStatesForPatchGroup">DescribeInstancePatchStatesForPatchGroup</option>
+		
+			<option value="DescribeInstancePatches">DescribeInstancePatches</option>
+		
+			<option value="DescribeInventoryDeletions">DescribeInventoryDeletions</option>
+		
+			<option value="DescribeMaintenanceWindowExecutionTaskInvocations">DescribeMaintenanceWindowExecutionTaskInvocations</option>
+		
+			<option value="DescribeMaintenanceWindowExecutionTasks">DescribeMaintenanceWindowExecutionTasks</option>
+		
+			<option value="DescribeMaintenanceWindowExecutions">DescribeMaintenanceWindowExecutions</option>
+		
+			<option value="DescribeMaintenanceWindowSchedule">DescribeMaintenanceWindowSchedule</option>
+		
+			<option value="DescribeMaintenanceWindowTargets">DescribeMaintenanceWindowTargets</option>
+		
+			<option value="DescribeMaintenanceWindowTasks">DescribeMaintenanceWindowTasks</option>
+		
+			<option value="DescribeMaintenanceWindows">DescribeMaintenanceWindows</option>
+		
+			<option value="DescribeMaintenanceWindowsForTarget">DescribeMaintenanceWindowsForTarget</option>
+		
+			<option value="DescribeOpsItems">DescribeOpsItems</option>
+		
+			<option value="DescribeParameters">DescribeParameters</option>
+		
+			<option value="DescribePatchBaselines">DescribePatchBaselines</option>
+		
+			<option value="DescribePatchGroupState">DescribePatchGroupState</option>
+		
+			<option value="DescribePatchGroups">DescribePatchGroups</option>
+		
+			<option value="DescribePatchProperties">DescribePatchProperties</option>
+		
+			<option value="DescribeSessions">DescribeSessions</option>
+		
+			<option value="DisassociateOpsItemRelatedItem">DisassociateOpsItemRelatedItem</option>
+		
+			<option value="GetAutomationExecution">GetAutomationExecution</option>
+		
+			<option value="GetCalendarState">GetCalendarState</option>
+		
+			<option value="GetCommandInvocation">GetCommandInvocation</option>
+		
+			<option value="GetConnectionStatus">GetConnectionStatus</option>
+		
+			<option value="GetDefaultPatchBaseline">GetDefaultPatchBaseline</option>
+		
+			<option value="GetDeployablePatchSnapshotForInstance">GetDeployablePatchSnapshotForInstance</option>
+		
+			<option value="GetDocument">GetDocument</option>
+		
+			<option value="GetInventory">GetInventory</option>
+		
+			<option value="GetInventorySchema">GetInventorySchema</option>
+		
+			<option value="GetMaintenanceWindow">GetMaintenanceWindow</option>
+		
+			<option value="GetMaintenanceWindowExecution">GetMaintenanceWindowExecution</option>
+		
+			<option value="GetMaintenanceWindowExecutionTask">GetMaintenanceWindowExecutionTask</option>
+		
+			<option value="GetMaintenanceWindowExecutionTaskInvocation">GetMaintenanceWindowExecutionTaskInvocation</option>
+		
+			<option value="GetMaintenanceWindowTask">GetMaintenanceWindowTask</option>
+		
+			<option value="GetOpsItem">GetOpsItem</option>
+		
+			<option value="GetOpsMetadata">GetOpsMetadata</option>
+		
+			<option value="GetOpsSummary">GetOpsSummary</option>
+		
+			<option value="GetParameter">GetParameter</option>
+		
+			<option value="GetParameterHistory">GetParameterHistory</option>
+		
+			<option value="GetParameters">GetParameters</option>
+		
+			<option value="GetParametersByPath">GetParametersByPath</option>
+		
+			<option value="GetPatchBaseline">GetPatchBaseline</option>
+		
+			<option value="GetPatchBaselineForPatchGroup">GetPatchBaselineForPatchGroup</option>
+		
+			<option value="GetServiceSetting">GetServiceSetting</option>
+		
+			<option value="LabelParameterVersion">LabelParameterVersion</option>
+		
+			<option value="ListAssociationVersions">ListAssociationVersions</option>
+		
+			<option value="ListAssociations">ListAssociations</option>
+		
+			<option value="ListCommandInvocations">ListCommandInvocations</option>
+		
+			<option value="ListCommands">ListCommands</option>
+		
+			<option value="ListComplianceItems">ListComplianceItems</option>
+		
+			<option value="ListComplianceSummaries">ListComplianceSummaries</option>
+		
+			<option value="ListDocumentMetadataHistory">ListDocumentMetadataHistory</option>
+		
+			<option value="ListDocumentVersions">ListDocumentVersions</option>
+		
+			<option value="ListDocuments">ListDocuments</option>
+		
+			<option value="ListInventoryEntries">ListInventoryEntries</option>
+		
+			<option value="ListOpsItemEvents">ListOpsItemEvents</option>
+		
+			<option value="ListOpsItemRelatedItems">ListOpsItemRelatedItems</option>
+		
+			<option value="ListOpsMetadata">ListOpsMetadata</option>
+		
+			<option value="ListResourceComplianceSummaries">ListResourceComplianceSummaries</option>
+		
+			<option value="ListResourceDataSync">ListResourceDataSync</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ModifyDocumentPermission">ModifyDocumentPermission</option>
+		
+			<option value="PutComplianceItems">PutComplianceItems</option>
+		
+			<option value="PutInventory">PutInventory</option>
+		
+			<option value="PutParameter">PutParameter</option>
+		
+			<option value="RegisterDefaultPatchBaseline">RegisterDefaultPatchBaseline</option>
+		
+			<option value="RegisterPatchBaselineForPatchGroup">RegisterPatchBaselineForPatchGroup</option>
+		
+			<option value="RegisterTargetWithMaintenanceWindow">RegisterTargetWithMaintenanceWindow</option>
+		
+			<option value="RegisterTaskWithMaintenanceWindow">RegisterTaskWithMaintenanceWindow</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetServiceSetting">ResetServiceSetting</option>
+		
+			<option value="ResumeSession">ResumeSession</option>
+		
+			<option value="SendAutomationSignal">SendAutomationSignal</option>
+		
+			<option value="SendCommand">SendCommand</option>
+		
+			<option value="StartAssociationsOnce">StartAssociationsOnce</option>
+		
+			<option value="StartAutomationExecution">StartAutomationExecution</option>
+		
+			<option value="StartChangeRequestExecution">StartChangeRequestExecution</option>
+		
+			<option value="StartSession">StartSession</option>
+		
+			<option value="StopAutomationExecution">StopAutomationExecution</option>
+		
+			<option value="TerminateSession">TerminateSession</option>
+		
+			<option value="UnlabelParameterVersion">UnlabelParameterVersion</option>
+		
+			<option value="UpdateAssociation">UpdateAssociation</option>
+		
+			<option value="UpdateAssociationStatus">UpdateAssociationStatus</option>
+		
+			<option value="UpdateDocument">UpdateDocument</option>
+		
+			<option value="UpdateDocumentDefaultVersion">UpdateDocumentDefaultVersion</option>
+		
+			<option value="UpdateDocumentMetadata">UpdateDocumentMetadata</option>
+		
+			<option value="UpdateMaintenanceWindow">UpdateMaintenanceWindow</option>
+		
+			<option value="UpdateMaintenanceWindowTarget">UpdateMaintenanceWindowTarget</option>
+		
+			<option value="UpdateMaintenanceWindowTask">UpdateMaintenanceWindowTask</option>
+		
+			<option value="UpdateManagedInstanceRole">UpdateManagedInstanceRole</option>
+		
+			<option value="UpdateOpsItem">UpdateOpsItem</option>
+		
+			<option value="UpdateOpsMetadata">UpdateOpsMetadata</option>
+		
+			<option value="UpdatePatchBaseline">UpdatePatchBaseline</option>
+		
+			<option value="UpdateResourceDataSync">UpdateResourceDataSync</option>
+		
+			<option value="UpdateServiceSetting">UpdateServiceSetting</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='OpsItemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsItemId"><i class="fa fa-tag"></i> OpsItemId</label>
+		<input type="text" id="node-input-OpsItemId" placeholder="OpsItemId"></input>
+	</div> 
+	<div class="form-row" id='AssociationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationType"><i class="fa fa-tag"></i> AssociationType</label>
+		<input type="text" id="node-input-AssociationType" placeholder="AssociationType"></input>
+	</div> 
+	<div class="form-row" id='ResourceUriAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceUri"><i class="fa fa-tag"></i> ResourceUri</label>
+		<input type="text" id="node-input-ResourceUri" placeholder="ResourceUri"></input>
+	</div> 
+	<div class="form-row" id='CommandIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CommandId"><i class="fa fa-tag"></i> CommandId</label>
+		<input type="text" id="node-input-CommandId" placeholder="CommandId"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceIds"><i class="fa fa-tag"></i> InstanceIds</label>
+		<input type="text" id="node-input-InstanceIds" placeholder="InstanceIds"></input>
+	</div> 
+	<div class="form-row" id='WindowExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WindowExecutionId"><i class="fa fa-tag"></i> WindowExecutionId</label>
+		<input type="text" id="node-input-WindowExecutionId" placeholder="WindowExecutionId"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DefaultInstanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultInstanceName"><i class="fa fa-tag"></i> DefaultInstanceName</label>
+		<input type="text" id="node-input-DefaultInstanceName" placeholder="DefaultInstanceName"></input>
+	</div> 
+	<div class="form-row" id='IamRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-IamRole"><i class="fa fa-tag"></i> IamRole</label>
+		<input type="text" id="node-input-IamRole" placeholder="IamRole"></input>
+	</div> 
+	<div class="form-row" id='RegistrationLimitAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistrationLimit"><i class="fa fa-tag"></i> RegistrationLimit</label>
+		<input type="text" id="node-input-RegistrationLimit" placeholder="RegistrationLimit"></input>
+	</div> 
+	<div class="form-row" id='ExpirationDateAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpirationDate"><i class="fa fa-tag"></i> ExpirationDate</label>
+		<input type="text" id="node-input-ExpirationDate" placeholder="ExpirationDate"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DocumentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentVersion"><i class="fa fa-tag"></i> DocumentVersion</label>
+		<input type="text" id="node-input-DocumentVersion" placeholder="DocumentVersion"></input>
+	</div> 
+	<div class="form-row" id='InstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceId"><i class="fa fa-tag"></i> InstanceId</label>
+		<input type="text" id="node-input-InstanceId" placeholder="InstanceId"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='TargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-Targets"><i class="fa fa-tag"></i> Targets</label>
+		<input type="text" id="node-input-Targets" placeholder="Targets"></input>
+	</div> 
+	<div class="form-row" id='ScheduleExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleExpression"><i class="fa fa-tag"></i> ScheduleExpression</label>
+		<input type="text" id="node-input-ScheduleExpression" placeholder="ScheduleExpression"></input>
+	</div> 
+	<div class="form-row" id='OutputLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputLocation"><i class="fa fa-tag"></i> OutputLocation</label>
+		<input type="text" id="node-input-OutputLocation" placeholder="OutputLocation"></input>
+	</div> 
+	<div class="form-row" id='AssociationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationName"><i class="fa fa-tag"></i> AssociationName</label>
+		<input type="text" id="node-input-AssociationName" placeholder="AssociationName"></input>
+	</div> 
+	<div class="form-row" id='AutomationTargetParameterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AutomationTargetParameterName"><i class="fa fa-tag"></i> AutomationTargetParameterName</label>
+		<input type="text" id="node-input-AutomationTargetParameterName" placeholder="AutomationTargetParameterName"></input>
+	</div> 
+	<div class="form-row" id='MaxErrorsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxErrors"><i class="fa fa-tag"></i> MaxErrors</label>
+		<input type="text" id="node-input-MaxErrors" placeholder="MaxErrors"></input>
+	</div> 
+	<div class="form-row" id='MaxConcurrencyAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxConcurrency"><i class="fa fa-tag"></i> MaxConcurrency</label>
+		<input type="text" id="node-input-MaxConcurrency" placeholder="MaxConcurrency"></input>
+	</div> 
+	<div class="form-row" id='ComplianceSeverityAttr' class='hiddenAttrs'>
+		<label for="node-input-ComplianceSeverity"><i class="fa fa-tag"></i> ComplianceSeverity</label>
+		<input type="text" id="node-input-ComplianceSeverity" placeholder="ComplianceSeverity"></input>
+	</div> 
+	<div class="form-row" id='SyncComplianceAttr' class='hiddenAttrs'>
+		<label for="node-input-SyncCompliance"><i class="fa fa-tag"></i> SyncCompliance</label>
+		<input type="text" id="node-input-SyncCompliance" placeholder="SyncCompliance"></input>
+	</div> 
+	<div class="form-row" id='ApplyOnlyAtCronIntervalAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplyOnlyAtCronInterval"><i class="fa fa-tag"></i> ApplyOnlyAtCronInterval</label>
+		<input type="text" id="node-input-ApplyOnlyAtCronInterval" placeholder="ApplyOnlyAtCronInterval"></input>
+	</div> 
+	<div class="form-row" id='CalendarNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-CalendarNames"><i class="fa fa-tag"></i> CalendarNames</label>
+		<input type="text" id="node-input-CalendarNames" placeholder="CalendarNames"></input>
+	</div> 
+	<div class="form-row" id='TargetLocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetLocations"><i class="fa fa-tag"></i> TargetLocations</label>
+		<input type="text" id="node-input-TargetLocations" placeholder="TargetLocations"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i> Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i> Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='RequiresAttr' class='hiddenAttrs'>
+		<label for="node-input-Requires"><i class="fa fa-tag"></i> Requires</label>
+		<input type="text" id="node-input-Requires" placeholder="Requires"></input>
+	</div> 
+	<div class="form-row" id='AttachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Attachments"><i class="fa fa-tag"></i> Attachments</label>
+		<input type="text" id="node-input-Attachments" placeholder="Attachments"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='VersionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionName"><i class="fa fa-tag"></i> VersionName</label>
+		<input type="text" id="node-input-VersionName" placeholder="VersionName"></input>
+	</div> 
+	<div class="form-row" id='DocumentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentType"><i class="fa fa-tag"></i> DocumentType</label>
+		<input type="text" id="node-input-DocumentType" placeholder="DocumentType"></input>
+	</div> 
+	<div class="form-row" id='DocumentFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentFormat"><i class="fa fa-tag"></i> DocumentFormat</label>
+		<input type="text" id="node-input-DocumentFormat" placeholder="DocumentFormat"></input>
+	</div> 
+	<div class="form-row" id='TargetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetType"><i class="fa fa-tag"></i> TargetType</label>
+		<input type="text" id="node-input-TargetType" placeholder="TargetType"></input>
+	</div> 
+	<div class="form-row" id='StartDateAttr' class='hiddenAttrs'>
+		<label for="node-input-StartDate"><i class="fa fa-tag"></i> StartDate</label>
+		<input type="text" id="node-input-StartDate" placeholder="StartDate"></input>
+	</div> 
+	<div class="form-row" id='EndDateAttr' class='hiddenAttrs'>
+		<label for="node-input-EndDate"><i class="fa fa-tag"></i> EndDate</label>
+		<input type="text" id="node-input-EndDate" placeholder="EndDate"></input>
+	</div> 
+	<div class="form-row" id='ScheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-Schedule"><i class="fa fa-tag"></i> Schedule</label>
+		<input type="text" id="node-input-Schedule" placeholder="Schedule"></input>
+	</div> 
+	<div class="form-row" id='ScheduleTimezoneAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleTimezone"><i class="fa fa-tag"></i> ScheduleTimezone</label>
+		<input type="text" id="node-input-ScheduleTimezone" placeholder="ScheduleTimezone"></input>
+	</div> 
+	<div class="form-row" id='ScheduleOffsetAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduleOffset"><i class="fa fa-tag"></i> ScheduleOffset</label>
+		<input type="text" id="node-input-ScheduleOffset" placeholder="ScheduleOffset"></input>
+	</div> 
+	<div class="form-row" id='DurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Duration"><i class="fa fa-tag"></i> Duration</label>
+		<input type="text" id="node-input-Duration" placeholder="Duration"></input>
+	</div> 
+	<div class="form-row" id='CutoffAttr' class='hiddenAttrs'>
+		<label for="node-input-Cutoff"><i class="fa fa-tag"></i> Cutoff</label>
+		<input type="text" id="node-input-Cutoff" placeholder="Cutoff"></input>
+	</div> 
+	<div class="form-row" id='AllowUnassociatedTargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowUnassociatedTargets"><i class="fa fa-tag"></i> AllowUnassociatedTargets</label>
+		<input type="text" id="node-input-AllowUnassociatedTargets" placeholder="AllowUnassociatedTargets"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='OpsItemTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsItemType"><i class="fa fa-tag"></i> OpsItemType</label>
+		<input type="text" id="node-input-OpsItemType" placeholder="OpsItemType"></input>
+	</div> 
+	<div class="form-row" id='OperationalDataAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationalData"><i class="fa fa-tag"></i> OperationalData</label>
+		<input type="text" id="node-input-OperationalData" placeholder="OperationalData"></input>
+	</div> 
+	<div class="form-row" id='NotificationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Notifications"><i class="fa fa-tag"></i> Notifications</label>
+		<input type="text" id="node-input-Notifications" placeholder="Notifications"></input>
+	</div> 
+	<div class="form-row" id='PriorityAttr' class='hiddenAttrs'>
+		<label for="node-input-Priority"><i class="fa fa-tag"></i> Priority</label>
+		<input type="text" id="node-input-Priority" placeholder="Priority"></input>
+	</div> 
+	<div class="form-row" id='RelatedOpsItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-RelatedOpsItems"><i class="fa fa-tag"></i> RelatedOpsItems</label>
+		<input type="text" id="node-input-RelatedOpsItems" placeholder="RelatedOpsItems"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='TitleAttr' class='hiddenAttrs'>
+		<label for="node-input-Title"><i class="fa fa-tag"></i> Title</label>
+		<input type="text" id="node-input-Title" placeholder="Title"></input>
+	</div> 
+	<div class="form-row" id='CategoryAttr' class='hiddenAttrs'>
+		<label for="node-input-Category"><i class="fa fa-tag"></i> Category</label>
+		<input type="text" id="node-input-Category" placeholder="Category"></input>
+	</div> 
+	<div class="form-row" id='SeverityAttr' class='hiddenAttrs'>
+		<label for="node-input-Severity"><i class="fa fa-tag"></i> Severity</label>
+		<input type="text" id="node-input-Severity" placeholder="Severity"></input>
+	</div> 
+	<div class="form-row" id='ActualStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActualStartTime"><i class="fa fa-tag"></i> ActualStartTime</label>
+		<input type="text" id="node-input-ActualStartTime" placeholder="ActualStartTime"></input>
+	</div> 
+	<div class="form-row" id='ActualEndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActualEndTime"><i class="fa fa-tag"></i> ActualEndTime</label>
+		<input type="text" id="node-input-ActualEndTime" placeholder="ActualEndTime"></input>
+	</div> 
+	<div class="form-row" id='PlannedStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-PlannedStartTime"><i class="fa fa-tag"></i> PlannedStartTime</label>
+		<input type="text" id="node-input-PlannedStartTime" placeholder="PlannedStartTime"></input>
+	</div> 
+	<div class="form-row" id='PlannedEndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-PlannedEndTime"><i class="fa fa-tag"></i> PlannedEndTime</label>
+		<input type="text" id="node-input-PlannedEndTime" placeholder="PlannedEndTime"></input>
+	</div> 
+	<div class="form-row" id='MetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-Metadata"><i class="fa fa-tag"></i> Metadata</label>
+		<input type="text" id="node-input-Metadata" placeholder="Metadata"></input>
+	</div> 
+	<div class="form-row" id='OperatingSystemAttr' class='hiddenAttrs'>
+		<label for="node-input-OperatingSystem"><i class="fa fa-tag"></i> OperatingSystem</label>
+		<input type="text" id="node-input-OperatingSystem" placeholder="OperatingSystem"></input>
+	</div> 
+	<div class="form-row" id='GlobalFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalFilters"><i class="fa fa-tag"></i> GlobalFilters</label>
+		<input type="text" id="node-input-GlobalFilters" placeholder="GlobalFilters"></input>
+	</div> 
+	<div class="form-row" id='ApprovalRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovalRules"><i class="fa fa-tag"></i> ApprovalRules</label>
+		<input type="text" id="node-input-ApprovalRules" placeholder="ApprovalRules"></input>
+	</div> 
+	<div class="form-row" id='ApprovedPatchesAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovedPatches"><i class="fa fa-tag"></i> ApprovedPatches</label>
+		<input type="text" id="node-input-ApprovedPatches" placeholder="ApprovedPatches"></input>
+	</div> 
+	<div class="form-row" id='ApprovedPatchesComplianceLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovedPatchesComplianceLevel"><i class="fa fa-tag"></i> ApprovedPatchesComplianceLevel</label>
+		<input type="text" id="node-input-ApprovedPatchesComplianceLevel" placeholder="ApprovedPatchesComplianceLevel"></input>
+	</div> 
+	<div class="form-row" id='ApprovedPatchesEnableNonSecurityAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovedPatchesEnableNonSecurity"><i class="fa fa-tag"></i> ApprovedPatchesEnableNonSecurity</label>
+		<input type="text" id="node-input-ApprovedPatchesEnableNonSecurity" placeholder="ApprovedPatchesEnableNonSecurity"></input>
+	</div> 
+	<div class="form-row" id='RejectedPatchesAttr' class='hiddenAttrs'>
+		<label for="node-input-RejectedPatches"><i class="fa fa-tag"></i> RejectedPatches</label>
+		<input type="text" id="node-input-RejectedPatches" placeholder="RejectedPatches"></input>
+	</div> 
+	<div class="form-row" id='RejectedPatchesActionAttr' class='hiddenAttrs'>
+		<label for="node-input-RejectedPatchesAction"><i class="fa fa-tag"></i> RejectedPatchesAction</label>
+		<input type="text" id="node-input-RejectedPatchesAction" placeholder="RejectedPatchesAction"></input>
+	</div> 
+	<div class="form-row" id='SourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-Sources"><i class="fa fa-tag"></i> Sources</label>
+		<input type="text" id="node-input-Sources" placeholder="Sources"></input>
+	</div> 
+	<div class="form-row" id='SyncNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SyncName"><i class="fa fa-tag"></i> SyncName</label>
+		<input type="text" id="node-input-SyncName" placeholder="SyncName"></input>
+	</div> 
+	<div class="form-row" id='S3DestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Destination"><i class="fa fa-tag"></i> S3Destination</label>
+		<input type="text" id="node-input-S3Destination" placeholder="S3Destination"></input>
+	</div> 
+	<div class="form-row" id='SyncTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SyncType"><i class="fa fa-tag"></i> SyncType</label>
+		<input type="text" id="node-input-SyncType" placeholder="SyncType"></input>
+	</div> 
+	<div class="form-row" id='SyncSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-SyncSource"><i class="fa fa-tag"></i> SyncSource</label>
+		<input type="text" id="node-input-SyncSource" placeholder="SyncSource"></input>
+	</div> 
+	<div class="form-row" id='ActivationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ActivationId"><i class="fa fa-tag"></i> ActivationId</label>
+		<input type="text" id="node-input-ActivationId" placeholder="ActivationId"></input>
+	</div> 
+	<div class="form-row" id='AssociationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationId"><i class="fa fa-tag"></i> AssociationId</label>
+		<input type="text" id="node-input-AssociationId" placeholder="AssociationId"></input>
+	</div> 
+	<div class="form-row" id='ForceAttr' class='hiddenAttrs'>
+		<label for="node-input-Force"><i class="fa fa-tag"></i> Force</label>
+		<input type="text" id="node-input-Force" placeholder="Force"></input>
+	</div> 
+	<div class="form-row" id='TypeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TypeName"><i class="fa fa-tag"></i> TypeName</label>
+		<input type="text" id="node-input-TypeName" placeholder="TypeName"></input>
+	</div> 
+	<div class="form-row" id='SchemaDeleteOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaDeleteOption"><i class="fa fa-tag"></i> SchemaDeleteOption</label>
+		<input type="text" id="node-input-SchemaDeleteOption" placeholder="SchemaDeleteOption"></input>
+	</div> 
+	<div class="form-row" id='DryRunAttr' class='hiddenAttrs'>
+		<label for="node-input-DryRun"><i class="fa fa-tag"></i> DryRun</label>
+		<input type="text" id="node-input-DryRun" placeholder="DryRun"></input>
+	</div> 
+	<div class="form-row" id='WindowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WindowId"><i class="fa fa-tag"></i> WindowId</label>
+		<input type="text" id="node-input-WindowId" placeholder="WindowId"></input>
+	</div> 
+	<div class="form-row" id='OpsMetadataArnAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsMetadataArn"><i class="fa fa-tag"></i> OpsMetadataArn</label>
+		<input type="text" id="node-input-OpsMetadataArn" placeholder="OpsMetadataArn"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='BaselineIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BaselineId"><i class="fa fa-tag"></i> BaselineId</label>
+		<input type="text" id="node-input-BaselineId" placeholder="BaselineId"></input>
+	</div> 
+	<div class="form-row" id='PatchGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-PatchGroup"><i class="fa fa-tag"></i> PatchGroup</label>
+		<input type="text" id="node-input-PatchGroup" placeholder="PatchGroup"></input>
+	</div> 
+	<div class="form-row" id='WindowTargetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WindowTargetId"><i class="fa fa-tag"></i> WindowTargetId</label>
+		<input type="text" id="node-input-WindowTargetId" placeholder="WindowTargetId"></input>
+	</div> 
+	<div class="form-row" id='SafeAttr' class='hiddenAttrs'>
+		<label for="node-input-Safe"><i class="fa fa-tag"></i> Safe</label>
+		<input type="text" id="node-input-Safe" placeholder="Safe"></input>
+	</div> 
+	<div class="form-row" id='WindowTaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WindowTaskId"><i class="fa fa-tag"></i> WindowTaskId</label>
+		<input type="text" id="node-input-WindowTaskId" placeholder="WindowTaskId"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='AssociationVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationVersion"><i class="fa fa-tag"></i> AssociationVersion</label>
+		<input type="text" id="node-input-AssociationVersion" placeholder="AssociationVersion"></input>
+	</div> 
+	<div class="form-row" id='ExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionId"><i class="fa fa-tag"></i> ExecutionId</label>
+		<input type="text" id="node-input-ExecutionId" placeholder="ExecutionId"></input>
+	</div> 
+	<div class="form-row" id='AutomationExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AutomationExecutionId"><i class="fa fa-tag"></i> AutomationExecutionId</label>
+		<input type="text" id="node-input-AutomationExecutionId" placeholder="AutomationExecutionId"></input>
+	</div> 
+	<div class="form-row" id='ReverseOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-ReverseOrder"><i class="fa fa-tag"></i> ReverseOrder</label>
+		<input type="text" id="node-input-ReverseOrder" placeholder="ReverseOrder"></input>
+	</div> 
+	<div class="form-row" id='PermissionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionType"><i class="fa fa-tag"></i> PermissionType</label>
+		<input type="text" id="node-input-PermissionType" placeholder="PermissionType"></input>
+	</div> 
+	<div class="form-row" id='InstanceInformationFilterListAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceInformationFilterList"><i class="fa fa-tag"></i> InstanceInformationFilterList</label>
+		<input type="text" id="node-input-InstanceInformationFilterList" placeholder="InstanceInformationFilterList"></input>
+	</div> 
+	<div class="form-row" id='DeletionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeletionId"><i class="fa fa-tag"></i> DeletionId</label>
+		<input type="text" id="node-input-DeletionId" placeholder="DeletionId"></input>
+	</div> 
+	<div class="form-row" id='TaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskId"><i class="fa fa-tag"></i> TaskId</label>
+		<input type="text" id="node-input-TaskId" placeholder="TaskId"></input>
+	</div> 
+	<div class="form-row" id='OpsItemFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-OpsItemFilters"><i class="fa fa-tag"></i> OpsItemFilters</label>
+		<input type="text" id="node-input-OpsItemFilters" placeholder="OpsItemFilters"></input>
+	</div> 
+	<div class="form-row" id='ParameterFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterFilters"><i class="fa fa-tag"></i> ParameterFilters</label>
+		<input type="text" id="node-input-ParameterFilters" placeholder="ParameterFilters"></input>
+	</div> 
+	<div class="form-row" id='PropertyAttr' class='hiddenAttrs'>
+		<label for="node-input-Property"><i class="fa fa-tag"></i> Property</label>
+		<input type="text" id="node-input-Property" placeholder="Property"></input>
+	</div> 
+	<div class="form-row" id='PatchSetAttr' class='hiddenAttrs'>
+		<label for="node-input-PatchSet"><i class="fa fa-tag"></i> PatchSet</label>
+		<input type="text" id="node-input-PatchSet" placeholder="PatchSet"></input>
+	</div> 
+	<div class="form-row" id='StateAttr' class='hiddenAttrs'>
+		<label for="node-input-State"><i class="fa fa-tag"></i> State</label>
+		<input type="text" id="node-input-State" placeholder="State"></input>
+	</div> 
+	<div class="form-row" id='AtTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-AtTime"><i class="fa fa-tag"></i> AtTime</label>
+		<input type="text" id="node-input-AtTime" placeholder="AtTime"></input>
+	</div> 
+	<div class="form-row" id='PluginNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PluginName"><i class="fa fa-tag"></i> PluginName</label>
+		<input type="text" id="node-input-PluginName" placeholder="PluginName"></input>
+	</div> 
+	<div class="form-row" id='TargetAttr' class='hiddenAttrs'>
+		<label for="node-input-Target"><i class="fa fa-tag"></i> Target</label>
+		<input type="text" id="node-input-Target" placeholder="Target"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotId"><i class="fa fa-tag"></i> SnapshotId</label>
+		<input type="text" id="node-input-SnapshotId" placeholder="SnapshotId"></input>
+	</div> 
+	<div class="form-row" id='BaselineOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-BaselineOverride"><i class="fa fa-tag"></i> BaselineOverride</label>
+		<input type="text" id="node-input-BaselineOverride" placeholder="BaselineOverride"></input>
+	</div> 
+	<div class="form-row" id='AggregatorsAttr' class='hiddenAttrs'>
+		<label for="node-input-Aggregators"><i class="fa fa-tag"></i> Aggregators</label>
+		<input type="text" id="node-input-Aggregators" placeholder="Aggregators"></input>
+	</div> 
+	<div class="form-row" id='ResultAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-ResultAttributes"><i class="fa fa-tag"></i> ResultAttributes</label>
+		<input type="text" id="node-input-ResultAttributes" placeholder="ResultAttributes"></input>
+	</div> 
+	<div class="form-row" id='AggregatorAttr' class='hiddenAttrs'>
+		<label for="node-input-Aggregator"><i class="fa fa-tag"></i> Aggregator</label>
+		<input type="text" id="node-input-Aggregator" placeholder="Aggregator"></input>
+	</div> 
+	<div class="form-row" id='SubTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SubType"><i class="fa fa-tag"></i> SubType</label>
+		<input type="text" id="node-input-SubType" placeholder="SubType"></input>
+	</div> 
+	<div class="form-row" id='InvocationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InvocationId"><i class="fa fa-tag"></i> InvocationId</label>
+		<input type="text" id="node-input-InvocationId" placeholder="InvocationId"></input>
+	</div> 
+	<div class="form-row" id='WithDecryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-WithDecryption"><i class="fa fa-tag"></i> WithDecryption</label>
+		<input type="text" id="node-input-WithDecryption" placeholder="WithDecryption"></input>
+	</div> 
+	<div class="form-row" id='PathAttr' class='hiddenAttrs'>
+		<label for="node-input-Path"><i class="fa fa-tag"></i> Path</label>
+		<input type="text" id="node-input-Path" placeholder="Path"></input>
+	</div> 
+	<div class="form-row" id='RecursiveAttr' class='hiddenAttrs'>
+		<label for="node-input-Recursive"><i class="fa fa-tag"></i> Recursive</label>
+		<input type="text" id="node-input-Recursive" placeholder="Recursive"></input>
+	</div> 
+	<div class="form-row" id='SettingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SettingId"><i class="fa fa-tag"></i> SettingId</label>
+		<input type="text" id="node-input-SettingId" placeholder="SettingId"></input>
+	</div> 
+	<div class="form-row" id='ParameterVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterVersion"><i class="fa fa-tag"></i> ParameterVersion</label>
+		<input type="text" id="node-input-ParameterVersion" placeholder="ParameterVersion"></input>
+	</div> 
+	<div class="form-row" id='LabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-Labels"><i class="fa fa-tag"></i> Labels</label>
+		<input type="text" id="node-input-Labels" placeholder="Labels"></input>
+	</div> 
+	<div class="form-row" id='AssociationFilterListAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationFilterList"><i class="fa fa-tag"></i> AssociationFilterList</label>
+		<input type="text" id="node-input-AssociationFilterList" placeholder="AssociationFilterList"></input>
+	</div> 
+	<div class="form-row" id='DetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-Details"><i class="fa fa-tag"></i> Details</label>
+		<input type="text" id="node-input-Details" placeholder="Details"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceIds"><i class="fa fa-tag"></i> ResourceIds</label>
+		<input type="text" id="node-input-ResourceIds" placeholder="ResourceIds"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceTypes"><i class="fa fa-tag"></i> ResourceTypes</label>
+		<input type="text" id="node-input-ResourceTypes" placeholder="ResourceTypes"></input>
+	</div> 
+	<div class="form-row" id='DocumentFilterListAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentFilterList"><i class="fa fa-tag"></i> DocumentFilterList</label>
+		<input type="text" id="node-input-DocumentFilterList" placeholder="DocumentFilterList"></input>
+	</div> 
+	<div class="form-row" id='AccountIdsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountIdsToAdd"><i class="fa fa-tag"></i> AccountIdsToAdd</label>
+		<input type="text" id="node-input-AccountIdsToAdd" placeholder="AccountIdsToAdd"></input>
+	</div> 
+	<div class="form-row" id='AccountIdsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountIdsToRemove"><i class="fa fa-tag"></i> AccountIdsToRemove</label>
+		<input type="text" id="node-input-AccountIdsToRemove" placeholder="AccountIdsToRemove"></input>
+	</div> 
+	<div class="form-row" id='SharedDocumentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedDocumentVersion"><i class="fa fa-tag"></i> SharedDocumentVersion</label>
+		<input type="text" id="node-input-SharedDocumentVersion" placeholder="SharedDocumentVersion"></input>
+	</div> 
+	<div class="form-row" id='ComplianceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ComplianceType"><i class="fa fa-tag"></i> ComplianceType</label>
+		<input type="text" id="node-input-ComplianceType" placeholder="ComplianceType"></input>
+	</div> 
+	<div class="form-row" id='ExecutionSummaryAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionSummary"><i class="fa fa-tag"></i> ExecutionSummary</label>
+		<input type="text" id="node-input-ExecutionSummary" placeholder="ExecutionSummary"></input>
+	</div> 
+	<div class="form-row" id='ItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-Items"><i class="fa fa-tag"></i> Items</label>
+		<input type="text" id="node-input-Items" placeholder="Items"></input>
+	</div> 
+	<div class="form-row" id='ItemContentHashAttr' class='hiddenAttrs'>
+		<label for="node-input-ItemContentHash"><i class="fa fa-tag"></i> ItemContentHash</label>
+		<input type="text" id="node-input-ItemContentHash" placeholder="ItemContentHash"></input>
+	</div> 
+	<div class="form-row" id='UploadTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-UploadType"><i class="fa fa-tag"></i> UploadType</label>
+		<input type="text" id="node-input-UploadType" placeholder="UploadType"></input>
+	</div> 
+	<div class="form-row" id='ValueAttr' class='hiddenAttrs'>
+		<label for="node-input-Value"><i class="fa fa-tag"></i> Value</label>
+		<input type="text" id="node-input-Value" placeholder="Value"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='KeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyId"><i class="fa fa-tag"></i> KeyId</label>
+		<input type="text" id="node-input-KeyId" placeholder="KeyId"></input>
+	</div> 
+	<div class="form-row" id='OverwriteAttr' class='hiddenAttrs'>
+		<label for="node-input-Overwrite"><i class="fa fa-tag"></i> Overwrite</label>
+		<input type="text" id="node-input-Overwrite" placeholder="Overwrite"></input>
+	</div> 
+	<div class="form-row" id='AllowedPatternAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowedPattern"><i class="fa fa-tag"></i> AllowedPattern</label>
+		<input type="text" id="node-input-AllowedPattern" placeholder="AllowedPattern"></input>
+	</div> 
+	<div class="form-row" id='TierAttr' class='hiddenAttrs'>
+		<label for="node-input-Tier"><i class="fa fa-tag"></i> Tier</label>
+		<input type="text" id="node-input-Tier" placeholder="Tier"></input>
+	</div> 
+	<div class="form-row" id='PoliciesAttr' class='hiddenAttrs'>
+		<label for="node-input-Policies"><i class="fa fa-tag"></i> Policies</label>
+		<input type="text" id="node-input-Policies" placeholder="Policies"></input>
+	</div> 
+	<div class="form-row" id='DataTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DataType"><i class="fa fa-tag"></i> DataType</label>
+		<input type="text" id="node-input-DataType" placeholder="DataType"></input>
+	</div> 
+	<div class="form-row" id='OwnerInformationAttr' class='hiddenAttrs'>
+		<label for="node-input-OwnerInformation"><i class="fa fa-tag"></i> OwnerInformation</label>
+		<input type="text" id="node-input-OwnerInformation" placeholder="OwnerInformation"></input>
+	</div> 
+	<div class="form-row" id='TaskArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskArn"><i class="fa fa-tag"></i> TaskArn</label>
+		<input type="text" id="node-input-TaskArn" placeholder="TaskArn"></input>
+	</div> 
+	<div class="form-row" id='ServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceRoleArn"><i class="fa fa-tag"></i> ServiceRoleArn</label>
+		<input type="text" id="node-input-ServiceRoleArn" placeholder="ServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='TaskTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskType"><i class="fa fa-tag"></i> TaskType</label>
+		<input type="text" id="node-input-TaskType" placeholder="TaskType"></input>
+	</div> 
+	<div class="form-row" id='TaskParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskParameters"><i class="fa fa-tag"></i> TaskParameters</label>
+		<input type="text" id="node-input-TaskParameters" placeholder="TaskParameters"></input>
+	</div> 
+	<div class="form-row" id='TaskInvocationParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskInvocationParameters"><i class="fa fa-tag"></i> TaskInvocationParameters</label>
+		<input type="text" id="node-input-TaskInvocationParameters" placeholder="TaskInvocationParameters"></input>
+	</div> 
+	<div class="form-row" id='LoggingInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingInfo"><i class="fa fa-tag"></i> LoggingInfo</label>
+		<input type="text" id="node-input-LoggingInfo" placeholder="LoggingInfo"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='SessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionId"><i class="fa fa-tag"></i> SessionId</label>
+		<input type="text" id="node-input-SessionId" placeholder="SessionId"></input>
+	</div> 
+	<div class="form-row" id='SignalTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SignalType"><i class="fa fa-tag"></i> SignalType</label>
+		<input type="text" id="node-input-SignalType" placeholder="SignalType"></input>
+	</div> 
+	<div class="form-row" id='PayloadAttr' class='hiddenAttrs'>
+		<label for="node-input-Payload"><i class="fa fa-tag"></i> Payload</label>
+		<input type="text" id="node-input-Payload" placeholder="Payload"></input>
+	</div> 
+	<div class="form-row" id='DocumentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentName"><i class="fa fa-tag"></i> DocumentName</label>
+		<input type="text" id="node-input-DocumentName" placeholder="DocumentName"></input>
+	</div> 
+	<div class="form-row" id='DocumentHashAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentHash"><i class="fa fa-tag"></i> DocumentHash</label>
+		<input type="text" id="node-input-DocumentHash" placeholder="DocumentHash"></input>
+	</div> 
+	<div class="form-row" id='DocumentHashTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentHashType"><i class="fa fa-tag"></i> DocumentHashType</label>
+		<input type="text" id="node-input-DocumentHashType" placeholder="DocumentHashType"></input>
+	</div> 
+	<div class="form-row" id='TimeoutSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeoutSeconds"><i class="fa fa-tag"></i> TimeoutSeconds</label>
+		<input type="text" id="node-input-TimeoutSeconds" placeholder="TimeoutSeconds"></input>
+	</div> 
+	<div class="form-row" id='CommentAttr' class='hiddenAttrs'>
+		<label for="node-input-Comment"><i class="fa fa-tag"></i> Comment</label>
+		<input type="text" id="node-input-Comment" placeholder="Comment"></input>
+	</div> 
+	<div class="form-row" id='OutputS3RegionAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3Region"><i class="fa fa-tag"></i> OutputS3Region</label>
+		<input type="text" id="node-input-OutputS3Region" placeholder="OutputS3Region"></input>
+	</div> 
+	<div class="form-row" id='OutputS3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3BucketName"><i class="fa fa-tag"></i> OutputS3BucketName</label>
+		<input type="text" id="node-input-OutputS3BucketName" placeholder="OutputS3BucketName"></input>
+	</div> 
+	<div class="form-row" id='OutputS3KeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3KeyPrefix"><i class="fa fa-tag"></i> OutputS3KeyPrefix</label>
+		<input type="text" id="node-input-OutputS3KeyPrefix" placeholder="OutputS3KeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='NotificationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationConfig"><i class="fa fa-tag"></i> NotificationConfig</label>
+		<input type="text" id="node-input-NotificationConfig" placeholder="NotificationConfig"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchOutputConfig"><i class="fa fa-tag"></i> CloudWatchOutputConfig</label>
+		<input type="text" id="node-input-CloudWatchOutputConfig" placeholder="CloudWatchOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='AssociationIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationIds"><i class="fa fa-tag"></i> AssociationIds</label>
+		<input type="text" id="node-input-AssociationIds" placeholder="AssociationIds"></input>
+	</div> 
+	<div class="form-row" id='ModeAttr' class='hiddenAttrs'>
+		<label for="node-input-Mode"><i class="fa fa-tag"></i> Mode</label>
+		<input type="text" id="node-input-Mode" placeholder="Mode"></input>
+	</div> 
+	<div class="form-row" id='TargetParameterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetParameterName"><i class="fa fa-tag"></i> TargetParameterName</label>
+		<input type="text" id="node-input-TargetParameterName" placeholder="TargetParameterName"></input>
+	</div> 
+	<div class="form-row" id='TargetMapsAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetMaps"><i class="fa fa-tag"></i> TargetMaps</label>
+		<input type="text" id="node-input-TargetMaps" placeholder="TargetMaps"></input>
+	</div> 
+	<div class="form-row" id='ScheduledTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledTime"><i class="fa fa-tag"></i> ScheduledTime</label>
+		<input type="text" id="node-input-ScheduledTime" placeholder="ScheduledTime"></input>
+	</div> 
+	<div class="form-row" id='ChangeRequestNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeRequestName"><i class="fa fa-tag"></i> ChangeRequestName</label>
+		<input type="text" id="node-input-ChangeRequestName" placeholder="ChangeRequestName"></input>
+	</div> 
+	<div class="form-row" id='RunbooksAttr' class='hiddenAttrs'>
+		<label for="node-input-Runbooks"><i class="fa fa-tag"></i> Runbooks</label>
+		<input type="text" id="node-input-Runbooks" placeholder="Runbooks"></input>
+	</div> 
+	<div class="form-row" id='ScheduledEndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledEndTime"><i class="fa fa-tag"></i> ScheduledEndTime</label>
+		<input type="text" id="node-input-ScheduledEndTime" placeholder="ScheduledEndTime"></input>
+	</div> 
+	<div class="form-row" id='ChangeDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeDetails"><i class="fa fa-tag"></i> ChangeDetails</label>
+		<input type="text" id="node-input-ChangeDetails" placeholder="ChangeDetails"></input>
+	</div> 
+	<div class="form-row" id='AssociationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationStatus"><i class="fa fa-tag"></i> AssociationStatus</label>
+		<input type="text" id="node-input-AssociationStatus" placeholder="AssociationStatus"></input>
+	</div> 
+	<div class="form-row" id='DocumentReviewsAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentReviews"><i class="fa fa-tag"></i> DocumentReviews</label>
+		<input type="text" id="node-input-DocumentReviews" placeholder="DocumentReviews"></input>
+	</div> 
+	<div class="form-row" id='EnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-Enabled"><i class="fa fa-tag"></i> Enabled</label>
+		<input type="text" id="node-input-Enabled" placeholder="Enabled"></input>
+	</div> 
+	<div class="form-row" id='ReplaceAttr' class='hiddenAttrs'>
+		<label for="node-input-Replace"><i class="fa fa-tag"></i> Replace</label>
+		<input type="text" id="node-input-Replace" placeholder="Replace"></input>
+	</div> 
+	<div class="form-row" id='OperationalDataToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-OperationalDataToDelete"><i class="fa fa-tag"></i> OperationalDataToDelete</label>
+		<input type="text" id="node-input-OperationalDataToDelete" placeholder="OperationalDataToDelete"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='MetadataToUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-MetadataToUpdate"><i class="fa fa-tag"></i> MetadataToUpdate</label>
+		<input type="text" id="node-input-MetadataToUpdate" placeholder="MetadataToUpdate"></input>
+	</div> 
+	<div class="form-row" id='KeysToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-KeysToDelete"><i class="fa fa-tag"></i> KeysToDelete</label>
+		<input type="text" id="node-input-KeysToDelete" placeholder="KeysToDelete"></input>
+	</div> 
+	<div class="form-row" id='SettingValueAttr' class='hiddenAttrs'>
+		<label for="node-input-SettingValue"><i class="fa fa-tag"></i> SettingValue</label>
+		<input type="text" id="node-input-SettingValue" placeholder="SettingValue"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr','#TagsAttr'
+					],
+				AssociateOpsItemRelatedItem:[
+					'#OpsItemIdAttr','#AssociationTypeAttr','#ResourceTypeAttr','#ResourceUriAttr'
+					],
+				CancelCommand:[
+					'#CommandIdAttr','#InstanceIdsAttr'
+					],
+				CancelMaintenanceWindowExecution:[
+					'#WindowExecutionIdAttr'
+					],
+				CreateActivation:[
+					'#DescriptionAttr','#DefaultInstanceNameAttr','#IamRoleAttr','#RegistrationLimitAttr','#ExpirationDateAttr','#TagsAttr'
+					],
+				CreateAssociation:[
+					'#NameAttr','#DocumentVersionAttr','#InstanceIdAttr','#ParametersAttr','#TargetsAttr','#ScheduleExpressionAttr','#OutputLocationAttr','#AssociationNameAttr','#AutomationTargetParameterNameAttr','#MaxErrorsAttr','#MaxConcurrencyAttr','#ComplianceSeverityAttr','#SyncComplianceAttr','#ApplyOnlyAtCronIntervalAttr','#CalendarNamesAttr','#TargetLocationsAttr'
+					],
+				CreateAssociationBatch:[
+					'#EntriesAttr'
+					],
+				CreateDocument:[
+					'#ContentAttr','#RequiresAttr','#AttachmentsAttr','#NameAttr','#DisplayNameAttr','#VersionNameAttr','#DocumentTypeAttr','#DocumentFormatAttr','#TargetTypeAttr','#TagsAttr'
+					],
+				CreateMaintenanceWindow:[
+					'#NameAttr','#DescriptionAttr','#StartDateAttr','#EndDateAttr','#ScheduleAttr','#ScheduleTimezoneAttr','#ScheduleOffsetAttr','#DurationAttr','#CutoffAttr','#AllowUnassociatedTargetsAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateOpsItem:[
+					'#DescriptionAttr','#OpsItemTypeAttr','#OperationalDataAttr','#NotificationsAttr','#PriorityAttr','#RelatedOpsItemsAttr','#SourceAttr','#TitleAttr','#TagsAttr','#CategoryAttr','#SeverityAttr','#ActualStartTimeAttr','#ActualEndTimeAttr','#PlannedStartTimeAttr','#PlannedEndTimeAttr'
+					],
+				CreateOpsMetadata:[
+					'#ResourceIdAttr','#MetadataAttr','#TagsAttr'
+					],
+				CreatePatchBaseline:[
+					'#OperatingSystemAttr','#NameAttr','#GlobalFiltersAttr','#ApprovalRulesAttr','#ApprovedPatchesAttr','#ApprovedPatchesComplianceLevelAttr','#ApprovedPatchesEnableNonSecurityAttr','#RejectedPatchesAttr','#RejectedPatchesActionAttr','#DescriptionAttr','#SourcesAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateResourceDataSync:[
+					'#SyncNameAttr','#S3DestinationAttr','#SyncTypeAttr','#SyncSourceAttr'
+					],
+				DeleteActivation:[
+					'#ActivationIdAttr'
+					],
+				DeleteAssociation:[
+					'#NameAttr','#InstanceIdAttr','#AssociationIdAttr'
+					],
+				DeleteDocument:[
+					'#NameAttr','#DocumentVersionAttr','#VersionNameAttr','#ForceAttr'
+					],
+				DeleteInventory:[
+					'#TypeNameAttr','#SchemaDeleteOptionAttr','#DryRunAttr','#ClientTokenAttr'
+					],
+				DeleteMaintenanceWindow:[
+					'#WindowIdAttr'
+					],
+				DeleteOpsMetadata:[
+					'#OpsMetadataArnAttr'
+					],
+				DeleteParameter:[
+					'#NameAttr'
+					],
+				DeleteParameters:[
+					'#NamesAttr'
+					],
+				DeletePatchBaseline:[
+					'#BaselineIdAttr'
+					],
+				DeleteResourceDataSync:[
+					'#SyncNameAttr','#SyncTypeAttr'
+					],
+				DeregisterManagedInstance:[
+					'#InstanceIdAttr'
+					],
+				DeregisterPatchBaselineForPatchGroup:[
+					'#BaselineIdAttr','#PatchGroupAttr'
+					],
+				DeregisterTargetFromMaintenanceWindow:[
+					'#WindowIdAttr','#WindowTargetIdAttr','#SafeAttr'
+					],
+				DeregisterTaskFromMaintenanceWindow:[
+					'#WindowIdAttr','#WindowTaskIdAttr'
+					],
+				DescribeActivations:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeAssociation:[
+					'#NameAttr','#InstanceIdAttr','#AssociationIdAttr','#AssociationVersionAttr'
+					],
+				DescribeAssociationExecutionTargets:[
+					'#AssociationIdAttr','#ExecutionIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeAssociationExecutions:[
+					'#AssociationIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeAutomationExecutions:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeAutomationStepExecutions:[
+					'#AutomationExecutionIdAttr','#FiltersAttr','#NextTokenAttr','#MaxResultsAttr','#ReverseOrderAttr'
+					],
+				DescribeAvailablePatches:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeDocument:[
+					'#NameAttr','#DocumentVersionAttr','#VersionNameAttr'
+					],
+				DescribeDocumentPermission:[
+					'#NameAttr','#PermissionTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeEffectiveInstanceAssociations:[
+					'#InstanceIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeEffectivePatchesForPatchBaseline:[
+					'#BaselineIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeInstanceAssociationsStatus:[
+					'#InstanceIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeInstanceInformation:[
+					'#InstanceInformationFilterListAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeInstancePatchStates:[
+					'#InstanceIdsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeInstancePatchStatesForPatchGroup:[
+					'#PatchGroupAttr','#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeInstancePatches:[
+					'#InstanceIdAttr','#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeInventoryDeletions:[
+					'#DeletionIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeMaintenanceWindowExecutionTaskInvocations:[
+					'#WindowExecutionIdAttr','#TaskIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowExecutionTasks:[
+					'#WindowExecutionIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowExecutions:[
+					'#WindowIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowSchedule:[
+					'#WindowIdAttr','#TargetsAttr','#ResourceTypeAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowTargets:[
+					'#WindowIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowTasks:[
+					'#WindowIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindows:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeMaintenanceWindowsForTarget:[
+					'#TargetsAttr','#ResourceTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeOpsItems:[
+					'#OpsItemFiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeParameters:[
+					'#FiltersAttr','#ParameterFiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribePatchBaselines:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribePatchGroupState:[
+					'#PatchGroupAttr'
+					],
+				DescribePatchGroups:[
+					'#MaxResultsAttr','#FiltersAttr','#NextTokenAttr'
+					],
+				DescribePatchProperties:[
+					'#OperatingSystemAttr','#PropertyAttr','#PatchSetAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeSessions:[
+					'#StateAttr','#MaxResultsAttr','#NextTokenAttr','#FiltersAttr'
+					],
+				DisassociateOpsItemRelatedItem:[
+					'#OpsItemIdAttr','#AssociationIdAttr'
+					],
+				GetAutomationExecution:[
+					'#AutomationExecutionIdAttr'
+					],
+				GetCalendarState:[
+					'#CalendarNamesAttr','#AtTimeAttr'
+					],
+				GetCommandInvocation:[
+					'#CommandIdAttr','#InstanceIdAttr','#PluginNameAttr'
+					],
+				GetConnectionStatus:[
+					'#TargetAttr'
+					],
+				GetDefaultPatchBaseline:[
+					'#OperatingSystemAttr'
+					],
+				GetDeployablePatchSnapshotForInstance:[
+					'#InstanceIdAttr','#SnapshotIdAttr','#BaselineOverrideAttr'
+					],
+				GetDocument:[
+					'#NameAttr','#VersionNameAttr','#DocumentVersionAttr','#DocumentFormatAttr'
+					],
+				GetInventory:[
+					'#FiltersAttr','#AggregatorsAttr','#ResultAttributesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetInventorySchema:[
+					'#TypeNameAttr','#NextTokenAttr','#MaxResultsAttr','#AggregatorAttr','#SubTypeAttr'
+					],
+				GetMaintenanceWindow:[
+					'#WindowIdAttr'
+					],
+				GetMaintenanceWindowExecution:[
+					'#WindowExecutionIdAttr'
+					],
+				GetMaintenanceWindowExecutionTask:[
+					'#WindowExecutionIdAttr','#TaskIdAttr'
+					],
+				GetMaintenanceWindowExecutionTaskInvocation:[
+					'#WindowExecutionIdAttr','#TaskIdAttr','#InvocationIdAttr'
+					],
+				GetMaintenanceWindowTask:[
+					'#WindowIdAttr','#WindowTaskIdAttr'
+					],
+				GetOpsItem:[
+					'#OpsItemIdAttr'
+					],
+				GetOpsMetadata:[
+					'#OpsMetadataArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetOpsSummary:[
+					'#SyncNameAttr','#FiltersAttr','#AggregatorsAttr','#ResultAttributesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetParameter:[
+					'#NameAttr','#WithDecryptionAttr'
+					],
+				GetParameterHistory:[
+					'#NameAttr','#WithDecryptionAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetParameters:[
+					'#NamesAttr','#WithDecryptionAttr'
+					],
+				GetParametersByPath:[
+					'#PathAttr','#RecursiveAttr','#ParameterFiltersAttr','#WithDecryptionAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetPatchBaseline:[
+					'#BaselineIdAttr'
+					],
+				GetPatchBaselineForPatchGroup:[
+					'#PatchGroupAttr','#OperatingSystemAttr'
+					],
+				GetServiceSetting:[
+					'#SettingIdAttr'
+					],
+				LabelParameterVersion:[
+					'#NameAttr','#ParameterVersionAttr','#LabelsAttr'
+					],
+				ListAssociationVersions:[
+					'#AssociationIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAssociations:[
+					'#AssociationFilterListAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCommandInvocations:[
+					'#CommandIdAttr','#InstanceIdAttr','#MaxResultsAttr','#NextTokenAttr','#FiltersAttr','#DetailsAttr'
+					],
+				ListCommands:[
+					'#CommandIdAttr','#InstanceIdAttr','#MaxResultsAttr','#NextTokenAttr','#FiltersAttr'
+					],
+				ListComplianceItems:[
+					'#FiltersAttr','#ResourceIdsAttr','#ResourceTypesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListComplianceSummaries:[
+					'#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDocumentMetadataHistory:[
+					'#NameAttr','#DocumentVersionAttr','#MetadataAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDocumentVersions:[
+					'#NameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListDocuments:[
+					'#DocumentFilterListAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListInventoryEntries:[
+					'#InstanceIdAttr','#TypeNameAttr','#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListOpsItemEvents:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOpsItemRelatedItems:[
+					'#OpsItemIdAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOpsMetadata:[
+					'#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListResourceComplianceSummaries:[
+					'#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListResourceDataSync:[
+					'#SyncTypeAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr'
+					],
+				ModifyDocumentPermission:[
+					'#NameAttr','#PermissionTypeAttr','#AccountIdsToAddAttr','#AccountIdsToRemoveAttr','#SharedDocumentVersionAttr'
+					],
+				PutComplianceItems:[
+					'#ResourceIdAttr','#ResourceTypeAttr','#ComplianceTypeAttr','#ExecutionSummaryAttr','#ItemsAttr','#ItemContentHashAttr','#UploadTypeAttr'
+					],
+				PutInventory:[
+					'#InstanceIdAttr','#ItemsAttr'
+					],
+				PutParameter:[
+					'#NameAttr','#DescriptionAttr','#ValueAttr','#TypeAttr','#KeyIdAttr','#OverwriteAttr','#AllowedPatternAttr','#TagsAttr','#TierAttr','#PoliciesAttr','#DataTypeAttr'
+					],
+				RegisterDefaultPatchBaseline:[
+					'#BaselineIdAttr'
+					],
+				RegisterPatchBaselineForPatchGroup:[
+					'#BaselineIdAttr','#PatchGroupAttr'
+					],
+				RegisterTargetWithMaintenanceWindow:[
+					'#WindowIdAttr','#ResourceTypeAttr','#TargetsAttr','#OwnerInformationAttr','#NameAttr','#DescriptionAttr','#ClientTokenAttr'
+					],
+				RegisterTaskWithMaintenanceWindow:[
+					'#WindowIdAttr','#TargetsAttr','#TaskArnAttr','#ServiceRoleArnAttr','#TaskTypeAttr','#TaskParametersAttr','#TaskInvocationParametersAttr','#PriorityAttr','#MaxConcurrencyAttr','#MaxErrorsAttr','#LoggingInfoAttr','#NameAttr','#DescriptionAttr','#ClientTokenAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceTypeAttr','#ResourceIdAttr','#TagKeysAttr'
+					],
+				ResetServiceSetting:[
+					'#SettingIdAttr'
+					],
+				ResumeSession:[
+					'#SessionIdAttr'
+					],
+				SendAutomationSignal:[
+					'#AutomationExecutionIdAttr','#SignalTypeAttr','#PayloadAttr'
+					],
+				SendCommand:[
+					'#InstanceIdsAttr','#TargetsAttr','#DocumentNameAttr','#DocumentVersionAttr','#DocumentHashAttr','#DocumentHashTypeAttr','#TimeoutSecondsAttr','#CommentAttr','#ParametersAttr','#OutputS3RegionAttr','#OutputS3BucketNameAttr','#OutputS3KeyPrefixAttr','#MaxConcurrencyAttr','#MaxErrorsAttr','#ServiceRoleArnAttr','#NotificationConfigAttr','#CloudWatchOutputConfigAttr'
+					],
+				StartAssociationsOnce:[
+					'#AssociationIdsAttr'
+					],
+				StartAutomationExecution:[
+					'#DocumentNameAttr','#DocumentVersionAttr','#ParametersAttr','#ClientTokenAttr','#ModeAttr','#TargetParameterNameAttr','#TargetsAttr','#TargetMapsAttr','#MaxConcurrencyAttr','#MaxErrorsAttr','#TargetLocationsAttr','#TagsAttr'
+					],
+				StartChangeRequestExecution:[
+					'#ScheduledTimeAttr','#DocumentNameAttr','#DocumentVersionAttr','#ParametersAttr','#ChangeRequestNameAttr','#ClientTokenAttr','#RunbooksAttr','#TagsAttr','#ScheduledEndTimeAttr','#ChangeDetailsAttr'
+					],
+				StartSession:[
+					'#TargetAttr','#DocumentNameAttr','#ParametersAttr'
+					],
+				StopAutomationExecution:[
+					'#AutomationExecutionIdAttr','#TypeAttr'
+					],
+				TerminateSession:[
+					'#SessionIdAttr'
+					],
+				UnlabelParameterVersion:[
+					'#NameAttr','#ParameterVersionAttr','#LabelsAttr'
+					],
+				UpdateAssociation:[
+					'#AssociationIdAttr','#ParametersAttr','#DocumentVersionAttr','#ScheduleExpressionAttr','#OutputLocationAttr','#NameAttr','#TargetsAttr','#AssociationNameAttr','#AssociationVersionAttr','#AutomationTargetParameterNameAttr','#MaxErrorsAttr','#MaxConcurrencyAttr','#ComplianceSeverityAttr','#SyncComplianceAttr','#ApplyOnlyAtCronIntervalAttr','#CalendarNamesAttr','#TargetLocationsAttr'
+					],
+				UpdateAssociationStatus:[
+					'#NameAttr','#InstanceIdAttr','#AssociationStatusAttr'
+					],
+				UpdateDocument:[
+					'#ContentAttr','#AttachmentsAttr','#NameAttr','#DisplayNameAttr','#VersionNameAttr','#DocumentVersionAttr','#DocumentFormatAttr','#TargetTypeAttr'
+					],
+				UpdateDocumentDefaultVersion:[
+					'#NameAttr','#DocumentVersionAttr'
+					],
+				UpdateDocumentMetadata:[
+					'#NameAttr','#DocumentVersionAttr','#DocumentReviewsAttr'
+					],
+				UpdateMaintenanceWindow:[
+					'#WindowIdAttr','#NameAttr','#DescriptionAttr','#StartDateAttr','#EndDateAttr','#ScheduleAttr','#ScheduleTimezoneAttr','#ScheduleOffsetAttr','#DurationAttr','#CutoffAttr','#AllowUnassociatedTargetsAttr','#EnabledAttr','#ReplaceAttr'
+					],
+				UpdateMaintenanceWindowTarget:[
+					'#WindowIdAttr','#WindowTargetIdAttr','#TargetsAttr','#OwnerInformationAttr','#NameAttr','#DescriptionAttr','#ReplaceAttr'
+					],
+				UpdateMaintenanceWindowTask:[
+					'#WindowIdAttr','#WindowTaskIdAttr','#TargetsAttr','#TaskArnAttr','#ServiceRoleArnAttr','#TaskParametersAttr','#TaskInvocationParametersAttr','#PriorityAttr','#MaxConcurrencyAttr','#MaxErrorsAttr','#LoggingInfoAttr','#NameAttr','#DescriptionAttr','#ReplaceAttr'
+					],
+				UpdateManagedInstanceRole:[
+					'#InstanceIdAttr','#IamRoleAttr'
+					],
+				UpdateOpsItem:[
+					'#DescriptionAttr','#OperationalDataAttr','#OperationalDataToDeleteAttr','#NotificationsAttr','#PriorityAttr','#RelatedOpsItemsAttr','#StatusAttr','#OpsItemIdAttr','#TitleAttr','#CategoryAttr','#SeverityAttr','#ActualStartTimeAttr','#ActualEndTimeAttr','#PlannedStartTimeAttr','#PlannedEndTimeAttr'
+					],
+				UpdateOpsMetadata:[
+					'#OpsMetadataArnAttr','#MetadataToUpdateAttr','#KeysToDeleteAttr'
+					],
+				UpdatePatchBaseline:[
+					'#BaselineIdAttr','#NameAttr','#GlobalFiltersAttr','#ApprovalRulesAttr','#ApprovedPatchesAttr','#ApprovedPatchesComplianceLevelAttr','#ApprovedPatchesEnableNonSecurityAttr','#RejectedPatchesAttr','#RejectedPatchesActionAttr','#DescriptionAttr','#SourcesAttr','#ReplaceAttr'
+					],
+				UpdateResourceDataSync:[
+					'#SyncNameAttr','#SyncTypeAttr','#SyncSourceAttr'
+					],
+				UpdateServiceSetting:[
+					'#SettingIdAttr','#SettingValueAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SSM">
+<p>
+AWS SSM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SSM.html">SSM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SSM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToResource' },
+			
+				ResourceType: { value: ""} ,
+				ResourceId: { value: ""} ,
+				Tags: { value: ""} ,
+				OpsItemId: { value: ""} ,
+				AssociationType: { value: ""} ,
+				ResourceUri: { value: ""} ,
+				CommandId: { value: ""} ,
+				InstanceIds: { value: ""} ,
+				WindowExecutionId: { value: ""} ,
+				Description: { value: ""} ,
+				DefaultInstanceName: { value: ""} ,
+				IamRole: { value: ""} ,
+				RegistrationLimit: { value: ""} ,
+				ExpirationDate: { value: ""} ,
+				Name: { value: ""} ,
+				DocumentVersion: { value: ""} ,
+				InstanceId: { value: ""} ,
+				Parameters: { value: ""} ,
+				Targets: { value: ""} ,
+				ScheduleExpression: { value: ""} ,
+				OutputLocation: { value: ""} ,
+				AssociationName: { value: ""} ,
+				AutomationTargetParameterName: { value: ""} ,
+				MaxErrors: { value: ""} ,
+				MaxConcurrency: { value: ""} ,
+				ComplianceSeverity: { value: ""} ,
+				SyncCompliance: { value: ""} ,
+				ApplyOnlyAtCronInterval: { value: ""} ,
+				CalendarNames: { value: ""} ,
+				TargetLocations: { value: ""} ,
+				Entries: { value: ""} ,
+				Content: { value: ""} ,
+				Requires: { value: ""} ,
+				Attachments: { value: ""} ,
+				DisplayName: { value: ""} ,
+				VersionName: { value: ""} ,
+				DocumentType: { value: ""} ,
+				DocumentFormat: { value: ""} ,
+				TargetType: { value: ""} ,
+				StartDate: { value: ""} ,
+				EndDate: { value: ""} ,
+				Schedule: { value: ""} ,
+				ScheduleTimezone: { value: ""} ,
+				ScheduleOffset: { value: ""} ,
+				Duration: { value: ""} ,
+				Cutoff: { value: ""} ,
+				AllowUnassociatedTargets: { value: ""} ,
+				ClientToken: { value: ""} ,
+				OpsItemType: { value: ""} ,
+				OperationalData: { value: ""} ,
+				Notifications: { value: ""} ,
+				Priority: { value: ""} ,
+				RelatedOpsItems: { value: ""} ,
+				Source: { value: ""} ,
+				Title: { value: ""} ,
+				Category: { value: ""} ,
+				Severity: { value: ""} ,
+				ActualStartTime: { value: ""} ,
+				ActualEndTime: { value: ""} ,
+				PlannedStartTime: { value: ""} ,
+				PlannedEndTime: { value: ""} ,
+				Metadata: { value: ""} ,
+				OperatingSystem: { value: ""} ,
+				GlobalFilters: { value: ""} ,
+				ApprovalRules: { value: ""} ,
+				ApprovedPatches: { value: ""} ,
+				ApprovedPatchesComplianceLevel: { value: ""} ,
+				ApprovedPatchesEnableNonSecurity: { value: ""} ,
+				RejectedPatches: { value: ""} ,
+				RejectedPatchesAction: { value: ""} ,
+				Sources: { value: ""} ,
+				SyncName: { value: ""} ,
+				S3Destination: { value: ""} ,
+				SyncType: { value: ""} ,
+				SyncSource: { value: ""} ,
+				ActivationId: { value: ""} ,
+				AssociationId: { value: ""} ,
+				Force: { value: ""} ,
+				TypeName: { value: ""} ,
+				SchemaDeleteOption: { value: ""} ,
+				DryRun: { value: ""} ,
+				WindowId: { value: ""} ,
+				OpsMetadataArn: { value: ""} ,
+				Names: { value: ""} ,
+				BaselineId: { value: ""} ,
+				PatchGroup: { value: ""} ,
+				WindowTargetId: { value: ""} ,
+				Safe: { value: ""} ,
+				WindowTaskId: { value: ""} ,
+				Filters: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				AssociationVersion: { value: ""} ,
+				ExecutionId: { value: ""} ,
+				AutomationExecutionId: { value: ""} ,
+				ReverseOrder: { value: ""} ,
+				PermissionType: { value: ""} ,
+				InstanceInformationFilterList: { value: ""} ,
+				DeletionId: { value: ""} ,
+				TaskId: { value: ""} ,
+				OpsItemFilters: { value: ""} ,
+				ParameterFilters: { value: ""} ,
+				Property: { value: ""} ,
+				PatchSet: { value: ""} ,
+				State: { value: ""} ,
+				AtTime: { value: ""} ,
+				PluginName: { value: ""} ,
+				Target: { value: ""} ,
+				SnapshotId: { value: ""} ,
+				BaselineOverride: { value: ""} ,
+				Aggregators: { value: ""} ,
+				ResultAttributes: { value: ""} ,
+				Aggregator: { value: ""} ,
+				SubType: { value: ""} ,
+				InvocationId: { value: ""} ,
+				WithDecryption: { value: ""} ,
+				Path: { value: ""} ,
+				Recursive: { value: ""} ,
+				SettingId: { value: ""} ,
+				ParameterVersion: { value: ""} ,
+				Labels: { value: ""} ,
+				AssociationFilterList: { value: ""} ,
+				Details: { value: ""} ,
+				ResourceIds: { value: ""} ,
+				ResourceTypes: { value: ""} ,
+				DocumentFilterList: { value: ""} ,
+				AccountIdsToAdd: { value: ""} ,
+				AccountIdsToRemove: { value: ""} ,
+				SharedDocumentVersion: { value: ""} ,
+				ComplianceType: { value: ""} ,
+				ExecutionSummary: { value: ""} ,
+				Items: { value: ""} ,
+				ItemContentHash: { value: ""} ,
+				UploadType: { value: ""} ,
+				Value: { value: ""} ,
+				Type: { value: ""} ,
+				KeyId: { value: ""} ,
+				Overwrite: { value: ""} ,
+				AllowedPattern: { value: ""} ,
+				Tier: { value: ""} ,
+				Policies: { value: ""} ,
+				DataType: { value: ""} ,
+				OwnerInformation: { value: ""} ,
+				TaskArn: { value: ""} ,
+				ServiceRoleArn: { value: ""} ,
+				TaskType: { value: ""} ,
+				TaskParameters: { value: ""} ,
+				TaskInvocationParameters: { value: ""} ,
+				LoggingInfo: { value: ""} ,
+				TagKeys: { value: ""} ,
+				SessionId: { value: ""} ,
+				SignalType: { value: ""} ,
+				Payload: { value: ""} ,
+				DocumentName: { value: ""} ,
+				DocumentHash: { value: ""} ,
+				DocumentHashType: { value: ""} ,
+				TimeoutSeconds: { value: ""} ,
+				Comment: { value: ""} ,
+				OutputS3Region: { value: ""} ,
+				OutputS3BucketName: { value: ""} ,
+				OutputS3KeyPrefix: { value: ""} ,
+				NotificationConfig: { value: ""} ,
+				CloudWatchOutputConfig: { value: ""} ,
+				AssociationIds: { value: ""} ,
+				Mode: { value: ""} ,
+				TargetParameterName: { value: ""} ,
+				TargetMaps: { value: ""} ,
+				ScheduledTime: { value: ""} ,
+				ChangeRequestName: { value: ""} ,
+				Runbooks: { value: ""} ,
+				ScheduledEndTime: { value: ""} ,
+				ChangeDetails: { value: ""} ,
+				AssociationStatus: { value: ""} ,
+				DocumentReviews: { value: ""} ,
+				Enabled: { value: ""} ,
+				Replace: { value: ""} ,
+				OperationalDataToDelete: { value: ""} ,
+				Status: { value: ""} ,
+				MetadataToUpdate: { value: ""} ,
+				KeysToDelete: { value: ""} ,
+				SettingValue: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SSM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OpsItemId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CommandId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WindowExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultInstanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IamRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistrationLimit").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Targets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScheduleExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutomationTargetParameterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxErrors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxConcurrency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComplianceSeverity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SyncCompliance").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplyOnlyAtCronInterval").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CalendarNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetLocations").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Requires").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Attachments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Schedule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScheduleTimezone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScheduleOffset").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Duration").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Cutoff").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AllowUnassociatedTargets").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OpsItemType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperationalData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Notifications").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Priority").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RelatedOpsItems").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Title").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Category").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Severity").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-Metadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OperatingSystem").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovalRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovedPatches").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovedPatchesComplianceLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovedPatchesEnableNonSecurity").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RejectedPatches").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RejectedPatchesAction").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SyncName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3Destination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SyncType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SyncSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActivationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TypeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaDeleteOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DryRun").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-WindowId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OpsMetadataArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Names").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BaselineId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PatchGroup").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WindowTargetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Safe").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-WindowTaskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutomationExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReverseOrder").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-PermissionType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DeletionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ParameterFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Property").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PatchSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-State").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AtTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PluginName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Target").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Aggregators").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Aggregator").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SubType").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-InvocationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WithDecryption").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Recursive").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SettingId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Labels").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Details").typedInput({ default: "bool", types: ["bool"]});
+
+
+
+$("#node-input-AccountIdsToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountIdsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SharedDocumentVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComplianceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionSummary").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ItemContentHash").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UploadType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Value").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Overwrite").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AllowedPattern").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policies").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OwnerInformation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskInvocationParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggingInfo").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SignalType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Payload").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentHash").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentHashType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TimeoutSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Comment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3Region").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3BucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3KeyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudWatchOutputConfig").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Mode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetParameterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetMaps").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ChangeRequestName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Runbooks").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ChangeDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationStatus").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Enabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Replace").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetadataToUpdate").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SettingValue").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

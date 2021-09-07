@@ -1,0 +1,332 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS AmplifyBackend">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CloneBackend">CloneBackend</option>
+		
+			<option value="CreateBackend">CreateBackend</option>
+		
+			<option value="CreateBackendAPI">CreateBackendAPI</option>
+		
+			<option value="CreateBackendAuth">CreateBackendAuth</option>
+		
+			<option value="CreateBackendConfig">CreateBackendConfig</option>
+		
+			<option value="CreateToken">CreateToken</option>
+		
+			<option value="DeleteBackend">DeleteBackend</option>
+		
+			<option value="DeleteBackendAPI">DeleteBackendAPI</option>
+		
+			<option value="DeleteBackendAuth">DeleteBackendAuth</option>
+		
+			<option value="DeleteToken">DeleteToken</option>
+		
+			<option value="GenerateBackendAPIModels">GenerateBackendAPIModels</option>
+		
+			<option value="GetBackend">GetBackend</option>
+		
+			<option value="GetBackendAPI">GetBackendAPI</option>
+		
+			<option value="GetBackendAPIModels">GetBackendAPIModels</option>
+		
+			<option value="GetBackendAuth">GetBackendAuth</option>
+		
+			<option value="GetBackendJob">GetBackendJob</option>
+		
+			<option value="GetToken">GetToken</option>
+		
+			<option value="ImportBackendAuth">ImportBackendAuth</option>
+		
+			<option value="ListBackendJobs">ListBackendJobs</option>
+		
+			<option value="RemoveAllBackends">RemoveAllBackends</option>
+		
+			<option value="RemoveBackendConfig">RemoveBackendConfig</option>
+		
+			<option value="UpdateBackendAPI">UpdateBackendAPI</option>
+		
+			<option value="UpdateBackendAuth">UpdateBackendAuth</option>
+		
+			<option value="UpdateBackendConfig">UpdateBackendConfig</option>
+		
+			<option value="UpdateBackendJob">UpdateBackendJob</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AppIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AppId"><i class="fa fa-tag"></i> AppId</label>
+		<input type="text" id="node-input-AppId" placeholder="AppId"></input>
+	</div> 
+	<div class="form-row" id='BackendEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BackendEnvironmentName"><i class="fa fa-tag"></i> BackendEnvironmentName</label>
+		<input type="text" id="node-input-BackendEnvironmentName" placeholder="BackendEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='TargetEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetEnvironmentName"><i class="fa fa-tag"></i> TargetEnvironmentName</label>
+		<input type="text" id="node-input-TargetEnvironmentName" placeholder="TargetEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='AppNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AppName"><i class="fa fa-tag"></i> AppName</label>
+		<input type="text" id="node-input-AppName" placeholder="AppName"></input>
+	</div> 
+	<div class="form-row" id='ResourceConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceConfig"><i class="fa fa-tag"></i> ResourceConfig</label>
+		<input type="text" id="node-input-ResourceConfig" placeholder="ResourceConfig"></input>
+	</div> 
+	<div class="form-row" id='ResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceName"><i class="fa fa-tag"></i> ResourceName</label>
+		<input type="text" id="node-input-ResourceName" placeholder="ResourceName"></input>
+	</div> 
+	<div class="form-row" id='BackendManagerAppIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BackendManagerAppId"><i class="fa fa-tag"></i> BackendManagerAppId</label>
+		<input type="text" id="node-input-BackendManagerAppId" placeholder="BackendManagerAppId"></input>
+	</div> 
+	<div class="form-row" id='SessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionId"><i class="fa fa-tag"></i> SessionId</label>
+		<input type="text" id="node-input-SessionId" placeholder="SessionId"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='IdentityPoolIdAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityPoolId"><i class="fa fa-tag"></i> IdentityPoolId</label>
+		<input type="text" id="node-input-IdentityPoolId" placeholder="IdentityPoolId"></input>
+	</div> 
+	<div class="form-row" id='NativeClientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NativeClientId"><i class="fa fa-tag"></i> NativeClientId</label>
+		<input type="text" id="node-input-NativeClientId" placeholder="NativeClientId"></input>
+	</div> 
+	<div class="form-row" id='UserPoolIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserPoolId"><i class="fa fa-tag"></i> UserPoolId</label>
+		<input type="text" id="node-input-UserPoolId" placeholder="UserPoolId"></input>
+	</div> 
+	<div class="form-row" id='WebClientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WebClientId"><i class="fa fa-tag"></i> WebClientId</label>
+		<input type="text" id="node-input-WebClientId" placeholder="WebClientId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='OperationAttr' class='hiddenAttrs'>
+		<label for="node-input-Operation"><i class="fa fa-tag"></i> Operation</label>
+		<input type="text" id="node-input-Operation" placeholder="Operation"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='CleanAmplifyAppAttr' class='hiddenAttrs'>
+		<label for="node-input-CleanAmplifyApp"><i class="fa fa-tag"></i> CleanAmplifyApp</label>
+		<input type="text" id="node-input-CleanAmplifyApp" placeholder="CleanAmplifyApp"></input>
+	</div> 
+	<div class="form-row" id='LoginAuthConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-LoginAuthConfig"><i class="fa fa-tag"></i> LoginAuthConfig</label>
+		<input type="text" id="node-input-LoginAuthConfig" placeholder="LoginAuthConfig"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CloneBackend:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#TargetEnvironmentNameAttr'
+					],
+				CreateBackend:[
+					'#AppIdAttr','#AppNameAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				CreateBackendAPI:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				CreateBackendAuth:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				CreateBackendConfig:[
+					'#AppIdAttr','#BackendManagerAppIdAttr'
+					],
+				CreateToken:[
+					'#AppIdAttr'
+					],
+				DeleteBackend:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr'
+					],
+				DeleteBackendAPI:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				DeleteBackendAuth:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceNameAttr'
+					],
+				DeleteToken:[
+					'#AppIdAttr','#SessionIdAttr'
+					],
+				GenerateBackendAPIModels:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceNameAttr'
+					],
+				GetBackend:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr'
+					],
+				GetBackendAPI:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				GetBackendAPIModels:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceNameAttr'
+					],
+				GetBackendAuth:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceNameAttr'
+					],
+				GetBackendJob:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#JobIdAttr'
+					],
+				GetToken:[
+					'#AppIdAttr','#SessionIdAttr'
+					],
+				ImportBackendAuth:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#IdentityPoolIdAttr','#NativeClientIdAttr','#UserPoolIdAttr','#WebClientIdAttr'
+					],
+				ListBackendJobs:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#OperationAttr','#StatusAttr'
+					],
+				RemoveAllBackends:[
+					'#AppIdAttr','#CleanAmplifyAppAttr'
+					],
+				RemoveBackendConfig:[
+					'#AppIdAttr'
+					],
+				UpdateBackendAPI:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				UpdateBackendAuth:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#ResourceConfigAttr','#ResourceNameAttr'
+					],
+				UpdateBackendConfig:[
+					'#AppIdAttr','#LoginAuthConfigAttr'
+					],
+				UpdateBackendJob:[
+					'#AppIdAttr','#BackendEnvironmentNameAttr','#JobIdAttr','#OperationAttr','#StatusAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS AmplifyBackend">
+<p>
+AWS AmplifyBackend
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AmplifyBackend.html">AmplifyBackend</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AmplifyBackend',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CloneBackend' },
+			
+				AppId: { value: ""} ,
+				BackendEnvironmentName: { value: ""} ,
+				TargetEnvironmentName: { value: ""} ,
+				AppName: { value: ""} ,
+				ResourceConfig: { value: ""} ,
+				ResourceName: { value: ""} ,
+				BackendManagerAppId: { value: ""} ,
+				SessionId: { value: ""} ,
+				JobId: { value: ""} ,
+				IdentityPoolId: { value: ""} ,
+				NativeClientId: { value: ""} ,
+				UserPoolId: { value: ""} ,
+				WebClientId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				Operation: { value: ""} ,
+				Status: { value: ""} ,
+				CleanAmplifyApp: { value: ""} ,
+				LoginAuthConfig: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AmplifyBackend " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AppId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackendEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackendManagerAppId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdentityPoolId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NativeClientId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserPoolId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WebClientId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Operation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CleanAmplifyApp").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-LoginAuthConfig").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

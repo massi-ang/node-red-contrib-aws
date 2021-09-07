@@ -1,0 +1,301 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Support">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddAttachmentsToSet">AddAttachmentsToSet</option>
+		
+			<option value="AddCommunicationToCase">AddCommunicationToCase</option>
+		
+			<option value="CreateCase">CreateCase</option>
+		
+			<option value="DescribeAttachment">DescribeAttachment</option>
+		
+			<option value="DescribeCases">DescribeCases</option>
+		
+			<option value="DescribeCommunications">DescribeCommunications</option>
+		
+			<option value="DescribeServices">DescribeServices</option>
+		
+			<option value="DescribeSeverityLevels">DescribeSeverityLevels</option>
+		
+			<option value="DescribeTrustedAdvisorCheckRefreshStatuses">DescribeTrustedAdvisorCheckRefreshStatuses</option>
+		
+			<option value="DescribeTrustedAdvisorCheckResult">DescribeTrustedAdvisorCheckResult</option>
+		
+			<option value="DescribeTrustedAdvisorCheckSummaries">DescribeTrustedAdvisorCheckSummaries</option>
+		
+			<option value="DescribeTrustedAdvisorChecks">DescribeTrustedAdvisorChecks</option>
+		
+			<option value="RefreshTrustedAdvisorCheck">RefreshTrustedAdvisorCheck</option>
+		
+			<option value="ResolveCase">ResolveCase</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='attachmentSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-attachmentSetId"><i class="fa fa-tag"></i> attachmentSetId</label>
+		<input type="text" id="node-input-attachmentSetId" placeholder="attachmentSetId"></input>
+	</div> 
+	<div class="form-row" id='attachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-attachments"><i class="fa fa-tag"></i> attachments</label>
+		<input type="text" id="node-input-attachments" placeholder="attachments"></input>
+	</div> 
+	<div class="form-row" id='caseIdAttr' class='hiddenAttrs'>
+		<label for="node-input-caseId"><i class="fa fa-tag"></i> caseId</label>
+		<input type="text" id="node-input-caseId" placeholder="caseId"></input>
+	</div> 
+	<div class="form-row" id='communicationBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-communicationBody"><i class="fa fa-tag"></i> communicationBody</label>
+		<input type="text" id="node-input-communicationBody" placeholder="communicationBody"></input>
+	</div> 
+	<div class="form-row" id='ccEmailAddressesAttr' class='hiddenAttrs'>
+		<label for="node-input-ccEmailAddresses"><i class="fa fa-tag"></i> ccEmailAddresses</label>
+		<input type="text" id="node-input-ccEmailAddresses" placeholder="ccEmailAddresses"></input>
+	</div> 
+	<div class="form-row" id='subjectAttr' class='hiddenAttrs'>
+		<label for="node-input-subject"><i class="fa fa-tag"></i> subject</label>
+		<input type="text" id="node-input-subject" placeholder="subject"></input>
+	</div> 
+	<div class="form-row" id='serviceCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceCode"><i class="fa fa-tag"></i> serviceCode</label>
+		<input type="text" id="node-input-serviceCode" placeholder="serviceCode"></input>
+	</div> 
+	<div class="form-row" id='severityCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-severityCode"><i class="fa fa-tag"></i> severityCode</label>
+		<input type="text" id="node-input-severityCode" placeholder="severityCode"></input>
+	</div> 
+	<div class="form-row" id='categoryCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-categoryCode"><i class="fa fa-tag"></i> categoryCode</label>
+		<input type="text" id="node-input-categoryCode" placeholder="categoryCode"></input>
+	</div> 
+	<div class="form-row" id='languageAttr' class='hiddenAttrs'>
+		<label for="node-input-language"><i class="fa fa-tag"></i> language</label>
+		<input type="text" id="node-input-language" placeholder="language"></input>
+	</div> 
+	<div class="form-row" id='issueTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-issueType"><i class="fa fa-tag"></i> issueType</label>
+		<input type="text" id="node-input-issueType" placeholder="issueType"></input>
+	</div> 
+	<div class="form-row" id='attachmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-attachmentId"><i class="fa fa-tag"></i> attachmentId</label>
+		<input type="text" id="node-input-attachmentId" placeholder="attachmentId"></input>
+	</div> 
+	<div class="form-row" id='caseIdListAttr' class='hiddenAttrs'>
+		<label for="node-input-caseIdList"><i class="fa fa-tag"></i> caseIdList</label>
+		<input type="text" id="node-input-caseIdList" placeholder="caseIdList"></input>
+	</div> 
+	<div class="form-row" id='displayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-displayId"><i class="fa fa-tag"></i> displayId</label>
+		<input type="text" id="node-input-displayId" placeholder="displayId"></input>
+	</div> 
+	<div class="form-row" id='afterTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-afterTime"><i class="fa fa-tag"></i> afterTime</label>
+		<input type="text" id="node-input-afterTime" placeholder="afterTime"></input>
+	</div> 
+	<div class="form-row" id='beforeTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-beforeTime"><i class="fa fa-tag"></i> beforeTime</label>
+		<input type="text" id="node-input-beforeTime" placeholder="beforeTime"></input>
+	</div> 
+	<div class="form-row" id='includeResolvedCasesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeResolvedCases"><i class="fa fa-tag"></i> includeResolvedCases</label>
+		<input type="text" id="node-input-includeResolvedCases" placeholder="includeResolvedCases"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='includeCommunicationsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeCommunications"><i class="fa fa-tag"></i> includeCommunications</label>
+		<input type="text" id="node-input-includeCommunications" placeholder="includeCommunications"></input>
+	</div> 
+	<div class="form-row" id='serviceCodeListAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceCodeList"><i class="fa fa-tag"></i> serviceCodeList</label>
+		<input type="text" id="node-input-serviceCodeList" placeholder="serviceCodeList"></input>
+	</div> 
+	<div class="form-row" id='checkIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-checkIds"><i class="fa fa-tag"></i> checkIds</label>
+		<input type="text" id="node-input-checkIds" placeholder="checkIds"></input>
+	</div> 
+	<div class="form-row" id='checkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-checkId"><i class="fa fa-tag"></i> checkId</label>
+		<input type="text" id="node-input-checkId" placeholder="checkId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddAttachmentsToSet:[
+					'#attachmentSetIdAttr','#attachmentsAttr'
+					],
+				AddCommunicationToCase:[
+					'#caseIdAttr','#communicationBodyAttr','#ccEmailAddressesAttr','#attachmentSetIdAttr'
+					],
+				CreateCase:[
+					'#subjectAttr','#serviceCodeAttr','#severityCodeAttr','#categoryCodeAttr','#communicationBodyAttr','#ccEmailAddressesAttr','#languageAttr','#issueTypeAttr','#attachmentSetIdAttr'
+					],
+				DescribeAttachment:[
+					'#attachmentIdAttr'
+					],
+				DescribeCases:[
+					'#caseIdListAttr','#displayIdAttr','#afterTimeAttr','#beforeTimeAttr','#includeResolvedCasesAttr','#nextTokenAttr','#maxResultsAttr','#languageAttr','#includeCommunicationsAttr'
+					],
+				DescribeCommunications:[
+					'#caseIdAttr','#beforeTimeAttr','#afterTimeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				DescribeServices:[
+					'#serviceCodeListAttr','#languageAttr'
+					],
+				DescribeSeverityLevels:[
+					'#languageAttr'
+					],
+				DescribeTrustedAdvisorCheckRefreshStatuses:[
+					'#checkIdsAttr'
+					],
+				DescribeTrustedAdvisorCheckResult:[
+					'#checkIdAttr','#languageAttr'
+					],
+				DescribeTrustedAdvisorCheckSummaries:[
+					'#checkIdsAttr'
+					],
+				DescribeTrustedAdvisorChecks:[
+					'#languageAttr'
+					],
+				RefreshTrustedAdvisorCheck:[
+					'#checkIdAttr'
+					],
+				ResolveCase:[
+					'#caseIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Support">
+<p>
+AWS Support
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Support.html">Support</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Support',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddAttachmentsToSet' },
+			
+				attachmentSetId: { value: ""} ,
+				attachments: { value: ""} ,
+				caseId: { value: ""} ,
+				communicationBody: { value: ""} ,
+				ccEmailAddresses: { value: ""} ,
+				subject: { value: ""} ,
+				serviceCode: { value: ""} ,
+				severityCode: { value: ""} ,
+				categoryCode: { value: ""} ,
+				language: { value: ""} ,
+				issueType: { value: ""} ,
+				attachmentId: { value: ""} ,
+				caseIdList: { value: ""} ,
+				displayId: { value: ""} ,
+				afterTime: { value: ""} ,
+				beforeTime: { value: ""} ,
+				includeResolvedCases: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				includeCommunications: { value: ""} ,
+				serviceCodeList: { value: ""} ,
+				checkIds: { value: ""} ,
+				checkId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Support " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-attachmentSetId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-caseId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-communicationBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ccEmailAddresses").typedInput({ default: "str", types: ["str"]});
+$("#node-input-subject").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-severityCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-categoryCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-language").typedInput({ default: "str", types: ["str"]});
+$("#node-input-issueType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attachmentId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-displayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-afterTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-beforeTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeResolvedCases").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-includeCommunications").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-checkIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-checkId").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

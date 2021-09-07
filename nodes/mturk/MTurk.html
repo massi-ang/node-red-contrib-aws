@@ -1,0 +1,624 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MTurk">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptQualificationRequest">AcceptQualificationRequest</option>
+		
+			<option value="ApproveAssignment">ApproveAssignment</option>
+		
+			<option value="AssociateQualificationWithWorker">AssociateQualificationWithWorker</option>
+		
+			<option value="CreateAdditionalAssignmentsForHIT">CreateAdditionalAssignmentsForHIT</option>
+		
+			<option value="CreateHIT">CreateHIT</option>
+		
+			<option value="CreateHITType">CreateHITType</option>
+		
+			<option value="CreateHITWithHITType">CreateHITWithHITType</option>
+		
+			<option value="CreateQualificationType">CreateQualificationType</option>
+		
+			<option value="CreateWorkerBlock">CreateWorkerBlock</option>
+		
+			<option value="DeleteHIT">DeleteHIT</option>
+		
+			<option value="DeleteQualificationType">DeleteQualificationType</option>
+		
+			<option value="DeleteWorkerBlock">DeleteWorkerBlock</option>
+		
+			<option value="DisassociateQualificationFromWorker">DisassociateQualificationFromWorker</option>
+		
+			<option value="GetAccountBalance">GetAccountBalance</option>
+		
+			<option value="GetAssignment">GetAssignment</option>
+		
+			<option value="GetFileUploadURL">GetFileUploadURL</option>
+		
+			<option value="GetHIT">GetHIT</option>
+		
+			<option value="GetQualificationScore">GetQualificationScore</option>
+		
+			<option value="GetQualificationType">GetQualificationType</option>
+		
+			<option value="ListAssignmentsForHIT">ListAssignmentsForHIT</option>
+		
+			<option value="ListBonusPayments">ListBonusPayments</option>
+		
+			<option value="ListHITs">ListHITs</option>
+		
+			<option value="ListHITsForQualificationType">ListHITsForQualificationType</option>
+		
+			<option value="ListQualificationRequests">ListQualificationRequests</option>
+		
+			<option value="ListQualificationTypes">ListQualificationTypes</option>
+		
+			<option value="ListReviewPolicyResultsForHIT">ListReviewPolicyResultsForHIT</option>
+		
+			<option value="ListReviewableHITs">ListReviewableHITs</option>
+		
+			<option value="ListWorkerBlocks">ListWorkerBlocks</option>
+		
+			<option value="ListWorkersWithQualificationType">ListWorkersWithQualificationType</option>
+		
+			<option value="NotifyWorkers">NotifyWorkers</option>
+		
+			<option value="RejectAssignment">RejectAssignment</option>
+		
+			<option value="RejectQualificationRequest">RejectQualificationRequest</option>
+		
+			<option value="SendBonus">SendBonus</option>
+		
+			<option value="SendTestEventNotification">SendTestEventNotification</option>
+		
+			<option value="UpdateExpirationForHIT">UpdateExpirationForHIT</option>
+		
+			<option value="UpdateHITReviewStatus">UpdateHITReviewStatus</option>
+		
+			<option value="UpdateHITTypeOfHIT">UpdateHITTypeOfHIT</option>
+		
+			<option value="UpdateNotificationSettings">UpdateNotificationSettings</option>
+		
+			<option value="UpdateQualificationType">UpdateQualificationType</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='QualificationRequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QualificationRequestId"><i class="fa fa-tag"></i> QualificationRequestId</label>
+		<input type="text" id="node-input-QualificationRequestId" placeholder="QualificationRequestId"></input>
+	</div> 
+	<div class="form-row" id='IntegerValueAttr' class='hiddenAttrs'>
+		<label for="node-input-IntegerValue"><i class="fa fa-tag"></i> IntegerValue</label>
+		<input type="text" id="node-input-IntegerValue" placeholder="IntegerValue"></input>
+	</div> 
+	<div class="form-row" id='AssignmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentId"><i class="fa fa-tag"></i> AssignmentId</label>
+		<input type="text" id="node-input-AssignmentId" placeholder="AssignmentId"></input>
+	</div> 
+	<div class="form-row" id='RequesterFeedbackAttr' class='hiddenAttrs'>
+		<label for="node-input-RequesterFeedback"><i class="fa fa-tag"></i> RequesterFeedback</label>
+		<input type="text" id="node-input-RequesterFeedback" placeholder="RequesterFeedback"></input>
+	</div> 
+	<div class="form-row" id='OverrideRejectionAttr' class='hiddenAttrs'>
+		<label for="node-input-OverrideRejection"><i class="fa fa-tag"></i> OverrideRejection</label>
+		<input type="text" id="node-input-OverrideRejection" placeholder="OverrideRejection"></input>
+	</div> 
+	<div class="form-row" id='QualificationTypeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-QualificationTypeId"><i class="fa fa-tag"></i> QualificationTypeId</label>
+		<input type="text" id="node-input-QualificationTypeId" placeholder="QualificationTypeId"></input>
+	</div> 
+	<div class="form-row" id='WorkerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkerId"><i class="fa fa-tag"></i> WorkerId</label>
+		<input type="text" id="node-input-WorkerId" placeholder="WorkerId"></input>
+	</div> 
+	<div class="form-row" id='SendNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-SendNotification"><i class="fa fa-tag"></i> SendNotification</label>
+		<input type="text" id="node-input-SendNotification" placeholder="SendNotification"></input>
+	</div> 
+	<div class="form-row" id='HITIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HITId"><i class="fa fa-tag"></i> HITId</label>
+		<input type="text" id="node-input-HITId" placeholder="HITId"></input>
+	</div> 
+	<div class="form-row" id='NumberOfAdditionalAssignmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfAdditionalAssignments"><i class="fa fa-tag"></i> NumberOfAdditionalAssignments</label>
+		<input type="text" id="node-input-NumberOfAdditionalAssignments" placeholder="NumberOfAdditionalAssignments"></input>
+	</div> 
+	<div class="form-row" id='UniqueRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-UniqueRequestToken"><i class="fa fa-tag"></i> UniqueRequestToken</label>
+		<input type="text" id="node-input-UniqueRequestToken" placeholder="UniqueRequestToken"></input>
+	</div> 
+	<div class="form-row" id='MaxAssignmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxAssignments"><i class="fa fa-tag"></i> MaxAssignments</label>
+		<input type="text" id="node-input-MaxAssignments" placeholder="MaxAssignments"></input>
+	</div> 
+	<div class="form-row" id='AutoApprovalDelayInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoApprovalDelayInSeconds"><i class="fa fa-tag"></i> AutoApprovalDelayInSeconds</label>
+		<input type="text" id="node-input-AutoApprovalDelayInSeconds" placeholder="AutoApprovalDelayInSeconds"></input>
+	</div> 
+	<div class="form-row" id='LifetimeInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-LifetimeInSeconds"><i class="fa fa-tag"></i> LifetimeInSeconds</label>
+		<input type="text" id="node-input-LifetimeInSeconds" placeholder="LifetimeInSeconds"></input>
+	</div> 
+	<div class="form-row" id='AssignmentDurationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentDurationInSeconds"><i class="fa fa-tag"></i> AssignmentDurationInSeconds</label>
+		<input type="text" id="node-input-AssignmentDurationInSeconds" placeholder="AssignmentDurationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='RewardAttr' class='hiddenAttrs'>
+		<label for="node-input-Reward"><i class="fa fa-tag"></i> Reward</label>
+		<input type="text" id="node-input-Reward" placeholder="Reward"></input>
+	</div> 
+	<div class="form-row" id='TitleAttr' class='hiddenAttrs'>
+		<label for="node-input-Title"><i class="fa fa-tag"></i> Title</label>
+		<input type="text" id="node-input-Title" placeholder="Title"></input>
+	</div> 
+	<div class="form-row" id='KeywordsAttr' class='hiddenAttrs'>
+		<label for="node-input-Keywords"><i class="fa fa-tag"></i> Keywords</label>
+		<input type="text" id="node-input-Keywords" placeholder="Keywords"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='QuestionAttr' class='hiddenAttrs'>
+		<label for="node-input-Question"><i class="fa fa-tag"></i> Question</label>
+		<input type="text" id="node-input-Question" placeholder="Question"></input>
+	</div> 
+	<div class="form-row" id='RequesterAnnotationAttr' class='hiddenAttrs'>
+		<label for="node-input-RequesterAnnotation"><i class="fa fa-tag"></i> RequesterAnnotation</label>
+		<input type="text" id="node-input-RequesterAnnotation" placeholder="RequesterAnnotation"></input>
+	</div> 
+	<div class="form-row" id='QualificationRequirementsAttr' class='hiddenAttrs'>
+		<label for="node-input-QualificationRequirements"><i class="fa fa-tag"></i> QualificationRequirements</label>
+		<input type="text" id="node-input-QualificationRequirements" placeholder="QualificationRequirements"></input>
+	</div> 
+	<div class="form-row" id='AssignmentReviewPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentReviewPolicy"><i class="fa fa-tag"></i> AssignmentReviewPolicy</label>
+		<input type="text" id="node-input-AssignmentReviewPolicy" placeholder="AssignmentReviewPolicy"></input>
+	</div> 
+	<div class="form-row" id='HITReviewPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-HITReviewPolicy"><i class="fa fa-tag"></i> HITReviewPolicy</label>
+		<input type="text" id="node-input-HITReviewPolicy" placeholder="HITReviewPolicy"></input>
+	</div> 
+	<div class="form-row" id='HITLayoutIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HITLayoutId"><i class="fa fa-tag"></i> HITLayoutId</label>
+		<input type="text" id="node-input-HITLayoutId" placeholder="HITLayoutId"></input>
+	</div> 
+	<div class="form-row" id='HITLayoutParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-HITLayoutParameters"><i class="fa fa-tag"></i> HITLayoutParameters</label>
+		<input type="text" id="node-input-HITLayoutParameters" placeholder="HITLayoutParameters"></input>
+	</div> 
+	<div class="form-row" id='HITTypeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HITTypeId"><i class="fa fa-tag"></i> HITTypeId</label>
+		<input type="text" id="node-input-HITTypeId" placeholder="HITTypeId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='QualificationTypeStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-QualificationTypeStatus"><i class="fa fa-tag"></i> QualificationTypeStatus</label>
+		<input type="text" id="node-input-QualificationTypeStatus" placeholder="QualificationTypeStatus"></input>
+	</div> 
+	<div class="form-row" id='RetryDelayInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-RetryDelayInSeconds"><i class="fa fa-tag"></i> RetryDelayInSeconds</label>
+		<input type="text" id="node-input-RetryDelayInSeconds" placeholder="RetryDelayInSeconds"></input>
+	</div> 
+	<div class="form-row" id='TestAttr' class='hiddenAttrs'>
+		<label for="node-input-Test"><i class="fa fa-tag"></i> Test</label>
+		<input type="text" id="node-input-Test" placeholder="Test"></input>
+	</div> 
+	<div class="form-row" id='AnswerKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-AnswerKey"><i class="fa fa-tag"></i> AnswerKey</label>
+		<input type="text" id="node-input-AnswerKey" placeholder="AnswerKey"></input>
+	</div> 
+	<div class="form-row" id='TestDurationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-TestDurationInSeconds"><i class="fa fa-tag"></i> TestDurationInSeconds</label>
+		<input type="text" id="node-input-TestDurationInSeconds" placeholder="TestDurationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='AutoGrantedAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoGranted"><i class="fa fa-tag"></i> AutoGranted</label>
+		<input type="text" id="node-input-AutoGranted" placeholder="AutoGranted"></input>
+	</div> 
+	<div class="form-row" id='AutoGrantedValueAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoGrantedValue"><i class="fa fa-tag"></i> AutoGrantedValue</label>
+		<input type="text" id="node-input-AutoGrantedValue" placeholder="AutoGrantedValue"></input>
+	</div> 
+	<div class="form-row" id='ReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-Reason"><i class="fa fa-tag"></i> Reason</label>
+		<input type="text" id="node-input-Reason" placeholder="Reason"></input>
+	</div> 
+	<div class="form-row" id='QuestionIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-QuestionIdentifier"><i class="fa fa-tag"></i> QuestionIdentifier</label>
+		<input type="text" id="node-input-QuestionIdentifier" placeholder="QuestionIdentifier"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='AssignmentStatusesAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentStatuses"><i class="fa fa-tag"></i> AssignmentStatuses</label>
+		<input type="text" id="node-input-AssignmentStatuses" placeholder="AssignmentStatuses"></input>
+	</div> 
+	<div class="form-row" id='QueryAttr' class='hiddenAttrs'>
+		<label for="node-input-Query"><i class="fa fa-tag"></i> Query</label>
+		<input type="text" id="node-input-Query" placeholder="Query"></input>
+	</div> 
+	<div class="form-row" id='MustBeRequestableAttr' class='hiddenAttrs'>
+		<label for="node-input-MustBeRequestable"><i class="fa fa-tag"></i> MustBeRequestable</label>
+		<input type="text" id="node-input-MustBeRequestable" placeholder="MustBeRequestable"></input>
+	</div> 
+	<div class="form-row" id='MustBeOwnedByCallerAttr' class='hiddenAttrs'>
+		<label for="node-input-MustBeOwnedByCaller"><i class="fa fa-tag"></i> MustBeOwnedByCaller</label>
+		<input type="text" id="node-input-MustBeOwnedByCaller" placeholder="MustBeOwnedByCaller"></input>
+	</div> 
+	<div class="form-row" id='PolicyLevelsAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyLevels"><i class="fa fa-tag"></i> PolicyLevels</label>
+		<input type="text" id="node-input-PolicyLevels" placeholder="PolicyLevels"></input>
+	</div> 
+	<div class="form-row" id='RetrieveActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-RetrieveActions"><i class="fa fa-tag"></i> RetrieveActions</label>
+		<input type="text" id="node-input-RetrieveActions" placeholder="RetrieveActions"></input>
+	</div> 
+	<div class="form-row" id='RetrieveResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-RetrieveResults"><i class="fa fa-tag"></i> RetrieveResults</label>
+		<input type="text" id="node-input-RetrieveResults" placeholder="RetrieveResults"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='SubjectAttr' class='hiddenAttrs'>
+		<label for="node-input-Subject"><i class="fa fa-tag"></i> Subject</label>
+		<input type="text" id="node-input-Subject" placeholder="Subject"></input>
+	</div> 
+	<div class="form-row" id='MessageTextAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageText"><i class="fa fa-tag"></i> MessageText</label>
+		<input type="text" id="node-input-MessageText" placeholder="MessageText"></input>
+	</div> 
+	<div class="form-row" id='WorkerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkerIds"><i class="fa fa-tag"></i> WorkerIds</label>
+		<input type="text" id="node-input-WorkerIds" placeholder="WorkerIds"></input>
+	</div> 
+	<div class="form-row" id='BonusAmountAttr' class='hiddenAttrs'>
+		<label for="node-input-BonusAmount"><i class="fa fa-tag"></i> BonusAmount</label>
+		<input type="text" id="node-input-BonusAmount" placeholder="BonusAmount"></input>
+	</div> 
+	<div class="form-row" id='NotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-Notification"><i class="fa fa-tag"></i> Notification</label>
+		<input type="text" id="node-input-Notification" placeholder="Notification"></input>
+	</div> 
+	<div class="form-row" id='TestEventTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TestEventType"><i class="fa fa-tag"></i> TestEventType</label>
+		<input type="text" id="node-input-TestEventType" placeholder="TestEventType"></input>
+	</div> 
+	<div class="form-row" id='ExpireAtAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpireAt"><i class="fa fa-tag"></i> ExpireAt</label>
+		<input type="text" id="node-input-ExpireAt" placeholder="ExpireAt"></input>
+	</div> 
+	<div class="form-row" id='RevertAttr' class='hiddenAttrs'>
+		<label for="node-input-Revert"><i class="fa fa-tag"></i> Revert</label>
+		<input type="text" id="node-input-Revert" placeholder="Revert"></input>
+	</div> 
+	<div class="form-row" id='ActiveAttr' class='hiddenAttrs'>
+		<label for="node-input-Active"><i class="fa fa-tag"></i> Active</label>
+		<input type="text" id="node-input-Active" placeholder="Active"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptQualificationRequest:[
+					'#QualificationRequestIdAttr','#IntegerValueAttr'
+					],
+				ApproveAssignment:[
+					'#AssignmentIdAttr','#RequesterFeedbackAttr','#OverrideRejectionAttr'
+					],
+				AssociateQualificationWithWorker:[
+					'#QualificationTypeIdAttr','#WorkerIdAttr','#IntegerValueAttr','#SendNotificationAttr'
+					],
+				CreateAdditionalAssignmentsForHIT:[
+					'#HITIdAttr','#NumberOfAdditionalAssignmentsAttr','#UniqueRequestTokenAttr'
+					],
+				CreateHIT:[
+					'#MaxAssignmentsAttr','#AutoApprovalDelayInSecondsAttr','#LifetimeInSecondsAttr','#AssignmentDurationInSecondsAttr','#RewardAttr','#TitleAttr','#KeywordsAttr','#DescriptionAttr','#QuestionAttr','#RequesterAnnotationAttr','#QualificationRequirementsAttr','#UniqueRequestTokenAttr','#AssignmentReviewPolicyAttr','#HITReviewPolicyAttr','#HITLayoutIdAttr','#HITLayoutParametersAttr'
+					],
+				CreateHITType:[
+					'#AutoApprovalDelayInSecondsAttr','#AssignmentDurationInSecondsAttr','#RewardAttr','#TitleAttr','#KeywordsAttr','#DescriptionAttr','#QualificationRequirementsAttr'
+					],
+				CreateHITWithHITType:[
+					'#HITTypeIdAttr','#MaxAssignmentsAttr','#LifetimeInSecondsAttr','#QuestionAttr','#RequesterAnnotationAttr','#UniqueRequestTokenAttr','#AssignmentReviewPolicyAttr','#HITReviewPolicyAttr','#HITLayoutIdAttr','#HITLayoutParametersAttr'
+					],
+				CreateQualificationType:[
+					'#NameAttr','#KeywordsAttr','#DescriptionAttr','#QualificationTypeStatusAttr','#RetryDelayInSecondsAttr','#TestAttr','#AnswerKeyAttr','#TestDurationInSecondsAttr','#AutoGrantedAttr','#AutoGrantedValueAttr'
+					],
+				CreateWorkerBlock:[
+					'#WorkerIdAttr','#ReasonAttr'
+					],
+				DeleteHIT:[
+					'#HITIdAttr'
+					],
+				DeleteQualificationType:[
+					'#QualificationTypeIdAttr'
+					],
+				DeleteWorkerBlock:[
+					'#WorkerIdAttr','#ReasonAttr'
+					],
+				DisassociateQualificationFromWorker:[
+					'#WorkerIdAttr','#QualificationTypeIdAttr','#ReasonAttr'
+					],
+				GetAccountBalance:[
+					
+					],
+				GetAssignment:[
+					'#AssignmentIdAttr'
+					],
+				GetFileUploadURL:[
+					'#AssignmentIdAttr','#QuestionIdentifierAttr'
+					],
+				GetHIT:[
+					'#HITIdAttr'
+					],
+				GetQualificationScore:[
+					'#QualificationTypeIdAttr','#WorkerIdAttr'
+					],
+				GetQualificationType:[
+					'#QualificationTypeIdAttr'
+					],
+				ListAssignmentsForHIT:[
+					'#HITIdAttr','#NextTokenAttr','#MaxResultsAttr','#AssignmentStatusesAttr'
+					],
+				ListBonusPayments:[
+					'#HITIdAttr','#AssignmentIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHITs:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHITsForQualificationType:[
+					'#QualificationTypeIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListQualificationRequests:[
+					'#QualificationTypeIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListQualificationTypes:[
+					'#QueryAttr','#MustBeRequestableAttr','#MustBeOwnedByCallerAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListReviewPolicyResultsForHIT:[
+					'#HITIdAttr','#PolicyLevelsAttr','#RetrieveActionsAttr','#RetrieveResultsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListReviewableHITs:[
+					'#HITTypeIdAttr','#StatusAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListWorkerBlocks:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListWorkersWithQualificationType:[
+					'#QualificationTypeIdAttr','#StatusAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				NotifyWorkers:[
+					'#SubjectAttr','#MessageTextAttr','#WorkerIdsAttr'
+					],
+				RejectAssignment:[
+					'#AssignmentIdAttr','#RequesterFeedbackAttr'
+					],
+				RejectQualificationRequest:[
+					'#QualificationRequestIdAttr','#ReasonAttr'
+					],
+				SendBonus:[
+					'#WorkerIdAttr','#BonusAmountAttr','#AssignmentIdAttr','#ReasonAttr','#UniqueRequestTokenAttr'
+					],
+				SendTestEventNotification:[
+					'#NotificationAttr','#TestEventTypeAttr'
+					],
+				UpdateExpirationForHIT:[
+					'#HITIdAttr','#ExpireAtAttr'
+					],
+				UpdateHITReviewStatus:[
+					'#HITIdAttr','#RevertAttr'
+					],
+				UpdateHITTypeOfHIT:[
+					'#HITIdAttr','#HITTypeIdAttr'
+					],
+				UpdateNotificationSettings:[
+					'#HITTypeIdAttr','#NotificationAttr','#ActiveAttr'
+					],
+				UpdateQualificationType:[
+					'#QualificationTypeIdAttr','#DescriptionAttr','#QualificationTypeStatusAttr','#TestAttr','#AnswerKeyAttr','#TestDurationInSecondsAttr','#RetryDelayInSecondsAttr','#AutoGrantedAttr','#AutoGrantedValueAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MTurk">
+<p>
+AWS MTurk
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MTurk.html">MTurk</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MTurk',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptQualificationRequest' },
+			
+				QualificationRequestId: { value: ""} ,
+				IntegerValue: { value: ""} ,
+				AssignmentId: { value: ""} ,
+				RequesterFeedback: { value: ""} ,
+				OverrideRejection: { value: ""} ,
+				QualificationTypeId: { value: ""} ,
+				WorkerId: { value: ""} ,
+				SendNotification: { value: ""} ,
+				HITId: { value: ""} ,
+				NumberOfAdditionalAssignments: { value: ""} ,
+				UniqueRequestToken: { value: ""} ,
+				MaxAssignments: { value: ""} ,
+				AutoApprovalDelayInSeconds: { value: ""} ,
+				LifetimeInSeconds: { value: ""} ,
+				AssignmentDurationInSeconds: { value: ""} ,
+				Reward: { value: ""} ,
+				Title: { value: ""} ,
+				Keywords: { value: ""} ,
+				Description: { value: ""} ,
+				Question: { value: ""} ,
+				RequesterAnnotation: { value: ""} ,
+				QualificationRequirements: { value: ""} ,
+				AssignmentReviewPolicy: { value: ""} ,
+				HITReviewPolicy: { value: ""} ,
+				HITLayoutId: { value: ""} ,
+				HITLayoutParameters: { value: ""} ,
+				HITTypeId: { value: ""} ,
+				Name: { value: ""} ,
+				QualificationTypeStatus: { value: ""} ,
+				RetryDelayInSeconds: { value: ""} ,
+				Test: { value: ""} ,
+				AnswerKey: { value: ""} ,
+				TestDurationInSeconds: { value: ""} ,
+				AutoGranted: { value: ""} ,
+				AutoGrantedValue: { value: ""} ,
+				Reason: { value: ""} ,
+				QuestionIdentifier: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				AssignmentStatuses: { value: ""} ,
+				Query: { value: ""} ,
+				MustBeRequestable: { value: ""} ,
+				MustBeOwnedByCaller: { value: ""} ,
+				PolicyLevels: { value: ""} ,
+				RetrieveActions: { value: ""} ,
+				RetrieveResults: { value: ""} ,
+				Status: { value: ""} ,
+				Subject: { value: ""} ,
+				MessageText: { value: ""} ,
+				WorkerIds: { value: ""} ,
+				BonusAmount: { value: ""} ,
+				Notification: { value: ""} ,
+				TestEventType: { value: ""} ,
+				ExpireAt: { value: ""} ,
+				Revert: { value: ""} ,
+				Active: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MTurk " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-QualificationRequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IntegerValue").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AssignmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequesterFeedback").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OverrideRejection").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-QualificationTypeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SendNotification").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-HITId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberOfAdditionalAssignments").typedInput({ default: "num", types: ["num"]});
+$("#node-input-UniqueRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxAssignments").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-Reward").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Title").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Keywords").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Question").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequesterAnnotation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QualificationRequirements").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssignmentReviewPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HITReviewPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HITLayoutId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HITLayoutParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HITTypeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QualificationTypeStatus").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Test").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AnswerKey").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AutoGranted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AutoGrantedValue").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Reason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-QuestionIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-Query").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MustBeRequestable").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MustBeOwnedByCaller").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-RetrieveActions").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RetrieveResults").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subject").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageText").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-BonusAmount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Notification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TestEventType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Revert").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Active").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

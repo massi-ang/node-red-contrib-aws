@@ -1,0 +1,383 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS LookoutEquipment">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateInferenceScheduler">CreateInferenceScheduler</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteInferenceScheduler">DeleteInferenceScheduler</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DescribeDataIngestionJob">DescribeDataIngestionJob</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeInferenceScheduler">DescribeInferenceScheduler</option>
+		
+			<option value="DescribeModel">DescribeModel</option>
+		
+			<option value="ListDataIngestionJobs">ListDataIngestionJobs</option>
+		
+			<option value="ListDatasets">ListDatasets</option>
+		
+			<option value="ListInferenceExecutions">ListInferenceExecutions</option>
+		
+			<option value="ListInferenceSchedulers">ListInferenceSchedulers</option>
+		
+			<option value="ListModels">ListModels</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartDataIngestionJob">StartDataIngestionJob</option>
+		
+			<option value="StartInferenceScheduler">StartInferenceScheduler</option>
+		
+			<option value="StopInferenceScheduler">StopInferenceScheduler</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateInferenceScheduler">UpdateInferenceScheduler</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DatasetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetName"><i class="fa fa-tag"></i> DatasetName</label>
+		<input type="text" id="node-input-DatasetName" placeholder="DatasetName"></input>
+	</div> 
+	<div class="form-row" id='DatasetSchemaAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetSchema"><i class="fa fa-tag"></i> DatasetSchema</label>
+		<input type="text" id="node-input-DatasetSchema" placeholder="DatasetSchema"></input>
+	</div> 
+	<div class="form-row" id='ServerSideKmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerSideKmsKeyId"><i class="fa fa-tag"></i> ServerSideKmsKeyId</label>
+		<input type="text" id="node-input-ServerSideKmsKeyId" placeholder="ServerSideKmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelName"><i class="fa fa-tag"></i> ModelName</label>
+		<input type="text" id="node-input-ModelName" placeholder="ModelName"></input>
+	</div> 
+	<div class="form-row" id='InferenceSchedulerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-InferenceSchedulerName"><i class="fa fa-tag"></i> InferenceSchedulerName</label>
+		<input type="text" id="node-input-InferenceSchedulerName" placeholder="InferenceSchedulerName"></input>
+	</div> 
+	<div class="form-row" id='DataDelayOffsetInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-DataDelayOffsetInMinutes"><i class="fa fa-tag"></i> DataDelayOffsetInMinutes</label>
+		<input type="text" id="node-input-DataDelayOffsetInMinutes" placeholder="DataDelayOffsetInMinutes"></input>
+	</div> 
+	<div class="form-row" id='DataUploadFrequencyAttr' class='hiddenAttrs'>
+		<label for="node-input-DataUploadFrequency"><i class="fa fa-tag"></i> DataUploadFrequency</label>
+		<input type="text" id="node-input-DataUploadFrequency" placeholder="DataUploadFrequency"></input>
+	</div> 
+	<div class="form-row" id='DataInputConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-DataInputConfiguration"><i class="fa fa-tag"></i> DataInputConfiguration</label>
+		<input type="text" id="node-input-DataInputConfiguration" placeholder="DataInputConfiguration"></input>
+	</div> 
+	<div class="form-row" id='DataOutputConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-DataOutputConfiguration"><i class="fa fa-tag"></i> DataOutputConfiguration</label>
+		<input type="text" id="node-input-DataOutputConfiguration" placeholder="DataOutputConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='LabelsInputConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelsInputConfiguration"><i class="fa fa-tag"></i> LabelsInputConfiguration</label>
+		<input type="text" id="node-input-LabelsInputConfiguration" placeholder="LabelsInputConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TrainingDataStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingDataStartTime"><i class="fa fa-tag"></i> TrainingDataStartTime</label>
+		<input type="text" id="node-input-TrainingDataStartTime" placeholder="TrainingDataStartTime"></input>
+	</div> 
+	<div class="form-row" id='TrainingDataEndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingDataEndTime"><i class="fa fa-tag"></i> TrainingDataEndTime</label>
+		<input type="text" id="node-input-TrainingDataEndTime" placeholder="TrainingDataEndTime"></input>
+	</div> 
+	<div class="form-row" id='EvaluationDataStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationDataStartTime"><i class="fa fa-tag"></i> EvaluationDataStartTime</label>
+		<input type="text" id="node-input-EvaluationDataStartTime" placeholder="EvaluationDataStartTime"></input>
+	</div> 
+	<div class="form-row" id='EvaluationDataEndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationDataEndTime"><i class="fa fa-tag"></i> EvaluationDataEndTime</label>
+		<input type="text" id="node-input-EvaluationDataEndTime" placeholder="EvaluationDataEndTime"></input>
+	</div> 
+	<div class="form-row" id='DataPreProcessingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-DataPreProcessingConfiguration"><i class="fa fa-tag"></i> DataPreProcessingConfiguration</label>
+		<input type="text" id="node-input-DataPreProcessingConfiguration" placeholder="DataPreProcessingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='DatasetNameBeginsWithAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetNameBeginsWith"><i class="fa fa-tag"></i> DatasetNameBeginsWith</label>
+		<input type="text" id="node-input-DatasetNameBeginsWith" placeholder="DatasetNameBeginsWith"></input>
+	</div> 
+	<div class="form-row" id='DataStartTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-DataStartTimeAfter"><i class="fa fa-tag"></i> DataStartTimeAfter</label>
+		<input type="text" id="node-input-DataStartTimeAfter" placeholder="DataStartTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='DataEndTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-DataEndTimeBefore"><i class="fa fa-tag"></i> DataEndTimeBefore</label>
+		<input type="text" id="node-input-DataEndTimeBefore" placeholder="DataEndTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='InferenceSchedulerNameBeginsWithAttr' class='hiddenAttrs'>
+		<label for="node-input-InferenceSchedulerNameBeginsWith"><i class="fa fa-tag"></i> InferenceSchedulerNameBeginsWith</label>
+		<input type="text" id="node-input-InferenceSchedulerNameBeginsWith" placeholder="InferenceSchedulerNameBeginsWith"></input>
+	</div> 
+	<div class="form-row" id='ModelNameBeginsWithAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelNameBeginsWith"><i class="fa fa-tag"></i> ModelNameBeginsWith</label>
+		<input type="text" id="node-input-ModelNameBeginsWith" placeholder="ModelNameBeginsWith"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='IngestionInputConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-IngestionInputConfiguration"><i class="fa fa-tag"></i> IngestionInputConfiguration</label>
+		<input type="text" id="node-input-IngestionInputConfiguration" placeholder="IngestionInputConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDataset:[
+					'#DatasetNameAttr','#DatasetSchemaAttr','#ServerSideKmsKeyIdAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateInferenceScheduler:[
+					'#ModelNameAttr','#InferenceSchedulerNameAttr','#DataDelayOffsetInMinutesAttr','#DataUploadFrequencyAttr','#DataInputConfigurationAttr','#DataOutputConfigurationAttr','#RoleArnAttr','#ServerSideKmsKeyIdAttr','#ClientTokenAttr','#TagsAttr'
+					],
+				CreateModel:[
+					'#ModelNameAttr','#DatasetNameAttr','#DatasetSchemaAttr','#LabelsInputConfigurationAttr','#ClientTokenAttr','#TrainingDataStartTimeAttr','#TrainingDataEndTimeAttr','#EvaluationDataStartTimeAttr','#EvaluationDataEndTimeAttr','#RoleArnAttr','#DataPreProcessingConfigurationAttr','#ServerSideKmsKeyIdAttr','#TagsAttr'
+					],
+				DeleteDataset:[
+					'#DatasetNameAttr'
+					],
+				DeleteInferenceScheduler:[
+					'#InferenceSchedulerNameAttr'
+					],
+				DeleteModel:[
+					'#ModelNameAttr'
+					],
+				DescribeDataIngestionJob:[
+					'#JobIdAttr'
+					],
+				DescribeDataset:[
+					'#DatasetNameAttr'
+					],
+				DescribeInferenceScheduler:[
+					'#InferenceSchedulerNameAttr'
+					],
+				DescribeModel:[
+					'#ModelNameAttr'
+					],
+				ListDataIngestionJobs:[
+					'#DatasetNameAttr','#NextTokenAttr','#MaxResultsAttr','#StatusAttr'
+					],
+				ListDatasets:[
+					'#NextTokenAttr','#MaxResultsAttr','#DatasetNameBeginsWithAttr'
+					],
+				ListInferenceExecutions:[
+					'#NextTokenAttr','#MaxResultsAttr','#InferenceSchedulerNameAttr','#DataStartTimeAfterAttr','#DataEndTimeBeforeAttr','#StatusAttr'
+					],
+				ListInferenceSchedulers:[
+					'#NextTokenAttr','#MaxResultsAttr','#InferenceSchedulerNameBeginsWithAttr','#ModelNameAttr'
+					],
+				ListModels:[
+					'#NextTokenAttr','#MaxResultsAttr','#StatusAttr','#ModelNameBeginsWithAttr','#DatasetNameBeginsWithAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartDataIngestionJob:[
+					'#DatasetNameAttr','#IngestionInputConfigurationAttr','#RoleArnAttr','#ClientTokenAttr'
+					],
+				StartInferenceScheduler:[
+					'#InferenceSchedulerNameAttr'
+					],
+				StopInferenceScheduler:[
+					'#InferenceSchedulerNameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateInferenceScheduler:[
+					'#InferenceSchedulerNameAttr','#DataDelayOffsetInMinutesAttr','#DataUploadFrequencyAttr','#DataInputConfigurationAttr','#DataOutputConfigurationAttr','#RoleArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS LookoutEquipment">
+<p>
+AWS LookoutEquipment
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LookoutEquipment.html">LookoutEquipment</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LookoutEquipment',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDataset' },
+			
+				DatasetName: { value: ""} ,
+				DatasetSchema: { value: ""} ,
+				ServerSideKmsKeyId: { value: ""} ,
+				ClientToken: { value: ""} ,
+				Tags: { value: ""} ,
+				ModelName: { value: ""} ,
+				InferenceSchedulerName: { value: ""} ,
+				DataDelayOffsetInMinutes: { value: ""} ,
+				DataUploadFrequency: { value: ""} ,
+				DataInputConfiguration: { value: ""} ,
+				DataOutputConfiguration: { value: ""} ,
+				RoleArn: { value: ""} ,
+				LabelsInputConfiguration: { value: ""} ,
+				TrainingDataStartTime: { value: ""} ,
+				TrainingDataEndTime: { value: ""} ,
+				EvaluationDataStartTime: { value: ""} ,
+				EvaluationDataEndTime: { value: ""} ,
+				DataPreProcessingConfiguration: { value: ""} ,
+				JobId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Status: { value: ""} ,
+				DatasetNameBeginsWith: { value: ""} ,
+				DataStartTimeAfter: { value: ""} ,
+				DataEndTimeBefore: { value: ""} ,
+				InferenceSchedulerNameBeginsWith: { value: ""} ,
+				ModelNameBeginsWith: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				IngestionInputConfiguration: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LookoutEquipment " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-DatasetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatasetSchema").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerSideKmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InferenceSchedulerName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DataUploadFrequency").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataInputConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataOutputConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LabelsInputConfiguration").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-DataPreProcessingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatasetNameBeginsWith").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-InferenceSchedulerNameBeginsWith").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelNameBeginsWith").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IngestionInputConfiguration").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,283 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ComputeOptimizer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DescribeRecommendationExportJobs">DescribeRecommendationExportJobs</option>
+		
+			<option value="ExportAutoScalingGroupRecommendations">ExportAutoScalingGroupRecommendations</option>
+		
+			<option value="ExportEBSVolumeRecommendations">ExportEBSVolumeRecommendations</option>
+		
+			<option value="ExportEC2InstanceRecommendations">ExportEC2InstanceRecommendations</option>
+		
+			<option value="ExportLambdaFunctionRecommendations">ExportLambdaFunctionRecommendations</option>
+		
+			<option value="GetAutoScalingGroupRecommendations">GetAutoScalingGroupRecommendations</option>
+		
+			<option value="GetEBSVolumeRecommendations">GetEBSVolumeRecommendations</option>
+		
+			<option value="GetEC2InstanceRecommendations">GetEC2InstanceRecommendations</option>
+		
+			<option value="GetEC2RecommendationProjectedMetrics">GetEC2RecommendationProjectedMetrics</option>
+		
+			<option value="GetEnrollmentStatus">GetEnrollmentStatus</option>
+		
+			<option value="GetEnrollmentStatusesForOrganization">GetEnrollmentStatusesForOrganization</option>
+		
+			<option value="GetLambdaFunctionRecommendations">GetLambdaFunctionRecommendations</option>
+		
+			<option value="GetRecommendationSummaries">GetRecommendationSummaries</option>
+		
+			<option value="UpdateEnrollmentStatus">UpdateEnrollmentStatus</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='jobIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-jobIds"><i class="fa fa-tag"></i> jobIds</label>
+		<input type="text" id="node-input-jobIds" placeholder="jobIds"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='accountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-accountIds"><i class="fa fa-tag"></i> accountIds</label>
+		<input type="text" id="node-input-accountIds" placeholder="accountIds"></input>
+	</div> 
+	<div class="form-row" id='fieldsToExportAttr' class='hiddenAttrs'>
+		<label for="node-input-fieldsToExport"><i class="fa fa-tag"></i> fieldsToExport</label>
+		<input type="text" id="node-input-fieldsToExport" placeholder="fieldsToExport"></input>
+	</div> 
+	<div class="form-row" id='s3DestinationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-s3DestinationConfig"><i class="fa fa-tag"></i> s3DestinationConfig</label>
+		<input type="text" id="node-input-s3DestinationConfig" placeholder="s3DestinationConfig"></input>
+	</div> 
+	<div class="form-row" id='fileFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-fileFormat"><i class="fa fa-tag"></i> fileFormat</label>
+		<input type="text" id="node-input-fileFormat" placeholder="fileFormat"></input>
+	</div> 
+	<div class="form-row" id='includeMemberAccountsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeMemberAccounts"><i class="fa fa-tag"></i> includeMemberAccounts</label>
+		<input type="text" id="node-input-includeMemberAccounts" placeholder="includeMemberAccounts"></input>
+	</div> 
+	<div class="form-row" id='recommendationPreferencesAttr' class='hiddenAttrs'>
+		<label for="node-input-recommendationPreferences"><i class="fa fa-tag"></i> recommendationPreferences</label>
+		<input type="text" id="node-input-recommendationPreferences" placeholder="recommendationPreferences"></input>
+	</div> 
+	<div class="form-row" id='autoScalingGroupArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-autoScalingGroupArns"><i class="fa fa-tag"></i> autoScalingGroupArns</label>
+		<input type="text" id="node-input-autoScalingGroupArns" placeholder="autoScalingGroupArns"></input>
+	</div> 
+	<div class="form-row" id='volumeArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-volumeArns"><i class="fa fa-tag"></i> volumeArns</label>
+		<input type="text" id="node-input-volumeArns" placeholder="volumeArns"></input>
+	</div> 
+	<div class="form-row" id='instanceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceArns"><i class="fa fa-tag"></i> instanceArns</label>
+		<input type="text" id="node-input-instanceArns" placeholder="instanceArns"></input>
+	</div> 
+	<div class="form-row" id='instanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceArn"><i class="fa fa-tag"></i> instanceArn</label>
+		<input type="text" id="node-input-instanceArn" placeholder="instanceArn"></input>
+	</div> 
+	<div class="form-row" id='statAttr' class='hiddenAttrs'>
+		<label for="node-input-stat"><i class="fa fa-tag"></i> stat</label>
+		<input type="text" id="node-input-stat" placeholder="stat"></input>
+	</div> 
+	<div class="form-row" id='periodAttr' class='hiddenAttrs'>
+		<label for="node-input-period"><i class="fa fa-tag"></i> period</label>
+		<input type="text" id="node-input-period" placeholder="period"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='functionArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-functionArns"><i class="fa fa-tag"></i> functionArns</label>
+		<input type="text" id="node-input-functionArns" placeholder="functionArns"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DescribeRecommendationExportJobs:[
+					'#jobIdsAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ExportAutoScalingGroupRecommendations:[
+					'#accountIdsAttr','#filtersAttr','#fieldsToExportAttr','#s3DestinationConfigAttr','#fileFormatAttr','#includeMemberAccountsAttr','#recommendationPreferencesAttr'
+					],
+				ExportEBSVolumeRecommendations:[
+					'#accountIdsAttr','#filtersAttr','#fieldsToExportAttr','#s3DestinationConfigAttr','#fileFormatAttr','#includeMemberAccountsAttr'
+					],
+				ExportEC2InstanceRecommendations:[
+					'#accountIdsAttr','#filtersAttr','#fieldsToExportAttr','#s3DestinationConfigAttr','#fileFormatAttr','#includeMemberAccountsAttr','#recommendationPreferencesAttr'
+					],
+				ExportLambdaFunctionRecommendations:[
+					'#accountIdsAttr','#filtersAttr','#fieldsToExportAttr','#s3DestinationConfigAttr','#fileFormatAttr','#includeMemberAccountsAttr'
+					],
+				GetAutoScalingGroupRecommendations:[
+					'#accountIdsAttr','#autoScalingGroupArnsAttr','#nextTokenAttr','#maxResultsAttr','#filtersAttr','#recommendationPreferencesAttr'
+					],
+				GetEBSVolumeRecommendations:[
+					'#volumeArnsAttr','#nextTokenAttr','#maxResultsAttr','#filtersAttr','#accountIdsAttr'
+					],
+				GetEC2InstanceRecommendations:[
+					'#instanceArnsAttr','#nextTokenAttr','#maxResultsAttr','#filtersAttr','#accountIdsAttr','#recommendationPreferencesAttr'
+					],
+				GetEC2RecommendationProjectedMetrics:[
+					'#instanceArnAttr','#statAttr','#periodAttr','#startTimeAttr','#endTimeAttr','#recommendationPreferencesAttr'
+					],
+				GetEnrollmentStatus:[
+					
+					],
+				GetEnrollmentStatusesForOrganization:[
+					'#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetLambdaFunctionRecommendations:[
+					'#functionArnsAttr','#accountIdsAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetRecommendationSummaries:[
+					'#accountIdsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				UpdateEnrollmentStatus:[
+					'#statusAttr','#includeMemberAccountsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ComputeOptimizer">
+<p>
+AWS ComputeOptimizer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ComputeOptimizer.html">ComputeOptimizer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ComputeOptimizer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DescribeRecommendationExportJobs' },
+			
+				jobIds: { value: ""} ,
+				filters: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				accountIds: { value: ""} ,
+				fieldsToExport: { value: ""} ,
+				s3DestinationConfig: { value: ""} ,
+				fileFormat: { value: ""} ,
+				includeMemberAccounts: { value: ""} ,
+				recommendationPreferences: { value: ""} ,
+				autoScalingGroupArns: { value: ""} ,
+				volumeArns: { value: ""} ,
+				instanceArns: { value: ""} ,
+				instanceArn: { value: ""} ,
+				stat: { value: ""} ,
+				period: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				functionArns: { value: ""} ,
+				status: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ComputeOptimizer " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-accountIds").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-s3DestinationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fileFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeMemberAccounts").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-recommendationPreferences").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-instanceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-period").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

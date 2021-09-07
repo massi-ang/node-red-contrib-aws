@@ -1,0 +1,648 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS RoboMaker">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteWorlds">BatchDeleteWorlds</option>
+		
+			<option value="BatchDescribeSimulationJob">BatchDescribeSimulationJob</option>
+		
+			<option value="CancelDeploymentJob">CancelDeploymentJob</option>
+		
+			<option value="CancelSimulationJob">CancelSimulationJob</option>
+		
+			<option value="CancelSimulationJobBatch">CancelSimulationJobBatch</option>
+		
+			<option value="CancelWorldExportJob">CancelWorldExportJob</option>
+		
+			<option value="CancelWorldGenerationJob">CancelWorldGenerationJob</option>
+		
+			<option value="CreateDeploymentJob">CreateDeploymentJob</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="CreateRobot">CreateRobot</option>
+		
+			<option value="CreateRobotApplication">CreateRobotApplication</option>
+		
+			<option value="CreateRobotApplicationVersion">CreateRobotApplicationVersion</option>
+		
+			<option value="CreateSimulationApplication">CreateSimulationApplication</option>
+		
+			<option value="CreateSimulationApplicationVersion">CreateSimulationApplicationVersion</option>
+		
+			<option value="CreateSimulationJob">CreateSimulationJob</option>
+		
+			<option value="CreateWorldExportJob">CreateWorldExportJob</option>
+		
+			<option value="CreateWorldGenerationJob">CreateWorldGenerationJob</option>
+		
+			<option value="CreateWorldTemplate">CreateWorldTemplate</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DeleteRobot">DeleteRobot</option>
+		
+			<option value="DeleteRobotApplication">DeleteRobotApplication</option>
+		
+			<option value="DeleteSimulationApplication">DeleteSimulationApplication</option>
+		
+			<option value="DeleteWorldTemplate">DeleteWorldTemplate</option>
+		
+			<option value="DeregisterRobot">DeregisterRobot</option>
+		
+			<option value="DescribeDeploymentJob">DescribeDeploymentJob</option>
+		
+			<option value="DescribeFleet">DescribeFleet</option>
+		
+			<option value="DescribeRobot">DescribeRobot</option>
+		
+			<option value="DescribeRobotApplication">DescribeRobotApplication</option>
+		
+			<option value="DescribeSimulationApplication">DescribeSimulationApplication</option>
+		
+			<option value="DescribeSimulationJob">DescribeSimulationJob</option>
+		
+			<option value="DescribeSimulationJobBatch">DescribeSimulationJobBatch</option>
+		
+			<option value="DescribeWorld">DescribeWorld</option>
+		
+			<option value="DescribeWorldExportJob">DescribeWorldExportJob</option>
+		
+			<option value="DescribeWorldGenerationJob">DescribeWorldGenerationJob</option>
+		
+			<option value="DescribeWorldTemplate">DescribeWorldTemplate</option>
+		
+			<option value="GetWorldTemplateBody">GetWorldTemplateBody</option>
+		
+			<option value="ListDeploymentJobs">ListDeploymentJobs</option>
+		
+			<option value="ListFleets">ListFleets</option>
+		
+			<option value="ListRobotApplications">ListRobotApplications</option>
+		
+			<option value="ListRobots">ListRobots</option>
+		
+			<option value="ListSimulationApplications">ListSimulationApplications</option>
+		
+			<option value="ListSimulationJobBatches">ListSimulationJobBatches</option>
+		
+			<option value="ListSimulationJobs">ListSimulationJobs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWorldExportJobs">ListWorldExportJobs</option>
+		
+			<option value="ListWorldGenerationJobs">ListWorldGenerationJobs</option>
+		
+			<option value="ListWorldTemplates">ListWorldTemplates</option>
+		
+			<option value="ListWorlds">ListWorlds</option>
+		
+			<option value="RegisterRobot">RegisterRobot</option>
+		
+			<option value="RestartSimulationJob">RestartSimulationJob</option>
+		
+			<option value="StartSimulationJobBatch">StartSimulationJobBatch</option>
+		
+			<option value="SyncDeploymentJob">SyncDeploymentJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateRobotApplication">UpdateRobotApplication</option>
+		
+			<option value="UpdateSimulationApplication">UpdateSimulationApplication</option>
+		
+			<option value="UpdateWorldTemplate">UpdateWorldTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='worldsAttr' class='hiddenAttrs'>
+		<label for="node-input-worlds"><i class="fa fa-tag"></i> worlds</label>
+		<input type="text" id="node-input-worlds" placeholder="worlds"></input>
+	</div> 
+	<div class="form-row" id='jobsAttr' class='hiddenAttrs'>
+		<label for="node-input-jobs"><i class="fa fa-tag"></i> jobs</label>
+		<input type="text" id="node-input-jobs" placeholder="jobs"></input>
+	</div> 
+	<div class="form-row" id='jobAttr' class='hiddenAttrs'>
+		<label for="node-input-job"><i class="fa fa-tag"></i> job</label>
+		<input type="text" id="node-input-job" placeholder="job"></input>
+	</div> 
+	<div class="form-row" id='batchAttr' class='hiddenAttrs'>
+		<label for="node-input-batch"><i class="fa fa-tag"></i> batch</label>
+		<input type="text" id="node-input-batch" placeholder="batch"></input>
+	</div> 
+	<div class="form-row" id='deploymentConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentConfig"><i class="fa fa-tag"></i> deploymentConfig</label>
+		<input type="text" id="node-input-deploymentConfig" placeholder="deploymentConfig"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i> clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='fleetAttr' class='hiddenAttrs'>
+		<label for="node-input-fleet"><i class="fa fa-tag"></i> fleet</label>
+		<input type="text" id="node-input-fleet" placeholder="fleet"></input>
+	</div> 
+	<div class="form-row" id='deploymentApplicationConfigsAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentApplicationConfigs"><i class="fa fa-tag"></i> deploymentApplicationConfigs</label>
+		<input type="text" id="node-input-deploymentApplicationConfigs" placeholder="deploymentApplicationConfigs"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='architectureAttr' class='hiddenAttrs'>
+		<label for="node-input-architecture"><i class="fa fa-tag"></i> architecture</label>
+		<input type="text" id="node-input-architecture" placeholder="architecture"></input>
+	</div> 
+	<div class="form-row" id='greengrassGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-greengrassGroupId"><i class="fa fa-tag"></i> greengrassGroupId</label>
+		<input type="text" id="node-input-greengrassGroupId" placeholder="greengrassGroupId"></input>
+	</div> 
+	<div class="form-row" id='sourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-sources"><i class="fa fa-tag"></i> sources</label>
+		<input type="text" id="node-input-sources" placeholder="sources"></input>
+	</div> 
+	<div class="form-row" id='robotSoftwareSuiteAttr' class='hiddenAttrs'>
+		<label for="node-input-robotSoftwareSuite"><i class="fa fa-tag"></i> robotSoftwareSuite</label>
+		<input type="text" id="node-input-robotSoftwareSuite" placeholder="robotSoftwareSuite"></input>
+	</div> 
+	<div class="form-row" id='applicationAttr' class='hiddenAttrs'>
+		<label for="node-input-application"><i class="fa fa-tag"></i> application</label>
+		<input type="text" id="node-input-application" placeholder="application"></input>
+	</div> 
+	<div class="form-row" id='currentRevisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-currentRevisionId"><i class="fa fa-tag"></i> currentRevisionId</label>
+		<input type="text" id="node-input-currentRevisionId" placeholder="currentRevisionId"></input>
+	</div> 
+	<div class="form-row" id='simulationSoftwareSuiteAttr' class='hiddenAttrs'>
+		<label for="node-input-simulationSoftwareSuite"><i class="fa fa-tag"></i> simulationSoftwareSuite</label>
+		<input type="text" id="node-input-simulationSoftwareSuite" placeholder="simulationSoftwareSuite"></input>
+	</div> 
+	<div class="form-row" id='renderingEngineAttr' class='hiddenAttrs'>
+		<label for="node-input-renderingEngine"><i class="fa fa-tag"></i> renderingEngine</label>
+		<input type="text" id="node-input-renderingEngine" placeholder="renderingEngine"></input>
+	</div> 
+	<div class="form-row" id='outputLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-outputLocation"><i class="fa fa-tag"></i> outputLocation</label>
+		<input type="text" id="node-input-outputLocation" placeholder="outputLocation"></input>
+	</div> 
+	<div class="form-row" id='loggingConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-loggingConfig"><i class="fa fa-tag"></i> loggingConfig</label>
+		<input type="text" id="node-input-loggingConfig" placeholder="loggingConfig"></input>
+	</div> 
+	<div class="form-row" id='maxJobDurationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxJobDurationInSeconds"><i class="fa fa-tag"></i> maxJobDurationInSeconds</label>
+		<input type="text" id="node-input-maxJobDurationInSeconds" placeholder="maxJobDurationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='iamRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-iamRole"><i class="fa fa-tag"></i> iamRole</label>
+		<input type="text" id="node-input-iamRole" placeholder="iamRole"></input>
+	</div> 
+	<div class="form-row" id='failureBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-failureBehavior"><i class="fa fa-tag"></i> failureBehavior</label>
+		<input type="text" id="node-input-failureBehavior" placeholder="failureBehavior"></input>
+	</div> 
+	<div class="form-row" id='robotApplicationsAttr' class='hiddenAttrs'>
+		<label for="node-input-robotApplications"><i class="fa fa-tag"></i> robotApplications</label>
+		<input type="text" id="node-input-robotApplications" placeholder="robotApplications"></input>
+	</div> 
+	<div class="form-row" id='simulationApplicationsAttr' class='hiddenAttrs'>
+		<label for="node-input-simulationApplications"><i class="fa fa-tag"></i> simulationApplications</label>
+		<input type="text" id="node-input-simulationApplications" placeholder="simulationApplications"></input>
+	</div> 
+	<div class="form-row" id='dataSourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-dataSources"><i class="fa fa-tag"></i> dataSources</label>
+		<input type="text" id="node-input-dataSources" placeholder="dataSources"></input>
+	</div> 
+	<div class="form-row" id='vpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-vpcConfig"><i class="fa fa-tag"></i> vpcConfig</label>
+		<input type="text" id="node-input-vpcConfig" placeholder="vpcConfig"></input>
+	</div> 
+	<div class="form-row" id='computeAttr' class='hiddenAttrs'>
+		<label for="node-input-compute"><i class="fa fa-tag"></i> compute</label>
+		<input type="text" id="node-input-compute" placeholder="compute"></input>
+	</div> 
+	<div class="form-row" id='templateAttr' class='hiddenAttrs'>
+		<label for="node-input-template"><i class="fa fa-tag"></i> template</label>
+		<input type="text" id="node-input-template" placeholder="template"></input>
+	</div> 
+	<div class="form-row" id='worldCountAttr' class='hiddenAttrs'>
+		<label for="node-input-worldCount"><i class="fa fa-tag"></i> worldCount</label>
+		<input type="text" id="node-input-worldCount" placeholder="worldCount"></input>
+	</div> 
+	<div class="form-row" id='worldTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-worldTags"><i class="fa fa-tag"></i> worldTags</label>
+		<input type="text" id="node-input-worldTags" placeholder="worldTags"></input>
+	</div> 
+	<div class="form-row" id='templateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-templateBody"><i class="fa fa-tag"></i> templateBody</label>
+		<input type="text" id="node-input-templateBody" placeholder="templateBody"></input>
+	</div> 
+	<div class="form-row" id='templateLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-templateLocation"><i class="fa fa-tag"></i> templateLocation</label>
+		<input type="text" id="node-input-templateLocation" placeholder="templateLocation"></input>
+	</div> 
+	<div class="form-row" id='robotAttr' class='hiddenAttrs'>
+		<label for="node-input-robot"><i class="fa fa-tag"></i> robot</label>
+		<input type="text" id="node-input-robot" placeholder="robot"></input>
+	</div> 
+	<div class="form-row" id='applicationVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-applicationVersion"><i class="fa fa-tag"></i> applicationVersion</label>
+		<input type="text" id="node-input-applicationVersion" placeholder="applicationVersion"></input>
+	</div> 
+	<div class="form-row" id='worldAttr' class='hiddenAttrs'>
+		<label for="node-input-world"><i class="fa fa-tag"></i> world</label>
+		<input type="text" id="node-input-world" placeholder="world"></input>
+	</div> 
+	<div class="form-row" id='generationJobAttr' class='hiddenAttrs'>
+		<label for="node-input-generationJob"><i class="fa fa-tag"></i> generationJob</label>
+		<input type="text" id="node-input-generationJob" placeholder="generationJob"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='versionQualifierAttr' class='hiddenAttrs'>
+		<label for="node-input-versionQualifier"><i class="fa fa-tag"></i> versionQualifier</label>
+		<input type="text" id="node-input-versionQualifier" placeholder="versionQualifier"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='batchPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-batchPolicy"><i class="fa fa-tag"></i> batchPolicy</label>
+		<input type="text" id="node-input-batchPolicy" placeholder="batchPolicy"></input>
+	</div> 
+	<div class="form-row" id='createSimulationJobRequestsAttr' class='hiddenAttrs'>
+		<label for="node-input-createSimulationJobRequests"><i class="fa fa-tag"></i> createSimulationJobRequests</label>
+		<input type="text" id="node-input-createSimulationJobRequests" placeholder="createSimulationJobRequests"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteWorlds:[
+					'#worldsAttr'
+					],
+				BatchDescribeSimulationJob:[
+					'#jobsAttr'
+					],
+				CancelDeploymentJob:[
+					'#jobAttr'
+					],
+				CancelSimulationJob:[
+					'#jobAttr'
+					],
+				CancelSimulationJobBatch:[
+					'#batchAttr'
+					],
+				CancelWorldExportJob:[
+					'#jobAttr'
+					],
+				CancelWorldGenerationJob:[
+					'#jobAttr'
+					],
+				CreateDeploymentJob:[
+					'#deploymentConfigAttr','#clientRequestTokenAttr','#fleetAttr','#deploymentApplicationConfigsAttr','#tagsAttr'
+					],
+				CreateFleet:[
+					'#nameAttr','#tagsAttr'
+					],
+				CreateRobot:[
+					'#nameAttr','#architectureAttr','#greengrassGroupIdAttr','#tagsAttr'
+					],
+				CreateRobotApplication:[
+					'#nameAttr','#sourcesAttr','#robotSoftwareSuiteAttr','#tagsAttr'
+					],
+				CreateRobotApplicationVersion:[
+					'#applicationAttr','#currentRevisionIdAttr'
+					],
+				CreateSimulationApplication:[
+					'#nameAttr','#sourcesAttr','#simulationSoftwareSuiteAttr','#robotSoftwareSuiteAttr','#renderingEngineAttr','#tagsAttr'
+					],
+				CreateSimulationApplicationVersion:[
+					'#applicationAttr','#currentRevisionIdAttr'
+					],
+				CreateSimulationJob:[
+					'#clientRequestTokenAttr','#outputLocationAttr','#loggingConfigAttr','#maxJobDurationInSecondsAttr','#iamRoleAttr','#failureBehaviorAttr','#robotApplicationsAttr','#simulationApplicationsAttr','#dataSourcesAttr','#tagsAttr','#vpcConfigAttr','#computeAttr'
+					],
+				CreateWorldExportJob:[
+					'#clientRequestTokenAttr','#worldsAttr','#outputLocationAttr','#iamRoleAttr','#tagsAttr'
+					],
+				CreateWorldGenerationJob:[
+					'#clientRequestTokenAttr','#templateAttr','#worldCountAttr','#tagsAttr','#worldTagsAttr'
+					],
+				CreateWorldTemplate:[
+					'#clientRequestTokenAttr','#nameAttr','#templateBodyAttr','#templateLocationAttr','#tagsAttr'
+					],
+				DeleteFleet:[
+					'#fleetAttr'
+					],
+				DeleteRobot:[
+					'#robotAttr'
+					],
+				DeleteRobotApplication:[
+					'#applicationAttr','#applicationVersionAttr'
+					],
+				DeleteSimulationApplication:[
+					'#applicationAttr','#applicationVersionAttr'
+					],
+				DeleteWorldTemplate:[
+					'#templateAttr'
+					],
+				DeregisterRobot:[
+					'#fleetAttr','#robotAttr'
+					],
+				DescribeDeploymentJob:[
+					'#jobAttr'
+					],
+				DescribeFleet:[
+					'#fleetAttr'
+					],
+				DescribeRobot:[
+					'#robotAttr'
+					],
+				DescribeRobotApplication:[
+					'#applicationAttr','#applicationVersionAttr'
+					],
+				DescribeSimulationApplication:[
+					'#applicationAttr','#applicationVersionAttr'
+					],
+				DescribeSimulationJob:[
+					'#jobAttr'
+					],
+				DescribeSimulationJobBatch:[
+					'#batchAttr'
+					],
+				DescribeWorld:[
+					'#worldAttr'
+					],
+				DescribeWorldExportJob:[
+					'#jobAttr'
+					],
+				DescribeWorldGenerationJob:[
+					'#jobAttr'
+					],
+				DescribeWorldTemplate:[
+					'#templateAttr'
+					],
+				GetWorldTemplateBody:[
+					'#templateAttr','#generationJobAttr'
+					],
+				ListDeploymentJobs:[
+					'#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListFleets:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListRobotApplications:[
+					'#versionQualifierAttr','#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListRobots:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListSimulationApplications:[
+					'#versionQualifierAttr','#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListSimulationJobBatches:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListSimulationJobs:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListWorldExportJobs:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListWorldGenerationJobs:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				ListWorldTemplates:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListWorlds:[
+					'#nextTokenAttr','#maxResultsAttr','#filtersAttr'
+					],
+				RegisterRobot:[
+					'#fleetAttr','#robotAttr'
+					],
+				RestartSimulationJob:[
+					'#jobAttr'
+					],
+				StartSimulationJobBatch:[
+					'#clientRequestTokenAttr','#batchPolicyAttr','#createSimulationJobRequestsAttr','#tagsAttr'
+					],
+				SyncDeploymentJob:[
+					'#clientRequestTokenAttr','#fleetAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateRobotApplication:[
+					'#applicationAttr','#sourcesAttr','#robotSoftwareSuiteAttr','#currentRevisionIdAttr'
+					],
+				UpdateSimulationApplication:[
+					'#applicationAttr','#sourcesAttr','#simulationSoftwareSuiteAttr','#robotSoftwareSuiteAttr','#renderingEngineAttr','#currentRevisionIdAttr'
+					],
+				UpdateWorldTemplate:[
+					'#templateAttr','#nameAttr','#templateBodyAttr','#templateLocationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS RoboMaker">
+<p>
+AWS RoboMaker
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RoboMaker.html">RoboMaker</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS RoboMaker',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteWorlds' },
+			
+				worlds: { value: ""} ,
+				jobs: { value: ""} ,
+				job: { value: ""} ,
+				batch: { value: ""} ,
+				deploymentConfig: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+				fleet: { value: ""} ,
+				deploymentApplicationConfigs: { value: ""} ,
+				tags: { value: ""} ,
+				name: { value: ""} ,
+				architecture: { value: ""} ,
+				greengrassGroupId: { value: ""} ,
+				sources: { value: ""} ,
+				robotSoftwareSuite: { value: ""} ,
+				application: { value: ""} ,
+				currentRevisionId: { value: ""} ,
+				simulationSoftwareSuite: { value: ""} ,
+				renderingEngine: { value: ""} ,
+				outputLocation: { value: ""} ,
+				loggingConfig: { value: ""} ,
+				maxJobDurationInSeconds: { value: ""} ,
+				iamRole: { value: ""} ,
+				failureBehavior: { value: ""} ,
+				robotApplications: { value: ""} ,
+				simulationApplications: { value: ""} ,
+				dataSources: { value: ""} ,
+				vpcConfig: { value: ""} ,
+				compute: { value: ""} ,
+				template: { value: ""} ,
+				worldCount: { value: ""} ,
+				worldTags: { value: ""} ,
+				templateBody: { value: ""} ,
+				templateLocation: { value: ""} ,
+				robot: { value: ""} ,
+				applicationVersion: { value: ""} ,
+				world: { value: ""} ,
+				generationJob: { value: ""} ,
+				filters: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				versionQualifier: { value: ""} ,
+				resourceArn: { value: ""} ,
+				batchPolicy: { value: ""} ,
+				createSimulationJobRequests: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "RoboMaker " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-worlds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-job").typedInput({ default: "str", types: ["str"]});
+$("#node-input-batch").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fleet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentApplicationConfigs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-architecture").typedInput({ default: "str", types: ["str"]});
+$("#node-input-greengrassGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-robotSoftwareSuite").typedInput({ default: "str", types: ["str"]});
+$("#node-input-application").typedInput({ default: "str", types: ["str"]});
+$("#node-input-currentRevisionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-simulationSoftwareSuite").typedInput({ default: "str", types: ["str"]});
+$("#node-input-renderingEngine").typedInput({ default: "str", types: ["str"]});
+$("#node-input-outputLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loggingConfig").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-iamRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-failureBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-robotApplications").typedInput({ default: "str", types: ["str"]});
+$("#node-input-simulationApplications").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dataSources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-compute").typedInput({ default: "str", types: ["str"]});
+$("#node-input-template").typedInput({ default: "str", types: ["str"]});
+$("#node-input-worldCount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-worldTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-robot").typedInput({ default: "str", types: ["str"]});
+$("#node-input-applicationVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-world").typedInput({ default: "str", types: ["str"]});
+$("#node-input-generationJob").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-versionQualifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-batchPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-createSimulationJobRequests").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

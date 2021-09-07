@@ -1,0 +1,401 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MQ">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateBroker">CreateBroker</option>
+		
+			<option value="CreateConfiguration">CreateConfiguration</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="DeleteBroker">DeleteBroker</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DescribeBroker">DescribeBroker</option>
+		
+			<option value="DescribeBrokerEngineTypes">DescribeBrokerEngineTypes</option>
+		
+			<option value="DescribeBrokerInstanceOptions">DescribeBrokerInstanceOptions</option>
+		
+			<option value="DescribeConfiguration">DescribeConfiguration</option>
+		
+			<option value="DescribeConfigurationRevision">DescribeConfigurationRevision</option>
+		
+			<option value="DescribeUser">DescribeUser</option>
+		
+			<option value="ListBrokers">ListBrokers</option>
+		
+			<option value="ListConfigurationRevisions">ListConfigurationRevisions</option>
+		
+			<option value="ListConfigurations">ListConfigurations</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="RebootBroker">RebootBroker</option>
+		
+			<option value="UpdateBroker">UpdateBroker</option>
+		
+			<option value="UpdateConfiguration">UpdateConfiguration</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AuthenticationStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationStrategy"><i class="fa fa-tag"></i> AuthenticationStrategy</label>
+		<input type="text" id="node-input-AuthenticationStrategy" placeholder="AuthenticationStrategy"></input>
+	</div> 
+	<div class="form-row" id='AutoMinorVersionUpgradeAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMinorVersionUpgrade"><i class="fa fa-tag"></i> AutoMinorVersionUpgrade</label>
+		<input type="text" id="node-input-AutoMinorVersionUpgrade" placeholder="AutoMinorVersionUpgrade"></input>
+	</div> 
+	<div class="form-row" id='BrokerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BrokerName"><i class="fa fa-tag"></i> BrokerName</label>
+		<input type="text" id="node-input-BrokerName" placeholder="BrokerName"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='CreatorRequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CreatorRequestId"><i class="fa fa-tag"></i> CreatorRequestId</label>
+		<input type="text" id="node-input-CreatorRequestId" placeholder="CreatorRequestId"></input>
+	</div> 
+	<div class="form-row" id='DeploymentModeAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentMode"><i class="fa fa-tag"></i> DeploymentMode</label>
+		<input type="text" id="node-input-DeploymentMode" placeholder="DeploymentMode"></input>
+	</div> 
+	<div class="form-row" id='EncryptionOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionOptions"><i class="fa fa-tag"></i> EncryptionOptions</label>
+		<input type="text" id="node-input-EncryptionOptions" placeholder="EncryptionOptions"></input>
+	</div> 
+	<div class="form-row" id='EngineTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineType"><i class="fa fa-tag"></i> EngineType</label>
+		<input type="text" id="node-input-EngineType" placeholder="EngineType"></input>
+	</div> 
+	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i> EngineVersion</label>
+		<input type="text" id="node-input-EngineVersion" placeholder="EngineVersion"></input>
+	</div> 
+	<div class="form-row" id='HostInstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-HostInstanceType"><i class="fa fa-tag"></i> HostInstanceType</label>
+		<input type="text" id="node-input-HostInstanceType" placeholder="HostInstanceType"></input>
+	</div> 
+	<div class="form-row" id='LdapServerMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-LdapServerMetadata"><i class="fa fa-tag"></i> LdapServerMetadata</label>
+		<input type="text" id="node-input-LdapServerMetadata" placeholder="LdapServerMetadata"></input>
+	</div> 
+	<div class="form-row" id='LogsAttr' class='hiddenAttrs'>
+		<label for="node-input-Logs"><i class="fa fa-tag"></i> Logs</label>
+		<input type="text" id="node-input-Logs" placeholder="Logs"></input>
+	</div> 
+	<div class="form-row" id='MaintenanceWindowStartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaintenanceWindowStartTime"><i class="fa fa-tag"></i> MaintenanceWindowStartTime</label>
+		<input type="text" id="node-input-MaintenanceWindowStartTime" placeholder="MaintenanceWindowStartTime"></input>
+	</div> 
+	<div class="form-row" id='PubliclyAccessibleAttr' class='hiddenAttrs'>
+		<label for="node-input-PubliclyAccessible"><i class="fa fa-tag"></i> PubliclyAccessible</label>
+		<input type="text" id="node-input-PubliclyAccessible" placeholder="PubliclyAccessible"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroups"><i class="fa fa-tag"></i> SecurityGroups</label>
+		<input type="text" id="node-input-SecurityGroups" placeholder="SecurityGroups"></input>
+	</div> 
+	<div class="form-row" id='StorageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageType"><i class="fa fa-tag"></i> StorageType</label>
+		<input type="text" id="node-input-StorageType" placeholder="StorageType"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='UsersAttr' class='hiddenAttrs'>
+		<label for="node-input-Users"><i class="fa fa-tag"></i> Users</label>
+		<input type="text" id="node-input-Users" placeholder="Users"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='BrokerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BrokerId"><i class="fa fa-tag"></i> BrokerId</label>
+		<input type="text" id="node-input-BrokerId" placeholder="BrokerId"></input>
+	</div> 
+	<div class="form-row" id='ConsoleAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsoleAccess"><i class="fa fa-tag"></i> ConsoleAccess</label>
+		<input type="text" id="node-input-ConsoleAccess" placeholder="ConsoleAccess"></input>
+	</div> 
+	<div class="form-row" id='GroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-Groups"><i class="fa fa-tag"></i> Groups</label>
+		<input type="text" id="node-input-Groups" placeholder="Groups"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i> Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i> Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationId"><i class="fa fa-tag"></i> ConfigurationId</label>
+		<input type="text" id="node-input-ConfigurationId" placeholder="ConfigurationId"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationRevision"><i class="fa fa-tag"></i> ConfigurationRevision</label>
+		<input type="text" id="node-input-ConfigurationRevision" placeholder="ConfigurationRevision"></input>
+	</div> 
+	<div class="form-row" id='DataAttr' class='hiddenAttrs'>
+		<label for="node-input-Data"><i class="fa fa-tag"></i> Data</label>
+		<input type="text" id="node-input-Data" placeholder="Data"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateBroker:[
+					'#AuthenticationStrategyAttr','#AutoMinorVersionUpgradeAttr','#BrokerNameAttr','#ConfigurationAttr','#CreatorRequestIdAttr','#DeploymentModeAttr','#EncryptionOptionsAttr','#EngineTypeAttr','#EngineVersionAttr','#HostInstanceTypeAttr','#LdapServerMetadataAttr','#LogsAttr','#MaintenanceWindowStartTimeAttr','#PubliclyAccessibleAttr','#SecurityGroupsAttr','#StorageTypeAttr','#SubnetIdsAttr','#TagsAttr','#UsersAttr'
+					],
+				CreateConfiguration:[
+					'#AuthenticationStrategyAttr','#EngineTypeAttr','#EngineVersionAttr','#NameAttr','#TagsAttr'
+					],
+				CreateTags:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				CreateUser:[
+					'#BrokerIdAttr','#ConsoleAccessAttr','#GroupsAttr','#PasswordAttr','#UsernameAttr'
+					],
+				DeleteBroker:[
+					'#BrokerIdAttr'
+					],
+				DeleteTags:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				DeleteUser:[
+					'#BrokerIdAttr','#UsernameAttr'
+					],
+				DescribeBroker:[
+					'#BrokerIdAttr'
+					],
+				DescribeBrokerEngineTypes:[
+					'#EngineTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeBrokerInstanceOptions:[
+					'#EngineTypeAttr','#HostInstanceTypeAttr','#MaxResultsAttr','#NextTokenAttr','#StorageTypeAttr'
+					],
+				DescribeConfiguration:[
+					'#ConfigurationIdAttr'
+					],
+				DescribeConfigurationRevision:[
+					'#ConfigurationIdAttr','#ConfigurationRevisionAttr'
+					],
+				DescribeUser:[
+					'#BrokerIdAttr','#UsernameAttr'
+					],
+				ListBrokers:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConfigurationRevisions:[
+					'#ConfigurationIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConfigurations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTags:[
+					'#ResourceArnAttr'
+					],
+				ListUsers:[
+					'#BrokerIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				RebootBroker:[
+					'#BrokerIdAttr'
+					],
+				UpdateBroker:[
+					'#AuthenticationStrategyAttr','#AutoMinorVersionUpgradeAttr','#BrokerIdAttr','#ConfigurationAttr','#EngineVersionAttr','#HostInstanceTypeAttr','#LdapServerMetadataAttr','#LogsAttr','#MaintenanceWindowStartTimeAttr','#SecurityGroupsAttr'
+					],
+				UpdateConfiguration:[
+					'#ConfigurationIdAttr','#DataAttr','#DescriptionAttr'
+					],
+				UpdateUser:[
+					'#BrokerIdAttr','#ConsoleAccessAttr','#GroupsAttr','#PasswordAttr','#UsernameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MQ">
+<p>
+AWS MQ
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MQ.html">MQ</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MQ',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateBroker' },
+			
+				AuthenticationStrategy: { value: ""} ,
+				AutoMinorVersionUpgrade: { value: ""} ,
+				BrokerName: { value: ""} ,
+				Configuration: { value: ""} ,
+				CreatorRequestId: { value: ""} ,
+				DeploymentMode: { value: ""} ,
+				EncryptionOptions: { value: ""} ,
+				EngineType: { value: ""} ,
+				EngineVersion: { value: ""} ,
+				HostInstanceType: { value: ""} ,
+				LdapServerMetadata: { value: ""} ,
+				Logs: { value: ""} ,
+				MaintenanceWindowStartTime: { value: ""} ,
+				PubliclyAccessible: { value: ""} ,
+				SecurityGroups: { value: ""} ,
+				StorageType: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				Tags: { value: ""} ,
+				Users: { value: ""} ,
+				Name: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				BrokerId: { value: ""} ,
+				ConsoleAccess: { value: ""} ,
+				Groups: { value: ""} ,
+				Password: { value: ""} ,
+				Username: { value: ""} ,
+				TagKeys: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ConfigurationId: { value: ""} ,
+				ConfigurationRevision: { value: ""} ,
+				Data: { value: ""} ,
+				Description: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MQ " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AuthenticationStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMinorVersionUpgrade").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-BrokerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CreatorRequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HostInstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LdapServerMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Logs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaintenanceWindowStartTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PubliclyAccessible").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SecurityGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BrokerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConsoleAccess").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Groups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Password").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Username").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationRevision").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Data").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

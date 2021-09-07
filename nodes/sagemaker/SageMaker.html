@@ -1,0 +1,2870 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SageMaker">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddAssociation">AddAssociation</option>
+		
+			<option value="AddTags">AddTags</option>
+		
+			<option value="AssociateTrialComponent">AssociateTrialComponent</option>
+		
+			<option value="CreateAction">CreateAction</option>
+		
+			<option value="CreateAlgorithm">CreateAlgorithm</option>
+		
+			<option value="CreateApp">CreateApp</option>
+		
+			<option value="CreateAppImageConfig">CreateAppImageConfig</option>
+		
+			<option value="CreateArtifact">CreateArtifact</option>
+		
+			<option value="CreateAutoMLJob">CreateAutoMLJob</option>
+		
+			<option value="CreateCodeRepository">CreateCodeRepository</option>
+		
+			<option value="CreateCompilationJob">CreateCompilationJob</option>
+		
+			<option value="CreateContext">CreateContext</option>
+		
+			<option value="CreateDataQualityJobDefinition">CreateDataQualityJobDefinition</option>
+		
+			<option value="CreateDeviceFleet">CreateDeviceFleet</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="CreateEdgePackagingJob">CreateEdgePackagingJob</option>
+		
+			<option value="CreateEndpoint">CreateEndpoint</option>
+		
+			<option value="CreateEndpointConfig">CreateEndpointConfig</option>
+		
+			<option value="CreateExperiment">CreateExperiment</option>
+		
+			<option value="CreateFeatureGroup">CreateFeatureGroup</option>
+		
+			<option value="CreateFlowDefinition">CreateFlowDefinition</option>
+		
+			<option value="CreateHumanTaskUi">CreateHumanTaskUi</option>
+		
+			<option value="CreateHyperParameterTuningJob">CreateHyperParameterTuningJob</option>
+		
+			<option value="CreateImage">CreateImage</option>
+		
+			<option value="CreateImageVersion">CreateImageVersion</option>
+		
+			<option value="CreateLabelingJob">CreateLabelingJob</option>
+		
+			<option value="CreateModel">CreateModel</option>
+		
+			<option value="CreateModelBiasJobDefinition">CreateModelBiasJobDefinition</option>
+		
+			<option value="CreateModelExplainabilityJobDefinition">CreateModelExplainabilityJobDefinition</option>
+		
+			<option value="CreateModelPackage">CreateModelPackage</option>
+		
+			<option value="CreateModelPackageGroup">CreateModelPackageGroup</option>
+		
+			<option value="CreateModelQualityJobDefinition">CreateModelQualityJobDefinition</option>
+		
+			<option value="CreateMonitoringSchedule">CreateMonitoringSchedule</option>
+		
+			<option value="CreateNotebookInstance">CreateNotebookInstance</option>
+		
+			<option value="CreateNotebookInstanceLifecycleConfig">CreateNotebookInstanceLifecycleConfig</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="CreatePresignedDomainUrl">CreatePresignedDomainUrl</option>
+		
+			<option value="CreatePresignedNotebookInstanceUrl">CreatePresignedNotebookInstanceUrl</option>
+		
+			<option value="CreateProcessingJob">CreateProcessingJob</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateTrainingJob">CreateTrainingJob</option>
+		
+			<option value="CreateTransformJob">CreateTransformJob</option>
+		
+			<option value="CreateTrial">CreateTrial</option>
+		
+			<option value="CreateTrialComponent">CreateTrialComponent</option>
+		
+			<option value="CreateUserProfile">CreateUserProfile</option>
+		
+			<option value="CreateWorkforce">CreateWorkforce</option>
+		
+			<option value="CreateWorkteam">CreateWorkteam</option>
+		
+			<option value="DeleteAction">DeleteAction</option>
+		
+			<option value="DeleteAlgorithm">DeleteAlgorithm</option>
+		
+			<option value="DeleteApp">DeleteApp</option>
+		
+			<option value="DeleteAppImageConfig">DeleteAppImageConfig</option>
+		
+			<option value="DeleteArtifact">DeleteArtifact</option>
+		
+			<option value="DeleteAssociation">DeleteAssociation</option>
+		
+			<option value="DeleteCodeRepository">DeleteCodeRepository</option>
+		
+			<option value="DeleteContext">DeleteContext</option>
+		
+			<option value="DeleteDataQualityJobDefinition">DeleteDataQualityJobDefinition</option>
+		
+			<option value="DeleteDeviceFleet">DeleteDeviceFleet</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DeleteEndpoint">DeleteEndpoint</option>
+		
+			<option value="DeleteEndpointConfig">DeleteEndpointConfig</option>
+		
+			<option value="DeleteExperiment">DeleteExperiment</option>
+		
+			<option value="DeleteFeatureGroup">DeleteFeatureGroup</option>
+		
+			<option value="DeleteFlowDefinition">DeleteFlowDefinition</option>
+		
+			<option value="DeleteHumanTaskUi">DeleteHumanTaskUi</option>
+		
+			<option value="DeleteImage">DeleteImage</option>
+		
+			<option value="DeleteImageVersion">DeleteImageVersion</option>
+		
+			<option value="DeleteModel">DeleteModel</option>
+		
+			<option value="DeleteModelBiasJobDefinition">DeleteModelBiasJobDefinition</option>
+		
+			<option value="DeleteModelExplainabilityJobDefinition">DeleteModelExplainabilityJobDefinition</option>
+		
+			<option value="DeleteModelPackage">DeleteModelPackage</option>
+		
+			<option value="DeleteModelPackageGroup">DeleteModelPackageGroup</option>
+		
+			<option value="DeleteModelPackageGroupPolicy">DeleteModelPackageGroupPolicy</option>
+		
+			<option value="DeleteModelQualityJobDefinition">DeleteModelQualityJobDefinition</option>
+		
+			<option value="DeleteMonitoringSchedule">DeleteMonitoringSchedule</option>
+		
+			<option value="DeleteNotebookInstance">DeleteNotebookInstance</option>
+		
+			<option value="DeleteNotebookInstanceLifecycleConfig">DeleteNotebookInstanceLifecycleConfig</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DeleteTrial">DeleteTrial</option>
+		
+			<option value="DeleteTrialComponent">DeleteTrialComponent</option>
+		
+			<option value="DeleteUserProfile">DeleteUserProfile</option>
+		
+			<option value="DeleteWorkforce">DeleteWorkforce</option>
+		
+			<option value="DeleteWorkteam">DeleteWorkteam</option>
+		
+			<option value="DeregisterDevices">DeregisterDevices</option>
+		
+			<option value="DescribeAction">DescribeAction</option>
+		
+			<option value="DescribeAlgorithm">DescribeAlgorithm</option>
+		
+			<option value="DescribeApp">DescribeApp</option>
+		
+			<option value="DescribeAppImageConfig">DescribeAppImageConfig</option>
+		
+			<option value="DescribeArtifact">DescribeArtifact</option>
+		
+			<option value="DescribeAutoMLJob">DescribeAutoMLJob</option>
+		
+			<option value="DescribeCodeRepository">DescribeCodeRepository</option>
+		
+			<option value="DescribeCompilationJob">DescribeCompilationJob</option>
+		
+			<option value="DescribeContext">DescribeContext</option>
+		
+			<option value="DescribeDataQualityJobDefinition">DescribeDataQualityJobDefinition</option>
+		
+			<option value="DescribeDevice">DescribeDevice</option>
+		
+			<option value="DescribeDeviceFleet">DescribeDeviceFleet</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribeEdgePackagingJob">DescribeEdgePackagingJob</option>
+		
+			<option value="DescribeEndpoint">DescribeEndpoint</option>
+		
+			<option value="DescribeEndpointConfig">DescribeEndpointConfig</option>
+		
+			<option value="DescribeExperiment">DescribeExperiment</option>
+		
+			<option value="DescribeFeatureGroup">DescribeFeatureGroup</option>
+		
+			<option value="DescribeFlowDefinition">DescribeFlowDefinition</option>
+		
+			<option value="DescribeHumanTaskUi">DescribeHumanTaskUi</option>
+		
+			<option value="DescribeHyperParameterTuningJob">DescribeHyperParameterTuningJob</option>
+		
+			<option value="DescribeImage">DescribeImage</option>
+		
+			<option value="DescribeImageVersion">DescribeImageVersion</option>
+		
+			<option value="DescribeLabelingJob">DescribeLabelingJob</option>
+		
+			<option value="DescribeModel">DescribeModel</option>
+		
+			<option value="DescribeModelBiasJobDefinition">DescribeModelBiasJobDefinition</option>
+		
+			<option value="DescribeModelExplainabilityJobDefinition">DescribeModelExplainabilityJobDefinition</option>
+		
+			<option value="DescribeModelPackage">DescribeModelPackage</option>
+		
+			<option value="DescribeModelPackageGroup">DescribeModelPackageGroup</option>
+		
+			<option value="DescribeModelQualityJobDefinition">DescribeModelQualityJobDefinition</option>
+		
+			<option value="DescribeMonitoringSchedule">DescribeMonitoringSchedule</option>
+		
+			<option value="DescribeNotebookInstance">DescribeNotebookInstance</option>
+		
+			<option value="DescribeNotebookInstanceLifecycleConfig">DescribeNotebookInstanceLifecycleConfig</option>
+		
+			<option value="DescribePipeline">DescribePipeline</option>
+		
+			<option value="DescribePipelineDefinitionForExecution">DescribePipelineDefinitionForExecution</option>
+		
+			<option value="DescribePipelineExecution">DescribePipelineExecution</option>
+		
+			<option value="DescribeProcessingJob">DescribeProcessingJob</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="DescribeSubscribedWorkteam">DescribeSubscribedWorkteam</option>
+		
+			<option value="DescribeTrainingJob">DescribeTrainingJob</option>
+		
+			<option value="DescribeTransformJob">DescribeTransformJob</option>
+		
+			<option value="DescribeTrial">DescribeTrial</option>
+		
+			<option value="DescribeTrialComponent">DescribeTrialComponent</option>
+		
+			<option value="DescribeUserProfile">DescribeUserProfile</option>
+		
+			<option value="DescribeWorkforce">DescribeWorkforce</option>
+		
+			<option value="DescribeWorkteam">DescribeWorkteam</option>
+		
+			<option value="DisableSagemakerServicecatalogPortfolio">DisableSagemakerServicecatalogPortfolio</option>
+		
+			<option value="DisassociateTrialComponent">DisassociateTrialComponent</option>
+		
+			<option value="EnableSagemakerServicecatalogPortfolio">EnableSagemakerServicecatalogPortfolio</option>
+		
+			<option value="GetDeviceFleetReport">GetDeviceFleetReport</option>
+		
+			<option value="GetModelPackageGroupPolicy">GetModelPackageGroupPolicy</option>
+		
+			<option value="GetSagemakerServicecatalogPortfolioStatus">GetSagemakerServicecatalogPortfolioStatus</option>
+		
+			<option value="GetSearchSuggestions">GetSearchSuggestions</option>
+		
+			<option value="ListActions">ListActions</option>
+		
+			<option value="ListAlgorithms">ListAlgorithms</option>
+		
+			<option value="ListAppImageConfigs">ListAppImageConfigs</option>
+		
+			<option value="ListApps">ListApps</option>
+		
+			<option value="ListArtifacts">ListArtifacts</option>
+		
+			<option value="ListAssociations">ListAssociations</option>
+		
+			<option value="ListAutoMLJobs">ListAutoMLJobs</option>
+		
+			<option value="ListCandidatesForAutoMLJob">ListCandidatesForAutoMLJob</option>
+		
+			<option value="ListCodeRepositories">ListCodeRepositories</option>
+		
+			<option value="ListCompilationJobs">ListCompilationJobs</option>
+		
+			<option value="ListContexts">ListContexts</option>
+		
+			<option value="ListDataQualityJobDefinitions">ListDataQualityJobDefinitions</option>
+		
+			<option value="ListDeviceFleets">ListDeviceFleets</option>
+		
+			<option value="ListDevices">ListDevices</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListEdgePackagingJobs">ListEdgePackagingJobs</option>
+		
+			<option value="ListEndpointConfigs">ListEndpointConfigs</option>
+		
+			<option value="ListEndpoints">ListEndpoints</option>
+		
+			<option value="ListExperiments">ListExperiments</option>
+		
+			<option value="ListFeatureGroups">ListFeatureGroups</option>
+		
+			<option value="ListFlowDefinitions">ListFlowDefinitions</option>
+		
+			<option value="ListHumanTaskUis">ListHumanTaskUis</option>
+		
+			<option value="ListHyperParameterTuningJobs">ListHyperParameterTuningJobs</option>
+		
+			<option value="ListImageVersions">ListImageVersions</option>
+		
+			<option value="ListImages">ListImages</option>
+		
+			<option value="ListLabelingJobs">ListLabelingJobs</option>
+		
+			<option value="ListLabelingJobsForWorkteam">ListLabelingJobsForWorkteam</option>
+		
+			<option value="ListModelBiasJobDefinitions">ListModelBiasJobDefinitions</option>
+		
+			<option value="ListModelExplainabilityJobDefinitions">ListModelExplainabilityJobDefinitions</option>
+		
+			<option value="ListModelPackageGroups">ListModelPackageGroups</option>
+		
+			<option value="ListModelPackages">ListModelPackages</option>
+		
+			<option value="ListModelQualityJobDefinitions">ListModelQualityJobDefinitions</option>
+		
+			<option value="ListModels">ListModels</option>
+		
+			<option value="ListMonitoringExecutions">ListMonitoringExecutions</option>
+		
+			<option value="ListMonitoringSchedules">ListMonitoringSchedules</option>
+		
+			<option value="ListNotebookInstanceLifecycleConfigs">ListNotebookInstanceLifecycleConfigs</option>
+		
+			<option value="ListNotebookInstances">ListNotebookInstances</option>
+		
+			<option value="ListPipelineExecutionSteps">ListPipelineExecutionSteps</option>
+		
+			<option value="ListPipelineExecutions">ListPipelineExecutions</option>
+		
+			<option value="ListPipelineParametersForExecution">ListPipelineParametersForExecution</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListProcessingJobs">ListProcessingJobs</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListSubscribedWorkteams">ListSubscribedWorkteams</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="ListTrainingJobs">ListTrainingJobs</option>
+		
+			<option value="ListTrainingJobsForHyperParameterTuningJob">ListTrainingJobsForHyperParameterTuningJob</option>
+		
+			<option value="ListTransformJobs">ListTransformJobs</option>
+		
+			<option value="ListTrialComponents">ListTrialComponents</option>
+		
+			<option value="ListTrials">ListTrials</option>
+		
+			<option value="ListUserProfiles">ListUserProfiles</option>
+		
+			<option value="ListWorkforces">ListWorkforces</option>
+		
+			<option value="ListWorkteams">ListWorkteams</option>
+		
+			<option value="PutModelPackageGroupPolicy">PutModelPackageGroupPolicy</option>
+		
+			<option value="RegisterDevices">RegisterDevices</option>
+		
+			<option value="RenderUiTemplate">RenderUiTemplate</option>
+		
+			<option value="Search">Search</option>
+		
+			<option value="SendPipelineExecutionStepFailure">SendPipelineExecutionStepFailure</option>
+		
+			<option value="SendPipelineExecutionStepSuccess">SendPipelineExecutionStepSuccess</option>
+		
+			<option value="StartMonitoringSchedule">StartMonitoringSchedule</option>
+		
+			<option value="StartNotebookInstance">StartNotebookInstance</option>
+		
+			<option value="StartPipelineExecution">StartPipelineExecution</option>
+		
+			<option value="StopAutoMLJob">StopAutoMLJob</option>
+		
+			<option value="StopCompilationJob">StopCompilationJob</option>
+		
+			<option value="StopEdgePackagingJob">StopEdgePackagingJob</option>
+		
+			<option value="StopHyperParameterTuningJob">StopHyperParameterTuningJob</option>
+		
+			<option value="StopLabelingJob">StopLabelingJob</option>
+		
+			<option value="StopMonitoringSchedule">StopMonitoringSchedule</option>
+		
+			<option value="StopNotebookInstance">StopNotebookInstance</option>
+		
+			<option value="StopPipelineExecution">StopPipelineExecution</option>
+		
+			<option value="StopProcessingJob">StopProcessingJob</option>
+		
+			<option value="StopTrainingJob">StopTrainingJob</option>
+		
+			<option value="StopTransformJob">StopTransformJob</option>
+		
+			<option value="UpdateAction">UpdateAction</option>
+		
+			<option value="UpdateAppImageConfig">UpdateAppImageConfig</option>
+		
+			<option value="UpdateArtifact">UpdateArtifact</option>
+		
+			<option value="UpdateCodeRepository">UpdateCodeRepository</option>
+		
+			<option value="UpdateContext">UpdateContext</option>
+		
+			<option value="UpdateDeviceFleet">UpdateDeviceFleet</option>
+		
+			<option value="UpdateDevices">UpdateDevices</option>
+		
+			<option value="UpdateDomain">UpdateDomain</option>
+		
+			<option value="UpdateEndpoint">UpdateEndpoint</option>
+		
+			<option value="UpdateEndpointWeightsAndCapacities">UpdateEndpointWeightsAndCapacities</option>
+		
+			<option value="UpdateExperiment">UpdateExperiment</option>
+		
+			<option value="UpdateImage">UpdateImage</option>
+		
+			<option value="UpdateModelPackage">UpdateModelPackage</option>
+		
+			<option value="UpdateMonitoringSchedule">UpdateMonitoringSchedule</option>
+		
+			<option value="UpdateNotebookInstance">UpdateNotebookInstance</option>
+		
+			<option value="UpdateNotebookInstanceLifecycleConfig">UpdateNotebookInstanceLifecycleConfig</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		
+			<option value="UpdatePipelineExecution">UpdatePipelineExecution</option>
+		
+			<option value="UpdateTrainingJob">UpdateTrainingJob</option>
+		
+			<option value="UpdateTrial">UpdateTrial</option>
+		
+			<option value="UpdateTrialComponent">UpdateTrialComponent</option>
+		
+			<option value="UpdateUserProfile">UpdateUserProfile</option>
+		
+			<option value="UpdateWorkforce">UpdateWorkforce</option>
+		
+			<option value="UpdateWorkteam">UpdateWorkteam</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i> SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='DestinationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationArn"><i class="fa fa-tag"></i> DestinationArn</label>
+		<input type="text" id="node-input-DestinationArn" placeholder="DestinationArn"></input>
+	</div> 
+	<div class="form-row" id='AssociationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociationType"><i class="fa fa-tag"></i> AssociationType</label>
+		<input type="text" id="node-input-AssociationType" placeholder="AssociationType"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TrialComponentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TrialComponentName"><i class="fa fa-tag"></i> TrialComponentName</label>
+		<input type="text" id="node-input-TrialComponentName" placeholder="TrialComponentName"></input>
+	</div> 
+	<div class="form-row" id='TrialNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TrialName"><i class="fa fa-tag"></i> TrialName</label>
+		<input type="text" id="node-input-TrialName" placeholder="TrialName"></input>
+	</div> 
+	<div class="form-row" id='ActionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionName"><i class="fa fa-tag"></i> ActionName</label>
+		<input type="text" id="node-input-ActionName" placeholder="ActionName"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='ActionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionType"><i class="fa fa-tag"></i> ActionType</label>
+		<input type="text" id="node-input-ActionType" placeholder="ActionType"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='PropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-Properties"><i class="fa fa-tag"></i> Properties</label>
+		<input type="text" id="node-input-Properties" placeholder="Properties"></input>
+	</div> 
+	<div class="form-row" id='MetadataPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-MetadataProperties"><i class="fa fa-tag"></i> MetadataProperties</label>
+		<input type="text" id="node-input-MetadataProperties" placeholder="MetadataProperties"></input>
+	</div> 
+	<div class="form-row" id='AlgorithmNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AlgorithmName"><i class="fa fa-tag"></i> AlgorithmName</label>
+		<input type="text" id="node-input-AlgorithmName" placeholder="AlgorithmName"></input>
+	</div> 
+	<div class="form-row" id='AlgorithmDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AlgorithmDescription"><i class="fa fa-tag"></i> AlgorithmDescription</label>
+		<input type="text" id="node-input-AlgorithmDescription" placeholder="AlgorithmDescription"></input>
+	</div> 
+	<div class="form-row" id='TrainingSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingSpecification"><i class="fa fa-tag"></i> TrainingSpecification</label>
+		<input type="text" id="node-input-TrainingSpecification" placeholder="TrainingSpecification"></input>
+	</div> 
+	<div class="form-row" id='InferenceSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-InferenceSpecification"><i class="fa fa-tag"></i> InferenceSpecification</label>
+		<input type="text" id="node-input-InferenceSpecification" placeholder="InferenceSpecification"></input>
+	</div> 
+	<div class="form-row" id='ValidationSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidationSpecification"><i class="fa fa-tag"></i> ValidationSpecification</label>
+		<input type="text" id="node-input-ValidationSpecification" placeholder="ValidationSpecification"></input>
+	</div> 
+	<div class="form-row" id='CertifyForMarketplaceAttr' class='hiddenAttrs'>
+		<label for="node-input-CertifyForMarketplace"><i class="fa fa-tag"></i> CertifyForMarketplace</label>
+		<input type="text" id="node-input-CertifyForMarketplace" placeholder="CertifyForMarketplace"></input>
+	</div> 
+	<div class="form-row" id='DomainIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainId"><i class="fa fa-tag"></i> DomainId</label>
+		<input type="text" id="node-input-DomainId" placeholder="DomainId"></input>
+	</div> 
+	<div class="form-row" id='UserProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserProfileName"><i class="fa fa-tag"></i> UserProfileName</label>
+		<input type="text" id="node-input-UserProfileName" placeholder="UserProfileName"></input>
+	</div> 
+	<div class="form-row" id='AppTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AppType"><i class="fa fa-tag"></i> AppType</label>
+		<input type="text" id="node-input-AppType" placeholder="AppType"></input>
+	</div> 
+	<div class="form-row" id='AppNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AppName"><i class="fa fa-tag"></i> AppName</label>
+		<input type="text" id="node-input-AppName" placeholder="AppName"></input>
+	</div> 
+	<div class="form-row" id='ResourceSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceSpec"><i class="fa fa-tag"></i> ResourceSpec</label>
+		<input type="text" id="node-input-ResourceSpec" placeholder="ResourceSpec"></input>
+	</div> 
+	<div class="form-row" id='AppImageConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AppImageConfigName"><i class="fa fa-tag"></i> AppImageConfigName</label>
+		<input type="text" id="node-input-AppImageConfigName" placeholder="AppImageConfigName"></input>
+	</div> 
+	<div class="form-row" id='KernelGatewayImageConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-KernelGatewayImageConfig"><i class="fa fa-tag"></i> KernelGatewayImageConfig</label>
+		<input type="text" id="node-input-KernelGatewayImageConfig" placeholder="KernelGatewayImageConfig"></input>
+	</div> 
+	<div class="form-row" id='ArtifactNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ArtifactName"><i class="fa fa-tag"></i> ArtifactName</label>
+		<input type="text" id="node-input-ArtifactName" placeholder="ArtifactName"></input>
+	</div> 
+	<div class="form-row" id='ArtifactTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ArtifactType"><i class="fa fa-tag"></i> ArtifactType</label>
+		<input type="text" id="node-input-ArtifactType" placeholder="ArtifactType"></input>
+	</div> 
+	<div class="form-row" id='AutoMLJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMLJobName"><i class="fa fa-tag"></i> AutoMLJobName</label>
+		<input type="text" id="node-input-AutoMLJobName" placeholder="AutoMLJobName"></input>
+	</div> 
+	<div class="form-row" id='InputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDataConfig"><i class="fa fa-tag"></i> InputDataConfig</label>
+		<input type="text" id="node-input-InputDataConfig" placeholder="InputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='OutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputDataConfig"><i class="fa fa-tag"></i> OutputDataConfig</label>
+		<input type="text" id="node-input-OutputDataConfig" placeholder="OutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='ProblemTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProblemType"><i class="fa fa-tag"></i> ProblemType</label>
+		<input type="text" id="node-input-ProblemType" placeholder="ProblemType"></input>
+	</div> 
+	<div class="form-row" id='AutoMLJobObjectiveAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMLJobObjective"><i class="fa fa-tag"></i> AutoMLJobObjective</label>
+		<input type="text" id="node-input-AutoMLJobObjective" placeholder="AutoMLJobObjective"></input>
+	</div> 
+	<div class="form-row" id='AutoMLJobConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMLJobConfig"><i class="fa fa-tag"></i> AutoMLJobConfig</label>
+		<input type="text" id="node-input-AutoMLJobConfig" placeholder="AutoMLJobConfig"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='GenerateCandidateDefinitionsOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-GenerateCandidateDefinitionsOnly"><i class="fa fa-tag"></i> GenerateCandidateDefinitionsOnly</label>
+		<input type="text" id="node-input-GenerateCandidateDefinitionsOnly" placeholder="GenerateCandidateDefinitionsOnly"></input>
+	</div> 
+	<div class="form-row" id='ModelDeployConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelDeployConfig"><i class="fa fa-tag"></i> ModelDeployConfig</label>
+		<input type="text" id="node-input-ModelDeployConfig" placeholder="ModelDeployConfig"></input>
+	</div> 
+	<div class="form-row" id='CodeRepositoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CodeRepositoryName"><i class="fa fa-tag"></i> CodeRepositoryName</label>
+		<input type="text" id="node-input-CodeRepositoryName" placeholder="CodeRepositoryName"></input>
+	</div> 
+	<div class="form-row" id='GitConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-GitConfig"><i class="fa fa-tag"></i> GitConfig</label>
+		<input type="text" id="node-input-GitConfig" placeholder="GitConfig"></input>
+	</div> 
+	<div class="form-row" id='CompilationJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CompilationJobName"><i class="fa fa-tag"></i> CompilationJobName</label>
+		<input type="text" id="node-input-CompilationJobName" placeholder="CompilationJobName"></input>
+	</div> 
+	<div class="form-row" id='InputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputConfig"><i class="fa fa-tag"></i> InputConfig</label>
+		<input type="text" id="node-input-InputConfig" placeholder="InputConfig"></input>
+	</div> 
+	<div class="form-row" id='OutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputConfig"><i class="fa fa-tag"></i> OutputConfig</label>
+		<input type="text" id="node-input-OutputConfig" placeholder="OutputConfig"></input>
+	</div> 
+	<div class="form-row" id='VpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcConfig"><i class="fa fa-tag"></i> VpcConfig</label>
+		<input type="text" id="node-input-VpcConfig" placeholder="VpcConfig"></input>
+	</div> 
+	<div class="form-row" id='StoppingConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-StoppingCondition"><i class="fa fa-tag"></i> StoppingCondition</label>
+		<input type="text" id="node-input-StoppingCondition" placeholder="StoppingCondition"></input>
+	</div> 
+	<div class="form-row" id='ContextNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ContextName"><i class="fa fa-tag"></i> ContextName</label>
+		<input type="text" id="node-input-ContextName" placeholder="ContextName"></input>
+	</div> 
+	<div class="form-row" id='ContextTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContextType"><i class="fa fa-tag"></i> ContextType</label>
+		<input type="text" id="node-input-ContextType" placeholder="ContextType"></input>
+	</div> 
+	<div class="form-row" id='JobDefinitionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-JobDefinitionName"><i class="fa fa-tag"></i> JobDefinitionName</label>
+		<input type="text" id="node-input-JobDefinitionName" placeholder="JobDefinitionName"></input>
+	</div> 
+	<div class="form-row" id='DataQualityBaselineConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DataQualityBaselineConfig"><i class="fa fa-tag"></i> DataQualityBaselineConfig</label>
+		<input type="text" id="node-input-DataQualityBaselineConfig" placeholder="DataQualityBaselineConfig"></input>
+	</div> 
+	<div class="form-row" id='DataQualityAppSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-DataQualityAppSpecification"><i class="fa fa-tag"></i> DataQualityAppSpecification</label>
+		<input type="text" id="node-input-DataQualityAppSpecification" placeholder="DataQualityAppSpecification"></input>
+	</div> 
+	<div class="form-row" id='DataQualityJobInputAttr' class='hiddenAttrs'>
+		<label for="node-input-DataQualityJobInput"><i class="fa fa-tag"></i> DataQualityJobInput</label>
+		<input type="text" id="node-input-DataQualityJobInput" placeholder="DataQualityJobInput"></input>
+	</div> 
+	<div class="form-row" id='DataQualityJobOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DataQualityJobOutputConfig"><i class="fa fa-tag"></i> DataQualityJobOutputConfig</label>
+		<input type="text" id="node-input-DataQualityJobOutputConfig" placeholder="DataQualityJobOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='JobResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-JobResources"><i class="fa fa-tag"></i> JobResources</label>
+		<input type="text" id="node-input-JobResources" placeholder="JobResources"></input>
+	</div> 
+	<div class="form-row" id='NetworkConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-NetworkConfig"><i class="fa fa-tag"></i> NetworkConfig</label>
+		<input type="text" id="node-input-NetworkConfig" placeholder="NetworkConfig"></input>
+	</div> 
+	<div class="form-row" id='DeviceFleetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceFleetName"><i class="fa fa-tag"></i> DeviceFleetName</label>
+		<input type="text" id="node-input-DeviceFleetName" placeholder="DeviceFleetName"></input>
+	</div> 
+	<div class="form-row" id='EnableIotRoleAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableIotRoleAlias"><i class="fa fa-tag"></i> EnableIotRoleAlias</label>
+		<input type="text" id="node-input-EnableIotRoleAlias" placeholder="EnableIotRoleAlias"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i> DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='AuthModeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthMode"><i class="fa fa-tag"></i> AuthMode</label>
+		<input type="text" id="node-input-AuthMode" placeholder="AuthMode"></input>
+	</div> 
+	<div class="form-row" id='DefaultUserSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultUserSettings"><i class="fa fa-tag"></i> DefaultUserSettings</label>
+		<input type="text" id="node-input-DefaultUserSettings" placeholder="DefaultUserSettings"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='VpcIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcId"><i class="fa fa-tag"></i> VpcId</label>
+		<input type="text" id="node-input-VpcId" placeholder="VpcId"></input>
+	</div> 
+	<div class="form-row" id='AppNetworkAccessTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AppNetworkAccessType"><i class="fa fa-tag"></i> AppNetworkAccessType</label>
+		<input type="text" id="node-input-AppNetworkAccessType" placeholder="AppNetworkAccessType"></input>
+	</div> 
+	<div class="form-row" id='HomeEfsFileSystemKmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HomeEfsFileSystemKmsKeyId"><i class="fa fa-tag"></i> HomeEfsFileSystemKmsKeyId</label>
+		<input type="text" id="node-input-HomeEfsFileSystemKmsKeyId" placeholder="HomeEfsFileSystemKmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='EdgePackagingJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EdgePackagingJobName"><i class="fa fa-tag"></i> EdgePackagingJobName</label>
+		<input type="text" id="node-input-EdgePackagingJobName" placeholder="EdgePackagingJobName"></input>
+	</div> 
+	<div class="form-row" id='ModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelName"><i class="fa fa-tag"></i> ModelName</label>
+		<input type="text" id="node-input-ModelName" placeholder="ModelName"></input>
+	</div> 
+	<div class="form-row" id='ModelVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelVersion"><i class="fa fa-tag"></i> ModelVersion</label>
+		<input type="text" id="node-input-ModelVersion" placeholder="ModelVersion"></input>
+	</div> 
+	<div class="form-row" id='ResourceKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceKey"><i class="fa fa-tag"></i> ResourceKey</label>
+		<input type="text" id="node-input-ResourceKey" placeholder="ResourceKey"></input>
+	</div> 
+	<div class="form-row" id='EndpointNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointName"><i class="fa fa-tag"></i> EndpointName</label>
+		<input type="text" id="node-input-EndpointName" placeholder="EndpointName"></input>
+	</div> 
+	<div class="form-row" id='EndpointConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointConfigName"><i class="fa fa-tag"></i> EndpointConfigName</label>
+		<input type="text" id="node-input-EndpointConfigName" placeholder="EndpointConfigName"></input>
+	</div> 
+	<div class="form-row" id='ProductionVariantsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductionVariants"><i class="fa fa-tag"></i> ProductionVariants</label>
+		<input type="text" id="node-input-ProductionVariants" placeholder="ProductionVariants"></input>
+	</div> 
+	<div class="form-row" id='DataCaptureConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DataCaptureConfig"><i class="fa fa-tag"></i> DataCaptureConfig</label>
+		<input type="text" id="node-input-DataCaptureConfig" placeholder="DataCaptureConfig"></input>
+	</div> 
+	<div class="form-row" id='AsyncInferenceConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-AsyncInferenceConfig"><i class="fa fa-tag"></i> AsyncInferenceConfig</label>
+		<input type="text" id="node-input-AsyncInferenceConfig" placeholder="AsyncInferenceConfig"></input>
+	</div> 
+	<div class="form-row" id='ExperimentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExperimentName"><i class="fa fa-tag"></i> ExperimentName</label>
+		<input type="text" id="node-input-ExperimentName" placeholder="ExperimentName"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='FeatureGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FeatureGroupName"><i class="fa fa-tag"></i> FeatureGroupName</label>
+		<input type="text" id="node-input-FeatureGroupName" placeholder="FeatureGroupName"></input>
+	</div> 
+	<div class="form-row" id='RecordIdentifierFeatureNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RecordIdentifierFeatureName"><i class="fa fa-tag"></i> RecordIdentifierFeatureName</label>
+		<input type="text" id="node-input-RecordIdentifierFeatureName" placeholder="RecordIdentifierFeatureName"></input>
+	</div> 
+	<div class="form-row" id='EventTimeFeatureNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EventTimeFeatureName"><i class="fa fa-tag"></i> EventTimeFeatureName</label>
+		<input type="text" id="node-input-EventTimeFeatureName" placeholder="EventTimeFeatureName"></input>
+	</div> 
+	<div class="form-row" id='FeatureDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-FeatureDefinitions"><i class="fa fa-tag"></i> FeatureDefinitions</label>
+		<input type="text" id="node-input-FeatureDefinitions" placeholder="FeatureDefinitions"></input>
+	</div> 
+	<div class="form-row" id='OnlineStoreConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OnlineStoreConfig"><i class="fa fa-tag"></i> OnlineStoreConfig</label>
+		<input type="text" id="node-input-OnlineStoreConfig" placeholder="OnlineStoreConfig"></input>
+	</div> 
+	<div class="form-row" id='OfflineStoreConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OfflineStoreConfig"><i class="fa fa-tag"></i> OfflineStoreConfig</label>
+		<input type="text" id="node-input-OfflineStoreConfig" placeholder="OfflineStoreConfig"></input>
+	</div> 
+	<div class="form-row" id='FlowDefinitionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FlowDefinitionName"><i class="fa fa-tag"></i> FlowDefinitionName</label>
+		<input type="text" id="node-input-FlowDefinitionName" placeholder="FlowDefinitionName"></input>
+	</div> 
+	<div class="form-row" id='HumanLoopRequestSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanLoopRequestSource"><i class="fa fa-tag"></i> HumanLoopRequestSource</label>
+		<input type="text" id="node-input-HumanLoopRequestSource" placeholder="HumanLoopRequestSource"></input>
+	</div> 
+	<div class="form-row" id='HumanLoopActivationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanLoopActivationConfig"><i class="fa fa-tag"></i> HumanLoopActivationConfig</label>
+		<input type="text" id="node-input-HumanLoopActivationConfig" placeholder="HumanLoopActivationConfig"></input>
+	</div> 
+	<div class="form-row" id='HumanLoopConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanLoopConfig"><i class="fa fa-tag"></i> HumanLoopConfig</label>
+		<input type="text" id="node-input-HumanLoopConfig" placeholder="HumanLoopConfig"></input>
+	</div> 
+	<div class="form-row" id='HumanTaskUiNameAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanTaskUiName"><i class="fa fa-tag"></i> HumanTaskUiName</label>
+		<input type="text" id="node-input-HumanTaskUiName" placeholder="HumanTaskUiName"></input>
+	</div> 
+	<div class="form-row" id='UiTemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-UiTemplate"><i class="fa fa-tag"></i> UiTemplate</label>
+		<input type="text" id="node-input-UiTemplate" placeholder="UiTemplate"></input>
+	</div> 
+	<div class="form-row" id='HyperParameterTuningJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-HyperParameterTuningJobName"><i class="fa fa-tag"></i> HyperParameterTuningJobName</label>
+		<input type="text" id="node-input-HyperParameterTuningJobName" placeholder="HyperParameterTuningJobName"></input>
+	</div> 
+	<div class="form-row" id='HyperParameterTuningJobConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HyperParameterTuningJobConfig"><i class="fa fa-tag"></i> HyperParameterTuningJobConfig</label>
+		<input type="text" id="node-input-HyperParameterTuningJobConfig" placeholder="HyperParameterTuningJobConfig"></input>
+	</div> 
+	<div class="form-row" id='TrainingJobDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingJobDefinition"><i class="fa fa-tag"></i> TrainingJobDefinition</label>
+		<input type="text" id="node-input-TrainingJobDefinition" placeholder="TrainingJobDefinition"></input>
+	</div> 
+	<div class="form-row" id='TrainingJobDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingJobDefinitions"><i class="fa fa-tag"></i> TrainingJobDefinitions</label>
+		<input type="text" id="node-input-TrainingJobDefinitions" placeholder="TrainingJobDefinitions"></input>
+	</div> 
+	<div class="form-row" id='WarmStartConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-WarmStartConfig"><i class="fa fa-tag"></i> WarmStartConfig</label>
+		<input type="text" id="node-input-WarmStartConfig" placeholder="WarmStartConfig"></input>
+	</div> 
+	<div class="form-row" id='ImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageName"><i class="fa fa-tag"></i> ImageName</label>
+		<input type="text" id="node-input-ImageName" placeholder="ImageName"></input>
+	</div> 
+	<div class="form-row" id='BaseImageAttr' class='hiddenAttrs'>
+		<label for="node-input-BaseImage"><i class="fa fa-tag"></i> BaseImage</label>
+		<input type="text" id="node-input-BaseImage" placeholder="BaseImage"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='LabelingJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelingJobName"><i class="fa fa-tag"></i> LabelingJobName</label>
+		<input type="text" id="node-input-LabelingJobName" placeholder="LabelingJobName"></input>
+	</div> 
+	<div class="form-row" id='LabelAttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelAttributeName"><i class="fa fa-tag"></i> LabelAttributeName</label>
+		<input type="text" id="node-input-LabelAttributeName" placeholder="LabelAttributeName"></input>
+	</div> 
+	<div class="form-row" id='LabelCategoryConfigS3UriAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelCategoryConfigS3Uri"><i class="fa fa-tag"></i> LabelCategoryConfigS3Uri</label>
+		<input type="text" id="node-input-LabelCategoryConfigS3Uri" placeholder="LabelCategoryConfigS3Uri"></input>
+	</div> 
+	<div class="form-row" id='StoppingConditionsAttr' class='hiddenAttrs'>
+		<label for="node-input-StoppingConditions"><i class="fa fa-tag"></i> StoppingConditions</label>
+		<input type="text" id="node-input-StoppingConditions" placeholder="StoppingConditions"></input>
+	</div> 
+	<div class="form-row" id='LabelingJobAlgorithmsConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelingJobAlgorithmsConfig"><i class="fa fa-tag"></i> LabelingJobAlgorithmsConfig</label>
+		<input type="text" id="node-input-LabelingJobAlgorithmsConfig" placeholder="LabelingJobAlgorithmsConfig"></input>
+	</div> 
+	<div class="form-row" id='HumanTaskConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanTaskConfig"><i class="fa fa-tag"></i> HumanTaskConfig</label>
+		<input type="text" id="node-input-HumanTaskConfig" placeholder="HumanTaskConfig"></input>
+	</div> 
+	<div class="form-row" id='PrimaryContainerAttr' class='hiddenAttrs'>
+		<label for="node-input-PrimaryContainer"><i class="fa fa-tag"></i> PrimaryContainer</label>
+		<input type="text" id="node-input-PrimaryContainer" placeholder="PrimaryContainer"></input>
+	</div> 
+	<div class="form-row" id='ContainersAttr' class='hiddenAttrs'>
+		<label for="node-input-Containers"><i class="fa fa-tag"></i> Containers</label>
+		<input type="text" id="node-input-Containers" placeholder="Containers"></input>
+	</div> 
+	<div class="form-row" id='InferenceExecutionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InferenceExecutionConfig"><i class="fa fa-tag"></i> InferenceExecutionConfig</label>
+		<input type="text" id="node-input-InferenceExecutionConfig" placeholder="InferenceExecutionConfig"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleArn"><i class="fa fa-tag"></i> ExecutionRoleArn</label>
+		<input type="text" id="node-input-ExecutionRoleArn" placeholder="ExecutionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='EnableNetworkIsolationAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableNetworkIsolation"><i class="fa fa-tag"></i> EnableNetworkIsolation</label>
+		<input type="text" id="node-input-EnableNetworkIsolation" placeholder="EnableNetworkIsolation"></input>
+	</div> 
+	<div class="form-row" id='ModelBiasBaselineConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelBiasBaselineConfig"><i class="fa fa-tag"></i> ModelBiasBaselineConfig</label>
+		<input type="text" id="node-input-ModelBiasBaselineConfig" placeholder="ModelBiasBaselineConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelBiasAppSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelBiasAppSpecification"><i class="fa fa-tag"></i> ModelBiasAppSpecification</label>
+		<input type="text" id="node-input-ModelBiasAppSpecification" placeholder="ModelBiasAppSpecification"></input>
+	</div> 
+	<div class="form-row" id='ModelBiasJobInputAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelBiasJobInput"><i class="fa fa-tag"></i> ModelBiasJobInput</label>
+		<input type="text" id="node-input-ModelBiasJobInput" placeholder="ModelBiasJobInput"></input>
+	</div> 
+	<div class="form-row" id='ModelBiasJobOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelBiasJobOutputConfig"><i class="fa fa-tag"></i> ModelBiasJobOutputConfig</label>
+		<input type="text" id="node-input-ModelBiasJobOutputConfig" placeholder="ModelBiasJobOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelExplainabilityBaselineConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelExplainabilityBaselineConfig"><i class="fa fa-tag"></i> ModelExplainabilityBaselineConfig</label>
+		<input type="text" id="node-input-ModelExplainabilityBaselineConfig" placeholder="ModelExplainabilityBaselineConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelExplainabilityAppSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelExplainabilityAppSpecification"><i class="fa fa-tag"></i> ModelExplainabilityAppSpecification</label>
+		<input type="text" id="node-input-ModelExplainabilityAppSpecification" placeholder="ModelExplainabilityAppSpecification"></input>
+	</div> 
+	<div class="form-row" id='ModelExplainabilityJobInputAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelExplainabilityJobInput"><i class="fa fa-tag"></i> ModelExplainabilityJobInput</label>
+		<input type="text" id="node-input-ModelExplainabilityJobInput" placeholder="ModelExplainabilityJobInput"></input>
+	</div> 
+	<div class="form-row" id='ModelExplainabilityJobOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelExplainabilityJobOutputConfig"><i class="fa fa-tag"></i> ModelExplainabilityJobOutputConfig</label>
+		<input type="text" id="node-input-ModelExplainabilityJobOutputConfig" placeholder="ModelExplainabilityJobOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageName"><i class="fa fa-tag"></i> ModelPackageName</label>
+		<input type="text" id="node-input-ModelPackageName" placeholder="ModelPackageName"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageGroupName"><i class="fa fa-tag"></i> ModelPackageGroupName</label>
+		<input type="text" id="node-input-ModelPackageGroupName" placeholder="ModelPackageGroupName"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageDescription"><i class="fa fa-tag"></i> ModelPackageDescription</label>
+		<input type="text" id="node-input-ModelPackageDescription" placeholder="ModelPackageDescription"></input>
+	</div> 
+	<div class="form-row" id='SourceAlgorithmSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceAlgorithmSpecification"><i class="fa fa-tag"></i> SourceAlgorithmSpecification</label>
+		<input type="text" id="node-input-SourceAlgorithmSpecification" placeholder="SourceAlgorithmSpecification"></input>
+	</div> 
+	<div class="form-row" id='ModelApprovalStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelApprovalStatus"><i class="fa fa-tag"></i> ModelApprovalStatus</label>
+		<input type="text" id="node-input-ModelApprovalStatus" placeholder="ModelApprovalStatus"></input>
+	</div> 
+	<div class="form-row" id='ModelMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelMetrics"><i class="fa fa-tag"></i> ModelMetrics</label>
+		<input type="text" id="node-input-ModelMetrics" placeholder="ModelMetrics"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageGroupDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageGroupDescription"><i class="fa fa-tag"></i> ModelPackageGroupDescription</label>
+		<input type="text" id="node-input-ModelPackageGroupDescription" placeholder="ModelPackageGroupDescription"></input>
+	</div> 
+	<div class="form-row" id='ModelQualityBaselineConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelQualityBaselineConfig"><i class="fa fa-tag"></i> ModelQualityBaselineConfig</label>
+		<input type="text" id="node-input-ModelQualityBaselineConfig" placeholder="ModelQualityBaselineConfig"></input>
+	</div> 
+	<div class="form-row" id='ModelQualityAppSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelQualityAppSpecification"><i class="fa fa-tag"></i> ModelQualityAppSpecification</label>
+		<input type="text" id="node-input-ModelQualityAppSpecification" placeholder="ModelQualityAppSpecification"></input>
+	</div> 
+	<div class="form-row" id='ModelQualityJobInputAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelQualityJobInput"><i class="fa fa-tag"></i> ModelQualityJobInput</label>
+		<input type="text" id="node-input-ModelQualityJobInput" placeholder="ModelQualityJobInput"></input>
+	</div> 
+	<div class="form-row" id='ModelQualityJobOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelQualityJobOutputConfig"><i class="fa fa-tag"></i> ModelQualityJobOutputConfig</label>
+		<input type="text" id="node-input-ModelQualityJobOutputConfig" placeholder="ModelQualityJobOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='MonitoringScheduleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitoringScheduleName"><i class="fa fa-tag"></i> MonitoringScheduleName</label>
+		<input type="text" id="node-input-MonitoringScheduleName" placeholder="MonitoringScheduleName"></input>
+	</div> 
+	<div class="form-row" id='MonitoringScheduleConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitoringScheduleConfig"><i class="fa fa-tag"></i> MonitoringScheduleConfig</label>
+		<input type="text" id="node-input-MonitoringScheduleConfig" placeholder="MonitoringScheduleConfig"></input>
+	</div> 
+	<div class="form-row" id='NotebookInstanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NotebookInstanceName"><i class="fa fa-tag"></i> NotebookInstanceName</label>
+		<input type="text" id="node-input-NotebookInstanceName" placeholder="NotebookInstanceName"></input>
+	</div> 
+	<div class="form-row" id='InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceType"><i class="fa fa-tag"></i> InstanceType</label>
+		<input type="text" id="node-input-InstanceType" placeholder="InstanceType"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i> SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='LifecycleConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LifecycleConfigName"><i class="fa fa-tag"></i> LifecycleConfigName</label>
+		<input type="text" id="node-input-LifecycleConfigName" placeholder="LifecycleConfigName"></input>
+	</div> 
+	<div class="form-row" id='DirectInternetAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectInternetAccess"><i class="fa fa-tag"></i> DirectInternetAccess</label>
+		<input type="text" id="node-input-DirectInternetAccess" placeholder="DirectInternetAccess"></input>
+	</div> 
+	<div class="form-row" id='VolumeSizeInGBAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeSizeInGB"><i class="fa fa-tag"></i> VolumeSizeInGB</label>
+		<input type="text" id="node-input-VolumeSizeInGB" placeholder="VolumeSizeInGB"></input>
+	</div> 
+	<div class="form-row" id='AcceleratorTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-AcceleratorTypes"><i class="fa fa-tag"></i> AcceleratorTypes</label>
+		<input type="text" id="node-input-AcceleratorTypes" placeholder="AcceleratorTypes"></input>
+	</div> 
+	<div class="form-row" id='DefaultCodeRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultCodeRepository"><i class="fa fa-tag"></i> DefaultCodeRepository</label>
+		<input type="text" id="node-input-DefaultCodeRepository" placeholder="DefaultCodeRepository"></input>
+	</div> 
+	<div class="form-row" id='AdditionalCodeRepositoriesAttr' class='hiddenAttrs'>
+		<label for="node-input-AdditionalCodeRepositories"><i class="fa fa-tag"></i> AdditionalCodeRepositories</label>
+		<input type="text" id="node-input-AdditionalCodeRepositories" placeholder="AdditionalCodeRepositories"></input>
+	</div> 
+	<div class="form-row" id='RootAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-RootAccess"><i class="fa fa-tag"></i> RootAccess</label>
+		<input type="text" id="node-input-RootAccess" placeholder="RootAccess"></input>
+	</div> 
+	<div class="form-row" id='PlatformIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-PlatformIdentifier"><i class="fa fa-tag"></i> PlatformIdentifier</label>
+		<input type="text" id="node-input-PlatformIdentifier" placeholder="PlatformIdentifier"></input>
+	</div> 
+	<div class="form-row" id='NotebookInstanceLifecycleConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NotebookInstanceLifecycleConfigName"><i class="fa fa-tag"></i> NotebookInstanceLifecycleConfigName</label>
+		<input type="text" id="node-input-NotebookInstanceLifecycleConfigName" placeholder="NotebookInstanceLifecycleConfigName"></input>
+	</div> 
+	<div class="form-row" id='OnCreateAttr' class='hiddenAttrs'>
+		<label for="node-input-OnCreate"><i class="fa fa-tag"></i> OnCreate</label>
+		<input type="text" id="node-input-OnCreate" placeholder="OnCreate"></input>
+	</div> 
+	<div class="form-row" id='OnStartAttr' class='hiddenAttrs'>
+		<label for="node-input-OnStart"><i class="fa fa-tag"></i> OnStart</label>
+		<input type="text" id="node-input-OnStart" placeholder="OnStart"></input>
+	</div> 
+	<div class="form-row" id='PipelineNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineName"><i class="fa fa-tag"></i> PipelineName</label>
+		<input type="text" id="node-input-PipelineName" placeholder="PipelineName"></input>
+	</div> 
+	<div class="form-row" id='PipelineDisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineDisplayName"><i class="fa fa-tag"></i> PipelineDisplayName</label>
+		<input type="text" id="node-input-PipelineDisplayName" placeholder="PipelineDisplayName"></input>
+	</div> 
+	<div class="form-row" id='PipelineDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineDefinition"><i class="fa fa-tag"></i> PipelineDefinition</label>
+		<input type="text" id="node-input-PipelineDefinition" placeholder="PipelineDefinition"></input>
+	</div> 
+	<div class="form-row" id='PipelineDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineDescription"><i class="fa fa-tag"></i> PipelineDescription</label>
+		<input type="text" id="node-input-PipelineDescription" placeholder="PipelineDescription"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='SessionExpirationDurationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionExpirationDurationInSeconds"><i class="fa fa-tag"></i> SessionExpirationDurationInSeconds</label>
+		<input type="text" id="node-input-SessionExpirationDurationInSeconds" placeholder="SessionExpirationDurationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='ExpiresInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpiresInSeconds"><i class="fa fa-tag"></i> ExpiresInSeconds</label>
+		<input type="text" id="node-input-ExpiresInSeconds" placeholder="ExpiresInSeconds"></input>
+	</div> 
+	<div class="form-row" id='ProcessingInputsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProcessingInputs"><i class="fa fa-tag"></i> ProcessingInputs</label>
+		<input type="text" id="node-input-ProcessingInputs" placeholder="ProcessingInputs"></input>
+	</div> 
+	<div class="form-row" id='ProcessingOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ProcessingOutputConfig"><i class="fa fa-tag"></i> ProcessingOutputConfig</label>
+		<input type="text" id="node-input-ProcessingOutputConfig" placeholder="ProcessingOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='ProcessingJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProcessingJobName"><i class="fa fa-tag"></i> ProcessingJobName</label>
+		<input type="text" id="node-input-ProcessingJobName" placeholder="ProcessingJobName"></input>
+	</div> 
+	<div class="form-row" id='ProcessingResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-ProcessingResources"><i class="fa fa-tag"></i> ProcessingResources</label>
+		<input type="text" id="node-input-ProcessingResources" placeholder="ProcessingResources"></input>
+	</div> 
+	<div class="form-row" id='AppSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-AppSpecification"><i class="fa fa-tag"></i> AppSpecification</label>
+		<input type="text" id="node-input-AppSpecification" placeholder="AppSpecification"></input>
+	</div> 
+	<div class="form-row" id='EnvironmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Environment"><i class="fa fa-tag"></i> Environment</label>
+		<input type="text" id="node-input-Environment" placeholder="Environment"></input>
+	</div> 
+	<div class="form-row" id='ExperimentConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ExperimentConfig"><i class="fa fa-tag"></i> ExperimentConfig</label>
+		<input type="text" id="node-input-ExperimentConfig" placeholder="ExperimentConfig"></input>
+	</div> 
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i> ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='ProjectDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectDescription"><i class="fa fa-tag"></i> ProjectDescription</label>
+		<input type="text" id="node-input-ProjectDescription" placeholder="ProjectDescription"></input>
+	</div> 
+	<div class="form-row" id='ServiceCatalogProvisioningDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceCatalogProvisioningDetails"><i class="fa fa-tag"></i> ServiceCatalogProvisioningDetails</label>
+		<input type="text" id="node-input-ServiceCatalogProvisioningDetails" placeholder="ServiceCatalogProvisioningDetails"></input>
+	</div> 
+	<div class="form-row" id='TrainingJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingJobName"><i class="fa fa-tag"></i> TrainingJobName</label>
+		<input type="text" id="node-input-TrainingJobName" placeholder="TrainingJobName"></input>
+	</div> 
+	<div class="form-row" id='HyperParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-HyperParameters"><i class="fa fa-tag"></i> HyperParameters</label>
+		<input type="text" id="node-input-HyperParameters" placeholder="HyperParameters"></input>
+	</div> 
+	<div class="form-row" id='AlgorithmSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-AlgorithmSpecification"><i class="fa fa-tag"></i> AlgorithmSpecification</label>
+		<input type="text" id="node-input-AlgorithmSpecification" placeholder="AlgorithmSpecification"></input>
+	</div> 
+	<div class="form-row" id='ResourceConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceConfig"><i class="fa fa-tag"></i> ResourceConfig</label>
+		<input type="text" id="node-input-ResourceConfig" placeholder="ResourceConfig"></input>
+	</div> 
+	<div class="form-row" id='EnableInterContainerTrafficEncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableInterContainerTrafficEncryption"><i class="fa fa-tag"></i> EnableInterContainerTrafficEncryption</label>
+		<input type="text" id="node-input-EnableInterContainerTrafficEncryption" placeholder="EnableInterContainerTrafficEncryption"></input>
+	</div> 
+	<div class="form-row" id='EnableManagedSpotTrainingAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableManagedSpotTraining"><i class="fa fa-tag"></i> EnableManagedSpotTraining</label>
+		<input type="text" id="node-input-EnableManagedSpotTraining" placeholder="EnableManagedSpotTraining"></input>
+	</div> 
+	<div class="form-row" id='CheckpointConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-CheckpointConfig"><i class="fa fa-tag"></i> CheckpointConfig</label>
+		<input type="text" id="node-input-CheckpointConfig" placeholder="CheckpointConfig"></input>
+	</div> 
+	<div class="form-row" id='DebugHookConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DebugHookConfig"><i class="fa fa-tag"></i> DebugHookConfig</label>
+		<input type="text" id="node-input-DebugHookConfig" placeholder="DebugHookConfig"></input>
+	</div> 
+	<div class="form-row" id='DebugRuleConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-DebugRuleConfigurations"><i class="fa fa-tag"></i> DebugRuleConfigurations</label>
+		<input type="text" id="node-input-DebugRuleConfigurations" placeholder="DebugRuleConfigurations"></input>
+	</div> 
+	<div class="form-row" id='TensorBoardOutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-TensorBoardOutputConfig"><i class="fa fa-tag"></i> TensorBoardOutputConfig</label>
+		<input type="text" id="node-input-TensorBoardOutputConfig" placeholder="TensorBoardOutputConfig"></input>
+	</div> 
+	<div class="form-row" id='ProfilerConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ProfilerConfig"><i class="fa fa-tag"></i> ProfilerConfig</label>
+		<input type="text" id="node-input-ProfilerConfig" placeholder="ProfilerConfig"></input>
+	</div> 
+	<div class="form-row" id='ProfilerRuleConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-ProfilerRuleConfigurations"><i class="fa fa-tag"></i> ProfilerRuleConfigurations</label>
+		<input type="text" id="node-input-ProfilerRuleConfigurations" placeholder="ProfilerRuleConfigurations"></input>
+	</div> 
+	<div class="form-row" id='RetryStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-RetryStrategy"><i class="fa fa-tag"></i> RetryStrategy</label>
+		<input type="text" id="node-input-RetryStrategy" placeholder="RetryStrategy"></input>
+	</div> 
+	<div class="form-row" id='TransformJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformJobName"><i class="fa fa-tag"></i> TransformJobName</label>
+		<input type="text" id="node-input-TransformJobName" placeholder="TransformJobName"></input>
+	</div> 
+	<div class="form-row" id='MaxConcurrentTransformsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxConcurrentTransforms"><i class="fa fa-tag"></i> MaxConcurrentTransforms</label>
+		<input type="text" id="node-input-MaxConcurrentTransforms" placeholder="MaxConcurrentTransforms"></input>
+	</div> 
+	<div class="form-row" id='ModelClientConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelClientConfig"><i class="fa fa-tag"></i> ModelClientConfig</label>
+		<input type="text" id="node-input-ModelClientConfig" placeholder="ModelClientConfig"></input>
+	</div> 
+	<div class="form-row" id='MaxPayloadInMBAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxPayloadInMB"><i class="fa fa-tag"></i> MaxPayloadInMB</label>
+		<input type="text" id="node-input-MaxPayloadInMB" placeholder="MaxPayloadInMB"></input>
+	</div> 
+	<div class="form-row" id='BatchStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-BatchStrategy"><i class="fa fa-tag"></i> BatchStrategy</label>
+		<input type="text" id="node-input-BatchStrategy" placeholder="BatchStrategy"></input>
+	</div> 
+	<div class="form-row" id='TransformInputAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformInput"><i class="fa fa-tag"></i> TransformInput</label>
+		<input type="text" id="node-input-TransformInput" placeholder="TransformInput"></input>
+	</div> 
+	<div class="form-row" id='TransformOutputAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformOutput"><i class="fa fa-tag"></i> TransformOutput</label>
+		<input type="text" id="node-input-TransformOutput" placeholder="TransformOutput"></input>
+	</div> 
+	<div class="form-row" id='TransformResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformResources"><i class="fa fa-tag"></i> TransformResources</label>
+		<input type="text" id="node-input-TransformResources" placeholder="TransformResources"></input>
+	</div> 
+	<div class="form-row" id='DataProcessingAttr' class='hiddenAttrs'>
+		<label for="node-input-DataProcessing"><i class="fa fa-tag"></i> DataProcessing</label>
+		<input type="text" id="node-input-DataProcessing" placeholder="DataProcessing"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='InputArtifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-InputArtifacts"><i class="fa fa-tag"></i> InputArtifacts</label>
+		<input type="text" id="node-input-InputArtifacts" placeholder="InputArtifacts"></input>
+	</div> 
+	<div class="form-row" id='OutputArtifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputArtifacts"><i class="fa fa-tag"></i> OutputArtifacts</label>
+		<input type="text" id="node-input-OutputArtifacts" placeholder="OutputArtifacts"></input>
+	</div> 
+	<div class="form-row" id='SingleSignOnUserIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-SingleSignOnUserIdentifier"><i class="fa fa-tag"></i> SingleSignOnUserIdentifier</label>
+		<input type="text" id="node-input-SingleSignOnUserIdentifier" placeholder="SingleSignOnUserIdentifier"></input>
+	</div> 
+	<div class="form-row" id='SingleSignOnUserValueAttr' class='hiddenAttrs'>
+		<label for="node-input-SingleSignOnUserValue"><i class="fa fa-tag"></i> SingleSignOnUserValue</label>
+		<input type="text" id="node-input-SingleSignOnUserValue" placeholder="SingleSignOnUserValue"></input>
+	</div> 
+	<div class="form-row" id='UserSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserSettings"><i class="fa fa-tag"></i> UserSettings</label>
+		<input type="text" id="node-input-UserSettings" placeholder="UserSettings"></input>
+	</div> 
+	<div class="form-row" id='CognitoConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-CognitoConfig"><i class="fa fa-tag"></i> CognitoConfig</label>
+		<input type="text" id="node-input-CognitoConfig" placeholder="CognitoConfig"></input>
+	</div> 
+	<div class="form-row" id='OidcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OidcConfig"><i class="fa fa-tag"></i> OidcConfig</label>
+		<input type="text" id="node-input-OidcConfig" placeholder="OidcConfig"></input>
+	</div> 
+	<div class="form-row" id='SourceIpConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceIpConfig"><i class="fa fa-tag"></i> SourceIpConfig</label>
+		<input type="text" id="node-input-SourceIpConfig" placeholder="SourceIpConfig"></input>
+	</div> 
+	<div class="form-row" id='WorkforceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkforceName"><i class="fa fa-tag"></i> WorkforceName</label>
+		<input type="text" id="node-input-WorkforceName" placeholder="WorkforceName"></input>
+	</div> 
+	<div class="form-row" id='WorkteamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkteamName"><i class="fa fa-tag"></i> WorkteamName</label>
+		<input type="text" id="node-input-WorkteamName" placeholder="WorkteamName"></input>
+	</div> 
+	<div class="form-row" id='MemberDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberDefinitions"><i class="fa fa-tag"></i> MemberDefinitions</label>
+		<input type="text" id="node-input-MemberDefinitions" placeholder="MemberDefinitions"></input>
+	</div> 
+	<div class="form-row" id='NotificationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationConfiguration"><i class="fa fa-tag"></i> NotificationConfiguration</label>
+		<input type="text" id="node-input-NotificationConfiguration" placeholder="NotificationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ArtifactArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ArtifactArn"><i class="fa fa-tag"></i> ArtifactArn</label>
+		<input type="text" id="node-input-ArtifactArn" placeholder="ArtifactArn"></input>
+	</div> 
+	<div class="form-row" id='RetentionPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionPolicy"><i class="fa fa-tag"></i> RetentionPolicy</label>
+		<input type="text" id="node-input-RetentionPolicy" placeholder="RetentionPolicy"></input>
+	</div> 
+	<div class="form-row" id='VersionAttr' class='hiddenAttrs'>
+		<label for="node-input-Version"><i class="fa fa-tag"></i> Version</label>
+		<input type="text" id="node-input-Version" placeholder="Version"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DeviceNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceNames"><i class="fa fa-tag"></i> DeviceNames</label>
+		<input type="text" id="node-input-DeviceNames" placeholder="DeviceNames"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='DeviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceName"><i class="fa fa-tag"></i> DeviceName</label>
+		<input type="text" id="node-input-DeviceName" placeholder="DeviceName"></input>
+	</div> 
+	<div class="form-row" id='PipelineExecutionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineExecutionArn"><i class="fa fa-tag"></i> PipelineExecutionArn</label>
+		<input type="text" id="node-input-PipelineExecutionArn" placeholder="PipelineExecutionArn"></input>
+	</div> 
+	<div class="form-row" id='WorkteamArnAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkteamArn"><i class="fa fa-tag"></i> WorkteamArn</label>
+		<input type="text" id="node-input-WorkteamArn" placeholder="WorkteamArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i> Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='SuggestionQueryAttr' class='hiddenAttrs'>
+		<label for="node-input-SuggestionQuery"><i class="fa fa-tag"></i> SuggestionQuery</label>
+		<input type="text" id="node-input-SuggestionQuery" placeholder="SuggestionQuery"></input>
+	</div> 
+	<div class="form-row" id='SourceUriAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceUri"><i class="fa fa-tag"></i> SourceUri</label>
+		<input type="text" id="node-input-SourceUri" placeholder="SourceUri"></input>
+	</div> 
+	<div class="form-row" id='CreatedAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-CreatedAfter"><i class="fa fa-tag"></i> CreatedAfter</label>
+		<input type="text" id="node-input-CreatedAfter" placeholder="CreatedAfter"></input>
+	</div> 
+	<div class="form-row" id='CreatedBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-CreatedBefore"><i class="fa fa-tag"></i> CreatedBefore</label>
+		<input type="text" id="node-input-CreatedBefore" placeholder="CreatedBefore"></input>
+	</div> 
+	<div class="form-row" id='SortByAttr' class='hiddenAttrs'>
+		<label for="node-input-SortBy"><i class="fa fa-tag"></i> SortBy</label>
+		<input type="text" id="node-input-SortBy" placeholder="SortBy"></input>
+	</div> 
+	<div class="form-row" id='SortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-SortOrder"><i class="fa fa-tag"></i> SortOrder</label>
+		<input type="text" id="node-input-SortOrder" placeholder="SortOrder"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='CreationTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-CreationTimeAfter"><i class="fa fa-tag"></i> CreationTimeAfter</label>
+		<input type="text" id="node-input-CreationTimeAfter" placeholder="CreationTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='CreationTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-CreationTimeBefore"><i class="fa fa-tag"></i> CreationTimeBefore</label>
+		<input type="text" id="node-input-CreationTimeBefore" placeholder="CreationTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='NameContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-NameContains"><i class="fa fa-tag"></i> NameContains</label>
+		<input type="text" id="node-input-NameContains" placeholder="NameContains"></input>
+	</div> 
+	<div class="form-row" id='ModifiedTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-ModifiedTimeBefore"><i class="fa fa-tag"></i> ModifiedTimeBefore</label>
+		<input type="text" id="node-input-ModifiedTimeBefore" placeholder="ModifiedTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='ModifiedTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-ModifiedTimeAfter"><i class="fa fa-tag"></i> ModifiedTimeAfter</label>
+		<input type="text" id="node-input-ModifiedTimeAfter" placeholder="ModifiedTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='DomainIdEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainIdEquals"><i class="fa fa-tag"></i> DomainIdEquals</label>
+		<input type="text" id="node-input-DomainIdEquals" placeholder="DomainIdEquals"></input>
+	</div> 
+	<div class="form-row" id='UserProfileNameEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserProfileNameEquals"><i class="fa fa-tag"></i> UserProfileNameEquals</label>
+		<input type="text" id="node-input-UserProfileNameEquals" placeholder="UserProfileNameEquals"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i> SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='DestinationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationType"><i class="fa fa-tag"></i> DestinationType</label>
+		<input type="text" id="node-input-DestinationType" placeholder="DestinationType"></input>
+	</div> 
+	<div class="form-row" id='LastModifiedTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-LastModifiedTimeAfter"><i class="fa fa-tag"></i> LastModifiedTimeAfter</label>
+		<input type="text" id="node-input-LastModifiedTimeAfter" placeholder="LastModifiedTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='LastModifiedTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-LastModifiedTimeBefore"><i class="fa fa-tag"></i> LastModifiedTimeBefore</label>
+		<input type="text" id="node-input-LastModifiedTimeBefore" placeholder="LastModifiedTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='StatusEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-StatusEquals"><i class="fa fa-tag"></i> StatusEquals</label>
+		<input type="text" id="node-input-StatusEquals" placeholder="StatusEquals"></input>
+	</div> 
+	<div class="form-row" id='CandidateNameEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-CandidateNameEquals"><i class="fa fa-tag"></i> CandidateNameEquals</label>
+		<input type="text" id="node-input-CandidateNameEquals" placeholder="CandidateNameEquals"></input>
+	</div> 
+	<div class="form-row" id='LatestHeartbeatAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-LatestHeartbeatAfter"><i class="fa fa-tag"></i> LatestHeartbeatAfter</label>
+		<input type="text" id="node-input-LatestHeartbeatAfter" placeholder="LatestHeartbeatAfter"></input>
+	</div> 
+	<div class="form-row" id='ModelNameContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelNameContains"><i class="fa fa-tag"></i> ModelNameContains</label>
+		<input type="text" id="node-input-ModelNameContains" placeholder="ModelNameContains"></input>
+	</div> 
+	<div class="form-row" id='FeatureGroupStatusEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-FeatureGroupStatusEquals"><i class="fa fa-tag"></i> FeatureGroupStatusEquals</label>
+		<input type="text" id="node-input-FeatureGroupStatusEquals" placeholder="FeatureGroupStatusEquals"></input>
+	</div> 
+	<div class="form-row" id='OfflineStoreStatusEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-OfflineStoreStatusEquals"><i class="fa fa-tag"></i> OfflineStoreStatusEquals</label>
+		<input type="text" id="node-input-OfflineStoreStatusEquals" placeholder="OfflineStoreStatusEquals"></input>
+	</div> 
+	<div class="form-row" id='JobReferenceCodeContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-JobReferenceCodeContains"><i class="fa fa-tag"></i> JobReferenceCodeContains</label>
+		<input type="text" id="node-input-JobReferenceCodeContains" placeholder="JobReferenceCodeContains"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageType"><i class="fa fa-tag"></i> ModelPackageType</label>
+		<input type="text" id="node-input-ModelPackageType" placeholder="ModelPackageType"></input>
+	</div> 
+	<div class="form-row" id='ScheduledTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledTimeBefore"><i class="fa fa-tag"></i> ScheduledTimeBefore</label>
+		<input type="text" id="node-input-ScheduledTimeBefore" placeholder="ScheduledTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='ScheduledTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-ScheduledTimeAfter"><i class="fa fa-tag"></i> ScheduledTimeAfter</label>
+		<input type="text" id="node-input-ScheduledTimeAfter" placeholder="ScheduledTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='MonitoringJobDefinitionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitoringJobDefinitionName"><i class="fa fa-tag"></i> MonitoringJobDefinitionName</label>
+		<input type="text" id="node-input-MonitoringJobDefinitionName" placeholder="MonitoringJobDefinitionName"></input>
+	</div> 
+	<div class="form-row" id='MonitoringTypeEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-MonitoringTypeEquals"><i class="fa fa-tag"></i> MonitoringTypeEquals</label>
+		<input type="text" id="node-input-MonitoringTypeEquals" placeholder="MonitoringTypeEquals"></input>
+	</div> 
+	<div class="form-row" id='NotebookInstanceLifecycleConfigNameContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotebookInstanceLifecycleConfigNameContains"><i class="fa fa-tag"></i> NotebookInstanceLifecycleConfigNameContains</label>
+		<input type="text" id="node-input-NotebookInstanceLifecycleConfigNameContains" placeholder="NotebookInstanceLifecycleConfigNameContains"></input>
+	</div> 
+	<div class="form-row" id='DefaultCodeRepositoryContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultCodeRepositoryContains"><i class="fa fa-tag"></i> DefaultCodeRepositoryContains</label>
+		<input type="text" id="node-input-DefaultCodeRepositoryContains" placeholder="DefaultCodeRepositoryContains"></input>
+	</div> 
+	<div class="form-row" id='AdditionalCodeRepositoryEqualsAttr' class='hiddenAttrs'>
+		<label for="node-input-AdditionalCodeRepositoryEquals"><i class="fa fa-tag"></i> AdditionalCodeRepositoryEquals</label>
+		<input type="text" id="node-input-AdditionalCodeRepositoryEquals" placeholder="AdditionalCodeRepositoryEquals"></input>
+	</div> 
+	<div class="form-row" id='PipelineNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineNamePrefix"><i class="fa fa-tag"></i> PipelineNamePrefix</label>
+		<input type="text" id="node-input-PipelineNamePrefix" placeholder="PipelineNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='UserProfileNameContainsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserProfileNameContains"><i class="fa fa-tag"></i> UserProfileNameContains</label>
+		<input type="text" id="node-input-UserProfileNameContains" placeholder="UserProfileNameContains"></input>
+	</div> 
+	<div class="form-row" id='ResourcePolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourcePolicy"><i class="fa fa-tag"></i> ResourcePolicy</label>
+		<input type="text" id="node-input-ResourcePolicy" placeholder="ResourcePolicy"></input>
+	</div> 
+	<div class="form-row" id='DevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-Devices"><i class="fa fa-tag"></i> Devices</label>
+		<input type="text" id="node-input-Devices" placeholder="Devices"></input>
+	</div> 
+	<div class="form-row" id='TaskAttr' class='hiddenAttrs'>
+		<label for="node-input-Task"><i class="fa fa-tag"></i> Task</label>
+		<input type="text" id="node-input-Task" placeholder="Task"></input>
+	</div> 
+	<div class="form-row" id='HumanTaskUiArnAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanTaskUiArn"><i class="fa fa-tag"></i> HumanTaskUiArn</label>
+		<input type="text" id="node-input-HumanTaskUiArn" placeholder="HumanTaskUiArn"></input>
+	</div> 
+	<div class="form-row" id='SearchExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchExpression"><i class="fa fa-tag"></i> SearchExpression</label>
+		<input type="text" id="node-input-SearchExpression" placeholder="SearchExpression"></input>
+	</div> 
+	<div class="form-row" id='CallbackTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-CallbackToken"><i class="fa fa-tag"></i> CallbackToken</label>
+		<input type="text" id="node-input-CallbackToken" placeholder="CallbackToken"></input>
+	</div> 
+	<div class="form-row" id='FailureReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-FailureReason"><i class="fa fa-tag"></i> FailureReason</label>
+		<input type="text" id="node-input-FailureReason" placeholder="FailureReason"></input>
+	</div> 
+	<div class="form-row" id='OutputParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputParameters"><i class="fa fa-tag"></i> OutputParameters</label>
+		<input type="text" id="node-input-OutputParameters" placeholder="OutputParameters"></input>
+	</div> 
+	<div class="form-row" id='PipelineExecutionDisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineExecutionDisplayName"><i class="fa fa-tag"></i> PipelineExecutionDisplayName</label>
+		<input type="text" id="node-input-PipelineExecutionDisplayName" placeholder="PipelineExecutionDisplayName"></input>
+	</div> 
+	<div class="form-row" id='PipelineParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineParameters"><i class="fa fa-tag"></i> PipelineParameters</label>
+		<input type="text" id="node-input-PipelineParameters" placeholder="PipelineParameters"></input>
+	</div> 
+	<div class="form-row" id='PipelineExecutionDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PipelineExecutionDescription"><i class="fa fa-tag"></i> PipelineExecutionDescription</label>
+		<input type="text" id="node-input-PipelineExecutionDescription" placeholder="PipelineExecutionDescription"></input>
+	</div> 
+	<div class="form-row" id='PropertiesToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-PropertiesToRemove"><i class="fa fa-tag"></i> PropertiesToRemove</label>
+		<input type="text" id="node-input-PropertiesToRemove" placeholder="PropertiesToRemove"></input>
+	</div> 
+	<div class="form-row" id='RetainAllVariantPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-RetainAllVariantProperties"><i class="fa fa-tag"></i> RetainAllVariantProperties</label>
+		<input type="text" id="node-input-RetainAllVariantProperties" placeholder="RetainAllVariantProperties"></input>
+	</div> 
+	<div class="form-row" id='ExcludeRetainedVariantPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-ExcludeRetainedVariantProperties"><i class="fa fa-tag"></i> ExcludeRetainedVariantProperties</label>
+		<input type="text" id="node-input-ExcludeRetainedVariantProperties" placeholder="ExcludeRetainedVariantProperties"></input>
+	</div> 
+	<div class="form-row" id='DeploymentConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentConfig"><i class="fa fa-tag"></i> DeploymentConfig</label>
+		<input type="text" id="node-input-DeploymentConfig" placeholder="DeploymentConfig"></input>
+	</div> 
+	<div class="form-row" id='DesiredWeightsAndCapacitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredWeightsAndCapacities"><i class="fa fa-tag"></i> DesiredWeightsAndCapacities</label>
+		<input type="text" id="node-input-DesiredWeightsAndCapacities" placeholder="DesiredWeightsAndCapacities"></input>
+	</div> 
+	<div class="form-row" id='DeletePropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteProperties"><i class="fa fa-tag"></i> DeleteProperties</label>
+		<input type="text" id="node-input-DeleteProperties" placeholder="DeleteProperties"></input>
+	</div> 
+	<div class="form-row" id='ModelPackageArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelPackageArn"><i class="fa fa-tag"></i> ModelPackageArn</label>
+		<input type="text" id="node-input-ModelPackageArn" placeholder="ModelPackageArn"></input>
+	</div> 
+	<div class="form-row" id='ApprovalDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ApprovalDescription"><i class="fa fa-tag"></i> ApprovalDescription</label>
+		<input type="text" id="node-input-ApprovalDescription" placeholder="ApprovalDescription"></input>
+	</div> 
+	<div class="form-row" id='DisassociateLifecycleConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DisassociateLifecycleConfig"><i class="fa fa-tag"></i> DisassociateLifecycleConfig</label>
+		<input type="text" id="node-input-DisassociateLifecycleConfig" placeholder="DisassociateLifecycleConfig"></input>
+	</div> 
+	<div class="form-row" id='DisassociateAcceleratorTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-DisassociateAcceleratorTypes"><i class="fa fa-tag"></i> DisassociateAcceleratorTypes</label>
+		<input type="text" id="node-input-DisassociateAcceleratorTypes" placeholder="DisassociateAcceleratorTypes"></input>
+	</div> 
+	<div class="form-row" id='DisassociateDefaultCodeRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-DisassociateDefaultCodeRepository"><i class="fa fa-tag"></i> DisassociateDefaultCodeRepository</label>
+		<input type="text" id="node-input-DisassociateDefaultCodeRepository" placeholder="DisassociateDefaultCodeRepository"></input>
+	</div> 
+	<div class="form-row" id='DisassociateAdditionalCodeRepositoriesAttr' class='hiddenAttrs'>
+		<label for="node-input-DisassociateAdditionalCodeRepositories"><i class="fa fa-tag"></i> DisassociateAdditionalCodeRepositories</label>
+		<input type="text" id="node-input-DisassociateAdditionalCodeRepositories" placeholder="DisassociateAdditionalCodeRepositories"></input>
+	</div> 
+	<div class="form-row" id='ParametersToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-ParametersToRemove"><i class="fa fa-tag"></i> ParametersToRemove</label>
+		<input type="text" id="node-input-ParametersToRemove" placeholder="ParametersToRemove"></input>
+	</div> 
+	<div class="form-row" id='InputArtifactsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-InputArtifactsToRemove"><i class="fa fa-tag"></i> InputArtifactsToRemove</label>
+		<input type="text" id="node-input-InputArtifactsToRemove" placeholder="InputArtifactsToRemove"></input>
+	</div> 
+	<div class="form-row" id='OutputArtifactsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputArtifactsToRemove"><i class="fa fa-tag"></i> OutputArtifactsToRemove</label>
+		<input type="text" id="node-input-OutputArtifactsToRemove" placeholder="OutputArtifactsToRemove"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddAssociation:[
+					'#SourceArnAttr','#DestinationArnAttr','#AssociationTypeAttr'
+					],
+				AddTags:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				AssociateTrialComponent:[
+					'#TrialComponentNameAttr','#TrialNameAttr'
+					],
+				CreateAction:[
+					'#ActionNameAttr','#SourceAttr','#ActionTypeAttr','#DescriptionAttr','#StatusAttr','#PropertiesAttr','#MetadataPropertiesAttr','#TagsAttr'
+					],
+				CreateAlgorithm:[
+					'#AlgorithmNameAttr','#AlgorithmDescriptionAttr','#TrainingSpecificationAttr','#InferenceSpecificationAttr','#ValidationSpecificationAttr','#CertifyForMarketplaceAttr','#TagsAttr'
+					],
+				CreateApp:[
+					'#DomainIdAttr','#UserProfileNameAttr','#AppTypeAttr','#AppNameAttr','#TagsAttr','#ResourceSpecAttr'
+					],
+				CreateAppImageConfig:[
+					'#AppImageConfigNameAttr','#TagsAttr','#KernelGatewayImageConfigAttr'
+					],
+				CreateArtifact:[
+					'#ArtifactNameAttr','#SourceAttr','#ArtifactTypeAttr','#PropertiesAttr','#MetadataPropertiesAttr','#TagsAttr'
+					],
+				CreateAutoMLJob:[
+					'#AutoMLJobNameAttr','#InputDataConfigAttr','#OutputDataConfigAttr','#ProblemTypeAttr','#AutoMLJobObjectiveAttr','#AutoMLJobConfigAttr','#RoleArnAttr','#GenerateCandidateDefinitionsOnlyAttr','#TagsAttr','#ModelDeployConfigAttr'
+					],
+				CreateCodeRepository:[
+					'#CodeRepositoryNameAttr','#GitConfigAttr','#TagsAttr'
+					],
+				CreateCompilationJob:[
+					'#CompilationJobNameAttr','#RoleArnAttr','#InputConfigAttr','#OutputConfigAttr','#VpcConfigAttr','#StoppingConditionAttr','#TagsAttr'
+					],
+				CreateContext:[
+					'#ContextNameAttr','#SourceAttr','#ContextTypeAttr','#DescriptionAttr','#PropertiesAttr','#TagsAttr'
+					],
+				CreateDataQualityJobDefinition:[
+					'#JobDefinitionNameAttr','#DataQualityBaselineConfigAttr','#DataQualityAppSpecificationAttr','#DataQualityJobInputAttr','#DataQualityJobOutputConfigAttr','#JobResourcesAttr','#NetworkConfigAttr','#RoleArnAttr','#StoppingConditionAttr','#TagsAttr'
+					],
+				CreateDeviceFleet:[
+					'#DeviceFleetNameAttr','#RoleArnAttr','#DescriptionAttr','#OutputConfigAttr','#TagsAttr','#EnableIotRoleAliasAttr'
+					],
+				CreateDomain:[
+					'#DomainNameAttr','#AuthModeAttr','#DefaultUserSettingsAttr','#SubnetIdsAttr','#VpcIdAttr','#TagsAttr','#AppNetworkAccessTypeAttr','#HomeEfsFileSystemKmsKeyIdAttr','#KmsKeyIdAttr'
+					],
+				CreateEdgePackagingJob:[
+					'#EdgePackagingJobNameAttr','#CompilationJobNameAttr','#ModelNameAttr','#ModelVersionAttr','#RoleArnAttr','#OutputConfigAttr','#ResourceKeyAttr','#TagsAttr'
+					],
+				CreateEndpoint:[
+					'#EndpointNameAttr','#EndpointConfigNameAttr','#TagsAttr'
+					],
+				CreateEndpointConfig:[
+					'#EndpointConfigNameAttr','#ProductionVariantsAttr','#DataCaptureConfigAttr','#TagsAttr','#KmsKeyIdAttr','#AsyncInferenceConfigAttr'
+					],
+				CreateExperiment:[
+					'#ExperimentNameAttr','#DisplayNameAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateFeatureGroup:[
+					'#FeatureGroupNameAttr','#RecordIdentifierFeatureNameAttr','#EventTimeFeatureNameAttr','#FeatureDefinitionsAttr','#OnlineStoreConfigAttr','#OfflineStoreConfigAttr','#RoleArnAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateFlowDefinition:[
+					'#FlowDefinitionNameAttr','#HumanLoopRequestSourceAttr','#HumanLoopActivationConfigAttr','#HumanLoopConfigAttr','#OutputConfigAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreateHumanTaskUi:[
+					'#HumanTaskUiNameAttr','#UiTemplateAttr','#TagsAttr'
+					],
+				CreateHyperParameterTuningJob:[
+					'#HyperParameterTuningJobNameAttr','#HyperParameterTuningJobConfigAttr','#TrainingJobDefinitionAttr','#TrainingJobDefinitionsAttr','#WarmStartConfigAttr','#TagsAttr'
+					],
+				CreateImage:[
+					'#DescriptionAttr','#DisplayNameAttr','#ImageNameAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreateImageVersion:[
+					'#BaseImageAttr','#ClientTokenAttr','#ImageNameAttr'
+					],
+				CreateLabelingJob:[
+					'#LabelingJobNameAttr','#LabelAttributeNameAttr','#InputConfigAttr','#OutputConfigAttr','#RoleArnAttr','#LabelCategoryConfigS3UriAttr','#StoppingConditionsAttr','#LabelingJobAlgorithmsConfigAttr','#HumanTaskConfigAttr','#TagsAttr'
+					],
+				CreateModel:[
+					'#ModelNameAttr','#PrimaryContainerAttr','#ContainersAttr','#InferenceExecutionConfigAttr','#ExecutionRoleArnAttr','#TagsAttr','#VpcConfigAttr','#EnableNetworkIsolationAttr'
+					],
+				CreateModelBiasJobDefinition:[
+					'#JobDefinitionNameAttr','#ModelBiasBaselineConfigAttr','#ModelBiasAppSpecificationAttr','#ModelBiasJobInputAttr','#ModelBiasJobOutputConfigAttr','#JobResourcesAttr','#NetworkConfigAttr','#RoleArnAttr','#StoppingConditionAttr','#TagsAttr'
+					],
+				CreateModelExplainabilityJobDefinition:[
+					'#JobDefinitionNameAttr','#ModelExplainabilityBaselineConfigAttr','#ModelExplainabilityAppSpecificationAttr','#ModelExplainabilityJobInputAttr','#ModelExplainabilityJobOutputConfigAttr','#JobResourcesAttr','#NetworkConfigAttr','#RoleArnAttr','#StoppingConditionAttr','#TagsAttr'
+					],
+				CreateModelPackage:[
+					'#ModelPackageNameAttr','#ModelPackageGroupNameAttr','#ModelPackageDescriptionAttr','#InferenceSpecificationAttr','#ValidationSpecificationAttr','#SourceAlgorithmSpecificationAttr','#CertifyForMarketplaceAttr','#TagsAttr','#ModelApprovalStatusAttr','#MetadataPropertiesAttr','#ModelMetricsAttr','#ClientTokenAttr'
+					],
+				CreateModelPackageGroup:[
+					'#ModelPackageGroupNameAttr','#ModelPackageGroupDescriptionAttr','#TagsAttr'
+					],
+				CreateModelQualityJobDefinition:[
+					'#JobDefinitionNameAttr','#ModelQualityBaselineConfigAttr','#ModelQualityAppSpecificationAttr','#ModelQualityJobInputAttr','#ModelQualityJobOutputConfigAttr','#JobResourcesAttr','#NetworkConfigAttr','#RoleArnAttr','#StoppingConditionAttr','#TagsAttr'
+					],
+				CreateMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr','#MonitoringScheduleConfigAttr','#TagsAttr'
+					],
+				CreateNotebookInstance:[
+					'#NotebookInstanceNameAttr','#InstanceTypeAttr','#SubnetIdAttr','#SecurityGroupIdsAttr','#RoleArnAttr','#KmsKeyIdAttr','#TagsAttr','#LifecycleConfigNameAttr','#DirectInternetAccessAttr','#VolumeSizeInGBAttr','#AcceleratorTypesAttr','#DefaultCodeRepositoryAttr','#AdditionalCodeRepositoriesAttr','#RootAccessAttr','#PlatformIdentifierAttr'
+					],
+				CreateNotebookInstanceLifecycleConfig:[
+					'#NotebookInstanceLifecycleConfigNameAttr','#OnCreateAttr','#OnStartAttr'
+					],
+				CreatePipeline:[
+					'#PipelineNameAttr','#PipelineDisplayNameAttr','#PipelineDefinitionAttr','#PipelineDescriptionAttr','#ClientRequestTokenAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreatePresignedDomainUrl:[
+					'#DomainIdAttr','#UserProfileNameAttr','#SessionExpirationDurationInSecondsAttr','#ExpiresInSecondsAttr'
+					],
+				CreatePresignedNotebookInstanceUrl:[
+					'#NotebookInstanceNameAttr','#SessionExpirationDurationInSecondsAttr'
+					],
+				CreateProcessingJob:[
+					'#ProcessingInputsAttr','#ProcessingOutputConfigAttr','#ProcessingJobNameAttr','#ProcessingResourcesAttr','#StoppingConditionAttr','#AppSpecificationAttr','#EnvironmentAttr','#NetworkConfigAttr','#RoleArnAttr','#TagsAttr','#ExperimentConfigAttr'
+					],
+				CreateProject:[
+					'#ProjectNameAttr','#ProjectDescriptionAttr','#ServiceCatalogProvisioningDetailsAttr','#TagsAttr'
+					],
+				CreateTrainingJob:[
+					'#TrainingJobNameAttr','#HyperParametersAttr','#AlgorithmSpecificationAttr','#RoleArnAttr','#InputDataConfigAttr','#OutputDataConfigAttr','#ResourceConfigAttr','#VpcConfigAttr','#StoppingConditionAttr','#TagsAttr','#EnableNetworkIsolationAttr','#EnableInterContainerTrafficEncryptionAttr','#EnableManagedSpotTrainingAttr','#CheckpointConfigAttr','#DebugHookConfigAttr','#DebugRuleConfigurationsAttr','#TensorBoardOutputConfigAttr','#ExperimentConfigAttr','#ProfilerConfigAttr','#ProfilerRuleConfigurationsAttr','#EnvironmentAttr','#RetryStrategyAttr'
+					],
+				CreateTransformJob:[
+					'#TransformJobNameAttr','#ModelNameAttr','#MaxConcurrentTransformsAttr','#ModelClientConfigAttr','#MaxPayloadInMBAttr','#BatchStrategyAttr','#EnvironmentAttr','#TransformInputAttr','#TransformOutputAttr','#TransformResourcesAttr','#DataProcessingAttr','#TagsAttr','#ExperimentConfigAttr'
+					],
+				CreateTrial:[
+					'#TrialNameAttr','#DisplayNameAttr','#ExperimentNameAttr','#MetadataPropertiesAttr','#TagsAttr'
+					],
+				CreateTrialComponent:[
+					'#TrialComponentNameAttr','#DisplayNameAttr','#StatusAttr','#StartTimeAttr','#EndTimeAttr','#ParametersAttr','#InputArtifactsAttr','#OutputArtifactsAttr','#MetadataPropertiesAttr','#TagsAttr'
+					],
+				CreateUserProfile:[
+					'#DomainIdAttr','#UserProfileNameAttr','#SingleSignOnUserIdentifierAttr','#SingleSignOnUserValueAttr','#TagsAttr','#UserSettingsAttr'
+					],
+				CreateWorkforce:[
+					'#CognitoConfigAttr','#OidcConfigAttr','#SourceIpConfigAttr','#WorkforceNameAttr','#TagsAttr'
+					],
+				CreateWorkteam:[
+					'#WorkteamNameAttr','#WorkforceNameAttr','#MemberDefinitionsAttr','#DescriptionAttr','#NotificationConfigurationAttr','#TagsAttr'
+					],
+				DeleteAction:[
+					'#ActionNameAttr'
+					],
+				DeleteAlgorithm:[
+					'#AlgorithmNameAttr'
+					],
+				DeleteApp:[
+					'#DomainIdAttr','#UserProfileNameAttr','#AppTypeAttr','#AppNameAttr'
+					],
+				DeleteAppImageConfig:[
+					'#AppImageConfigNameAttr'
+					],
+				DeleteArtifact:[
+					'#ArtifactArnAttr','#SourceAttr'
+					],
+				DeleteAssociation:[
+					'#SourceArnAttr','#DestinationArnAttr'
+					],
+				DeleteCodeRepository:[
+					'#CodeRepositoryNameAttr'
+					],
+				DeleteContext:[
+					'#ContextNameAttr'
+					],
+				DeleteDataQualityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DeleteDeviceFleet:[
+					'#DeviceFleetNameAttr'
+					],
+				DeleteDomain:[
+					'#DomainIdAttr','#RetentionPolicyAttr'
+					],
+				DeleteEndpoint:[
+					'#EndpointNameAttr'
+					],
+				DeleteEndpointConfig:[
+					'#EndpointConfigNameAttr'
+					],
+				DeleteExperiment:[
+					'#ExperimentNameAttr'
+					],
+				DeleteFeatureGroup:[
+					'#FeatureGroupNameAttr'
+					],
+				DeleteFlowDefinition:[
+					'#FlowDefinitionNameAttr'
+					],
+				DeleteHumanTaskUi:[
+					'#HumanTaskUiNameAttr'
+					],
+				DeleteImage:[
+					'#ImageNameAttr'
+					],
+				DeleteImageVersion:[
+					'#ImageNameAttr','#VersionAttr'
+					],
+				DeleteModel:[
+					'#ModelNameAttr'
+					],
+				DeleteModelBiasJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DeleteModelExplainabilityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DeleteModelPackage:[
+					'#ModelPackageNameAttr'
+					],
+				DeleteModelPackageGroup:[
+					'#ModelPackageGroupNameAttr'
+					],
+				DeleteModelPackageGroupPolicy:[
+					'#ModelPackageGroupNameAttr'
+					],
+				DeleteModelQualityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DeleteMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr'
+					],
+				DeleteNotebookInstance:[
+					'#NotebookInstanceNameAttr'
+					],
+				DeleteNotebookInstanceLifecycleConfig:[
+					'#NotebookInstanceLifecycleConfigNameAttr'
+					],
+				DeletePipeline:[
+					'#PipelineNameAttr','#ClientRequestTokenAttr'
+					],
+				DeleteProject:[
+					'#ProjectNameAttr'
+					],
+				DeleteTags:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				DeleteTrial:[
+					'#TrialNameAttr'
+					],
+				DeleteTrialComponent:[
+					'#TrialComponentNameAttr'
+					],
+				DeleteUserProfile:[
+					'#DomainIdAttr','#UserProfileNameAttr'
+					],
+				DeleteWorkforce:[
+					'#WorkforceNameAttr'
+					],
+				DeleteWorkteam:[
+					'#WorkteamNameAttr'
+					],
+				DeregisterDevices:[
+					'#DeviceFleetNameAttr','#DeviceNamesAttr'
+					],
+				DescribeAction:[
+					'#ActionNameAttr'
+					],
+				DescribeAlgorithm:[
+					'#AlgorithmNameAttr'
+					],
+				DescribeApp:[
+					'#DomainIdAttr','#UserProfileNameAttr','#AppTypeAttr','#AppNameAttr'
+					],
+				DescribeAppImageConfig:[
+					'#AppImageConfigNameAttr'
+					],
+				DescribeArtifact:[
+					'#ArtifactArnAttr'
+					],
+				DescribeAutoMLJob:[
+					'#AutoMLJobNameAttr'
+					],
+				DescribeCodeRepository:[
+					'#CodeRepositoryNameAttr'
+					],
+				DescribeCompilationJob:[
+					'#CompilationJobNameAttr'
+					],
+				DescribeContext:[
+					'#ContextNameAttr'
+					],
+				DescribeDataQualityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DescribeDevice:[
+					'#NextTokenAttr','#DeviceNameAttr','#DeviceFleetNameAttr'
+					],
+				DescribeDeviceFleet:[
+					'#DeviceFleetNameAttr'
+					],
+				DescribeDomain:[
+					'#DomainIdAttr'
+					],
+				DescribeEdgePackagingJob:[
+					'#EdgePackagingJobNameAttr'
+					],
+				DescribeEndpoint:[
+					'#EndpointNameAttr'
+					],
+				DescribeEndpointConfig:[
+					'#EndpointConfigNameAttr'
+					],
+				DescribeExperiment:[
+					'#ExperimentNameAttr'
+					],
+				DescribeFeatureGroup:[
+					'#FeatureGroupNameAttr','#NextTokenAttr'
+					],
+				DescribeFlowDefinition:[
+					'#FlowDefinitionNameAttr'
+					],
+				DescribeHumanTaskUi:[
+					'#HumanTaskUiNameAttr'
+					],
+				DescribeHyperParameterTuningJob:[
+					'#HyperParameterTuningJobNameAttr'
+					],
+				DescribeImage:[
+					'#ImageNameAttr'
+					],
+				DescribeImageVersion:[
+					'#ImageNameAttr','#VersionAttr'
+					],
+				DescribeLabelingJob:[
+					'#LabelingJobNameAttr'
+					],
+				DescribeModel:[
+					'#ModelNameAttr'
+					],
+				DescribeModelBiasJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DescribeModelExplainabilityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DescribeModelPackage:[
+					'#ModelPackageNameAttr'
+					],
+				DescribeModelPackageGroup:[
+					'#ModelPackageGroupNameAttr'
+					],
+				DescribeModelQualityJobDefinition:[
+					'#JobDefinitionNameAttr'
+					],
+				DescribeMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr'
+					],
+				DescribeNotebookInstance:[
+					'#NotebookInstanceNameAttr'
+					],
+				DescribeNotebookInstanceLifecycleConfig:[
+					'#NotebookInstanceLifecycleConfigNameAttr'
+					],
+				DescribePipeline:[
+					'#PipelineNameAttr'
+					],
+				DescribePipelineDefinitionForExecution:[
+					'#PipelineExecutionArnAttr'
+					],
+				DescribePipelineExecution:[
+					'#PipelineExecutionArnAttr'
+					],
+				DescribeProcessingJob:[
+					'#ProcessingJobNameAttr'
+					],
+				DescribeProject:[
+					'#ProjectNameAttr'
+					],
+				DescribeSubscribedWorkteam:[
+					'#WorkteamArnAttr'
+					],
+				DescribeTrainingJob:[
+					'#TrainingJobNameAttr'
+					],
+				DescribeTransformJob:[
+					'#TransformJobNameAttr'
+					],
+				DescribeTrial:[
+					'#TrialNameAttr'
+					],
+				DescribeTrialComponent:[
+					'#TrialComponentNameAttr'
+					],
+				DescribeUserProfile:[
+					'#DomainIdAttr','#UserProfileNameAttr'
+					],
+				DescribeWorkforce:[
+					'#WorkforceNameAttr'
+					],
+				DescribeWorkteam:[
+					'#WorkteamNameAttr'
+					],
+				DisableSagemakerServicecatalogPortfolio:[
+					
+					],
+				DisassociateTrialComponent:[
+					'#TrialComponentNameAttr','#TrialNameAttr'
+					],
+				EnableSagemakerServicecatalogPortfolio:[
+					
+					],
+				GetDeviceFleetReport:[
+					'#DeviceFleetNameAttr'
+					],
+				GetModelPackageGroupPolicy:[
+					'#ModelPackageGroupNameAttr'
+					],
+				GetSagemakerServicecatalogPortfolioStatus:[
+					
+					],
+				GetSearchSuggestions:[
+					'#ResourceAttr','#SuggestionQueryAttr'
+					],
+				ListActions:[
+					'#SourceUriAttr','#ActionTypeAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAlgorithms:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListAppImageConfigs:[
+					'#MaxResultsAttr','#NextTokenAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#ModifiedTimeBeforeAttr','#ModifiedTimeAfterAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListApps:[
+					'#NextTokenAttr','#MaxResultsAttr','#SortOrderAttr','#SortByAttr','#DomainIdEqualsAttr','#UserProfileNameEqualsAttr'
+					],
+				ListArtifacts:[
+					'#SourceUriAttr','#ArtifactTypeAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAssociations:[
+					'#SourceArnAttr','#DestinationArnAttr','#SourceTypeAttr','#DestinationTypeAttr','#AssociationTypeAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAutoMLJobs:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#StatusEqualsAttr','#SortOrderAttr','#SortByAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCandidatesForAutoMLJob:[
+					'#AutoMLJobNameAttr','#StatusEqualsAttr','#CandidateNameEqualsAttr','#SortOrderAttr','#SortByAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCodeRepositories:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListCompilationJobs:[
+					'#NextTokenAttr','#MaxResultsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListContexts:[
+					'#SourceUriAttr','#ContextTypeAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDataQualityJobDefinitions:[
+					'#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListDeviceFleets:[
+					'#NextTokenAttr','#MaxResultsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListDevices:[
+					'#NextTokenAttr','#MaxResultsAttr','#LatestHeartbeatAfterAttr','#ModelNameAttr','#DeviceFleetNameAttr'
+					],
+				ListDomains:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListEdgePackagingJobs:[
+					'#NextTokenAttr','#MaxResultsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#ModelNameContainsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListEndpointConfigs:[
+					'#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListEndpoints:[
+					'#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#LastModifiedTimeBeforeAttr','#LastModifiedTimeAfterAttr','#StatusEqualsAttr'
+					],
+				ListExperiments:[
+					'#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListFeatureGroups:[
+					'#NameContainsAttr','#FeatureGroupStatusEqualsAttr','#OfflineStoreStatusEqualsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#SortOrderAttr','#SortByAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFlowDefinitions:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHumanTaskUis:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListHyperParameterTuningJobs:[
+					'#NextTokenAttr','#MaxResultsAttr','#SortByAttr','#SortOrderAttr','#NameContainsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#StatusEqualsAttr'
+					],
+				ListImageVersions:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#ImageNameAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListImages:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListLabelingJobs:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#MaxResultsAttr','#NextTokenAttr','#NameContainsAttr','#SortByAttr','#SortOrderAttr','#StatusEqualsAttr'
+					],
+				ListLabelingJobsForWorkteam:[
+					'#WorkteamArnAttr','#MaxResultsAttr','#NextTokenAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#JobReferenceCodeContainsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListModelBiasJobDefinitions:[
+					'#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListModelExplainabilityJobDefinitions:[
+					'#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListModelPackageGroups:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListModelPackages:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#ModelApprovalStatusAttr','#ModelPackageGroupNameAttr','#ModelPackageTypeAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListModelQualityJobDefinitions:[
+					'#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListModels:[
+					'#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr'
+					],
+				ListMonitoringExecutions:[
+					'#MonitoringScheduleNameAttr','#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#ScheduledTimeBeforeAttr','#ScheduledTimeAfterAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#LastModifiedTimeBeforeAttr','#LastModifiedTimeAfterAttr','#StatusEqualsAttr','#MonitoringJobDefinitionNameAttr','#MonitoringTypeEqualsAttr'
+					],
+				ListMonitoringSchedules:[
+					'#EndpointNameAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#LastModifiedTimeBeforeAttr','#LastModifiedTimeAfterAttr','#StatusEqualsAttr','#MonitoringJobDefinitionNameAttr','#MonitoringTypeEqualsAttr'
+					],
+				ListNotebookInstanceLifecycleConfigs:[
+					'#NextTokenAttr','#MaxResultsAttr','#SortByAttr','#SortOrderAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#LastModifiedTimeBeforeAttr','#LastModifiedTimeAfterAttr'
+					],
+				ListNotebookInstances:[
+					'#NextTokenAttr','#MaxResultsAttr','#SortByAttr','#SortOrderAttr','#NameContainsAttr','#CreationTimeBeforeAttr','#CreationTimeAfterAttr','#LastModifiedTimeBeforeAttr','#LastModifiedTimeAfterAttr','#StatusEqualsAttr','#NotebookInstanceLifecycleConfigNameContainsAttr','#DefaultCodeRepositoryContainsAttr','#AdditionalCodeRepositoryEqualsAttr'
+					],
+				ListPipelineExecutionSteps:[
+					'#PipelineExecutionArnAttr','#NextTokenAttr','#MaxResultsAttr','#SortOrderAttr'
+					],
+				ListPipelineExecutions:[
+					'#PipelineNameAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPipelineParametersForExecution:[
+					'#PipelineExecutionArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPipelines:[
+					'#PipelineNamePrefixAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListProcessingJobs:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListProjects:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#MaxResultsAttr','#NameContainsAttr','#NextTokenAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListSubscribedWorkteams:[
+					'#NameContainsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTags:[
+					'#ResourceArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTrainingJobs:[
+					'#NextTokenAttr','#MaxResultsAttr','#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListTrainingJobsForHyperParameterTuningJob:[
+					'#HyperParameterTuningJobNameAttr','#NextTokenAttr','#MaxResultsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr'
+					],
+				ListTransformJobs:[
+					'#CreationTimeAfterAttr','#CreationTimeBeforeAttr','#LastModifiedTimeAfterAttr','#LastModifiedTimeBeforeAttr','#NameContainsAttr','#StatusEqualsAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTrialComponents:[
+					'#ExperimentNameAttr','#TrialNameAttr','#SourceArnAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTrials:[
+					'#ExperimentNameAttr','#TrialComponentNameAttr','#CreatedAfterAttr','#CreatedBeforeAttr','#SortByAttr','#SortOrderAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListUserProfiles:[
+					'#NextTokenAttr','#MaxResultsAttr','#SortOrderAttr','#SortByAttr','#DomainIdEqualsAttr','#UserProfileNameContainsAttr'
+					],
+				ListWorkforces:[
+					'#SortByAttr','#SortOrderAttr','#NameContainsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListWorkteams:[
+					'#SortByAttr','#SortOrderAttr','#NameContainsAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				PutModelPackageGroupPolicy:[
+					'#ModelPackageGroupNameAttr','#ResourcePolicyAttr'
+					],
+				RegisterDevices:[
+					'#DeviceFleetNameAttr','#DevicesAttr','#TagsAttr'
+					],
+				RenderUiTemplate:[
+					'#UiTemplateAttr','#TaskAttr','#RoleArnAttr','#HumanTaskUiArnAttr'
+					],
+				Search:[
+					'#ResourceAttr','#SearchExpressionAttr','#SortByAttr','#SortOrderAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				SendPipelineExecutionStepFailure:[
+					'#CallbackTokenAttr','#FailureReasonAttr','#ClientRequestTokenAttr'
+					],
+				SendPipelineExecutionStepSuccess:[
+					'#CallbackTokenAttr','#OutputParametersAttr','#ClientRequestTokenAttr'
+					],
+				StartMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr'
+					],
+				StartNotebookInstance:[
+					'#NotebookInstanceNameAttr'
+					],
+				StartPipelineExecution:[
+					'#PipelineNameAttr','#PipelineExecutionDisplayNameAttr','#PipelineParametersAttr','#PipelineExecutionDescriptionAttr','#ClientRequestTokenAttr'
+					],
+				StopAutoMLJob:[
+					'#AutoMLJobNameAttr'
+					],
+				StopCompilationJob:[
+					'#CompilationJobNameAttr'
+					],
+				StopEdgePackagingJob:[
+					'#EdgePackagingJobNameAttr'
+					],
+				StopHyperParameterTuningJob:[
+					'#HyperParameterTuningJobNameAttr'
+					],
+				StopLabelingJob:[
+					'#LabelingJobNameAttr'
+					],
+				StopMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr'
+					],
+				StopNotebookInstance:[
+					'#NotebookInstanceNameAttr'
+					],
+				StopPipelineExecution:[
+					'#PipelineExecutionArnAttr','#ClientRequestTokenAttr'
+					],
+				StopProcessingJob:[
+					'#ProcessingJobNameAttr'
+					],
+				StopTrainingJob:[
+					'#TrainingJobNameAttr'
+					],
+				StopTransformJob:[
+					'#TransformJobNameAttr'
+					],
+				UpdateAction:[
+					'#ActionNameAttr','#DescriptionAttr','#StatusAttr','#PropertiesAttr','#PropertiesToRemoveAttr'
+					],
+				UpdateAppImageConfig:[
+					'#AppImageConfigNameAttr','#KernelGatewayImageConfigAttr'
+					],
+				UpdateArtifact:[
+					'#ArtifactArnAttr','#ArtifactNameAttr','#PropertiesAttr','#PropertiesToRemoveAttr'
+					],
+				UpdateCodeRepository:[
+					'#CodeRepositoryNameAttr','#GitConfigAttr'
+					],
+				UpdateContext:[
+					'#ContextNameAttr','#DescriptionAttr','#PropertiesAttr','#PropertiesToRemoveAttr'
+					],
+				UpdateDeviceFleet:[
+					'#DeviceFleetNameAttr','#RoleArnAttr','#DescriptionAttr','#OutputConfigAttr','#EnableIotRoleAliasAttr'
+					],
+				UpdateDevices:[
+					'#DeviceFleetNameAttr','#DevicesAttr'
+					],
+				UpdateDomain:[
+					'#DomainIdAttr','#DefaultUserSettingsAttr'
+					],
+				UpdateEndpoint:[
+					'#EndpointNameAttr','#EndpointConfigNameAttr','#RetainAllVariantPropertiesAttr','#ExcludeRetainedVariantPropertiesAttr','#DeploymentConfigAttr'
+					],
+				UpdateEndpointWeightsAndCapacities:[
+					'#EndpointNameAttr','#DesiredWeightsAndCapacitiesAttr'
+					],
+				UpdateExperiment:[
+					'#ExperimentNameAttr','#DisplayNameAttr','#DescriptionAttr'
+					],
+				UpdateImage:[
+					'#DeletePropertiesAttr','#DescriptionAttr','#DisplayNameAttr','#ImageNameAttr','#RoleArnAttr'
+					],
+				UpdateModelPackage:[
+					'#ModelPackageArnAttr','#ModelApprovalStatusAttr','#ApprovalDescriptionAttr'
+					],
+				UpdateMonitoringSchedule:[
+					'#MonitoringScheduleNameAttr','#MonitoringScheduleConfigAttr'
+					],
+				UpdateNotebookInstance:[
+					'#NotebookInstanceNameAttr','#InstanceTypeAttr','#RoleArnAttr','#LifecycleConfigNameAttr','#DisassociateLifecycleConfigAttr','#VolumeSizeInGBAttr','#DefaultCodeRepositoryAttr','#AdditionalCodeRepositoriesAttr','#AcceleratorTypesAttr','#DisassociateAcceleratorTypesAttr','#DisassociateDefaultCodeRepositoryAttr','#DisassociateAdditionalCodeRepositoriesAttr','#RootAccessAttr'
+					],
+				UpdateNotebookInstanceLifecycleConfig:[
+					'#NotebookInstanceLifecycleConfigNameAttr','#OnCreateAttr','#OnStartAttr'
+					],
+				UpdatePipeline:[
+					'#PipelineNameAttr','#PipelineDisplayNameAttr','#PipelineDefinitionAttr','#PipelineDescriptionAttr','#RoleArnAttr'
+					],
+				UpdatePipelineExecution:[
+					'#PipelineExecutionArnAttr','#PipelineExecutionDescriptionAttr','#PipelineExecutionDisplayNameAttr'
+					],
+				UpdateTrainingJob:[
+					'#TrainingJobNameAttr','#ProfilerConfigAttr','#ProfilerRuleConfigurationsAttr'
+					],
+				UpdateTrial:[
+					'#TrialNameAttr','#DisplayNameAttr'
+					],
+				UpdateTrialComponent:[
+					'#TrialComponentNameAttr','#DisplayNameAttr','#StatusAttr','#StartTimeAttr','#EndTimeAttr','#ParametersAttr','#ParametersToRemoveAttr','#InputArtifactsAttr','#InputArtifactsToRemoveAttr','#OutputArtifactsAttr','#OutputArtifactsToRemoveAttr'
+					],
+				UpdateUserProfile:[
+					'#DomainIdAttr','#UserProfileNameAttr','#UserSettingsAttr'
+					],
+				UpdateWorkforce:[
+					'#WorkforceNameAttr','#SourceIpConfigAttr','#OidcConfigAttr'
+					],
+				UpdateWorkteam:[
+					'#WorkteamNameAttr','#MemberDefinitionsAttr','#DescriptionAttr','#NotificationConfigurationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SageMaker">
+<p>
+AWS SageMaker
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SageMaker.html">SageMaker</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SageMaker',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddAssociation' },
+			
+				SourceArn: { value: ""} ,
+				DestinationArn: { value: ""} ,
+				AssociationType: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Tags: { value: ""} ,
+				TrialComponentName: { value: ""} ,
+				TrialName: { value: ""} ,
+				ActionName: { value: ""} ,
+				Source: { value: ""} ,
+				ActionType: { value: ""} ,
+				Description: { value: ""} ,
+				Status: { value: ""} ,
+				Properties: { value: ""} ,
+				MetadataProperties: { value: ""} ,
+				AlgorithmName: { value: ""} ,
+				AlgorithmDescription: { value: ""} ,
+				TrainingSpecification: { value: ""} ,
+				InferenceSpecification: { value: ""} ,
+				ValidationSpecification: { value: ""} ,
+				CertifyForMarketplace: { value: ""} ,
+				DomainId: { value: ""} ,
+				UserProfileName: { value: ""} ,
+				AppType: { value: ""} ,
+				AppName: { value: ""} ,
+				ResourceSpec: { value: ""} ,
+				AppImageConfigName: { value: ""} ,
+				KernelGatewayImageConfig: { value: ""} ,
+				ArtifactName: { value: ""} ,
+				ArtifactType: { value: ""} ,
+				AutoMLJobName: { value: ""} ,
+				InputDataConfig: { value: ""} ,
+				OutputDataConfig: { value: ""} ,
+				ProblemType: { value: ""} ,
+				AutoMLJobObjective: { value: ""} ,
+				AutoMLJobConfig: { value: ""} ,
+				RoleArn: { value: ""} ,
+				GenerateCandidateDefinitionsOnly: { value: ""} ,
+				ModelDeployConfig: { value: ""} ,
+				CodeRepositoryName: { value: ""} ,
+				GitConfig: { value: ""} ,
+				CompilationJobName: { value: ""} ,
+				InputConfig: { value: ""} ,
+				OutputConfig: { value: ""} ,
+				VpcConfig: { value: ""} ,
+				StoppingCondition: { value: ""} ,
+				ContextName: { value: ""} ,
+				ContextType: { value: ""} ,
+				JobDefinitionName: { value: ""} ,
+				DataQualityBaselineConfig: { value: ""} ,
+				DataQualityAppSpecification: { value: ""} ,
+				DataQualityJobInput: { value: ""} ,
+				DataQualityJobOutputConfig: { value: ""} ,
+				JobResources: { value: ""} ,
+				NetworkConfig: { value: ""} ,
+				DeviceFleetName: { value: ""} ,
+				EnableIotRoleAlias: { value: ""} ,
+				DomainName: { value: ""} ,
+				AuthMode: { value: ""} ,
+				DefaultUserSettings: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				VpcId: { value: ""} ,
+				AppNetworkAccessType: { value: ""} ,
+				HomeEfsFileSystemKmsKeyId: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				EdgePackagingJobName: { value: ""} ,
+				ModelName: { value: ""} ,
+				ModelVersion: { value: ""} ,
+				ResourceKey: { value: ""} ,
+				EndpointName: { value: ""} ,
+				EndpointConfigName: { value: ""} ,
+				ProductionVariants: { value: ""} ,
+				DataCaptureConfig: { value: ""} ,
+				AsyncInferenceConfig: { value: ""} ,
+				ExperimentName: { value: ""} ,
+				DisplayName: { value: ""} ,
+				FeatureGroupName: { value: ""} ,
+				RecordIdentifierFeatureName: { value: ""} ,
+				EventTimeFeatureName: { value: ""} ,
+				FeatureDefinitions: { value: ""} ,
+				OnlineStoreConfig: { value: ""} ,
+				OfflineStoreConfig: { value: ""} ,
+				FlowDefinitionName: { value: ""} ,
+				HumanLoopRequestSource: { value: ""} ,
+				HumanLoopActivationConfig: { value: ""} ,
+				HumanLoopConfig: { value: ""} ,
+				HumanTaskUiName: { value: ""} ,
+				UiTemplate: { value: ""} ,
+				HyperParameterTuningJobName: { value: ""} ,
+				HyperParameterTuningJobConfig: { value: ""} ,
+				TrainingJobDefinition: { value: ""} ,
+				TrainingJobDefinitions: { value: ""} ,
+				WarmStartConfig: { value: ""} ,
+				ImageName: { value: ""} ,
+				BaseImage: { value: ""} ,
+				ClientToken: { value: ""} ,
+				LabelingJobName: { value: ""} ,
+				LabelAttributeName: { value: ""} ,
+				LabelCategoryConfigS3Uri: { value: ""} ,
+				StoppingConditions: { value: ""} ,
+				LabelingJobAlgorithmsConfig: { value: ""} ,
+				HumanTaskConfig: { value: ""} ,
+				PrimaryContainer: { value: ""} ,
+				Containers: { value: ""} ,
+				InferenceExecutionConfig: { value: ""} ,
+				ExecutionRoleArn: { value: ""} ,
+				EnableNetworkIsolation: { value: ""} ,
+				ModelBiasBaselineConfig: { value: ""} ,
+				ModelBiasAppSpecification: { value: ""} ,
+				ModelBiasJobInput: { value: ""} ,
+				ModelBiasJobOutputConfig: { value: ""} ,
+				ModelExplainabilityBaselineConfig: { value: ""} ,
+				ModelExplainabilityAppSpecification: { value: ""} ,
+				ModelExplainabilityJobInput: { value: ""} ,
+				ModelExplainabilityJobOutputConfig: { value: ""} ,
+				ModelPackageName: { value: ""} ,
+				ModelPackageGroupName: { value: ""} ,
+				ModelPackageDescription: { value: ""} ,
+				SourceAlgorithmSpecification: { value: ""} ,
+				ModelApprovalStatus: { value: ""} ,
+				ModelMetrics: { value: ""} ,
+				ModelPackageGroupDescription: { value: ""} ,
+				ModelQualityBaselineConfig: { value: ""} ,
+				ModelQualityAppSpecification: { value: ""} ,
+				ModelQualityJobInput: { value: ""} ,
+				ModelQualityJobOutputConfig: { value: ""} ,
+				MonitoringScheduleName: { value: ""} ,
+				MonitoringScheduleConfig: { value: ""} ,
+				NotebookInstanceName: { value: ""} ,
+				InstanceType: { value: ""} ,
+				SubnetId: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				LifecycleConfigName: { value: ""} ,
+				DirectInternetAccess: { value: ""} ,
+				VolumeSizeInGB: { value: ""} ,
+				AcceleratorTypes: { value: ""} ,
+				DefaultCodeRepository: { value: ""} ,
+				AdditionalCodeRepositories: { value: ""} ,
+				RootAccess: { value: ""} ,
+				PlatformIdentifier: { value: ""} ,
+				NotebookInstanceLifecycleConfigName: { value: ""} ,
+				OnCreate: { value: ""} ,
+				OnStart: { value: ""} ,
+				PipelineName: { value: ""} ,
+				PipelineDisplayName: { value: ""} ,
+				PipelineDefinition: { value: ""} ,
+				PipelineDescription: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				SessionExpirationDurationInSeconds: { value: ""} ,
+				ExpiresInSeconds: { value: ""} ,
+				ProcessingInputs: { value: ""} ,
+				ProcessingOutputConfig: { value: ""} ,
+				ProcessingJobName: { value: ""} ,
+				ProcessingResources: { value: ""} ,
+				AppSpecification: { value: ""} ,
+				Environment: { value: ""} ,
+				ExperimentConfig: { value: ""} ,
+				ProjectName: { value: ""} ,
+				ProjectDescription: { value: ""} ,
+				ServiceCatalogProvisioningDetails: { value: ""} ,
+				TrainingJobName: { value: ""} ,
+				HyperParameters: { value: ""} ,
+				AlgorithmSpecification: { value: ""} ,
+				ResourceConfig: { value: ""} ,
+				EnableInterContainerTrafficEncryption: { value: ""} ,
+				EnableManagedSpotTraining: { value: ""} ,
+				CheckpointConfig: { value: ""} ,
+				DebugHookConfig: { value: ""} ,
+				DebugRuleConfigurations: { value: ""} ,
+				TensorBoardOutputConfig: { value: ""} ,
+				ProfilerConfig: { value: ""} ,
+				ProfilerRuleConfigurations: { value: ""} ,
+				RetryStrategy: { value: ""} ,
+				TransformJobName: { value: ""} ,
+				MaxConcurrentTransforms: { value: ""} ,
+				ModelClientConfig: { value: ""} ,
+				MaxPayloadInMB: { value: ""} ,
+				BatchStrategy: { value: ""} ,
+				TransformInput: { value: ""} ,
+				TransformOutput: { value: ""} ,
+				TransformResources: { value: ""} ,
+				DataProcessing: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				Parameters: { value: ""} ,
+				InputArtifacts: { value: ""} ,
+				OutputArtifacts: { value: ""} ,
+				SingleSignOnUserIdentifier: { value: ""} ,
+				SingleSignOnUserValue: { value: ""} ,
+				UserSettings: { value: ""} ,
+				CognitoConfig: { value: ""} ,
+				OidcConfig: { value: ""} ,
+				SourceIpConfig: { value: ""} ,
+				WorkforceName: { value: ""} ,
+				WorkteamName: { value: ""} ,
+				MemberDefinitions: { value: ""} ,
+				NotificationConfiguration: { value: ""} ,
+				ArtifactArn: { value: ""} ,
+				RetentionPolicy: { value: ""} ,
+				Version: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DeviceNames: { value: ""} ,
+				NextToken: { value: ""} ,
+				DeviceName: { value: ""} ,
+				PipelineExecutionArn: { value: ""} ,
+				WorkteamArn: { value: ""} ,
+				Resource: { value: ""} ,
+				SuggestionQuery: { value: ""} ,
+				SourceUri: { value: ""} ,
+				CreatedAfter: { value: ""} ,
+				CreatedBefore: { value: ""} ,
+				SortBy: { value: ""} ,
+				SortOrder: { value: ""} ,
+				MaxResults: { value: ""} ,
+				CreationTimeAfter: { value: ""} ,
+				CreationTimeBefore: { value: ""} ,
+				NameContains: { value: ""} ,
+				ModifiedTimeBefore: { value: ""} ,
+				ModifiedTimeAfter: { value: ""} ,
+				DomainIdEquals: { value: ""} ,
+				UserProfileNameEquals: { value: ""} ,
+				SourceType: { value: ""} ,
+				DestinationType: { value: ""} ,
+				LastModifiedTimeAfter: { value: ""} ,
+				LastModifiedTimeBefore: { value: ""} ,
+				StatusEquals: { value: ""} ,
+				CandidateNameEquals: { value: ""} ,
+				LatestHeartbeatAfter: { value: ""} ,
+				ModelNameContains: { value: ""} ,
+				FeatureGroupStatusEquals: { value: ""} ,
+				OfflineStoreStatusEquals: { value: ""} ,
+				JobReferenceCodeContains: { value: ""} ,
+				ModelPackageType: { value: ""} ,
+				ScheduledTimeBefore: { value: ""} ,
+				ScheduledTimeAfter: { value: ""} ,
+				MonitoringJobDefinitionName: { value: ""} ,
+				MonitoringTypeEquals: { value: ""} ,
+				NotebookInstanceLifecycleConfigNameContains: { value: ""} ,
+				DefaultCodeRepositoryContains: { value: ""} ,
+				AdditionalCodeRepositoryEquals: { value: ""} ,
+				PipelineNamePrefix: { value: ""} ,
+				UserProfileNameContains: { value: ""} ,
+				ResourcePolicy: { value: ""} ,
+				Devices: { value: ""} ,
+				Task: { value: ""} ,
+				HumanTaskUiArn: { value: ""} ,
+				SearchExpression: { value: ""} ,
+				CallbackToken: { value: ""} ,
+				FailureReason: { value: ""} ,
+				OutputParameters: { value: ""} ,
+				PipelineExecutionDisplayName: { value: ""} ,
+				PipelineParameters: { value: ""} ,
+				PipelineExecutionDescription: { value: ""} ,
+				PropertiesToRemove: { value: ""} ,
+				RetainAllVariantProperties: { value: ""} ,
+				ExcludeRetainedVariantProperties: { value: ""} ,
+				DeploymentConfig: { value: ""} ,
+				DesiredWeightsAndCapacities: { value: ""} ,
+				DeleteProperties: { value: ""} ,
+				ModelPackageArn: { value: ""} ,
+				ApprovalDescription: { value: ""} ,
+				DisassociateLifecycleConfig: { value: ""} ,
+				DisassociateAcceleratorTypes: { value: ""} ,
+				DisassociateDefaultCodeRepository: { value: ""} ,
+				DisassociateAdditionalCodeRepositories: { value: ""} ,
+				ParametersToRemove: { value: ""} ,
+				InputArtifactsToRemove: { value: ""} ,
+				OutputArtifactsToRemove: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SageMaker " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrialComponentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrialName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Properties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetadataProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlgorithmName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlgorithmDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InferenceSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidationSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertifyForMarketplace").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DomainId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserProfileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceSpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppImageConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KernelGatewayImageConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ArtifactName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ArtifactType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMLJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProblemType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMLJobObjective").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMLJobConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GenerateCandidateDefinitionsOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ModelDeployConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CodeRepositoryName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CompilationJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StoppingCondition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContextName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContextType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobDefinitionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataQualityBaselineConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataQualityAppSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataQualityJobInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataQualityJobOutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobResources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NetworkConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceFleetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableIotRoleAlias").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultUserSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppNetworkAccessType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HomeEfsFileSystemKmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EdgePackagingJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductionVariants").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataCaptureConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AsyncInferenceConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExperimentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FeatureGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecordIdentifierFeatureName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EventTimeFeatureName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FeatureDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnlineStoreConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OfflineStoreConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FlowDefinitionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HumanLoopRequestSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HumanLoopActivationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HumanLoopConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HumanTaskUiName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UiTemplate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HyperParameterTuningJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HyperParameterTuningJobConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingJobDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingJobDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WarmStartConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BaseImage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LabelingJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LabelAttributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LabelCategoryConfigS3Uri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StoppingConditions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LabelingJobAlgorithmsConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HumanTaskConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrimaryContainer").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Containers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InferenceExecutionConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableNetworkIsolation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ModelBiasBaselineConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelBiasAppSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelBiasJobInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelBiasJobOutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelExplainabilityBaselineConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelExplainabilityAppSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelExplainabilityJobInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelExplainabilityJobOutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelPackageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelPackageGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelPackageDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceAlgorithmSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelApprovalStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelMetrics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelPackageGroupDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelQualityBaselineConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelQualityAppSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelQualityJobInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelQualityJobOutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitoringScheduleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitoringScheduleConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotebookInstanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LifecycleConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DirectInternetAccess").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeSizeInGB").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AcceleratorTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultCodeRepository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdditionalCodeRepositories").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RootAccess").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PlatformIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotebookInstanceLifecycleConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnCreate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnStart").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineDisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SessionExpirationDurationInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExpiresInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ProcessingInputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProcessingOutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProcessingJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProcessingResources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Environment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExperimentConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceCatalogProvisioningDetails").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HyperParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlgorithmSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableInterContainerTrafficEncryption").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EnableManagedSpotTraining").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CheckpointConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DebugHookConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DebugRuleConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TensorBoardOutputConfig").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ProfilerRuleConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetryStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransformJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxConcurrentTransforms").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ModelClientConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxPayloadInMB").typedInput({ default: "num", types: ["num"]});
+$("#node-input-BatchStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransformInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransformOutput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransformResources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataProcessing").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputArtifacts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputArtifacts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SingleSignOnUserIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SingleSignOnUserValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CognitoConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OidcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceIpConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkforceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkteamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ArtifactArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Version").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineExecutionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WorkteamArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resource").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SourceUri").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-SortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-NameContains").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-DomainIdEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserProfileNameEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-StatusEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CandidateNameEquals").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ModelNameContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FeatureGroupStatusEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OfflineStoreStatusEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobReferenceCodeContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelPackageType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MonitoringJobDefinitionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MonitoringTypeEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotebookInstanceLifecycleConfigNameContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultCodeRepositoryContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdditionalCodeRepositoryEquals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineNamePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserProfileNameContains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourcePolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Devices").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-HumanTaskUiArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SearchExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CallbackToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FailureReason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineExecutionDisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PipelineExecutionDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PropertiesToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetainAllVariantProperties").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-DeploymentConfig").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ModelPackageArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApprovalDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisassociateLifecycleConfig").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DisassociateAcceleratorTypes").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DisassociateDefaultCodeRepository").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DisassociateAdditionalCodeRepositories").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ParametersToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputArtifactsToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputArtifactsToRemove").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

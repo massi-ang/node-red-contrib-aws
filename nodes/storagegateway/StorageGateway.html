@@ -1,0 +1,1168 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS StorageGateway">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ActivateGateway">ActivateGateway</option>
+		
+			<option value="AddCache">AddCache</option>
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="AddUploadBuffer">AddUploadBuffer</option>
+		
+			<option value="AddWorkingStorage">AddWorkingStorage</option>
+		
+			<option value="AssignTapePool">AssignTapePool</option>
+		
+			<option value="AssociateFileSystem">AssociateFileSystem</option>
+		
+			<option value="AttachVolume">AttachVolume</option>
+		
+			<option value="CancelArchival">CancelArchival</option>
+		
+			<option value="CancelRetrieval">CancelRetrieval</option>
+		
+			<option value="CreateCachediSCSIVolume">CreateCachediSCSIVolume</option>
+		
+			<option value="CreateNFSFileShare">CreateNFSFileShare</option>
+		
+			<option value="CreateSMBFileShare">CreateSMBFileShare</option>
+		
+			<option value="CreateSnapshot">CreateSnapshot</option>
+		
+			<option value="CreateSnapshotFromVolumeRecoveryPoint">CreateSnapshotFromVolumeRecoveryPoint</option>
+		
+			<option value="CreateStorediSCSIVolume">CreateStorediSCSIVolume</option>
+		
+			<option value="CreateTapePool">CreateTapePool</option>
+		
+			<option value="CreateTapeWithBarcode">CreateTapeWithBarcode</option>
+		
+			<option value="CreateTapes">CreateTapes</option>
+		
+			<option value="DeleteAutomaticTapeCreationPolicy">DeleteAutomaticTapeCreationPolicy</option>
+		
+			<option value="DeleteBandwidthRateLimit">DeleteBandwidthRateLimit</option>
+		
+			<option value="DeleteChapCredentials">DeleteChapCredentials</option>
+		
+			<option value="DeleteFileShare">DeleteFileShare</option>
+		
+			<option value="DeleteGateway">DeleteGateway</option>
+		
+			<option value="DeleteSnapshotSchedule">DeleteSnapshotSchedule</option>
+		
+			<option value="DeleteTape">DeleteTape</option>
+		
+			<option value="DeleteTapeArchive">DeleteTapeArchive</option>
+		
+			<option value="DeleteTapePool">DeleteTapePool</option>
+		
+			<option value="DeleteVolume">DeleteVolume</option>
+		
+			<option value="DescribeAvailabilityMonitorTest">DescribeAvailabilityMonitorTest</option>
+		
+			<option value="DescribeBandwidthRateLimit">DescribeBandwidthRateLimit</option>
+		
+			<option value="DescribeBandwidthRateLimitSchedule">DescribeBandwidthRateLimitSchedule</option>
+		
+			<option value="DescribeCache">DescribeCache</option>
+		
+			<option value="DescribeCachediSCSIVolumes">DescribeCachediSCSIVolumes</option>
+		
+			<option value="DescribeChapCredentials">DescribeChapCredentials</option>
+		
+			<option value="DescribeFileSystemAssociations">DescribeFileSystemAssociations</option>
+		
+			<option value="DescribeGatewayInformation">DescribeGatewayInformation</option>
+		
+			<option value="DescribeMaintenanceStartTime">DescribeMaintenanceStartTime</option>
+		
+			<option value="DescribeNFSFileShares">DescribeNFSFileShares</option>
+		
+			<option value="DescribeSMBFileShares">DescribeSMBFileShares</option>
+		
+			<option value="DescribeSMBSettings">DescribeSMBSettings</option>
+		
+			<option value="DescribeSnapshotSchedule">DescribeSnapshotSchedule</option>
+		
+			<option value="DescribeStorediSCSIVolumes">DescribeStorediSCSIVolumes</option>
+		
+			<option value="DescribeTapeArchives">DescribeTapeArchives</option>
+		
+			<option value="DescribeTapeRecoveryPoints">DescribeTapeRecoveryPoints</option>
+		
+			<option value="DescribeTapes">DescribeTapes</option>
+		
+			<option value="DescribeUploadBuffer">DescribeUploadBuffer</option>
+		
+			<option value="DescribeVTLDevices">DescribeVTLDevices</option>
+		
+			<option value="DescribeWorkingStorage">DescribeWorkingStorage</option>
+		
+			<option value="DetachVolume">DetachVolume</option>
+		
+			<option value="DisableGateway">DisableGateway</option>
+		
+			<option value="DisassociateFileSystem">DisassociateFileSystem</option>
+		
+			<option value="JoinDomain">JoinDomain</option>
+		
+			<option value="ListAutomaticTapeCreationPolicies">ListAutomaticTapeCreationPolicies</option>
+		
+			<option value="ListFileShares">ListFileShares</option>
+		
+			<option value="ListFileSystemAssociations">ListFileSystemAssociations</option>
+		
+			<option value="ListGateways">ListGateways</option>
+		
+			<option value="ListLocalDisks">ListLocalDisks</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTapePools">ListTapePools</option>
+		
+			<option value="ListTapes">ListTapes</option>
+		
+			<option value="ListVolumeInitiators">ListVolumeInitiators</option>
+		
+			<option value="ListVolumeRecoveryPoints">ListVolumeRecoveryPoints</option>
+		
+			<option value="ListVolumes">ListVolumes</option>
+		
+			<option value="NotifyWhenUploaded">NotifyWhenUploaded</option>
+		
+			<option value="RefreshCache">RefreshCache</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetCache">ResetCache</option>
+		
+			<option value="RetrieveTapeArchive">RetrieveTapeArchive</option>
+		
+			<option value="RetrieveTapeRecoveryPoint">RetrieveTapeRecoveryPoint</option>
+		
+			<option value="SetLocalConsolePassword">SetLocalConsolePassword</option>
+		
+			<option value="SetSMBGuestPassword">SetSMBGuestPassword</option>
+		
+			<option value="ShutdownGateway">ShutdownGateway</option>
+		
+			<option value="StartAvailabilityMonitorTest">StartAvailabilityMonitorTest</option>
+		
+			<option value="StartGateway">StartGateway</option>
+		
+			<option value="UpdateAutomaticTapeCreationPolicy">UpdateAutomaticTapeCreationPolicy</option>
+		
+			<option value="UpdateBandwidthRateLimit">UpdateBandwidthRateLimit</option>
+		
+			<option value="UpdateBandwidthRateLimitSchedule">UpdateBandwidthRateLimitSchedule</option>
+		
+			<option value="UpdateChapCredentials">UpdateChapCredentials</option>
+		
+			<option value="UpdateFileSystemAssociation">UpdateFileSystemAssociation</option>
+		
+			<option value="UpdateGatewayInformation">UpdateGatewayInformation</option>
+		
+			<option value="UpdateGatewaySoftwareNow">UpdateGatewaySoftwareNow</option>
+		
+			<option value="UpdateMaintenanceStartTime">UpdateMaintenanceStartTime</option>
+		
+			<option value="UpdateNFSFileShare">UpdateNFSFileShare</option>
+		
+			<option value="UpdateSMBFileShare">UpdateSMBFileShare</option>
+		
+			<option value="UpdateSMBFileShareVisibility">UpdateSMBFileShareVisibility</option>
+		
+			<option value="UpdateSMBSecurityStrategy">UpdateSMBSecurityStrategy</option>
+		
+			<option value="UpdateSnapshotSchedule">UpdateSnapshotSchedule</option>
+		
+			<option value="UpdateVTLDeviceType">UpdateVTLDeviceType</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ActivationKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ActivationKey"><i class="fa fa-tag"></i> ActivationKey</label>
+		<input type="text" id="node-input-ActivationKey" placeholder="ActivationKey"></input>
+	</div> 
+	<div class="form-row" id='GatewayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayName"><i class="fa fa-tag"></i> GatewayName</label>
+		<input type="text" id="node-input-GatewayName" placeholder="GatewayName"></input>
+	</div> 
+	<div class="form-row" id='GatewayTimezoneAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayTimezone"><i class="fa fa-tag"></i> GatewayTimezone</label>
+		<input type="text" id="node-input-GatewayTimezone" placeholder="GatewayTimezone"></input>
+	</div> 
+	<div class="form-row" id='GatewayRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayRegion"><i class="fa fa-tag"></i> GatewayRegion</label>
+		<input type="text" id="node-input-GatewayRegion" placeholder="GatewayRegion"></input>
+	</div> 
+	<div class="form-row" id='GatewayTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayType"><i class="fa fa-tag"></i> GatewayType</label>
+		<input type="text" id="node-input-GatewayType" placeholder="GatewayType"></input>
+	</div> 
+	<div class="form-row" id='TapeDriveTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeDriveType"><i class="fa fa-tag"></i> TapeDriveType</label>
+		<input type="text" id="node-input-TapeDriveType" placeholder="TapeDriveType"></input>
+	</div> 
+	<div class="form-row" id='MediumChangerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MediumChangerType"><i class="fa fa-tag"></i> MediumChangerType</label>
+		<input type="text" id="node-input-MediumChangerType" placeholder="MediumChangerType"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='GatewayARNAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayARN"><i class="fa fa-tag"></i> GatewayARN</label>
+		<input type="text" id="node-input-GatewayARN" placeholder="GatewayARN"></input>
+	</div> 
+	<div class="form-row" id='DiskIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DiskIds"><i class="fa fa-tag"></i> DiskIds</label>
+		<input type="text" id="node-input-DiskIds" placeholder="DiskIds"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TapeARNAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeARN"><i class="fa fa-tag"></i> TapeARN</label>
+		<input type="text" id="node-input-TapeARN" placeholder="TapeARN"></input>
+	</div> 
+	<div class="form-row" id='PoolIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PoolId"><i class="fa fa-tag"></i> PoolId</label>
+		<input type="text" id="node-input-PoolId" placeholder="PoolId"></input>
+	</div> 
+	<div class="form-row" id='BypassGovernanceRetentionAttr' class='hiddenAttrs'>
+		<label for="node-input-BypassGovernanceRetention"><i class="fa fa-tag"></i> BypassGovernanceRetention</label>
+		<input type="text" id="node-input-BypassGovernanceRetention" placeholder="BypassGovernanceRetention"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i> Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='LocationARNAttr' class='hiddenAttrs'>
+		<label for="node-input-LocationARN"><i class="fa fa-tag"></i> LocationARN</label>
+		<input type="text" id="node-input-LocationARN" placeholder="LocationARN"></input>
+	</div> 
+	<div class="form-row" id='AuditDestinationARNAttr' class='hiddenAttrs'>
+		<label for="node-input-AuditDestinationARN"><i class="fa fa-tag"></i> AuditDestinationARN</label>
+		<input type="text" id="node-input-AuditDestinationARN" placeholder="AuditDestinationARN"></input>
+	</div> 
+	<div class="form-row" id='CacheAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-CacheAttributes"><i class="fa fa-tag"></i> CacheAttributes</label>
+		<input type="text" id="node-input-CacheAttributes" placeholder="CacheAttributes"></input>
+	</div> 
+	<div class="form-row" id='EndpointNetworkConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointNetworkConfiguration"><i class="fa fa-tag"></i> EndpointNetworkConfiguration</label>
+		<input type="text" id="node-input-EndpointNetworkConfiguration" placeholder="EndpointNetworkConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TargetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetName"><i class="fa fa-tag"></i> TargetName</label>
+		<input type="text" id="node-input-TargetName" placeholder="TargetName"></input>
+	</div> 
+	<div class="form-row" id='VolumeARNAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeARN"><i class="fa fa-tag"></i> VolumeARN</label>
+		<input type="text" id="node-input-VolumeARN" placeholder="VolumeARN"></input>
+	</div> 
+	<div class="form-row" id='NetworkInterfaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-NetworkInterfaceId"><i class="fa fa-tag"></i> NetworkInterfaceId</label>
+		<input type="text" id="node-input-NetworkInterfaceId" placeholder="NetworkInterfaceId"></input>
+	</div> 
+	<div class="form-row" id='DiskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DiskId"><i class="fa fa-tag"></i> DiskId</label>
+		<input type="text" id="node-input-DiskId" placeholder="DiskId"></input>
+	</div> 
+	<div class="form-row" id='VolumeSizeInBytesAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeSizeInBytes"><i class="fa fa-tag"></i> VolumeSizeInBytes</label>
+		<input type="text" id="node-input-VolumeSizeInBytes" placeholder="VolumeSizeInBytes"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotId"><i class="fa fa-tag"></i> SnapshotId</label>
+		<input type="text" id="node-input-SnapshotId" placeholder="SnapshotId"></input>
+	</div> 
+	<div class="form-row" id='SourceVolumeARNAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceVolumeARN"><i class="fa fa-tag"></i> SourceVolumeARN</label>
+		<input type="text" id="node-input-SourceVolumeARN" placeholder="SourceVolumeARN"></input>
+	</div> 
+	<div class="form-row" id='KMSEncryptedAttr' class='hiddenAttrs'>
+		<label for="node-input-KMSEncrypted"><i class="fa fa-tag"></i> KMSEncrypted</label>
+		<input type="text" id="node-input-KMSEncrypted" placeholder="KMSEncrypted"></input>
+	</div> 
+	<div class="form-row" id='KMSKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-KMSKey"><i class="fa fa-tag"></i> KMSKey</label>
+		<input type="text" id="node-input-KMSKey" placeholder="KMSKey"></input>
+	</div> 
+	<div class="form-row" id='NFSFileShareDefaultsAttr' class='hiddenAttrs'>
+		<label for="node-input-NFSFileShareDefaults"><i class="fa fa-tag"></i> NFSFileShareDefaults</label>
+		<input type="text" id="node-input-NFSFileShareDefaults" placeholder="NFSFileShareDefaults"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i> Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='DefaultStorageClassAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultStorageClass"><i class="fa fa-tag"></i> DefaultStorageClass</label>
+		<input type="text" id="node-input-DefaultStorageClass" placeholder="DefaultStorageClass"></input>
+	</div> 
+	<div class="form-row" id='ObjectACLAttr' class='hiddenAttrs'>
+		<label for="node-input-ObjectACL"><i class="fa fa-tag"></i> ObjectACL</label>
+		<input type="text" id="node-input-ObjectACL" placeholder="ObjectACL"></input>
+	</div> 
+	<div class="form-row" id='ClientListAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientList"><i class="fa fa-tag"></i> ClientList</label>
+		<input type="text" id="node-input-ClientList" placeholder="ClientList"></input>
+	</div> 
+	<div class="form-row" id='SquashAttr' class='hiddenAttrs'>
+		<label for="node-input-Squash"><i class="fa fa-tag"></i> Squash</label>
+		<input type="text" id="node-input-Squash" placeholder="Squash"></input>
+	</div> 
+	<div class="form-row" id='ReadOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-ReadOnly"><i class="fa fa-tag"></i> ReadOnly</label>
+		<input type="text" id="node-input-ReadOnly" placeholder="ReadOnly"></input>
+	</div> 
+	<div class="form-row" id='GuessMIMETypeEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-GuessMIMETypeEnabled"><i class="fa fa-tag"></i> GuessMIMETypeEnabled</label>
+		<input type="text" id="node-input-GuessMIMETypeEnabled" placeholder="GuessMIMETypeEnabled"></input>
+	</div> 
+	<div class="form-row" id='RequesterPaysAttr' class='hiddenAttrs'>
+		<label for="node-input-RequesterPays"><i class="fa fa-tag"></i> RequesterPays</label>
+		<input type="text" id="node-input-RequesterPays" placeholder="RequesterPays"></input>
+	</div> 
+	<div class="form-row" id='FileShareNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FileShareName"><i class="fa fa-tag"></i> FileShareName</label>
+		<input type="text" id="node-input-FileShareName" placeholder="FileShareName"></input>
+	</div> 
+	<div class="form-row" id='NotificationPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationPolicy"><i class="fa fa-tag"></i> NotificationPolicy</label>
+		<input type="text" id="node-input-NotificationPolicy" placeholder="NotificationPolicy"></input>
+	</div> 
+	<div class="form-row" id='VPCEndpointDNSNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VPCEndpointDNSName"><i class="fa fa-tag"></i> VPCEndpointDNSName</label>
+		<input type="text" id="node-input-VPCEndpointDNSName" placeholder="VPCEndpointDNSName"></input>
+	</div> 
+	<div class="form-row" id='BucketRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-BucketRegion"><i class="fa fa-tag"></i> BucketRegion</label>
+		<input type="text" id="node-input-BucketRegion" placeholder="BucketRegion"></input>
+	</div> 
+	<div class="form-row" id='SMBACLEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-SMBACLEnabled"><i class="fa fa-tag"></i> SMBACLEnabled</label>
+		<input type="text" id="node-input-SMBACLEnabled" placeholder="SMBACLEnabled"></input>
+	</div> 
+	<div class="form-row" id='AccessBasedEnumerationAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessBasedEnumeration"><i class="fa fa-tag"></i> AccessBasedEnumeration</label>
+		<input type="text" id="node-input-AccessBasedEnumeration" placeholder="AccessBasedEnumeration"></input>
+	</div> 
+	<div class="form-row" id='AdminUserListAttr' class='hiddenAttrs'>
+		<label for="node-input-AdminUserList"><i class="fa fa-tag"></i> AdminUserList</label>
+		<input type="text" id="node-input-AdminUserList" placeholder="AdminUserList"></input>
+	</div> 
+	<div class="form-row" id='ValidUserListAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidUserList"><i class="fa fa-tag"></i> ValidUserList</label>
+		<input type="text" id="node-input-ValidUserList" placeholder="ValidUserList"></input>
+	</div> 
+	<div class="form-row" id='InvalidUserListAttr' class='hiddenAttrs'>
+		<label for="node-input-InvalidUserList"><i class="fa fa-tag"></i> InvalidUserList</label>
+		<input type="text" id="node-input-InvalidUserList" placeholder="InvalidUserList"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationAttr' class='hiddenAttrs'>
+		<label for="node-input-Authentication"><i class="fa fa-tag"></i> Authentication</label>
+		<input type="text" id="node-input-Authentication" placeholder="Authentication"></input>
+	</div> 
+	<div class="form-row" id='CaseSensitivityAttr' class='hiddenAttrs'>
+		<label for="node-input-CaseSensitivity"><i class="fa fa-tag"></i> CaseSensitivity</label>
+		<input type="text" id="node-input-CaseSensitivity" placeholder="CaseSensitivity"></input>
+	</div> 
+	<div class="form-row" id='OplocksEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-OplocksEnabled"><i class="fa fa-tag"></i> OplocksEnabled</label>
+		<input type="text" id="node-input-OplocksEnabled" placeholder="OplocksEnabled"></input>
+	</div> 
+	<div class="form-row" id='SnapshotDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotDescription"><i class="fa fa-tag"></i> SnapshotDescription</label>
+		<input type="text" id="node-input-SnapshotDescription" placeholder="SnapshotDescription"></input>
+	</div> 
+	<div class="form-row" id='PreserveExistingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-PreserveExistingData"><i class="fa fa-tag"></i> PreserveExistingData</label>
+		<input type="text" id="node-input-PreserveExistingData" placeholder="PreserveExistingData"></input>
+	</div> 
+	<div class="form-row" id='PoolNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PoolName"><i class="fa fa-tag"></i> PoolName</label>
+		<input type="text" id="node-input-PoolName" placeholder="PoolName"></input>
+	</div> 
+	<div class="form-row" id='StorageClassAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageClass"><i class="fa fa-tag"></i> StorageClass</label>
+		<input type="text" id="node-input-StorageClass" placeholder="StorageClass"></input>
+	</div> 
+	<div class="form-row" id='RetentionLockTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionLockType"><i class="fa fa-tag"></i> RetentionLockType</label>
+		<input type="text" id="node-input-RetentionLockType" placeholder="RetentionLockType"></input>
+	</div> 
+	<div class="form-row" id='RetentionLockTimeInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionLockTimeInDays"><i class="fa fa-tag"></i> RetentionLockTimeInDays</label>
+		<input type="text" id="node-input-RetentionLockTimeInDays" placeholder="RetentionLockTimeInDays"></input>
+	</div> 
+	<div class="form-row" id='TapeSizeInBytesAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeSizeInBytes"><i class="fa fa-tag"></i> TapeSizeInBytes</label>
+		<input type="text" id="node-input-TapeSizeInBytes" placeholder="TapeSizeInBytes"></input>
+	</div> 
+	<div class="form-row" id='TapeBarcodeAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeBarcode"><i class="fa fa-tag"></i> TapeBarcode</label>
+		<input type="text" id="node-input-TapeBarcode" placeholder="TapeBarcode"></input>
+	</div> 
+	<div class="form-row" id='WormAttr' class='hiddenAttrs'>
+		<label for="node-input-Worm"><i class="fa fa-tag"></i> Worm</label>
+		<input type="text" id="node-input-Worm" placeholder="Worm"></input>
+	</div> 
+	<div class="form-row" id='NumTapesToCreateAttr' class='hiddenAttrs'>
+		<label for="node-input-NumTapesToCreate"><i class="fa fa-tag"></i> NumTapesToCreate</label>
+		<input type="text" id="node-input-NumTapesToCreate" placeholder="NumTapesToCreate"></input>
+	</div> 
+	<div class="form-row" id='TapeBarcodePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeBarcodePrefix"><i class="fa fa-tag"></i> TapeBarcodePrefix</label>
+		<input type="text" id="node-input-TapeBarcodePrefix" placeholder="TapeBarcodePrefix"></input>
+	</div> 
+	<div class="form-row" id='BandwidthTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-BandwidthType"><i class="fa fa-tag"></i> BandwidthType</label>
+		<input type="text" id="node-input-BandwidthType" placeholder="BandwidthType"></input>
+	</div> 
+	<div class="form-row" id='TargetARNAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetARN"><i class="fa fa-tag"></i> TargetARN</label>
+		<input type="text" id="node-input-TargetARN" placeholder="TargetARN"></input>
+	</div> 
+	<div class="form-row" id='InitiatorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-InitiatorName"><i class="fa fa-tag"></i> InitiatorName</label>
+		<input type="text" id="node-input-InitiatorName" placeholder="InitiatorName"></input>
+	</div> 
+	<div class="form-row" id='FileShareARNAttr' class='hiddenAttrs'>
+		<label for="node-input-FileShareARN"><i class="fa fa-tag"></i> FileShareARN</label>
+		<input type="text" id="node-input-FileShareARN" placeholder="FileShareARN"></input>
+	</div> 
+	<div class="form-row" id='ForceDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-ForceDelete"><i class="fa fa-tag"></i> ForceDelete</label>
+		<input type="text" id="node-input-ForceDelete" placeholder="ForceDelete"></input>
+	</div> 
+	<div class="form-row" id='PoolARNAttr' class='hiddenAttrs'>
+		<label for="node-input-PoolARN"><i class="fa fa-tag"></i> PoolARN</label>
+		<input type="text" id="node-input-PoolARN" placeholder="PoolARN"></input>
+	</div> 
+	<div class="form-row" id='VolumeARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeARNs"><i class="fa fa-tag"></i> VolumeARNs</label>
+		<input type="text" id="node-input-VolumeARNs" placeholder="VolumeARNs"></input>
+	</div> 
+	<div class="form-row" id='FileSystemAssociationARNListAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemAssociationARNList"><i class="fa fa-tag"></i> FileSystemAssociationARNList</label>
+		<input type="text" id="node-input-FileSystemAssociationARNList" placeholder="FileSystemAssociationARNList"></input>
+	</div> 
+	<div class="form-row" id='FileShareARNListAttr' class='hiddenAttrs'>
+		<label for="node-input-FileShareARNList"><i class="fa fa-tag"></i> FileShareARNList</label>
+		<input type="text" id="node-input-FileShareARNList" placeholder="FileShareARNList"></input>
+	</div> 
+	<div class="form-row" id='TapeARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-TapeARNs"><i class="fa fa-tag"></i> TapeARNs</label>
+		<input type="text" id="node-input-TapeARNs" placeholder="TapeARNs"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='VTLDeviceARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-VTLDeviceARNs"><i class="fa fa-tag"></i> VTLDeviceARNs</label>
+		<input type="text" id="node-input-VTLDeviceARNs" placeholder="VTLDeviceARNs"></input>
+	</div> 
+	<div class="form-row" id='ForceDetachAttr' class='hiddenAttrs'>
+		<label for="node-input-ForceDetach"><i class="fa fa-tag"></i> ForceDetach</label>
+		<input type="text" id="node-input-ForceDetach" placeholder="ForceDetach"></input>
+	</div> 
+	<div class="form-row" id='FileSystemAssociationARNAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemAssociationARN"><i class="fa fa-tag"></i> FileSystemAssociationARN</label>
+		<input type="text" id="node-input-FileSystemAssociationARN" placeholder="FileSystemAssociationARN"></input>
+	</div> 
+	<div class="form-row" id='DomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainName"><i class="fa fa-tag"></i> DomainName</label>
+		<input type="text" id="node-input-DomainName" placeholder="DomainName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationalUnitAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationalUnit"><i class="fa fa-tag"></i> OrganizationalUnit</label>
+		<input type="text" id="node-input-OrganizationalUnit" placeholder="OrganizationalUnit"></input>
+	</div> 
+	<div class="form-row" id='DomainControllersAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainControllers"><i class="fa fa-tag"></i> DomainControllers</label>
+		<input type="text" id="node-input-DomainControllers" placeholder="DomainControllers"></input>
+	</div> 
+	<div class="form-row" id='TimeoutInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeoutInSeconds"><i class="fa fa-tag"></i> TimeoutInSeconds</label>
+		<input type="text" id="node-input-TimeoutInSeconds" placeholder="TimeoutInSeconds"></input>
+	</div> 
+	<div class="form-row" id='PoolARNsAttr' class='hiddenAttrs'>
+		<label for="node-input-PoolARNs"><i class="fa fa-tag"></i> PoolARNs</label>
+		<input type="text" id="node-input-PoolARNs" placeholder="PoolARNs"></input>
+	</div> 
+	<div class="form-row" id='FolderListAttr' class='hiddenAttrs'>
+		<label for="node-input-FolderList"><i class="fa fa-tag"></i> FolderList</label>
+		<input type="text" id="node-input-FolderList" placeholder="FolderList"></input>
+	</div> 
+	<div class="form-row" id='RecursiveAttr' class='hiddenAttrs'>
+		<label for="node-input-Recursive"><i class="fa fa-tag"></i> Recursive</label>
+		<input type="text" id="node-input-Recursive" placeholder="Recursive"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='LocalConsolePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-LocalConsolePassword"><i class="fa fa-tag"></i> LocalConsolePassword</label>
+		<input type="text" id="node-input-LocalConsolePassword" placeholder="LocalConsolePassword"></input>
+	</div> 
+	<div class="form-row" id='AutomaticTapeCreationRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-AutomaticTapeCreationRules"><i class="fa fa-tag"></i> AutomaticTapeCreationRules</label>
+		<input type="text" id="node-input-AutomaticTapeCreationRules" placeholder="AutomaticTapeCreationRules"></input>
+	</div> 
+	<div class="form-row" id='AverageUploadRateLimitInBitsPerSecAttr' class='hiddenAttrs'>
+		<label for="node-input-AverageUploadRateLimitInBitsPerSec"><i class="fa fa-tag"></i> AverageUploadRateLimitInBitsPerSec</label>
+		<input type="text" id="node-input-AverageUploadRateLimitInBitsPerSec" placeholder="AverageUploadRateLimitInBitsPerSec"></input>
+	</div> 
+	<div class="form-row" id='AverageDownloadRateLimitInBitsPerSecAttr' class='hiddenAttrs'>
+		<label for="node-input-AverageDownloadRateLimitInBitsPerSec"><i class="fa fa-tag"></i> AverageDownloadRateLimitInBitsPerSec</label>
+		<input type="text" id="node-input-AverageDownloadRateLimitInBitsPerSec" placeholder="AverageDownloadRateLimitInBitsPerSec"></input>
+	</div> 
+	<div class="form-row" id='BandwidthRateLimitIntervalsAttr' class='hiddenAttrs'>
+		<label for="node-input-BandwidthRateLimitIntervals"><i class="fa fa-tag"></i> BandwidthRateLimitIntervals</label>
+		<input type="text" id="node-input-BandwidthRateLimitIntervals" placeholder="BandwidthRateLimitIntervals"></input>
+	</div> 
+	<div class="form-row" id='SecretToAuthenticateInitiatorAttr' class='hiddenAttrs'>
+		<label for="node-input-SecretToAuthenticateInitiator"><i class="fa fa-tag"></i> SecretToAuthenticateInitiator</label>
+		<input type="text" id="node-input-SecretToAuthenticateInitiator" placeholder="SecretToAuthenticateInitiator"></input>
+	</div> 
+	<div class="form-row" id='SecretToAuthenticateTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-SecretToAuthenticateTarget"><i class="fa fa-tag"></i> SecretToAuthenticateTarget</label>
+		<input type="text" id="node-input-SecretToAuthenticateTarget" placeholder="SecretToAuthenticateTarget"></input>
+	</div> 
+	<div class="form-row" id='CloudWatchLogGroupARNAttr' class='hiddenAttrs'>
+		<label for="node-input-CloudWatchLogGroupARN"><i class="fa fa-tag"></i> CloudWatchLogGroupARN</label>
+		<input type="text" id="node-input-CloudWatchLogGroupARN" placeholder="CloudWatchLogGroupARN"></input>
+	</div> 
+	<div class="form-row" id='GatewayCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-GatewayCapacity"><i class="fa fa-tag"></i> GatewayCapacity</label>
+		<input type="text" id="node-input-GatewayCapacity" placeholder="GatewayCapacity"></input>
+	</div> 
+	<div class="form-row" id='HourOfDayAttr' class='hiddenAttrs'>
+		<label for="node-input-HourOfDay"><i class="fa fa-tag"></i> HourOfDay</label>
+		<input type="text" id="node-input-HourOfDay" placeholder="HourOfDay"></input>
+	</div> 
+	<div class="form-row" id='MinuteOfHourAttr' class='hiddenAttrs'>
+		<label for="node-input-MinuteOfHour"><i class="fa fa-tag"></i> MinuteOfHour</label>
+		<input type="text" id="node-input-MinuteOfHour" placeholder="MinuteOfHour"></input>
+	</div> 
+	<div class="form-row" id='DayOfWeekAttr' class='hiddenAttrs'>
+		<label for="node-input-DayOfWeek"><i class="fa fa-tag"></i> DayOfWeek</label>
+		<input type="text" id="node-input-DayOfWeek" placeholder="DayOfWeek"></input>
+	</div> 
+	<div class="form-row" id='DayOfMonthAttr' class='hiddenAttrs'>
+		<label for="node-input-DayOfMonth"><i class="fa fa-tag"></i> DayOfMonth</label>
+		<input type="text" id="node-input-DayOfMonth" placeholder="DayOfMonth"></input>
+	</div> 
+	<div class="form-row" id='FileSharesVisibleAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSharesVisible"><i class="fa fa-tag"></i> FileSharesVisible</label>
+		<input type="text" id="node-input-FileSharesVisible" placeholder="FileSharesVisible"></input>
+	</div> 
+	<div class="form-row" id='SMBSecurityStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-SMBSecurityStrategy"><i class="fa fa-tag"></i> SMBSecurityStrategy</label>
+		<input type="text" id="node-input-SMBSecurityStrategy" placeholder="SMBSecurityStrategy"></input>
+	</div> 
+	<div class="form-row" id='StartAtAttr' class='hiddenAttrs'>
+		<label for="node-input-StartAt"><i class="fa fa-tag"></i> StartAt</label>
+		<input type="text" id="node-input-StartAt" placeholder="StartAt"></input>
+	</div> 
+	<div class="form-row" id='RecurrenceInHoursAttr' class='hiddenAttrs'>
+		<label for="node-input-RecurrenceInHours"><i class="fa fa-tag"></i> RecurrenceInHours</label>
+		<input type="text" id="node-input-RecurrenceInHours" placeholder="RecurrenceInHours"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='VTLDeviceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-VTLDeviceARN"><i class="fa fa-tag"></i> VTLDeviceARN</label>
+		<input type="text" id="node-input-VTLDeviceARN" placeholder="VTLDeviceARN"></input>
+	</div> 
+	<div class="form-row" id='DeviceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceType"><i class="fa fa-tag"></i> DeviceType</label>
+		<input type="text" id="node-input-DeviceType" placeholder="DeviceType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ActivateGateway:[
+					'#ActivationKeyAttr','#GatewayNameAttr','#GatewayTimezoneAttr','#GatewayRegionAttr','#GatewayTypeAttr','#TapeDriveTypeAttr','#MediumChangerTypeAttr','#TagsAttr'
+					],
+				AddCache:[
+					'#GatewayARNAttr','#DiskIdsAttr'
+					],
+				AddTagsToResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				AddUploadBuffer:[
+					'#GatewayARNAttr','#DiskIdsAttr'
+					],
+				AddWorkingStorage:[
+					'#GatewayARNAttr','#DiskIdsAttr'
+					],
+				AssignTapePool:[
+					'#TapeARNAttr','#PoolIdAttr','#BypassGovernanceRetentionAttr'
+					],
+				AssociateFileSystem:[
+					'#UserNameAttr','#PasswordAttr','#ClientTokenAttr','#GatewayARNAttr','#LocationARNAttr','#TagsAttr','#AuditDestinationARNAttr','#CacheAttributesAttr','#EndpointNetworkConfigurationAttr'
+					],
+				AttachVolume:[
+					'#GatewayARNAttr','#TargetNameAttr','#VolumeARNAttr','#NetworkInterfaceIdAttr','#DiskIdAttr'
+					],
+				CancelArchival:[
+					'#GatewayARNAttr','#TapeARNAttr'
+					],
+				CancelRetrieval:[
+					'#GatewayARNAttr','#TapeARNAttr'
+					],
+				CreateCachediSCSIVolume:[
+					'#GatewayARNAttr','#VolumeSizeInBytesAttr','#SnapshotIdAttr','#TargetNameAttr','#SourceVolumeARNAttr','#NetworkInterfaceIdAttr','#ClientTokenAttr','#KMSEncryptedAttr','#KMSKeyAttr','#TagsAttr'
+					],
+				CreateNFSFileShare:[
+					'#ClientTokenAttr','#NFSFileShareDefaultsAttr','#GatewayARNAttr','#KMSEncryptedAttr','#KMSKeyAttr','#RoleAttr','#LocationARNAttr','#DefaultStorageClassAttr','#ObjectACLAttr','#ClientListAttr','#SquashAttr','#ReadOnlyAttr','#GuessMIMETypeEnabledAttr','#RequesterPaysAttr','#TagsAttr','#FileShareNameAttr','#CacheAttributesAttr','#NotificationPolicyAttr','#VPCEndpointDNSNameAttr','#BucketRegionAttr'
+					],
+				CreateSMBFileShare:[
+					'#ClientTokenAttr','#GatewayARNAttr','#KMSEncryptedAttr','#KMSKeyAttr','#RoleAttr','#LocationARNAttr','#DefaultStorageClassAttr','#ObjectACLAttr','#ReadOnlyAttr','#GuessMIMETypeEnabledAttr','#RequesterPaysAttr','#SMBACLEnabledAttr','#AccessBasedEnumerationAttr','#AdminUserListAttr','#ValidUserListAttr','#InvalidUserListAttr','#AuditDestinationARNAttr','#AuthenticationAttr','#CaseSensitivityAttr','#TagsAttr','#FileShareNameAttr','#CacheAttributesAttr','#NotificationPolicyAttr','#VPCEndpointDNSNameAttr','#BucketRegionAttr','#OplocksEnabledAttr'
+					],
+				CreateSnapshot:[
+					'#VolumeARNAttr','#SnapshotDescriptionAttr','#TagsAttr'
+					],
+				CreateSnapshotFromVolumeRecoveryPoint:[
+					'#VolumeARNAttr','#SnapshotDescriptionAttr','#TagsAttr'
+					],
+				CreateStorediSCSIVolume:[
+					'#GatewayARNAttr','#DiskIdAttr','#SnapshotIdAttr','#PreserveExistingDataAttr','#TargetNameAttr','#NetworkInterfaceIdAttr','#KMSEncryptedAttr','#KMSKeyAttr','#TagsAttr'
+					],
+				CreateTapePool:[
+					'#PoolNameAttr','#StorageClassAttr','#RetentionLockTypeAttr','#RetentionLockTimeInDaysAttr','#TagsAttr'
+					],
+				CreateTapeWithBarcode:[
+					'#GatewayARNAttr','#TapeSizeInBytesAttr','#TapeBarcodeAttr','#KMSEncryptedAttr','#KMSKeyAttr','#PoolIdAttr','#WormAttr','#TagsAttr'
+					],
+				CreateTapes:[
+					'#GatewayARNAttr','#TapeSizeInBytesAttr','#ClientTokenAttr','#NumTapesToCreateAttr','#TapeBarcodePrefixAttr','#KMSEncryptedAttr','#KMSKeyAttr','#PoolIdAttr','#WormAttr','#TagsAttr'
+					],
+				DeleteAutomaticTapeCreationPolicy:[
+					'#GatewayARNAttr'
+					],
+				DeleteBandwidthRateLimit:[
+					'#GatewayARNAttr','#BandwidthTypeAttr'
+					],
+				DeleteChapCredentials:[
+					'#TargetARNAttr','#InitiatorNameAttr'
+					],
+				DeleteFileShare:[
+					'#FileShareARNAttr','#ForceDeleteAttr'
+					],
+				DeleteGateway:[
+					'#GatewayARNAttr'
+					],
+				DeleteSnapshotSchedule:[
+					'#VolumeARNAttr'
+					],
+				DeleteTape:[
+					'#GatewayARNAttr','#TapeARNAttr','#BypassGovernanceRetentionAttr'
+					],
+				DeleteTapeArchive:[
+					'#TapeARNAttr','#BypassGovernanceRetentionAttr'
+					],
+				DeleteTapePool:[
+					'#PoolARNAttr'
+					],
+				DeleteVolume:[
+					'#VolumeARNAttr'
+					],
+				DescribeAvailabilityMonitorTest:[
+					'#GatewayARNAttr'
+					],
+				DescribeBandwidthRateLimit:[
+					'#GatewayARNAttr'
+					],
+				DescribeBandwidthRateLimitSchedule:[
+					'#GatewayARNAttr'
+					],
+				DescribeCache:[
+					'#GatewayARNAttr'
+					],
+				DescribeCachediSCSIVolumes:[
+					'#VolumeARNsAttr'
+					],
+				DescribeChapCredentials:[
+					'#TargetARNAttr'
+					],
+				DescribeFileSystemAssociations:[
+					'#FileSystemAssociationARNListAttr'
+					],
+				DescribeGatewayInformation:[
+					'#GatewayARNAttr'
+					],
+				DescribeMaintenanceStartTime:[
+					'#GatewayARNAttr'
+					],
+				DescribeNFSFileShares:[
+					'#FileShareARNListAttr'
+					],
+				DescribeSMBFileShares:[
+					'#FileShareARNListAttr'
+					],
+				DescribeSMBSettings:[
+					'#GatewayARNAttr'
+					],
+				DescribeSnapshotSchedule:[
+					'#VolumeARNAttr'
+					],
+				DescribeStorediSCSIVolumes:[
+					'#VolumeARNsAttr'
+					],
+				DescribeTapeArchives:[
+					'#TapeARNsAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeTapeRecoveryPoints:[
+					'#GatewayARNAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeTapes:[
+					'#GatewayARNAttr','#TapeARNsAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeUploadBuffer:[
+					'#GatewayARNAttr'
+					],
+				DescribeVTLDevices:[
+					'#GatewayARNAttr','#VTLDeviceARNsAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeWorkingStorage:[
+					'#GatewayARNAttr'
+					],
+				DetachVolume:[
+					'#VolumeARNAttr','#ForceDetachAttr'
+					],
+				DisableGateway:[
+					'#GatewayARNAttr'
+					],
+				DisassociateFileSystem:[
+					'#FileSystemAssociationARNAttr','#ForceDeleteAttr'
+					],
+				JoinDomain:[
+					'#GatewayARNAttr','#DomainNameAttr','#OrganizationalUnitAttr','#DomainControllersAttr','#TimeoutInSecondsAttr','#UserNameAttr','#PasswordAttr'
+					],
+				ListAutomaticTapeCreationPolicies:[
+					'#GatewayARNAttr'
+					],
+				ListFileShares:[
+					'#GatewayARNAttr','#LimitAttr','#MarkerAttr'
+					],
+				ListFileSystemAssociations:[
+					'#GatewayARNAttr','#LimitAttr','#MarkerAttr'
+					],
+				ListGateways:[
+					'#MarkerAttr','#LimitAttr'
+					],
+				ListLocalDisks:[
+					'#GatewayARNAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr','#MarkerAttr','#LimitAttr'
+					],
+				ListTapePools:[
+					'#PoolARNsAttr','#MarkerAttr','#LimitAttr'
+					],
+				ListTapes:[
+					'#TapeARNsAttr','#MarkerAttr','#LimitAttr'
+					],
+				ListVolumeInitiators:[
+					'#VolumeARNAttr'
+					],
+				ListVolumeRecoveryPoints:[
+					'#GatewayARNAttr'
+					],
+				ListVolumes:[
+					'#GatewayARNAttr','#MarkerAttr','#LimitAttr'
+					],
+				NotifyWhenUploaded:[
+					'#FileShareARNAttr'
+					],
+				RefreshCache:[
+					'#FileShareARNAttr','#FolderListAttr','#RecursiveAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				ResetCache:[
+					'#GatewayARNAttr'
+					],
+				RetrieveTapeArchive:[
+					'#TapeARNAttr','#GatewayARNAttr'
+					],
+				RetrieveTapeRecoveryPoint:[
+					'#TapeARNAttr','#GatewayARNAttr'
+					],
+				SetLocalConsolePassword:[
+					'#GatewayARNAttr','#LocalConsolePasswordAttr'
+					],
+				SetSMBGuestPassword:[
+					'#GatewayARNAttr','#PasswordAttr'
+					],
+				ShutdownGateway:[
+					'#GatewayARNAttr'
+					],
+				StartAvailabilityMonitorTest:[
+					'#GatewayARNAttr'
+					],
+				StartGateway:[
+					'#GatewayARNAttr'
+					],
+				UpdateAutomaticTapeCreationPolicy:[
+					'#AutomaticTapeCreationRulesAttr','#GatewayARNAttr'
+					],
+				UpdateBandwidthRateLimit:[
+					'#GatewayARNAttr','#AverageUploadRateLimitInBitsPerSecAttr','#AverageDownloadRateLimitInBitsPerSecAttr'
+					],
+				UpdateBandwidthRateLimitSchedule:[
+					'#GatewayARNAttr','#BandwidthRateLimitIntervalsAttr'
+					],
+				UpdateChapCredentials:[
+					'#TargetARNAttr','#SecretToAuthenticateInitiatorAttr','#InitiatorNameAttr','#SecretToAuthenticateTargetAttr'
+					],
+				UpdateFileSystemAssociation:[
+					'#FileSystemAssociationARNAttr','#UserNameAttr','#PasswordAttr','#AuditDestinationARNAttr','#CacheAttributesAttr'
+					],
+				UpdateGatewayInformation:[
+					'#GatewayARNAttr','#GatewayNameAttr','#GatewayTimezoneAttr','#CloudWatchLogGroupARNAttr','#GatewayCapacityAttr'
+					],
+				UpdateGatewaySoftwareNow:[
+					'#GatewayARNAttr'
+					],
+				UpdateMaintenanceStartTime:[
+					'#GatewayARNAttr','#HourOfDayAttr','#MinuteOfHourAttr','#DayOfWeekAttr','#DayOfMonthAttr'
+					],
+				UpdateNFSFileShare:[
+					'#FileShareARNAttr','#KMSEncryptedAttr','#KMSKeyAttr','#NFSFileShareDefaultsAttr','#DefaultStorageClassAttr','#ObjectACLAttr','#ClientListAttr','#SquashAttr','#ReadOnlyAttr','#GuessMIMETypeEnabledAttr','#RequesterPaysAttr','#FileShareNameAttr','#CacheAttributesAttr','#NotificationPolicyAttr'
+					],
+				UpdateSMBFileShare:[
+					'#FileShareARNAttr','#KMSEncryptedAttr','#KMSKeyAttr','#DefaultStorageClassAttr','#ObjectACLAttr','#ReadOnlyAttr','#GuessMIMETypeEnabledAttr','#RequesterPaysAttr','#SMBACLEnabledAttr','#AccessBasedEnumerationAttr','#AdminUserListAttr','#ValidUserListAttr','#InvalidUserListAttr','#AuditDestinationARNAttr','#CaseSensitivityAttr','#FileShareNameAttr','#CacheAttributesAttr','#NotificationPolicyAttr','#OplocksEnabledAttr'
+					],
+				UpdateSMBFileShareVisibility:[
+					'#GatewayARNAttr','#FileSharesVisibleAttr'
+					],
+				UpdateSMBSecurityStrategy:[
+					'#GatewayARNAttr','#SMBSecurityStrategyAttr'
+					],
+				UpdateSnapshotSchedule:[
+					'#VolumeARNAttr','#StartAtAttr','#RecurrenceInHoursAttr','#DescriptionAttr','#TagsAttr'
+					],
+				UpdateVTLDeviceType:[
+					'#VTLDeviceARNAttr','#DeviceTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS StorageGateway">
+<p>
+AWS StorageGateway
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/StorageGateway.html">StorageGateway</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS StorageGateway',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ActivateGateway' },
+			
+				ActivationKey: { value: ""} ,
+				GatewayName: { value: ""} ,
+				GatewayTimezone: { value: ""} ,
+				GatewayRegion: { value: ""} ,
+				GatewayType: { value: ""} ,
+				TapeDriveType: { value: ""} ,
+				MediumChangerType: { value: ""} ,
+				Tags: { value: ""} ,
+				GatewayARN: { value: ""} ,
+				DiskIds: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				TapeARN: { value: ""} ,
+				PoolId: { value: ""} ,
+				BypassGovernanceRetention: { value: ""} ,
+				UserName: { value: ""} ,
+				Password: { value: ""} ,
+				ClientToken: { value: ""} ,
+				LocationARN: { value: ""} ,
+				AuditDestinationARN: { value: ""} ,
+				CacheAttributes: { value: ""} ,
+				EndpointNetworkConfiguration: { value: ""} ,
+				TargetName: { value: ""} ,
+				VolumeARN: { value: ""} ,
+				NetworkInterfaceId: { value: ""} ,
+				DiskId: { value: ""} ,
+				VolumeSizeInBytes: { value: ""} ,
+				SnapshotId: { value: ""} ,
+				SourceVolumeARN: { value: ""} ,
+				KMSEncrypted: { value: ""} ,
+				KMSKey: { value: ""} ,
+				NFSFileShareDefaults: { value: ""} ,
+				Role: { value: ""} ,
+				DefaultStorageClass: { value: ""} ,
+				ObjectACL: { value: ""} ,
+				ClientList: { value: ""} ,
+				Squash: { value: ""} ,
+				ReadOnly: { value: ""} ,
+				GuessMIMETypeEnabled: { value: ""} ,
+				RequesterPays: { value: ""} ,
+				FileShareName: { value: ""} ,
+				NotificationPolicy: { value: ""} ,
+				VPCEndpointDNSName: { value: ""} ,
+				BucketRegion: { value: ""} ,
+				SMBACLEnabled: { value: ""} ,
+				AccessBasedEnumeration: { value: ""} ,
+				AdminUserList: { value: ""} ,
+				ValidUserList: { value: ""} ,
+				InvalidUserList: { value: ""} ,
+				Authentication: { value: ""} ,
+				CaseSensitivity: { value: ""} ,
+				OplocksEnabled: { value: ""} ,
+				SnapshotDescription: { value: ""} ,
+				PreserveExistingData: { value: ""} ,
+				PoolName: { value: ""} ,
+				StorageClass: { value: ""} ,
+				RetentionLockType: { value: ""} ,
+				RetentionLockTimeInDays: { value: ""} ,
+				TapeSizeInBytes: { value: ""} ,
+				TapeBarcode: { value: ""} ,
+				Worm: { value: ""} ,
+				NumTapesToCreate: { value: ""} ,
+				TapeBarcodePrefix: { value: ""} ,
+				BandwidthType: { value: ""} ,
+				TargetARN: { value: ""} ,
+				InitiatorName: { value: ""} ,
+				FileShareARN: { value: ""} ,
+				ForceDelete: { value: ""} ,
+				PoolARN: { value: ""} ,
+				VolumeARNs: { value: ""} ,
+				FileSystemAssociationARNList: { value: ""} ,
+				FileShareARNList: { value: ""} ,
+				TapeARNs: { value: ""} ,
+				Marker: { value: ""} ,
+				Limit: { value: ""} ,
+				VTLDeviceARNs: { value: ""} ,
+				ForceDetach: { value: ""} ,
+				FileSystemAssociationARN: { value: ""} ,
+				DomainName: { value: ""} ,
+				OrganizationalUnit: { value: ""} ,
+				DomainControllers: { value: ""} ,
+				TimeoutInSeconds: { value: ""} ,
+				PoolARNs: { value: ""} ,
+				FolderList: { value: ""} ,
+				Recursive: { value: ""} ,
+				TagKeys: { value: ""} ,
+				LocalConsolePassword: { value: ""} ,
+				AutomaticTapeCreationRules: { value: ""} ,
+				AverageUploadRateLimitInBitsPerSec: { value: ""} ,
+				AverageDownloadRateLimitInBitsPerSec: { value: ""} ,
+				BandwidthRateLimitIntervals: { value: ""} ,
+				SecretToAuthenticateInitiator: { value: ""} ,
+				SecretToAuthenticateTarget: { value: ""} ,
+				CloudWatchLogGroupARN: { value: ""} ,
+				GatewayCapacity: { value: ""} ,
+				HourOfDay: { value: ""} ,
+				MinuteOfHour: { value: ""} ,
+				DayOfWeek: { value: ""} ,
+				DayOfMonth: { value: ""} ,
+				FileSharesVisible: { value: ""} ,
+				SMBSecurityStrategy: { value: ""} ,
+				StartAt: { value: ""} ,
+				RecurrenceInHours: { value: ""} ,
+				Description: { value: ""} ,
+				VTLDeviceARN: { value: ""} ,
+				DeviceType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "StorageGateway " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ActivationKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayTimezone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TapeDriveType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediumChangerType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DiskIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TapeARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PoolId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BypassGovernanceRetention").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Password").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LocationARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuditDestinationARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CacheAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointNetworkConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NetworkInterfaceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DiskId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceVolumeARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KMSEncrypted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-KMSKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NFSFileShareDefaults").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultStorageClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ObjectACL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Squash").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReadOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-GuessMIMETypeEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RequesterPays").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-FileShareName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VPCEndpointDNSName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BucketRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SMBACLEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AccessBasedEnumeration").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AdminUserList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidUserList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InvalidUserList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Authentication").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CaseSensitivity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OplocksEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SnapshotDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreserveExistingData").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-PoolName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetentionLockType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetentionLockTimeInDays").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-TapeBarcode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Worm").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NumTapesToCreate").typedInput({ default: "num", types: ["num"]});
+$("#node-input-TapeBarcodePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BandwidthType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InitiatorName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileShareARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ForceDelete").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-PoolARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeARNs").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-FileShareARNList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TapeARNs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-ForceDetach").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-FileSystemAssociationARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationalUnit").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TimeoutInSeconds").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-Recursive").typedInput({ default: "bool", types: ["bool"]});
+
+
+$("#node-input-AutomaticTapeCreationRules").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-BandwidthRateLimitIntervals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecretToAuthenticateInitiator").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecretToAuthenticateTarget").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CloudWatchLogGroupARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GatewayCapacity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HourOfDay").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MinuteOfHour").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DayOfWeek").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DayOfMonth").typedInput({ default: "num", types: ["num"]});
+$("#node-input-FileSharesVisible").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SMBSecurityStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartAt").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RecurrenceInHours").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VTLDeviceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceType").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

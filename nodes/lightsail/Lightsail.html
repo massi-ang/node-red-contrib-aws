@@ -1,0 +1,1638 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Lightsail">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AllocateStaticIp">AllocateStaticIp</option>
+		
+			<option value="AttachCertificateToDistribution">AttachCertificateToDistribution</option>
+		
+			<option value="AttachDisk">AttachDisk</option>
+		
+			<option value="AttachInstancesToLoadBalancer">AttachInstancesToLoadBalancer</option>
+		
+			<option value="AttachLoadBalancerTlsCertificate">AttachLoadBalancerTlsCertificate</option>
+		
+			<option value="AttachStaticIp">AttachStaticIp</option>
+		
+			<option value="CloseInstancePublicPorts">CloseInstancePublicPorts</option>
+		
+			<option value="CopySnapshot">CopySnapshot</option>
+		
+			<option value="CreateBucket">CreateBucket</option>
+		
+			<option value="CreateBucketAccessKey">CreateBucketAccessKey</option>
+		
+			<option value="CreateCertificate">CreateCertificate</option>
+		
+			<option value="CreateCloudFormationStack">CreateCloudFormationStack</option>
+		
+			<option value="CreateContactMethod">CreateContactMethod</option>
+		
+			<option value="CreateContainerService">CreateContainerService</option>
+		
+			<option value="CreateContainerServiceDeployment">CreateContainerServiceDeployment</option>
+		
+			<option value="CreateContainerServiceRegistryLogin">CreateContainerServiceRegistryLogin</option>
+		
+			<option value="CreateDisk">CreateDisk</option>
+		
+			<option value="CreateDiskFromSnapshot">CreateDiskFromSnapshot</option>
+		
+			<option value="CreateDiskSnapshot">CreateDiskSnapshot</option>
+		
+			<option value="CreateDistribution">CreateDistribution</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="CreateDomainEntry">CreateDomainEntry</option>
+		
+			<option value="CreateInstanceSnapshot">CreateInstanceSnapshot</option>
+		
+			<option value="CreateInstances">CreateInstances</option>
+		
+			<option value="CreateInstancesFromSnapshot">CreateInstancesFromSnapshot</option>
+		
+			<option value="CreateKeyPair">CreateKeyPair</option>
+		
+			<option value="CreateLoadBalancer">CreateLoadBalancer</option>
+		
+			<option value="CreateLoadBalancerTlsCertificate">CreateLoadBalancerTlsCertificate</option>
+		
+			<option value="CreateRelationalDatabase">CreateRelationalDatabase</option>
+		
+			<option value="CreateRelationalDatabaseFromSnapshot">CreateRelationalDatabaseFromSnapshot</option>
+		
+			<option value="CreateRelationalDatabaseSnapshot">CreateRelationalDatabaseSnapshot</option>
+		
+			<option value="DeleteAlarm">DeleteAlarm</option>
+		
+			<option value="DeleteAutoSnapshot">DeleteAutoSnapshot</option>
+		
+			<option value="DeleteBucket">DeleteBucket</option>
+		
+			<option value="DeleteBucketAccessKey">DeleteBucketAccessKey</option>
+		
+			<option value="DeleteCertificate">DeleteCertificate</option>
+		
+			<option value="DeleteContactMethod">DeleteContactMethod</option>
+		
+			<option value="DeleteContainerImage">DeleteContainerImage</option>
+		
+			<option value="DeleteContainerService">DeleteContainerService</option>
+		
+			<option value="DeleteDisk">DeleteDisk</option>
+		
+			<option value="DeleteDiskSnapshot">DeleteDiskSnapshot</option>
+		
+			<option value="DeleteDistribution">DeleteDistribution</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DeleteDomainEntry">DeleteDomainEntry</option>
+		
+			<option value="DeleteInstance">DeleteInstance</option>
+		
+			<option value="DeleteInstanceSnapshot">DeleteInstanceSnapshot</option>
+		
+			<option value="DeleteKeyPair">DeleteKeyPair</option>
+		
+			<option value="DeleteKnownHostKeys">DeleteKnownHostKeys</option>
+		
+			<option value="DeleteLoadBalancer">DeleteLoadBalancer</option>
+		
+			<option value="DeleteLoadBalancerTlsCertificate">DeleteLoadBalancerTlsCertificate</option>
+		
+			<option value="DeleteRelationalDatabase">DeleteRelationalDatabase</option>
+		
+			<option value="DeleteRelationalDatabaseSnapshot">DeleteRelationalDatabaseSnapshot</option>
+		
+			<option value="DetachCertificateFromDistribution">DetachCertificateFromDistribution</option>
+		
+			<option value="DetachDisk">DetachDisk</option>
+		
+			<option value="DetachInstancesFromLoadBalancer">DetachInstancesFromLoadBalancer</option>
+		
+			<option value="DetachStaticIp">DetachStaticIp</option>
+		
+			<option value="DisableAddOn">DisableAddOn</option>
+		
+			<option value="DownloadDefaultKeyPair">DownloadDefaultKeyPair</option>
+		
+			<option value="EnableAddOn">EnableAddOn</option>
+		
+			<option value="ExportSnapshot">ExportSnapshot</option>
+		
+			<option value="GetActiveNames">GetActiveNames</option>
+		
+			<option value="GetAlarms">GetAlarms</option>
+		
+			<option value="GetAutoSnapshots">GetAutoSnapshots</option>
+		
+			<option value="GetBlueprints">GetBlueprints</option>
+		
+			<option value="GetBucketAccessKeys">GetBucketAccessKeys</option>
+		
+			<option value="GetBucketBundles">GetBucketBundles</option>
+		
+			<option value="GetBucketMetricData">GetBucketMetricData</option>
+		
+			<option value="GetBuckets">GetBuckets</option>
+		
+			<option value="GetBundles">GetBundles</option>
+		
+			<option value="GetCertificates">GetCertificates</option>
+		
+			<option value="GetCloudFormationStackRecords">GetCloudFormationStackRecords</option>
+		
+			<option value="GetContactMethods">GetContactMethods</option>
+		
+			<option value="GetContainerAPIMetadata">GetContainerAPIMetadata</option>
+		
+			<option value="GetContainerImages">GetContainerImages</option>
+		
+			<option value="GetContainerLog">GetContainerLog</option>
+		
+			<option value="GetContainerServiceDeployments">GetContainerServiceDeployments</option>
+		
+			<option value="GetContainerServiceMetricData">GetContainerServiceMetricData</option>
+		
+			<option value="GetContainerServicePowers">GetContainerServicePowers</option>
+		
+			<option value="GetContainerServices">GetContainerServices</option>
+		
+			<option value="GetDisk">GetDisk</option>
+		
+			<option value="GetDiskSnapshot">GetDiskSnapshot</option>
+		
+			<option value="GetDiskSnapshots">GetDiskSnapshots</option>
+		
+			<option value="GetDisks">GetDisks</option>
+		
+			<option value="GetDistributionBundles">GetDistributionBundles</option>
+		
+			<option value="GetDistributionLatestCacheReset">GetDistributionLatestCacheReset</option>
+		
+			<option value="GetDistributionMetricData">GetDistributionMetricData</option>
+		
+			<option value="GetDistributions">GetDistributions</option>
+		
+			<option value="GetDomain">GetDomain</option>
+		
+			<option value="GetDomains">GetDomains</option>
+		
+			<option value="GetExportSnapshotRecords">GetExportSnapshotRecords</option>
+		
+			<option value="GetInstance">GetInstance</option>
+		
+			<option value="GetInstanceAccessDetails">GetInstanceAccessDetails</option>
+		
+			<option value="GetInstanceMetricData">GetInstanceMetricData</option>
+		
+			<option value="GetInstancePortStates">GetInstancePortStates</option>
+		
+			<option value="GetInstanceSnapshot">GetInstanceSnapshot</option>
+		
+			<option value="GetInstanceSnapshots">GetInstanceSnapshots</option>
+		
+			<option value="GetInstanceState">GetInstanceState</option>
+		
+			<option value="GetInstances">GetInstances</option>
+		
+			<option value="GetKeyPair">GetKeyPair</option>
+		
+			<option value="GetKeyPairs">GetKeyPairs</option>
+		
+			<option value="GetLoadBalancer">GetLoadBalancer</option>
+		
+			<option value="GetLoadBalancerMetricData">GetLoadBalancerMetricData</option>
+		
+			<option value="GetLoadBalancerTlsCertificates">GetLoadBalancerTlsCertificates</option>
+		
+			<option value="GetLoadBalancers">GetLoadBalancers</option>
+		
+			<option value="GetOperation">GetOperation</option>
+		
+			<option value="GetOperations">GetOperations</option>
+		
+			<option value="GetOperationsForResource">GetOperationsForResource</option>
+		
+			<option value="GetRegions">GetRegions</option>
+		
+			<option value="GetRelationalDatabase">GetRelationalDatabase</option>
+		
+			<option value="GetRelationalDatabaseBlueprints">GetRelationalDatabaseBlueprints</option>
+		
+			<option value="GetRelationalDatabaseBundles">GetRelationalDatabaseBundles</option>
+		
+			<option value="GetRelationalDatabaseEvents">GetRelationalDatabaseEvents</option>
+		
+			<option value="GetRelationalDatabaseLogEvents">GetRelationalDatabaseLogEvents</option>
+		
+			<option value="GetRelationalDatabaseLogStreams">GetRelationalDatabaseLogStreams</option>
+		
+			<option value="GetRelationalDatabaseMasterUserPassword">GetRelationalDatabaseMasterUserPassword</option>
+		
+			<option value="GetRelationalDatabaseMetricData">GetRelationalDatabaseMetricData</option>
+		
+			<option value="GetRelationalDatabaseParameters">GetRelationalDatabaseParameters</option>
+		
+			<option value="GetRelationalDatabaseSnapshot">GetRelationalDatabaseSnapshot</option>
+		
+			<option value="GetRelationalDatabaseSnapshots">GetRelationalDatabaseSnapshots</option>
+		
+			<option value="GetRelationalDatabases">GetRelationalDatabases</option>
+		
+			<option value="GetStaticIp">GetStaticIp</option>
+		
+			<option value="GetStaticIps">GetStaticIps</option>
+		
+			<option value="ImportKeyPair">ImportKeyPair</option>
+		
+			<option value="IsVpcPeered">IsVpcPeered</option>
+		
+			<option value="OpenInstancePublicPorts">OpenInstancePublicPorts</option>
+		
+			<option value="PeerVpc">PeerVpc</option>
+		
+			<option value="PutAlarm">PutAlarm</option>
+		
+			<option value="PutInstancePublicPorts">PutInstancePublicPorts</option>
+		
+			<option value="RebootInstance">RebootInstance</option>
+		
+			<option value="RebootRelationalDatabase">RebootRelationalDatabase</option>
+		
+			<option value="RegisterContainerImage">RegisterContainerImage</option>
+		
+			<option value="ReleaseStaticIp">ReleaseStaticIp</option>
+		
+			<option value="ResetDistributionCache">ResetDistributionCache</option>
+		
+			<option value="SendContactMethodVerification">SendContactMethodVerification</option>
+		
+			<option value="SetIpAddressType">SetIpAddressType</option>
+		
+			<option value="SetResourceAccessForBucket">SetResourceAccessForBucket</option>
+		
+			<option value="StartInstance">StartInstance</option>
+		
+			<option value="StartRelationalDatabase">StartRelationalDatabase</option>
+		
+			<option value="StopInstance">StopInstance</option>
+		
+			<option value="StopRelationalDatabase">StopRelationalDatabase</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestAlarm">TestAlarm</option>
+		
+			<option value="UnpeerVpc">UnpeerVpc</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateBucket">UpdateBucket</option>
+		
+			<option value="UpdateBucketBundle">UpdateBucketBundle</option>
+		
+			<option value="UpdateContainerService">UpdateContainerService</option>
+		
+			<option value="UpdateDistribution">UpdateDistribution</option>
+		
+			<option value="UpdateDistributionBundle">UpdateDistributionBundle</option>
+		
+			<option value="UpdateDomainEntry">UpdateDomainEntry</option>
+		
+			<option value="UpdateLoadBalancerAttribute">UpdateLoadBalancerAttribute</option>
+		
+			<option value="UpdateRelationalDatabase">UpdateRelationalDatabase</option>
+		
+			<option value="UpdateRelationalDatabaseParameters">UpdateRelationalDatabaseParameters</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='staticIpNameAttr' class='hiddenAttrs'>
+		<label for="node-input-staticIpName"><i class="fa fa-tag"></i> staticIpName</label>
+		<input type="text" id="node-input-staticIpName" placeholder="staticIpName"></input>
+	</div> 
+	<div class="form-row" id='distributionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-distributionName"><i class="fa fa-tag"></i> distributionName</label>
+		<input type="text" id="node-input-distributionName" placeholder="distributionName"></input>
+	</div> 
+	<div class="form-row" id='certificateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateName"><i class="fa fa-tag"></i> certificateName</label>
+		<input type="text" id="node-input-certificateName" placeholder="certificateName"></input>
+	</div> 
+	<div class="form-row" id='diskNameAttr' class='hiddenAttrs'>
+		<label for="node-input-diskName"><i class="fa fa-tag"></i> diskName</label>
+		<input type="text" id="node-input-diskName" placeholder="diskName"></input>
+	</div> 
+	<div class="form-row" id='instanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceName"><i class="fa fa-tag"></i> instanceName</label>
+		<input type="text" id="node-input-instanceName" placeholder="instanceName"></input>
+	</div> 
+	<div class="form-row" id='diskPathAttr' class='hiddenAttrs'>
+		<label for="node-input-diskPath"><i class="fa fa-tag"></i> diskPath</label>
+		<input type="text" id="node-input-diskPath" placeholder="diskPath"></input>
+	</div> 
+	<div class="form-row" id='loadBalancerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-loadBalancerName"><i class="fa fa-tag"></i> loadBalancerName</label>
+		<input type="text" id="node-input-loadBalancerName" placeholder="loadBalancerName"></input>
+	</div> 
+	<div class="form-row" id='instanceNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceNames"><i class="fa fa-tag"></i> instanceNames</label>
+		<input type="text" id="node-input-instanceNames" placeholder="instanceNames"></input>
+	</div> 
+	<div class="form-row" id='portInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-portInfo"><i class="fa fa-tag"></i> portInfo</label>
+		<input type="text" id="node-input-portInfo" placeholder="portInfo"></input>
+	</div> 
+	<div class="form-row" id='sourceSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceSnapshotName"><i class="fa fa-tag"></i> sourceSnapshotName</label>
+		<input type="text" id="node-input-sourceSnapshotName" placeholder="sourceSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='sourceResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceResourceName"><i class="fa fa-tag"></i> sourceResourceName</label>
+		<input type="text" id="node-input-sourceResourceName" placeholder="sourceResourceName"></input>
+	</div> 
+	<div class="form-row" id='restoreDateAttr' class='hiddenAttrs'>
+		<label for="node-input-restoreDate"><i class="fa fa-tag"></i> restoreDate</label>
+		<input type="text" id="node-input-restoreDate" placeholder="restoreDate"></input>
+	</div> 
+	<div class="form-row" id='useLatestRestorableAutoSnapshotAttr' class='hiddenAttrs'>
+		<label for="node-input-useLatestRestorableAutoSnapshot"><i class="fa fa-tag"></i> useLatestRestorableAutoSnapshot</label>
+		<input type="text" id="node-input-useLatestRestorableAutoSnapshot" placeholder="useLatestRestorableAutoSnapshot"></input>
+	</div> 
+	<div class="form-row" id='targetSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-targetSnapshotName"><i class="fa fa-tag"></i> targetSnapshotName</label>
+		<input type="text" id="node-input-targetSnapshotName" placeholder="targetSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='sourceRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceRegion"><i class="fa fa-tag"></i> sourceRegion</label>
+		<input type="text" id="node-input-sourceRegion" placeholder="sourceRegion"></input>
+	</div> 
+	<div class="form-row" id='bucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-bucketName"><i class="fa fa-tag"></i> bucketName</label>
+		<input type="text" id="node-input-bucketName" placeholder="bucketName"></input>
+	</div> 
+	<div class="form-row" id='bundleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-bundleId"><i class="fa fa-tag"></i> bundleId</label>
+		<input type="text" id="node-input-bundleId" placeholder="bundleId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='enableObjectVersioningAttr' class='hiddenAttrs'>
+		<label for="node-input-enableObjectVersioning"><i class="fa fa-tag"></i> enableObjectVersioning</label>
+		<input type="text" id="node-input-enableObjectVersioning" placeholder="enableObjectVersioning"></input>
+	</div> 
+	<div class="form-row" id='domainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-domainName"><i class="fa fa-tag"></i> domainName</label>
+		<input type="text" id="node-input-domainName" placeholder="domainName"></input>
+	</div> 
+	<div class="form-row" id='subjectAlternativeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-subjectAlternativeNames"><i class="fa fa-tag"></i> subjectAlternativeNames</label>
+		<input type="text" id="node-input-subjectAlternativeNames" placeholder="subjectAlternativeNames"></input>
+	</div> 
+	<div class="form-row" id='instancesAttr' class='hiddenAttrs'>
+		<label for="node-input-instances"><i class="fa fa-tag"></i> instances</label>
+		<input type="text" id="node-input-instances" placeholder="instances"></input>
+	</div> 
+	<div class="form-row" id='protocolAttr' class='hiddenAttrs'>
+		<label for="node-input-protocol"><i class="fa fa-tag"></i> protocol</label>
+		<input type="text" id="node-input-protocol" placeholder="protocol"></input>
+	</div> 
+	<div class="form-row" id='contactEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-contactEndpoint"><i class="fa fa-tag"></i> contactEndpoint</label>
+		<input type="text" id="node-input-contactEndpoint" placeholder="contactEndpoint"></input>
+	</div> 
+	<div class="form-row" id='serviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceName"><i class="fa fa-tag"></i> serviceName</label>
+		<input type="text" id="node-input-serviceName" placeholder="serviceName"></input>
+	</div> 
+	<div class="form-row" id='powerAttr' class='hiddenAttrs'>
+		<label for="node-input-power"><i class="fa fa-tag"></i> power</label>
+		<input type="text" id="node-input-power" placeholder="power"></input>
+	</div> 
+	<div class="form-row" id='scaleAttr' class='hiddenAttrs'>
+		<label for="node-input-scale"><i class="fa fa-tag"></i> scale</label>
+		<input type="text" id="node-input-scale" placeholder="scale"></input>
+	</div> 
+	<div class="form-row" id='publicDomainNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-publicDomainNames"><i class="fa fa-tag"></i> publicDomainNames</label>
+		<input type="text" id="node-input-publicDomainNames" placeholder="publicDomainNames"></input>
+	</div> 
+	<div class="form-row" id='deploymentAttr' class='hiddenAttrs'>
+		<label for="node-input-deployment"><i class="fa fa-tag"></i> deployment</label>
+		<input type="text" id="node-input-deployment" placeholder="deployment"></input>
+	</div> 
+	<div class="form-row" id='containersAttr' class='hiddenAttrs'>
+		<label for="node-input-containers"><i class="fa fa-tag"></i> containers</label>
+		<input type="text" id="node-input-containers" placeholder="containers"></input>
+	</div> 
+	<div class="form-row" id='publicEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-publicEndpoint"><i class="fa fa-tag"></i> publicEndpoint</label>
+		<input type="text" id="node-input-publicEndpoint" placeholder="publicEndpoint"></input>
+	</div> 
+	<div class="form-row" id='availabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-availabilityZone"><i class="fa fa-tag"></i> availabilityZone</label>
+		<input type="text" id="node-input-availabilityZone" placeholder="availabilityZone"></input>
+	</div> 
+	<div class="form-row" id='sizeInGbAttr' class='hiddenAttrs'>
+		<label for="node-input-sizeInGb"><i class="fa fa-tag"></i> sizeInGb</label>
+		<input type="text" id="node-input-sizeInGb" placeholder="sizeInGb"></input>
+	</div> 
+	<div class="form-row" id='addOnsAttr' class='hiddenAttrs'>
+		<label for="node-input-addOns"><i class="fa fa-tag"></i> addOns</label>
+		<input type="text" id="node-input-addOns" placeholder="addOns"></input>
+	</div> 
+	<div class="form-row" id='diskSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-diskSnapshotName"><i class="fa fa-tag"></i> diskSnapshotName</label>
+		<input type="text" id="node-input-diskSnapshotName" placeholder="diskSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='sourceDiskNameAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceDiskName"><i class="fa fa-tag"></i> sourceDiskName</label>
+		<input type="text" id="node-input-sourceDiskName" placeholder="sourceDiskName"></input>
+	</div> 
+	<div class="form-row" id='originAttr' class='hiddenAttrs'>
+		<label for="node-input-origin"><i class="fa fa-tag"></i> origin</label>
+		<input type="text" id="node-input-origin" placeholder="origin"></input>
+	</div> 
+	<div class="form-row" id='defaultCacheBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultCacheBehavior"><i class="fa fa-tag"></i> defaultCacheBehavior</label>
+		<input type="text" id="node-input-defaultCacheBehavior" placeholder="defaultCacheBehavior"></input>
+	</div> 
+	<div class="form-row" id='cacheBehaviorSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheBehaviorSettings"><i class="fa fa-tag"></i> cacheBehaviorSettings</label>
+		<input type="text" id="node-input-cacheBehaviorSettings" placeholder="cacheBehaviorSettings"></input>
+	</div> 
+	<div class="form-row" id='cacheBehaviorsAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheBehaviors"><i class="fa fa-tag"></i> cacheBehaviors</label>
+		<input type="text" id="node-input-cacheBehaviors" placeholder="cacheBehaviors"></input>
+	</div> 
+	<div class="form-row" id='ipAddressTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ipAddressType"><i class="fa fa-tag"></i> ipAddressType</label>
+		<input type="text" id="node-input-ipAddressType" placeholder="ipAddressType"></input>
+	</div> 
+	<div class="form-row" id='domainEntryAttr' class='hiddenAttrs'>
+		<label for="node-input-domainEntry"><i class="fa fa-tag"></i> domainEntry</label>
+		<input type="text" id="node-input-domainEntry" placeholder="domainEntry"></input>
+	</div> 
+	<div class="form-row" id='instanceSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceSnapshotName"><i class="fa fa-tag"></i> instanceSnapshotName</label>
+		<input type="text" id="node-input-instanceSnapshotName" placeholder="instanceSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='customImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-customImageName"><i class="fa fa-tag"></i> customImageName</label>
+		<input type="text" id="node-input-customImageName" placeholder="customImageName"></input>
+	</div> 
+	<div class="form-row" id='blueprintIdAttr' class='hiddenAttrs'>
+		<label for="node-input-blueprintId"><i class="fa fa-tag"></i> blueprintId</label>
+		<input type="text" id="node-input-blueprintId" placeholder="blueprintId"></input>
+	</div> 
+	<div class="form-row" id='userDataAttr' class='hiddenAttrs'>
+		<label for="node-input-userData"><i class="fa fa-tag"></i> userData</label>
+		<input type="text" id="node-input-userData" placeholder="userData"></input>
+	</div> 
+	<div class="form-row" id='keyPairNameAttr' class='hiddenAttrs'>
+		<label for="node-input-keyPairName"><i class="fa fa-tag"></i> keyPairName</label>
+		<input type="text" id="node-input-keyPairName" placeholder="keyPairName"></input>
+	</div> 
+	<div class="form-row" id='attachedDiskMappingAttr' class='hiddenAttrs'>
+		<label for="node-input-attachedDiskMapping"><i class="fa fa-tag"></i> attachedDiskMapping</label>
+		<input type="text" id="node-input-attachedDiskMapping" placeholder="attachedDiskMapping"></input>
+	</div> 
+	<div class="form-row" id='sourceInstanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceInstanceName"><i class="fa fa-tag"></i> sourceInstanceName</label>
+		<input type="text" id="node-input-sourceInstanceName" placeholder="sourceInstanceName"></input>
+	</div> 
+	<div class="form-row" id='instancePortAttr' class='hiddenAttrs'>
+		<label for="node-input-instancePort"><i class="fa fa-tag"></i> instancePort</label>
+		<input type="text" id="node-input-instancePort" placeholder="instancePort"></input>
+	</div> 
+	<div class="form-row" id='healthCheckPathAttr' class='hiddenAttrs'>
+		<label for="node-input-healthCheckPath"><i class="fa fa-tag"></i> healthCheckPath</label>
+		<input type="text" id="node-input-healthCheckPath" placeholder="healthCheckPath"></input>
+	</div> 
+	<div class="form-row" id='certificateDomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateDomainName"><i class="fa fa-tag"></i> certificateDomainName</label>
+		<input type="text" id="node-input-certificateDomainName" placeholder="certificateDomainName"></input>
+	</div> 
+	<div class="form-row" id='certificateAlternativeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateAlternativeNames"><i class="fa fa-tag"></i> certificateAlternativeNames</label>
+		<input type="text" id="node-input-certificateAlternativeNames" placeholder="certificateAlternativeNames"></input>
+	</div> 
+	<div class="form-row" id='relationalDatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-relationalDatabaseName"><i class="fa fa-tag"></i> relationalDatabaseName</label>
+		<input type="text" id="node-input-relationalDatabaseName" placeholder="relationalDatabaseName"></input>
+	</div> 
+	<div class="form-row" id='relationalDatabaseBlueprintIdAttr' class='hiddenAttrs'>
+		<label for="node-input-relationalDatabaseBlueprintId"><i class="fa fa-tag"></i> relationalDatabaseBlueprintId</label>
+		<input type="text" id="node-input-relationalDatabaseBlueprintId" placeholder="relationalDatabaseBlueprintId"></input>
+	</div> 
+	<div class="form-row" id='relationalDatabaseBundleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-relationalDatabaseBundleId"><i class="fa fa-tag"></i> relationalDatabaseBundleId</label>
+		<input type="text" id="node-input-relationalDatabaseBundleId" placeholder="relationalDatabaseBundleId"></input>
+	</div> 
+	<div class="form-row" id='masterDatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-masterDatabaseName"><i class="fa fa-tag"></i> masterDatabaseName</label>
+		<input type="text" id="node-input-masterDatabaseName" placeholder="masterDatabaseName"></input>
+	</div> 
+	<div class="form-row" id='masterUsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-masterUsername"><i class="fa fa-tag"></i> masterUsername</label>
+		<input type="text" id="node-input-masterUsername" placeholder="masterUsername"></input>
+	</div> 
+	<div class="form-row" id='masterUserPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-masterUserPassword"><i class="fa fa-tag"></i> masterUserPassword</label>
+		<input type="text" id="node-input-masterUserPassword" placeholder="masterUserPassword"></input>
+	</div> 
+	<div class="form-row" id='preferredBackupWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-preferredBackupWindow"><i class="fa fa-tag"></i> preferredBackupWindow</label>
+		<input type="text" id="node-input-preferredBackupWindow" placeholder="preferredBackupWindow"></input>
+	</div> 
+	<div class="form-row" id='preferredMaintenanceWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-preferredMaintenanceWindow"><i class="fa fa-tag"></i> preferredMaintenanceWindow</label>
+		<input type="text" id="node-input-preferredMaintenanceWindow" placeholder="preferredMaintenanceWindow"></input>
+	</div> 
+	<div class="form-row" id='publiclyAccessibleAttr' class='hiddenAttrs'>
+		<label for="node-input-publiclyAccessible"><i class="fa fa-tag"></i> publiclyAccessible</label>
+		<input type="text" id="node-input-publiclyAccessible" placeholder="publiclyAccessible"></input>
+	</div> 
+	<div class="form-row" id='relationalDatabaseSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-relationalDatabaseSnapshotName"><i class="fa fa-tag"></i> relationalDatabaseSnapshotName</label>
+		<input type="text" id="node-input-relationalDatabaseSnapshotName" placeholder="relationalDatabaseSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='sourceRelationalDatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceRelationalDatabaseName"><i class="fa fa-tag"></i> sourceRelationalDatabaseName</label>
+		<input type="text" id="node-input-sourceRelationalDatabaseName" placeholder="sourceRelationalDatabaseName"></input>
+	</div> 
+	<div class="form-row" id='restoreTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-restoreTime"><i class="fa fa-tag"></i> restoreTime</label>
+		<input type="text" id="node-input-restoreTime" placeholder="restoreTime"></input>
+	</div> 
+	<div class="form-row" id='useLatestRestorableTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-useLatestRestorableTime"><i class="fa fa-tag"></i> useLatestRestorableTime</label>
+		<input type="text" id="node-input-useLatestRestorableTime" placeholder="useLatestRestorableTime"></input>
+	</div> 
+	<div class="form-row" id='alarmNameAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmName"><i class="fa fa-tag"></i> alarmName</label>
+		<input type="text" id="node-input-alarmName" placeholder="alarmName"></input>
+	</div> 
+	<div class="form-row" id='resourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceName"><i class="fa fa-tag"></i> resourceName</label>
+		<input type="text" id="node-input-resourceName" placeholder="resourceName"></input>
+	</div> 
+	<div class="form-row" id='dateAttr' class='hiddenAttrs'>
+		<label for="node-input-date"><i class="fa fa-tag"></i> date</label>
+		<input type="text" id="node-input-date" placeholder="date"></input>
+	</div> 
+	<div class="form-row" id='forceDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-forceDelete"><i class="fa fa-tag"></i> forceDelete</label>
+		<input type="text" id="node-input-forceDelete" placeholder="forceDelete"></input>
+	</div> 
+	<div class="form-row" id='accessKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-accessKeyId"><i class="fa fa-tag"></i> accessKeyId</label>
+		<input type="text" id="node-input-accessKeyId" placeholder="accessKeyId"></input>
+	</div> 
+	<div class="form-row" id='imageAttr' class='hiddenAttrs'>
+		<label for="node-input-image"><i class="fa fa-tag"></i> image</label>
+		<input type="text" id="node-input-image" placeholder="image"></input>
+	</div> 
+	<div class="form-row" id='forceDeleteAddOnsAttr' class='hiddenAttrs'>
+		<label for="node-input-forceDeleteAddOns"><i class="fa fa-tag"></i> forceDeleteAddOns</label>
+		<input type="text" id="node-input-forceDeleteAddOns" placeholder="forceDeleteAddOns"></input>
+	</div> 
+	<div class="form-row" id='forceAttr' class='hiddenAttrs'>
+		<label for="node-input-force"><i class="fa fa-tag"></i> force</label>
+		<input type="text" id="node-input-force" placeholder="force"></input>
+	</div> 
+	<div class="form-row" id='skipFinalSnapshotAttr' class='hiddenAttrs'>
+		<label for="node-input-skipFinalSnapshot"><i class="fa fa-tag"></i> skipFinalSnapshot</label>
+		<input type="text" id="node-input-skipFinalSnapshot" placeholder="skipFinalSnapshot"></input>
+	</div> 
+	<div class="form-row" id='finalRelationalDatabaseSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-finalRelationalDatabaseSnapshotName"><i class="fa fa-tag"></i> finalRelationalDatabaseSnapshotName</label>
+		<input type="text" id="node-input-finalRelationalDatabaseSnapshotName" placeholder="finalRelationalDatabaseSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='addOnTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-addOnType"><i class="fa fa-tag"></i> addOnType</label>
+		<input type="text" id="node-input-addOnType" placeholder="addOnType"></input>
+	</div> 
+	<div class="form-row" id='addOnRequestAttr' class='hiddenAttrs'>
+		<label for="node-input-addOnRequest"><i class="fa fa-tag"></i> addOnRequest</label>
+		<input type="text" id="node-input-addOnRequest" placeholder="addOnRequest"></input>
+	</div> 
+	<div class="form-row" id='pageTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-pageToken"><i class="fa fa-tag"></i> pageToken</label>
+		<input type="text" id="node-input-pageToken" placeholder="pageToken"></input>
+	</div> 
+	<div class="form-row" id='monitoredResourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-monitoredResourceName"><i class="fa fa-tag"></i> monitoredResourceName</label>
+		<input type="text" id="node-input-monitoredResourceName" placeholder="monitoredResourceName"></input>
+	</div> 
+	<div class="form-row" id='includeInactiveAttr' class='hiddenAttrs'>
+		<label for="node-input-includeInactive"><i class="fa fa-tag"></i> includeInactive</label>
+		<input type="text" id="node-input-includeInactive" placeholder="includeInactive"></input>
+	</div> 
+	<div class="form-row" id='metricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-metricName"><i class="fa fa-tag"></i> metricName</label>
+		<input type="text" id="node-input-metricName" placeholder="metricName"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='periodAttr' class='hiddenAttrs'>
+		<label for="node-input-period"><i class="fa fa-tag"></i> period</label>
+		<input type="text" id="node-input-period" placeholder="period"></input>
+	</div> 
+	<div class="form-row" id='statisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-statistics"><i class="fa fa-tag"></i> statistics</label>
+		<input type="text" id="node-input-statistics" placeholder="statistics"></input>
+	</div> 
+	<div class="form-row" id='unitAttr' class='hiddenAttrs'>
+		<label for="node-input-unit"><i class="fa fa-tag"></i> unit</label>
+		<input type="text" id="node-input-unit" placeholder="unit"></input>
+	</div> 
+	<div class="form-row" id='includeConnectedResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeConnectedResources"><i class="fa fa-tag"></i> includeConnectedResources</label>
+		<input type="text" id="node-input-includeConnectedResources" placeholder="includeConnectedResources"></input>
+	</div> 
+	<div class="form-row" id='certificateStatusesAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateStatuses"><i class="fa fa-tag"></i> certificateStatuses</label>
+		<input type="text" id="node-input-certificateStatuses" placeholder="certificateStatuses"></input>
+	</div> 
+	<div class="form-row" id='includeCertificateDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeCertificateDetails"><i class="fa fa-tag"></i> includeCertificateDetails</label>
+		<input type="text" id="node-input-includeCertificateDetails" placeholder="includeCertificateDetails"></input>
+	</div> 
+	<div class="form-row" id='protocolsAttr' class='hiddenAttrs'>
+		<label for="node-input-protocols"><i class="fa fa-tag"></i> protocols</label>
+		<input type="text" id="node-input-protocols" placeholder="protocols"></input>
+	</div> 
+	<div class="form-row" id='containerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-containerName"><i class="fa fa-tag"></i> containerName</label>
+		<input type="text" id="node-input-containerName" placeholder="containerName"></input>
+	</div> 
+	<div class="form-row" id='filterPatternAttr' class='hiddenAttrs'>
+		<label for="node-input-filterPattern"><i class="fa fa-tag"></i> filterPattern</label>
+		<input type="text" id="node-input-filterPattern" placeholder="filterPattern"></input>
+	</div> 
+	<div class="form-row" id='operationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-operationId"><i class="fa fa-tag"></i> operationId</label>
+		<input type="text" id="node-input-operationId" placeholder="operationId"></input>
+	</div> 
+	<div class="form-row" id='includeAvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeAvailabilityZones"><i class="fa fa-tag"></i> includeAvailabilityZones</label>
+		<input type="text" id="node-input-includeAvailabilityZones" placeholder="includeAvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='includeRelationalDatabaseAvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeRelationalDatabaseAvailabilityZones"><i class="fa fa-tag"></i> includeRelationalDatabaseAvailabilityZones</label>
+		<input type="text" id="node-input-includeRelationalDatabaseAvailabilityZones" placeholder="includeRelationalDatabaseAvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='durationInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-durationInMinutes"><i class="fa fa-tag"></i> durationInMinutes</label>
+		<input type="text" id="node-input-durationInMinutes" placeholder="durationInMinutes"></input>
+	</div> 
+	<div class="form-row" id='logStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-logStreamName"><i class="fa fa-tag"></i> logStreamName</label>
+		<input type="text" id="node-input-logStreamName" placeholder="logStreamName"></input>
+	</div> 
+	<div class="form-row" id='startFromHeadAttr' class='hiddenAttrs'>
+		<label for="node-input-startFromHead"><i class="fa fa-tag"></i> startFromHead</label>
+		<input type="text" id="node-input-startFromHead" placeholder="startFromHead"></input>
+	</div> 
+	<div class="form-row" id='passwordVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-passwordVersion"><i class="fa fa-tag"></i> passwordVersion</label>
+		<input type="text" id="node-input-passwordVersion" placeholder="passwordVersion"></input>
+	</div> 
+	<div class="form-row" id='publicKeyBase64Attr' class='hiddenAttrs'>
+		<label for="node-input-publicKeyBase64"><i class="fa fa-tag"></i> publicKeyBase64</label>
+		<input type="text" id="node-input-publicKeyBase64" placeholder="publicKeyBase64"></input>
+	</div> 
+	<div class="form-row" id='comparisonOperatorAttr' class='hiddenAttrs'>
+		<label for="node-input-comparisonOperator"><i class="fa fa-tag"></i> comparisonOperator</label>
+		<input type="text" id="node-input-comparisonOperator" placeholder="comparisonOperator"></input>
+	</div> 
+	<div class="form-row" id='thresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-threshold"><i class="fa fa-tag"></i> threshold</label>
+		<input type="text" id="node-input-threshold" placeholder="threshold"></input>
+	</div> 
+	<div class="form-row" id='evaluationPeriodsAttr' class='hiddenAttrs'>
+		<label for="node-input-evaluationPeriods"><i class="fa fa-tag"></i> evaluationPeriods</label>
+		<input type="text" id="node-input-evaluationPeriods" placeholder="evaluationPeriods"></input>
+	</div> 
+	<div class="form-row" id='datapointsToAlarmAttr' class='hiddenAttrs'>
+		<label for="node-input-datapointsToAlarm"><i class="fa fa-tag"></i> datapointsToAlarm</label>
+		<input type="text" id="node-input-datapointsToAlarm" placeholder="datapointsToAlarm"></input>
+	</div> 
+	<div class="form-row" id='treatMissingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-treatMissingData"><i class="fa fa-tag"></i> treatMissingData</label>
+		<input type="text" id="node-input-treatMissingData" placeholder="treatMissingData"></input>
+	</div> 
+	<div class="form-row" id='contactProtocolsAttr' class='hiddenAttrs'>
+		<label for="node-input-contactProtocols"><i class="fa fa-tag"></i> contactProtocols</label>
+		<input type="text" id="node-input-contactProtocols" placeholder="contactProtocols"></input>
+	</div> 
+	<div class="form-row" id='notificationTriggersAttr' class='hiddenAttrs'>
+		<label for="node-input-notificationTriggers"><i class="fa fa-tag"></i> notificationTriggers</label>
+		<input type="text" id="node-input-notificationTriggers" placeholder="notificationTriggers"></input>
+	</div> 
+	<div class="form-row" id='notificationEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-notificationEnabled"><i class="fa fa-tag"></i> notificationEnabled</label>
+		<input type="text" id="node-input-notificationEnabled" placeholder="notificationEnabled"></input>
+	</div> 
+	<div class="form-row" id='portInfosAttr' class='hiddenAttrs'>
+		<label for="node-input-portInfos"><i class="fa fa-tag"></i> portInfos</label>
+		<input type="text" id="node-input-portInfos" placeholder="portInfos"></input>
+	</div> 
+	<div class="form-row" id='labelAttr' class='hiddenAttrs'>
+		<label for="node-input-label"><i class="fa fa-tag"></i> label</label>
+		<input type="text" id="node-input-label" placeholder="label"></input>
+	</div> 
+	<div class="form-row" id='digestAttr' class='hiddenAttrs'>
+		<label for="node-input-digest"><i class="fa fa-tag"></i> digest</label>
+		<input type="text" id="node-input-digest" placeholder="digest"></input>
+	</div> 
+	<div class="form-row" id='resourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceType"><i class="fa fa-tag"></i> resourceType</label>
+		<input type="text" id="node-input-resourceType" placeholder="resourceType"></input>
+	</div> 
+	<div class="form-row" id='accessAttr' class='hiddenAttrs'>
+		<label for="node-input-access"><i class="fa fa-tag"></i> access</label>
+		<input type="text" id="node-input-access" placeholder="access"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='stateAttr' class='hiddenAttrs'>
+		<label for="node-input-state"><i class="fa fa-tag"></i> state</label>
+		<input type="text" id="node-input-state" placeholder="state"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='accessRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-accessRules"><i class="fa fa-tag"></i> accessRules</label>
+		<input type="text" id="node-input-accessRules" placeholder="accessRules"></input>
+	</div> 
+	<div class="form-row" id='versioningAttr' class='hiddenAttrs'>
+		<label for="node-input-versioning"><i class="fa fa-tag"></i> versioning</label>
+		<input type="text" id="node-input-versioning" placeholder="versioning"></input>
+	</div> 
+	<div class="form-row" id='readonlyAccessAccountsAttr' class='hiddenAttrs'>
+		<label for="node-input-readonlyAccessAccounts"><i class="fa fa-tag"></i> readonlyAccessAccounts</label>
+		<input type="text" id="node-input-readonlyAccessAccounts" placeholder="readonlyAccessAccounts"></input>
+	</div> 
+	<div class="form-row" id='isDisabledAttr' class='hiddenAttrs'>
+		<label for="node-input-isDisabled"><i class="fa fa-tag"></i> isDisabled</label>
+		<input type="text" id="node-input-isDisabled" placeholder="isDisabled"></input>
+	</div> 
+	<div class="form-row" id='isEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-isEnabled"><i class="fa fa-tag"></i> isEnabled</label>
+		<input type="text" id="node-input-isEnabled" placeholder="isEnabled"></input>
+	</div> 
+	<div class="form-row" id='attributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeName"><i class="fa fa-tag"></i> attributeName</label>
+		<input type="text" id="node-input-attributeName" placeholder="attributeName"></input>
+	</div> 
+	<div class="form-row" id='attributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeValue"><i class="fa fa-tag"></i> attributeValue</label>
+		<input type="text" id="node-input-attributeValue" placeholder="attributeValue"></input>
+	</div> 
+	<div class="form-row" id='rotateMasterUserPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-rotateMasterUserPassword"><i class="fa fa-tag"></i> rotateMasterUserPassword</label>
+		<input type="text" id="node-input-rotateMasterUserPassword" placeholder="rotateMasterUserPassword"></input>
+	</div> 
+	<div class="form-row" id='enableBackupRetentionAttr' class='hiddenAttrs'>
+		<label for="node-input-enableBackupRetention"><i class="fa fa-tag"></i> enableBackupRetention</label>
+		<input type="text" id="node-input-enableBackupRetention" placeholder="enableBackupRetention"></input>
+	</div> 
+	<div class="form-row" id='disableBackupRetentionAttr' class='hiddenAttrs'>
+		<label for="node-input-disableBackupRetention"><i class="fa fa-tag"></i> disableBackupRetention</label>
+		<input type="text" id="node-input-disableBackupRetention" placeholder="disableBackupRetention"></input>
+	</div> 
+	<div class="form-row" id='applyImmediatelyAttr' class='hiddenAttrs'>
+		<label for="node-input-applyImmediately"><i class="fa fa-tag"></i> applyImmediately</label>
+		<input type="text" id="node-input-applyImmediately" placeholder="applyImmediately"></input>
+	</div> 
+	<div class="form-row" id='caCertificateIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-caCertificateIdentifier"><i class="fa fa-tag"></i> caCertificateIdentifier</label>
+		<input type="text" id="node-input-caCertificateIdentifier" placeholder="caCertificateIdentifier"></input>
+	</div> 
+	<div class="form-row" id='parametersAttr' class='hiddenAttrs'>
+		<label for="node-input-parameters"><i class="fa fa-tag"></i> parameters</label>
+		<input type="text" id="node-input-parameters" placeholder="parameters"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AllocateStaticIp:[
+					'#staticIpNameAttr'
+					],
+				AttachCertificateToDistribution:[
+					'#distributionNameAttr','#certificateNameAttr'
+					],
+				AttachDisk:[
+					'#diskNameAttr','#instanceNameAttr','#diskPathAttr'
+					],
+				AttachInstancesToLoadBalancer:[
+					'#loadBalancerNameAttr','#instanceNamesAttr'
+					],
+				AttachLoadBalancerTlsCertificate:[
+					'#loadBalancerNameAttr','#certificateNameAttr'
+					],
+				AttachStaticIp:[
+					'#staticIpNameAttr','#instanceNameAttr'
+					],
+				CloseInstancePublicPorts:[
+					'#portInfoAttr','#instanceNameAttr'
+					],
+				CopySnapshot:[
+					'#sourceSnapshotNameAttr','#sourceResourceNameAttr','#restoreDateAttr','#useLatestRestorableAutoSnapshotAttr','#targetSnapshotNameAttr','#sourceRegionAttr'
+					],
+				CreateBucket:[
+					'#bucketNameAttr','#bundleIdAttr','#tagsAttr','#enableObjectVersioningAttr'
+					],
+				CreateBucketAccessKey:[
+					'#bucketNameAttr'
+					],
+				CreateCertificate:[
+					'#certificateNameAttr','#domainNameAttr','#subjectAlternativeNamesAttr','#tagsAttr'
+					],
+				CreateCloudFormationStack:[
+					'#instancesAttr'
+					],
+				CreateContactMethod:[
+					'#protocolAttr','#contactEndpointAttr'
+					],
+				CreateContainerService:[
+					'#serviceNameAttr','#powerAttr','#scaleAttr','#tagsAttr','#publicDomainNamesAttr','#deploymentAttr'
+					],
+				CreateContainerServiceDeployment:[
+					'#serviceNameAttr','#containersAttr','#publicEndpointAttr'
+					],
+				CreateContainerServiceRegistryLogin:[
+					
+					],
+				CreateDisk:[
+					'#diskNameAttr','#availabilityZoneAttr','#sizeInGbAttr','#tagsAttr','#addOnsAttr'
+					],
+				CreateDiskFromSnapshot:[
+					'#diskNameAttr','#diskSnapshotNameAttr','#availabilityZoneAttr','#sizeInGbAttr','#tagsAttr','#addOnsAttr','#sourceDiskNameAttr','#restoreDateAttr','#useLatestRestorableAutoSnapshotAttr'
+					],
+				CreateDiskSnapshot:[
+					'#diskNameAttr','#diskSnapshotNameAttr','#instanceNameAttr','#tagsAttr'
+					],
+				CreateDistribution:[
+					'#distributionNameAttr','#originAttr','#defaultCacheBehaviorAttr','#cacheBehaviorSettingsAttr','#cacheBehaviorsAttr','#bundleIdAttr','#ipAddressTypeAttr','#tagsAttr'
+					],
+				CreateDomain:[
+					'#domainNameAttr','#tagsAttr'
+					],
+				CreateDomainEntry:[
+					'#domainNameAttr','#domainEntryAttr'
+					],
+				CreateInstanceSnapshot:[
+					'#instanceSnapshotNameAttr','#instanceNameAttr','#tagsAttr'
+					],
+				CreateInstances:[
+					'#instanceNamesAttr','#availabilityZoneAttr','#customImageNameAttr','#blueprintIdAttr','#bundleIdAttr','#userDataAttr','#keyPairNameAttr','#tagsAttr','#addOnsAttr','#ipAddressTypeAttr'
+					],
+				CreateInstancesFromSnapshot:[
+					'#instanceNamesAttr','#attachedDiskMappingAttr','#availabilityZoneAttr','#instanceSnapshotNameAttr','#bundleIdAttr','#userDataAttr','#keyPairNameAttr','#tagsAttr','#addOnsAttr','#ipAddressTypeAttr','#sourceInstanceNameAttr','#restoreDateAttr','#useLatestRestorableAutoSnapshotAttr'
+					],
+				CreateKeyPair:[
+					'#keyPairNameAttr','#tagsAttr'
+					],
+				CreateLoadBalancer:[
+					'#loadBalancerNameAttr','#instancePortAttr','#healthCheckPathAttr','#certificateNameAttr','#certificateDomainNameAttr','#certificateAlternativeNamesAttr','#tagsAttr','#ipAddressTypeAttr'
+					],
+				CreateLoadBalancerTlsCertificate:[
+					'#loadBalancerNameAttr','#certificateNameAttr','#certificateDomainNameAttr','#certificateAlternativeNamesAttr','#tagsAttr'
+					],
+				CreateRelationalDatabase:[
+					'#relationalDatabaseNameAttr','#availabilityZoneAttr','#relationalDatabaseBlueprintIdAttr','#relationalDatabaseBundleIdAttr','#masterDatabaseNameAttr','#masterUsernameAttr','#masterUserPasswordAttr','#preferredBackupWindowAttr','#preferredMaintenanceWindowAttr','#publiclyAccessibleAttr','#tagsAttr'
+					],
+				CreateRelationalDatabaseFromSnapshot:[
+					'#relationalDatabaseNameAttr','#availabilityZoneAttr','#publiclyAccessibleAttr','#relationalDatabaseSnapshotNameAttr','#relationalDatabaseBundleIdAttr','#sourceRelationalDatabaseNameAttr','#restoreTimeAttr','#useLatestRestorableTimeAttr','#tagsAttr'
+					],
+				CreateRelationalDatabaseSnapshot:[
+					'#relationalDatabaseNameAttr','#relationalDatabaseSnapshotNameAttr','#tagsAttr'
+					],
+				DeleteAlarm:[
+					'#alarmNameAttr'
+					],
+				DeleteAutoSnapshot:[
+					'#resourceNameAttr','#dateAttr'
+					],
+				DeleteBucket:[
+					'#bucketNameAttr','#forceDeleteAttr'
+					],
+				DeleteBucketAccessKey:[
+					'#bucketNameAttr','#accessKeyIdAttr'
+					],
+				DeleteCertificate:[
+					'#certificateNameAttr'
+					],
+				DeleteContactMethod:[
+					'#protocolAttr'
+					],
+				DeleteContainerImage:[
+					'#serviceNameAttr','#imageAttr'
+					],
+				DeleteContainerService:[
+					'#serviceNameAttr'
+					],
+				DeleteDisk:[
+					'#diskNameAttr','#forceDeleteAddOnsAttr'
+					],
+				DeleteDiskSnapshot:[
+					'#diskSnapshotNameAttr'
+					],
+				DeleteDistribution:[
+					'#distributionNameAttr'
+					],
+				DeleteDomain:[
+					'#domainNameAttr'
+					],
+				DeleteDomainEntry:[
+					'#domainNameAttr','#domainEntryAttr'
+					],
+				DeleteInstance:[
+					'#instanceNameAttr','#forceDeleteAddOnsAttr'
+					],
+				DeleteInstanceSnapshot:[
+					'#instanceSnapshotNameAttr'
+					],
+				DeleteKeyPair:[
+					'#keyPairNameAttr'
+					],
+				DeleteKnownHostKeys:[
+					'#instanceNameAttr'
+					],
+				DeleteLoadBalancer:[
+					'#loadBalancerNameAttr'
+					],
+				DeleteLoadBalancerTlsCertificate:[
+					'#loadBalancerNameAttr','#certificateNameAttr','#forceAttr'
+					],
+				DeleteRelationalDatabase:[
+					'#relationalDatabaseNameAttr','#skipFinalSnapshotAttr','#finalRelationalDatabaseSnapshotNameAttr'
+					],
+				DeleteRelationalDatabaseSnapshot:[
+					'#relationalDatabaseSnapshotNameAttr'
+					],
+				DetachCertificateFromDistribution:[
+					'#distributionNameAttr'
+					],
+				DetachDisk:[
+					'#diskNameAttr'
+					],
+				DetachInstancesFromLoadBalancer:[
+					'#loadBalancerNameAttr','#instanceNamesAttr'
+					],
+				DetachStaticIp:[
+					'#staticIpNameAttr'
+					],
+				DisableAddOn:[
+					'#addOnTypeAttr','#resourceNameAttr'
+					],
+				DownloadDefaultKeyPair:[
+					
+					],
+				EnableAddOn:[
+					'#resourceNameAttr','#addOnRequestAttr'
+					],
+				ExportSnapshot:[
+					'#sourceSnapshotNameAttr'
+					],
+				GetActiveNames:[
+					'#pageTokenAttr'
+					],
+				GetAlarms:[
+					'#alarmNameAttr','#pageTokenAttr','#monitoredResourceNameAttr'
+					],
+				GetAutoSnapshots:[
+					'#resourceNameAttr'
+					],
+				GetBlueprints:[
+					'#includeInactiveAttr','#pageTokenAttr'
+					],
+				GetBucketAccessKeys:[
+					'#bucketNameAttr'
+					],
+				GetBucketBundles:[
+					'#includeInactiveAttr'
+					],
+				GetBucketMetricData:[
+					'#bucketNameAttr','#metricNameAttr','#startTimeAttr','#endTimeAttr','#periodAttr','#statisticsAttr','#unitAttr'
+					],
+				GetBuckets:[
+					'#bucketNameAttr','#pageTokenAttr','#includeConnectedResourcesAttr'
+					],
+				GetBundles:[
+					'#includeInactiveAttr','#pageTokenAttr'
+					],
+				GetCertificates:[
+					'#certificateStatusesAttr','#includeCertificateDetailsAttr','#certificateNameAttr'
+					],
+				GetCloudFormationStackRecords:[
+					'#pageTokenAttr'
+					],
+				GetContactMethods:[
+					'#protocolsAttr'
+					],
+				GetContainerAPIMetadata:[
+					
+					],
+				GetContainerImages:[
+					'#serviceNameAttr'
+					],
+				GetContainerLog:[
+					'#serviceNameAttr','#containerNameAttr','#startTimeAttr','#endTimeAttr','#filterPatternAttr','#pageTokenAttr'
+					],
+				GetContainerServiceDeployments:[
+					'#serviceNameAttr'
+					],
+				GetContainerServiceMetricData:[
+					'#serviceNameAttr','#metricNameAttr','#startTimeAttr','#endTimeAttr','#periodAttr','#statisticsAttr'
+					],
+				GetContainerServicePowers:[
+					
+					],
+				GetContainerServices:[
+					'#serviceNameAttr'
+					],
+				GetDisk:[
+					'#diskNameAttr'
+					],
+				GetDiskSnapshot:[
+					'#diskSnapshotNameAttr'
+					],
+				GetDiskSnapshots:[
+					'#pageTokenAttr'
+					],
+				GetDisks:[
+					'#pageTokenAttr'
+					],
+				GetDistributionBundles:[
+					
+					],
+				GetDistributionLatestCacheReset:[
+					'#distributionNameAttr'
+					],
+				GetDistributionMetricData:[
+					'#distributionNameAttr','#metricNameAttr','#startTimeAttr','#endTimeAttr','#periodAttr','#unitAttr','#statisticsAttr'
+					],
+				GetDistributions:[
+					'#distributionNameAttr','#pageTokenAttr'
+					],
+				GetDomain:[
+					'#domainNameAttr'
+					],
+				GetDomains:[
+					'#pageTokenAttr'
+					],
+				GetExportSnapshotRecords:[
+					'#pageTokenAttr'
+					],
+				GetInstance:[
+					'#instanceNameAttr'
+					],
+				GetInstanceAccessDetails:[
+					'#instanceNameAttr','#protocolAttr'
+					],
+				GetInstanceMetricData:[
+					'#instanceNameAttr','#metricNameAttr','#periodAttr','#startTimeAttr','#endTimeAttr','#unitAttr','#statisticsAttr'
+					],
+				GetInstancePortStates:[
+					'#instanceNameAttr'
+					],
+				GetInstanceSnapshot:[
+					'#instanceSnapshotNameAttr'
+					],
+				GetInstanceSnapshots:[
+					'#pageTokenAttr'
+					],
+				GetInstanceState:[
+					'#instanceNameAttr'
+					],
+				GetInstances:[
+					'#pageTokenAttr'
+					],
+				GetKeyPair:[
+					'#keyPairNameAttr'
+					],
+				GetKeyPairs:[
+					'#pageTokenAttr'
+					],
+				GetLoadBalancer:[
+					'#loadBalancerNameAttr'
+					],
+				GetLoadBalancerMetricData:[
+					'#loadBalancerNameAttr','#metricNameAttr','#periodAttr','#startTimeAttr','#endTimeAttr','#unitAttr','#statisticsAttr'
+					],
+				GetLoadBalancerTlsCertificates:[
+					'#loadBalancerNameAttr'
+					],
+				GetLoadBalancers:[
+					'#pageTokenAttr'
+					],
+				GetOperation:[
+					'#operationIdAttr'
+					],
+				GetOperations:[
+					'#pageTokenAttr'
+					],
+				GetOperationsForResource:[
+					'#resourceNameAttr','#pageTokenAttr'
+					],
+				GetRegions:[
+					'#includeAvailabilityZonesAttr','#includeRelationalDatabaseAvailabilityZonesAttr'
+					],
+				GetRelationalDatabase:[
+					'#relationalDatabaseNameAttr'
+					],
+				GetRelationalDatabaseBlueprints:[
+					'#pageTokenAttr'
+					],
+				GetRelationalDatabaseBundles:[
+					'#pageTokenAttr'
+					],
+				GetRelationalDatabaseEvents:[
+					'#relationalDatabaseNameAttr','#durationInMinutesAttr','#pageTokenAttr'
+					],
+				GetRelationalDatabaseLogEvents:[
+					'#relationalDatabaseNameAttr','#logStreamNameAttr','#startTimeAttr','#endTimeAttr','#startFromHeadAttr','#pageTokenAttr'
+					],
+				GetRelationalDatabaseLogStreams:[
+					'#relationalDatabaseNameAttr'
+					],
+				GetRelationalDatabaseMasterUserPassword:[
+					'#relationalDatabaseNameAttr','#passwordVersionAttr'
+					],
+				GetRelationalDatabaseMetricData:[
+					'#relationalDatabaseNameAttr','#metricNameAttr','#periodAttr','#startTimeAttr','#endTimeAttr','#unitAttr','#statisticsAttr'
+					],
+				GetRelationalDatabaseParameters:[
+					'#relationalDatabaseNameAttr','#pageTokenAttr'
+					],
+				GetRelationalDatabaseSnapshot:[
+					'#relationalDatabaseSnapshotNameAttr'
+					],
+				GetRelationalDatabaseSnapshots:[
+					'#pageTokenAttr'
+					],
+				GetRelationalDatabases:[
+					'#pageTokenAttr'
+					],
+				GetStaticIp:[
+					'#staticIpNameAttr'
+					],
+				GetStaticIps:[
+					'#pageTokenAttr'
+					],
+				ImportKeyPair:[
+					'#keyPairNameAttr','#publicKeyBase64Attr'
+					],
+				IsVpcPeered:[
+					
+					],
+				OpenInstancePublicPorts:[
+					'#portInfoAttr','#instanceNameAttr'
+					],
+				PeerVpc:[
+					
+					],
+				PutAlarm:[
+					'#alarmNameAttr','#metricNameAttr','#monitoredResourceNameAttr','#comparisonOperatorAttr','#thresholdAttr','#evaluationPeriodsAttr','#datapointsToAlarmAttr','#treatMissingDataAttr','#contactProtocolsAttr','#notificationTriggersAttr','#notificationEnabledAttr'
+					],
+				PutInstancePublicPorts:[
+					'#portInfosAttr','#instanceNameAttr'
+					],
+				RebootInstance:[
+					'#instanceNameAttr'
+					],
+				RebootRelationalDatabase:[
+					'#relationalDatabaseNameAttr'
+					],
+				RegisterContainerImage:[
+					'#serviceNameAttr','#labelAttr','#digestAttr'
+					],
+				ReleaseStaticIp:[
+					'#staticIpNameAttr'
+					],
+				ResetDistributionCache:[
+					'#distributionNameAttr'
+					],
+				SendContactMethodVerification:[
+					'#protocolAttr'
+					],
+				SetIpAddressType:[
+					'#resourceTypeAttr','#resourceNameAttr','#ipAddressTypeAttr'
+					],
+				SetResourceAccessForBucket:[
+					'#resourceNameAttr','#bucketNameAttr','#accessAttr'
+					],
+				StartInstance:[
+					'#instanceNameAttr'
+					],
+				StartRelationalDatabase:[
+					'#relationalDatabaseNameAttr'
+					],
+				StopInstance:[
+					'#instanceNameAttr','#forceAttr'
+					],
+				StopRelationalDatabase:[
+					'#relationalDatabaseNameAttr','#relationalDatabaseSnapshotNameAttr'
+					],
+				TagResource:[
+					'#resourceNameAttr','#resourceArnAttr','#tagsAttr'
+					],
+				TestAlarm:[
+					'#alarmNameAttr','#stateAttr'
+					],
+				UnpeerVpc:[
+					
+					],
+				UntagResource:[
+					'#resourceNameAttr','#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateBucket:[
+					'#bucketNameAttr','#accessRulesAttr','#versioningAttr','#readonlyAccessAccountsAttr'
+					],
+				UpdateBucketBundle:[
+					'#bucketNameAttr','#bundleIdAttr'
+					],
+				UpdateContainerService:[
+					'#serviceNameAttr','#powerAttr','#scaleAttr','#isDisabledAttr','#publicDomainNamesAttr'
+					],
+				UpdateDistribution:[
+					'#distributionNameAttr','#originAttr','#defaultCacheBehaviorAttr','#cacheBehaviorSettingsAttr','#cacheBehaviorsAttr','#isEnabledAttr'
+					],
+				UpdateDistributionBundle:[
+					'#distributionNameAttr','#bundleIdAttr'
+					],
+				UpdateDomainEntry:[
+					'#domainNameAttr','#domainEntryAttr'
+					],
+				UpdateLoadBalancerAttribute:[
+					'#loadBalancerNameAttr','#attributeNameAttr','#attributeValueAttr'
+					],
+				UpdateRelationalDatabase:[
+					'#relationalDatabaseNameAttr','#masterUserPasswordAttr','#rotateMasterUserPasswordAttr','#preferredBackupWindowAttr','#preferredMaintenanceWindowAttr','#enableBackupRetentionAttr','#disableBackupRetentionAttr','#publiclyAccessibleAttr','#applyImmediatelyAttr','#caCertificateIdentifierAttr'
+					],
+				UpdateRelationalDatabaseParameters:[
+					'#relationalDatabaseNameAttr','#parametersAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Lightsail">
+<p>
+AWS Lightsail
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Lightsail.html">Lightsail</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Lightsail',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AllocateStaticIp' },
+			
+				staticIpName: { value: ""} ,
+				distributionName: { value: ""} ,
+				certificateName: { value: ""} ,
+				diskName: { value: ""} ,
+				instanceName: { value: ""} ,
+				diskPath: { value: ""} ,
+				loadBalancerName: { value: ""} ,
+				instanceNames: { value: ""} ,
+				portInfo: { value: ""} ,
+				sourceSnapshotName: { value: ""} ,
+				sourceResourceName: { value: ""} ,
+				restoreDate: { value: ""} ,
+				useLatestRestorableAutoSnapshot: { value: ""} ,
+				targetSnapshotName: { value: ""} ,
+				sourceRegion: { value: ""} ,
+				bucketName: { value: ""} ,
+				bundleId: { value: ""} ,
+				tags: { value: ""} ,
+				enableObjectVersioning: { value: ""} ,
+				domainName: { value: ""} ,
+				subjectAlternativeNames: { value: ""} ,
+				instances: { value: ""} ,
+				protocol: { value: ""} ,
+				contactEndpoint: { value: ""} ,
+				serviceName: { value: ""} ,
+				power: { value: ""} ,
+				scale: { value: ""} ,
+				publicDomainNames: { value: ""} ,
+				deployment: { value: ""} ,
+				containers: { value: ""} ,
+				publicEndpoint: { value: ""} ,
+				availabilityZone: { value: ""} ,
+				sizeInGb: { value: ""} ,
+				addOns: { value: ""} ,
+				diskSnapshotName: { value: ""} ,
+				sourceDiskName: { value: ""} ,
+				origin: { value: ""} ,
+				defaultCacheBehavior: { value: ""} ,
+				cacheBehaviorSettings: { value: ""} ,
+				cacheBehaviors: { value: ""} ,
+				ipAddressType: { value: ""} ,
+				domainEntry: { value: ""} ,
+				instanceSnapshotName: { value: ""} ,
+				customImageName: { value: ""} ,
+				blueprintId: { value: ""} ,
+				userData: { value: ""} ,
+				keyPairName: { value: ""} ,
+				attachedDiskMapping: { value: ""} ,
+				sourceInstanceName: { value: ""} ,
+				instancePort: { value: ""} ,
+				healthCheckPath: { value: ""} ,
+				certificateDomainName: { value: ""} ,
+				certificateAlternativeNames: { value: ""} ,
+				relationalDatabaseName: { value: ""} ,
+				relationalDatabaseBlueprintId: { value: ""} ,
+				relationalDatabaseBundleId: { value: ""} ,
+				masterDatabaseName: { value: ""} ,
+				masterUsername: { value: ""} ,
+				masterUserPassword: { value: ""} ,
+				preferredBackupWindow: { value: ""} ,
+				preferredMaintenanceWindow: { value: ""} ,
+				publiclyAccessible: { value: ""} ,
+				relationalDatabaseSnapshotName: { value: ""} ,
+				sourceRelationalDatabaseName: { value: ""} ,
+				restoreTime: { value: ""} ,
+				useLatestRestorableTime: { value: ""} ,
+				alarmName: { value: ""} ,
+				resourceName: { value: ""} ,
+				date: { value: ""} ,
+				forceDelete: { value: ""} ,
+				accessKeyId: { value: ""} ,
+				image: { value: ""} ,
+				forceDeleteAddOns: { value: ""} ,
+				force: { value: ""} ,
+				skipFinalSnapshot: { value: ""} ,
+				finalRelationalDatabaseSnapshotName: { value: ""} ,
+				addOnType: { value: ""} ,
+				addOnRequest: { value: ""} ,
+				pageToken: { value: ""} ,
+				monitoredResourceName: { value: ""} ,
+				includeInactive: { value: ""} ,
+				metricName: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				period: { value: ""} ,
+				statistics: { value: ""} ,
+				unit: { value: ""} ,
+				includeConnectedResources: { value: ""} ,
+				certificateStatuses: { value: ""} ,
+				includeCertificateDetails: { value: ""} ,
+				protocols: { value: ""} ,
+				containerName: { value: ""} ,
+				filterPattern: { value: ""} ,
+				operationId: { value: ""} ,
+				includeAvailabilityZones: { value: ""} ,
+				includeRelationalDatabaseAvailabilityZones: { value: ""} ,
+				durationInMinutes: { value: ""} ,
+				logStreamName: { value: ""} ,
+				startFromHead: { value: ""} ,
+				passwordVersion: { value: ""} ,
+				publicKeyBase64: { value: ""} ,
+				comparisonOperator: { value: ""} ,
+				threshold: { value: ""} ,
+				evaluationPeriods: { value: ""} ,
+				datapointsToAlarm: { value: ""} ,
+				treatMissingData: { value: ""} ,
+				contactProtocols: { value: ""} ,
+				notificationTriggers: { value: ""} ,
+				notificationEnabled: { value: ""} ,
+				portInfos: { value: ""} ,
+				label: { value: ""} ,
+				digest: { value: ""} ,
+				resourceType: { value: ""} ,
+				access: { value: ""} ,
+				resourceArn: { value: ""} ,
+				state: { value: ""} ,
+				tagKeys: { value: ""} ,
+				accessRules: { value: ""} ,
+				versioning: { value: ""} ,
+				readonlyAccessAccounts: { value: ""} ,
+				isDisabled: { value: ""} ,
+				isEnabled: { value: ""} ,
+				attributeName: { value: ""} ,
+				attributeValue: { value: ""} ,
+				rotateMasterUserPassword: { value: ""} ,
+				enableBackupRetention: { value: ""} ,
+				disableBackupRetention: { value: ""} ,
+				applyImmediately: { value: ""} ,
+				caCertificateIdentifier: { value: ""} ,
+				parameters: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Lightsail " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-staticIpName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-distributionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-diskName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-diskPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loadBalancerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-portInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-restoreDate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-useLatestRestorableAutoSnapshot").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-targetSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bundleId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableObjectVersioning").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-domainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-subjectAlternativeNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-protocol").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contactEndpoint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-power").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scale").typedInput({ default: "num", types: ["num"]});
+$("#node-input-publicDomainNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-containers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-publicEndpoint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-availabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sizeInGb").typedInput({ default: "num", types: ["num"]});
+$("#node-input-addOns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-diskSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceDiskName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-origin").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultCacheBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheBehaviorSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheBehaviors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ipAddressType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-domainEntry").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-customImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-blueprintId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-userData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keyPairName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-sourceInstanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instancePort").typedInput({ default: "num", types: ["num"]});
+$("#node-input-healthCheckPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateDomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateAlternativeNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-relationalDatabaseName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-relationalDatabaseBlueprintId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-relationalDatabaseBundleId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-masterDatabaseName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-masterUsername").typedInput({ default: "str", types: ["str"]});
+$("#node-input-masterUserPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-preferredBackupWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-preferredMaintenanceWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-publiclyAccessible").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-relationalDatabaseSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceRelationalDatabaseName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-useLatestRestorableTime").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-alarmName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-date").typedInput({ default: "str", types: ["str"]});
+$("#node-input-forceDelete").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-accessKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-image").typedInput({ default: "str", types: ["str"]});
+$("#node-input-forceDeleteAddOns").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-skipFinalSnapshot").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-finalRelationalDatabaseSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-addOnType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-addOnRequest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pageToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-monitoredResourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeInactive").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-metricName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-period").typedInput({ default: "num", types: ["num"]});
+$("#node-input-statistics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-unit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeConnectedResources").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-includeCertificateDetails").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-protocols").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filterPattern").typedInput({ default: "str", types: ["str"]});
+$("#node-input-operationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeAvailabilityZones").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-includeRelationalDatabaseAvailabilityZones").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-durationInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-logStreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-startFromHead").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-passwordVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-publicKeyBase64").typedInput({ default: "str", types: ["str"]});
+$("#node-input-comparisonOperator").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-evaluationPeriods").typedInput({ default: "num", types: ["num"]});
+$("#node-input-datapointsToAlarm").typedInput({ default: "num", types: ["num"]});
+$("#node-input-treatMissingData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contactProtocols").typedInput({ default: "str", types: ["str"]});
+$("#node-input-notificationTriggers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-notificationEnabled").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-label").typedInput({ default: "str", types: ["str"]});
+$("#node-input-digest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-access").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-state").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-accessRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versioning").typedInput({ default: "str", types: ["str"]});
+$("#node-input-readonlyAccessAccounts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-isDisabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-isEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-attributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributeValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-rotateMasterUserPassword").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-enableBackupRetention").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-disableBackupRetention").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-applyImmediately").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-caCertificateIdentifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parameters").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

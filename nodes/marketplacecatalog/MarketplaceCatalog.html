@@ -1,0 +1,189 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MarketplaceCatalog">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelChangeSet">CancelChangeSet</option>
+		
+			<option value="DescribeChangeSet">DescribeChangeSet</option>
+		
+			<option value="DescribeEntity">DescribeEntity</option>
+		
+			<option value="ListChangeSets">ListChangeSets</option>
+		
+			<option value="ListEntities">ListEntities</option>
+		
+			<option value="StartChangeSet">StartChangeSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CatalogAttr' class='hiddenAttrs'>
+		<label for="node-input-Catalog"><i class="fa fa-tag"></i> Catalog</label>
+		<input type="text" id="node-input-Catalog" placeholder="Catalog"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetId"><i class="fa fa-tag"></i> ChangeSetId</label>
+		<input type="text" id="node-input-ChangeSetId" placeholder="ChangeSetId"></input>
+	</div> 
+	<div class="form-row" id='EntityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EntityId"><i class="fa fa-tag"></i> EntityId</label>
+		<input type="text" id="node-input-EntityId" placeholder="EntityId"></input>
+	</div> 
+	<div class="form-row" id='FilterListAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterList"><i class="fa fa-tag"></i> FilterList</label>
+		<input type="text" id="node-input-FilterList" placeholder="FilterList"></input>
+	</div> 
+	<div class="form-row" id='SortAttr' class='hiddenAttrs'>
+		<label for="node-input-Sort"><i class="fa fa-tag"></i> Sort</label>
+		<input type="text" id="node-input-Sort" placeholder="Sort"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='EntityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EntityType"><i class="fa fa-tag"></i> EntityType</label>
+		<input type="text" id="node-input-EntityType" placeholder="EntityType"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSet"><i class="fa fa-tag"></i> ChangeSet</label>
+		<input type="text" id="node-input-ChangeSet" placeholder="ChangeSet"></input>
+	</div> 
+	<div class="form-row" id='ChangeSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangeSetName"><i class="fa fa-tag"></i> ChangeSetName</label>
+		<input type="text" id="node-input-ChangeSetName" placeholder="ChangeSetName"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelChangeSet:[
+					'#CatalogAttr','#ChangeSetIdAttr'
+					],
+				DescribeChangeSet:[
+					'#CatalogAttr','#ChangeSetIdAttr'
+					],
+				DescribeEntity:[
+					'#CatalogAttr','#EntityIdAttr'
+					],
+				ListChangeSets:[
+					'#CatalogAttr','#FilterListAttr','#SortAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListEntities:[
+					'#CatalogAttr','#EntityTypeAttr','#FilterListAttr','#SortAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				StartChangeSet:[
+					'#CatalogAttr','#ChangeSetAttr','#ChangeSetNameAttr','#ClientRequestTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MarketplaceCatalog">
+<p>
+AWS MarketplaceCatalog
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MarketplaceCatalog.html">MarketplaceCatalog</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MarketplaceCatalog',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelChangeSet' },
+			
+				Catalog: { value: ""} ,
+				ChangeSetId: { value: ""} ,
+				EntityId: { value: ""} ,
+				FilterList: { value: ""} ,
+				Sort: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				EntityType: { value: ""} ,
+				ChangeSet: { value: ""} ,
+				ChangeSetName: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MarketplaceCatalog " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Catalog").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChangeSetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntityId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sort").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntityType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ChangeSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

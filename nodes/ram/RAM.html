@@ -1,0 +1,363 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS RAM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptResourceShareInvitation">AcceptResourceShareInvitation</option>
+		
+			<option value="AssociateResourceShare">AssociateResourceShare</option>
+		
+			<option value="AssociateResourceSharePermission">AssociateResourceSharePermission</option>
+		
+			<option value="CreateResourceShare">CreateResourceShare</option>
+		
+			<option value="DeleteResourceShare">DeleteResourceShare</option>
+		
+			<option value="DisassociateResourceShare">DisassociateResourceShare</option>
+		
+			<option value="DisassociateResourceSharePermission">DisassociateResourceSharePermission</option>
+		
+			<option value="EnableSharingWithAwsOrganization">EnableSharingWithAwsOrganization</option>
+		
+			<option value="GetPermission">GetPermission</option>
+		
+			<option value="GetResourcePolicies">GetResourcePolicies</option>
+		
+			<option value="GetResourceShareAssociations">GetResourceShareAssociations</option>
+		
+			<option value="GetResourceShareInvitations">GetResourceShareInvitations</option>
+		
+			<option value="GetResourceShares">GetResourceShares</option>
+		
+			<option value="ListPendingInvitationResources">ListPendingInvitationResources</option>
+		
+			<option value="ListPermissions">ListPermissions</option>
+		
+			<option value="ListPrincipals">ListPrincipals</option>
+		
+			<option value="ListResourceSharePermissions">ListResourceSharePermissions</option>
+		
+			<option value="ListResourceTypes">ListResourceTypes</option>
+		
+			<option value="ListResources">ListResources</option>
+		
+			<option value="PromoteResourceShareCreatedFromPolicy">PromoteResourceShareCreatedFromPolicy</option>
+		
+			<option value="RejectResourceShareInvitation">RejectResourceShareInvitation</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateResourceShare">UpdateResourceShare</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='resourceShareInvitationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareInvitationArn"><i class="fa fa-tag"></i> resourceShareInvitationArn</label>
+		<input type="text" id="node-input-resourceShareInvitationArn" placeholder="resourceShareInvitationArn"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='resourceShareArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareArn"><i class="fa fa-tag"></i> resourceShareArn</label>
+		<input type="text" id="node-input-resourceShareArn" placeholder="resourceShareArn"></input>
+	</div> 
+	<div class="form-row" id='resourceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArns"><i class="fa fa-tag"></i> resourceArns</label>
+		<input type="text" id="node-input-resourceArns" placeholder="resourceArns"></input>
+	</div> 
+	<div class="form-row" id='principalsAttr' class='hiddenAttrs'>
+		<label for="node-input-principals"><i class="fa fa-tag"></i> principals</label>
+		<input type="text" id="node-input-principals" placeholder="principals"></input>
+	</div> 
+	<div class="form-row" id='permissionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-permissionArn"><i class="fa fa-tag"></i> permissionArn</label>
+		<input type="text" id="node-input-permissionArn" placeholder="permissionArn"></input>
+	</div> 
+	<div class="form-row" id='replaceAttr' class='hiddenAttrs'>
+		<label for="node-input-replace"><i class="fa fa-tag"></i> replace</label>
+		<input type="text" id="node-input-replace" placeholder="replace"></input>
+	</div> 
+	<div class="form-row" id='permissionVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-permissionVersion"><i class="fa fa-tag"></i> permissionVersion</label>
+		<input type="text" id="node-input-permissionVersion" placeholder="permissionVersion"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='allowExternalPrincipalsAttr' class='hiddenAttrs'>
+		<label for="node-input-allowExternalPrincipals"><i class="fa fa-tag"></i> allowExternalPrincipals</label>
+		<input type="text" id="node-input-allowExternalPrincipals" placeholder="allowExternalPrincipals"></input>
+	</div> 
+	<div class="form-row" id='permissionArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-permissionArns"><i class="fa fa-tag"></i> permissionArns</label>
+		<input type="text" id="node-input-permissionArns" placeholder="permissionArns"></input>
+	</div> 
+	<div class="form-row" id='principalAttr' class='hiddenAttrs'>
+		<label for="node-input-principal"><i class="fa fa-tag"></i> principal</label>
+		<input type="text" id="node-input-principal" placeholder="principal"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='associationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-associationType"><i class="fa fa-tag"></i> associationType</label>
+		<input type="text" id="node-input-associationType" placeholder="associationType"></input>
+	</div> 
+	<div class="form-row" id='resourceShareArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareArns"><i class="fa fa-tag"></i> resourceShareArns</label>
+		<input type="text" id="node-input-resourceShareArns" placeholder="resourceShareArns"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='associationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-associationStatus"><i class="fa fa-tag"></i> associationStatus</label>
+		<input type="text" id="node-input-associationStatus" placeholder="associationStatus"></input>
+	</div> 
+	<div class="form-row" id='resourceShareInvitationArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareInvitationArns"><i class="fa fa-tag"></i> resourceShareInvitationArns</label>
+		<input type="text" id="node-input-resourceShareInvitationArns" placeholder="resourceShareInvitationArns"></input>
+	</div> 
+	<div class="form-row" id='resourceShareStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceShareStatus"><i class="fa fa-tag"></i> resourceShareStatus</label>
+		<input type="text" id="node-input-resourceShareStatus" placeholder="resourceShareStatus"></input>
+	</div> 
+	<div class="form-row" id='resourceOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceOwner"><i class="fa fa-tag"></i> resourceOwner</label>
+		<input type="text" id="node-input-resourceOwner" placeholder="resourceOwner"></input>
+	</div> 
+	<div class="form-row" id='tagFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-tagFilters"><i class="fa fa-tag"></i> tagFilters</label>
+		<input type="text" id="node-input-tagFilters" placeholder="tagFilters"></input>
+	</div> 
+	<div class="form-row" id='resourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceType"><i class="fa fa-tag"></i> resourceType</label>
+		<input type="text" id="node-input-resourceType" placeholder="resourceType"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptResourceShareInvitation:[
+					'#resourceShareInvitationArnAttr','#clientTokenAttr'
+					],
+				AssociateResourceShare:[
+					'#resourceShareArnAttr','#resourceArnsAttr','#principalsAttr','#clientTokenAttr'
+					],
+				AssociateResourceSharePermission:[
+					'#resourceShareArnAttr','#permissionArnAttr','#replaceAttr','#clientTokenAttr','#permissionVersionAttr'
+					],
+				CreateResourceShare:[
+					'#nameAttr','#resourceArnsAttr','#principalsAttr','#tagsAttr','#allowExternalPrincipalsAttr','#clientTokenAttr','#permissionArnsAttr'
+					],
+				DeleteResourceShare:[
+					'#resourceShareArnAttr','#clientTokenAttr'
+					],
+				DisassociateResourceShare:[
+					'#resourceShareArnAttr','#resourceArnsAttr','#principalsAttr','#clientTokenAttr'
+					],
+				DisassociateResourceSharePermission:[
+					'#resourceShareArnAttr','#permissionArnAttr','#clientTokenAttr'
+					],
+				EnableSharingWithAwsOrganization:[
+					
+					],
+				GetPermission:[
+					'#permissionArnAttr','#permissionVersionAttr'
+					],
+				GetResourcePolicies:[
+					'#resourceArnsAttr','#principalAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetResourceShareAssociations:[
+					'#associationTypeAttr','#resourceShareArnsAttr','#resourceArnAttr','#principalAttr','#associationStatusAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetResourceShareInvitations:[
+					'#resourceShareInvitationArnsAttr','#resourceShareArnsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetResourceShares:[
+					'#resourceShareArnsAttr','#resourceShareStatusAttr','#resourceOwnerAttr','#nameAttr','#tagFiltersAttr','#nextTokenAttr','#maxResultsAttr','#permissionArnAttr'
+					],
+				ListPendingInvitationResources:[
+					'#resourceShareInvitationArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListPermissions:[
+					'#resourceTypeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListPrincipals:[
+					'#resourceOwnerAttr','#resourceArnAttr','#principalsAttr','#resourceTypeAttr','#resourceShareArnsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListResourceSharePermissions:[
+					'#resourceShareArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListResourceTypes:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListResources:[
+					'#resourceOwnerAttr','#principalAttr','#resourceTypeAttr','#resourceArnsAttr','#resourceShareArnsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				PromoteResourceShareCreatedFromPolicy:[
+					'#resourceShareArnAttr'
+					],
+				RejectResourceShareInvitation:[
+					'#resourceShareInvitationArnAttr','#clientTokenAttr'
+					],
+				TagResource:[
+					'#resourceShareArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceShareArnAttr','#tagKeysAttr'
+					],
+				UpdateResourceShare:[
+					'#resourceShareArnAttr','#nameAttr','#allowExternalPrincipalsAttr','#clientTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS RAM">
+<p>
+AWS RAM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/RAM.html">RAM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS RAM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptResourceShareInvitation' },
+			
+				resourceShareInvitationArn: { value: ""} ,
+				clientToken: { value: ""} ,
+				resourceShareArn: { value: ""} ,
+				resourceArns: { value: ""} ,
+				principals: { value: ""} ,
+				permissionArn: { value: ""} ,
+				replace: { value: ""} ,
+				permissionVersion: { value: ""} ,
+				name: { value: ""} ,
+				tags: { value: ""} ,
+				allowExternalPrincipals: { value: ""} ,
+				permissionArns: { value: ""} ,
+				principal: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				associationType: { value: ""} ,
+				resourceShareArns: { value: ""} ,
+				resourceArn: { value: ""} ,
+				associationStatus: { value: ""} ,
+				resourceShareInvitationArns: { value: ""} ,
+				resourceShareStatus: { value: ""} ,
+				resourceOwner: { value: ""} ,
+				tagFilters: { value: ""} ,
+				resourceType: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "RAM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-resourceShareInvitationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceShareArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-principals").typedInput({ default: "str", types: ["str"]});
+$("#node-input-permissionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replace").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-permissionVersion").typedInput({ default: "num", types: ["num"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-allowExternalPrincipals").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-principal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-associationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceShareArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-associationStatus").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceShareStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceOwner").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceType").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

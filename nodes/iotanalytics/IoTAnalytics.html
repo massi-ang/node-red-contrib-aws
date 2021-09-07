@@ -1,0 +1,461 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IoTAnalytics">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchPutMessage">BatchPutMessage</option>
+		
+			<option value="CancelPipelineReprocessing">CancelPipelineReprocessing</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateDatasetContent">CreateDatasetContent</option>
+		
+			<option value="CreateDatastore">CreateDatastore</option>
+		
+			<option value="CreatePipeline">CreatePipeline</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteDatasetContent">DeleteDatasetContent</option>
+		
+			<option value="DeleteDatastore">DeleteDatastore</option>
+		
+			<option value="DeletePipeline">DeletePipeline</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeDatastore">DescribeDatastore</option>
+		
+			<option value="DescribeLoggingOptions">DescribeLoggingOptions</option>
+		
+			<option value="DescribePipeline">DescribePipeline</option>
+		
+			<option value="GetDatasetContent">GetDatasetContent</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListDatasetContents">ListDatasetContents</option>
+		
+			<option value="ListDatasets">ListDatasets</option>
+		
+			<option value="ListDatastores">ListDatastores</option>
+		
+			<option value="ListPipelines">ListPipelines</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutLoggingOptions">PutLoggingOptions</option>
+		
+			<option value="RunPipelineActivity">RunPipelineActivity</option>
+		
+			<option value="SampleChannelData">SampleChannelData</option>
+		
+			<option value="StartPipelineReprocessing">StartPipelineReprocessing</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateDataset">UpdateDataset</option>
+		
+			<option value="UpdateDatastore">UpdateDatastore</option>
+		
+			<option value="UpdatePipeline">UpdatePipeline</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='channelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-channelName"><i class="fa fa-tag"></i> channelName</label>
+		<input type="text" id="node-input-channelName" placeholder="channelName"></input>
+	</div> 
+	<div class="form-row" id='messagesAttr' class='hiddenAttrs'>
+		<label for="node-input-messages"><i class="fa fa-tag"></i> messages</label>
+		<input type="text" id="node-input-messages" placeholder="messages"></input>
+	</div> 
+	<div class="form-row" id='pipelineNameAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineName"><i class="fa fa-tag"></i> pipelineName</label>
+		<input type="text" id="node-input-pipelineName" placeholder="pipelineName"></input>
+	</div> 
+	<div class="form-row" id='reprocessingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-reprocessingId"><i class="fa fa-tag"></i> reprocessingId</label>
+		<input type="text" id="node-input-reprocessingId" placeholder="reprocessingId"></input>
+	</div> 
+	<div class="form-row" id='channelStorageAttr' class='hiddenAttrs'>
+		<label for="node-input-channelStorage"><i class="fa fa-tag"></i> channelStorage</label>
+		<input type="text" id="node-input-channelStorage" placeholder="channelStorage"></input>
+	</div> 
+	<div class="form-row" id='retentionPeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-retentionPeriod"><i class="fa fa-tag"></i> retentionPeriod</label>
+		<input type="text" id="node-input-retentionPeriod" placeholder="retentionPeriod"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='datasetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetName"><i class="fa fa-tag"></i> datasetName</label>
+		<input type="text" id="node-input-datasetName" placeholder="datasetName"></input>
+	</div> 
+	<div class="form-row" id='actionsAttr' class='hiddenAttrs'>
+		<label for="node-input-actions"><i class="fa fa-tag"></i> actions</label>
+		<input type="text" id="node-input-actions" placeholder="actions"></input>
+	</div> 
+	<div class="form-row" id='triggersAttr' class='hiddenAttrs'>
+		<label for="node-input-triggers"><i class="fa fa-tag"></i> triggers</label>
+		<input type="text" id="node-input-triggers" placeholder="triggers"></input>
+	</div> 
+	<div class="form-row" id='contentDeliveryRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-contentDeliveryRules"><i class="fa fa-tag"></i> contentDeliveryRules</label>
+		<input type="text" id="node-input-contentDeliveryRules" placeholder="contentDeliveryRules"></input>
+	</div> 
+	<div class="form-row" id='versioningConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-versioningConfiguration"><i class="fa fa-tag"></i> versioningConfiguration</label>
+		<input type="text" id="node-input-versioningConfiguration" placeholder="versioningConfiguration"></input>
+	</div> 
+	<div class="form-row" id='lateDataRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-lateDataRules"><i class="fa fa-tag"></i> lateDataRules</label>
+		<input type="text" id="node-input-lateDataRules" placeholder="lateDataRules"></input>
+	</div> 
+	<div class="form-row" id='versionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-versionId"><i class="fa fa-tag"></i> versionId</label>
+		<input type="text" id="node-input-versionId" placeholder="versionId"></input>
+	</div> 
+	<div class="form-row" id='datastoreNameAttr' class='hiddenAttrs'>
+		<label for="node-input-datastoreName"><i class="fa fa-tag"></i> datastoreName</label>
+		<input type="text" id="node-input-datastoreName" placeholder="datastoreName"></input>
+	</div> 
+	<div class="form-row" id='datastoreStorageAttr' class='hiddenAttrs'>
+		<label for="node-input-datastoreStorage"><i class="fa fa-tag"></i> datastoreStorage</label>
+		<input type="text" id="node-input-datastoreStorage" placeholder="datastoreStorage"></input>
+	</div> 
+	<div class="form-row" id='fileFormatConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-fileFormatConfiguration"><i class="fa fa-tag"></i> fileFormatConfiguration</label>
+		<input type="text" id="node-input-fileFormatConfiguration" placeholder="fileFormatConfiguration"></input>
+	</div> 
+	<div class="form-row" id='datastorePartitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-datastorePartitions"><i class="fa fa-tag"></i> datastorePartitions</label>
+		<input type="text" id="node-input-datastorePartitions" placeholder="datastorePartitions"></input>
+	</div> 
+	<div class="form-row" id='pipelineActivitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineActivities"><i class="fa fa-tag"></i> pipelineActivities</label>
+		<input type="text" id="node-input-pipelineActivities" placeholder="pipelineActivities"></input>
+	</div> 
+	<div class="form-row" id='includeStatisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-includeStatistics"><i class="fa fa-tag"></i> includeStatistics</label>
+		<input type="text" id="node-input-includeStatistics" placeholder="includeStatistics"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='scheduledOnOrAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-scheduledOnOrAfter"><i class="fa fa-tag"></i> scheduledOnOrAfter</label>
+		<input type="text" id="node-input-scheduledOnOrAfter" placeholder="scheduledOnOrAfter"></input>
+	</div> 
+	<div class="form-row" id='scheduledBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-scheduledBefore"><i class="fa fa-tag"></i> scheduledBefore</label>
+		<input type="text" id="node-input-scheduledBefore" placeholder="scheduledBefore"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='loggingOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-loggingOptions"><i class="fa fa-tag"></i> loggingOptions</label>
+		<input type="text" id="node-input-loggingOptions" placeholder="loggingOptions"></input>
+	</div> 
+	<div class="form-row" id='pipelineActivityAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineActivity"><i class="fa fa-tag"></i> pipelineActivity</label>
+		<input type="text" id="node-input-pipelineActivity" placeholder="pipelineActivity"></input>
+	</div> 
+	<div class="form-row" id='payloadsAttr' class='hiddenAttrs'>
+		<label for="node-input-payloads"><i class="fa fa-tag"></i> payloads</label>
+		<input type="text" id="node-input-payloads" placeholder="payloads"></input>
+	</div> 
+	<div class="form-row" id='maxMessagesAttr' class='hiddenAttrs'>
+		<label for="node-input-maxMessages"><i class="fa fa-tag"></i> maxMessages</label>
+		<input type="text" id="node-input-maxMessages" placeholder="maxMessages"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='channelMessagesAttr' class='hiddenAttrs'>
+		<label for="node-input-channelMessages"><i class="fa fa-tag"></i> channelMessages</label>
+		<input type="text" id="node-input-channelMessages" placeholder="channelMessages"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchPutMessage:[
+					'#channelNameAttr','#messagesAttr'
+					],
+				CancelPipelineReprocessing:[
+					'#pipelineNameAttr','#reprocessingIdAttr'
+					],
+				CreateChannel:[
+					'#channelNameAttr','#channelStorageAttr','#retentionPeriodAttr','#tagsAttr'
+					],
+				CreateDataset:[
+					'#datasetNameAttr','#actionsAttr','#triggersAttr','#contentDeliveryRulesAttr','#retentionPeriodAttr','#versioningConfigurationAttr','#tagsAttr','#lateDataRulesAttr'
+					],
+				CreateDatasetContent:[
+					'#datasetNameAttr','#versionIdAttr'
+					],
+				CreateDatastore:[
+					'#datastoreNameAttr','#datastoreStorageAttr','#retentionPeriodAttr','#tagsAttr','#fileFormatConfigurationAttr','#datastorePartitionsAttr'
+					],
+				CreatePipeline:[
+					'#pipelineNameAttr','#pipelineActivitiesAttr','#tagsAttr'
+					],
+				DeleteChannel:[
+					'#channelNameAttr'
+					],
+				DeleteDataset:[
+					'#datasetNameAttr'
+					],
+				DeleteDatasetContent:[
+					'#datasetNameAttr','#versionIdAttr'
+					],
+				DeleteDatastore:[
+					'#datastoreNameAttr'
+					],
+				DeletePipeline:[
+					'#pipelineNameAttr'
+					],
+				DescribeChannel:[
+					'#channelNameAttr','#includeStatisticsAttr'
+					],
+				DescribeDataset:[
+					'#datasetNameAttr'
+					],
+				DescribeDatastore:[
+					'#datastoreNameAttr','#includeStatisticsAttr'
+					],
+				DescribeLoggingOptions:[
+					
+					],
+				DescribePipeline:[
+					'#pipelineNameAttr'
+					],
+				GetDatasetContent:[
+					'#datasetNameAttr','#versionIdAttr'
+					],
+				ListChannels:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDatasetContents:[
+					'#datasetNameAttr','#nextTokenAttr','#maxResultsAttr','#scheduledOnOrAfterAttr','#scheduledBeforeAttr'
+					],
+				ListDatasets:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDatastores:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListPipelines:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutLoggingOptions:[
+					'#loggingOptionsAttr'
+					],
+				RunPipelineActivity:[
+					'#pipelineActivityAttr','#payloadsAttr'
+					],
+				SampleChannelData:[
+					'#channelNameAttr','#maxMessagesAttr','#startTimeAttr','#endTimeAttr'
+					],
+				StartPipelineReprocessing:[
+					'#pipelineNameAttr','#startTimeAttr','#endTimeAttr','#channelMessagesAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateChannel:[
+					'#channelNameAttr','#channelStorageAttr','#retentionPeriodAttr'
+					],
+				UpdateDataset:[
+					'#datasetNameAttr','#actionsAttr','#triggersAttr','#contentDeliveryRulesAttr','#retentionPeriodAttr','#versioningConfigurationAttr','#lateDataRulesAttr'
+					],
+				UpdateDatastore:[
+					'#datastoreNameAttr','#retentionPeriodAttr','#datastoreStorageAttr','#fileFormatConfigurationAttr'
+					],
+				UpdatePipeline:[
+					'#pipelineNameAttr','#pipelineActivitiesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IoTAnalytics">
+<p>
+AWS IoTAnalytics
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IoTAnalytics.html">IoTAnalytics</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IoTAnalytics',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchPutMessage' },
+			
+				channelName: { value: ""} ,
+				messages: { value: ""} ,
+				pipelineName: { value: ""} ,
+				reprocessingId: { value: ""} ,
+				channelStorage: { value: ""} ,
+				retentionPeriod: { value: ""} ,
+				tags: { value: ""} ,
+				datasetName: { value: ""} ,
+				actions: { value: ""} ,
+				triggers: { value: ""} ,
+				contentDeliveryRules: { value: ""} ,
+				versioningConfiguration: { value: ""} ,
+				lateDataRules: { value: ""} ,
+				versionId: { value: ""} ,
+				datastoreName: { value: ""} ,
+				datastoreStorage: { value: ""} ,
+				fileFormatConfiguration: { value: ""} ,
+				datastorePartitions: { value: ""} ,
+				pipelineActivities: { value: ""} ,
+				includeStatistics: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				scheduledOnOrAfter: { value: ""} ,
+				scheduledBefore: { value: ""} ,
+				resourceArn: { value: ""} ,
+				loggingOptions: { value: ""} ,
+				pipelineActivity: { value: ""} ,
+				payloads: { value: ""} ,
+				maxMessages: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				channelMessages: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IoTAnalytics " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-channelName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-pipelineName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reprocessingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-channelStorage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-retentionPeriod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-datasetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-triggers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-contentDeliveryRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versioningConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lateDataRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-datastoreName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-datastoreStorage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fileFormatConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-datastorePartitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineActivities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeStatistics").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loggingOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineActivity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-payloads").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxMessages").typedInput({ default: "num", types: ["num"]});
+
+
+
+
+		}
+	});
+</script>
+

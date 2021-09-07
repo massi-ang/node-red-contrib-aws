@@ -1,0 +1,721 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MediaLive">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptInputDeviceTransfer">AcceptInputDeviceTransfer</option>
+		
+			<option value="BatchDelete">BatchDelete</option>
+		
+			<option value="BatchStart">BatchStart</option>
+		
+			<option value="BatchStop">BatchStop</option>
+		
+			<option value="BatchUpdateSchedule">BatchUpdateSchedule</option>
+		
+			<option value="CancelInputDeviceTransfer">CancelInputDeviceTransfer</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateInput">CreateInput</option>
+		
+			<option value="CreateInputSecurityGroup">CreateInputSecurityGroup</option>
+		
+			<option value="CreateMultiplex">CreateMultiplex</option>
+		
+			<option value="CreateMultiplexProgram">CreateMultiplexProgram</option>
+		
+			<option value="CreatePartnerInput">CreatePartnerInput</option>
+		
+			<option value="CreateTags">CreateTags</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteInput">DeleteInput</option>
+		
+			<option value="DeleteInputSecurityGroup">DeleteInputSecurityGroup</option>
+		
+			<option value="DeleteMultiplex">DeleteMultiplex</option>
+		
+			<option value="DeleteMultiplexProgram">DeleteMultiplexProgram</option>
+		
+			<option value="DeleteReservation">DeleteReservation</option>
+		
+			<option value="DeleteSchedule">DeleteSchedule</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeInput">DescribeInput</option>
+		
+			<option value="DescribeInputDevice">DescribeInputDevice</option>
+		
+			<option value="DescribeInputDeviceThumbnail">DescribeInputDeviceThumbnail</option>
+		
+			<option value="DescribeInputSecurityGroup">DescribeInputSecurityGroup</option>
+		
+			<option value="DescribeMultiplex">DescribeMultiplex</option>
+		
+			<option value="DescribeMultiplexProgram">DescribeMultiplexProgram</option>
+		
+			<option value="DescribeOffering">DescribeOffering</option>
+		
+			<option value="DescribeReservation">DescribeReservation</option>
+		
+			<option value="DescribeSchedule">DescribeSchedule</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListInputDeviceTransfers">ListInputDeviceTransfers</option>
+		
+			<option value="ListInputDevices">ListInputDevices</option>
+		
+			<option value="ListInputSecurityGroups">ListInputSecurityGroups</option>
+		
+			<option value="ListInputs">ListInputs</option>
+		
+			<option value="ListMultiplexPrograms">ListMultiplexPrograms</option>
+		
+			<option value="ListMultiplexes">ListMultiplexes</option>
+		
+			<option value="ListOfferings">ListOfferings</option>
+		
+			<option value="ListReservations">ListReservations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PurchaseOffering">PurchaseOffering</option>
+		
+			<option value="RejectInputDeviceTransfer">RejectInputDeviceTransfer</option>
+		
+			<option value="StartChannel">StartChannel</option>
+		
+			<option value="StartMultiplex">StartMultiplex</option>
+		
+			<option value="StopChannel">StopChannel</option>
+		
+			<option value="StopMultiplex">StopMultiplex</option>
+		
+			<option value="TransferInputDevice">TransferInputDevice</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateChannelClass">UpdateChannelClass</option>
+		
+			<option value="UpdateInput">UpdateInput</option>
+		
+			<option value="UpdateInputDevice">UpdateInputDevice</option>
+		
+			<option value="UpdateInputSecurityGroup">UpdateInputSecurityGroup</option>
+		
+			<option value="UpdateMultiplex">UpdateMultiplex</option>
+		
+			<option value="UpdateMultiplexProgram">UpdateMultiplexProgram</option>
+		
+			<option value="UpdateReservation">UpdateReservation</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='InputDeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDeviceId"><i class="fa fa-tag"></i> InputDeviceId</label>
+		<input type="text" id="node-input-InputDeviceId" placeholder="InputDeviceId"></input>
+	</div> 
+	<div class="form-row" id='ChannelIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelIds"><i class="fa fa-tag"></i> ChannelIds</label>
+		<input type="text" id="node-input-ChannelIds" placeholder="ChannelIds"></input>
+	</div> 
+	<div class="form-row" id='InputIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InputIds"><i class="fa fa-tag"></i> InputIds</label>
+		<input type="text" id="node-input-InputIds" placeholder="InputIds"></input>
+	</div> 
+	<div class="form-row" id='InputSecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSecurityGroupIds"><i class="fa fa-tag"></i> InputSecurityGroupIds</label>
+		<input type="text" id="node-input-InputSecurityGroupIds" placeholder="InputSecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='MultiplexIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexIds"><i class="fa fa-tag"></i> MultiplexIds</label>
+		<input type="text" id="node-input-MultiplexIds" placeholder="MultiplexIds"></input>
+	</div> 
+	<div class="form-row" id='ChannelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelId"><i class="fa fa-tag"></i> ChannelId</label>
+		<input type="text" id="node-input-ChannelId" placeholder="ChannelId"></input>
+	</div> 
+	<div class="form-row" id='CreatesAttr' class='hiddenAttrs'>
+		<label for="node-input-Creates"><i class="fa fa-tag"></i> Creates</label>
+		<input type="text" id="node-input-Creates" placeholder="Creates"></input>
+	</div> 
+	<div class="form-row" id='DeletesAttr' class='hiddenAttrs'>
+		<label for="node-input-Deletes"><i class="fa fa-tag"></i> Deletes</label>
+		<input type="text" id="node-input-Deletes" placeholder="Deletes"></input>
+	</div> 
+	<div class="form-row" id='CdiInputSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-CdiInputSpecification"><i class="fa fa-tag"></i> CdiInputSpecification</label>
+		<input type="text" id="node-input-CdiInputSpecification" placeholder="CdiInputSpecification"></input>
+	</div> 
+	<div class="form-row" id='ChannelClassAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelClass"><i class="fa fa-tag"></i> ChannelClass</label>
+		<input type="text" id="node-input-ChannelClass" placeholder="ChannelClass"></input>
+	</div> 
+	<div class="form-row" id='DestinationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Destinations"><i class="fa fa-tag"></i> Destinations</label>
+		<input type="text" id="node-input-Destinations" placeholder="Destinations"></input>
+	</div> 
+	<div class="form-row" id='EncoderSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-EncoderSettings"><i class="fa fa-tag"></i> EncoderSettings</label>
+		<input type="text" id="node-input-EncoderSettings" placeholder="EncoderSettings"></input>
+	</div> 
+	<div class="form-row" id='InputAttachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-InputAttachments"><i class="fa fa-tag"></i> InputAttachments</label>
+		<input type="text" id="node-input-InputAttachments" placeholder="InputAttachments"></input>
+	</div> 
+	<div class="form-row" id='InputSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSpecification"><i class="fa fa-tag"></i> InputSpecification</label>
+		<input type="text" id="node-input-InputSpecification" placeholder="InputSpecification"></input>
+	</div> 
+	<div class="form-row" id='LogLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-LogLevel"><i class="fa fa-tag"></i> LogLevel</label>
+		<input type="text" id="node-input-LogLevel" placeholder="LogLevel"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestId"><i class="fa fa-tag"></i> RequestId</label>
+		<input type="text" id="node-input-RequestId" placeholder="RequestId"></input>
+	</div> 
+	<div class="form-row" id='ReservedAttr' class='hiddenAttrs'>
+		<label for="node-input-Reserved"><i class="fa fa-tag"></i> Reserved</label>
+		<input type="text" id="node-input-Reserved" placeholder="Reserved"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='VpcAttr' class='hiddenAttrs'>
+		<label for="node-input-Vpc"><i class="fa fa-tag"></i> Vpc</label>
+		<input type="text" id="node-input-Vpc" placeholder="Vpc"></input>
+	</div> 
+	<div class="form-row" id='InputDevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDevices"><i class="fa fa-tag"></i> InputDevices</label>
+		<input type="text" id="node-input-InputDevices" placeholder="InputDevices"></input>
+	</div> 
+	<div class="form-row" id='InputSecurityGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSecurityGroups"><i class="fa fa-tag"></i> InputSecurityGroups</label>
+		<input type="text" id="node-input-InputSecurityGroups" placeholder="InputSecurityGroups"></input>
+	</div> 
+	<div class="form-row" id='MediaConnectFlowsAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaConnectFlows"><i class="fa fa-tag"></i> MediaConnectFlows</label>
+		<input type="text" id="node-input-MediaConnectFlows" placeholder="MediaConnectFlows"></input>
+	</div> 
+	<div class="form-row" id='SourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-Sources"><i class="fa fa-tag"></i> Sources</label>
+		<input type="text" id="node-input-Sources" placeholder="Sources"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='WhitelistRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-WhitelistRules"><i class="fa fa-tag"></i> WhitelistRules</label>
+		<input type="text" id="node-input-WhitelistRules" placeholder="WhitelistRules"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZonesAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZones"><i class="fa fa-tag"></i> AvailabilityZones</label>
+		<input type="text" id="node-input-AvailabilityZones" placeholder="AvailabilityZones"></input>
+	</div> 
+	<div class="form-row" id='MultiplexSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexSettings"><i class="fa fa-tag"></i> MultiplexSettings</label>
+		<input type="text" id="node-input-MultiplexSettings" placeholder="MultiplexSettings"></input>
+	</div> 
+	<div class="form-row" id='MultiplexIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexId"><i class="fa fa-tag"></i> MultiplexId</label>
+		<input type="text" id="node-input-MultiplexId" placeholder="MultiplexId"></input>
+	</div> 
+	<div class="form-row" id='MultiplexProgramSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-MultiplexProgramSettings"><i class="fa fa-tag"></i> MultiplexProgramSettings</label>
+		<input type="text" id="node-input-MultiplexProgramSettings" placeholder="MultiplexProgramSettings"></input>
+	</div> 
+	<div class="form-row" id='ProgramNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProgramName"><i class="fa fa-tag"></i> ProgramName</label>
+		<input type="text" id="node-input-ProgramName" placeholder="ProgramName"></input>
+	</div> 
+	<div class="form-row" id='InputIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputId"><i class="fa fa-tag"></i> InputId</label>
+		<input type="text" id="node-input-InputId" placeholder="InputId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='InputSecurityGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-InputSecurityGroupId"><i class="fa fa-tag"></i> InputSecurityGroupId</label>
+		<input type="text" id="node-input-InputSecurityGroupId" placeholder="InputSecurityGroupId"></input>
+	</div> 
+	<div class="form-row" id='ReservationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ReservationId"><i class="fa fa-tag"></i> ReservationId</label>
+		<input type="text" id="node-input-ReservationId" placeholder="ReservationId"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='AcceptAttr' class='hiddenAttrs'>
+		<label for="node-input-Accept"><i class="fa fa-tag"></i> Accept</label>
+		<input type="text" id="node-input-Accept" placeholder="Accept"></input>
+	</div> 
+	<div class="form-row" id='OfferingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OfferingId"><i class="fa fa-tag"></i> OfferingId</label>
+		<input type="text" id="node-input-OfferingId" placeholder="OfferingId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='TransferTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TransferType"><i class="fa fa-tag"></i> TransferType</label>
+		<input type="text" id="node-input-TransferType" placeholder="TransferType"></input>
+	</div> 
+	<div class="form-row" id='ChannelConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelConfiguration"><i class="fa fa-tag"></i> ChannelConfiguration</label>
+		<input type="text" id="node-input-ChannelConfiguration" placeholder="ChannelConfiguration"></input>
+	</div> 
+	<div class="form-row" id='CodecAttr' class='hiddenAttrs'>
+		<label for="node-input-Codec"><i class="fa fa-tag"></i> Codec</label>
+		<input type="text" id="node-input-Codec" placeholder="Codec"></input>
+	</div> 
+	<div class="form-row" id='DurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Duration"><i class="fa fa-tag"></i> Duration</label>
+		<input type="text" id="node-input-Duration" placeholder="Duration"></input>
+	</div> 
+	<div class="form-row" id='MaximumBitrateAttr' class='hiddenAttrs'>
+		<label for="node-input-MaximumBitrate"><i class="fa fa-tag"></i> MaximumBitrate</label>
+		<input type="text" id="node-input-MaximumBitrate" placeholder="MaximumBitrate"></input>
+	</div> 
+	<div class="form-row" id='MaximumFramerateAttr' class='hiddenAttrs'>
+		<label for="node-input-MaximumFramerate"><i class="fa fa-tag"></i> MaximumFramerate</label>
+		<input type="text" id="node-input-MaximumFramerate" placeholder="MaximumFramerate"></input>
+	</div> 
+	<div class="form-row" id='ResolutionAttr' class='hiddenAttrs'>
+		<label for="node-input-Resolution"><i class="fa fa-tag"></i> Resolution</label>
+		<input type="text" id="node-input-Resolution" placeholder="Resolution"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='SpecialFeatureAttr' class='hiddenAttrs'>
+		<label for="node-input-SpecialFeature"><i class="fa fa-tag"></i> SpecialFeature</label>
+		<input type="text" id="node-input-SpecialFeature" placeholder="SpecialFeature"></input>
+	</div> 
+	<div class="form-row" id='VideoQualityAttr' class='hiddenAttrs'>
+		<label for="node-input-VideoQuality"><i class="fa fa-tag"></i> VideoQuality</label>
+		<input type="text" id="node-input-VideoQuality" placeholder="VideoQuality"></input>
+	</div> 
+	<div class="form-row" id='CountAttr' class='hiddenAttrs'>
+		<label for="node-input-Count"><i class="fa fa-tag"></i> Count</label>
+		<input type="text" id="node-input-Count" placeholder="Count"></input>
+	</div> 
+	<div class="form-row" id='StartAttr' class='hiddenAttrs'>
+		<label for="node-input-Start"><i class="fa fa-tag"></i> Start</label>
+		<input type="text" id="node-input-Start" placeholder="Start"></input>
+	</div> 
+	<div class="form-row" id='TargetCustomerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetCustomerId"><i class="fa fa-tag"></i> TargetCustomerId</label>
+		<input type="text" id="node-input-TargetCustomerId" placeholder="TargetCustomerId"></input>
+	</div> 
+	<div class="form-row" id='TargetRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetRegion"><i class="fa fa-tag"></i> TargetRegion</label>
+		<input type="text" id="node-input-TargetRegion" placeholder="TargetRegion"></input>
+	</div> 
+	<div class="form-row" id='TransferMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-TransferMessage"><i class="fa fa-tag"></i> TransferMessage</label>
+		<input type="text" id="node-input-TransferMessage" placeholder="TransferMessage"></input>
+	</div> 
+	<div class="form-row" id='HdDeviceSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-HdDeviceSettings"><i class="fa fa-tag"></i> HdDeviceSettings</label>
+		<input type="text" id="node-input-HdDeviceSettings" placeholder="HdDeviceSettings"></input>
+	</div> 
+	<div class="form-row" id='UhdDeviceSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-UhdDeviceSettings"><i class="fa fa-tag"></i> UhdDeviceSettings</label>
+		<input type="text" id="node-input-UhdDeviceSettings" placeholder="UhdDeviceSettings"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				BatchDelete:[
+					'#ChannelIdsAttr','#InputIdsAttr','#InputSecurityGroupIdsAttr','#MultiplexIdsAttr'
+					],
+				BatchStart:[
+					'#ChannelIdsAttr','#MultiplexIdsAttr'
+					],
+				BatchStop:[
+					'#ChannelIdsAttr','#MultiplexIdsAttr'
+					],
+				BatchUpdateSchedule:[
+					'#ChannelIdAttr','#CreatesAttr','#DeletesAttr'
+					],
+				CancelInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				CreateChannel:[
+					'#CdiInputSpecificationAttr','#ChannelClassAttr','#DestinationsAttr','#EncoderSettingsAttr','#InputAttachmentsAttr','#InputSpecificationAttr','#LogLevelAttr','#NameAttr','#RequestIdAttr','#ReservedAttr','#RoleArnAttr','#TagsAttr','#VpcAttr'
+					],
+				CreateInput:[
+					'#DestinationsAttr','#InputDevicesAttr','#InputSecurityGroupsAttr','#MediaConnectFlowsAttr','#NameAttr','#RequestIdAttr','#RoleArnAttr','#SourcesAttr','#TagsAttr','#TypeAttr','#VpcAttr'
+					],
+				CreateInputSecurityGroup:[
+					'#TagsAttr','#WhitelistRulesAttr'
+					],
+				CreateMultiplex:[
+					'#AvailabilityZonesAttr','#MultiplexSettingsAttr','#NameAttr','#RequestIdAttr','#TagsAttr'
+					],
+				CreateMultiplexProgram:[
+					'#MultiplexIdAttr','#MultiplexProgramSettingsAttr','#ProgramNameAttr','#RequestIdAttr'
+					],
+				CreatePartnerInput:[
+					'#InputIdAttr','#RequestIdAttr','#TagsAttr'
+					],
+				CreateTags:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				DeleteChannel:[
+					'#ChannelIdAttr'
+					],
+				DeleteInput:[
+					'#InputIdAttr'
+					],
+				DeleteInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr'
+					],
+				DeleteMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				DeleteMultiplexProgram:[
+					'#MultiplexIdAttr','#ProgramNameAttr'
+					],
+				DeleteReservation:[
+					'#ReservationIdAttr'
+					],
+				DeleteSchedule:[
+					'#ChannelIdAttr'
+					],
+				DeleteTags:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				DescribeChannel:[
+					'#ChannelIdAttr'
+					],
+				DescribeInput:[
+					'#InputIdAttr'
+					],
+				DescribeInputDevice:[
+					'#InputDeviceIdAttr'
+					],
+				DescribeInputDeviceThumbnail:[
+					'#InputDeviceIdAttr','#AcceptAttr'
+					],
+				DescribeInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr'
+					],
+				DescribeMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				DescribeMultiplexProgram:[
+					'#MultiplexIdAttr','#ProgramNameAttr'
+					],
+				DescribeOffering:[
+					'#OfferingIdAttr'
+					],
+				DescribeReservation:[
+					'#ReservationIdAttr'
+					],
+				DescribeSchedule:[
+					'#ChannelIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListChannels:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListInputDeviceTransfers:[
+					'#MaxResultsAttr','#NextTokenAttr','#TransferTypeAttr'
+					],
+				ListInputDevices:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListInputSecurityGroups:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListInputs:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListMultiplexPrograms:[
+					'#MaxResultsAttr','#MultiplexIdAttr','#NextTokenAttr'
+					],
+				ListMultiplexes:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListOfferings:[
+					'#ChannelClassAttr','#ChannelConfigurationAttr','#CodecAttr','#DurationAttr','#MaxResultsAttr','#MaximumBitrateAttr','#MaximumFramerateAttr','#NextTokenAttr','#ResolutionAttr','#ResourceTypeAttr','#SpecialFeatureAttr','#VideoQualityAttr'
+					],
+				ListReservations:[
+					'#ChannelClassAttr','#CodecAttr','#MaxResultsAttr','#MaximumBitrateAttr','#MaximumFramerateAttr','#NextTokenAttr','#ResolutionAttr','#ResourceTypeAttr','#SpecialFeatureAttr','#VideoQualityAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PurchaseOffering:[
+					'#CountAttr','#NameAttr','#OfferingIdAttr','#RequestIdAttr','#StartAttr','#TagsAttr'
+					],
+				RejectInputDeviceTransfer:[
+					'#InputDeviceIdAttr'
+					],
+				StartChannel:[
+					'#ChannelIdAttr'
+					],
+				StartMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				StopChannel:[
+					'#ChannelIdAttr'
+					],
+				StopMultiplex:[
+					'#MultiplexIdAttr'
+					],
+				TransferInputDevice:[
+					'#InputDeviceIdAttr','#TargetCustomerIdAttr','#TargetRegionAttr','#TransferMessageAttr'
+					],
+				UpdateChannel:[
+					'#CdiInputSpecificationAttr','#ChannelIdAttr','#DestinationsAttr','#EncoderSettingsAttr','#InputAttachmentsAttr','#InputSpecificationAttr','#LogLevelAttr','#NameAttr','#RoleArnAttr'
+					],
+				UpdateChannelClass:[
+					'#ChannelClassAttr','#ChannelIdAttr','#DestinationsAttr'
+					],
+				UpdateInput:[
+					'#DestinationsAttr','#InputDevicesAttr','#InputIdAttr','#InputSecurityGroupsAttr','#MediaConnectFlowsAttr','#NameAttr','#RoleArnAttr','#SourcesAttr'
+					],
+				UpdateInputDevice:[
+					'#HdDeviceSettingsAttr','#InputDeviceIdAttr','#NameAttr','#UhdDeviceSettingsAttr'
+					],
+				UpdateInputSecurityGroup:[
+					'#InputSecurityGroupIdAttr','#TagsAttr','#WhitelistRulesAttr'
+					],
+				UpdateMultiplex:[
+					'#MultiplexIdAttr','#MultiplexSettingsAttr','#NameAttr'
+					],
+				UpdateMultiplexProgram:[
+					'#MultiplexIdAttr','#MultiplexProgramSettingsAttr','#ProgramNameAttr'
+					],
+				UpdateReservation:[
+					'#NameAttr','#ReservationIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MediaLive">
+<p>
+AWS MediaLive
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MediaLive.html">MediaLive</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MediaLive',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptInputDeviceTransfer' },
+			
+				InputDeviceId: { value: ""} ,
+				ChannelIds: { value: ""} ,
+				InputIds: { value: ""} ,
+				InputSecurityGroupIds: { value: ""} ,
+				MultiplexIds: { value: ""} ,
+				ChannelId: { value: ""} ,
+				Creates: { value: ""} ,
+				Deletes: { value: ""} ,
+				CdiInputSpecification: { value: ""} ,
+				ChannelClass: { value: ""} ,
+				Destinations: { value: ""} ,
+				EncoderSettings: { value: ""} ,
+				InputAttachments: { value: ""} ,
+				InputSpecification: { value: ""} ,
+				LogLevel: { value: ""} ,
+				Name: { value: ""} ,
+				RequestId: { value: ""} ,
+				Reserved: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Tags: { value: ""} ,
+				Vpc: { value: ""} ,
+				InputDevices: { value: ""} ,
+				InputSecurityGroups: { value: ""} ,
+				MediaConnectFlows: { value: ""} ,
+				Sources: { value: ""} ,
+				Type: { value: ""} ,
+				WhitelistRules: { value: ""} ,
+				AvailabilityZones: { value: ""} ,
+				MultiplexSettings: { value: ""} ,
+				MultiplexId: { value: ""} ,
+				MultiplexProgramSettings: { value: ""} ,
+				ProgramName: { value: ""} ,
+				InputId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				InputSecurityGroupId: { value: ""} ,
+				ReservationId: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Accept: { value: ""} ,
+				OfferingId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				TransferType: { value: ""} ,
+				ChannelConfiguration: { value: ""} ,
+				Codec: { value: ""} ,
+				Duration: { value: ""} ,
+				MaximumBitrate: { value: ""} ,
+				MaximumFramerate: { value: ""} ,
+				Resolution: { value: ""} ,
+				ResourceType: { value: ""} ,
+				SpecialFeature: { value: ""} ,
+				VideoQuality: { value: ""} ,
+				Count: { value: ""} ,
+				Start: { value: ""} ,
+				TargetCustomerId: { value: ""} ,
+				TargetRegion: { value: ""} ,
+				TransferMessage: { value: ""} ,
+				HdDeviceSettings: { value: ""} ,
+				UhdDeviceSettings: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MediaLive " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-InputDeviceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputSecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MultiplexIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-CdiInputSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelClass").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Destinations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncoderSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputAttachments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Reserved").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-InputSecurityGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaConnectFlows").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-WhitelistRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZones").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MultiplexSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MultiplexId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MultiplexProgramSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProgramName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputSecurityGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReservationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Accept").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OfferingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransferType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Codec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Duration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaximumBitrate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaximumFramerate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resolution").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SpecialFeature").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VideoQuality").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Count").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Start").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetCustomerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransferMessage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HdDeviceSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UhdDeviceSettings").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

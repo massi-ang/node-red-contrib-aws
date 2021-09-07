@@ -1,0 +1,862 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DeviceFarm">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDevicePool">CreateDevicePool</option>
+		
+			<option value="CreateInstanceProfile">CreateInstanceProfile</option>
+		
+			<option value="CreateNetworkProfile">CreateNetworkProfile</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateRemoteAccessSession">CreateRemoteAccessSession</option>
+		
+			<option value="CreateTestGridProject">CreateTestGridProject</option>
+		
+			<option value="CreateTestGridUrl">CreateTestGridUrl</option>
+		
+			<option value="CreateUpload">CreateUpload</option>
+		
+			<option value="CreateVPCEConfiguration">CreateVPCEConfiguration</option>
+		
+			<option value="DeleteDevicePool">DeleteDevicePool</option>
+		
+			<option value="DeleteInstanceProfile">DeleteInstanceProfile</option>
+		
+			<option value="DeleteNetworkProfile">DeleteNetworkProfile</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteRemoteAccessSession">DeleteRemoteAccessSession</option>
+		
+			<option value="DeleteRun">DeleteRun</option>
+		
+			<option value="DeleteTestGridProject">DeleteTestGridProject</option>
+		
+			<option value="DeleteUpload">DeleteUpload</option>
+		
+			<option value="DeleteVPCEConfiguration">DeleteVPCEConfiguration</option>
+		
+			<option value="GetAccountSettings">GetAccountSettings</option>
+		
+			<option value="GetDevice">GetDevice</option>
+		
+			<option value="GetDeviceInstance">GetDeviceInstance</option>
+		
+			<option value="GetDevicePool">GetDevicePool</option>
+		
+			<option value="GetDevicePoolCompatibility">GetDevicePoolCompatibility</option>
+		
+			<option value="GetInstanceProfile">GetInstanceProfile</option>
+		
+			<option value="GetJob">GetJob</option>
+		
+			<option value="GetNetworkProfile">GetNetworkProfile</option>
+		
+			<option value="GetOfferingStatus">GetOfferingStatus</option>
+		
+			<option value="GetProject">GetProject</option>
+		
+			<option value="GetRemoteAccessSession">GetRemoteAccessSession</option>
+		
+			<option value="GetRun">GetRun</option>
+		
+			<option value="GetSuite">GetSuite</option>
+		
+			<option value="GetTest">GetTest</option>
+		
+			<option value="GetTestGridProject">GetTestGridProject</option>
+		
+			<option value="GetTestGridSession">GetTestGridSession</option>
+		
+			<option value="GetUpload">GetUpload</option>
+		
+			<option value="GetVPCEConfiguration">GetVPCEConfiguration</option>
+		
+			<option value="InstallToRemoteAccessSession">InstallToRemoteAccessSession</option>
+		
+			<option value="ListArtifacts">ListArtifacts</option>
+		
+			<option value="ListDeviceInstances">ListDeviceInstances</option>
+		
+			<option value="ListDevicePools">ListDevicePools</option>
+		
+			<option value="ListDevices">ListDevices</option>
+		
+			<option value="ListInstanceProfiles">ListInstanceProfiles</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListNetworkProfiles">ListNetworkProfiles</option>
+		
+			<option value="ListOfferingPromotions">ListOfferingPromotions</option>
+		
+			<option value="ListOfferingTransactions">ListOfferingTransactions</option>
+		
+			<option value="ListOfferings">ListOfferings</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListRemoteAccessSessions">ListRemoteAccessSessions</option>
+		
+			<option value="ListRuns">ListRuns</option>
+		
+			<option value="ListSamples">ListSamples</option>
+		
+			<option value="ListSuites">ListSuites</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTestGridProjects">ListTestGridProjects</option>
+		
+			<option value="ListTestGridSessionActions">ListTestGridSessionActions</option>
+		
+			<option value="ListTestGridSessionArtifacts">ListTestGridSessionArtifacts</option>
+		
+			<option value="ListTestGridSessions">ListTestGridSessions</option>
+		
+			<option value="ListTests">ListTests</option>
+		
+			<option value="ListUniqueProblems">ListUniqueProblems</option>
+		
+			<option value="ListUploads">ListUploads</option>
+		
+			<option value="ListVPCEConfigurations">ListVPCEConfigurations</option>
+		
+			<option value="PurchaseOffering">PurchaseOffering</option>
+		
+			<option value="RenewOffering">RenewOffering</option>
+		
+			<option value="ScheduleRun">ScheduleRun</option>
+		
+			<option value="StopJob">StopJob</option>
+		
+			<option value="StopRemoteAccessSession">StopRemoteAccessSession</option>
+		
+			<option value="StopRun">StopRun</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDeviceInstance">UpdateDeviceInstance</option>
+		
+			<option value="UpdateDevicePool">UpdateDevicePool</option>
+		
+			<option value="UpdateInstanceProfile">UpdateInstanceProfile</option>
+		
+			<option value="UpdateNetworkProfile">UpdateNetworkProfile</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		
+			<option value="UpdateTestGridProject">UpdateTestGridProject</option>
+		
+			<option value="UpdateUpload">UpdateUpload</option>
+		
+			<option value="UpdateVPCEConfiguration">UpdateVPCEConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='projectArnAttr' class='hiddenAttrs'>
+		<label for="node-input-projectArn"><i class="fa fa-tag"></i> projectArn</label>
+		<input type="text" id="node-input-projectArn" placeholder="projectArn"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='rulesAttr' class='hiddenAttrs'>
+		<label for="node-input-rules"><i class="fa fa-tag"></i> rules</label>
+		<input type="text" id="node-input-rules" placeholder="rules"></input>
+	</div> 
+	<div class="form-row" id='maxDevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-maxDevices"><i class="fa fa-tag"></i> maxDevices</label>
+		<input type="text" id="node-input-maxDevices" placeholder="maxDevices"></input>
+	</div> 
+	<div class="form-row" id='packageCleanupAttr' class='hiddenAttrs'>
+		<label for="node-input-packageCleanup"><i class="fa fa-tag"></i> packageCleanup</label>
+		<input type="text" id="node-input-packageCleanup" placeholder="packageCleanup"></input>
+	</div> 
+	<div class="form-row" id='excludeAppPackagesFromCleanupAttr' class='hiddenAttrs'>
+		<label for="node-input-excludeAppPackagesFromCleanup"><i class="fa fa-tag"></i> excludeAppPackagesFromCleanup</label>
+		<input type="text" id="node-input-excludeAppPackagesFromCleanup" placeholder="excludeAppPackagesFromCleanup"></input>
+	</div> 
+	<div class="form-row" id='rebootAfterUseAttr' class='hiddenAttrs'>
+		<label for="node-input-rebootAfterUse"><i class="fa fa-tag"></i> rebootAfterUse</label>
+		<input type="text" id="node-input-rebootAfterUse" placeholder="rebootAfterUse"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='uplinkBandwidthBitsAttr' class='hiddenAttrs'>
+		<label for="node-input-uplinkBandwidthBits"><i class="fa fa-tag"></i> uplinkBandwidthBits</label>
+		<input type="text" id="node-input-uplinkBandwidthBits" placeholder="uplinkBandwidthBits"></input>
+	</div> 
+	<div class="form-row" id='downlinkBandwidthBitsAttr' class='hiddenAttrs'>
+		<label for="node-input-downlinkBandwidthBits"><i class="fa fa-tag"></i> downlinkBandwidthBits</label>
+		<input type="text" id="node-input-downlinkBandwidthBits" placeholder="downlinkBandwidthBits"></input>
+	</div> 
+	<div class="form-row" id='uplinkDelayMsAttr' class='hiddenAttrs'>
+		<label for="node-input-uplinkDelayMs"><i class="fa fa-tag"></i> uplinkDelayMs</label>
+		<input type="text" id="node-input-uplinkDelayMs" placeholder="uplinkDelayMs"></input>
+	</div> 
+	<div class="form-row" id='downlinkDelayMsAttr' class='hiddenAttrs'>
+		<label for="node-input-downlinkDelayMs"><i class="fa fa-tag"></i> downlinkDelayMs</label>
+		<input type="text" id="node-input-downlinkDelayMs" placeholder="downlinkDelayMs"></input>
+	</div> 
+	<div class="form-row" id='uplinkJitterMsAttr' class='hiddenAttrs'>
+		<label for="node-input-uplinkJitterMs"><i class="fa fa-tag"></i> uplinkJitterMs</label>
+		<input type="text" id="node-input-uplinkJitterMs" placeholder="uplinkJitterMs"></input>
+	</div> 
+	<div class="form-row" id='downlinkJitterMsAttr' class='hiddenAttrs'>
+		<label for="node-input-downlinkJitterMs"><i class="fa fa-tag"></i> downlinkJitterMs</label>
+		<input type="text" id="node-input-downlinkJitterMs" placeholder="downlinkJitterMs"></input>
+	</div> 
+	<div class="form-row" id='uplinkLossPercentAttr' class='hiddenAttrs'>
+		<label for="node-input-uplinkLossPercent"><i class="fa fa-tag"></i> uplinkLossPercent</label>
+		<input type="text" id="node-input-uplinkLossPercent" placeholder="uplinkLossPercent"></input>
+	</div> 
+	<div class="form-row" id='downlinkLossPercentAttr' class='hiddenAttrs'>
+		<label for="node-input-downlinkLossPercent"><i class="fa fa-tag"></i> downlinkLossPercent</label>
+		<input type="text" id="node-input-downlinkLossPercent" placeholder="downlinkLossPercent"></input>
+	</div> 
+	<div class="form-row" id='defaultJobTimeoutMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultJobTimeoutMinutes"><i class="fa fa-tag"></i> defaultJobTimeoutMinutes</label>
+		<input type="text" id="node-input-defaultJobTimeoutMinutes" placeholder="defaultJobTimeoutMinutes"></input>
+	</div> 
+	<div class="form-row" id='deviceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-deviceArn"><i class="fa fa-tag"></i> deviceArn</label>
+		<input type="text" id="node-input-deviceArn" placeholder="deviceArn"></input>
+	</div> 
+	<div class="form-row" id='instanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceArn"><i class="fa fa-tag"></i> instanceArn</label>
+		<input type="text" id="node-input-instanceArn" placeholder="instanceArn"></input>
+	</div> 
+	<div class="form-row" id='sshPublicKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-sshPublicKey"><i class="fa fa-tag"></i> sshPublicKey</label>
+		<input type="text" id="node-input-sshPublicKey" placeholder="sshPublicKey"></input>
+	</div> 
+	<div class="form-row" id='remoteDebugEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-remoteDebugEnabled"><i class="fa fa-tag"></i> remoteDebugEnabled</label>
+		<input type="text" id="node-input-remoteDebugEnabled" placeholder="remoteDebugEnabled"></input>
+	</div> 
+	<div class="form-row" id='remoteRecordEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-remoteRecordEnabled"><i class="fa fa-tag"></i> remoteRecordEnabled</label>
+		<input type="text" id="node-input-remoteRecordEnabled" placeholder="remoteRecordEnabled"></input>
+	</div> 
+	<div class="form-row" id='remoteRecordAppArnAttr' class='hiddenAttrs'>
+		<label for="node-input-remoteRecordAppArn"><i class="fa fa-tag"></i> remoteRecordAppArn</label>
+		<input type="text" id="node-input-remoteRecordAppArn" placeholder="remoteRecordAppArn"></input>
+	</div> 
+	<div class="form-row" id='clientIdAttr' class='hiddenAttrs'>
+		<label for="node-input-clientId"><i class="fa fa-tag"></i> clientId</label>
+		<input type="text" id="node-input-clientId" placeholder="clientId"></input>
+	</div> 
+	<div class="form-row" id='configurationAttr' class='hiddenAttrs'>
+		<label for="node-input-configuration"><i class="fa fa-tag"></i> configuration</label>
+		<input type="text" id="node-input-configuration" placeholder="configuration"></input>
+	</div> 
+	<div class="form-row" id='interactionModeAttr' class='hiddenAttrs'>
+		<label for="node-input-interactionMode"><i class="fa fa-tag"></i> interactionMode</label>
+		<input type="text" id="node-input-interactionMode" placeholder="interactionMode"></input>
+	</div> 
+	<div class="form-row" id='skipAppResignAttr' class='hiddenAttrs'>
+		<label for="node-input-skipAppResign"><i class="fa fa-tag"></i> skipAppResign</label>
+		<input type="text" id="node-input-skipAppResign" placeholder="skipAppResign"></input>
+	</div> 
+	<div class="form-row" id='vpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-vpcConfig"><i class="fa fa-tag"></i> vpcConfig</label>
+		<input type="text" id="node-input-vpcConfig" placeholder="vpcConfig"></input>
+	</div> 
+	<div class="form-row" id='expiresInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-expiresInSeconds"><i class="fa fa-tag"></i> expiresInSeconds</label>
+		<input type="text" id="node-input-expiresInSeconds" placeholder="expiresInSeconds"></input>
+	</div> 
+	<div class="form-row" id='contentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-contentType"><i class="fa fa-tag"></i> contentType</label>
+		<input type="text" id="node-input-contentType" placeholder="contentType"></input>
+	</div> 
+	<div class="form-row" id='vpceConfigurationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-vpceConfigurationName"><i class="fa fa-tag"></i> vpceConfigurationName</label>
+		<input type="text" id="node-input-vpceConfigurationName" placeholder="vpceConfigurationName"></input>
+	</div> 
+	<div class="form-row" id='vpceServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-vpceServiceName"><i class="fa fa-tag"></i> vpceServiceName</label>
+		<input type="text" id="node-input-vpceServiceName" placeholder="vpceServiceName"></input>
+	</div> 
+	<div class="form-row" id='serviceDnsNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceDnsName"><i class="fa fa-tag"></i> serviceDnsName</label>
+		<input type="text" id="node-input-serviceDnsName" placeholder="serviceDnsName"></input>
+	</div> 
+	<div class="form-row" id='vpceConfigurationDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-vpceConfigurationDescription"><i class="fa fa-tag"></i> vpceConfigurationDescription</label>
+		<input type="text" id="node-input-vpceConfigurationDescription" placeholder="vpceConfigurationDescription"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='devicePoolArnAttr' class='hiddenAttrs'>
+		<label for="node-input-devicePoolArn"><i class="fa fa-tag"></i> devicePoolArn</label>
+		<input type="text" id="node-input-devicePoolArn" placeholder="devicePoolArn"></input>
+	</div> 
+	<div class="form-row" id='appArnAttr' class='hiddenAttrs'>
+		<label for="node-input-appArn"><i class="fa fa-tag"></i> appArn</label>
+		<input type="text" id="node-input-appArn" placeholder="appArn"></input>
+	</div> 
+	<div class="form-row" id='testTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-testType"><i class="fa fa-tag"></i> testType</label>
+		<input type="text" id="node-input-testType" placeholder="testType"></input>
+	</div> 
+	<div class="form-row" id='testAttr' class='hiddenAttrs'>
+		<label for="node-input-test"><i class="fa fa-tag"></i> test</label>
+		<input type="text" id="node-input-test" placeholder="test"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='sessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-sessionId"><i class="fa fa-tag"></i> sessionId</label>
+		<input type="text" id="node-input-sessionId" placeholder="sessionId"></input>
+	</div> 
+	<div class="form-row" id='sessionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-sessionArn"><i class="fa fa-tag"></i> sessionArn</label>
+		<input type="text" id="node-input-sessionArn" placeholder="sessionArn"></input>
+	</div> 
+	<div class="form-row" id='remoteAccessSessionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-remoteAccessSessionArn"><i class="fa fa-tag"></i> remoteAccessSessionArn</label>
+		<input type="text" id="node-input-remoteAccessSessionArn" placeholder="remoteAccessSessionArn"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='maxResultAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResult"><i class="fa fa-tag"></i> maxResult</label>
+		<input type="text" id="node-input-maxResult" placeholder="maxResult"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='creationTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-creationTimeAfter"><i class="fa fa-tag"></i> creationTimeAfter</label>
+		<input type="text" id="node-input-creationTimeAfter" placeholder="creationTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='creationTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-creationTimeBefore"><i class="fa fa-tag"></i> creationTimeBefore</label>
+		<input type="text" id="node-input-creationTimeBefore" placeholder="creationTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='endTimeAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-endTimeAfter"><i class="fa fa-tag"></i> endTimeAfter</label>
+		<input type="text" id="node-input-endTimeAfter" placeholder="endTimeAfter"></input>
+	</div> 
+	<div class="form-row" id='endTimeBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTimeBefore"><i class="fa fa-tag"></i> endTimeBefore</label>
+		<input type="text" id="node-input-endTimeBefore" placeholder="endTimeBefore"></input>
+	</div> 
+	<div class="form-row" id='offeringIdAttr' class='hiddenAttrs'>
+		<label for="node-input-offeringId"><i class="fa fa-tag"></i> offeringId</label>
+		<input type="text" id="node-input-offeringId" placeholder="offeringId"></input>
+	</div> 
+	<div class="form-row" id='quantityAttr' class='hiddenAttrs'>
+		<label for="node-input-quantity"><i class="fa fa-tag"></i> quantity</label>
+		<input type="text" id="node-input-quantity" placeholder="quantity"></input>
+	</div> 
+	<div class="form-row" id='offeringPromotionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-offeringPromotionId"><i class="fa fa-tag"></i> offeringPromotionId</label>
+		<input type="text" id="node-input-offeringPromotionId" placeholder="offeringPromotionId"></input>
+	</div> 
+	<div class="form-row" id='deviceSelectionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-deviceSelectionConfiguration"><i class="fa fa-tag"></i> deviceSelectionConfiguration</label>
+		<input type="text" id="node-input-deviceSelectionConfiguration" placeholder="deviceSelectionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='executionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-executionConfiguration"><i class="fa fa-tag"></i> executionConfiguration</label>
+		<input type="text" id="node-input-executionConfiguration" placeholder="executionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='profileArnAttr' class='hiddenAttrs'>
+		<label for="node-input-profileArn"><i class="fa fa-tag"></i> profileArn</label>
+		<input type="text" id="node-input-profileArn" placeholder="profileArn"></input>
+	</div> 
+	<div class="form-row" id='labelsAttr' class='hiddenAttrs'>
+		<label for="node-input-labels"><i class="fa fa-tag"></i> labels</label>
+		<input type="text" id="node-input-labels" placeholder="labels"></input>
+	</div> 
+	<div class="form-row" id='clearMaxDevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-clearMaxDevices"><i class="fa fa-tag"></i> clearMaxDevices</label>
+		<input type="text" id="node-input-clearMaxDevices" placeholder="clearMaxDevices"></input>
+	</div> 
+	<div class="form-row" id='editContentAttr' class='hiddenAttrs'>
+		<label for="node-input-editContent"><i class="fa fa-tag"></i> editContent</label>
+		<input type="text" id="node-input-editContent" placeholder="editContent"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDevicePool:[
+					'#projectArnAttr','#nameAttr','#descriptionAttr','#rulesAttr','#maxDevicesAttr'
+					],
+				CreateInstanceProfile:[
+					'#nameAttr','#descriptionAttr','#packageCleanupAttr','#excludeAppPackagesFromCleanupAttr','#rebootAfterUseAttr'
+					],
+				CreateNetworkProfile:[
+					'#projectArnAttr','#nameAttr','#descriptionAttr','#typeAttr','#uplinkBandwidthBitsAttr','#downlinkBandwidthBitsAttr','#uplinkDelayMsAttr','#downlinkDelayMsAttr','#uplinkJitterMsAttr','#downlinkJitterMsAttr','#uplinkLossPercentAttr','#downlinkLossPercentAttr'
+					],
+				CreateProject:[
+					'#nameAttr','#defaultJobTimeoutMinutesAttr'
+					],
+				CreateRemoteAccessSession:[
+					'#projectArnAttr','#deviceArnAttr','#instanceArnAttr','#sshPublicKeyAttr','#remoteDebugEnabledAttr','#remoteRecordEnabledAttr','#remoteRecordAppArnAttr','#nameAttr','#clientIdAttr','#configurationAttr','#interactionModeAttr','#skipAppResignAttr'
+					],
+				CreateTestGridProject:[
+					'#nameAttr','#descriptionAttr','#vpcConfigAttr'
+					],
+				CreateTestGridUrl:[
+					'#projectArnAttr','#expiresInSecondsAttr'
+					],
+				CreateUpload:[
+					'#projectArnAttr','#nameAttr','#typeAttr','#contentTypeAttr'
+					],
+				CreateVPCEConfiguration:[
+					'#vpceConfigurationNameAttr','#vpceServiceNameAttr','#serviceDnsNameAttr','#vpceConfigurationDescriptionAttr'
+					],
+				DeleteDevicePool:[
+					'#arnAttr'
+					],
+				DeleteInstanceProfile:[
+					'#arnAttr'
+					],
+				DeleteNetworkProfile:[
+					'#arnAttr'
+					],
+				DeleteProject:[
+					'#arnAttr'
+					],
+				DeleteRemoteAccessSession:[
+					'#arnAttr'
+					],
+				DeleteRun:[
+					'#arnAttr'
+					],
+				DeleteTestGridProject:[
+					'#projectArnAttr'
+					],
+				DeleteUpload:[
+					'#arnAttr'
+					],
+				DeleteVPCEConfiguration:[
+					'#arnAttr'
+					],
+				GetAccountSettings:[
+					
+					],
+				GetDevice:[
+					'#arnAttr'
+					],
+				GetDeviceInstance:[
+					'#arnAttr'
+					],
+				GetDevicePool:[
+					'#arnAttr'
+					],
+				GetDevicePoolCompatibility:[
+					'#devicePoolArnAttr','#appArnAttr','#testTypeAttr','#testAttr','#configurationAttr'
+					],
+				GetInstanceProfile:[
+					'#arnAttr'
+					],
+				GetJob:[
+					'#arnAttr'
+					],
+				GetNetworkProfile:[
+					'#arnAttr'
+					],
+				GetOfferingStatus:[
+					'#nextTokenAttr'
+					],
+				GetProject:[
+					'#arnAttr'
+					],
+				GetRemoteAccessSession:[
+					'#arnAttr'
+					],
+				GetRun:[
+					'#arnAttr'
+					],
+				GetSuite:[
+					'#arnAttr'
+					],
+				GetTest:[
+					'#arnAttr'
+					],
+				GetTestGridProject:[
+					'#projectArnAttr'
+					],
+				GetTestGridSession:[
+					'#projectArnAttr','#sessionIdAttr','#sessionArnAttr'
+					],
+				GetUpload:[
+					'#arnAttr'
+					],
+				GetVPCEConfiguration:[
+					'#arnAttr'
+					],
+				InstallToRemoteAccessSession:[
+					'#remoteAccessSessionArnAttr','#appArnAttr'
+					],
+				ListArtifacts:[
+					'#arnAttr','#typeAttr','#nextTokenAttr'
+					],
+				ListDeviceInstances:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListDevicePools:[
+					'#arnAttr','#typeAttr','#nextTokenAttr'
+					],
+				ListDevices:[
+					'#arnAttr','#nextTokenAttr','#filtersAttr'
+					],
+				ListInstanceProfiles:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListJobs:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListNetworkProfiles:[
+					'#arnAttr','#typeAttr','#nextTokenAttr'
+					],
+				ListOfferingPromotions:[
+					'#nextTokenAttr'
+					],
+				ListOfferingTransactions:[
+					'#nextTokenAttr'
+					],
+				ListOfferings:[
+					'#nextTokenAttr'
+					],
+				ListProjects:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListRemoteAccessSessions:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListRuns:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListSamples:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListSuites:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListTestGridProjects:[
+					'#maxResultAttr','#nextTokenAttr'
+					],
+				ListTestGridSessionActions:[
+					'#sessionArnAttr','#maxResultAttr','#nextTokenAttr'
+					],
+				ListTestGridSessionArtifacts:[
+					'#sessionArnAttr','#typeAttr','#maxResultAttr','#nextTokenAttr'
+					],
+				ListTestGridSessions:[
+					'#projectArnAttr','#statusAttr','#creationTimeAfterAttr','#creationTimeBeforeAttr','#endTimeAfterAttr','#endTimeBeforeAttr','#maxResultAttr','#nextTokenAttr'
+					],
+				ListTests:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListUniqueProblems:[
+					'#arnAttr','#nextTokenAttr'
+					],
+				ListUploads:[
+					'#arnAttr','#typeAttr','#nextTokenAttr'
+					],
+				ListVPCEConfigurations:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				PurchaseOffering:[
+					'#offeringIdAttr','#quantityAttr','#offeringPromotionIdAttr'
+					],
+				RenewOffering:[
+					'#offeringIdAttr','#quantityAttr'
+					],
+				ScheduleRun:[
+					'#projectArnAttr','#appArnAttr','#devicePoolArnAttr','#deviceSelectionConfigurationAttr','#nameAttr','#testAttr','#configurationAttr','#executionConfigurationAttr'
+					],
+				StopJob:[
+					'#arnAttr'
+					],
+				StopRemoteAccessSession:[
+					'#arnAttr'
+					],
+				StopRun:[
+					'#arnAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateDeviceInstance:[
+					'#arnAttr','#profileArnAttr','#labelsAttr'
+					],
+				UpdateDevicePool:[
+					'#arnAttr','#nameAttr','#descriptionAttr','#rulesAttr','#maxDevicesAttr','#clearMaxDevicesAttr'
+					],
+				UpdateInstanceProfile:[
+					'#arnAttr','#nameAttr','#descriptionAttr','#packageCleanupAttr','#excludeAppPackagesFromCleanupAttr','#rebootAfterUseAttr'
+					],
+				UpdateNetworkProfile:[
+					'#arnAttr','#nameAttr','#descriptionAttr','#typeAttr','#uplinkBandwidthBitsAttr','#downlinkBandwidthBitsAttr','#uplinkDelayMsAttr','#downlinkDelayMsAttr','#uplinkJitterMsAttr','#downlinkJitterMsAttr','#uplinkLossPercentAttr','#downlinkLossPercentAttr'
+					],
+				UpdateProject:[
+					'#arnAttr','#nameAttr','#defaultJobTimeoutMinutesAttr'
+					],
+				UpdateTestGridProject:[
+					'#projectArnAttr','#nameAttr','#descriptionAttr','#vpcConfigAttr'
+					],
+				UpdateUpload:[
+					'#arnAttr','#nameAttr','#contentTypeAttr','#editContentAttr'
+					],
+				UpdateVPCEConfiguration:[
+					'#arnAttr','#vpceConfigurationNameAttr','#vpceServiceNameAttr','#serviceDnsNameAttr','#vpceConfigurationDescriptionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DeviceFarm">
+<p>
+AWS DeviceFarm
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DeviceFarm.html">DeviceFarm</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DeviceFarm',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDevicePool' },
+			
+				projectArn: { value: ""} ,
+				name: { value: ""} ,
+				description: { value: ""} ,
+				rules: { value: ""} ,
+				maxDevices: { value: ""} ,
+				packageCleanup: { value: ""} ,
+				excludeAppPackagesFromCleanup: { value: ""} ,
+				rebootAfterUse: { value: ""} ,
+				_type: { value: ""} ,
+				uplinkBandwidthBits: { value: ""} ,
+				downlinkBandwidthBits: { value: ""} ,
+				uplinkDelayMs: { value: ""} ,
+				downlinkDelayMs: { value: ""} ,
+				uplinkJitterMs: { value: ""} ,
+				downlinkJitterMs: { value: ""} ,
+				uplinkLossPercent: { value: ""} ,
+				downlinkLossPercent: { value: ""} ,
+				defaultJobTimeoutMinutes: { value: ""} ,
+				deviceArn: { value: ""} ,
+				instanceArn: { value: ""} ,
+				sshPublicKey: { value: ""} ,
+				remoteDebugEnabled: { value: ""} ,
+				remoteRecordEnabled: { value: ""} ,
+				remoteRecordAppArn: { value: ""} ,
+				clientId: { value: ""} ,
+				configuration: { value: ""} ,
+				interactionMode: { value: ""} ,
+				skipAppResign: { value: ""} ,
+				vpcConfig: { value: ""} ,
+				expiresInSeconds: { value: ""} ,
+				contentType: { value: ""} ,
+				vpceConfigurationName: { value: ""} ,
+				vpceServiceName: { value: ""} ,
+				serviceDnsName: { value: ""} ,
+				vpceConfigurationDescription: { value: ""} ,
+				arn: { value: ""} ,
+				devicePoolArn: { value: ""} ,
+				appArn: { value: ""} ,
+				testType: { value: ""} ,
+				test: { value: ""} ,
+				nextToken: { value: ""} ,
+				sessionId: { value: ""} ,
+				sessionArn: { value: ""} ,
+				remoteAccessSessionArn: { value: ""} ,
+				maxResults: { value: ""} ,
+				filters: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				maxResult: { value: ""} ,
+				status: { value: ""} ,
+				creationTimeAfter: { value: ""} ,
+				creationTimeBefore: { value: ""} ,
+				endTimeAfter: { value: ""} ,
+				endTimeBefore: { value: ""} ,
+				offeringId: { value: ""} ,
+				quantity: { value: ""} ,
+				offeringPromotionId: { value: ""} ,
+				deviceSelectionConfiguration: { value: ""} ,
+				executionConfiguration: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				profileArn: { value: ""} ,
+				labels: { value: ""} ,
+				clearMaxDevices: { value: ""} ,
+				editContent: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DeviceFarm " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-projectArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-rules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxDevices").typedInput({ default: "num", types: ["num"]});
+$("#node-input-packageCleanup").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-excludeAppPackagesFromCleanup").typedInput({ default: "str", types: ["str"]});
+$("#node-input-rebootAfterUse").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+
+$("#node-input-uplinkLossPercent").typedInput({ default: "num", types: ["num"]});
+$("#node-input-downlinkLossPercent").typedInput({ default: "num", types: ["num"]});
+$("#node-input-defaultJobTimeoutMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-deviceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sshPublicKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-remoteDebugEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-remoteRecordEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-remoteRecordAppArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-interactionMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-skipAppResign").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-vpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-expiresInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-contentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpceConfigurationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpceServiceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceDnsName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpceConfigurationDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-devicePoolArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-appArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-testType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-test").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sessionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-remoteAccessSessionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResult").typedInput({ default: "num", types: ["num"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-offeringId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-quantity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-offeringPromotionId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-profileArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-labels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clearMaxDevices").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-editContent").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

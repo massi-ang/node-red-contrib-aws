@@ -1,0 +1,724 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeDeploy">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToOnPremisesInstances">AddTagsToOnPremisesInstances</option>
+		
+			<option value="BatchGetApplicationRevisions">BatchGetApplicationRevisions</option>
+		
+			<option value="BatchGetApplications">BatchGetApplications</option>
+		
+			<option value="BatchGetDeploymentGroups">BatchGetDeploymentGroups</option>
+		
+			<option value="BatchGetDeploymentInstances">BatchGetDeploymentInstances</option>
+		
+			<option value="BatchGetDeploymentTargets">BatchGetDeploymentTargets</option>
+		
+			<option value="BatchGetDeployments">BatchGetDeployments</option>
+		
+			<option value="BatchGetOnPremisesInstances">BatchGetOnPremisesInstances</option>
+		
+			<option value="ContinueDeployment">ContinueDeployment</option>
+		
+			<option value="CreateApplication">CreateApplication</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDeploymentConfig">CreateDeploymentConfig</option>
+		
+			<option value="CreateDeploymentGroup">CreateDeploymentGroup</option>
+		
+			<option value="DeleteApplication">DeleteApplication</option>
+		
+			<option value="DeleteDeploymentConfig">DeleteDeploymentConfig</option>
+		
+			<option value="DeleteDeploymentGroup">DeleteDeploymentGroup</option>
+		
+			<option value="DeleteGitHubAccountToken">DeleteGitHubAccountToken</option>
+		
+			<option value="DeleteResourcesByExternalId">DeleteResourcesByExternalId</option>
+		
+			<option value="DeregisterOnPremisesInstance">DeregisterOnPremisesInstance</option>
+		
+			<option value="GetApplication">GetApplication</option>
+		
+			<option value="GetApplicationRevision">GetApplicationRevision</option>
+		
+			<option value="GetDeployment">GetDeployment</option>
+		
+			<option value="GetDeploymentConfig">GetDeploymentConfig</option>
+		
+			<option value="GetDeploymentGroup">GetDeploymentGroup</option>
+		
+			<option value="GetDeploymentInstance">GetDeploymentInstance</option>
+		
+			<option value="GetDeploymentTarget">GetDeploymentTarget</option>
+		
+			<option value="GetOnPremisesInstance">GetOnPremisesInstance</option>
+		
+			<option value="ListApplicationRevisions">ListApplicationRevisions</option>
+		
+			<option value="ListApplications">ListApplications</option>
+		
+			<option value="ListDeploymentConfigs">ListDeploymentConfigs</option>
+		
+			<option value="ListDeploymentGroups">ListDeploymentGroups</option>
+		
+			<option value="ListDeploymentInstances">ListDeploymentInstances</option>
+		
+			<option value="ListDeploymentTargets">ListDeploymentTargets</option>
+		
+			<option value="ListDeployments">ListDeployments</option>
+		
+			<option value="ListGitHubAccountTokenNames">ListGitHubAccountTokenNames</option>
+		
+			<option value="ListOnPremisesInstances">ListOnPremisesInstances</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutLifecycleEventHookExecutionStatus">PutLifecycleEventHookExecutionStatus</option>
+		
+			<option value="RegisterApplicationRevision">RegisterApplicationRevision</option>
+		
+			<option value="RegisterOnPremisesInstance">RegisterOnPremisesInstance</option>
+		
+			<option value="RemoveTagsFromOnPremisesInstances">RemoveTagsFromOnPremisesInstances</option>
+		
+			<option value="SkipWaitTimeForInstanceTermination">SkipWaitTimeForInstanceTermination</option>
+		
+			<option value="StopDeployment">StopDeployment</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApplication">UpdateApplication</option>
+		
+			<option value="UpdateDeploymentGroup">UpdateDeploymentGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='instanceNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceNames"><i class="fa fa-tag"></i> instanceNames</label>
+		<input type="text" id="node-input-instanceNames" placeholder="instanceNames"></input>
+	</div> 
+	<div class="form-row" id='applicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-applicationName"><i class="fa fa-tag"></i> applicationName</label>
+		<input type="text" id="node-input-applicationName" placeholder="applicationName"></input>
+	</div> 
+	<div class="form-row" id='revisionsAttr' class='hiddenAttrs'>
+		<label for="node-input-revisions"><i class="fa fa-tag"></i> revisions</label>
+		<input type="text" id="node-input-revisions" placeholder="revisions"></input>
+	</div> 
+	<div class="form-row" id='applicationNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-applicationNames"><i class="fa fa-tag"></i> applicationNames</label>
+		<input type="text" id="node-input-applicationNames" placeholder="applicationNames"></input>
+	</div> 
+	<div class="form-row" id='deploymentGroupNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentGroupNames"><i class="fa fa-tag"></i> deploymentGroupNames</label>
+		<input type="text" id="node-input-deploymentGroupNames" placeholder="deploymentGroupNames"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentId"><i class="fa fa-tag"></i> deploymentId</label>
+		<input type="text" id="node-input-deploymentId" placeholder="deploymentId"></input>
+	</div> 
+	<div class="form-row" id='instanceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceIds"><i class="fa fa-tag"></i> instanceIds</label>
+		<input type="text" id="node-input-instanceIds" placeholder="instanceIds"></input>
+	</div> 
+	<div class="form-row" id='targetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-targetIds"><i class="fa fa-tag"></i> targetIds</label>
+		<input type="text" id="node-input-targetIds" placeholder="targetIds"></input>
+	</div> 
+	<div class="form-row" id='deploymentIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentIds"><i class="fa fa-tag"></i> deploymentIds</label>
+		<input type="text" id="node-input-deploymentIds" placeholder="deploymentIds"></input>
+	</div> 
+	<div class="form-row" id='deploymentWaitTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentWaitType"><i class="fa fa-tag"></i> deploymentWaitType</label>
+		<input type="text" id="node-input-deploymentWaitType" placeholder="deploymentWaitType"></input>
+	</div> 
+	<div class="form-row" id='computePlatformAttr' class='hiddenAttrs'>
+		<label for="node-input-computePlatform"><i class="fa fa-tag"></i> computePlatform</label>
+		<input type="text" id="node-input-computePlatform" placeholder="computePlatform"></input>
+	</div> 
+	<div class="form-row" id='deploymentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentGroupName"><i class="fa fa-tag"></i> deploymentGroupName</label>
+		<input type="text" id="node-input-deploymentGroupName" placeholder="deploymentGroupName"></input>
+	</div> 
+	<div class="form-row" id='revisionAttr' class='hiddenAttrs'>
+		<label for="node-input-revision"><i class="fa fa-tag"></i> revision</label>
+		<input type="text" id="node-input-revision" placeholder="revision"></input>
+	</div> 
+	<div class="form-row" id='deploymentConfigNameAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentConfigName"><i class="fa fa-tag"></i> deploymentConfigName</label>
+		<input type="text" id="node-input-deploymentConfigName" placeholder="deploymentConfigName"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='ignoreApplicationStopFailuresAttr' class='hiddenAttrs'>
+		<label for="node-input-ignoreApplicationStopFailures"><i class="fa fa-tag"></i> ignoreApplicationStopFailures</label>
+		<input type="text" id="node-input-ignoreApplicationStopFailures" placeholder="ignoreApplicationStopFailures"></input>
+	</div> 
+	<div class="form-row" id='targetInstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-targetInstances"><i class="fa fa-tag"></i> targetInstances</label>
+		<input type="text" id="node-input-targetInstances" placeholder="targetInstances"></input>
+	</div> 
+	<div class="form-row" id='autoRollbackConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-autoRollbackConfiguration"><i class="fa fa-tag"></i> autoRollbackConfiguration</label>
+		<input type="text" id="node-input-autoRollbackConfiguration" placeholder="autoRollbackConfiguration"></input>
+	</div> 
+	<div class="form-row" id='updateOutdatedInstancesOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-updateOutdatedInstancesOnly"><i class="fa fa-tag"></i> updateOutdatedInstancesOnly</label>
+		<input type="text" id="node-input-updateOutdatedInstancesOnly" placeholder="updateOutdatedInstancesOnly"></input>
+	</div> 
+	<div class="form-row" id='fileExistsBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-fileExistsBehavior"><i class="fa fa-tag"></i> fileExistsBehavior</label>
+		<input type="text" id="node-input-fileExistsBehavior" placeholder="fileExistsBehavior"></input>
+	</div> 
+	<div class="form-row" id='minimumHealthyHostsAttr' class='hiddenAttrs'>
+		<label for="node-input-minimumHealthyHosts"><i class="fa fa-tag"></i> minimumHealthyHosts</label>
+		<input type="text" id="node-input-minimumHealthyHosts" placeholder="minimumHealthyHosts"></input>
+	</div> 
+	<div class="form-row" id='trafficRoutingConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-trafficRoutingConfig"><i class="fa fa-tag"></i> trafficRoutingConfig</label>
+		<input type="text" id="node-input-trafficRoutingConfig" placeholder="trafficRoutingConfig"></input>
+	</div> 
+	<div class="form-row" id='ec2TagFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2TagFilters"><i class="fa fa-tag"></i> ec2TagFilters</label>
+		<input type="text" id="node-input-ec2TagFilters" placeholder="ec2TagFilters"></input>
+	</div> 
+	<div class="form-row" id='onPremisesInstanceTagFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-onPremisesInstanceTagFilters"><i class="fa fa-tag"></i> onPremisesInstanceTagFilters</label>
+		<input type="text" id="node-input-onPremisesInstanceTagFilters" placeholder="onPremisesInstanceTagFilters"></input>
+	</div> 
+	<div class="form-row" id='autoScalingGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-autoScalingGroups"><i class="fa fa-tag"></i> autoScalingGroups</label>
+		<input type="text" id="node-input-autoScalingGroups" placeholder="autoScalingGroups"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRoleArn"><i class="fa fa-tag"></i> serviceRoleArn</label>
+		<input type="text" id="node-input-serviceRoleArn" placeholder="serviceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='triggerConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-triggerConfigurations"><i class="fa fa-tag"></i> triggerConfigurations</label>
+		<input type="text" id="node-input-triggerConfigurations" placeholder="triggerConfigurations"></input>
+	</div> 
+	<div class="form-row" id='alarmConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmConfiguration"><i class="fa fa-tag"></i> alarmConfiguration</label>
+		<input type="text" id="node-input-alarmConfiguration" placeholder="alarmConfiguration"></input>
+	</div> 
+	<div class="form-row" id='outdatedInstancesStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-outdatedInstancesStrategy"><i class="fa fa-tag"></i> outdatedInstancesStrategy</label>
+		<input type="text" id="node-input-outdatedInstancesStrategy" placeholder="outdatedInstancesStrategy"></input>
+	</div> 
+	<div class="form-row" id='deploymentStyleAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentStyle"><i class="fa fa-tag"></i> deploymentStyle</label>
+		<input type="text" id="node-input-deploymentStyle" placeholder="deploymentStyle"></input>
+	</div> 
+	<div class="form-row" id='blueGreenDeploymentConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-blueGreenDeploymentConfiguration"><i class="fa fa-tag"></i> blueGreenDeploymentConfiguration</label>
+		<input type="text" id="node-input-blueGreenDeploymentConfiguration" placeholder="blueGreenDeploymentConfiguration"></input>
+	</div> 
+	<div class="form-row" id='loadBalancerInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-loadBalancerInfo"><i class="fa fa-tag"></i> loadBalancerInfo</label>
+		<input type="text" id="node-input-loadBalancerInfo" placeholder="loadBalancerInfo"></input>
+	</div> 
+	<div class="form-row" id='ec2TagSetAttr' class='hiddenAttrs'>
+		<label for="node-input-ec2TagSet"><i class="fa fa-tag"></i> ec2TagSet</label>
+		<input type="text" id="node-input-ec2TagSet" placeholder="ec2TagSet"></input>
+	</div> 
+	<div class="form-row" id='ecsServicesAttr' class='hiddenAttrs'>
+		<label for="node-input-ecsServices"><i class="fa fa-tag"></i> ecsServices</label>
+		<input type="text" id="node-input-ecsServices" placeholder="ecsServices"></input>
+	</div> 
+	<div class="form-row" id='onPremisesTagSetAttr' class='hiddenAttrs'>
+		<label for="node-input-onPremisesTagSet"><i class="fa fa-tag"></i> onPremisesTagSet</label>
+		<input type="text" id="node-input-onPremisesTagSet" placeholder="onPremisesTagSet"></input>
+	</div> 
+	<div class="form-row" id='tokenNameAttr' class='hiddenAttrs'>
+		<label for="node-input-tokenName"><i class="fa fa-tag"></i> tokenName</label>
+		<input type="text" id="node-input-tokenName" placeholder="tokenName"></input>
+	</div> 
+	<div class="form-row" id='externalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-externalId"><i class="fa fa-tag"></i> externalId</label>
+		<input type="text" id="node-input-externalId" placeholder="externalId"></input>
+	</div> 
+	<div class="form-row" id='instanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceName"><i class="fa fa-tag"></i> instanceName</label>
+		<input type="text" id="node-input-instanceName" placeholder="instanceName"></input>
+	</div> 
+	<div class="form-row" id='instanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceId"><i class="fa fa-tag"></i> instanceId</label>
+		<input type="text" id="node-input-instanceId" placeholder="instanceId"></input>
+	</div> 
+	<div class="form-row" id='targetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-targetId"><i class="fa fa-tag"></i> targetId</label>
+		<input type="text" id="node-input-targetId" placeholder="targetId"></input>
+	</div> 
+	<div class="form-row" id='sortByAttr' class='hiddenAttrs'>
+		<label for="node-input-sortBy"><i class="fa fa-tag"></i> sortBy</label>
+		<input type="text" id="node-input-sortBy" placeholder="sortBy"></input>
+	</div> 
+	<div class="form-row" id='sortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-sortOrder"><i class="fa fa-tag"></i> sortOrder</label>
+		<input type="text" id="node-input-sortOrder" placeholder="sortOrder"></input>
+	</div> 
+	<div class="form-row" id='s3BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-s3Bucket"><i class="fa fa-tag"></i> s3Bucket</label>
+		<input type="text" id="node-input-s3Bucket" placeholder="s3Bucket"></input>
+	</div> 
+	<div class="form-row" id='s3KeyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-s3KeyPrefix"><i class="fa fa-tag"></i> s3KeyPrefix</label>
+		<input type="text" id="node-input-s3KeyPrefix" placeholder="s3KeyPrefix"></input>
+	</div> 
+	<div class="form-row" id='deployedAttr' class='hiddenAttrs'>
+		<label for="node-input-deployed"><i class="fa fa-tag"></i> deployed</label>
+		<input type="text" id="node-input-deployed" placeholder="deployed"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='instanceStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceStatusFilter"><i class="fa fa-tag"></i> instanceStatusFilter</label>
+		<input type="text" id="node-input-instanceStatusFilter" placeholder="instanceStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='instanceTypeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceTypeFilter"><i class="fa fa-tag"></i> instanceTypeFilter</label>
+		<input type="text" id="node-input-instanceTypeFilter" placeholder="instanceTypeFilter"></input>
+	</div> 
+	<div class="form-row" id='targetFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-targetFilters"><i class="fa fa-tag"></i> targetFilters</label>
+		<input type="text" id="node-input-targetFilters" placeholder="targetFilters"></input>
+	</div> 
+	<div class="form-row" id='includeOnlyStatusesAttr' class='hiddenAttrs'>
+		<label for="node-input-includeOnlyStatuses"><i class="fa fa-tag"></i> includeOnlyStatuses</label>
+		<input type="text" id="node-input-includeOnlyStatuses" placeholder="includeOnlyStatuses"></input>
+	</div> 
+	<div class="form-row" id='createTimeRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-createTimeRange"><i class="fa fa-tag"></i> createTimeRange</label>
+		<input type="text" id="node-input-createTimeRange" placeholder="createTimeRange"></input>
+	</div> 
+	<div class="form-row" id='registrationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-registrationStatus"><i class="fa fa-tag"></i> registrationStatus</label>
+		<input type="text" id="node-input-registrationStatus" placeholder="registrationStatus"></input>
+	</div> 
+	<div class="form-row" id='tagFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-tagFilters"><i class="fa fa-tag"></i> tagFilters</label>
+		<input type="text" id="node-input-tagFilters" placeholder="tagFilters"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='lifecycleEventHookExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-lifecycleEventHookExecutionId"><i class="fa fa-tag"></i> lifecycleEventHookExecutionId</label>
+		<input type="text" id="node-input-lifecycleEventHookExecutionId" placeholder="lifecycleEventHookExecutionId"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='iamSessionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-iamSessionArn"><i class="fa fa-tag"></i> iamSessionArn</label>
+		<input type="text" id="node-input-iamSessionArn" placeholder="iamSessionArn"></input>
+	</div> 
+	<div class="form-row" id='iamUserArnAttr' class='hiddenAttrs'>
+		<label for="node-input-iamUserArn"><i class="fa fa-tag"></i> iamUserArn</label>
+		<input type="text" id="node-input-iamUserArn" placeholder="iamUserArn"></input>
+	</div> 
+	<div class="form-row" id='autoRollbackEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-autoRollbackEnabled"><i class="fa fa-tag"></i> autoRollbackEnabled</label>
+		<input type="text" id="node-input-autoRollbackEnabled" placeholder="autoRollbackEnabled"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='newApplicationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newApplicationName"><i class="fa fa-tag"></i> newApplicationName</label>
+		<input type="text" id="node-input-newApplicationName" placeholder="newApplicationName"></input>
+	</div> 
+	<div class="form-row" id='currentDeploymentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-currentDeploymentGroupName"><i class="fa fa-tag"></i> currentDeploymentGroupName</label>
+		<input type="text" id="node-input-currentDeploymentGroupName" placeholder="currentDeploymentGroupName"></input>
+	</div> 
+	<div class="form-row" id='newDeploymentGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newDeploymentGroupName"><i class="fa fa-tag"></i> newDeploymentGroupName</label>
+		<input type="text" id="node-input-newDeploymentGroupName" placeholder="newDeploymentGroupName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToOnPremisesInstances:[
+					'#tagsAttr','#instanceNamesAttr'
+					],
+				BatchGetApplicationRevisions:[
+					'#applicationNameAttr','#revisionsAttr'
+					],
+				BatchGetApplications:[
+					'#applicationNamesAttr'
+					],
+				BatchGetDeploymentGroups:[
+					'#applicationNameAttr','#deploymentGroupNamesAttr'
+					],
+				BatchGetDeploymentInstances:[
+					'#deploymentIdAttr','#instanceIdsAttr'
+					],
+				BatchGetDeploymentTargets:[
+					'#deploymentIdAttr','#targetIdsAttr'
+					],
+				BatchGetDeployments:[
+					'#deploymentIdsAttr'
+					],
+				BatchGetOnPremisesInstances:[
+					'#instanceNamesAttr'
+					],
+				ContinueDeployment:[
+					'#deploymentIdAttr','#deploymentWaitTypeAttr'
+					],
+				CreateApplication:[
+					'#applicationNameAttr','#computePlatformAttr','#tagsAttr'
+					],
+				CreateDeployment:[
+					'#applicationNameAttr','#deploymentGroupNameAttr','#revisionAttr','#deploymentConfigNameAttr','#descriptionAttr','#ignoreApplicationStopFailuresAttr','#targetInstancesAttr','#autoRollbackConfigurationAttr','#updateOutdatedInstancesOnlyAttr','#fileExistsBehaviorAttr'
+					],
+				CreateDeploymentConfig:[
+					'#deploymentConfigNameAttr','#minimumHealthyHostsAttr','#trafficRoutingConfigAttr','#computePlatformAttr'
+					],
+				CreateDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr','#deploymentConfigNameAttr','#ec2TagFiltersAttr','#onPremisesInstanceTagFiltersAttr','#autoScalingGroupsAttr','#serviceRoleArnAttr','#triggerConfigurationsAttr','#alarmConfigurationAttr','#autoRollbackConfigurationAttr','#outdatedInstancesStrategyAttr','#deploymentStyleAttr','#blueGreenDeploymentConfigurationAttr','#loadBalancerInfoAttr','#ec2TagSetAttr','#ecsServicesAttr','#onPremisesTagSetAttr','#tagsAttr'
+					],
+				DeleteApplication:[
+					'#applicationNameAttr'
+					],
+				DeleteDeploymentConfig:[
+					'#deploymentConfigNameAttr'
+					],
+				DeleteDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr'
+					],
+				DeleteGitHubAccountToken:[
+					'#tokenNameAttr'
+					],
+				DeleteResourcesByExternalId:[
+					'#externalIdAttr'
+					],
+				DeregisterOnPremisesInstance:[
+					'#instanceNameAttr'
+					],
+				GetApplication:[
+					'#applicationNameAttr'
+					],
+				GetApplicationRevision:[
+					'#applicationNameAttr','#revisionAttr'
+					],
+				GetDeployment:[
+					'#deploymentIdAttr'
+					],
+				GetDeploymentConfig:[
+					'#deploymentConfigNameAttr'
+					],
+				GetDeploymentGroup:[
+					'#applicationNameAttr','#deploymentGroupNameAttr'
+					],
+				GetDeploymentInstance:[
+					'#deploymentIdAttr','#instanceIdAttr'
+					],
+				GetDeploymentTarget:[
+					'#deploymentIdAttr','#targetIdAttr'
+					],
+				GetOnPremisesInstance:[
+					'#instanceNameAttr'
+					],
+				ListApplicationRevisions:[
+					'#applicationNameAttr','#sortByAttr','#sortOrderAttr','#s3BucketAttr','#s3KeyPrefixAttr','#deployedAttr','#nextTokenAttr'
+					],
+				ListApplications:[
+					'#nextTokenAttr'
+					],
+				ListDeploymentConfigs:[
+					'#nextTokenAttr'
+					],
+				ListDeploymentGroups:[
+					'#applicationNameAttr','#nextTokenAttr'
+					],
+				ListDeploymentInstances:[
+					'#deploymentIdAttr','#nextTokenAttr','#instanceStatusFilterAttr','#instanceTypeFilterAttr'
+					],
+				ListDeploymentTargets:[
+					'#deploymentIdAttr','#nextTokenAttr','#targetFiltersAttr'
+					],
+				ListDeployments:[
+					'#applicationNameAttr','#deploymentGroupNameAttr','#externalIdAttr','#includeOnlyStatusesAttr','#createTimeRangeAttr','#nextTokenAttr'
+					],
+				ListGitHubAccountTokenNames:[
+					'#nextTokenAttr'
+					],
+				ListOnPremisesInstances:[
+					'#registrationStatusAttr','#tagFiltersAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr','#NextTokenAttr'
+					],
+				PutLifecycleEventHookExecutionStatus:[
+					'#deploymentIdAttr','#lifecycleEventHookExecutionIdAttr','#statusAttr'
+					],
+				RegisterApplicationRevision:[
+					'#applicationNameAttr','#descriptionAttr','#revisionAttr'
+					],
+				RegisterOnPremisesInstance:[
+					'#instanceNameAttr','#iamSessionArnAttr','#iamUserArnAttr'
+					],
+				RemoveTagsFromOnPremisesInstances:[
+					'#tagsAttr','#instanceNamesAttr'
+					],
+				SkipWaitTimeForInstanceTermination:[
+					'#deploymentIdAttr'
+					],
+				StopDeployment:[
+					'#deploymentIdAttr','#autoRollbackEnabledAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateApplication:[
+					'#applicationNameAttr','#newApplicationNameAttr'
+					],
+				UpdateDeploymentGroup:[
+					'#applicationNameAttr','#currentDeploymentGroupNameAttr','#newDeploymentGroupNameAttr','#deploymentConfigNameAttr','#ec2TagFiltersAttr','#onPremisesInstanceTagFiltersAttr','#autoScalingGroupsAttr','#serviceRoleArnAttr','#triggerConfigurationsAttr','#alarmConfigurationAttr','#autoRollbackConfigurationAttr','#outdatedInstancesStrategyAttr','#deploymentStyleAttr','#blueGreenDeploymentConfigurationAttr','#loadBalancerInfoAttr','#ec2TagSetAttr','#ecsServicesAttr','#onPremisesTagSetAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeDeploy">
+<p>
+AWS CodeDeploy
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeDeploy.html">CodeDeploy</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeDeploy',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToOnPremisesInstances' },
+			
+				tags: { value: ""} ,
+				instanceNames: { value: ""} ,
+				applicationName: { value: ""} ,
+				revisions: { value: ""} ,
+				applicationNames: { value: ""} ,
+				deploymentGroupNames: { value: ""} ,
+				deploymentId: { value: ""} ,
+				instanceIds: { value: ""} ,
+				targetIds: { value: ""} ,
+				deploymentIds: { value: ""} ,
+				deploymentWaitType: { value: ""} ,
+				computePlatform: { value: ""} ,
+				deploymentGroupName: { value: ""} ,
+				revision: { value: ""} ,
+				deploymentConfigName: { value: ""} ,
+				description: { value: ""} ,
+				ignoreApplicationStopFailures: { value: ""} ,
+				targetInstances: { value: ""} ,
+				autoRollbackConfiguration: { value: ""} ,
+				updateOutdatedInstancesOnly: { value: ""} ,
+				fileExistsBehavior: { value: ""} ,
+				minimumHealthyHosts: { value: ""} ,
+				trafficRoutingConfig: { value: ""} ,
+				ec2TagFilters: { value: ""} ,
+				onPremisesInstanceTagFilters: { value: ""} ,
+				autoScalingGroups: { value: ""} ,
+				serviceRoleArn: { value: ""} ,
+				triggerConfigurations: { value: ""} ,
+				alarmConfiguration: { value: ""} ,
+				outdatedInstancesStrategy: { value: ""} ,
+				deploymentStyle: { value: ""} ,
+				blueGreenDeploymentConfiguration: { value: ""} ,
+				loadBalancerInfo: { value: ""} ,
+				ec2TagSet: { value: ""} ,
+				ecsServices: { value: ""} ,
+				onPremisesTagSet: { value: ""} ,
+				tokenName: { value: ""} ,
+				externalId: { value: ""} ,
+				instanceName: { value: ""} ,
+				instanceId: { value: ""} ,
+				targetId: { value: ""} ,
+				sortBy: { value: ""} ,
+				sortOrder: { value: ""} ,
+				s3Bucket: { value: ""} ,
+				s3KeyPrefix: { value: ""} ,
+				deployed: { value: ""} ,
+				nextToken: { value: ""} ,
+				instanceStatusFilter: { value: ""} ,
+				instanceTypeFilter: { value: ""} ,
+				targetFilters: { value: ""} ,
+				includeOnlyStatuses: { value: ""} ,
+				createTimeRange: { value: ""} ,
+				registrationStatus: { value: ""} ,
+				tagFilters: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				NextToken: { value: ""} ,
+				lifecycleEventHookExecutionId: { value: ""} ,
+				status: { value: ""} ,
+				iamSessionArn: { value: ""} ,
+				iamUserArn: { value: ""} ,
+				autoRollbackEnabled: { value: ""} ,
+				Tags: { value: ""} ,
+				TagKeys: { value: ""} ,
+				newApplicationName: { value: ""} ,
+				currentDeploymentGroupName: { value: ""} ,
+				newDeploymentGroupName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeDeploy " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-applicationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-revisions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-applicationNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentGroupNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentWaitType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computePlatform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-revision").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentConfigName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ignoreApplicationStopFailures").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-targetInstances").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoRollbackConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-updateOutdatedInstancesOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-fileExistsBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-minimumHealthyHosts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-trafficRoutingConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2TagFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-onPremisesInstanceTagFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoScalingGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-triggerConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-outdatedInstancesStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentStyle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-blueGreenDeploymentConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loadBalancerInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ec2TagSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ecsServices").typedInput({ default: "str", types: ["str"]});
+$("#node-input-onPremisesTagSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tokenName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-externalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3Bucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3KeyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deployed").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+$("#node-input-registrationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tagFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lifecycleEventHookExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-iamSessionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-iamUserArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoRollbackEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-newApplicationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-currentDeploymentGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newDeploymentGroupName").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

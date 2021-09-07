@@ -1,0 +1,388 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Signer">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddProfilePermission">AddProfilePermission</option>
+		
+			<option value="CancelSigningProfile">CancelSigningProfile</option>
+		
+			<option value="DescribeSigningJob">DescribeSigningJob</option>
+		
+			<option value="GetSigningPlatform">GetSigningPlatform</option>
+		
+			<option value="GetSigningProfile">GetSigningProfile</option>
+		
+			<option value="ListProfilePermissions">ListProfilePermissions</option>
+		
+			<option value="ListSigningJobs">ListSigningJobs</option>
+		
+			<option value="ListSigningPlatforms">ListSigningPlatforms</option>
+		
+			<option value="ListSigningProfiles">ListSigningProfiles</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutSigningProfile">PutSigningProfile</option>
+		
+			<option value="RemoveProfilePermission">RemoveProfilePermission</option>
+		
+			<option value="RevokeSignature">RevokeSignature</option>
+		
+			<option value="RevokeSigningProfile">RevokeSigningProfile</option>
+		
+			<option value="StartSigningJob">StartSigningJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='profileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-profileName"><i class="fa fa-tag"></i> profileName</label>
+		<input type="text" id="node-input-profileName" placeholder="profileName"></input>
+	</div> 
+	<div class="form-row" id='profileVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-profileVersion"><i class="fa fa-tag"></i> profileVersion</label>
+		<input type="text" id="node-input-profileVersion" placeholder="profileVersion"></input>
+	</div> 
+	<div class="form-row" id='actionAttr' class='hiddenAttrs'>
+		<label for="node-input-action"><i class="fa fa-tag"></i> action</label>
+		<input type="text" id="node-input-action" placeholder="action"></input>
+	</div> 
+	<div class="form-row" id='principalAttr' class='hiddenAttrs'>
+		<label for="node-input-principal"><i class="fa fa-tag"></i> principal</label>
+		<input type="text" id="node-input-principal" placeholder="principal"></input>
+	</div> 
+	<div class="form-row" id='revisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-revisionId"><i class="fa fa-tag"></i> revisionId</label>
+		<input type="text" id="node-input-revisionId" placeholder="revisionId"></input>
+	</div> 
+	<div class="form-row" id='statementIdAttr' class='hiddenAttrs'>
+		<label for="node-input-statementId"><i class="fa fa-tag"></i> statementId</label>
+		<input type="text" id="node-input-statementId" placeholder="statementId"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='platformIdAttr' class='hiddenAttrs'>
+		<label for="node-input-platformId"><i class="fa fa-tag"></i> platformId</label>
+		<input type="text" id="node-input-platformId" placeholder="platformId"></input>
+	</div> 
+	<div class="form-row" id='profileOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-profileOwner"><i class="fa fa-tag"></i> profileOwner</label>
+		<input type="text" id="node-input-profileOwner" placeholder="profileOwner"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='requestedByAttr' class='hiddenAttrs'>
+		<label for="node-input-requestedBy"><i class="fa fa-tag"></i> requestedBy</label>
+		<input type="text" id="node-input-requestedBy" placeholder="requestedBy"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='isRevokedAttr' class='hiddenAttrs'>
+		<label for="node-input-isRevoked"><i class="fa fa-tag"></i> isRevoked</label>
+		<input type="text" id="node-input-isRevoked" placeholder="isRevoked"></input>
+	</div> 
+	<div class="form-row" id='signatureExpiresBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-signatureExpiresBefore"><i class="fa fa-tag"></i> signatureExpiresBefore</label>
+		<input type="text" id="node-input-signatureExpiresBefore" placeholder="signatureExpiresBefore"></input>
+	</div> 
+	<div class="form-row" id='signatureExpiresAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-signatureExpiresAfter"><i class="fa fa-tag"></i> signatureExpiresAfter</label>
+		<input type="text" id="node-input-signatureExpiresAfter" placeholder="signatureExpiresAfter"></input>
+	</div> 
+	<div class="form-row" id='jobInvokerAttr' class='hiddenAttrs'>
+		<label for="node-input-jobInvoker"><i class="fa fa-tag"></i> jobInvoker</label>
+		<input type="text" id="node-input-jobInvoker" placeholder="jobInvoker"></input>
+	</div> 
+	<div class="form-row" id='categoryAttr' class='hiddenAttrs'>
+		<label for="node-input-category"><i class="fa fa-tag"></i> category</label>
+		<input type="text" id="node-input-category" placeholder="category"></input>
+	</div> 
+	<div class="form-row" id='partnerAttr' class='hiddenAttrs'>
+		<label for="node-input-partner"><i class="fa fa-tag"></i> partner</label>
+		<input type="text" id="node-input-partner" placeholder="partner"></input>
+	</div> 
+	<div class="form-row" id='targetAttr' class='hiddenAttrs'>
+		<label for="node-input-target"><i class="fa fa-tag"></i> target</label>
+		<input type="text" id="node-input-target" placeholder="target"></input>
+	</div> 
+	<div class="form-row" id='includeCanceledAttr' class='hiddenAttrs'>
+		<label for="node-input-includeCanceled"><i class="fa fa-tag"></i> includeCanceled</label>
+		<input type="text" id="node-input-includeCanceled" placeholder="includeCanceled"></input>
+	</div> 
+	<div class="form-row" id='statusesAttr' class='hiddenAttrs'>
+		<label for="node-input-statuses"><i class="fa fa-tag"></i> statuses</label>
+		<input type="text" id="node-input-statuses" placeholder="statuses"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='signingMaterialAttr' class='hiddenAttrs'>
+		<label for="node-input-signingMaterial"><i class="fa fa-tag"></i> signingMaterial</label>
+		<input type="text" id="node-input-signingMaterial" placeholder="signingMaterial"></input>
+	</div> 
+	<div class="form-row" id='signatureValidityPeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-signatureValidityPeriod"><i class="fa fa-tag"></i> signatureValidityPeriod</label>
+		<input type="text" id="node-input-signatureValidityPeriod" placeholder="signatureValidityPeriod"></input>
+	</div> 
+	<div class="form-row" id='overridesAttr' class='hiddenAttrs'>
+		<label for="node-input-overrides"><i class="fa fa-tag"></i> overrides</label>
+		<input type="text" id="node-input-overrides" placeholder="overrides"></input>
+	</div> 
+	<div class="form-row" id='signingParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-signingParameters"><i class="fa fa-tag"></i> signingParameters</label>
+		<input type="text" id="node-input-signingParameters" placeholder="signingParameters"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='jobOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-jobOwner"><i class="fa fa-tag"></i> jobOwner</label>
+		<input type="text" id="node-input-jobOwner" placeholder="jobOwner"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i> reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='effectiveTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-effectiveTime"><i class="fa fa-tag"></i> effectiveTime</label>
+		<input type="text" id="node-input-effectiveTime" placeholder="effectiveTime"></input>
+	</div> 
+	<div class="form-row" id='sourceAttr' class='hiddenAttrs'>
+		<label for="node-input-source"><i class="fa fa-tag"></i> source</label>
+		<input type="text" id="node-input-source" placeholder="source"></input>
+	</div> 
+	<div class="form-row" id='destinationAttr' class='hiddenAttrs'>
+		<label for="node-input-destination"><i class="fa fa-tag"></i> destination</label>
+		<input type="text" id="node-input-destination" placeholder="destination"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i> clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddProfilePermission:[
+					'#profileNameAttr','#profileVersionAttr','#actionAttr','#principalAttr','#revisionIdAttr','#statementIdAttr'
+					],
+				CancelSigningProfile:[
+					'#profileNameAttr'
+					],
+				DescribeSigningJob:[
+					'#jobIdAttr'
+					],
+				GetSigningPlatform:[
+					'#platformIdAttr'
+					],
+				GetSigningProfile:[
+					'#profileNameAttr','#profileOwnerAttr'
+					],
+				ListProfilePermissions:[
+					'#profileNameAttr','#nextTokenAttr'
+					],
+				ListSigningJobs:[
+					'#statusAttr','#platformIdAttr','#requestedByAttr','#maxResultsAttr','#nextTokenAttr','#isRevokedAttr','#signatureExpiresBeforeAttr','#signatureExpiresAfterAttr','#jobInvokerAttr'
+					],
+				ListSigningPlatforms:[
+					'#categoryAttr','#partnerAttr','#targetAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListSigningProfiles:[
+					'#includeCanceledAttr','#maxResultsAttr','#nextTokenAttr','#platformIdAttr','#statusesAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutSigningProfile:[
+					'#profileNameAttr','#signingMaterialAttr','#signatureValidityPeriodAttr','#platformIdAttr','#overridesAttr','#signingParametersAttr','#tagsAttr'
+					],
+				RemoveProfilePermission:[
+					'#profileNameAttr','#revisionIdAttr','#statementIdAttr'
+					],
+				RevokeSignature:[
+					'#jobIdAttr','#jobOwnerAttr','#reasonAttr'
+					],
+				RevokeSigningProfile:[
+					'#profileNameAttr','#profileVersionAttr','#reasonAttr','#effectiveTimeAttr'
+					],
+				StartSigningJob:[
+					'#sourceAttr','#destinationAttr','#profileNameAttr','#clientRequestTokenAttr','#profileOwnerAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Signer">
+<p>
+AWS Signer
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Signer.html">Signer</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Signer',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddProfilePermission' },
+			
+				profileName: { value: ""} ,
+				profileVersion: { value: ""} ,
+				action: { value: ""} ,
+				principal: { value: ""} ,
+				revisionId: { value: ""} ,
+				statementId: { value: ""} ,
+				jobId: { value: ""} ,
+				platformId: { value: ""} ,
+				profileOwner: { value: ""} ,
+				nextToken: { value: ""} ,
+				status: { value: ""} ,
+				requestedBy: { value: ""} ,
+				maxResults: { value: ""} ,
+				isRevoked: { value: ""} ,
+				signatureExpiresBefore: { value: ""} ,
+				signatureExpiresAfter: { value: ""} ,
+				jobInvoker: { value: ""} ,
+				category: { value: ""} ,
+				partner: { value: ""} ,
+				target: { value: ""} ,
+				includeCanceled: { value: ""} ,
+				statuses: { value: ""} ,
+				resourceArn: { value: ""} ,
+				signingMaterial: { value: ""} ,
+				signatureValidityPeriod: { value: ""} ,
+				overrides: { value: ""} ,
+				signingParameters: { value: ""} ,
+				tags: { value: ""} ,
+				jobOwner: { value: ""} ,
+				reason: { value: ""} ,
+				effectiveTime: { value: ""} ,
+				source: { value: ""} ,
+				destination: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Signer " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-profileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-profileVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-action").typedInput({ default: "str", types: ["str"]});
+$("#node-input-principal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-revisionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-statementId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platformId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-profileOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestedBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-isRevoked").typedInput({ default: "bool", types: ["bool"]});
+
+
+$("#node-input-jobInvoker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-category").typedInput({ default: "str", types: ["str"]});
+$("#node-input-partner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-target").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeCanceled").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-signingMaterial").typedInput({ default: "str", types: ["str"]});
+$("#node-input-signatureValidityPeriod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-overrides").typedInput({ default: "str", types: ["str"]});
+$("#node-input-signingParameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reason").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-source").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-clientRequestToken").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

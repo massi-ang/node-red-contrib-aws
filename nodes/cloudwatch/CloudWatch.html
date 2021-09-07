@@ -1,0 +1,693 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudWatch">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DeleteAlarms">DeleteAlarms</option>
+		
+			<option value="DeleteAnomalyDetector">DeleteAnomalyDetector</option>
+		
+			<option value="DeleteDashboards">DeleteDashboards</option>
+		
+			<option value="DeleteInsightRules">DeleteInsightRules</option>
+		
+			<option value="DeleteMetricStream">DeleteMetricStream</option>
+		
+			<option value="DescribeAlarmHistory">DescribeAlarmHistory</option>
+		
+			<option value="DescribeAlarms">DescribeAlarms</option>
+		
+			<option value="DescribeAlarmsForMetric">DescribeAlarmsForMetric</option>
+		
+			<option value="DescribeAnomalyDetectors">DescribeAnomalyDetectors</option>
+		
+			<option value="DescribeInsightRules">DescribeInsightRules</option>
+		
+			<option value="DisableAlarmActions">DisableAlarmActions</option>
+		
+			<option value="DisableInsightRules">DisableInsightRules</option>
+		
+			<option value="EnableAlarmActions">EnableAlarmActions</option>
+		
+			<option value="EnableInsightRules">EnableInsightRules</option>
+		
+			<option value="GetDashboard">GetDashboard</option>
+		
+			<option value="GetInsightRuleReport">GetInsightRuleReport</option>
+		
+			<option value="GetMetricData">GetMetricData</option>
+		
+			<option value="GetMetricStatistics">GetMetricStatistics</option>
+		
+			<option value="GetMetricStream">GetMetricStream</option>
+		
+			<option value="GetMetricWidgetImage">GetMetricWidgetImage</option>
+		
+			<option value="ListDashboards">ListDashboards</option>
+		
+			<option value="ListMetricStreams">ListMetricStreams</option>
+		
+			<option value="ListMetrics">ListMetrics</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutAnomalyDetector">PutAnomalyDetector</option>
+		
+			<option value="PutCompositeAlarm">PutCompositeAlarm</option>
+		
+			<option value="PutDashboard">PutDashboard</option>
+		
+			<option value="PutInsightRule">PutInsightRule</option>
+		
+			<option value="PutMetricAlarm">PutMetricAlarm</option>
+		
+			<option value="PutMetricData">PutMetricData</option>
+		
+			<option value="PutMetricStream">PutMetricStream</option>
+		
+			<option value="SetAlarmState">SetAlarmState</option>
+		
+			<option value="StartMetricStreams">StartMetricStreams</option>
+		
+			<option value="StopMetricStreams">StopMetricStreams</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AlarmNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmNames"><i class="fa fa-tag"></i> AlarmNames</label>
+		<input type="text" id="node-input-AlarmNames" placeholder="AlarmNames"></input>
+	</div> 
+	<div class="form-row" id='NamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-Namespace"><i class="fa fa-tag"></i> Namespace</label>
+		<input type="text" id="node-input-Namespace" placeholder="Namespace"></input>
+	</div> 
+	<div class="form-row" id='MetricNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricName"><i class="fa fa-tag"></i> MetricName</label>
+		<input type="text" id="node-input-MetricName" placeholder="MetricName"></input>
+	</div> 
+	<div class="form-row" id='DimensionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Dimensions"><i class="fa fa-tag"></i> Dimensions</label>
+		<input type="text" id="node-input-Dimensions" placeholder="Dimensions"></input>
+	</div> 
+	<div class="form-row" id='StatAttr' class='hiddenAttrs'>
+		<label for="node-input-Stat"><i class="fa fa-tag"></i> Stat</label>
+		<input type="text" id="node-input-Stat" placeholder="Stat"></input>
+	</div> 
+	<div class="form-row" id='DashboardNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardNames"><i class="fa fa-tag"></i> DashboardNames</label>
+		<input type="text" id="node-input-DashboardNames" placeholder="DashboardNames"></input>
+	</div> 
+	<div class="form-row" id='RuleNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleNames"><i class="fa fa-tag"></i> RuleNames</label>
+		<input type="text" id="node-input-RuleNames" placeholder="RuleNames"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='AlarmNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmName"><i class="fa fa-tag"></i> AlarmName</label>
+		<input type="text" id="node-input-AlarmName" placeholder="AlarmName"></input>
+	</div> 
+	<div class="form-row" id='AlarmTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmTypes"><i class="fa fa-tag"></i> AlarmTypes</label>
+		<input type="text" id="node-input-AlarmTypes" placeholder="AlarmTypes"></input>
+	</div> 
+	<div class="form-row" id='HistoryItemTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-HistoryItemType"><i class="fa fa-tag"></i> HistoryItemType</label>
+		<input type="text" id="node-input-HistoryItemType" placeholder="HistoryItemType"></input>
+	</div> 
+	<div class="form-row" id='StartDateAttr' class='hiddenAttrs'>
+		<label for="node-input-StartDate"><i class="fa fa-tag"></i> StartDate</label>
+		<input type="text" id="node-input-StartDate" placeholder="StartDate"></input>
+	</div> 
+	<div class="form-row" id='EndDateAttr' class='hiddenAttrs'>
+		<label for="node-input-EndDate"><i class="fa fa-tag"></i> EndDate</label>
+		<input type="text" id="node-input-EndDate" placeholder="EndDate"></input>
+	</div> 
+	<div class="form-row" id='MaxRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRecords"><i class="fa fa-tag"></i> MaxRecords</label>
+		<input type="text" id="node-input-MaxRecords" placeholder="MaxRecords"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ScanByAttr' class='hiddenAttrs'>
+		<label for="node-input-ScanBy"><i class="fa fa-tag"></i> ScanBy</label>
+		<input type="text" id="node-input-ScanBy" placeholder="ScanBy"></input>
+	</div> 
+	<div class="form-row" id='AlarmNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmNamePrefix"><i class="fa fa-tag"></i> AlarmNamePrefix</label>
+		<input type="text" id="node-input-AlarmNamePrefix" placeholder="AlarmNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='ChildrenOfAlarmNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChildrenOfAlarmName"><i class="fa fa-tag"></i> ChildrenOfAlarmName</label>
+		<input type="text" id="node-input-ChildrenOfAlarmName" placeholder="ChildrenOfAlarmName"></input>
+	</div> 
+	<div class="form-row" id='ParentsOfAlarmNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentsOfAlarmName"><i class="fa fa-tag"></i> ParentsOfAlarmName</label>
+		<input type="text" id="node-input-ParentsOfAlarmName" placeholder="ParentsOfAlarmName"></input>
+	</div> 
+	<div class="form-row" id='StateValueAttr' class='hiddenAttrs'>
+		<label for="node-input-StateValue"><i class="fa fa-tag"></i> StateValue</label>
+		<input type="text" id="node-input-StateValue" placeholder="StateValue"></input>
+	</div> 
+	<div class="form-row" id='ActionPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionPrefix"><i class="fa fa-tag"></i> ActionPrefix</label>
+		<input type="text" id="node-input-ActionPrefix" placeholder="ActionPrefix"></input>
+	</div> 
+	<div class="form-row" id='StatisticAttr' class='hiddenAttrs'>
+		<label for="node-input-Statistic"><i class="fa fa-tag"></i> Statistic</label>
+		<input type="text" id="node-input-Statistic" placeholder="Statistic"></input>
+	</div> 
+	<div class="form-row" id='ExtendedStatisticAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtendedStatistic"><i class="fa fa-tag"></i> ExtendedStatistic</label>
+		<input type="text" id="node-input-ExtendedStatistic" placeholder="ExtendedStatistic"></input>
+	</div> 
+	<div class="form-row" id='PeriodAttr' class='hiddenAttrs'>
+		<label for="node-input-Period"><i class="fa fa-tag"></i> Period</label>
+		<input type="text" id="node-input-Period" placeholder="Period"></input>
+	</div> 
+	<div class="form-row" id='UnitAttr' class='hiddenAttrs'>
+		<label for="node-input-Unit"><i class="fa fa-tag"></i> Unit</label>
+		<input type="text" id="node-input-Unit" placeholder="Unit"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='DashboardNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardName"><i class="fa fa-tag"></i> DashboardName</label>
+		<input type="text" id="node-input-DashboardName" placeholder="DashboardName"></input>
+	</div> 
+	<div class="form-row" id='RuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleName"><i class="fa fa-tag"></i> RuleName</label>
+		<input type="text" id="node-input-RuleName" placeholder="RuleName"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='MaxContributorCountAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxContributorCount"><i class="fa fa-tag"></i> MaxContributorCount</label>
+		<input type="text" id="node-input-MaxContributorCount" placeholder="MaxContributorCount"></input>
+	</div> 
+	<div class="form-row" id='MetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-Metrics"><i class="fa fa-tag"></i> Metrics</label>
+		<input type="text" id="node-input-Metrics" placeholder="Metrics"></input>
+	</div> 
+	<div class="form-row" id='OrderByAttr' class='hiddenAttrs'>
+		<label for="node-input-OrderBy"><i class="fa fa-tag"></i> OrderBy</label>
+		<input type="text" id="node-input-OrderBy" placeholder="OrderBy"></input>
+	</div> 
+	<div class="form-row" id='MetricDataQueriesAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricDataQueries"><i class="fa fa-tag"></i> MetricDataQueries</label>
+		<input type="text" id="node-input-MetricDataQueries" placeholder="MetricDataQueries"></input>
+	</div> 
+	<div class="form-row" id='MaxDatapointsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxDatapoints"><i class="fa fa-tag"></i> MaxDatapoints</label>
+		<input type="text" id="node-input-MaxDatapoints" placeholder="MaxDatapoints"></input>
+	</div> 
+	<div class="form-row" id='LabelOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-LabelOptions"><i class="fa fa-tag"></i> LabelOptions</label>
+		<input type="text" id="node-input-LabelOptions" placeholder="LabelOptions"></input>
+	</div> 
+	<div class="form-row" id='StatisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-Statistics"><i class="fa fa-tag"></i> Statistics</label>
+		<input type="text" id="node-input-Statistics" placeholder="Statistics"></input>
+	</div> 
+	<div class="form-row" id='ExtendedStatisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtendedStatistics"><i class="fa fa-tag"></i> ExtendedStatistics</label>
+		<input type="text" id="node-input-ExtendedStatistics" placeholder="ExtendedStatistics"></input>
+	</div> 
+	<div class="form-row" id='MetricWidgetAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricWidget"><i class="fa fa-tag"></i> MetricWidget</label>
+		<input type="text" id="node-input-MetricWidget" placeholder="MetricWidget"></input>
+	</div> 
+	<div class="form-row" id='OutputFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputFormat"><i class="fa fa-tag"></i> OutputFormat</label>
+		<input type="text" id="node-input-OutputFormat" placeholder="OutputFormat"></input>
+	</div> 
+	<div class="form-row" id='DashboardNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardNamePrefix"><i class="fa fa-tag"></i> DashboardNamePrefix</label>
+		<input type="text" id="node-input-DashboardNamePrefix" placeholder="DashboardNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='RecentlyActiveAttr' class='hiddenAttrs'>
+		<label for="node-input-RecentlyActive"><i class="fa fa-tag"></i> RecentlyActive</label>
+		<input type="text" id="node-input-RecentlyActive" placeholder="RecentlyActive"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='ActionsEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionsEnabled"><i class="fa fa-tag"></i> ActionsEnabled</label>
+		<input type="text" id="node-input-ActionsEnabled" placeholder="ActionsEnabled"></input>
+	</div> 
+	<div class="form-row" id='AlarmActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmActions"><i class="fa fa-tag"></i> AlarmActions</label>
+		<input type="text" id="node-input-AlarmActions" placeholder="AlarmActions"></input>
+	</div> 
+	<div class="form-row" id='AlarmDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmDescription"><i class="fa fa-tag"></i> AlarmDescription</label>
+		<input type="text" id="node-input-AlarmDescription" placeholder="AlarmDescription"></input>
+	</div> 
+	<div class="form-row" id='AlarmRuleAttr' class='hiddenAttrs'>
+		<label for="node-input-AlarmRule"><i class="fa fa-tag"></i> AlarmRule</label>
+		<input type="text" id="node-input-AlarmRule" placeholder="AlarmRule"></input>
+	</div> 
+	<div class="form-row" id='InsufficientDataActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-InsufficientDataActions"><i class="fa fa-tag"></i> InsufficientDataActions</label>
+		<input type="text" id="node-input-InsufficientDataActions" placeholder="InsufficientDataActions"></input>
+	</div> 
+	<div class="form-row" id='OKActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-OKActions"><i class="fa fa-tag"></i> OKActions</label>
+		<input type="text" id="node-input-OKActions" placeholder="OKActions"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DashboardBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-DashboardBody"><i class="fa fa-tag"></i> DashboardBody</label>
+		<input type="text" id="node-input-DashboardBody" placeholder="DashboardBody"></input>
+	</div> 
+	<div class="form-row" id='RuleStateAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleState"><i class="fa fa-tag"></i> RuleState</label>
+		<input type="text" id="node-input-RuleState" placeholder="RuleState"></input>
+	</div> 
+	<div class="form-row" id='RuleDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleDefinition"><i class="fa fa-tag"></i> RuleDefinition</label>
+		<input type="text" id="node-input-RuleDefinition" placeholder="RuleDefinition"></input>
+	</div> 
+	<div class="form-row" id='EvaluationPeriodsAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationPeriods"><i class="fa fa-tag"></i> EvaluationPeriods</label>
+		<input type="text" id="node-input-EvaluationPeriods" placeholder="EvaluationPeriods"></input>
+	</div> 
+	<div class="form-row" id='DatapointsToAlarmAttr' class='hiddenAttrs'>
+		<label for="node-input-DatapointsToAlarm"><i class="fa fa-tag"></i> DatapointsToAlarm</label>
+		<input type="text" id="node-input-DatapointsToAlarm" placeholder="DatapointsToAlarm"></input>
+	</div> 
+	<div class="form-row" id='ThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-Threshold"><i class="fa fa-tag"></i> Threshold</label>
+		<input type="text" id="node-input-Threshold" placeholder="Threshold"></input>
+	</div> 
+	<div class="form-row" id='ComparisonOperatorAttr' class='hiddenAttrs'>
+		<label for="node-input-ComparisonOperator"><i class="fa fa-tag"></i> ComparisonOperator</label>
+		<input type="text" id="node-input-ComparisonOperator" placeholder="ComparisonOperator"></input>
+	</div> 
+	<div class="form-row" id='TreatMissingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TreatMissingData"><i class="fa fa-tag"></i> TreatMissingData</label>
+		<input type="text" id="node-input-TreatMissingData" placeholder="TreatMissingData"></input>
+	</div> 
+	<div class="form-row" id='EvaluateLowSampleCountPercentileAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluateLowSampleCountPercentile"><i class="fa fa-tag"></i> EvaluateLowSampleCountPercentile</label>
+		<input type="text" id="node-input-EvaluateLowSampleCountPercentile" placeholder="EvaluateLowSampleCountPercentile"></input>
+	</div> 
+	<div class="form-row" id='ThresholdMetricIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ThresholdMetricId"><i class="fa fa-tag"></i> ThresholdMetricId</label>
+		<input type="text" id="node-input-ThresholdMetricId" placeholder="ThresholdMetricId"></input>
+	</div> 
+	<div class="form-row" id='MetricDataAttr' class='hiddenAttrs'>
+		<label for="node-input-MetricData"><i class="fa fa-tag"></i> MetricData</label>
+		<input type="text" id="node-input-MetricData" placeholder="MetricData"></input>
+	</div> 
+	<div class="form-row" id='IncludeFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeFilters"><i class="fa fa-tag"></i> IncludeFilters</label>
+		<input type="text" id="node-input-IncludeFilters" placeholder="IncludeFilters"></input>
+	</div> 
+	<div class="form-row" id='ExcludeFiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-ExcludeFilters"><i class="fa fa-tag"></i> ExcludeFilters</label>
+		<input type="text" id="node-input-ExcludeFilters" placeholder="ExcludeFilters"></input>
+	</div> 
+	<div class="form-row" id='FirehoseArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FirehoseArn"><i class="fa fa-tag"></i> FirehoseArn</label>
+		<input type="text" id="node-input-FirehoseArn" placeholder="FirehoseArn"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='StateReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-StateReason"><i class="fa fa-tag"></i> StateReason</label>
+		<input type="text" id="node-input-StateReason" placeholder="StateReason"></input>
+	</div> 
+	<div class="form-row" id='StateReasonDataAttr' class='hiddenAttrs'>
+		<label for="node-input-StateReasonData"><i class="fa fa-tag"></i> StateReasonData</label>
+		<input type="text" id="node-input-StateReasonData" placeholder="StateReasonData"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DeleteAlarms:[
+					'#AlarmNamesAttr'
+					],
+				DeleteAnomalyDetector:[
+					'#NamespaceAttr','#MetricNameAttr','#DimensionsAttr','#StatAttr'
+					],
+				DeleteDashboards:[
+					'#DashboardNamesAttr'
+					],
+				DeleteInsightRules:[
+					'#RuleNamesAttr'
+					],
+				DeleteMetricStream:[
+					'#NameAttr'
+					],
+				DescribeAlarmHistory:[
+					'#AlarmNameAttr','#AlarmTypesAttr','#HistoryItemTypeAttr','#StartDateAttr','#EndDateAttr','#MaxRecordsAttr','#NextTokenAttr','#ScanByAttr'
+					],
+				DescribeAlarms:[
+					'#AlarmNamesAttr','#AlarmNamePrefixAttr','#AlarmTypesAttr','#ChildrenOfAlarmNameAttr','#ParentsOfAlarmNameAttr','#StateValueAttr','#ActionPrefixAttr','#MaxRecordsAttr','#NextTokenAttr'
+					],
+				DescribeAlarmsForMetric:[
+					'#MetricNameAttr','#NamespaceAttr','#StatisticAttr','#ExtendedStatisticAttr','#DimensionsAttr','#PeriodAttr','#UnitAttr'
+					],
+				DescribeAnomalyDetectors:[
+					'#NextTokenAttr','#MaxResultsAttr','#NamespaceAttr','#MetricNameAttr','#DimensionsAttr'
+					],
+				DescribeInsightRules:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				DisableAlarmActions:[
+					'#AlarmNamesAttr'
+					],
+				DisableInsightRules:[
+					'#RuleNamesAttr'
+					],
+				EnableAlarmActions:[
+					'#AlarmNamesAttr'
+					],
+				EnableInsightRules:[
+					'#RuleNamesAttr'
+					],
+				GetDashboard:[
+					'#DashboardNameAttr'
+					],
+				GetInsightRuleReport:[
+					'#RuleNameAttr','#StartTimeAttr','#EndTimeAttr','#PeriodAttr','#MaxContributorCountAttr','#MetricsAttr','#OrderByAttr'
+					],
+				GetMetricData:[
+					'#MetricDataQueriesAttr','#StartTimeAttr','#EndTimeAttr','#NextTokenAttr','#ScanByAttr','#MaxDatapointsAttr','#LabelOptionsAttr'
+					],
+				GetMetricStatistics:[
+					'#NamespaceAttr','#MetricNameAttr','#DimensionsAttr','#StartTimeAttr','#EndTimeAttr','#PeriodAttr','#StatisticsAttr','#ExtendedStatisticsAttr','#UnitAttr'
+					],
+				GetMetricStream:[
+					'#NameAttr'
+					],
+				GetMetricWidgetImage:[
+					'#MetricWidgetAttr','#OutputFormatAttr'
+					],
+				ListDashboards:[
+					'#DashboardNamePrefixAttr','#NextTokenAttr'
+					],
+				ListMetricStreams:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListMetrics:[
+					'#NamespaceAttr','#MetricNameAttr','#DimensionsAttr','#NextTokenAttr','#RecentlyActiveAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				PutAnomalyDetector:[
+					'#NamespaceAttr','#MetricNameAttr','#DimensionsAttr','#StatAttr','#ConfigurationAttr'
+					],
+				PutCompositeAlarm:[
+					'#ActionsEnabledAttr','#AlarmActionsAttr','#AlarmDescriptionAttr','#AlarmNameAttr','#AlarmRuleAttr','#InsufficientDataActionsAttr','#OKActionsAttr','#TagsAttr'
+					],
+				PutDashboard:[
+					'#DashboardNameAttr','#DashboardBodyAttr'
+					],
+				PutInsightRule:[
+					'#RuleNameAttr','#RuleStateAttr','#RuleDefinitionAttr','#TagsAttr'
+					],
+				PutMetricAlarm:[
+					'#AlarmNameAttr','#AlarmDescriptionAttr','#ActionsEnabledAttr','#OKActionsAttr','#AlarmActionsAttr','#InsufficientDataActionsAttr','#MetricNameAttr','#NamespaceAttr','#StatisticAttr','#ExtendedStatisticAttr','#DimensionsAttr','#PeriodAttr','#UnitAttr','#EvaluationPeriodsAttr','#DatapointsToAlarmAttr','#ThresholdAttr','#ComparisonOperatorAttr','#TreatMissingDataAttr','#EvaluateLowSampleCountPercentileAttr','#MetricsAttr','#TagsAttr','#ThresholdMetricIdAttr'
+					],
+				PutMetricData:[
+					'#NamespaceAttr','#MetricDataAttr'
+					],
+				PutMetricStream:[
+					'#NameAttr','#IncludeFiltersAttr','#ExcludeFiltersAttr','#FirehoseArnAttr','#RoleArnAttr','#OutputFormatAttr','#TagsAttr'
+					],
+				SetAlarmState:[
+					'#AlarmNameAttr','#StateValueAttr','#StateReasonAttr','#StateReasonDataAttr'
+					],
+				StartMetricStreams:[
+					'#NamesAttr'
+					],
+				StopMetricStreams:[
+					'#NamesAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudWatch">
+<p>
+AWS CloudWatch
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudWatch.html">CloudWatch</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudWatch',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DeleteAlarms' },
+			
+				AlarmNames: { value: ""} ,
+				Namespace: { value: ""} ,
+				MetricName: { value: ""} ,
+				Dimensions: { value: ""} ,
+				Stat: { value: ""} ,
+				DashboardNames: { value: ""} ,
+				RuleNames: { value: ""} ,
+				Name: { value: ""} ,
+				AlarmName: { value: ""} ,
+				AlarmTypes: { value: ""} ,
+				HistoryItemType: { value: ""} ,
+				StartDate: { value: ""} ,
+				EndDate: { value: ""} ,
+				MaxRecords: { value: ""} ,
+				NextToken: { value: ""} ,
+				ScanBy: { value: ""} ,
+				AlarmNamePrefix: { value: ""} ,
+				ChildrenOfAlarmName: { value: ""} ,
+				ParentsOfAlarmName: { value: ""} ,
+				StateValue: { value: ""} ,
+				ActionPrefix: { value: ""} ,
+				Statistic: { value: ""} ,
+				ExtendedStatistic: { value: ""} ,
+				Period: { value: ""} ,
+				Unit: { value: ""} ,
+				MaxResults: { value: ""} ,
+				DashboardName: { value: ""} ,
+				RuleName: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				MaxContributorCount: { value: ""} ,
+				Metrics: { value: ""} ,
+				OrderBy: { value: ""} ,
+				MetricDataQueries: { value: ""} ,
+				MaxDatapoints: { value: ""} ,
+				LabelOptions: { value: ""} ,
+				Statistics: { value: ""} ,
+				ExtendedStatistics: { value: ""} ,
+				MetricWidget: { value: ""} ,
+				OutputFormat: { value: ""} ,
+				DashboardNamePrefix: { value: ""} ,
+				RecentlyActive: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				Configuration: { value: ""} ,
+				ActionsEnabled: { value: ""} ,
+				AlarmActions: { value: ""} ,
+				AlarmDescription: { value: ""} ,
+				AlarmRule: { value: ""} ,
+				InsufficientDataActions: { value: ""} ,
+				OKActions: { value: ""} ,
+				Tags: { value: ""} ,
+				DashboardBody: { value: ""} ,
+				RuleState: { value: ""} ,
+				RuleDefinition: { value: ""} ,
+				EvaluationPeriods: { value: ""} ,
+				DatapointsToAlarm: { value: ""} ,
+				Threshold: { value: ""} ,
+				ComparisonOperator: { value: ""} ,
+				TreatMissingData: { value: ""} ,
+				EvaluateLowSampleCountPercentile: { value: ""} ,
+				ThresholdMetricId: { value: ""} ,
+				MetricData: { value: ""} ,
+				IncludeFilters: { value: ""} ,
+				ExcludeFilters: { value: ""} ,
+				FirehoseArn: { value: ""} ,
+				RoleArn: { value: ""} ,
+				StateReason: { value: ""} ,
+				StateReasonData: { value: ""} ,
+				Names: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudWatch " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AlarmNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Namespace").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Dimensions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Stat").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RuleNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HistoryItemType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MaxRecords").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScanBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmNamePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChildrenOfAlarmName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParentsOfAlarmName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StateValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Statistic").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExtendedStatistic").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Period").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Unit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DashboardName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MaxContributorCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Metrics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrderBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetricDataQueries").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxDatapoints").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-MetricWidget").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DashboardNamePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecentlyActive").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionsEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AlarmActions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlarmRule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InsufficientDataActions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OKActions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DashboardBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EvaluationPeriods").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DatapointsToAlarm").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-ComparisonOperator").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TreatMissingData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EvaluateLowSampleCountPercentile").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThresholdMetricId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-IncludeFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExcludeFilters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FirehoseArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StateReason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StateReasonData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Names").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

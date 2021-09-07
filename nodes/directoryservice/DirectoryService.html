@@ -1,0 +1,762 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DirectoryService">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptSharedDirectory">AcceptSharedDirectory</option>
+		
+			<option value="AddIpRoutes">AddIpRoutes</option>
+		
+			<option value="AddRegion">AddRegion</option>
+		
+			<option value="AddTagsToResource">AddTagsToResource</option>
+		
+			<option value="CancelSchemaExtension">CancelSchemaExtension</option>
+		
+			<option value="ConnectDirectory">ConnectDirectory</option>
+		
+			<option value="CreateAlias">CreateAlias</option>
+		
+			<option value="CreateComputer">CreateComputer</option>
+		
+			<option value="CreateConditionalForwarder">CreateConditionalForwarder</option>
+		
+			<option value="CreateDirectory">CreateDirectory</option>
+		
+			<option value="CreateLogSubscription">CreateLogSubscription</option>
+		
+			<option value="CreateMicrosoftAD">CreateMicrosoftAD</option>
+		
+			<option value="CreateSnapshot">CreateSnapshot</option>
+		
+			<option value="CreateTrust">CreateTrust</option>
+		
+			<option value="DeleteConditionalForwarder">DeleteConditionalForwarder</option>
+		
+			<option value="DeleteDirectory">DeleteDirectory</option>
+		
+			<option value="DeleteLogSubscription">DeleteLogSubscription</option>
+		
+			<option value="DeleteSnapshot">DeleteSnapshot</option>
+		
+			<option value="DeleteTrust">DeleteTrust</option>
+		
+			<option value="DeregisterCertificate">DeregisterCertificate</option>
+		
+			<option value="DeregisterEventTopic">DeregisterEventTopic</option>
+		
+			<option value="DescribeCertificate">DescribeCertificate</option>
+		
+			<option value="DescribeClientAuthenticationSettings">DescribeClientAuthenticationSettings</option>
+		
+			<option value="DescribeConditionalForwarders">DescribeConditionalForwarders</option>
+		
+			<option value="DescribeDirectories">DescribeDirectories</option>
+		
+			<option value="DescribeDomainControllers">DescribeDomainControllers</option>
+		
+			<option value="DescribeEventTopics">DescribeEventTopics</option>
+		
+			<option value="DescribeLDAPSSettings">DescribeLDAPSSettings</option>
+		
+			<option value="DescribeRegions">DescribeRegions</option>
+		
+			<option value="DescribeSharedDirectories">DescribeSharedDirectories</option>
+		
+			<option value="DescribeSnapshots">DescribeSnapshots</option>
+		
+			<option value="DescribeTrusts">DescribeTrusts</option>
+		
+			<option value="DisableClientAuthentication">DisableClientAuthentication</option>
+		
+			<option value="DisableLDAPS">DisableLDAPS</option>
+		
+			<option value="DisableRadius">DisableRadius</option>
+		
+			<option value="DisableSso">DisableSso</option>
+		
+			<option value="EnableClientAuthentication">EnableClientAuthentication</option>
+		
+			<option value="EnableLDAPS">EnableLDAPS</option>
+		
+			<option value="EnableRadius">EnableRadius</option>
+		
+			<option value="EnableSso">EnableSso</option>
+		
+			<option value="GetDirectoryLimits">GetDirectoryLimits</option>
+		
+			<option value="GetSnapshotLimits">GetSnapshotLimits</option>
+		
+			<option value="ListCertificates">ListCertificates</option>
+		
+			<option value="ListIpRoutes">ListIpRoutes</option>
+		
+			<option value="ListLogSubscriptions">ListLogSubscriptions</option>
+		
+			<option value="ListSchemaExtensions">ListSchemaExtensions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterCertificate">RegisterCertificate</option>
+		
+			<option value="RegisterEventTopic">RegisterEventTopic</option>
+		
+			<option value="RejectSharedDirectory">RejectSharedDirectory</option>
+		
+			<option value="RemoveIpRoutes">RemoveIpRoutes</option>
+		
+			<option value="RemoveRegion">RemoveRegion</option>
+		
+			<option value="RemoveTagsFromResource">RemoveTagsFromResource</option>
+		
+			<option value="ResetUserPassword">ResetUserPassword</option>
+		
+			<option value="RestoreFromSnapshot">RestoreFromSnapshot</option>
+		
+			<option value="ShareDirectory">ShareDirectory</option>
+		
+			<option value="StartSchemaExtension">StartSchemaExtension</option>
+		
+			<option value="UnshareDirectory">UnshareDirectory</option>
+		
+			<option value="UpdateConditionalForwarder">UpdateConditionalForwarder</option>
+		
+			<option value="UpdateNumberOfDomainControllers">UpdateNumberOfDomainControllers</option>
+		
+			<option value="UpdateRadius">UpdateRadius</option>
+		
+			<option value="UpdateTrust">UpdateTrust</option>
+		
+			<option value="VerifyTrust">VerifyTrust</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SharedDirectoryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedDirectoryId"><i class="fa fa-tag"></i> SharedDirectoryId</label>
+		<input type="text" id="node-input-SharedDirectoryId" placeholder="SharedDirectoryId"></input>
+	</div> 
+	<div class="form-row" id='DirectoryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryId"><i class="fa fa-tag"></i> DirectoryId</label>
+		<input type="text" id="node-input-DirectoryId" placeholder="DirectoryId"></input>
+	</div> 
+	<div class="form-row" id='IpRoutesAttr' class='hiddenAttrs'>
+		<label for="node-input-IpRoutes"><i class="fa fa-tag"></i> IpRoutes</label>
+		<input type="text" id="node-input-IpRoutes" placeholder="IpRoutes"></input>
+	</div> 
+	<div class="form-row" id='UpdateSecurityGroupForDirectoryControllersAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateSecurityGroupForDirectoryControllers"><i class="fa fa-tag"></i> UpdateSecurityGroupForDirectoryControllers</label>
+		<input type="text" id="node-input-UpdateSecurityGroupForDirectoryControllers" placeholder="UpdateSecurityGroupForDirectoryControllers"></input>
+	</div> 
+	<div class="form-row" id='RegionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RegionName"><i class="fa fa-tag"></i> RegionName</label>
+		<input type="text" id="node-input-RegionName" placeholder="RegionName"></input>
+	</div> 
+	<div class="form-row" id='VPCSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-VPCSettings"><i class="fa fa-tag"></i> VPCSettings</label>
+		<input type="text" id="node-input-VPCSettings" placeholder="VPCSettings"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='SchemaExtensionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaExtensionId"><i class="fa fa-tag"></i> SchemaExtensionId</label>
+		<input type="text" id="node-input-SchemaExtensionId" placeholder="SchemaExtensionId"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ShortNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ShortName"><i class="fa fa-tag"></i> ShortName</label>
+		<input type="text" id="node-input-ShortName" placeholder="ShortName"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i> Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='SizeAttr' class='hiddenAttrs'>
+		<label for="node-input-Size"><i class="fa fa-tag"></i> Size</label>
+		<input type="text" id="node-input-Size" placeholder="Size"></input>
+	</div> 
+	<div class="form-row" id='ConnectSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectSettings"><i class="fa fa-tag"></i> ConnectSettings</label>
+		<input type="text" id="node-input-ConnectSettings" placeholder="ConnectSettings"></input>
+	</div> 
+	<div class="form-row" id='AliasAttr' class='hiddenAttrs'>
+		<label for="node-input-Alias"><i class="fa fa-tag"></i> Alias</label>
+		<input type="text" id="node-input-Alias" placeholder="Alias"></input>
+	</div> 
+	<div class="form-row" id='ComputerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputerName"><i class="fa fa-tag"></i> ComputerName</label>
+		<input type="text" id="node-input-ComputerName" placeholder="ComputerName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationalUnitDistinguishedNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationalUnitDistinguishedName"><i class="fa fa-tag"></i> OrganizationalUnitDistinguishedName</label>
+		<input type="text" id="node-input-OrganizationalUnitDistinguishedName" placeholder="OrganizationalUnitDistinguishedName"></input>
+	</div> 
+	<div class="form-row" id='ComputerAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputerAttributes"><i class="fa fa-tag"></i> ComputerAttributes</label>
+		<input type="text" id="node-input-ComputerAttributes" placeholder="ComputerAttributes"></input>
+	</div> 
+	<div class="form-row" id='RemoteDomainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoteDomainName"><i class="fa fa-tag"></i> RemoteDomainName</label>
+		<input type="text" id="node-input-RemoteDomainName" placeholder="RemoteDomainName"></input>
+	</div> 
+	<div class="form-row" id='DnsIpAddrsAttr' class='hiddenAttrs'>
+		<label for="node-input-DnsIpAddrs"><i class="fa fa-tag"></i> DnsIpAddrs</label>
+		<input type="text" id="node-input-DnsIpAddrs" placeholder="DnsIpAddrs"></input>
+	</div> 
+	<div class="form-row" id='VpcSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcSettings"><i class="fa fa-tag"></i> VpcSettings</label>
+		<input type="text" id="node-input-VpcSettings" placeholder="VpcSettings"></input>
+	</div> 
+	<div class="form-row" id='LogGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LogGroupName"><i class="fa fa-tag"></i> LogGroupName</label>
+		<input type="text" id="node-input-LogGroupName" placeholder="LogGroupName"></input>
+	</div> 
+	<div class="form-row" id='EditionAttr' class='hiddenAttrs'>
+		<label for="node-input-Edition"><i class="fa fa-tag"></i> Edition</label>
+		<input type="text" id="node-input-Edition" placeholder="Edition"></input>
+	</div> 
+	<div class="form-row" id='TrustPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustPassword"><i class="fa fa-tag"></i> TrustPassword</label>
+		<input type="text" id="node-input-TrustPassword" placeholder="TrustPassword"></input>
+	</div> 
+	<div class="form-row" id='TrustDirectionAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustDirection"><i class="fa fa-tag"></i> TrustDirection</label>
+		<input type="text" id="node-input-TrustDirection" placeholder="TrustDirection"></input>
+	</div> 
+	<div class="form-row" id='TrustTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustType"><i class="fa fa-tag"></i> TrustType</label>
+		<input type="text" id="node-input-TrustType" placeholder="TrustType"></input>
+	</div> 
+	<div class="form-row" id='ConditionalForwarderIpAddrsAttr' class='hiddenAttrs'>
+		<label for="node-input-ConditionalForwarderIpAddrs"><i class="fa fa-tag"></i> ConditionalForwarderIpAddrs</label>
+		<input type="text" id="node-input-ConditionalForwarderIpAddrs" placeholder="ConditionalForwarderIpAddrs"></input>
+	</div> 
+	<div class="form-row" id='SelectiveAuthAttr' class='hiddenAttrs'>
+		<label for="node-input-SelectiveAuth"><i class="fa fa-tag"></i> SelectiveAuth</label>
+		<input type="text" id="node-input-SelectiveAuth" placeholder="SelectiveAuth"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotId"><i class="fa fa-tag"></i> SnapshotId</label>
+		<input type="text" id="node-input-SnapshotId" placeholder="SnapshotId"></input>
+	</div> 
+	<div class="form-row" id='TrustIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustId"><i class="fa fa-tag"></i> TrustId</label>
+		<input type="text" id="node-input-TrustId" placeholder="TrustId"></input>
+	</div> 
+	<div class="form-row" id='DeleteAssociatedConditionalForwarderAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteAssociatedConditionalForwarder"><i class="fa fa-tag"></i> DeleteAssociatedConditionalForwarder</label>
+		<input type="text" id="node-input-DeleteAssociatedConditionalForwarder" placeholder="DeleteAssociatedConditionalForwarder"></input>
+	</div> 
+	<div class="form-row" id='CertificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateId"><i class="fa fa-tag"></i> CertificateId</label>
+		<input type="text" id="node-input-CertificateId" placeholder="CertificateId"></input>
+	</div> 
+	<div class="form-row" id='TopicNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TopicName"><i class="fa fa-tag"></i> TopicName</label>
+		<input type="text" id="node-input-TopicName" placeholder="TopicName"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='RemoteDomainNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-RemoteDomainNames"><i class="fa fa-tag"></i> RemoteDomainNames</label>
+		<input type="text" id="node-input-RemoteDomainNames" placeholder="RemoteDomainNames"></input>
+	</div> 
+	<div class="form-row" id='DirectoryIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryIds"><i class="fa fa-tag"></i> DirectoryIds</label>
+		<input type="text" id="node-input-DirectoryIds" placeholder="DirectoryIds"></input>
+	</div> 
+	<div class="form-row" id='DomainControllerIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainControllerIds"><i class="fa fa-tag"></i> DomainControllerIds</label>
+		<input type="text" id="node-input-DomainControllerIds" placeholder="DomainControllerIds"></input>
+	</div> 
+	<div class="form-row" id='TopicNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-TopicNames"><i class="fa fa-tag"></i> TopicNames</label>
+		<input type="text" id="node-input-TopicNames" placeholder="TopicNames"></input>
+	</div> 
+	<div class="form-row" id='OwnerDirectoryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OwnerDirectoryId"><i class="fa fa-tag"></i> OwnerDirectoryId</label>
+		<input type="text" id="node-input-OwnerDirectoryId" placeholder="OwnerDirectoryId"></input>
+	</div> 
+	<div class="form-row" id='SharedDirectoryIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedDirectoryIds"><i class="fa fa-tag"></i> SharedDirectoryIds</label>
+		<input type="text" id="node-input-SharedDirectoryIds" placeholder="SharedDirectoryIds"></input>
+	</div> 
+	<div class="form-row" id='SnapshotIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotIds"><i class="fa fa-tag"></i> SnapshotIds</label>
+		<input type="text" id="node-input-SnapshotIds" placeholder="SnapshotIds"></input>
+	</div> 
+	<div class="form-row" id='TrustIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustIds"><i class="fa fa-tag"></i> TrustIds</label>
+		<input type="text" id="node-input-TrustIds" placeholder="TrustIds"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='RadiusSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-RadiusSettings"><i class="fa fa-tag"></i> RadiusSettings</label>
+		<input type="text" id="node-input-RadiusSettings" placeholder="RadiusSettings"></input>
+	</div> 
+	<div class="form-row" id='CertificateDataAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateData"><i class="fa fa-tag"></i> CertificateData</label>
+		<input type="text" id="node-input-CertificateData" placeholder="CertificateData"></input>
+	</div> 
+	<div class="form-row" id='ClientCertAuthSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientCertAuthSettings"><i class="fa fa-tag"></i> ClientCertAuthSettings</label>
+		<input type="text" id="node-input-ClientCertAuthSettings" placeholder="ClientCertAuthSettings"></input>
+	</div> 
+	<div class="form-row" id='CidrIpsAttr' class='hiddenAttrs'>
+		<label for="node-input-CidrIps"><i class="fa fa-tag"></i> CidrIps</label>
+		<input type="text" id="node-input-CidrIps" placeholder="CidrIps"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='NewPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-NewPassword"><i class="fa fa-tag"></i> NewPassword</label>
+		<input type="text" id="node-input-NewPassword" placeholder="NewPassword"></input>
+	</div> 
+	<div class="form-row" id='ShareNotesAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareNotes"><i class="fa fa-tag"></i> ShareNotes</label>
+		<input type="text" id="node-input-ShareNotes" placeholder="ShareNotes"></input>
+	</div> 
+	<div class="form-row" id='ShareTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareTarget"><i class="fa fa-tag"></i> ShareTarget</label>
+		<input type="text" id="node-input-ShareTarget" placeholder="ShareTarget"></input>
+	</div> 
+	<div class="form-row" id='ShareMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-ShareMethod"><i class="fa fa-tag"></i> ShareMethod</label>
+		<input type="text" id="node-input-ShareMethod" placeholder="ShareMethod"></input>
+	</div> 
+	<div class="form-row" id='CreateSnapshotBeforeSchemaExtensionAttr' class='hiddenAttrs'>
+		<label for="node-input-CreateSnapshotBeforeSchemaExtension"><i class="fa fa-tag"></i> CreateSnapshotBeforeSchemaExtension</label>
+		<input type="text" id="node-input-CreateSnapshotBeforeSchemaExtension" placeholder="CreateSnapshotBeforeSchemaExtension"></input>
+	</div> 
+	<div class="form-row" id='LdifContentAttr' class='hiddenAttrs'>
+		<label for="node-input-LdifContent"><i class="fa fa-tag"></i> LdifContent</label>
+		<input type="text" id="node-input-LdifContent" placeholder="LdifContent"></input>
+	</div> 
+	<div class="form-row" id='UnshareTargetAttr' class='hiddenAttrs'>
+		<label for="node-input-UnshareTarget"><i class="fa fa-tag"></i> UnshareTarget</label>
+		<input type="text" id="node-input-UnshareTarget" placeholder="UnshareTarget"></input>
+	</div> 
+	<div class="form-row" id='DesiredNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredNumber"><i class="fa fa-tag"></i> DesiredNumber</label>
+		<input type="text" id="node-input-DesiredNumber" placeholder="DesiredNumber"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptSharedDirectory:[
+					'#SharedDirectoryIdAttr'
+					],
+				AddIpRoutes:[
+					'#DirectoryIdAttr','#IpRoutesAttr','#UpdateSecurityGroupForDirectoryControllersAttr'
+					],
+				AddRegion:[
+					'#DirectoryIdAttr','#RegionNameAttr','#VPCSettingsAttr'
+					],
+				AddTagsToResource:[
+					'#ResourceIdAttr','#TagsAttr'
+					],
+				CancelSchemaExtension:[
+					'#DirectoryIdAttr','#SchemaExtensionIdAttr'
+					],
+				ConnectDirectory:[
+					'#NameAttr','#ShortNameAttr','#PasswordAttr','#DescriptionAttr','#SizeAttr','#ConnectSettingsAttr','#TagsAttr'
+					],
+				CreateAlias:[
+					'#DirectoryIdAttr','#AliasAttr'
+					],
+				CreateComputer:[
+					'#DirectoryIdAttr','#ComputerNameAttr','#PasswordAttr','#OrganizationalUnitDistinguishedNameAttr','#ComputerAttributesAttr'
+					],
+				CreateConditionalForwarder:[
+					'#DirectoryIdAttr','#RemoteDomainNameAttr','#DnsIpAddrsAttr'
+					],
+				CreateDirectory:[
+					'#NameAttr','#ShortNameAttr','#PasswordAttr','#DescriptionAttr','#SizeAttr','#VpcSettingsAttr','#TagsAttr'
+					],
+				CreateLogSubscription:[
+					'#DirectoryIdAttr','#LogGroupNameAttr'
+					],
+				CreateMicrosoftAD:[
+					'#NameAttr','#ShortNameAttr','#PasswordAttr','#DescriptionAttr','#VpcSettingsAttr','#EditionAttr','#TagsAttr'
+					],
+				CreateSnapshot:[
+					'#DirectoryIdAttr','#NameAttr'
+					],
+				CreateTrust:[
+					'#DirectoryIdAttr','#RemoteDomainNameAttr','#TrustPasswordAttr','#TrustDirectionAttr','#TrustTypeAttr','#ConditionalForwarderIpAddrsAttr','#SelectiveAuthAttr'
+					],
+				DeleteConditionalForwarder:[
+					'#DirectoryIdAttr','#RemoteDomainNameAttr'
+					],
+				DeleteDirectory:[
+					'#DirectoryIdAttr'
+					],
+				DeleteLogSubscription:[
+					'#DirectoryIdAttr'
+					],
+				DeleteSnapshot:[
+					'#SnapshotIdAttr'
+					],
+				DeleteTrust:[
+					'#TrustIdAttr','#DeleteAssociatedConditionalForwarderAttr'
+					],
+				DeregisterCertificate:[
+					'#DirectoryIdAttr','#CertificateIdAttr'
+					],
+				DeregisterEventTopic:[
+					'#DirectoryIdAttr','#TopicNameAttr'
+					],
+				DescribeCertificate:[
+					'#DirectoryIdAttr','#CertificateIdAttr'
+					],
+				DescribeClientAuthenticationSettings:[
+					'#DirectoryIdAttr','#TypeAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeConditionalForwarders:[
+					'#DirectoryIdAttr','#RemoteDomainNamesAttr'
+					],
+				DescribeDirectories:[
+					'#DirectoryIdsAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeDomainControllers:[
+					'#DirectoryIdAttr','#DomainControllerIdsAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeEventTopics:[
+					'#DirectoryIdAttr','#TopicNamesAttr'
+					],
+				DescribeLDAPSSettings:[
+					'#DirectoryIdAttr','#TypeAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeRegions:[
+					'#DirectoryIdAttr','#RegionNameAttr','#NextTokenAttr'
+					],
+				DescribeSharedDirectories:[
+					'#OwnerDirectoryIdAttr','#SharedDirectoryIdsAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeSnapshots:[
+					'#DirectoryIdAttr','#SnapshotIdsAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeTrusts:[
+					'#DirectoryIdAttr','#TrustIdsAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DisableClientAuthentication:[
+					'#DirectoryIdAttr','#TypeAttr'
+					],
+				DisableLDAPS:[
+					'#DirectoryIdAttr','#TypeAttr'
+					],
+				DisableRadius:[
+					'#DirectoryIdAttr'
+					],
+				DisableSso:[
+					'#DirectoryIdAttr','#UserNameAttr','#PasswordAttr'
+					],
+				EnableClientAuthentication:[
+					'#DirectoryIdAttr','#TypeAttr'
+					],
+				EnableLDAPS:[
+					'#DirectoryIdAttr','#TypeAttr'
+					],
+				EnableRadius:[
+					'#DirectoryIdAttr','#RadiusSettingsAttr'
+					],
+				EnableSso:[
+					'#DirectoryIdAttr','#UserNameAttr','#PasswordAttr'
+					],
+				GetDirectoryLimits:[
+					
+					],
+				GetSnapshotLimits:[
+					'#DirectoryIdAttr'
+					],
+				ListCertificates:[
+					'#DirectoryIdAttr','#NextTokenAttr','#LimitAttr'
+					],
+				ListIpRoutes:[
+					'#DirectoryIdAttr','#NextTokenAttr','#LimitAttr'
+					],
+				ListLogSubscriptions:[
+					'#DirectoryIdAttr','#NextTokenAttr','#LimitAttr'
+					],
+				ListSchemaExtensions:[
+					'#DirectoryIdAttr','#NextTokenAttr','#LimitAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceIdAttr','#NextTokenAttr','#LimitAttr'
+					],
+				RegisterCertificate:[
+					'#DirectoryIdAttr','#CertificateDataAttr','#TypeAttr','#ClientCertAuthSettingsAttr'
+					],
+				RegisterEventTopic:[
+					'#DirectoryIdAttr','#TopicNameAttr'
+					],
+				RejectSharedDirectory:[
+					'#SharedDirectoryIdAttr'
+					],
+				RemoveIpRoutes:[
+					'#DirectoryIdAttr','#CidrIpsAttr'
+					],
+				RemoveRegion:[
+					'#DirectoryIdAttr'
+					],
+				RemoveTagsFromResource:[
+					'#ResourceIdAttr','#TagKeysAttr'
+					],
+				ResetUserPassword:[
+					'#DirectoryIdAttr','#UserNameAttr','#NewPasswordAttr'
+					],
+				RestoreFromSnapshot:[
+					'#SnapshotIdAttr'
+					],
+				ShareDirectory:[
+					'#DirectoryIdAttr','#ShareNotesAttr','#ShareTargetAttr','#ShareMethodAttr'
+					],
+				StartSchemaExtension:[
+					'#DirectoryIdAttr','#CreateSnapshotBeforeSchemaExtensionAttr','#LdifContentAttr','#DescriptionAttr'
+					],
+				UnshareDirectory:[
+					'#DirectoryIdAttr','#UnshareTargetAttr'
+					],
+				UpdateConditionalForwarder:[
+					'#DirectoryIdAttr','#RemoteDomainNameAttr','#DnsIpAddrsAttr'
+					],
+				UpdateNumberOfDomainControllers:[
+					'#DirectoryIdAttr','#DesiredNumberAttr'
+					],
+				UpdateRadius:[
+					'#DirectoryIdAttr','#RadiusSettingsAttr'
+					],
+				UpdateTrust:[
+					'#TrustIdAttr','#SelectiveAuthAttr'
+					],
+				VerifyTrust:[
+					'#TrustIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DirectoryService">
+<p>
+AWS DirectoryService
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DirectoryService.html">DirectoryService</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DirectoryService',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptSharedDirectory' },
+			
+				SharedDirectoryId: { value: ""} ,
+				DirectoryId: { value: ""} ,
+				IpRoutes: { value: ""} ,
+				UpdateSecurityGroupForDirectoryControllers: { value: ""} ,
+				RegionName: { value: ""} ,
+				VPCSettings: { value: ""} ,
+				ResourceId: { value: ""} ,
+				Tags: { value: ""} ,
+				SchemaExtensionId: { value: ""} ,
+				Name: { value: ""} ,
+				ShortName: { value: ""} ,
+				Password: { value: ""} ,
+				Description: { value: ""} ,
+				Size: { value: ""} ,
+				ConnectSettings: { value: ""} ,
+				Alias: { value: ""} ,
+				ComputerName: { value: ""} ,
+				OrganizationalUnitDistinguishedName: { value: ""} ,
+				ComputerAttributes: { value: ""} ,
+				RemoteDomainName: { value: ""} ,
+				DnsIpAddrs: { value: ""} ,
+				VpcSettings: { value: ""} ,
+				LogGroupName: { value: ""} ,
+				Edition: { value: ""} ,
+				TrustPassword: { value: ""} ,
+				TrustDirection: { value: ""} ,
+				TrustType: { value: ""} ,
+				ConditionalForwarderIpAddrs: { value: ""} ,
+				SelectiveAuth: { value: ""} ,
+				SnapshotId: { value: ""} ,
+				TrustId: { value: ""} ,
+				DeleteAssociatedConditionalForwarder: { value: ""} ,
+				CertificateId: { value: ""} ,
+				TopicName: { value: ""} ,
+				Type: { value: ""} ,
+				NextToken: { value: ""} ,
+				Limit: { value: ""} ,
+				RemoteDomainNames: { value: ""} ,
+				DirectoryIds: { value: ""} ,
+				DomainControllerIds: { value: ""} ,
+				TopicNames: { value: ""} ,
+				OwnerDirectoryId: { value: ""} ,
+				SharedDirectoryIds: { value: ""} ,
+				SnapshotIds: { value: ""} ,
+				TrustIds: { value: ""} ,
+				UserName: { value: ""} ,
+				RadiusSettings: { value: ""} ,
+				CertificateData: { value: ""} ,
+				ClientCertAuthSettings: { value: ""} ,
+				CidrIps: { value: ""} ,
+				TagKeys: { value: ""} ,
+				NewPassword: { value: ""} ,
+				ShareNotes: { value: ""} ,
+				ShareTarget: { value: ""} ,
+				ShareMethod: { value: ""} ,
+				CreateSnapshotBeforeSchemaExtension: { value: ""} ,
+				LdifContent: { value: ""} ,
+				UnshareTarget: { value: ""} ,
+				DesiredNumber: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DirectoryService " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SharedDirectoryId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DirectoryId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UpdateSecurityGroupForDirectoryControllers").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RegionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VPCSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaExtensionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShortName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Password").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Size").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Alias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComputerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationalUnitDistinguishedName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComputerAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RemoteDomainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DnsIpAddrs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Edition").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TrustDirection").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrustType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConditionalForwarderIpAddrs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SelectiveAuth").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrustId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeleteAssociatedConditionalForwarder").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CertificateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TopicName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-DirectoryIds").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-OwnerDirectoryId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SharedDirectoryIds").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RadiusSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientCertAuthSettings").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-ShareNotes").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ShareMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CreateSnapshotBeforeSchemaExtension").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-LdifContent").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DesiredNumber").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

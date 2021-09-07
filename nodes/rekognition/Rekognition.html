@@ -1,0 +1,630 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Rekognition">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CompareFaces">CompareFaces</option>
+		
+			<option value="CreateCollection">CreateCollection</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateProjectVersion">CreateProjectVersion</option>
+		
+			<option value="CreateStreamProcessor">CreateStreamProcessor</option>
+		
+			<option value="DeleteCollection">DeleteCollection</option>
+		
+			<option value="DeleteFaces">DeleteFaces</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteProjectVersion">DeleteProjectVersion</option>
+		
+			<option value="DeleteStreamProcessor">DeleteStreamProcessor</option>
+		
+			<option value="DescribeCollection">DescribeCollection</option>
+		
+			<option value="DescribeProjectVersions">DescribeProjectVersions</option>
+		
+			<option value="DescribeProjects">DescribeProjects</option>
+		
+			<option value="DescribeStreamProcessor">DescribeStreamProcessor</option>
+		
+			<option value="DetectCustomLabels">DetectCustomLabels</option>
+		
+			<option value="DetectFaces">DetectFaces</option>
+		
+			<option value="DetectLabels">DetectLabels</option>
+		
+			<option value="DetectModerationLabels">DetectModerationLabels</option>
+		
+			<option value="DetectProtectiveEquipment">DetectProtectiveEquipment</option>
+		
+			<option value="DetectText">DetectText</option>
+		
+			<option value="GetCelebrityInfo">GetCelebrityInfo</option>
+		
+			<option value="GetCelebrityRecognition">GetCelebrityRecognition</option>
+		
+			<option value="GetContentModeration">GetContentModeration</option>
+		
+			<option value="GetFaceDetection">GetFaceDetection</option>
+		
+			<option value="GetFaceSearch">GetFaceSearch</option>
+		
+			<option value="GetLabelDetection">GetLabelDetection</option>
+		
+			<option value="GetPersonTracking">GetPersonTracking</option>
+		
+			<option value="GetSegmentDetection">GetSegmentDetection</option>
+		
+			<option value="GetTextDetection">GetTextDetection</option>
+		
+			<option value="IndexFaces">IndexFaces</option>
+		
+			<option value="ListCollections">ListCollections</option>
+		
+			<option value="ListFaces">ListFaces</option>
+		
+			<option value="ListStreamProcessors">ListStreamProcessors</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RecognizeCelebrities">RecognizeCelebrities</option>
+		
+			<option value="SearchFaces">SearchFaces</option>
+		
+			<option value="SearchFacesByImage">SearchFacesByImage</option>
+		
+			<option value="StartCelebrityRecognition">StartCelebrityRecognition</option>
+		
+			<option value="StartContentModeration">StartContentModeration</option>
+		
+			<option value="StartFaceDetection">StartFaceDetection</option>
+		
+			<option value="StartFaceSearch">StartFaceSearch</option>
+		
+			<option value="StartLabelDetection">StartLabelDetection</option>
+		
+			<option value="StartPersonTracking">StartPersonTracking</option>
+		
+			<option value="StartProjectVersion">StartProjectVersion</option>
+		
+			<option value="StartSegmentDetection">StartSegmentDetection</option>
+		
+			<option value="StartStreamProcessor">StartStreamProcessor</option>
+		
+			<option value="StartTextDetection">StartTextDetection</option>
+		
+			<option value="StopProjectVersion">StopProjectVersion</option>
+		
+			<option value="StopStreamProcessor">StopStreamProcessor</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SourceImageAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceImage"><i class="fa fa-tag"></i> SourceImage</label>
+		<input type="text" id="node-input-SourceImage" placeholder="SourceImage"></input>
+	</div> 
+	<div class="form-row" id='TargetImageAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetImage"><i class="fa fa-tag"></i> TargetImage</label>
+		<input type="text" id="node-input-TargetImage" placeholder="TargetImage"></input>
+	</div> 
+	<div class="form-row" id='SimilarityThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-SimilarityThreshold"><i class="fa fa-tag"></i> SimilarityThreshold</label>
+		<input type="text" id="node-input-SimilarityThreshold" placeholder="SimilarityThreshold"></input>
+	</div> 
+	<div class="form-row" id='QualityFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-QualityFilter"><i class="fa fa-tag"></i> QualityFilter</label>
+		<input type="text" id="node-input-QualityFilter" placeholder="QualityFilter"></input>
+	</div> 
+	<div class="form-row" id='CollectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CollectionId"><i class="fa fa-tag"></i> CollectionId</label>
+		<input type="text" id="node-input-CollectionId" placeholder="CollectionId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i> ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='ProjectArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectArn"><i class="fa fa-tag"></i> ProjectArn</label>
+		<input type="text" id="node-input-ProjectArn" placeholder="ProjectArn"></input>
+	</div> 
+	<div class="form-row" id='VersionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionName"><i class="fa fa-tag"></i> VersionName</label>
+		<input type="text" id="node-input-VersionName" placeholder="VersionName"></input>
+	</div> 
+	<div class="form-row" id='OutputConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputConfig"><i class="fa fa-tag"></i> OutputConfig</label>
+		<input type="text" id="node-input-OutputConfig" placeholder="OutputConfig"></input>
+	</div> 
+	<div class="form-row" id='TrainingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingData"><i class="fa fa-tag"></i> TrainingData</label>
+		<input type="text" id="node-input-TrainingData" placeholder="TrainingData"></input>
+	</div> 
+	<div class="form-row" id='TestingDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TestingData"><i class="fa fa-tag"></i> TestingData</label>
+		<input type="text" id="node-input-TestingData" placeholder="TestingData"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='InputAttr' class='hiddenAttrs'>
+		<label for="node-input-Input"><i class="fa fa-tag"></i> Input</label>
+		<input type="text" id="node-input-Input" placeholder="Input"></input>
+	</div> 
+	<div class="form-row" id='OutputAttr' class='hiddenAttrs'>
+		<label for="node-input-Output"><i class="fa fa-tag"></i> Output</label>
+		<input type="text" id="node-input-Output" placeholder="Output"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-Settings"><i class="fa fa-tag"></i> Settings</label>
+		<input type="text" id="node-input-Settings" placeholder="Settings"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='FaceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceIds"><i class="fa fa-tag"></i> FaceIds</label>
+		<input type="text" id="node-input-FaceIds" placeholder="FaceIds"></input>
+	</div> 
+	<div class="form-row" id='ProjectVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectVersionArn"><i class="fa fa-tag"></i> ProjectVersionArn</label>
+		<input type="text" id="node-input-ProjectVersionArn" placeholder="ProjectVersionArn"></input>
+	</div> 
+	<div class="form-row" id='VersionNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionNames"><i class="fa fa-tag"></i> VersionNames</label>
+		<input type="text" id="node-input-VersionNames" placeholder="VersionNames"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ImageAttr' class='hiddenAttrs'>
+		<label for="node-input-Image"><i class="fa fa-tag"></i> Image</label>
+		<input type="text" id="node-input-Image" placeholder="Image"></input>
+	</div> 
+	<div class="form-row" id='MinConfidenceAttr' class='hiddenAttrs'>
+		<label for="node-input-MinConfidence"><i class="fa fa-tag"></i> MinConfidence</label>
+		<input type="text" id="node-input-MinConfidence" placeholder="MinConfidence"></input>
+	</div> 
+	<div class="form-row" id='AttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attributes"><i class="fa fa-tag"></i> Attributes</label>
+		<input type="text" id="node-input-Attributes" placeholder="Attributes"></input>
+	</div> 
+	<div class="form-row" id='MaxLabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxLabels"><i class="fa fa-tag"></i> MaxLabels</label>
+		<input type="text" id="node-input-MaxLabels" placeholder="MaxLabels"></input>
+	</div> 
+	<div class="form-row" id='HumanLoopConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-HumanLoopConfig"><i class="fa fa-tag"></i> HumanLoopConfig</label>
+		<input type="text" id="node-input-HumanLoopConfig" placeholder="HumanLoopConfig"></input>
+	</div> 
+	<div class="form-row" id='SummarizationAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-SummarizationAttributes"><i class="fa fa-tag"></i> SummarizationAttributes</label>
+		<input type="text" id="node-input-SummarizationAttributes" placeholder="SummarizationAttributes"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='SortByAttr' class='hiddenAttrs'>
+		<label for="node-input-SortBy"><i class="fa fa-tag"></i> SortBy</label>
+		<input type="text" id="node-input-SortBy" placeholder="SortBy"></input>
+	</div> 
+	<div class="form-row" id='ExternalImageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalImageId"><i class="fa fa-tag"></i> ExternalImageId</label>
+		<input type="text" id="node-input-ExternalImageId" placeholder="ExternalImageId"></input>
+	</div> 
+	<div class="form-row" id='DetectionAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-DetectionAttributes"><i class="fa fa-tag"></i> DetectionAttributes</label>
+		<input type="text" id="node-input-DetectionAttributes" placeholder="DetectionAttributes"></input>
+	</div> 
+	<div class="form-row" id='MaxFacesAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxFaces"><i class="fa fa-tag"></i> MaxFaces</label>
+		<input type="text" id="node-input-MaxFaces" placeholder="MaxFaces"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='FaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceId"><i class="fa fa-tag"></i> FaceId</label>
+		<input type="text" id="node-input-FaceId" placeholder="FaceId"></input>
+	</div> 
+	<div class="form-row" id='FaceMatchThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceMatchThreshold"><i class="fa fa-tag"></i> FaceMatchThreshold</label>
+		<input type="text" id="node-input-FaceMatchThreshold" placeholder="FaceMatchThreshold"></input>
+	</div> 
+	<div class="form-row" id='VideoAttr' class='hiddenAttrs'>
+		<label for="node-input-Video"><i class="fa fa-tag"></i> Video</label>
+		<input type="text" id="node-input-Video" placeholder="Video"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='NotificationChannelAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationChannel"><i class="fa fa-tag"></i> NotificationChannel</label>
+		<input type="text" id="node-input-NotificationChannel" placeholder="NotificationChannel"></input>
+	</div> 
+	<div class="form-row" id='JobTagAttr' class='hiddenAttrs'>
+		<label for="node-input-JobTag"><i class="fa fa-tag"></i> JobTag</label>
+		<input type="text" id="node-input-JobTag" placeholder="JobTag"></input>
+	</div> 
+	<div class="form-row" id='FaceAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-FaceAttributes"><i class="fa fa-tag"></i> FaceAttributes</label>
+		<input type="text" id="node-input-FaceAttributes" placeholder="FaceAttributes"></input>
+	</div> 
+	<div class="form-row" id='MinInferenceUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-MinInferenceUnits"><i class="fa fa-tag"></i> MinInferenceUnits</label>
+		<input type="text" id="node-input-MinInferenceUnits" placeholder="MinInferenceUnits"></input>
+	</div> 
+	<div class="form-row" id='SegmentTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-SegmentTypes"><i class="fa fa-tag"></i> SegmentTypes</label>
+		<input type="text" id="node-input-SegmentTypes" placeholder="SegmentTypes"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CompareFaces:[
+					'#SourceImageAttr','#TargetImageAttr','#SimilarityThresholdAttr','#QualityFilterAttr'
+					],
+				CreateCollection:[
+					'#CollectionIdAttr','#TagsAttr'
+					],
+				CreateProject:[
+					'#ProjectNameAttr'
+					],
+				CreateProjectVersion:[
+					'#ProjectArnAttr','#VersionNameAttr','#OutputConfigAttr','#TrainingDataAttr','#TestingDataAttr','#TagsAttr','#KmsKeyIdAttr'
+					],
+				CreateStreamProcessor:[
+					'#InputAttr','#OutputAttr','#NameAttr','#SettingsAttr','#RoleArnAttr','#TagsAttr'
+					],
+				DeleteCollection:[
+					'#CollectionIdAttr'
+					],
+				DeleteFaces:[
+					'#CollectionIdAttr','#FaceIdsAttr'
+					],
+				DeleteProject:[
+					'#ProjectArnAttr'
+					],
+				DeleteProjectVersion:[
+					'#ProjectVersionArnAttr'
+					],
+				DeleteStreamProcessor:[
+					'#NameAttr'
+					],
+				DescribeCollection:[
+					'#CollectionIdAttr'
+					],
+				DescribeProjectVersions:[
+					'#ProjectArnAttr','#VersionNamesAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeProjects:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeStreamProcessor:[
+					'#NameAttr'
+					],
+				DetectCustomLabels:[
+					'#ProjectVersionArnAttr','#ImageAttr','#MaxResultsAttr','#MinConfidenceAttr'
+					],
+				DetectFaces:[
+					'#ImageAttr','#AttributesAttr'
+					],
+				DetectLabels:[
+					'#ImageAttr','#MaxLabelsAttr','#MinConfidenceAttr'
+					],
+				DetectModerationLabels:[
+					'#ImageAttr','#MinConfidenceAttr','#HumanLoopConfigAttr'
+					],
+				DetectProtectiveEquipment:[
+					'#ImageAttr','#SummarizationAttributesAttr'
+					],
+				DetectText:[
+					'#ImageAttr','#FiltersAttr'
+					],
+				GetCelebrityInfo:[
+					'#IdAttr'
+					],
+				GetCelebrityRecognition:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr'
+					],
+				GetContentModeration:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr'
+					],
+				GetFaceDetection:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetFaceSearch:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr'
+					],
+				GetLabelDetection:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr'
+					],
+				GetPersonTracking:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr','#SortByAttr'
+					],
+				GetSegmentDetection:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetTextDetection:[
+					'#JobIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				IndexFaces:[
+					'#CollectionIdAttr','#ImageAttr','#ExternalImageIdAttr','#DetectionAttributesAttr','#MaxFacesAttr','#QualityFilterAttr'
+					],
+				ListCollections:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListFaces:[
+					'#CollectionIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListStreamProcessors:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RecognizeCelebrities:[
+					'#ImageAttr'
+					],
+				SearchFaces:[
+					'#CollectionIdAttr','#FaceIdAttr','#MaxFacesAttr','#FaceMatchThresholdAttr'
+					],
+				SearchFacesByImage:[
+					'#CollectionIdAttr','#ImageAttr','#MaxFacesAttr','#FaceMatchThresholdAttr','#QualityFilterAttr'
+					],
+				StartCelebrityRecognition:[
+					'#VideoAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#JobTagAttr'
+					],
+				StartContentModeration:[
+					'#VideoAttr','#MinConfidenceAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#JobTagAttr'
+					],
+				StartFaceDetection:[
+					'#VideoAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#FaceAttributesAttr','#JobTagAttr'
+					],
+				StartFaceSearch:[
+					'#VideoAttr','#ClientRequestTokenAttr','#FaceMatchThresholdAttr','#CollectionIdAttr','#NotificationChannelAttr','#JobTagAttr'
+					],
+				StartLabelDetection:[
+					'#VideoAttr','#ClientRequestTokenAttr','#MinConfidenceAttr','#NotificationChannelAttr','#JobTagAttr'
+					],
+				StartPersonTracking:[
+					'#VideoAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#JobTagAttr'
+					],
+				StartProjectVersion:[
+					'#ProjectVersionArnAttr','#MinInferenceUnitsAttr'
+					],
+				StartSegmentDetection:[
+					'#VideoAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#JobTagAttr','#FiltersAttr','#SegmentTypesAttr'
+					],
+				StartStreamProcessor:[
+					'#NameAttr'
+					],
+				StartTextDetection:[
+					'#VideoAttr','#ClientRequestTokenAttr','#NotificationChannelAttr','#JobTagAttr','#FiltersAttr'
+					],
+				StopProjectVersion:[
+					'#ProjectVersionArnAttr'
+					],
+				StopStreamProcessor:[
+					'#NameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Rekognition">
+<p>
+AWS Rekognition
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Rekognition.html">Rekognition</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Rekognition',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CompareFaces' },
+			
+				SourceImage: { value: ""} ,
+				TargetImage: { value: ""} ,
+				SimilarityThreshold: { value: ""} ,
+				QualityFilter: { value: ""} ,
+				CollectionId: { value: ""} ,
+				Tags: { value: ""} ,
+				ProjectName: { value: ""} ,
+				ProjectArn: { value: ""} ,
+				VersionName: { value: ""} ,
+				OutputConfig: { value: ""} ,
+				TrainingData: { value: ""} ,
+				TestingData: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				Input: { value: ""} ,
+				Output: { value: ""} ,
+				Name: { value: ""} ,
+				Settings: { value: ""} ,
+				RoleArn: { value: ""} ,
+				FaceIds: { value: ""} ,
+				ProjectVersionArn: { value: ""} ,
+				VersionNames: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Image: { value: ""} ,
+				MinConfidence: { value: ""} ,
+				Attributes: { value: ""} ,
+				MaxLabels: { value: ""} ,
+				HumanLoopConfig: { value: ""} ,
+				SummarizationAttributes: { value: ""} ,
+				Filters: { value: ""} ,
+				Id: { value: ""} ,
+				JobId: { value: ""} ,
+				SortBy: { value: ""} ,
+				ExternalImageId: { value: ""} ,
+				DetectionAttributes: { value: ""} ,
+				MaxFaces: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				FaceId: { value: ""} ,
+				FaceMatchThreshold: { value: ""} ,
+				Video: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				NotificationChannel: { value: ""} ,
+				JobTag: { value: ""} ,
+				FaceAttributes: { value: ""} ,
+				MinInferenceUnits: { value: ""} ,
+				SegmentTypes: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Rekognition " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SourceImage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetImage").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-QualityFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CollectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TestingData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Input").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Output").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Settings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FaceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectVersionArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Image").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxLabels").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExternalImageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DetectionAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxFaces").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FaceId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Video").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationChannel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobTag").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FaceAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MinInferenceUnits").typedInput({ default: "num", types: ["num"]});
+
+
+		}
+	});
+</script>
+

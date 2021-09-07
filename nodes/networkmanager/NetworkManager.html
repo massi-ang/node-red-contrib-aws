@@ -1,0 +1,460 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS NetworkManager">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateCustomerGateway">AssociateCustomerGateway</option>
+		
+			<option value="AssociateLink">AssociateLink</option>
+		
+			<option value="AssociateTransitGatewayConnectPeer">AssociateTransitGatewayConnectPeer</option>
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateDevice">CreateDevice</option>
+		
+			<option value="CreateGlobalNetwork">CreateGlobalNetwork</option>
+		
+			<option value="CreateLink">CreateLink</option>
+		
+			<option value="CreateSite">CreateSite</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteDevice">DeleteDevice</option>
+		
+			<option value="DeleteGlobalNetwork">DeleteGlobalNetwork</option>
+		
+			<option value="DeleteLink">DeleteLink</option>
+		
+			<option value="DeleteSite">DeleteSite</option>
+		
+			<option value="DeregisterTransitGateway">DeregisterTransitGateway</option>
+		
+			<option value="DescribeGlobalNetworks">DescribeGlobalNetworks</option>
+		
+			<option value="DisassociateCustomerGateway">DisassociateCustomerGateway</option>
+		
+			<option value="DisassociateLink">DisassociateLink</option>
+		
+			<option value="DisassociateTransitGatewayConnectPeer">DisassociateTransitGatewayConnectPeer</option>
+		
+			<option value="GetConnections">GetConnections</option>
+		
+			<option value="GetCustomerGatewayAssociations">GetCustomerGatewayAssociations</option>
+		
+			<option value="GetDevices">GetDevices</option>
+		
+			<option value="GetLinkAssociations">GetLinkAssociations</option>
+		
+			<option value="GetLinks">GetLinks</option>
+		
+			<option value="GetSites">GetSites</option>
+		
+			<option value="GetTransitGatewayConnectPeerAssociations">GetTransitGatewayConnectPeerAssociations</option>
+		
+			<option value="GetTransitGatewayRegistrations">GetTransitGatewayRegistrations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterTransitGateway">RegisterTransitGateway</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConnection">UpdateConnection</option>
+		
+			<option value="UpdateDevice">UpdateDevice</option>
+		
+			<option value="UpdateGlobalNetwork">UpdateGlobalNetwork</option>
+		
+			<option value="UpdateLink">UpdateLink</option>
+		
+			<option value="UpdateSite">UpdateSite</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CustomerGatewayArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerGatewayArn"><i class="fa fa-tag"></i> CustomerGatewayArn</label>
+		<input type="text" id="node-input-CustomerGatewayArn" placeholder="CustomerGatewayArn"></input>
+	</div> 
+	<div class="form-row" id='GlobalNetworkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalNetworkId"><i class="fa fa-tag"></i> GlobalNetworkId</label>
+		<input type="text" id="node-input-GlobalNetworkId" placeholder="GlobalNetworkId"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceId"><i class="fa fa-tag"></i> DeviceId</label>
+		<input type="text" id="node-input-DeviceId" placeholder="DeviceId"></input>
+	</div> 
+	<div class="form-row" id='LinkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LinkId"><i class="fa fa-tag"></i> LinkId</label>
+		<input type="text" id="node-input-LinkId" placeholder="LinkId"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayConnectPeerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayConnectPeerArn"><i class="fa fa-tag"></i> TransitGatewayConnectPeerArn</label>
+		<input type="text" id="node-input-TransitGatewayConnectPeerArn" placeholder="TransitGatewayConnectPeerArn"></input>
+	</div> 
+	<div class="form-row" id='ConnectedDeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectedDeviceId"><i class="fa fa-tag"></i> ConnectedDeviceId</label>
+		<input type="text" id="node-input-ConnectedDeviceId" placeholder="ConnectedDeviceId"></input>
+	</div> 
+	<div class="form-row" id='ConnectedLinkIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectedLinkId"><i class="fa fa-tag"></i> ConnectedLinkId</label>
+		<input type="text" id="node-input-ConnectedLinkId" placeholder="ConnectedLinkId"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AWSLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-AWSLocation"><i class="fa fa-tag"></i> AWSLocation</label>
+		<input type="text" id="node-input-AWSLocation" placeholder="AWSLocation"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='VendorAttr' class='hiddenAttrs'>
+		<label for="node-input-Vendor"><i class="fa fa-tag"></i> Vendor</label>
+		<input type="text" id="node-input-Vendor" placeholder="Vendor"></input>
+	</div> 
+	<div class="form-row" id='ModelAttr' class='hiddenAttrs'>
+		<label for="node-input-Model"><i class="fa fa-tag"></i> Model</label>
+		<input type="text" id="node-input-Model" placeholder="Model"></input>
+	</div> 
+	<div class="form-row" id='SerialNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-SerialNumber"><i class="fa fa-tag"></i> SerialNumber</label>
+		<input type="text" id="node-input-SerialNumber" placeholder="SerialNumber"></input>
+	</div> 
+	<div class="form-row" id='LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-Location"><i class="fa fa-tag"></i> Location</label>
+		<input type="text" id="node-input-Location" placeholder="Location"></input>
+	</div> 
+	<div class="form-row" id='SiteIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SiteId"><i class="fa fa-tag"></i> SiteId</label>
+		<input type="text" id="node-input-SiteId" placeholder="SiteId"></input>
+	</div> 
+	<div class="form-row" id='BandwidthAttr' class='hiddenAttrs'>
+		<label for="node-input-Bandwidth"><i class="fa fa-tag"></i> Bandwidth</label>
+		<input type="text" id="node-input-Bandwidth" placeholder="Bandwidth"></input>
+	</div> 
+	<div class="form-row" id='ProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-Provider"><i class="fa fa-tag"></i> Provider</label>
+		<input type="text" id="node-input-Provider" placeholder="Provider"></input>
+	</div> 
+	<div class="form-row" id='ConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionId"><i class="fa fa-tag"></i> ConnectionId</label>
+		<input type="text" id="node-input-ConnectionId" placeholder="ConnectionId"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayArn"><i class="fa fa-tag"></i> TransitGatewayArn</label>
+		<input type="text" id="node-input-TransitGatewayArn" placeholder="TransitGatewayArn"></input>
+	</div> 
+	<div class="form-row" id='GlobalNetworkIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalNetworkIds"><i class="fa fa-tag"></i> GlobalNetworkIds</label>
+		<input type="text" id="node-input-GlobalNetworkIds" placeholder="GlobalNetworkIds"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ConnectionIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionIds"><i class="fa fa-tag"></i> ConnectionIds</label>
+		<input type="text" id="node-input-ConnectionIds" placeholder="ConnectionIds"></input>
+	</div> 
+	<div class="form-row" id='CustomerGatewayArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomerGatewayArns"><i class="fa fa-tag"></i> CustomerGatewayArns</label>
+		<input type="text" id="node-input-CustomerGatewayArns" placeholder="CustomerGatewayArns"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceIds"><i class="fa fa-tag"></i> DeviceIds</label>
+		<input type="text" id="node-input-DeviceIds" placeholder="DeviceIds"></input>
+	</div> 
+	<div class="form-row" id='LinkIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-LinkIds"><i class="fa fa-tag"></i> LinkIds</label>
+		<input type="text" id="node-input-LinkIds" placeholder="LinkIds"></input>
+	</div> 
+	<div class="form-row" id='SiteIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SiteIds"><i class="fa fa-tag"></i> SiteIds</label>
+		<input type="text" id="node-input-SiteIds" placeholder="SiteIds"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayConnectPeerArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayConnectPeerArns"><i class="fa fa-tag"></i> TransitGatewayConnectPeerArns</label>
+		<input type="text" id="node-input-TransitGatewayConnectPeerArns" placeholder="TransitGatewayConnectPeerArns"></input>
+	</div> 
+	<div class="form-row" id='TransitGatewayArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-TransitGatewayArns"><i class="fa fa-tag"></i> TransitGatewayArns</label>
+		<input type="text" id="node-input-TransitGatewayArns" placeholder="TransitGatewayArns"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateCustomerGateway:[
+					'#CustomerGatewayArnAttr','#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				AssociateLink:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				AssociateTransitGatewayConnectPeer:[
+					'#GlobalNetworkIdAttr','#TransitGatewayConnectPeerArnAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				CreateConnection:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#ConnectedDeviceIdAttr','#LinkIdAttr','#ConnectedLinkIdAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateDevice:[
+					'#GlobalNetworkIdAttr','#AWSLocationAttr','#DescriptionAttr','#TypeAttr','#VendorAttr','#ModelAttr','#SerialNumberAttr','#LocationAttr','#SiteIdAttr','#TagsAttr'
+					],
+				CreateGlobalNetwork:[
+					'#DescriptionAttr','#TagsAttr'
+					],
+				CreateLink:[
+					'#GlobalNetworkIdAttr','#DescriptionAttr','#TypeAttr','#BandwidthAttr','#ProviderAttr','#SiteIdAttr','#TagsAttr'
+					],
+				CreateSite:[
+					'#GlobalNetworkIdAttr','#DescriptionAttr','#LocationAttr','#TagsAttr'
+					],
+				DeleteConnection:[
+					'#GlobalNetworkIdAttr','#ConnectionIdAttr'
+					],
+				DeleteDevice:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr'
+					],
+				DeleteGlobalNetwork:[
+					'#GlobalNetworkIdAttr'
+					],
+				DeleteLink:[
+					'#GlobalNetworkIdAttr','#LinkIdAttr'
+					],
+				DeleteSite:[
+					'#GlobalNetworkIdAttr','#SiteIdAttr'
+					],
+				DeregisterTransitGateway:[
+					'#GlobalNetworkIdAttr','#TransitGatewayArnAttr'
+					],
+				DescribeGlobalNetworks:[
+					'#GlobalNetworkIdsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DisassociateCustomerGateway:[
+					'#GlobalNetworkIdAttr','#CustomerGatewayArnAttr'
+					],
+				DisassociateLink:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr'
+					],
+				DisassociateTransitGatewayConnectPeer:[
+					'#GlobalNetworkIdAttr','#TransitGatewayConnectPeerArnAttr'
+					],
+				GetConnections:[
+					'#GlobalNetworkIdAttr','#ConnectionIdsAttr','#DeviceIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetCustomerGatewayAssociations:[
+					'#GlobalNetworkIdAttr','#CustomerGatewayArnsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetDevices:[
+					'#GlobalNetworkIdAttr','#DeviceIdsAttr','#SiteIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetLinkAssociations:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#LinkIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetLinks:[
+					'#GlobalNetworkIdAttr','#LinkIdsAttr','#SiteIdAttr','#TypeAttr','#ProviderAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetSites:[
+					'#GlobalNetworkIdAttr','#SiteIdsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetTransitGatewayConnectPeerAssociations:[
+					'#GlobalNetworkIdAttr','#TransitGatewayConnectPeerArnsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetTransitGatewayRegistrations:[
+					'#GlobalNetworkIdAttr','#TransitGatewayArnsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				RegisterTransitGateway:[
+					'#GlobalNetworkIdAttr','#TransitGatewayArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateConnection:[
+					'#GlobalNetworkIdAttr','#ConnectionIdAttr','#LinkIdAttr','#ConnectedLinkIdAttr','#DescriptionAttr'
+					],
+				UpdateDevice:[
+					'#GlobalNetworkIdAttr','#DeviceIdAttr','#AWSLocationAttr','#DescriptionAttr','#TypeAttr','#VendorAttr','#ModelAttr','#SerialNumberAttr','#LocationAttr','#SiteIdAttr'
+					],
+				UpdateGlobalNetwork:[
+					'#GlobalNetworkIdAttr','#DescriptionAttr'
+					],
+				UpdateLink:[
+					'#GlobalNetworkIdAttr','#LinkIdAttr','#DescriptionAttr','#TypeAttr','#BandwidthAttr','#ProviderAttr'
+					],
+				UpdateSite:[
+					'#GlobalNetworkIdAttr','#SiteIdAttr','#DescriptionAttr','#LocationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS NetworkManager">
+<p>
+AWS NetworkManager
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/NetworkManager.html">NetworkManager</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS NetworkManager',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateCustomerGateway' },
+			
+				CustomerGatewayArn: { value: ""} ,
+				GlobalNetworkId: { value: ""} ,
+				DeviceId: { value: ""} ,
+				LinkId: { value: ""} ,
+				TransitGatewayConnectPeerArn: { value: ""} ,
+				ConnectedDeviceId: { value: ""} ,
+				ConnectedLinkId: { value: ""} ,
+				Description: { value: ""} ,
+				Tags: { value: ""} ,
+				AWSLocation: { value: ""} ,
+				Type: { value: ""} ,
+				Vendor: { value: ""} ,
+				Model: { value: ""} ,
+				SerialNumber: { value: ""} ,
+				Location: { value: ""} ,
+				SiteId: { value: ""} ,
+				Bandwidth: { value: ""} ,
+				Provider: { value: ""} ,
+				ConnectionId: { value: ""} ,
+				TransitGatewayArn: { value: ""} ,
+				GlobalNetworkIds: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ConnectionIds: { value: ""} ,
+				CustomerGatewayArns: { value: ""} ,
+				DeviceIds: { value: ""} ,
+				LinkIds: { value: ""} ,
+				SiteIds: { value: ""} ,
+				TransitGatewayConnectPeerArns: { value: ""} ,
+				TransitGatewayArns: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "NetworkManager " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-CustomerGatewayArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalNetworkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LinkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransitGatewayConnectPeerArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectedDeviceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectedLinkId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AWSLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Vendor").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Model").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SerialNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SiteId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Bandwidth").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Provider").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransitGatewayArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalNetworkIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomerGatewayArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LinkIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SiteIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransitGatewayConnectPeerArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransitGatewayArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

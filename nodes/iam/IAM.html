@@ -1,0 +1,1417 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IAM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddClientIDToOpenIDConnectProvider">AddClientIDToOpenIDConnectProvider</option>
+		
+			<option value="AddRoleToInstanceProfile">AddRoleToInstanceProfile</option>
+		
+			<option value="AddUserToGroup">AddUserToGroup</option>
+		
+			<option value="AttachGroupPolicy">AttachGroupPolicy</option>
+		
+			<option value="AttachRolePolicy">AttachRolePolicy</option>
+		
+			<option value="AttachUserPolicy">AttachUserPolicy</option>
+		
+			<option value="ChangePassword">ChangePassword</option>
+		
+			<option value="CreateAccessKey">CreateAccessKey</option>
+		
+			<option value="CreateAccountAlias">CreateAccountAlias</option>
+		
+			<option value="CreateGroup">CreateGroup</option>
+		
+			<option value="CreateInstanceProfile">CreateInstanceProfile</option>
+		
+			<option value="CreateLoginProfile">CreateLoginProfile</option>
+		
+			<option value="CreateOpenIDConnectProvider">CreateOpenIDConnectProvider</option>
+		
+			<option value="CreatePolicy">CreatePolicy</option>
+		
+			<option value="CreatePolicyVersion">CreatePolicyVersion</option>
+		
+			<option value="CreateRole">CreateRole</option>
+		
+			<option value="CreateSAMLProvider">CreateSAMLProvider</option>
+		
+			<option value="CreateServiceLinkedRole">CreateServiceLinkedRole</option>
+		
+			<option value="CreateServiceSpecificCredential">CreateServiceSpecificCredential</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateVirtualMFADevice">CreateVirtualMFADevice</option>
+		
+			<option value="DeactivateMFADevice">DeactivateMFADevice</option>
+		
+			<option value="DeleteAccessKey">DeleteAccessKey</option>
+		
+			<option value="DeleteAccountAlias">DeleteAccountAlias</option>
+		
+			<option value="DeleteAccountPasswordPolicy">DeleteAccountPasswordPolicy</option>
+		
+			<option value="DeleteGroup">DeleteGroup</option>
+		
+			<option value="DeleteGroupPolicy">DeleteGroupPolicy</option>
+		
+			<option value="DeleteInstanceProfile">DeleteInstanceProfile</option>
+		
+			<option value="DeleteLoginProfile">DeleteLoginProfile</option>
+		
+			<option value="DeleteOpenIDConnectProvider">DeleteOpenIDConnectProvider</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DeletePolicyVersion">DeletePolicyVersion</option>
+		
+			<option value="DeleteRole">DeleteRole</option>
+		
+			<option value="DeleteRolePermissionsBoundary">DeleteRolePermissionsBoundary</option>
+		
+			<option value="DeleteRolePolicy">DeleteRolePolicy</option>
+		
+			<option value="DeleteSAMLProvider">DeleteSAMLProvider</option>
+		
+			<option value="DeleteSSHPublicKey">DeleteSSHPublicKey</option>
+		
+			<option value="DeleteServerCertificate">DeleteServerCertificate</option>
+		
+			<option value="DeleteServiceLinkedRole">DeleteServiceLinkedRole</option>
+		
+			<option value="DeleteServiceSpecificCredential">DeleteServiceSpecificCredential</option>
+		
+			<option value="DeleteSigningCertificate">DeleteSigningCertificate</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DeleteUserPermissionsBoundary">DeleteUserPermissionsBoundary</option>
+		
+			<option value="DeleteUserPolicy">DeleteUserPolicy</option>
+		
+			<option value="DeleteVirtualMFADevice">DeleteVirtualMFADevice</option>
+		
+			<option value="DetachGroupPolicy">DetachGroupPolicy</option>
+		
+			<option value="DetachRolePolicy">DetachRolePolicy</option>
+		
+			<option value="DetachUserPolicy">DetachUserPolicy</option>
+		
+			<option value="EnableMFADevice">EnableMFADevice</option>
+		
+			<option value="GenerateCredentialReport">GenerateCredentialReport</option>
+		
+			<option value="GenerateOrganizationsAccessReport">GenerateOrganizationsAccessReport</option>
+		
+			<option value="GenerateServiceLastAccessedDetails">GenerateServiceLastAccessedDetails</option>
+		
+			<option value="GetAccessKeyLastUsed">GetAccessKeyLastUsed</option>
+		
+			<option value="GetAccountAuthorizationDetails">GetAccountAuthorizationDetails</option>
+		
+			<option value="GetAccountPasswordPolicy">GetAccountPasswordPolicy</option>
+		
+			<option value="GetAccountSummary">GetAccountSummary</option>
+		
+			<option value="GetContextKeysForCustomPolicy">GetContextKeysForCustomPolicy</option>
+		
+			<option value="GetContextKeysForPrincipalPolicy">GetContextKeysForPrincipalPolicy</option>
+		
+			<option value="GetCredentialReport">GetCredentialReport</option>
+		
+			<option value="GetGroup">GetGroup</option>
+		
+			<option value="GetGroupPolicy">GetGroupPolicy</option>
+		
+			<option value="GetInstanceProfile">GetInstanceProfile</option>
+		
+			<option value="GetLoginProfile">GetLoginProfile</option>
+		
+			<option value="GetOpenIDConnectProvider">GetOpenIDConnectProvider</option>
+		
+			<option value="GetOrganizationsAccessReport">GetOrganizationsAccessReport</option>
+		
+			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="GetPolicyVersion">GetPolicyVersion</option>
+		
+			<option value="GetRole">GetRole</option>
+		
+			<option value="GetRolePolicy">GetRolePolicy</option>
+		
+			<option value="GetSAMLProvider">GetSAMLProvider</option>
+		
+			<option value="GetSSHPublicKey">GetSSHPublicKey</option>
+		
+			<option value="GetServerCertificate">GetServerCertificate</option>
+		
+			<option value="GetServiceLastAccessedDetails">GetServiceLastAccessedDetails</option>
+		
+			<option value="GetServiceLastAccessedDetailsWithEntities">GetServiceLastAccessedDetailsWithEntities</option>
+		
+			<option value="GetServiceLinkedRoleDeletionStatus">GetServiceLinkedRoleDeletionStatus</option>
+		
+			<option value="GetUser">GetUser</option>
+		
+			<option value="GetUserPolicy">GetUserPolicy</option>
+		
+			<option value="ListAccessKeys">ListAccessKeys</option>
+		
+			<option value="ListAccountAliases">ListAccountAliases</option>
+		
+			<option value="ListAttachedGroupPolicies">ListAttachedGroupPolicies</option>
+		
+			<option value="ListAttachedRolePolicies">ListAttachedRolePolicies</option>
+		
+			<option value="ListAttachedUserPolicies">ListAttachedUserPolicies</option>
+		
+			<option value="ListEntitiesForPolicy">ListEntitiesForPolicy</option>
+		
+			<option value="ListGroupPolicies">ListGroupPolicies</option>
+		
+			<option value="ListGroups">ListGroups</option>
+		
+			<option value="ListGroupsForUser">ListGroupsForUser</option>
+		
+			<option value="ListInstanceProfileTags">ListInstanceProfileTags</option>
+		
+			<option value="ListInstanceProfiles">ListInstanceProfiles</option>
+		
+			<option value="ListInstanceProfilesForRole">ListInstanceProfilesForRole</option>
+		
+			<option value="ListMFADeviceTags">ListMFADeviceTags</option>
+		
+			<option value="ListMFADevices">ListMFADevices</option>
+		
+			<option value="ListOpenIDConnectProviderTags">ListOpenIDConnectProviderTags</option>
+		
+			<option value="ListOpenIDConnectProviders">ListOpenIDConnectProviders</option>
+		
+			<option value="ListPolicies">ListPolicies</option>
+		
+			<option value="ListPoliciesGrantingServiceAccess">ListPoliciesGrantingServiceAccess</option>
+		
+			<option value="ListPolicyTags">ListPolicyTags</option>
+		
+			<option value="ListPolicyVersions">ListPolicyVersions</option>
+		
+			<option value="ListRolePolicies">ListRolePolicies</option>
+		
+			<option value="ListRoleTags">ListRoleTags</option>
+		
+			<option value="ListRoles">ListRoles</option>
+		
+			<option value="ListSAMLProviderTags">ListSAMLProviderTags</option>
+		
+			<option value="ListSAMLProviders">ListSAMLProviders</option>
+		
+			<option value="ListSSHPublicKeys">ListSSHPublicKeys</option>
+		
+			<option value="ListServerCertificateTags">ListServerCertificateTags</option>
+		
+			<option value="ListServerCertificates">ListServerCertificates</option>
+		
+			<option value="ListServiceSpecificCredentials">ListServiceSpecificCredentials</option>
+		
+			<option value="ListSigningCertificates">ListSigningCertificates</option>
+		
+			<option value="ListUserPolicies">ListUserPolicies</option>
+		
+			<option value="ListUserTags">ListUserTags</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="ListVirtualMFADevices">ListVirtualMFADevices</option>
+		
+			<option value="PutGroupPolicy">PutGroupPolicy</option>
+		
+			<option value="PutRolePermissionsBoundary">PutRolePermissionsBoundary</option>
+		
+			<option value="PutRolePolicy">PutRolePolicy</option>
+		
+			<option value="PutUserPermissionsBoundary">PutUserPermissionsBoundary</option>
+		
+			<option value="PutUserPolicy">PutUserPolicy</option>
+		
+			<option value="RemoveClientIDFromOpenIDConnectProvider">RemoveClientIDFromOpenIDConnectProvider</option>
+		
+			<option value="RemoveRoleFromInstanceProfile">RemoveRoleFromInstanceProfile</option>
+		
+			<option value="RemoveUserFromGroup">RemoveUserFromGroup</option>
+		
+			<option value="ResetServiceSpecificCredential">ResetServiceSpecificCredential</option>
+		
+			<option value="ResyncMFADevice">ResyncMFADevice</option>
+		
+			<option value="SetDefaultPolicyVersion">SetDefaultPolicyVersion</option>
+		
+			<option value="SetSecurityTokenServicePreferences">SetSecurityTokenServicePreferences</option>
+		
+			<option value="SimulateCustomPolicy">SimulateCustomPolicy</option>
+		
+			<option value="SimulatePrincipalPolicy">SimulatePrincipalPolicy</option>
+		
+			<option value="TagInstanceProfile">TagInstanceProfile</option>
+		
+			<option value="TagMFADevice">TagMFADevice</option>
+		
+			<option value="TagOpenIDConnectProvider">TagOpenIDConnectProvider</option>
+		
+			<option value="TagPolicy">TagPolicy</option>
+		
+			<option value="TagRole">TagRole</option>
+		
+			<option value="TagSAMLProvider">TagSAMLProvider</option>
+		
+			<option value="TagServerCertificate">TagServerCertificate</option>
+		
+			<option value="TagUser">TagUser</option>
+		
+			<option value="UntagInstanceProfile">UntagInstanceProfile</option>
+		
+			<option value="UntagMFADevice">UntagMFADevice</option>
+		
+			<option value="UntagOpenIDConnectProvider">UntagOpenIDConnectProvider</option>
+		
+			<option value="UntagPolicy">UntagPolicy</option>
+		
+			<option value="UntagRole">UntagRole</option>
+		
+			<option value="UntagSAMLProvider">UntagSAMLProvider</option>
+		
+			<option value="UntagServerCertificate">UntagServerCertificate</option>
+		
+			<option value="UntagUser">UntagUser</option>
+		
+			<option value="UpdateAccessKey">UpdateAccessKey</option>
+		
+			<option value="UpdateAccountPasswordPolicy">UpdateAccountPasswordPolicy</option>
+		
+			<option value="UpdateAssumeRolePolicy">UpdateAssumeRolePolicy</option>
+		
+			<option value="UpdateGroup">UpdateGroup</option>
+		
+			<option value="UpdateLoginProfile">UpdateLoginProfile</option>
+		
+			<option value="UpdateOpenIDConnectProviderThumbprint">UpdateOpenIDConnectProviderThumbprint</option>
+		
+			<option value="UpdateRole">UpdateRole</option>
+		
+			<option value="UpdateRoleDescription">UpdateRoleDescription</option>
+		
+			<option value="UpdateSAMLProvider">UpdateSAMLProvider</option>
+		
+			<option value="UpdateSSHPublicKey">UpdateSSHPublicKey</option>
+		
+			<option value="UpdateServerCertificate">UpdateServerCertificate</option>
+		
+			<option value="UpdateServiceSpecificCredential">UpdateServiceSpecificCredential</option>
+		
+			<option value="UpdateSigningCertificate">UpdateSigningCertificate</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		
+			<option value="UploadSSHPublicKey">UploadSSHPublicKey</option>
+		
+			<option value="UploadServerCertificate">UploadServerCertificate</option>
+		
+			<option value="UploadSigningCertificate">UploadSigningCertificate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='OpenIDConnectProviderArnAttr' class='hiddenAttrs'>
+		<label for="node-input-OpenIDConnectProviderArn"><i class="fa fa-tag"></i> OpenIDConnectProviderArn</label>
+		<input type="text" id="node-input-OpenIDConnectProviderArn" placeholder="OpenIDConnectProviderArn"></input>
+	</div> 
+	<div class="form-row" id='ClientIDAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientID"><i class="fa fa-tag"></i> ClientID</label>
+		<input type="text" id="node-input-ClientID" placeholder="ClientID"></input>
+	</div> 
+	<div class="form-row" id='InstanceProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceProfileName"><i class="fa fa-tag"></i> InstanceProfileName</label>
+		<input type="text" id="node-input-InstanceProfileName" placeholder="InstanceProfileName"></input>
+	</div> 
+	<div class="form-row" id='RoleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleName"><i class="fa fa-tag"></i> RoleName</label>
+		<input type="text" id="node-input-RoleName" placeholder="RoleName"></input>
+	</div> 
+	<div class="form-row" id='GroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupName"><i class="fa fa-tag"></i> GroupName</label>
+		<input type="text" id="node-input-GroupName" placeholder="GroupName"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='PolicyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyArn"><i class="fa fa-tag"></i> PolicyArn</label>
+		<input type="text" id="node-input-PolicyArn" placeholder="PolicyArn"></input>
+	</div> 
+	<div class="form-row" id='OldPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-OldPassword"><i class="fa fa-tag"></i> OldPassword</label>
+		<input type="text" id="node-input-OldPassword" placeholder="OldPassword"></input>
+	</div> 
+	<div class="form-row" id='NewPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-NewPassword"><i class="fa fa-tag"></i> NewPassword</label>
+		<input type="text" id="node-input-NewPassword" placeholder="NewPassword"></input>
+	</div> 
+	<div class="form-row" id='AccountAliasAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountAlias"><i class="fa fa-tag"></i> AccountAlias</label>
+		<input type="text" id="node-input-AccountAlias" placeholder="AccountAlias"></input>
+	</div> 
+	<div class="form-row" id='PathAttr' class='hiddenAttrs'>
+		<label for="node-input-Path"><i class="fa fa-tag"></i> Path</label>
+		<input type="text" id="node-input-Path" placeholder="Path"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i> Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='PasswordResetRequiredAttr' class='hiddenAttrs'>
+		<label for="node-input-PasswordResetRequired"><i class="fa fa-tag"></i> PasswordResetRequired</label>
+		<input type="text" id="node-input-PasswordResetRequired" placeholder="PasswordResetRequired"></input>
+	</div> 
+	<div class="form-row" id='UrlAttr' class='hiddenAttrs'>
+		<label for="node-input-Url"><i class="fa fa-tag"></i> Url</label>
+		<input type="text" id="node-input-Url" placeholder="Url"></input>
+	</div> 
+	<div class="form-row" id='ClientIDListAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientIDList"><i class="fa fa-tag"></i> ClientIDList</label>
+		<input type="text" id="node-input-ClientIDList" placeholder="ClientIDList"></input>
+	</div> 
+	<div class="form-row" id='ThumbprintListAttr' class='hiddenAttrs'>
+		<label for="node-input-ThumbprintList"><i class="fa fa-tag"></i> ThumbprintList</label>
+		<input type="text" id="node-input-ThumbprintList" placeholder="ThumbprintList"></input>
+	</div> 
+	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyName"><i class="fa fa-tag"></i> PolicyName</label>
+		<input type="text" id="node-input-PolicyName" placeholder="PolicyName"></input>
+	</div> 
+	<div class="form-row" id='PolicyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyDocument"><i class="fa fa-tag"></i> PolicyDocument</label>
+		<input type="text" id="node-input-PolicyDocument" placeholder="PolicyDocument"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='SetAsDefaultAttr' class='hiddenAttrs'>
+		<label for="node-input-SetAsDefault"><i class="fa fa-tag"></i> SetAsDefault</label>
+		<input type="text" id="node-input-SetAsDefault" placeholder="SetAsDefault"></input>
+	</div> 
+	<div class="form-row" id='AssumeRolePolicyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-AssumeRolePolicyDocument"><i class="fa fa-tag"></i> AssumeRolePolicyDocument</label>
+		<input type="text" id="node-input-AssumeRolePolicyDocument" placeholder="AssumeRolePolicyDocument"></input>
+	</div> 
+	<div class="form-row" id='MaxSessionDurationAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxSessionDuration"><i class="fa fa-tag"></i> MaxSessionDuration</label>
+		<input type="text" id="node-input-MaxSessionDuration" placeholder="MaxSessionDuration"></input>
+	</div> 
+	<div class="form-row" id='PermissionsBoundaryAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionsBoundary"><i class="fa fa-tag"></i> PermissionsBoundary</label>
+		<input type="text" id="node-input-PermissionsBoundary" placeholder="PermissionsBoundary"></input>
+	</div> 
+	<div class="form-row" id='SAMLMetadataDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-SAMLMetadataDocument"><i class="fa fa-tag"></i> SAMLMetadataDocument</label>
+		<input type="text" id="node-input-SAMLMetadataDocument" placeholder="SAMLMetadataDocument"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='AWSServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AWSServiceName"><i class="fa fa-tag"></i> AWSServiceName</label>
+		<input type="text" id="node-input-AWSServiceName" placeholder="AWSServiceName"></input>
+	</div> 
+	<div class="form-row" id='CustomSuffixAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomSuffix"><i class="fa fa-tag"></i> CustomSuffix</label>
+		<input type="text" id="node-input-CustomSuffix" placeholder="CustomSuffix"></input>
+	</div> 
+	<div class="form-row" id='ServiceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceName"><i class="fa fa-tag"></i> ServiceName</label>
+		<input type="text" id="node-input-ServiceName" placeholder="ServiceName"></input>
+	</div> 
+	<div class="form-row" id='VirtualMFADeviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-VirtualMFADeviceName"><i class="fa fa-tag"></i> VirtualMFADeviceName</label>
+		<input type="text" id="node-input-VirtualMFADeviceName" placeholder="VirtualMFADeviceName"></input>
+	</div> 
+	<div class="form-row" id='SerialNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-SerialNumber"><i class="fa fa-tag"></i> SerialNumber</label>
+		<input type="text" id="node-input-SerialNumber" placeholder="SerialNumber"></input>
+	</div> 
+	<div class="form-row" id='AccessKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessKeyId"><i class="fa fa-tag"></i> AccessKeyId</label>
+		<input type="text" id="node-input-AccessKeyId" placeholder="AccessKeyId"></input>
+	</div> 
+	<div class="form-row" id='VersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionId"><i class="fa fa-tag"></i> VersionId</label>
+		<input type="text" id="node-input-VersionId" placeholder="VersionId"></input>
+	</div> 
+	<div class="form-row" id='SAMLProviderArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SAMLProviderArn"><i class="fa fa-tag"></i> SAMLProviderArn</label>
+		<input type="text" id="node-input-SAMLProviderArn" placeholder="SAMLProviderArn"></input>
+	</div> 
+	<div class="form-row" id='SSHPublicKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SSHPublicKeyId"><i class="fa fa-tag"></i> SSHPublicKeyId</label>
+		<input type="text" id="node-input-SSHPublicKeyId" placeholder="SSHPublicKeyId"></input>
+	</div> 
+	<div class="form-row" id='ServerCertificateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerCertificateName"><i class="fa fa-tag"></i> ServerCertificateName</label>
+		<input type="text" id="node-input-ServerCertificateName" placeholder="ServerCertificateName"></input>
+	</div> 
+	<div class="form-row" id='ServiceSpecificCredentialIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceSpecificCredentialId"><i class="fa fa-tag"></i> ServiceSpecificCredentialId</label>
+		<input type="text" id="node-input-ServiceSpecificCredentialId" placeholder="ServiceSpecificCredentialId"></input>
+	</div> 
+	<div class="form-row" id='CertificateIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateId"><i class="fa fa-tag"></i> CertificateId</label>
+		<input type="text" id="node-input-CertificateId" placeholder="CertificateId"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationCode1Attr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationCode1"><i class="fa fa-tag"></i> AuthenticationCode1</label>
+		<input type="text" id="node-input-AuthenticationCode1" placeholder="AuthenticationCode1"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationCode2Attr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationCode2"><i class="fa fa-tag"></i> AuthenticationCode2</label>
+		<input type="text" id="node-input-AuthenticationCode2" placeholder="AuthenticationCode2"></input>
+	</div> 
+	<div class="form-row" id='EntityPathAttr' class='hiddenAttrs'>
+		<label for="node-input-EntityPath"><i class="fa fa-tag"></i> EntityPath</label>
+		<input type="text" id="node-input-EntityPath" placeholder="EntityPath"></input>
+	</div> 
+	<div class="form-row" id='OrganizationsPolicyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationsPolicyId"><i class="fa fa-tag"></i> OrganizationsPolicyId</label>
+		<input type="text" id="node-input-OrganizationsPolicyId" placeholder="OrganizationsPolicyId"></input>
+	</div> 
+	<div class="form-row" id='ArnAttr' class='hiddenAttrs'>
+		<label for="node-input-Arn"><i class="fa fa-tag"></i> Arn</label>
+		<input type="text" id="node-input-Arn" placeholder="Arn"></input>
+	</div> 
+	<div class="form-row" id='GranularityAttr' class='hiddenAttrs'>
+		<label for="node-input-Granularity"><i class="fa fa-tag"></i> Granularity</label>
+		<input type="text" id="node-input-Granularity" placeholder="Granularity"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='PolicyInputListAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyInputList"><i class="fa fa-tag"></i> PolicyInputList</label>
+		<input type="text" id="node-input-PolicyInputList" placeholder="PolicyInputList"></input>
+	</div> 
+	<div class="form-row" id='PolicySourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicySourceArn"><i class="fa fa-tag"></i> PolicySourceArn</label>
+		<input type="text" id="node-input-PolicySourceArn" placeholder="PolicySourceArn"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='SortKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-SortKey"><i class="fa fa-tag"></i> SortKey</label>
+		<input type="text" id="node-input-SortKey" placeholder="SortKey"></input>
+	</div> 
+	<div class="form-row" id='EncodingAttr' class='hiddenAttrs'>
+		<label for="node-input-Encoding"><i class="fa fa-tag"></i> Encoding</label>
+		<input type="text" id="node-input-Encoding" placeholder="Encoding"></input>
+	</div> 
+	<div class="form-row" id='ServiceNamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceNamespace"><i class="fa fa-tag"></i> ServiceNamespace</label>
+		<input type="text" id="node-input-ServiceNamespace" placeholder="ServiceNamespace"></input>
+	</div> 
+	<div class="form-row" id='DeletionTaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeletionTaskId"><i class="fa fa-tag"></i> DeletionTaskId</label>
+		<input type="text" id="node-input-DeletionTaskId" placeholder="DeletionTaskId"></input>
+	</div> 
+	<div class="form-row" id='PathPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-PathPrefix"><i class="fa fa-tag"></i> PathPrefix</label>
+		<input type="text" id="node-input-PathPrefix" placeholder="PathPrefix"></input>
+	</div> 
+	<div class="form-row" id='EntityFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-EntityFilter"><i class="fa fa-tag"></i> EntityFilter</label>
+		<input type="text" id="node-input-EntityFilter" placeholder="EntityFilter"></input>
+	</div> 
+	<div class="form-row" id='PolicyUsageFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyUsageFilter"><i class="fa fa-tag"></i> PolicyUsageFilter</label>
+		<input type="text" id="node-input-PolicyUsageFilter" placeholder="PolicyUsageFilter"></input>
+	</div> 
+	<div class="form-row" id='ScopeAttr' class='hiddenAttrs'>
+		<label for="node-input-Scope"><i class="fa fa-tag"></i> Scope</label>
+		<input type="text" id="node-input-Scope" placeholder="Scope"></input>
+	</div> 
+	<div class="form-row" id='OnlyAttachedAttr' class='hiddenAttrs'>
+		<label for="node-input-OnlyAttached"><i class="fa fa-tag"></i> OnlyAttached</label>
+		<input type="text" id="node-input-OnlyAttached" placeholder="OnlyAttached"></input>
+	</div> 
+	<div class="form-row" id='ServiceNamespacesAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceNamespaces"><i class="fa fa-tag"></i> ServiceNamespaces</label>
+		<input type="text" id="node-input-ServiceNamespaces" placeholder="ServiceNamespaces"></input>
+	</div> 
+	<div class="form-row" id='AssignmentStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-AssignmentStatus"><i class="fa fa-tag"></i> AssignmentStatus</label>
+		<input type="text" id="node-input-AssignmentStatus" placeholder="AssignmentStatus"></input>
+	</div> 
+	<div class="form-row" id='GlobalEndpointTokenVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalEndpointTokenVersion"><i class="fa fa-tag"></i> GlobalEndpointTokenVersion</label>
+		<input type="text" id="node-input-GlobalEndpointTokenVersion" placeholder="GlobalEndpointTokenVersion"></input>
+	</div> 
+	<div class="form-row" id='PermissionsBoundaryPolicyInputListAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionsBoundaryPolicyInputList"><i class="fa fa-tag"></i> PermissionsBoundaryPolicyInputList</label>
+		<input type="text" id="node-input-PermissionsBoundaryPolicyInputList" placeholder="PermissionsBoundaryPolicyInputList"></input>
+	</div> 
+	<div class="form-row" id='ActionNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ActionNames"><i class="fa fa-tag"></i> ActionNames</label>
+		<input type="text" id="node-input-ActionNames" placeholder="ActionNames"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArns"><i class="fa fa-tag"></i> ResourceArns</label>
+		<input type="text" id="node-input-ResourceArns" placeholder="ResourceArns"></input>
+	</div> 
+	<div class="form-row" id='ResourcePolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourcePolicy"><i class="fa fa-tag"></i> ResourcePolicy</label>
+		<input type="text" id="node-input-ResourcePolicy" placeholder="ResourcePolicy"></input>
+	</div> 
+	<div class="form-row" id='ResourceOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceOwner"><i class="fa fa-tag"></i> ResourceOwner</label>
+		<input type="text" id="node-input-ResourceOwner" placeholder="ResourceOwner"></input>
+	</div> 
+	<div class="form-row" id='CallerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CallerArn"><i class="fa fa-tag"></i> CallerArn</label>
+		<input type="text" id="node-input-CallerArn" placeholder="CallerArn"></input>
+	</div> 
+	<div class="form-row" id='ContextEntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-ContextEntries"><i class="fa fa-tag"></i> ContextEntries</label>
+		<input type="text" id="node-input-ContextEntries" placeholder="ContextEntries"></input>
+	</div> 
+	<div class="form-row" id='ResourceHandlingOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceHandlingOption"><i class="fa fa-tag"></i> ResourceHandlingOption</label>
+		<input type="text" id="node-input-ResourceHandlingOption" placeholder="ResourceHandlingOption"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='MinimumPasswordLengthAttr' class='hiddenAttrs'>
+		<label for="node-input-MinimumPasswordLength"><i class="fa fa-tag"></i> MinimumPasswordLength</label>
+		<input type="text" id="node-input-MinimumPasswordLength" placeholder="MinimumPasswordLength"></input>
+	</div> 
+	<div class="form-row" id='RequireSymbolsAttr' class='hiddenAttrs'>
+		<label for="node-input-RequireSymbols"><i class="fa fa-tag"></i> RequireSymbols</label>
+		<input type="text" id="node-input-RequireSymbols" placeholder="RequireSymbols"></input>
+	</div> 
+	<div class="form-row" id='RequireNumbersAttr' class='hiddenAttrs'>
+		<label for="node-input-RequireNumbers"><i class="fa fa-tag"></i> RequireNumbers</label>
+		<input type="text" id="node-input-RequireNumbers" placeholder="RequireNumbers"></input>
+	</div> 
+	<div class="form-row" id='RequireUppercaseCharactersAttr' class='hiddenAttrs'>
+		<label for="node-input-RequireUppercaseCharacters"><i class="fa fa-tag"></i> RequireUppercaseCharacters</label>
+		<input type="text" id="node-input-RequireUppercaseCharacters" placeholder="RequireUppercaseCharacters"></input>
+	</div> 
+	<div class="form-row" id='RequireLowercaseCharactersAttr' class='hiddenAttrs'>
+		<label for="node-input-RequireLowercaseCharacters"><i class="fa fa-tag"></i> RequireLowercaseCharacters</label>
+		<input type="text" id="node-input-RequireLowercaseCharacters" placeholder="RequireLowercaseCharacters"></input>
+	</div> 
+	<div class="form-row" id='AllowUsersToChangePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowUsersToChangePassword"><i class="fa fa-tag"></i> AllowUsersToChangePassword</label>
+		<input type="text" id="node-input-AllowUsersToChangePassword" placeholder="AllowUsersToChangePassword"></input>
+	</div> 
+	<div class="form-row" id='MaxPasswordAgeAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxPasswordAge"><i class="fa fa-tag"></i> MaxPasswordAge</label>
+		<input type="text" id="node-input-MaxPasswordAge" placeholder="MaxPasswordAge"></input>
+	</div> 
+	<div class="form-row" id='PasswordReusePreventionAttr' class='hiddenAttrs'>
+		<label for="node-input-PasswordReusePrevention"><i class="fa fa-tag"></i> PasswordReusePrevention</label>
+		<input type="text" id="node-input-PasswordReusePrevention" placeholder="PasswordReusePrevention"></input>
+	</div> 
+	<div class="form-row" id='HardExpiryAttr' class='hiddenAttrs'>
+		<label for="node-input-HardExpiry"><i class="fa fa-tag"></i> HardExpiry</label>
+		<input type="text" id="node-input-HardExpiry" placeholder="HardExpiry"></input>
+	</div> 
+	<div class="form-row" id='NewPathAttr' class='hiddenAttrs'>
+		<label for="node-input-NewPath"><i class="fa fa-tag"></i> NewPath</label>
+		<input type="text" id="node-input-NewPath" placeholder="NewPath"></input>
+	</div> 
+	<div class="form-row" id='NewGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NewGroupName"><i class="fa fa-tag"></i> NewGroupName</label>
+		<input type="text" id="node-input-NewGroupName" placeholder="NewGroupName"></input>
+	</div> 
+	<div class="form-row" id='NewServerCertificateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NewServerCertificateName"><i class="fa fa-tag"></i> NewServerCertificateName</label>
+		<input type="text" id="node-input-NewServerCertificateName" placeholder="NewServerCertificateName"></input>
+	</div> 
+	<div class="form-row" id='NewUserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NewUserName"><i class="fa fa-tag"></i> NewUserName</label>
+		<input type="text" id="node-input-NewUserName" placeholder="NewUserName"></input>
+	</div> 
+	<div class="form-row" id='SSHPublicKeyBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-SSHPublicKeyBody"><i class="fa fa-tag"></i> SSHPublicKeyBody</label>
+		<input type="text" id="node-input-SSHPublicKeyBody" placeholder="SSHPublicKeyBody"></input>
+	</div> 
+	<div class="form-row" id='CertificateBodyAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateBody"><i class="fa fa-tag"></i> CertificateBody</label>
+		<input type="text" id="node-input-CertificateBody" placeholder="CertificateBody"></input>
+	</div> 
+	<div class="form-row" id='PrivateKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-PrivateKey"><i class="fa fa-tag"></i> PrivateKey</label>
+		<input type="text" id="node-input-PrivateKey" placeholder="PrivateKey"></input>
+	</div> 
+	<div class="form-row" id='CertificateChainAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateChain"><i class="fa fa-tag"></i> CertificateChain</label>
+		<input type="text" id="node-input-CertificateChain" placeholder="CertificateChain"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddClientIDToOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr','#ClientIDAttr'
+					],
+				AddRoleToInstanceProfile:[
+					'#InstanceProfileNameAttr','#RoleNameAttr'
+					],
+				AddUserToGroup:[
+					'#GroupNameAttr','#UserNameAttr'
+					],
+				AttachGroupPolicy:[
+					'#GroupNameAttr','#PolicyArnAttr'
+					],
+				AttachRolePolicy:[
+					'#RoleNameAttr','#PolicyArnAttr'
+					],
+				AttachUserPolicy:[
+					'#UserNameAttr','#PolicyArnAttr'
+					],
+				ChangePassword:[
+					'#OldPasswordAttr','#NewPasswordAttr'
+					],
+				CreateAccessKey:[
+					'#UserNameAttr'
+					],
+				CreateAccountAlias:[
+					'#AccountAliasAttr'
+					],
+				CreateGroup:[
+					'#PathAttr','#GroupNameAttr'
+					],
+				CreateInstanceProfile:[
+					'#InstanceProfileNameAttr','#PathAttr','#TagsAttr'
+					],
+				CreateLoginProfile:[
+					'#UserNameAttr','#PasswordAttr','#PasswordResetRequiredAttr'
+					],
+				CreateOpenIDConnectProvider:[
+					'#UrlAttr','#ClientIDListAttr','#ThumbprintListAttr','#TagsAttr'
+					],
+				CreatePolicy:[
+					'#PolicyNameAttr','#PathAttr','#PolicyDocumentAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreatePolicyVersion:[
+					'#PolicyArnAttr','#PolicyDocumentAttr','#SetAsDefaultAttr'
+					],
+				CreateRole:[
+					'#PathAttr','#RoleNameAttr','#AssumeRolePolicyDocumentAttr','#DescriptionAttr','#MaxSessionDurationAttr','#PermissionsBoundaryAttr','#TagsAttr'
+					],
+				CreateSAMLProvider:[
+					'#SAMLMetadataDocumentAttr','#NameAttr','#TagsAttr'
+					],
+				CreateServiceLinkedRole:[
+					'#AWSServiceNameAttr','#DescriptionAttr','#CustomSuffixAttr'
+					],
+				CreateServiceSpecificCredential:[
+					'#UserNameAttr','#ServiceNameAttr'
+					],
+				CreateUser:[
+					'#PathAttr','#UserNameAttr','#PermissionsBoundaryAttr','#TagsAttr'
+					],
+				CreateVirtualMFADevice:[
+					'#PathAttr','#VirtualMFADeviceNameAttr','#TagsAttr'
+					],
+				DeactivateMFADevice:[
+					'#UserNameAttr','#SerialNumberAttr'
+					],
+				DeleteAccessKey:[
+					'#UserNameAttr','#AccessKeyIdAttr'
+					],
+				DeleteAccountAlias:[
+					'#AccountAliasAttr'
+					],
+				DeleteAccountPasswordPolicy:[
+					
+					],
+				DeleteGroup:[
+					'#GroupNameAttr'
+					],
+				DeleteGroupPolicy:[
+					'#GroupNameAttr','#PolicyNameAttr'
+					],
+				DeleteInstanceProfile:[
+					'#InstanceProfileNameAttr'
+					],
+				DeleteLoginProfile:[
+					'#UserNameAttr'
+					],
+				DeleteOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr'
+					],
+				DeletePolicy:[
+					'#PolicyArnAttr'
+					],
+				DeletePolicyVersion:[
+					'#PolicyArnAttr','#VersionIdAttr'
+					],
+				DeleteRole:[
+					'#RoleNameAttr'
+					],
+				DeleteRolePermissionsBoundary:[
+					'#RoleNameAttr'
+					],
+				DeleteRolePolicy:[
+					'#RoleNameAttr','#PolicyNameAttr'
+					],
+				DeleteSAMLProvider:[
+					'#SAMLProviderArnAttr'
+					],
+				DeleteSSHPublicKey:[
+					'#UserNameAttr','#SSHPublicKeyIdAttr'
+					],
+				DeleteServerCertificate:[
+					'#ServerCertificateNameAttr'
+					],
+				DeleteServiceLinkedRole:[
+					'#RoleNameAttr'
+					],
+				DeleteServiceSpecificCredential:[
+					'#UserNameAttr','#ServiceSpecificCredentialIdAttr'
+					],
+				DeleteSigningCertificate:[
+					'#UserNameAttr','#CertificateIdAttr'
+					],
+				DeleteUser:[
+					'#UserNameAttr'
+					],
+				DeleteUserPermissionsBoundary:[
+					'#UserNameAttr'
+					],
+				DeleteUserPolicy:[
+					'#UserNameAttr','#PolicyNameAttr'
+					],
+				DeleteVirtualMFADevice:[
+					'#SerialNumberAttr'
+					],
+				DetachGroupPolicy:[
+					'#GroupNameAttr','#PolicyArnAttr'
+					],
+				DetachRolePolicy:[
+					'#RoleNameAttr','#PolicyArnAttr'
+					],
+				DetachUserPolicy:[
+					'#UserNameAttr','#PolicyArnAttr'
+					],
+				EnableMFADevice:[
+					'#UserNameAttr','#SerialNumberAttr','#AuthenticationCode1Attr','#AuthenticationCode2Attr'
+					],
+				GenerateCredentialReport:[
+					
+					],
+				GenerateOrganizationsAccessReport:[
+					'#EntityPathAttr','#OrganizationsPolicyIdAttr'
+					],
+				GenerateServiceLastAccessedDetails:[
+					'#ArnAttr','#GranularityAttr'
+					],
+				GetAccessKeyLastUsed:[
+					'#AccessKeyIdAttr'
+					],
+				GetAccountAuthorizationDetails:[
+					'#FilterAttr','#MaxItemsAttr','#MarkerAttr'
+					],
+				GetAccountPasswordPolicy:[
+					
+					],
+				GetAccountSummary:[
+					
+					],
+				GetContextKeysForCustomPolicy:[
+					'#PolicyInputListAttr'
+					],
+				GetContextKeysForPrincipalPolicy:[
+					'#PolicySourceArnAttr','#PolicyInputListAttr'
+					],
+				GetCredentialReport:[
+					
+					],
+				GetGroup:[
+					'#GroupNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				GetGroupPolicy:[
+					'#GroupNameAttr','#PolicyNameAttr'
+					],
+				GetInstanceProfile:[
+					'#InstanceProfileNameAttr'
+					],
+				GetLoginProfile:[
+					'#UserNameAttr'
+					],
+				GetOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr'
+					],
+				GetOrganizationsAccessReport:[
+					'#JobIdAttr','#MaxItemsAttr','#MarkerAttr','#SortKeyAttr'
+					],
+				GetPolicy:[
+					'#PolicyArnAttr'
+					],
+				GetPolicyVersion:[
+					'#PolicyArnAttr','#VersionIdAttr'
+					],
+				GetRole:[
+					'#RoleNameAttr'
+					],
+				GetRolePolicy:[
+					'#RoleNameAttr','#PolicyNameAttr'
+					],
+				GetSAMLProvider:[
+					'#SAMLProviderArnAttr'
+					],
+				GetSSHPublicKey:[
+					'#UserNameAttr','#SSHPublicKeyIdAttr','#EncodingAttr'
+					],
+				GetServerCertificate:[
+					'#ServerCertificateNameAttr'
+					],
+				GetServiceLastAccessedDetails:[
+					'#JobIdAttr','#MaxItemsAttr','#MarkerAttr'
+					],
+				GetServiceLastAccessedDetailsWithEntities:[
+					'#JobIdAttr','#ServiceNamespaceAttr','#MaxItemsAttr','#MarkerAttr'
+					],
+				GetServiceLinkedRoleDeletionStatus:[
+					'#DeletionTaskIdAttr'
+					],
+				GetUser:[
+					'#UserNameAttr'
+					],
+				GetUserPolicy:[
+					'#UserNameAttr','#PolicyNameAttr'
+					],
+				ListAccessKeys:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListAccountAliases:[
+					'#MarkerAttr','#MaxItemsAttr'
+					],
+				ListAttachedGroupPolicies:[
+					'#GroupNameAttr','#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListAttachedRolePolicies:[
+					'#RoleNameAttr','#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListAttachedUserPolicies:[
+					'#UserNameAttr','#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListEntitiesForPolicy:[
+					'#PolicyArnAttr','#EntityFilterAttr','#PathPrefixAttr','#PolicyUsageFilterAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListGroupPolicies:[
+					'#GroupNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListGroups:[
+					'#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListGroupsForUser:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListInstanceProfileTags:[
+					'#InstanceProfileNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListInstanceProfiles:[
+					'#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListInstanceProfilesForRole:[
+					'#RoleNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListMFADeviceTags:[
+					'#SerialNumberAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListMFADevices:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListOpenIDConnectProviderTags:[
+					'#OpenIDConnectProviderArnAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListOpenIDConnectProviders:[
+					
+					],
+				ListPolicies:[
+					'#ScopeAttr','#OnlyAttachedAttr','#PathPrefixAttr','#PolicyUsageFilterAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListPoliciesGrantingServiceAccess:[
+					'#MarkerAttr','#ArnAttr','#ServiceNamespacesAttr'
+					],
+				ListPolicyTags:[
+					'#PolicyArnAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListPolicyVersions:[
+					'#PolicyArnAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListRolePolicies:[
+					'#RoleNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListRoleTags:[
+					'#RoleNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListRoles:[
+					'#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListSAMLProviderTags:[
+					'#SAMLProviderArnAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListSAMLProviders:[
+					
+					],
+				ListSSHPublicKeys:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListServerCertificateTags:[
+					'#ServerCertificateNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListServerCertificates:[
+					'#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListServiceSpecificCredentials:[
+					'#UserNameAttr','#ServiceNameAttr'
+					],
+				ListSigningCertificates:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListUserPolicies:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListUserTags:[
+					'#UserNameAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListUsers:[
+					'#PathPrefixAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				ListVirtualMFADevices:[
+					'#AssignmentStatusAttr','#MarkerAttr','#MaxItemsAttr'
+					],
+				PutGroupPolicy:[
+					'#GroupNameAttr','#PolicyNameAttr','#PolicyDocumentAttr'
+					],
+				PutRolePermissionsBoundary:[
+					'#RoleNameAttr','#PermissionsBoundaryAttr'
+					],
+				PutRolePolicy:[
+					'#RoleNameAttr','#PolicyNameAttr','#PolicyDocumentAttr'
+					],
+				PutUserPermissionsBoundary:[
+					'#UserNameAttr','#PermissionsBoundaryAttr'
+					],
+				PutUserPolicy:[
+					'#UserNameAttr','#PolicyNameAttr','#PolicyDocumentAttr'
+					],
+				RemoveClientIDFromOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr','#ClientIDAttr'
+					],
+				RemoveRoleFromInstanceProfile:[
+					'#InstanceProfileNameAttr','#RoleNameAttr'
+					],
+				RemoveUserFromGroup:[
+					'#GroupNameAttr','#UserNameAttr'
+					],
+				ResetServiceSpecificCredential:[
+					'#UserNameAttr','#ServiceSpecificCredentialIdAttr'
+					],
+				ResyncMFADevice:[
+					'#UserNameAttr','#SerialNumberAttr','#AuthenticationCode1Attr','#AuthenticationCode2Attr'
+					],
+				SetDefaultPolicyVersion:[
+					'#PolicyArnAttr','#VersionIdAttr'
+					],
+				SetSecurityTokenServicePreferences:[
+					'#GlobalEndpointTokenVersionAttr'
+					],
+				SimulateCustomPolicy:[
+					'#PolicyInputListAttr','#PermissionsBoundaryPolicyInputListAttr','#ActionNamesAttr','#ResourceArnsAttr','#ResourcePolicyAttr','#ResourceOwnerAttr','#CallerArnAttr','#ContextEntriesAttr','#ResourceHandlingOptionAttr','#MaxItemsAttr','#MarkerAttr'
+					],
+				SimulatePrincipalPolicy:[
+					'#PolicySourceArnAttr','#PolicyInputListAttr','#PermissionsBoundaryPolicyInputListAttr','#ActionNamesAttr','#ResourceArnsAttr','#ResourcePolicyAttr','#ResourceOwnerAttr','#CallerArnAttr','#ContextEntriesAttr','#ResourceHandlingOptionAttr','#MaxItemsAttr','#MarkerAttr'
+					],
+				TagInstanceProfile:[
+					'#InstanceProfileNameAttr','#TagsAttr'
+					],
+				TagMFADevice:[
+					'#SerialNumberAttr','#TagsAttr'
+					],
+				TagOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr','#TagsAttr'
+					],
+				TagPolicy:[
+					'#PolicyArnAttr','#TagsAttr'
+					],
+				TagRole:[
+					'#RoleNameAttr','#TagsAttr'
+					],
+				TagSAMLProvider:[
+					'#SAMLProviderArnAttr','#TagsAttr'
+					],
+				TagServerCertificate:[
+					'#ServerCertificateNameAttr','#TagsAttr'
+					],
+				TagUser:[
+					'#UserNameAttr','#TagsAttr'
+					],
+				UntagInstanceProfile:[
+					'#InstanceProfileNameAttr','#TagKeysAttr'
+					],
+				UntagMFADevice:[
+					'#SerialNumberAttr','#TagKeysAttr'
+					],
+				UntagOpenIDConnectProvider:[
+					'#OpenIDConnectProviderArnAttr','#TagKeysAttr'
+					],
+				UntagPolicy:[
+					'#PolicyArnAttr','#TagKeysAttr'
+					],
+				UntagRole:[
+					'#RoleNameAttr','#TagKeysAttr'
+					],
+				UntagSAMLProvider:[
+					'#SAMLProviderArnAttr','#TagKeysAttr'
+					],
+				UntagServerCertificate:[
+					'#ServerCertificateNameAttr','#TagKeysAttr'
+					],
+				UntagUser:[
+					'#UserNameAttr','#TagKeysAttr'
+					],
+				UpdateAccessKey:[
+					'#UserNameAttr','#AccessKeyIdAttr','#StatusAttr'
+					],
+				UpdateAccountPasswordPolicy:[
+					'#MinimumPasswordLengthAttr','#RequireSymbolsAttr','#RequireNumbersAttr','#RequireUppercaseCharactersAttr','#RequireLowercaseCharactersAttr','#AllowUsersToChangePasswordAttr','#MaxPasswordAgeAttr','#PasswordReusePreventionAttr','#HardExpiryAttr'
+					],
+				UpdateAssumeRolePolicy:[
+					'#RoleNameAttr','#PolicyDocumentAttr'
+					],
+				UpdateGroup:[
+					'#GroupNameAttr','#NewPathAttr','#NewGroupNameAttr'
+					],
+				UpdateLoginProfile:[
+					'#UserNameAttr','#PasswordAttr','#PasswordResetRequiredAttr'
+					],
+				UpdateOpenIDConnectProviderThumbprint:[
+					'#OpenIDConnectProviderArnAttr','#ThumbprintListAttr'
+					],
+				UpdateRole:[
+					'#RoleNameAttr','#DescriptionAttr','#MaxSessionDurationAttr'
+					],
+				UpdateRoleDescription:[
+					'#RoleNameAttr','#DescriptionAttr'
+					],
+				UpdateSAMLProvider:[
+					'#SAMLMetadataDocumentAttr','#SAMLProviderArnAttr'
+					],
+				UpdateSSHPublicKey:[
+					'#UserNameAttr','#SSHPublicKeyIdAttr','#StatusAttr'
+					],
+				UpdateServerCertificate:[
+					'#ServerCertificateNameAttr','#NewPathAttr','#NewServerCertificateNameAttr'
+					],
+				UpdateServiceSpecificCredential:[
+					'#UserNameAttr','#ServiceSpecificCredentialIdAttr','#StatusAttr'
+					],
+				UpdateSigningCertificate:[
+					'#UserNameAttr','#CertificateIdAttr','#StatusAttr'
+					],
+				UpdateUser:[
+					'#UserNameAttr','#NewPathAttr','#NewUserNameAttr'
+					],
+				UploadSSHPublicKey:[
+					'#UserNameAttr','#SSHPublicKeyBodyAttr'
+					],
+				UploadServerCertificate:[
+					'#PathAttr','#ServerCertificateNameAttr','#CertificateBodyAttr','#PrivateKeyAttr','#CertificateChainAttr','#TagsAttr'
+					],
+				UploadSigningCertificate:[
+					'#UserNameAttr','#CertificateBodyAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IAM">
+<p>
+AWS IAM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IAM.html">IAM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IAM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddClientIDToOpenIDConnectProvider' },
+			
+				OpenIDConnectProviderArn: { value: ""} ,
+				ClientID: { value: ""} ,
+				InstanceProfileName: { value: ""} ,
+				RoleName: { value: ""} ,
+				GroupName: { value: ""} ,
+				UserName: { value: ""} ,
+				PolicyArn: { value: ""} ,
+				OldPassword: { value: ""} ,
+				NewPassword: { value: ""} ,
+				AccountAlias: { value: ""} ,
+				Path: { value: ""} ,
+				Tags: { value: ""} ,
+				Password: { value: ""} ,
+				PasswordResetRequired: { value: ""} ,
+				Url: { value: ""} ,
+				ClientIDList: { value: ""} ,
+				ThumbprintList: { value: ""} ,
+				PolicyName: { value: ""} ,
+				PolicyDocument: { value: ""} ,
+				Description: { value: ""} ,
+				SetAsDefault: { value: ""} ,
+				AssumeRolePolicyDocument: { value: ""} ,
+				MaxSessionDuration: { value: ""} ,
+				PermissionsBoundary: { value: ""} ,
+				SAMLMetadataDocument: { value: ""} ,
+				Name: { value: ""} ,
+				AWSServiceName: { value: ""} ,
+				CustomSuffix: { value: ""} ,
+				ServiceName: { value: ""} ,
+				VirtualMFADeviceName: { value: ""} ,
+				SerialNumber: { value: ""} ,
+				AccessKeyId: { value: ""} ,
+				VersionId: { value: ""} ,
+				SAMLProviderArn: { value: ""} ,
+				SSHPublicKeyId: { value: ""} ,
+				ServerCertificateName: { value: ""} ,
+				ServiceSpecificCredentialId: { value: ""} ,
+				CertificateId: { value: ""} ,
+				AuthenticationCode1: { value: ""} ,
+				AuthenticationCode2: { value: ""} ,
+				EntityPath: { value: ""} ,
+				OrganizationsPolicyId: { value: ""} ,
+				Arn: { value: ""} ,
+				Granularity: { value: ""} ,
+				Filter: { value: ""} ,
+				MaxItems: { value: ""} ,
+				Marker: { value: ""} ,
+				PolicyInputList: { value: ""} ,
+				PolicySourceArn: { value: ""} ,
+				JobId: { value: ""} ,
+				SortKey: { value: ""} ,
+				Encoding: { value: ""} ,
+				ServiceNamespace: { value: ""} ,
+				DeletionTaskId: { value: ""} ,
+				PathPrefix: { value: ""} ,
+				EntityFilter: { value: ""} ,
+				PolicyUsageFilter: { value: ""} ,
+				Scope: { value: ""} ,
+				OnlyAttached: { value: ""} ,
+				ServiceNamespaces: { value: ""} ,
+				AssignmentStatus: { value: ""} ,
+				GlobalEndpointTokenVersion: { value: ""} ,
+				PermissionsBoundaryPolicyInputList: { value: ""} ,
+				ActionNames: { value: ""} ,
+				ResourceArns: { value: ""} ,
+				ResourcePolicy: { value: ""} ,
+				ResourceOwner: { value: ""} ,
+				CallerArn: { value: ""} ,
+				ContextEntries: { value: ""} ,
+				ResourceHandlingOption: { value: ""} ,
+				TagKeys: { value: ""} ,
+				Status: { value: ""} ,
+				MinimumPasswordLength: { value: ""} ,
+				RequireSymbols: { value: ""} ,
+				RequireNumbers: { value: ""} ,
+				RequireUppercaseCharacters: { value: ""} ,
+				RequireLowercaseCharacters: { value: ""} ,
+				AllowUsersToChangePassword: { value: ""} ,
+				MaxPasswordAge: { value: ""} ,
+				PasswordReusePrevention: { value: ""} ,
+				HardExpiry: { value: ""} ,
+				NewPath: { value: ""} ,
+				NewGroupName: { value: ""} ,
+				NewServerCertificateName: { value: ""} ,
+				NewUserName: { value: ""} ,
+				SSHPublicKeyBody: { value: ""} ,
+				CertificateBody: { value: ""} ,
+				PrivateKey: { value: ""} ,
+				CertificateChain: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IAM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-OpenIDConnectProviderArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientID").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceProfileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OldPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountAlias").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Password").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PasswordResetRequired").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Url").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientIDList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThumbprintList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyDocument").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SetAsDefault").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AssumeRolePolicyDocument").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxSessionDuration").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PermissionsBoundary").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SAMLMetadataDocument").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AWSServiceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomSuffix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VirtualMFADeviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SerialNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SAMLProviderArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSHPublicKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServerCertificateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceSpecificCredentialId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthenticationCode1").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthenticationCode2").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntityPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationsPolicyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Granularity").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyInputList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicySourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Encoding").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceNamespace").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeletionTaskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PathPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntityFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyUsageFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Scope").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OnlyAttached").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-AssignmentStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalEndpointTokenVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PermissionsBoundaryPolicyInputList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ActionNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourcePolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CallerArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ContextEntries").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceHandlingOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MinimumPasswordLength").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RequireSymbols").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RequireNumbers").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RequireUppercaseCharacters").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RequireLowercaseCharacters").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-AllowUsersToChangePassword").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MaxPasswordAge").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PasswordReusePrevention").typedInput({ default: "num", types: ["num"]});
+$("#node-input-HardExpiry").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NewPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewServerCertificateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewUserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSHPublicKeyBody").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateBody").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CertificateChain").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

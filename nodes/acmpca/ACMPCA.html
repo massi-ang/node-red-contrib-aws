@@ -1,0 +1,394 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ACMPCA">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateCertificateAuthority">CreateCertificateAuthority</option>
+		
+			<option value="CreateCertificateAuthorityAuditReport">CreateCertificateAuthorityAuditReport</option>
+		
+			<option value="CreatePermission">CreatePermission</option>
+		
+			<option value="DeleteCertificateAuthority">DeleteCertificateAuthority</option>
+		
+			<option value="DeletePermission">DeletePermission</option>
+		
+			<option value="DeletePolicy">DeletePolicy</option>
+		
+			<option value="DescribeCertificateAuthority">DescribeCertificateAuthority</option>
+		
+			<option value="DescribeCertificateAuthorityAuditReport">DescribeCertificateAuthorityAuditReport</option>
+		
+			<option value="GetCertificate">GetCertificate</option>
+		
+			<option value="GetCertificateAuthorityCertificate">GetCertificateAuthorityCertificate</option>
+		
+			<option value="GetCertificateAuthorityCsr">GetCertificateAuthorityCsr</option>
+		
+			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="ImportCertificateAuthorityCertificate">ImportCertificateAuthorityCertificate</option>
+		
+			<option value="IssueCertificate">IssueCertificate</option>
+		
+			<option value="ListCertificateAuthorities">ListCertificateAuthorities</option>
+		
+			<option value="ListPermissions">ListPermissions</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="PutPolicy">PutPolicy</option>
+		
+			<option value="RestoreCertificateAuthority">RestoreCertificateAuthority</option>
+		
+			<option value="RevokeCertificate">RevokeCertificate</option>
+		
+			<option value="TagCertificateAuthority">TagCertificateAuthority</option>
+		
+			<option value="UntagCertificateAuthority">UntagCertificateAuthority</option>
+		
+			<option value="UpdateCertificateAuthority">UpdateCertificateAuthority</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CertificateAuthorityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateAuthorityConfiguration"><i class="fa fa-tag"></i> CertificateAuthorityConfiguration</label>
+		<input type="text" id="node-input-CertificateAuthorityConfiguration" placeholder="CertificateAuthorityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RevocationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RevocationConfiguration"><i class="fa fa-tag"></i> RevocationConfiguration</label>
+		<input type="text" id="node-input-RevocationConfiguration" placeholder="RevocationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='CertificateAuthorityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateAuthorityType"><i class="fa fa-tag"></i> CertificateAuthorityType</label>
+		<input type="text" id="node-input-CertificateAuthorityType" placeholder="CertificateAuthorityType"></input>
+	</div> 
+	<div class="form-row" id='IdempotencyTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-IdempotencyToken"><i class="fa fa-tag"></i> IdempotencyToken</label>
+		<input type="text" id="node-input-IdempotencyToken" placeholder="IdempotencyToken"></input>
+	</div> 
+	<div class="form-row" id='KeyStorageSecurityStandardAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyStorageSecurityStandard"><i class="fa fa-tag"></i> KeyStorageSecurityStandard</label>
+		<input type="text" id="node-input-KeyStorageSecurityStandard" placeholder="KeyStorageSecurityStandard"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='CertificateAuthorityArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateAuthorityArn"><i class="fa fa-tag"></i> CertificateAuthorityArn</label>
+		<input type="text" id="node-input-CertificateAuthorityArn" placeholder="CertificateAuthorityArn"></input>
+	</div> 
+	<div class="form-row" id='S3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-S3BucketName"><i class="fa fa-tag"></i> S3BucketName</label>
+		<input type="text" id="node-input-S3BucketName" placeholder="S3BucketName"></input>
+	</div> 
+	<div class="form-row" id='AuditReportResponseFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-AuditReportResponseFormat"><i class="fa fa-tag"></i> AuditReportResponseFormat</label>
+		<input type="text" id="node-input-AuditReportResponseFormat" placeholder="AuditReportResponseFormat"></input>
+	</div> 
+	<div class="form-row" id='PrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-Principal"><i class="fa fa-tag"></i> Principal</label>
+		<input type="text" id="node-input-Principal" placeholder="Principal"></input>
+	</div> 
+	<div class="form-row" id='SourceAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceAccount"><i class="fa fa-tag"></i> SourceAccount</label>
+		<input type="text" id="node-input-SourceAccount" placeholder="SourceAccount"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i> Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='PermanentDeletionTimeInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-PermanentDeletionTimeInDays"><i class="fa fa-tag"></i> PermanentDeletionTimeInDays</label>
+		<input type="text" id="node-input-PermanentDeletionTimeInDays" placeholder="PermanentDeletionTimeInDays"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='AuditReportIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AuditReportId"><i class="fa fa-tag"></i> AuditReportId</label>
+		<input type="text" id="node-input-AuditReportId" placeholder="AuditReportId"></input>
+	</div> 
+	<div class="form-row" id='CertificateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateArn"><i class="fa fa-tag"></i> CertificateArn</label>
+		<input type="text" id="node-input-CertificateArn" placeholder="CertificateArn"></input>
+	</div> 
+	<div class="form-row" id='CertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-Certificate"><i class="fa fa-tag"></i> Certificate</label>
+		<input type="text" id="node-input-Certificate" placeholder="Certificate"></input>
+	</div> 
+	<div class="form-row" id='CertificateChainAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateChain"><i class="fa fa-tag"></i> CertificateChain</label>
+		<input type="text" id="node-input-CertificateChain" placeholder="CertificateChain"></input>
+	</div> 
+	<div class="form-row" id='ApiPassthroughAttr' class='hiddenAttrs'>
+		<label for="node-input-ApiPassthrough"><i class="fa fa-tag"></i> ApiPassthrough</label>
+		<input type="text" id="node-input-ApiPassthrough" placeholder="ApiPassthrough"></input>
+	</div> 
+	<div class="form-row" id='CsrAttr' class='hiddenAttrs'>
+		<label for="node-input-Csr"><i class="fa fa-tag"></i> Csr</label>
+		<input type="text" id="node-input-Csr" placeholder="Csr"></input>
+	</div> 
+	<div class="form-row" id='SigningAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-SigningAlgorithm"><i class="fa fa-tag"></i> SigningAlgorithm</label>
+		<input type="text" id="node-input-SigningAlgorithm" placeholder="SigningAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='TemplateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateArn"><i class="fa fa-tag"></i> TemplateArn</label>
+		<input type="text" id="node-input-TemplateArn" placeholder="TemplateArn"></input>
+	</div> 
+	<div class="form-row" id='ValidityAttr' class='hiddenAttrs'>
+		<label for="node-input-Validity"><i class="fa fa-tag"></i> Validity</label>
+		<input type="text" id="node-input-Validity" placeholder="Validity"></input>
+	</div> 
+	<div class="form-row" id='ValidityNotBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidityNotBefore"><i class="fa fa-tag"></i> ValidityNotBefore</label>
+		<input type="text" id="node-input-ValidityNotBefore" placeholder="ValidityNotBefore"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceOwner"><i class="fa fa-tag"></i> ResourceOwner</label>
+		<input type="text" id="node-input-ResourceOwner" placeholder="ResourceOwner"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='CertificateSerialAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateSerial"><i class="fa fa-tag"></i> CertificateSerial</label>
+		<input type="text" id="node-input-CertificateSerial" placeholder="CertificateSerial"></input>
+	</div> 
+	<div class="form-row" id='RevocationReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-RevocationReason"><i class="fa fa-tag"></i> RevocationReason</label>
+		<input type="text" id="node-input-RevocationReason" placeholder="RevocationReason"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateCertificateAuthority:[
+					'#CertificateAuthorityConfigurationAttr','#RevocationConfigurationAttr','#CertificateAuthorityTypeAttr','#IdempotencyTokenAttr','#KeyStorageSecurityStandardAttr','#TagsAttr'
+					],
+				CreateCertificateAuthorityAuditReport:[
+					'#CertificateAuthorityArnAttr','#S3BucketNameAttr','#AuditReportResponseFormatAttr'
+					],
+				CreatePermission:[
+					'#CertificateAuthorityArnAttr','#PrincipalAttr','#SourceAccountAttr','#ActionsAttr'
+					],
+				DeleteCertificateAuthority:[
+					'#CertificateAuthorityArnAttr','#PermanentDeletionTimeInDaysAttr'
+					],
+				DeletePermission:[
+					'#CertificateAuthorityArnAttr','#PrincipalAttr','#SourceAccountAttr'
+					],
+				DeletePolicy:[
+					'#ResourceArnAttr'
+					],
+				DescribeCertificateAuthority:[
+					'#CertificateAuthorityArnAttr'
+					],
+				DescribeCertificateAuthorityAuditReport:[
+					'#CertificateAuthorityArnAttr','#AuditReportIdAttr'
+					],
+				GetCertificate:[
+					'#CertificateAuthorityArnAttr','#CertificateArnAttr'
+					],
+				GetCertificateAuthorityCertificate:[
+					'#CertificateAuthorityArnAttr'
+					],
+				GetCertificateAuthorityCsr:[
+					'#CertificateAuthorityArnAttr'
+					],
+				GetPolicy:[
+					'#ResourceArnAttr'
+					],
+				ImportCertificateAuthorityCertificate:[
+					'#CertificateAuthorityArnAttr','#CertificateAttr','#CertificateChainAttr'
+					],
+				IssueCertificate:[
+					'#ApiPassthroughAttr','#CertificateAuthorityArnAttr','#CsrAttr','#SigningAlgorithmAttr','#TemplateArnAttr','#ValidityAttr','#ValidityNotBeforeAttr','#IdempotencyTokenAttr'
+					],
+				ListCertificateAuthorities:[
+					'#NextTokenAttr','#MaxResultsAttr','#ResourceOwnerAttr'
+					],
+				ListPermissions:[
+					'#CertificateAuthorityArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTags:[
+					'#CertificateAuthorityArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				PutPolicy:[
+					'#ResourceArnAttr','#PolicyAttr'
+					],
+				RestoreCertificateAuthority:[
+					'#CertificateAuthorityArnAttr'
+					],
+				RevokeCertificate:[
+					'#CertificateAuthorityArnAttr','#CertificateSerialAttr','#RevocationReasonAttr'
+					],
+				TagCertificateAuthority:[
+					'#CertificateAuthorityArnAttr','#TagsAttr'
+					],
+				UntagCertificateAuthority:[
+					'#CertificateAuthorityArnAttr','#TagsAttr'
+					],
+				UpdateCertificateAuthority:[
+					'#CertificateAuthorityArnAttr','#RevocationConfigurationAttr','#StatusAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ACMPCA">
+<p>
+AWS ACMPCA
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ACMPCA.html">ACMPCA</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ACMPCA',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateCertificateAuthority' },
+			
+				CertificateAuthorityConfiguration: { value: ""} ,
+				RevocationConfiguration: { value: ""} ,
+				CertificateAuthorityType: { value: ""} ,
+				IdempotencyToken: { value: ""} ,
+				KeyStorageSecurityStandard: { value: ""} ,
+				Tags: { value: ""} ,
+				CertificateAuthorityArn: { value: ""} ,
+				S3BucketName: { value: ""} ,
+				AuditReportResponseFormat: { value: ""} ,
+				Principal: { value: ""} ,
+				SourceAccount: { value: ""} ,
+				Actions: { value: ""} ,
+				PermanentDeletionTimeInDays: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				AuditReportId: { value: ""} ,
+				CertificateArn: { value: ""} ,
+				Certificate: { value: ""} ,
+				CertificateChain: { value: ""} ,
+				ApiPassthrough: { value: ""} ,
+				Csr: { value: ""} ,
+				SigningAlgorithm: { value: ""} ,
+				TemplateArn: { value: ""} ,
+				Validity: { value: ""} ,
+				ValidityNotBefore: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceOwner: { value: ""} ,
+				Policy: { value: ""} ,
+				CertificateSerial: { value: ""} ,
+				RevocationReason: { value: ""} ,
+				Status: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ACMPCA " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-CertificateAuthorityConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RevocationConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateAuthorityType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdempotencyToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyStorageSecurityStandard").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateAuthorityArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3BucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuditReportResponseFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Principal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Actions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PermanentDeletionTimeInDays").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuditReportId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Certificate").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-CertificateChain").typedInput({ default: "bin", types: ["bin"]});
+
+$("#node-input-Csr").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-SigningAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Validity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidityNotBefore").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateSerial").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RevocationReason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,540 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DataBrew">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteRecipeVersion">BatchDeleteRecipeVersion</option>
+		
+			<option value="CreateDataset">CreateDataset</option>
+		
+			<option value="CreateProfileJob">CreateProfileJob</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateRecipe">CreateRecipe</option>
+		
+			<option value="CreateRecipeJob">CreateRecipeJob</option>
+		
+			<option value="CreateSchedule">CreateSchedule</option>
+		
+			<option value="DeleteDataset">DeleteDataset</option>
+		
+			<option value="DeleteJob">DeleteJob</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteRecipeVersion">DeleteRecipeVersion</option>
+		
+			<option value="DeleteSchedule">DeleteSchedule</option>
+		
+			<option value="DescribeDataset">DescribeDataset</option>
+		
+			<option value="DescribeJob">DescribeJob</option>
+		
+			<option value="DescribeJobRun">DescribeJobRun</option>
+		
+			<option value="DescribeProject">DescribeProject</option>
+		
+			<option value="DescribeRecipe">DescribeRecipe</option>
+		
+			<option value="DescribeSchedule">DescribeSchedule</option>
+		
+			<option value="ListDatasets">ListDatasets</option>
+		
+			<option value="ListJobRuns">ListJobRuns</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListRecipeVersions">ListRecipeVersions</option>
+		
+			<option value="ListRecipes">ListRecipes</option>
+		
+			<option value="ListSchedules">ListSchedules</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PublishRecipe">PublishRecipe</option>
+		
+			<option value="SendProjectSessionAction">SendProjectSessionAction</option>
+		
+			<option value="StartJobRun">StartJobRun</option>
+		
+			<option value="StartProjectSession">StartProjectSession</option>
+		
+			<option value="StopJobRun">StopJobRun</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDataset">UpdateDataset</option>
+		
+			<option value="UpdateProfileJob">UpdateProfileJob</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		
+			<option value="UpdateRecipe">UpdateRecipe</option>
+		
+			<option value="UpdateRecipeJob">UpdateRecipeJob</option>
+		
+			<option value="UpdateSchedule">UpdateSchedule</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='RecipeVersionsAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeVersions"><i class="fa fa-tag"></i> RecipeVersions</label>
+		<input type="text" id="node-input-RecipeVersions" placeholder="RecipeVersions"></input>
+	</div> 
+	<div class="form-row" id='FormatAttr' class='hiddenAttrs'>
+		<label for="node-input-Format"><i class="fa fa-tag"></i> Format</label>
+		<input type="text" id="node-input-Format" placeholder="Format"></input>
+	</div> 
+	<div class="form-row" id='FormatOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-FormatOptions"><i class="fa fa-tag"></i> FormatOptions</label>
+		<input type="text" id="node-input-FormatOptions" placeholder="FormatOptions"></input>
+	</div> 
+	<div class="form-row" id='InputAttr' class='hiddenAttrs'>
+		<label for="node-input-Input"><i class="fa fa-tag"></i> Input</label>
+		<input type="text" id="node-input-Input" placeholder="Input"></input>
+	</div> 
+	<div class="form-row" id='PathOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-PathOptions"><i class="fa fa-tag"></i> PathOptions</label>
+		<input type="text" id="node-input-PathOptions" placeholder="PathOptions"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DatasetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DatasetName"><i class="fa fa-tag"></i> DatasetName</label>
+		<input type="text" id="node-input-DatasetName" placeholder="DatasetName"></input>
+	</div> 
+	<div class="form-row" id='EncryptionKeyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionKeyArn"><i class="fa fa-tag"></i> EncryptionKeyArn</label>
+		<input type="text" id="node-input-EncryptionKeyArn" placeholder="EncryptionKeyArn"></input>
+	</div> 
+	<div class="form-row" id='EncryptionModeAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionMode"><i class="fa fa-tag"></i> EncryptionMode</label>
+		<input type="text" id="node-input-EncryptionMode" placeholder="EncryptionMode"></input>
+	</div> 
+	<div class="form-row" id='LogSubscriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-LogSubscription"><i class="fa fa-tag"></i> LogSubscription</label>
+		<input type="text" id="node-input-LogSubscription" placeholder="LogSubscription"></input>
+	</div> 
+	<div class="form-row" id='MaxCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxCapacity"><i class="fa fa-tag"></i> MaxCapacity</label>
+		<input type="text" id="node-input-MaxCapacity" placeholder="MaxCapacity"></input>
+	</div> 
+	<div class="form-row" id='MaxRetriesAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRetries"><i class="fa fa-tag"></i> MaxRetries</label>
+		<input type="text" id="node-input-MaxRetries" placeholder="MaxRetries"></input>
+	</div> 
+	<div class="form-row" id='OutputLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputLocation"><i class="fa fa-tag"></i> OutputLocation</label>
+		<input type="text" id="node-input-OutputLocation" placeholder="OutputLocation"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='TimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-Timeout"><i class="fa fa-tag"></i> Timeout</label>
+		<input type="text" id="node-input-Timeout" placeholder="Timeout"></input>
+	</div> 
+	<div class="form-row" id='JobSampleAttr' class='hiddenAttrs'>
+		<label for="node-input-JobSample"><i class="fa fa-tag"></i> JobSample</label>
+		<input type="text" id="node-input-JobSample" placeholder="JobSample"></input>
+	</div> 
+	<div class="form-row" id='RecipeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeName"><i class="fa fa-tag"></i> RecipeName</label>
+		<input type="text" id="node-input-RecipeName" placeholder="RecipeName"></input>
+	</div> 
+	<div class="form-row" id='SampleAttr' class='hiddenAttrs'>
+		<label for="node-input-Sample"><i class="fa fa-tag"></i> Sample</label>
+		<input type="text" id="node-input-Sample" placeholder="Sample"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='StepsAttr' class='hiddenAttrs'>
+		<label for="node-input-Steps"><i class="fa fa-tag"></i> Steps</label>
+		<input type="text" id="node-input-Steps" placeholder="Steps"></input>
+	</div> 
+	<div class="form-row" id='OutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-Outputs"><i class="fa fa-tag"></i> Outputs</label>
+		<input type="text" id="node-input-Outputs" placeholder="Outputs"></input>
+	</div> 
+	<div class="form-row" id='DataCatalogOutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-DataCatalogOutputs"><i class="fa fa-tag"></i> DataCatalogOutputs</label>
+		<input type="text" id="node-input-DataCatalogOutputs" placeholder="DataCatalogOutputs"></input>
+	</div> 
+	<div class="form-row" id='DatabaseOutputsAttr' class='hiddenAttrs'>
+		<label for="node-input-DatabaseOutputs"><i class="fa fa-tag"></i> DatabaseOutputs</label>
+		<input type="text" id="node-input-DatabaseOutputs" placeholder="DatabaseOutputs"></input>
+	</div> 
+	<div class="form-row" id='ProjectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectName"><i class="fa fa-tag"></i> ProjectName</label>
+		<input type="text" id="node-input-ProjectName" placeholder="ProjectName"></input>
+	</div> 
+	<div class="form-row" id='RecipeReferenceAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeReference"><i class="fa fa-tag"></i> RecipeReference</label>
+		<input type="text" id="node-input-RecipeReference" placeholder="RecipeReference"></input>
+	</div> 
+	<div class="form-row" id='JobNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-JobNames"><i class="fa fa-tag"></i> JobNames</label>
+		<input type="text" id="node-input-JobNames" placeholder="JobNames"></input>
+	</div> 
+	<div class="form-row" id='CronExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-CronExpression"><i class="fa fa-tag"></i> CronExpression</label>
+		<input type="text" id="node-input-CronExpression" placeholder="CronExpression"></input>
+	</div> 
+	<div class="form-row" id='RecipeVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeVersion"><i class="fa fa-tag"></i> RecipeVersion</label>
+		<input type="text" id="node-input-RecipeVersion" placeholder="RecipeVersion"></input>
+	</div> 
+	<div class="form-row" id='RunIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RunId"><i class="fa fa-tag"></i> RunId</label>
+		<input type="text" id="node-input-RunId" placeholder="RunId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='JobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-JobName"><i class="fa fa-tag"></i> JobName</label>
+		<input type="text" id="node-input-JobName" placeholder="JobName"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='PreviewAttr' class='hiddenAttrs'>
+		<label for="node-input-Preview"><i class="fa fa-tag"></i> Preview</label>
+		<input type="text" id="node-input-Preview" placeholder="Preview"></input>
+	</div> 
+	<div class="form-row" id='RecipeStepAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeStep"><i class="fa fa-tag"></i> RecipeStep</label>
+		<input type="text" id="node-input-RecipeStep" placeholder="RecipeStep"></input>
+	</div> 
+	<div class="form-row" id='StepIndexAttr' class='hiddenAttrs'>
+		<label for="node-input-StepIndex"><i class="fa fa-tag"></i> StepIndex</label>
+		<input type="text" id="node-input-StepIndex" placeholder="StepIndex"></input>
+	</div> 
+	<div class="form-row" id='ClientSessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientSessionId"><i class="fa fa-tag"></i> ClientSessionId</label>
+		<input type="text" id="node-input-ClientSessionId" placeholder="ClientSessionId"></input>
+	</div> 
+	<div class="form-row" id='ViewFrameAttr' class='hiddenAttrs'>
+		<label for="node-input-ViewFrame"><i class="fa fa-tag"></i> ViewFrame</label>
+		<input type="text" id="node-input-ViewFrame" placeholder="ViewFrame"></input>
+	</div> 
+	<div class="form-row" id='AssumeControlAttr' class='hiddenAttrs'>
+		<label for="node-input-AssumeControl"><i class="fa fa-tag"></i> AssumeControl</label>
+		<input type="text" id="node-input-AssumeControl" placeholder="AssumeControl"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteRecipeVersion:[
+					'#NameAttr','#RecipeVersionsAttr'
+					],
+				CreateDataset:[
+					'#NameAttr','#FormatAttr','#FormatOptionsAttr','#InputAttr','#PathOptionsAttr','#TagsAttr'
+					],
+				CreateProfileJob:[
+					'#DatasetNameAttr','#EncryptionKeyArnAttr','#EncryptionModeAttr','#NameAttr','#LogSubscriptionAttr','#MaxCapacityAttr','#MaxRetriesAttr','#OutputLocationAttr','#ConfigurationAttr','#RoleArnAttr','#TagsAttr','#TimeoutAttr','#JobSampleAttr'
+					],
+				CreateProject:[
+					'#DatasetNameAttr','#NameAttr','#RecipeNameAttr','#SampleAttr','#RoleArnAttr','#TagsAttr'
+					],
+				CreateRecipe:[
+					'#DescriptionAttr','#NameAttr','#StepsAttr','#TagsAttr'
+					],
+				CreateRecipeJob:[
+					'#DatasetNameAttr','#EncryptionKeyArnAttr','#EncryptionModeAttr','#NameAttr','#LogSubscriptionAttr','#MaxCapacityAttr','#MaxRetriesAttr','#OutputsAttr','#DataCatalogOutputsAttr','#DatabaseOutputsAttr','#ProjectNameAttr','#RecipeReferenceAttr','#RoleArnAttr','#TagsAttr','#TimeoutAttr'
+					],
+				CreateSchedule:[
+					'#JobNamesAttr','#CronExpressionAttr','#TagsAttr','#NameAttr'
+					],
+				DeleteDataset:[
+					'#NameAttr'
+					],
+				DeleteJob:[
+					'#NameAttr'
+					],
+				DeleteProject:[
+					'#NameAttr'
+					],
+				DeleteRecipeVersion:[
+					'#NameAttr','#RecipeVersionAttr'
+					],
+				DeleteSchedule:[
+					'#NameAttr'
+					],
+				DescribeDataset:[
+					'#NameAttr'
+					],
+				DescribeJob:[
+					'#NameAttr'
+					],
+				DescribeJobRun:[
+					'#NameAttr','#RunIdAttr'
+					],
+				DescribeProject:[
+					'#NameAttr'
+					],
+				DescribeRecipe:[
+					'#NameAttr','#RecipeVersionAttr'
+					],
+				DescribeSchedule:[
+					'#NameAttr'
+					],
+				ListDatasets:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListJobRuns:[
+					'#NameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListJobs:[
+					'#DatasetNameAttr','#MaxResultsAttr','#NextTokenAttr','#ProjectNameAttr'
+					],
+				ListProjects:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListRecipeVersions:[
+					'#MaxResultsAttr','#NextTokenAttr','#NameAttr'
+					],
+				ListRecipes:[
+					'#MaxResultsAttr','#NextTokenAttr','#RecipeVersionAttr'
+					],
+				ListSchedules:[
+					'#JobNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PublishRecipe:[
+					'#DescriptionAttr','#NameAttr'
+					],
+				SendProjectSessionAction:[
+					'#PreviewAttr','#NameAttr','#RecipeStepAttr','#StepIndexAttr','#ClientSessionIdAttr','#ViewFrameAttr'
+					],
+				StartJobRun:[
+					'#NameAttr'
+					],
+				StartProjectSession:[
+					'#NameAttr','#AssumeControlAttr'
+					],
+				StopJobRun:[
+					'#NameAttr','#RunIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDataset:[
+					'#NameAttr','#FormatAttr','#FormatOptionsAttr','#InputAttr','#PathOptionsAttr'
+					],
+				UpdateProfileJob:[
+					'#ConfigurationAttr','#EncryptionKeyArnAttr','#EncryptionModeAttr','#NameAttr','#LogSubscriptionAttr','#MaxCapacityAttr','#MaxRetriesAttr','#OutputLocationAttr','#RoleArnAttr','#TimeoutAttr','#JobSampleAttr'
+					],
+				UpdateProject:[
+					'#SampleAttr','#RoleArnAttr','#NameAttr'
+					],
+				UpdateRecipe:[
+					'#DescriptionAttr','#NameAttr','#StepsAttr'
+					],
+				UpdateRecipeJob:[
+					'#EncryptionKeyArnAttr','#EncryptionModeAttr','#NameAttr','#LogSubscriptionAttr','#MaxCapacityAttr','#MaxRetriesAttr','#OutputsAttr','#DataCatalogOutputsAttr','#DatabaseOutputsAttr','#RoleArnAttr','#TimeoutAttr'
+					],
+				UpdateSchedule:[
+					'#JobNamesAttr','#CronExpressionAttr','#NameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DataBrew">
+<p>
+AWS DataBrew
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DataBrew.html">DataBrew</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DataBrew',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteRecipeVersion' },
+			
+				Name: { value: ""} ,
+				RecipeVersions: { value: ""} ,
+				Format: { value: ""} ,
+				FormatOptions: { value: ""} ,
+				Input: { value: ""} ,
+				PathOptions: { value: ""} ,
+				Tags: { value: ""} ,
+				DatasetName: { value: ""} ,
+				EncryptionKeyArn: { value: ""} ,
+				EncryptionMode: { value: ""} ,
+				LogSubscription: { value: ""} ,
+				MaxCapacity: { value: ""} ,
+				MaxRetries: { value: ""} ,
+				OutputLocation: { value: ""} ,
+				Configuration: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Timeout: { value: ""} ,
+				JobSample: { value: ""} ,
+				RecipeName: { value: ""} ,
+				Sample: { value: ""} ,
+				Description: { value: ""} ,
+				Steps: { value: ""} ,
+				Outputs: { value: ""} ,
+				DataCatalogOutputs: { value: ""} ,
+				DatabaseOutputs: { value: ""} ,
+				ProjectName: { value: ""} ,
+				RecipeReference: { value: ""} ,
+				JobNames: { value: ""} ,
+				CronExpression: { value: ""} ,
+				RecipeVersion: { value: ""} ,
+				RunId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				JobName: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Preview: { value: ""} ,
+				RecipeStep: { value: ""} ,
+				StepIndex: { value: ""} ,
+				ClientSessionId: { value: ""} ,
+				ViewFrame: { value: ""} ,
+				AssumeControl: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DataBrew " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FormatOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Input").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PathOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatasetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionKeyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogSubscription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxCapacity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxRetries").typedInput({ default: "num", types: ["num"]});
+$("#node-input-OutputLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Timeout").typedInput({ default: "num", types: ["num"]});
+$("#node-input-JobSample").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecipeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sample").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Steps").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Outputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataCatalogOutputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatabaseOutputs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecipeReference").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CronExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecipeVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RunId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Preview").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RecipeStep").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StepIndex").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ClientSessionId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AssumeControl").typedInput({ default: "bool", types: ["bool"]});
+
+		}
+	});
+</script>
+

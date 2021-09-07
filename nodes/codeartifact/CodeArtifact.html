@@ -1,0 +1,467 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeArtifact">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateExternalConnection">AssociateExternalConnection</option>
+		
+			<option value="CopyPackageVersions">CopyPackageVersions</option>
+		
+			<option value="CreateDomain">CreateDomain</option>
+		
+			<option value="CreateRepository">CreateRepository</option>
+		
+			<option value="DeleteDomain">DeleteDomain</option>
+		
+			<option value="DeleteDomainPermissionsPolicy">DeleteDomainPermissionsPolicy</option>
+		
+			<option value="DeletePackageVersions">DeletePackageVersions</option>
+		
+			<option value="DeleteRepository">DeleteRepository</option>
+		
+			<option value="DeleteRepositoryPermissionsPolicy">DeleteRepositoryPermissionsPolicy</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribePackageVersion">DescribePackageVersion</option>
+		
+			<option value="DescribeRepository">DescribeRepository</option>
+		
+			<option value="DisassociateExternalConnection">DisassociateExternalConnection</option>
+		
+			<option value="DisposePackageVersions">DisposePackageVersions</option>
+		
+			<option value="GetAuthorizationToken">GetAuthorizationToken</option>
+		
+			<option value="GetDomainPermissionsPolicy">GetDomainPermissionsPolicy</option>
+		
+			<option value="GetPackageVersionAsset">GetPackageVersionAsset</option>
+		
+			<option value="GetPackageVersionReadme">GetPackageVersionReadme</option>
+		
+			<option value="GetRepositoryEndpoint">GetRepositoryEndpoint</option>
+		
+			<option value="GetRepositoryPermissionsPolicy">GetRepositoryPermissionsPolicy</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListPackageVersionAssets">ListPackageVersionAssets</option>
+		
+			<option value="ListPackageVersionDependencies">ListPackageVersionDependencies</option>
+		
+			<option value="ListPackageVersions">ListPackageVersions</option>
+		
+			<option value="ListPackages">ListPackages</option>
+		
+			<option value="ListRepositories">ListRepositories</option>
+		
+			<option value="ListRepositoriesInDomain">ListRepositoriesInDomain</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutDomainPermissionsPolicy">PutDomainPermissionsPolicy</option>
+		
+			<option value="PutRepositoryPermissionsPolicy">PutRepositoryPermissionsPolicy</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdatePackageVersionsStatus">UpdatePackageVersionsStatus</option>
+		
+			<option value="UpdateRepository">UpdateRepository</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='domainAttr' class='hiddenAttrs'>
+		<label for="node-input-domain"><i class="fa fa-tag"></i> domain</label>
+		<input type="text" id="node-input-domain" placeholder="domain"></input>
+	</div> 
+	<div class="form-row" id='domainOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-domainOwner"><i class="fa fa-tag"></i> domainOwner</label>
+		<input type="text" id="node-input-domainOwner" placeholder="domainOwner"></input>
+	</div> 
+	<div class="form-row" id='repositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-repository"><i class="fa fa-tag"></i> repository</label>
+		<input type="text" id="node-input-repository" placeholder="repository"></input>
+	</div> 
+	<div class="form-row" id='externalConnectionAttr' class='hiddenAttrs'>
+		<label for="node-input-externalConnection"><i class="fa fa-tag"></i> externalConnection</label>
+		<input type="text" id="node-input-externalConnection" placeholder="externalConnection"></input>
+	</div> 
+	<div class="form-row" id='sourceRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceRepository"><i class="fa fa-tag"></i> sourceRepository</label>
+		<input type="text" id="node-input-sourceRepository" placeholder="sourceRepository"></input>
+	</div> 
+	<div class="form-row" id='destinationRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationRepository"><i class="fa fa-tag"></i> destinationRepository</label>
+		<input type="text" id="node-input-destinationRepository" placeholder="destinationRepository"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i> format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='namespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-namespace"><i class="fa fa-tag"></i> namespace</label>
+		<input type="text" id="node-input-namespace" placeholder="namespace"></input>
+	</div> 
+	<div class="form-row" id='packageAttr' class='hiddenAttrs'>
+		<label for="node-input-package"><i class="fa fa-tag"></i> package</label>
+		<input type="text" id="node-input-package" placeholder="package"></input>
+	</div> 
+	<div class="form-row" id='versionsAttr' class='hiddenAttrs'>
+		<label for="node-input-versions"><i class="fa fa-tag"></i> versions</label>
+		<input type="text" id="node-input-versions" placeholder="versions"></input>
+	</div> 
+	<div class="form-row" id='versionRevisionsAttr' class='hiddenAttrs'>
+		<label for="node-input-versionRevisions"><i class="fa fa-tag"></i> versionRevisions</label>
+		<input type="text" id="node-input-versionRevisions" placeholder="versionRevisions"></input>
+	</div> 
+	<div class="form-row" id='allowOverwriteAttr' class='hiddenAttrs'>
+		<label for="node-input-allowOverwrite"><i class="fa fa-tag"></i> allowOverwrite</label>
+		<input type="text" id="node-input-allowOverwrite" placeholder="allowOverwrite"></input>
+	</div> 
+	<div class="form-row" id='includeFromUpstreamAttr' class='hiddenAttrs'>
+		<label for="node-input-includeFromUpstream"><i class="fa fa-tag"></i> includeFromUpstream</label>
+		<input type="text" id="node-input-includeFromUpstream" placeholder="includeFromUpstream"></input>
+	</div> 
+	<div class="form-row" id='encryptionKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionKey"><i class="fa fa-tag"></i> encryptionKey</label>
+		<input type="text" id="node-input-encryptionKey" placeholder="encryptionKey"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='upstreamsAttr' class='hiddenAttrs'>
+		<label for="node-input-upstreams"><i class="fa fa-tag"></i> upstreams</label>
+		<input type="text" id="node-input-upstreams" placeholder="upstreams"></input>
+	</div> 
+	<div class="form-row" id='policyRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-policyRevision"><i class="fa fa-tag"></i> policyRevision</label>
+		<input type="text" id="node-input-policyRevision" placeholder="policyRevision"></input>
+	</div> 
+	<div class="form-row" id='expectedStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-expectedStatus"><i class="fa fa-tag"></i> expectedStatus</label>
+		<input type="text" id="node-input-expectedStatus" placeholder="expectedStatus"></input>
+	</div> 
+	<div class="form-row" id='packageVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-packageVersion"><i class="fa fa-tag"></i> packageVersion</label>
+		<input type="text" id="node-input-packageVersion" placeholder="packageVersion"></input>
+	</div> 
+	<div class="form-row" id='durationSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-durationSeconds"><i class="fa fa-tag"></i> durationSeconds</label>
+		<input type="text" id="node-input-durationSeconds" placeholder="durationSeconds"></input>
+	</div> 
+	<div class="form-row" id='assetAttr' class='hiddenAttrs'>
+		<label for="node-input-asset"><i class="fa fa-tag"></i> asset</label>
+		<input type="text" id="node-input-asset" placeholder="asset"></input>
+	</div> 
+	<div class="form-row" id='packageVersionRevisionAttr' class='hiddenAttrs'>
+		<label for="node-input-packageVersionRevision"><i class="fa fa-tag"></i> packageVersionRevision</label>
+		<input type="text" id="node-input-packageVersionRevision" placeholder="packageVersionRevision"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='sortByAttr' class='hiddenAttrs'>
+		<label for="node-input-sortBy"><i class="fa fa-tag"></i> sortBy</label>
+		<input type="text" id="node-input-sortBy" placeholder="sortBy"></input>
+	</div> 
+	<div class="form-row" id='packagePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-packagePrefix"><i class="fa fa-tag"></i> packagePrefix</label>
+		<input type="text" id="node-input-packagePrefix" placeholder="packagePrefix"></input>
+	</div> 
+	<div class="form-row" id='repositoryPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryPrefix"><i class="fa fa-tag"></i> repositoryPrefix</label>
+		<input type="text" id="node-input-repositoryPrefix" placeholder="repositoryPrefix"></input>
+	</div> 
+	<div class="form-row" id='administratorAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-administratorAccount"><i class="fa fa-tag"></i> administratorAccount</label>
+		<input type="text" id="node-input-administratorAccount" placeholder="administratorAccount"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='policyDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-policyDocument"><i class="fa fa-tag"></i> policyDocument</label>
+		<input type="text" id="node-input-policyDocument" placeholder="policyDocument"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='targetStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-targetStatus"><i class="fa fa-tag"></i> targetStatus</label>
+		<input type="text" id="node-input-targetStatus" placeholder="targetStatus"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateExternalConnection:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#externalConnectionAttr'
+					],
+				CopyPackageVersions:[
+					'#domainAttr','#domainOwnerAttr','#sourceRepositoryAttr','#destinationRepositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#versionsAttr','#versionRevisionsAttr','#allowOverwriteAttr','#includeFromUpstreamAttr'
+					],
+				CreateDomain:[
+					'#domainAttr','#encryptionKeyAttr','#tagsAttr'
+					],
+				CreateRepository:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#descriptionAttr','#upstreamsAttr','#tagsAttr'
+					],
+				DeleteDomain:[
+					'#domainAttr','#domainOwnerAttr'
+					],
+				DeleteDomainPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr','#policyRevisionAttr'
+					],
+				DeletePackageVersions:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#versionsAttr','#expectedStatusAttr'
+					],
+				DeleteRepository:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr'
+					],
+				DeleteRepositoryPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#policyRevisionAttr'
+					],
+				DescribeDomain:[
+					'#domainAttr','#domainOwnerAttr'
+					],
+				DescribePackageVersion:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#packageVersionAttr'
+					],
+				DescribeRepository:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr'
+					],
+				DisassociateExternalConnection:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#externalConnectionAttr'
+					],
+				DisposePackageVersions:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#versionsAttr','#versionRevisionsAttr','#expectedStatusAttr'
+					],
+				GetAuthorizationToken:[
+					'#domainAttr','#domainOwnerAttr','#durationSecondsAttr'
+					],
+				GetDomainPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr'
+					],
+				GetPackageVersionAsset:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#packageVersionAttr','#assetAttr','#packageVersionRevisionAttr'
+					],
+				GetPackageVersionReadme:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#packageVersionAttr'
+					],
+				GetRepositoryEndpoint:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr'
+					],
+				GetRepositoryPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr'
+					],
+				ListDomains:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListPackageVersionAssets:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#packageVersionAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListPackageVersionDependencies:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#packageVersionAttr','#nextTokenAttr'
+					],
+				ListPackageVersions:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#statusAttr','#sortByAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListPackages:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packagePrefixAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListRepositories:[
+					'#repositoryPrefixAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListRepositoriesInDomain:[
+					'#domainAttr','#domainOwnerAttr','#administratorAccountAttr','#repositoryPrefixAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutDomainPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr','#policyRevisionAttr','#policyDocumentAttr'
+					],
+				PutRepositoryPermissionsPolicy:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#policyRevisionAttr','#policyDocumentAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdatePackageVersionsStatus:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#formatAttr','#namespaceAttr','#packageAttr','#versionsAttr','#versionRevisionsAttr','#expectedStatusAttr','#targetStatusAttr'
+					],
+				UpdateRepository:[
+					'#domainAttr','#domainOwnerAttr','#repositoryAttr','#descriptionAttr','#upstreamsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeArtifact">
+<p>
+AWS CodeArtifact
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeArtifact.html">CodeArtifact</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeArtifact',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateExternalConnection' },
+			
+				domain: { value: ""} ,
+				domainOwner: { value: ""} ,
+				repository: { value: ""} ,
+				externalConnection: { value: ""} ,
+				sourceRepository: { value: ""} ,
+				destinationRepository: { value: ""} ,
+				format: { value: ""} ,
+				namespace: { value: ""} ,
+				package: { value: ""} ,
+				versions: { value: ""} ,
+				versionRevisions: { value: ""} ,
+				allowOverwrite: { value: ""} ,
+				includeFromUpstream: { value: ""} ,
+				encryptionKey: { value: ""} ,
+				tags: { value: ""} ,
+				description: { value: ""} ,
+				upstreams: { value: ""} ,
+				policyRevision: { value: ""} ,
+				expectedStatus: { value: ""} ,
+				packageVersion: { value: ""} ,
+				durationSeconds: { value: ""} ,
+				asset: { value: ""} ,
+				packageVersionRevision: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				status: { value: ""} ,
+				sortBy: { value: ""} ,
+				packagePrefix: { value: ""} ,
+				repositoryPrefix: { value: ""} ,
+				administratorAccount: { value: ""} ,
+				resourceArn: { value: ""} ,
+				policyDocument: { value: ""} ,
+				tagKeys: { value: ""} ,
+				targetStatus: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeArtifact " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-domain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-domainOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-externalConnection").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceRepository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-destinationRepository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-namespace").typedInput({ default: "str", types: ["str"]});
+$("#node-input-package").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versionRevisions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-allowOverwrite").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-includeFromUpstream").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-encryptionKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-upstreams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyRevision").typedInput({ default: "str", types: ["str"]});
+$("#node-input-expectedStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-packageVersion").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-asset").typedInput({ default: "str", types: ["str"]});
+$("#node-input-packageVersionRevision").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-packagePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-administratorAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyDocument").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-targetStatus").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

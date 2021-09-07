@@ -1,0 +1,467 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MachineLearning">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTags">AddTags</option>
+		
+			<option value="CreateBatchPrediction">CreateBatchPrediction</option>
+		
+			<option value="CreateDataSourceFromRDS">CreateDataSourceFromRDS</option>
+		
+			<option value="CreateDataSourceFromRedshift">CreateDataSourceFromRedshift</option>
+		
+			<option value="CreateDataSourceFromS3">CreateDataSourceFromS3</option>
+		
+			<option value="CreateEvaluation">CreateEvaluation</option>
+		
+			<option value="CreateMLModel">CreateMLModel</option>
+		
+			<option value="CreateRealtimeEndpoint">CreateRealtimeEndpoint</option>
+		
+			<option value="DeleteBatchPrediction">DeleteBatchPrediction</option>
+		
+			<option value="DeleteDataSource">DeleteDataSource</option>
+		
+			<option value="DeleteEvaluation">DeleteEvaluation</option>
+		
+			<option value="DeleteMLModel">DeleteMLModel</option>
+		
+			<option value="DeleteRealtimeEndpoint">DeleteRealtimeEndpoint</option>
+		
+			<option value="DeleteTags">DeleteTags</option>
+		
+			<option value="DescribeBatchPredictions">DescribeBatchPredictions</option>
+		
+			<option value="DescribeDataSources">DescribeDataSources</option>
+		
+			<option value="DescribeEvaluations">DescribeEvaluations</option>
+		
+			<option value="DescribeMLModels">DescribeMLModels</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="GetBatchPrediction">GetBatchPrediction</option>
+		
+			<option value="GetDataSource">GetDataSource</option>
+		
+			<option value="GetEvaluation">GetEvaluation</option>
+		
+			<option value="GetMLModel">GetMLModel</option>
+		
+			<option value="Predict">Predict</option>
+		
+			<option value="UpdateBatchPrediction">UpdateBatchPrediction</option>
+		
+			<option value="UpdateDataSource">UpdateDataSource</option>
+		
+			<option value="UpdateEvaluation">UpdateEvaluation</option>
+		
+			<option value="UpdateMLModel">UpdateMLModel</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='BatchPredictionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BatchPredictionId"><i class="fa fa-tag"></i> BatchPredictionId</label>
+		<input type="text" id="node-input-BatchPredictionId" placeholder="BatchPredictionId"></input>
+	</div> 
+	<div class="form-row" id='BatchPredictionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BatchPredictionName"><i class="fa fa-tag"></i> BatchPredictionName</label>
+		<input type="text" id="node-input-BatchPredictionName" placeholder="BatchPredictionName"></input>
+	</div> 
+	<div class="form-row" id='MLModelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MLModelId"><i class="fa fa-tag"></i> MLModelId</label>
+		<input type="text" id="node-input-MLModelId" placeholder="MLModelId"></input>
+	</div> 
+	<div class="form-row" id='BatchPredictionDataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BatchPredictionDataSourceId"><i class="fa fa-tag"></i> BatchPredictionDataSourceId</label>
+		<input type="text" id="node-input-BatchPredictionDataSourceId" placeholder="BatchPredictionDataSourceId"></input>
+	</div> 
+	<div class="form-row" id='OutputUriAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputUri"><i class="fa fa-tag"></i> OutputUri</label>
+		<input type="text" id="node-input-OutputUri" placeholder="OutputUri"></input>
+	</div> 
+	<div class="form-row" id='DataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceId"><i class="fa fa-tag"></i> DataSourceId</label>
+		<input type="text" id="node-input-DataSourceId" placeholder="DataSourceId"></input>
+	</div> 
+	<div class="form-row" id='DataSourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceName"><i class="fa fa-tag"></i> DataSourceName</label>
+		<input type="text" id="node-input-DataSourceName" placeholder="DataSourceName"></input>
+	</div> 
+	<div class="form-row" id='RDSDataAttr' class='hiddenAttrs'>
+		<label for="node-input-RDSData"><i class="fa fa-tag"></i> RDSData</label>
+		<input type="text" id="node-input-RDSData" placeholder="RDSData"></input>
+	</div> 
+	<div class="form-row" id='RoleARNAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleARN"><i class="fa fa-tag"></i> RoleARN</label>
+		<input type="text" id="node-input-RoleARN" placeholder="RoleARN"></input>
+	</div> 
+	<div class="form-row" id='ComputeStatisticsAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputeStatistics"><i class="fa fa-tag"></i> ComputeStatistics</label>
+		<input type="text" id="node-input-ComputeStatistics" placeholder="ComputeStatistics"></input>
+	</div> 
+	<div class="form-row" id='DataSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSpec"><i class="fa fa-tag"></i> DataSpec</label>
+		<input type="text" id="node-input-DataSpec" placeholder="DataSpec"></input>
+	</div> 
+	<div class="form-row" id='EvaluationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationId"><i class="fa fa-tag"></i> EvaluationId</label>
+		<input type="text" id="node-input-EvaluationId" placeholder="EvaluationId"></input>
+	</div> 
+	<div class="form-row" id='EvaluationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationName"><i class="fa fa-tag"></i> EvaluationName</label>
+		<input type="text" id="node-input-EvaluationName" placeholder="EvaluationName"></input>
+	</div> 
+	<div class="form-row" id='EvaluationDataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EvaluationDataSourceId"><i class="fa fa-tag"></i> EvaluationDataSourceId</label>
+		<input type="text" id="node-input-EvaluationDataSourceId" placeholder="EvaluationDataSourceId"></input>
+	</div> 
+	<div class="form-row" id='MLModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MLModelName"><i class="fa fa-tag"></i> MLModelName</label>
+		<input type="text" id="node-input-MLModelName" placeholder="MLModelName"></input>
+	</div> 
+	<div class="form-row" id='MLModelTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MLModelType"><i class="fa fa-tag"></i> MLModelType</label>
+		<input type="text" id="node-input-MLModelType" placeholder="MLModelType"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='TrainingDataSourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TrainingDataSourceId"><i class="fa fa-tag"></i> TrainingDataSourceId</label>
+		<input type="text" id="node-input-TrainingDataSourceId" placeholder="TrainingDataSourceId"></input>
+	</div> 
+	<div class="form-row" id='RecipeAttr' class='hiddenAttrs'>
+		<label for="node-input-Recipe"><i class="fa fa-tag"></i> Recipe</label>
+		<input type="text" id="node-input-Recipe" placeholder="Recipe"></input>
+	</div> 
+	<div class="form-row" id='RecipeUriAttr' class='hiddenAttrs'>
+		<label for="node-input-RecipeUri"><i class="fa fa-tag"></i> RecipeUri</label>
+		<input type="text" id="node-input-RecipeUri" placeholder="RecipeUri"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='FilterVariableAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterVariable"><i class="fa fa-tag"></i> FilterVariable</label>
+		<input type="text" id="node-input-FilterVariable" placeholder="FilterVariable"></input>
+	</div> 
+	<div class="form-row" id='EQAttr' class='hiddenAttrs'>
+		<label for="node-input-EQ"><i class="fa fa-tag"></i> EQ</label>
+		<input type="text" id="node-input-EQ" placeholder="EQ"></input>
+	</div> 
+	<div class="form-row" id='GTAttr' class='hiddenAttrs'>
+		<label for="node-input-GT"><i class="fa fa-tag"></i> GT</label>
+		<input type="text" id="node-input-GT" placeholder="GT"></input>
+	</div> 
+	<div class="form-row" id='LTAttr' class='hiddenAttrs'>
+		<label for="node-input-LT"><i class="fa fa-tag"></i> LT</label>
+		<input type="text" id="node-input-LT" placeholder="LT"></input>
+	</div> 
+	<div class="form-row" id='GEAttr' class='hiddenAttrs'>
+		<label for="node-input-GE"><i class="fa fa-tag"></i> GE</label>
+		<input type="text" id="node-input-GE" placeholder="GE"></input>
+	</div> 
+	<div class="form-row" id='LEAttr' class='hiddenAttrs'>
+		<label for="node-input-LE"><i class="fa fa-tag"></i> LE</label>
+		<input type="text" id="node-input-LE" placeholder="LE"></input>
+	</div> 
+	<div class="form-row" id='NEAttr' class='hiddenAttrs'>
+		<label for="node-input-NE"><i class="fa fa-tag"></i> NE</label>
+		<input type="text" id="node-input-NE" placeholder="NE"></input>
+	</div> 
+	<div class="form-row" id='PrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-Prefix"><i class="fa fa-tag"></i> Prefix</label>
+		<input type="text" id="node-input-Prefix" placeholder="Prefix"></input>
+	</div> 
+	<div class="form-row" id='SortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-SortOrder"><i class="fa fa-tag"></i> SortOrder</label>
+		<input type="text" id="node-input-SortOrder" placeholder="SortOrder"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='VerboseAttr' class='hiddenAttrs'>
+		<label for="node-input-Verbose"><i class="fa fa-tag"></i> Verbose</label>
+		<input type="text" id="node-input-Verbose" placeholder="Verbose"></input>
+	</div> 
+	<div class="form-row" id='RecordAttr' class='hiddenAttrs'>
+		<label for="node-input-Record"><i class="fa fa-tag"></i> Record</label>
+		<input type="text" id="node-input-Record" placeholder="Record"></input>
+	</div> 
+	<div class="form-row" id='PredictEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-PredictEndpoint"><i class="fa fa-tag"></i> PredictEndpoint</label>
+		<input type="text" id="node-input-PredictEndpoint" placeholder="PredictEndpoint"></input>
+	</div> 
+	<div class="form-row" id='ScoreThresholdAttr' class='hiddenAttrs'>
+		<label for="node-input-ScoreThreshold"><i class="fa fa-tag"></i> ScoreThreshold</label>
+		<input type="text" id="node-input-ScoreThreshold" placeholder="ScoreThreshold"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTags:[
+					'#TagsAttr','#ResourceIdAttr','#ResourceTypeAttr'
+					],
+				CreateBatchPrediction:[
+					'#BatchPredictionIdAttr','#BatchPredictionNameAttr','#MLModelIdAttr','#BatchPredictionDataSourceIdAttr','#OutputUriAttr'
+					],
+				CreateDataSourceFromRDS:[
+					'#DataSourceIdAttr','#DataSourceNameAttr','#RDSDataAttr','#RoleARNAttr','#ComputeStatisticsAttr'
+					],
+				CreateDataSourceFromRedshift:[
+					'#DataSourceIdAttr','#DataSourceNameAttr','#DataSpecAttr','#RoleARNAttr','#ComputeStatisticsAttr'
+					],
+				CreateDataSourceFromS3:[
+					'#DataSourceIdAttr','#DataSourceNameAttr','#DataSpecAttr','#ComputeStatisticsAttr'
+					],
+				CreateEvaluation:[
+					'#EvaluationIdAttr','#EvaluationNameAttr','#MLModelIdAttr','#EvaluationDataSourceIdAttr'
+					],
+				CreateMLModel:[
+					'#MLModelIdAttr','#MLModelNameAttr','#MLModelTypeAttr','#ParametersAttr','#TrainingDataSourceIdAttr','#RecipeAttr','#RecipeUriAttr'
+					],
+				CreateRealtimeEndpoint:[
+					'#MLModelIdAttr'
+					],
+				DeleteBatchPrediction:[
+					'#BatchPredictionIdAttr'
+					],
+				DeleteDataSource:[
+					'#DataSourceIdAttr'
+					],
+				DeleteEvaluation:[
+					'#EvaluationIdAttr'
+					],
+				DeleteMLModel:[
+					'#MLModelIdAttr'
+					],
+				DeleteRealtimeEndpoint:[
+					'#MLModelIdAttr'
+					],
+				DeleteTags:[
+					'#TagKeysAttr','#ResourceIdAttr','#ResourceTypeAttr'
+					],
+				DescribeBatchPredictions:[
+					'#FilterVariableAttr','#EQAttr','#GTAttr','#LTAttr','#GEAttr','#LEAttr','#NEAttr','#PrefixAttr','#SortOrderAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeDataSources:[
+					'#FilterVariableAttr','#EQAttr','#GTAttr','#LTAttr','#GEAttr','#LEAttr','#NEAttr','#PrefixAttr','#SortOrderAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeEvaluations:[
+					'#FilterVariableAttr','#EQAttr','#GTAttr','#LTAttr','#GEAttr','#LEAttr','#NEAttr','#PrefixAttr','#SortOrderAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeMLModels:[
+					'#FilterVariableAttr','#EQAttr','#GTAttr','#LTAttr','#GEAttr','#LEAttr','#NEAttr','#PrefixAttr','#SortOrderAttr','#NextTokenAttr','#LimitAttr'
+					],
+				DescribeTags:[
+					'#ResourceIdAttr','#ResourceTypeAttr'
+					],
+				GetBatchPrediction:[
+					'#BatchPredictionIdAttr'
+					],
+				GetDataSource:[
+					'#DataSourceIdAttr','#VerboseAttr'
+					],
+				GetEvaluation:[
+					'#EvaluationIdAttr'
+					],
+				GetMLModel:[
+					'#MLModelIdAttr','#VerboseAttr'
+					],
+				Predict:[
+					'#MLModelIdAttr','#RecordAttr','#PredictEndpointAttr'
+					],
+				UpdateBatchPrediction:[
+					'#BatchPredictionIdAttr','#BatchPredictionNameAttr'
+					],
+				UpdateDataSource:[
+					'#DataSourceIdAttr','#DataSourceNameAttr'
+					],
+				UpdateEvaluation:[
+					'#EvaluationIdAttr','#EvaluationNameAttr'
+					],
+				UpdateMLModel:[
+					'#MLModelIdAttr','#MLModelNameAttr','#ScoreThresholdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MachineLearning">
+<p>
+AWS MachineLearning
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MachineLearning.html">MachineLearning</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MachineLearning',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTags' },
+			
+				Tags: { value: ""} ,
+				ResourceId: { value: ""} ,
+				ResourceType: { value: ""} ,
+				BatchPredictionId: { value: ""} ,
+				BatchPredictionName: { value: ""} ,
+				MLModelId: { value: ""} ,
+				BatchPredictionDataSourceId: { value: ""} ,
+				OutputUri: { value: ""} ,
+				DataSourceId: { value: ""} ,
+				DataSourceName: { value: ""} ,
+				RDSData: { value: ""} ,
+				RoleARN: { value: ""} ,
+				ComputeStatistics: { value: ""} ,
+				DataSpec: { value: ""} ,
+				EvaluationId: { value: ""} ,
+				EvaluationName: { value: ""} ,
+				EvaluationDataSourceId: { value: ""} ,
+				MLModelName: { value: ""} ,
+				MLModelType: { value: ""} ,
+				Parameters: { value: ""} ,
+				TrainingDataSourceId: { value: ""} ,
+				Recipe: { value: ""} ,
+				RecipeUri: { value: ""} ,
+				TagKeys: { value: ""} ,
+				FilterVariable: { value: ""} ,
+				EQ: { value: ""} ,
+				GT: { value: ""} ,
+				LT: { value: ""} ,
+				GE: { value: ""} ,
+				LE: { value: ""} ,
+				NE: { value: ""} ,
+				Prefix: { value: ""} ,
+				SortOrder: { value: ""} ,
+				NextToken: { value: ""} ,
+				Limit: { value: ""} ,
+				Verbose: { value: ""} ,
+				Record: { value: ""} ,
+				PredictEndpoint: { value: ""} ,
+				ScoreThreshold: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MachineLearning " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BatchPredictionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BatchPredictionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MLModelId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BatchPredictionDataSourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSourceName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-RoleARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComputeStatistics").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-EvaluationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EvaluationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EvaluationDataSourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MLModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MLModelType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrainingDataSourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Recipe").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecipeUri").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-FilterVariable").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EQ").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GT").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LT").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GE").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LE").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NE").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Prefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Verbose").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-PredictEndpoint").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

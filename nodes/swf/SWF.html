@@ -1,0 +1,566 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SWF">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CountClosedWorkflowExecutions">CountClosedWorkflowExecutions</option>
+		
+			<option value="CountOpenWorkflowExecutions">CountOpenWorkflowExecutions</option>
+		
+			<option value="CountPendingActivityTasks">CountPendingActivityTasks</option>
+		
+			<option value="CountPendingDecisionTasks">CountPendingDecisionTasks</option>
+		
+			<option value="DeprecateActivityType">DeprecateActivityType</option>
+		
+			<option value="DeprecateDomain">DeprecateDomain</option>
+		
+			<option value="DeprecateWorkflowType">DeprecateWorkflowType</option>
+		
+			<option value="DescribeActivityType">DescribeActivityType</option>
+		
+			<option value="DescribeDomain">DescribeDomain</option>
+		
+			<option value="DescribeWorkflowExecution">DescribeWorkflowExecution</option>
+		
+			<option value="DescribeWorkflowType">DescribeWorkflowType</option>
+		
+			<option value="GetWorkflowExecutionHistory">GetWorkflowExecutionHistory</option>
+		
+			<option value="ListActivityTypes">ListActivityTypes</option>
+		
+			<option value="ListClosedWorkflowExecutions">ListClosedWorkflowExecutions</option>
+		
+			<option value="ListDomains">ListDomains</option>
+		
+			<option value="ListOpenWorkflowExecutions">ListOpenWorkflowExecutions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWorkflowTypes">ListWorkflowTypes</option>
+		
+			<option value="PollForActivityTask">PollForActivityTask</option>
+		
+			<option value="PollForDecisionTask">PollForDecisionTask</option>
+		
+			<option value="RecordActivityTaskHeartbeat">RecordActivityTaskHeartbeat</option>
+		
+			<option value="RegisterActivityType">RegisterActivityType</option>
+		
+			<option value="RegisterDomain">RegisterDomain</option>
+		
+			<option value="RegisterWorkflowType">RegisterWorkflowType</option>
+		
+			<option value="RequestCancelWorkflowExecution">RequestCancelWorkflowExecution</option>
+		
+			<option value="RespondActivityTaskCanceled">RespondActivityTaskCanceled</option>
+		
+			<option value="RespondActivityTaskCompleted">RespondActivityTaskCompleted</option>
+		
+			<option value="RespondActivityTaskFailed">RespondActivityTaskFailed</option>
+		
+			<option value="RespondDecisionTaskCompleted">RespondDecisionTaskCompleted</option>
+		
+			<option value="SignalWorkflowExecution">SignalWorkflowExecution</option>
+		
+			<option value="StartWorkflowExecution">StartWorkflowExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TerminateWorkflowExecution">TerminateWorkflowExecution</option>
+		
+			<option value="UndeprecateActivityType">UndeprecateActivityType</option>
+		
+			<option value="UndeprecateDomain">UndeprecateDomain</option>
+		
+			<option value="UndeprecateWorkflowType">UndeprecateWorkflowType</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='domainAttr' class='hiddenAttrs'>
+		<label for="node-input-domain"><i class="fa fa-tag"></i> domain</label>
+		<input type="text" id="node-input-domain" placeholder="domain"></input>
+	</div> 
+	<div class="form-row" id='startTimeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-startTimeFilter"><i class="fa fa-tag"></i> startTimeFilter</label>
+		<input type="text" id="node-input-startTimeFilter" placeholder="startTimeFilter"></input>
+	</div> 
+	<div class="form-row" id='closeTimeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-closeTimeFilter"><i class="fa fa-tag"></i> closeTimeFilter</label>
+		<input type="text" id="node-input-closeTimeFilter" placeholder="closeTimeFilter"></input>
+	</div> 
+	<div class="form-row" id='executionFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-executionFilter"><i class="fa fa-tag"></i> executionFilter</label>
+		<input type="text" id="node-input-executionFilter" placeholder="executionFilter"></input>
+	</div> 
+	<div class="form-row" id='typeFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-typeFilter"><i class="fa fa-tag"></i> typeFilter</label>
+		<input type="text" id="node-input-typeFilter" placeholder="typeFilter"></input>
+	</div> 
+	<div class="form-row" id='tagFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-tagFilter"><i class="fa fa-tag"></i> tagFilter</label>
+		<input type="text" id="node-input-tagFilter" placeholder="tagFilter"></input>
+	</div> 
+	<div class="form-row" id='closeStatusFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-closeStatusFilter"><i class="fa fa-tag"></i> closeStatusFilter</label>
+		<input type="text" id="node-input-closeStatusFilter" placeholder="closeStatusFilter"></input>
+	</div> 
+	<div class="form-row" id='taskListAttr' class='hiddenAttrs'>
+		<label for="node-input-taskList"><i class="fa fa-tag"></i> taskList</label>
+		<input type="text" id="node-input-taskList" placeholder="taskList"></input>
+	</div> 
+	<div class="form-row" id='activityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-activityType"><i class="fa fa-tag"></i> activityType</label>
+		<input type="text" id="node-input-activityType" placeholder="activityType"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='workflowTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-workflowType"><i class="fa fa-tag"></i> workflowType</label>
+		<input type="text" id="node-input-workflowType" placeholder="workflowType"></input>
+	</div> 
+	<div class="form-row" id='executionAttr' class='hiddenAttrs'>
+		<label for="node-input-execution"><i class="fa fa-tag"></i> execution</label>
+		<input type="text" id="node-input-execution" placeholder="execution"></input>
+	</div> 
+	<div class="form-row" id='nextPageTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextPageToken"><i class="fa fa-tag"></i> nextPageToken</label>
+		<input type="text" id="node-input-nextPageToken" placeholder="nextPageToken"></input>
+	</div> 
+	<div class="form-row" id='maximumPageSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-maximumPageSize"><i class="fa fa-tag"></i> maximumPageSize</label>
+		<input type="text" id="node-input-maximumPageSize" placeholder="maximumPageSize"></input>
+	</div> 
+	<div class="form-row" id='reverseOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-reverseOrder"><i class="fa fa-tag"></i> reverseOrder</label>
+		<input type="text" id="node-input-reverseOrder" placeholder="reverseOrder"></input>
+	</div> 
+	<div class="form-row" id='registrationStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-registrationStatus"><i class="fa fa-tag"></i> registrationStatus</label>
+		<input type="text" id="node-input-registrationStatus" placeholder="registrationStatus"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='identityAttr' class='hiddenAttrs'>
+		<label for="node-input-identity"><i class="fa fa-tag"></i> identity</label>
+		<input type="text" id="node-input-identity" placeholder="identity"></input>
+	</div> 
+	<div class="form-row" id='taskTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-taskToken"><i class="fa fa-tag"></i> taskToken</label>
+		<input type="text" id="node-input-taskToken" placeholder="taskToken"></input>
+	</div> 
+	<div class="form-row" id='detailsAttr' class='hiddenAttrs'>
+		<label for="node-input-details"><i class="fa fa-tag"></i> details</label>
+		<input type="text" id="node-input-details" placeholder="details"></input>
+	</div> 
+	<div class="form-row" id='versionAttr' class='hiddenAttrs'>
+		<label for="node-input-version"><i class="fa fa-tag"></i> version</label>
+		<input type="text" id="node-input-version" placeholder="version"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskStartToCloseTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskStartToCloseTimeout"><i class="fa fa-tag"></i> defaultTaskStartToCloseTimeout</label>
+		<input type="text" id="node-input-defaultTaskStartToCloseTimeout" placeholder="defaultTaskStartToCloseTimeout"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskHeartbeatTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskHeartbeatTimeout"><i class="fa fa-tag"></i> defaultTaskHeartbeatTimeout</label>
+		<input type="text" id="node-input-defaultTaskHeartbeatTimeout" placeholder="defaultTaskHeartbeatTimeout"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskListAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskList"><i class="fa fa-tag"></i> defaultTaskList</label>
+		<input type="text" id="node-input-defaultTaskList" placeholder="defaultTaskList"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskPriorityAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskPriority"><i class="fa fa-tag"></i> defaultTaskPriority</label>
+		<input type="text" id="node-input-defaultTaskPriority" placeholder="defaultTaskPriority"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskScheduleToStartTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskScheduleToStartTimeout"><i class="fa fa-tag"></i> defaultTaskScheduleToStartTimeout</label>
+		<input type="text" id="node-input-defaultTaskScheduleToStartTimeout" placeholder="defaultTaskScheduleToStartTimeout"></input>
+	</div> 
+	<div class="form-row" id='defaultTaskScheduleToCloseTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultTaskScheduleToCloseTimeout"><i class="fa fa-tag"></i> defaultTaskScheduleToCloseTimeout</label>
+		<input type="text" id="node-input-defaultTaskScheduleToCloseTimeout" placeholder="defaultTaskScheduleToCloseTimeout"></input>
+	</div> 
+	<div class="form-row" id='workflowExecutionRetentionPeriodInDaysAttr' class='hiddenAttrs'>
+		<label for="node-input-workflowExecutionRetentionPeriodInDays"><i class="fa fa-tag"></i> workflowExecutionRetentionPeriodInDays</label>
+		<input type="text" id="node-input-workflowExecutionRetentionPeriodInDays" placeholder="workflowExecutionRetentionPeriodInDays"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='defaultExecutionStartToCloseTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultExecutionStartToCloseTimeout"><i class="fa fa-tag"></i> defaultExecutionStartToCloseTimeout</label>
+		<input type="text" id="node-input-defaultExecutionStartToCloseTimeout" placeholder="defaultExecutionStartToCloseTimeout"></input>
+	</div> 
+	<div class="form-row" id='defaultChildPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultChildPolicy"><i class="fa fa-tag"></i> defaultChildPolicy</label>
+		<input type="text" id="node-input-defaultChildPolicy" placeholder="defaultChildPolicy"></input>
+	</div> 
+	<div class="form-row" id='defaultLambdaRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultLambdaRole"><i class="fa fa-tag"></i> defaultLambdaRole</label>
+		<input type="text" id="node-input-defaultLambdaRole" placeholder="defaultLambdaRole"></input>
+	</div> 
+	<div class="form-row" id='workflowIdAttr' class='hiddenAttrs'>
+		<label for="node-input-workflowId"><i class="fa fa-tag"></i> workflowId</label>
+		<input type="text" id="node-input-workflowId" placeholder="workflowId"></input>
+	</div> 
+	<div class="form-row" id='runIdAttr' class='hiddenAttrs'>
+		<label for="node-input-runId"><i class="fa fa-tag"></i> runId</label>
+		<input type="text" id="node-input-runId" placeholder="runId"></input>
+	</div> 
+	<div class="form-row" id='resultAttr' class='hiddenAttrs'>
+		<label for="node-input-result"><i class="fa fa-tag"></i> result</label>
+		<input type="text" id="node-input-result" placeholder="result"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i> reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='decisionsAttr' class='hiddenAttrs'>
+		<label for="node-input-decisions"><i class="fa fa-tag"></i> decisions</label>
+		<input type="text" id="node-input-decisions" placeholder="decisions"></input>
+	</div> 
+	<div class="form-row" id='executionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-executionContext"><i class="fa fa-tag"></i> executionContext</label>
+		<input type="text" id="node-input-executionContext" placeholder="executionContext"></input>
+	</div> 
+	<div class="form-row" id='signalNameAttr' class='hiddenAttrs'>
+		<label for="node-input-signalName"><i class="fa fa-tag"></i> signalName</label>
+		<input type="text" id="node-input-signalName" placeholder="signalName"></input>
+	</div> 
+	<div class="form-row" id='inputAttr' class='hiddenAttrs'>
+		<label for="node-input-input"><i class="fa fa-tag"></i> input</label>
+		<input type="text" id="node-input-input" placeholder="input"></input>
+	</div> 
+	<div class="form-row" id='taskPriorityAttr' class='hiddenAttrs'>
+		<label for="node-input-taskPriority"><i class="fa fa-tag"></i> taskPriority</label>
+		<input type="text" id="node-input-taskPriority" placeholder="taskPriority"></input>
+	</div> 
+	<div class="form-row" id='executionStartToCloseTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-executionStartToCloseTimeout"><i class="fa fa-tag"></i> executionStartToCloseTimeout</label>
+		<input type="text" id="node-input-executionStartToCloseTimeout" placeholder="executionStartToCloseTimeout"></input>
+	</div> 
+	<div class="form-row" id='tagListAttr' class='hiddenAttrs'>
+		<label for="node-input-tagList"><i class="fa fa-tag"></i> tagList</label>
+		<input type="text" id="node-input-tagList" placeholder="tagList"></input>
+	</div> 
+	<div class="form-row" id='taskStartToCloseTimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-taskStartToCloseTimeout"><i class="fa fa-tag"></i> taskStartToCloseTimeout</label>
+		<input type="text" id="node-input-taskStartToCloseTimeout" placeholder="taskStartToCloseTimeout"></input>
+	</div> 
+	<div class="form-row" id='childPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-childPolicy"><i class="fa fa-tag"></i> childPolicy</label>
+		<input type="text" id="node-input-childPolicy" placeholder="childPolicy"></input>
+	</div> 
+	<div class="form-row" id='lambdaRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-lambdaRole"><i class="fa fa-tag"></i> lambdaRole</label>
+		<input type="text" id="node-input-lambdaRole" placeholder="lambdaRole"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CountClosedWorkflowExecutions:[
+					'#domainAttr','#startTimeFilterAttr','#closeTimeFilterAttr','#executionFilterAttr','#typeFilterAttr','#tagFilterAttr','#closeStatusFilterAttr'
+					],
+				CountOpenWorkflowExecutions:[
+					'#domainAttr','#startTimeFilterAttr','#typeFilterAttr','#tagFilterAttr','#executionFilterAttr'
+					],
+				CountPendingActivityTasks:[
+					'#domainAttr','#taskListAttr'
+					],
+				CountPendingDecisionTasks:[
+					'#domainAttr','#taskListAttr'
+					],
+				DeprecateActivityType:[
+					'#domainAttr','#activityTypeAttr'
+					],
+				DeprecateDomain:[
+					'#nameAttr'
+					],
+				DeprecateWorkflowType:[
+					'#domainAttr','#workflowTypeAttr'
+					],
+				DescribeActivityType:[
+					'#domainAttr','#activityTypeAttr'
+					],
+				DescribeDomain:[
+					'#nameAttr'
+					],
+				DescribeWorkflowExecution:[
+					'#domainAttr','#executionAttr'
+					],
+				DescribeWorkflowType:[
+					'#domainAttr','#workflowTypeAttr'
+					],
+				GetWorkflowExecutionHistory:[
+					'#domainAttr','#executionAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				ListActivityTypes:[
+					'#domainAttr','#nameAttr','#registrationStatusAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				ListClosedWorkflowExecutions:[
+					'#domainAttr','#startTimeFilterAttr','#closeTimeFilterAttr','#executionFilterAttr','#closeStatusFilterAttr','#typeFilterAttr','#tagFilterAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				ListDomains:[
+					'#nextPageTokenAttr','#registrationStatusAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				ListOpenWorkflowExecutions:[
+					'#domainAttr','#startTimeFilterAttr','#typeFilterAttr','#tagFilterAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr','#executionFilterAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListWorkflowTypes:[
+					'#domainAttr','#nameAttr','#registrationStatusAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				PollForActivityTask:[
+					'#domainAttr','#taskListAttr','#identityAttr'
+					],
+				PollForDecisionTask:[
+					'#domainAttr','#taskListAttr','#identityAttr','#nextPageTokenAttr','#maximumPageSizeAttr','#reverseOrderAttr'
+					],
+				RecordActivityTaskHeartbeat:[
+					'#taskTokenAttr','#detailsAttr'
+					],
+				RegisterActivityType:[
+					'#domainAttr','#nameAttr','#versionAttr','#descriptionAttr','#defaultTaskStartToCloseTimeoutAttr','#defaultTaskHeartbeatTimeoutAttr','#defaultTaskListAttr','#defaultTaskPriorityAttr','#defaultTaskScheduleToStartTimeoutAttr','#defaultTaskScheduleToCloseTimeoutAttr'
+					],
+				RegisterDomain:[
+					'#nameAttr','#descriptionAttr','#workflowExecutionRetentionPeriodInDaysAttr','#tagsAttr'
+					],
+				RegisterWorkflowType:[
+					'#domainAttr','#nameAttr','#versionAttr','#descriptionAttr','#defaultTaskStartToCloseTimeoutAttr','#defaultExecutionStartToCloseTimeoutAttr','#defaultTaskListAttr','#defaultTaskPriorityAttr','#defaultChildPolicyAttr','#defaultLambdaRoleAttr'
+					],
+				RequestCancelWorkflowExecution:[
+					'#domainAttr','#workflowIdAttr','#runIdAttr'
+					],
+				RespondActivityTaskCanceled:[
+					'#taskTokenAttr','#detailsAttr'
+					],
+				RespondActivityTaskCompleted:[
+					'#taskTokenAttr','#resultAttr'
+					],
+				RespondActivityTaskFailed:[
+					'#taskTokenAttr','#reasonAttr','#detailsAttr'
+					],
+				RespondDecisionTaskCompleted:[
+					'#taskTokenAttr','#decisionsAttr','#executionContextAttr'
+					],
+				SignalWorkflowExecution:[
+					'#domainAttr','#workflowIdAttr','#runIdAttr','#signalNameAttr','#inputAttr'
+					],
+				StartWorkflowExecution:[
+					'#domainAttr','#workflowIdAttr','#workflowTypeAttr','#taskListAttr','#taskPriorityAttr','#inputAttr','#executionStartToCloseTimeoutAttr','#tagListAttr','#taskStartToCloseTimeoutAttr','#childPolicyAttr','#lambdaRoleAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TerminateWorkflowExecution:[
+					'#domainAttr','#workflowIdAttr','#runIdAttr','#reasonAttr','#detailsAttr','#childPolicyAttr'
+					],
+				UndeprecateActivityType:[
+					'#domainAttr','#activityTypeAttr'
+					],
+				UndeprecateDomain:[
+					'#nameAttr'
+					],
+				UndeprecateWorkflowType:[
+					'#domainAttr','#workflowTypeAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SWF">
+<p>
+AWS SWF
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SWF.html">SWF</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SWF',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CountClosedWorkflowExecutions' },
+			
+				domain: { value: ""} ,
+				startTimeFilter: { value: ""} ,
+				closeTimeFilter: { value: ""} ,
+				executionFilter: { value: ""} ,
+				typeFilter: { value: ""} ,
+				tagFilter: { value: ""} ,
+				closeStatusFilter: { value: ""} ,
+				taskList: { value: ""} ,
+				activityType: { value: ""} ,
+				name: { value: ""} ,
+				workflowType: { value: ""} ,
+				execution: { value: ""} ,
+				nextPageToken: { value: ""} ,
+				maximumPageSize: { value: ""} ,
+				reverseOrder: { value: ""} ,
+				registrationStatus: { value: ""} ,
+				resourceArn: { value: ""} ,
+				identity: { value: ""} ,
+				taskToken: { value: ""} ,
+				details: { value: ""} ,
+				version: { value: ""} ,
+				description: { value: ""} ,
+				defaultTaskStartToCloseTimeout: { value: ""} ,
+				defaultTaskHeartbeatTimeout: { value: ""} ,
+				defaultTaskList: { value: ""} ,
+				defaultTaskPriority: { value: ""} ,
+				defaultTaskScheduleToStartTimeout: { value: ""} ,
+				defaultTaskScheduleToCloseTimeout: { value: ""} ,
+				workflowExecutionRetentionPeriodInDays: { value: ""} ,
+				tags: { value: ""} ,
+				defaultExecutionStartToCloseTimeout: { value: ""} ,
+				defaultChildPolicy: { value: ""} ,
+				defaultLambdaRole: { value: ""} ,
+				workflowId: { value: ""} ,
+				runId: { value: ""} ,
+				result: { value: ""} ,
+				reason: { value: ""} ,
+				decisions: { value: ""} ,
+				executionContext: { value: ""} ,
+				signalName: { value: ""} ,
+				input: { value: ""} ,
+				taskPriority: { value: ""} ,
+				executionStartToCloseTimeout: { value: ""} ,
+				tagList: { value: ""} ,
+				taskStartToCloseTimeout: { value: ""} ,
+				childPolicy: { value: ""} ,
+				lambdaRole: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SWF " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-domain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-startTimeFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-closeTimeFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-executionFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-typeFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tagFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-closeStatusFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-activityType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-workflowType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-execution").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextPageToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maximumPageSize").typedInput({ default: "num", types: ["num"]});
+$("#node-input-reverseOrder").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-registrationStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-identity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-details").typedInput({ default: "str", types: ["str"]});
+$("#node-input-version").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskStartToCloseTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskHeartbeatTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskPriority").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskScheduleToStartTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultTaskScheduleToCloseTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-workflowExecutionRetentionPeriodInDays").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultExecutionStartToCloseTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultChildPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultLambdaRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-workflowId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-runId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-result").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reason").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-executionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-signalName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-input").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskPriority").typedInput({ default: "str", types: ["str"]});
+$("#node-input-executionStartToCloseTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tagList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskStartToCloseTimeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-childPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lambdaRole").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

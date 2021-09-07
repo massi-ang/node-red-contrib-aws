@@ -1,0 +1,410 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Mgn">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="ChangeServerLifeCycleState">ChangeServerLifeCycleState</option>
+		
+			<option value="CreateReplicationConfigurationTemplate">CreateReplicationConfigurationTemplate</option>
+		
+			<option value="DeleteJob">DeleteJob</option>
+		
+			<option value="DeleteReplicationConfigurationTemplate">DeleteReplicationConfigurationTemplate</option>
+		
+			<option value="DeleteSourceServer">DeleteSourceServer</option>
+		
+			<option value="DescribeJobLogItems">DescribeJobLogItems</option>
+		
+			<option value="DescribeJobs">DescribeJobs</option>
+		
+			<option value="DescribeReplicationConfigurationTemplates">DescribeReplicationConfigurationTemplates</option>
+		
+			<option value="DescribeSourceServers">DescribeSourceServers</option>
+		
+			<option value="DisconnectFromService">DisconnectFromService</option>
+		
+			<option value="FinalizeCutover">FinalizeCutover</option>
+		
+			<option value="GetLaunchConfiguration">GetLaunchConfiguration</option>
+		
+			<option value="GetReplicationConfiguration">GetReplicationConfiguration</option>
+		
+			<option value="InitializeService">InitializeService</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="MarkAsArchived">MarkAsArchived</option>
+		
+			<option value="RetryDataReplication">RetryDataReplication</option>
+		
+			<option value="StartCutover">StartCutover</option>
+		
+			<option value="StartTest">StartTest</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TerminateTargetInstances">TerminateTargetInstances</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateLaunchConfiguration">UpdateLaunchConfiguration</option>
+		
+			<option value="UpdateReplicationConfiguration">UpdateReplicationConfiguration</option>
+		
+			<option value="UpdateReplicationConfigurationTemplate">UpdateReplicationConfigurationTemplate</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='lifeCycleAttr' class='hiddenAttrs'>
+		<label for="node-input-lifeCycle"><i class="fa fa-tag"></i> lifeCycle</label>
+		<input type="text" id="node-input-lifeCycle" placeholder="lifeCycle"></input>
+	</div> 
+	<div class="form-row" id='sourceServerIDAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceServerID"><i class="fa fa-tag"></i> sourceServerID</label>
+		<input type="text" id="node-input-sourceServerID" placeholder="sourceServerID"></input>
+	</div> 
+	<div class="form-row" id='associateDefaultSecurityGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-associateDefaultSecurityGroup"><i class="fa fa-tag"></i> associateDefaultSecurityGroup</label>
+		<input type="text" id="node-input-associateDefaultSecurityGroup" placeholder="associateDefaultSecurityGroup"></input>
+	</div> 
+	<div class="form-row" id='bandwidthThrottlingAttr' class='hiddenAttrs'>
+		<label for="node-input-bandwidthThrottling"><i class="fa fa-tag"></i> bandwidthThrottling</label>
+		<input type="text" id="node-input-bandwidthThrottling" placeholder="bandwidthThrottling"></input>
+	</div> 
+	<div class="form-row" id='createPublicIPAttr' class='hiddenAttrs'>
+		<label for="node-input-createPublicIP"><i class="fa fa-tag"></i> createPublicIP</label>
+		<input type="text" id="node-input-createPublicIP" placeholder="createPublicIP"></input>
+	</div> 
+	<div class="form-row" id='dataPlaneRoutingAttr' class='hiddenAttrs'>
+		<label for="node-input-dataPlaneRouting"><i class="fa fa-tag"></i> dataPlaneRouting</label>
+		<input type="text" id="node-input-dataPlaneRouting" placeholder="dataPlaneRouting"></input>
+	</div> 
+	<div class="form-row" id='defaultLargeStagingDiskTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultLargeStagingDiskType"><i class="fa fa-tag"></i> defaultLargeStagingDiskType</label>
+		<input type="text" id="node-input-defaultLargeStagingDiskType" placeholder="defaultLargeStagingDiskType"></input>
+	</div> 
+	<div class="form-row" id='ebsEncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-ebsEncryption"><i class="fa fa-tag"></i> ebsEncryption</label>
+		<input type="text" id="node-input-ebsEncryption" placeholder="ebsEncryption"></input>
+	</div> 
+	<div class="form-row" id='ebsEncryptionKeyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ebsEncryptionKeyArn"><i class="fa fa-tag"></i> ebsEncryptionKeyArn</label>
+		<input type="text" id="node-input-ebsEncryptionKeyArn" placeholder="ebsEncryptionKeyArn"></input>
+	</div> 
+	<div class="form-row" id='replicationServerInstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationServerInstanceType"><i class="fa fa-tag"></i> replicationServerInstanceType</label>
+		<input type="text" id="node-input-replicationServerInstanceType" placeholder="replicationServerInstanceType"></input>
+	</div> 
+	<div class="form-row" id='replicationServersSecurityGroupsIDsAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationServersSecurityGroupsIDs"><i class="fa fa-tag"></i> replicationServersSecurityGroupsIDs</label>
+		<input type="text" id="node-input-replicationServersSecurityGroupsIDs" placeholder="replicationServersSecurityGroupsIDs"></input>
+	</div> 
+	<div class="form-row" id='stagingAreaSubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-stagingAreaSubnetId"><i class="fa fa-tag"></i> stagingAreaSubnetId</label>
+		<input type="text" id="node-input-stagingAreaSubnetId" placeholder="stagingAreaSubnetId"></input>
+	</div> 
+	<div class="form-row" id='stagingAreaTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-stagingAreaTags"><i class="fa fa-tag"></i> stagingAreaTags</label>
+		<input type="text" id="node-input-stagingAreaTags" placeholder="stagingAreaTags"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='useDedicatedReplicationServerAttr' class='hiddenAttrs'>
+		<label for="node-input-useDedicatedReplicationServer"><i class="fa fa-tag"></i> useDedicatedReplicationServer</label>
+		<input type="text" id="node-input-useDedicatedReplicationServer" placeholder="useDedicatedReplicationServer"></input>
+	</div> 
+	<div class="form-row" id='jobIDAttr' class='hiddenAttrs'>
+		<label for="node-input-jobID"><i class="fa fa-tag"></i> jobID</label>
+		<input type="text" id="node-input-jobID" placeholder="jobID"></input>
+	</div> 
+	<div class="form-row" id='replicationConfigurationTemplateIDAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationConfigurationTemplateID"><i class="fa fa-tag"></i> replicationConfigurationTemplateID</label>
+		<input type="text" id="node-input-replicationConfigurationTemplateID" placeholder="replicationConfigurationTemplateID"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='replicationConfigurationTemplateIDsAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationConfigurationTemplateIDs"><i class="fa fa-tag"></i> replicationConfigurationTemplateIDs</label>
+		<input type="text" id="node-input-replicationConfigurationTemplateIDs" placeholder="replicationConfigurationTemplateIDs"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='sourceServerIDsAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceServerIDs"><i class="fa fa-tag"></i> sourceServerIDs</label>
+		<input type="text" id="node-input-sourceServerIDs" placeholder="sourceServerIDs"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='copyPrivateIpAttr' class='hiddenAttrs'>
+		<label for="node-input-copyPrivateIp"><i class="fa fa-tag"></i> copyPrivateIp</label>
+		<input type="text" id="node-input-copyPrivateIp" placeholder="copyPrivateIp"></input>
+	</div> 
+	<div class="form-row" id='copyTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-copyTags"><i class="fa fa-tag"></i> copyTags</label>
+		<input type="text" id="node-input-copyTags" placeholder="copyTags"></input>
+	</div> 
+	<div class="form-row" id='launchDispositionAttr' class='hiddenAttrs'>
+		<label for="node-input-launchDisposition"><i class="fa fa-tag"></i> launchDisposition</label>
+		<input type="text" id="node-input-launchDisposition" placeholder="launchDisposition"></input>
+	</div> 
+	<div class="form-row" id='licensingAttr' class='hiddenAttrs'>
+		<label for="node-input-licensing"><i class="fa fa-tag"></i> licensing</label>
+		<input type="text" id="node-input-licensing" placeholder="licensing"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='targetInstanceTypeRightSizingMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-targetInstanceTypeRightSizingMethod"><i class="fa fa-tag"></i> targetInstanceTypeRightSizingMethod</label>
+		<input type="text" id="node-input-targetInstanceTypeRightSizingMethod" placeholder="targetInstanceTypeRightSizingMethod"></input>
+	</div> 
+	<div class="form-row" id='replicatedDisksAttr' class='hiddenAttrs'>
+		<label for="node-input-replicatedDisks"><i class="fa fa-tag"></i> replicatedDisks</label>
+		<input type="text" id="node-input-replicatedDisks" placeholder="replicatedDisks"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				ChangeServerLifeCycleState:[
+					'#lifeCycleAttr','#sourceServerIDAttr'
+					],
+				CreateReplicationConfigurationTemplate:[
+					'#associateDefaultSecurityGroupAttr','#bandwidthThrottlingAttr','#createPublicIPAttr','#dataPlaneRoutingAttr','#defaultLargeStagingDiskTypeAttr','#ebsEncryptionAttr','#ebsEncryptionKeyArnAttr','#replicationServerInstanceTypeAttr','#replicationServersSecurityGroupsIDsAttr','#stagingAreaSubnetIdAttr','#stagingAreaTagsAttr','#tagsAttr','#useDedicatedReplicationServerAttr'
+					],
+				DeleteJob:[
+					'#jobIDAttr'
+					],
+				DeleteReplicationConfigurationTemplate:[
+					'#replicationConfigurationTemplateIDAttr'
+					],
+				DeleteSourceServer:[
+					'#sourceServerIDAttr'
+					],
+				DescribeJobLogItems:[
+					'#jobIDAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeJobs:[
+					'#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeReplicationConfigurationTemplates:[
+					'#maxResultsAttr','#nextTokenAttr','#replicationConfigurationTemplateIDsAttr'
+					],
+				DescribeSourceServers:[
+					'#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DisconnectFromService:[
+					'#sourceServerIDAttr'
+					],
+				FinalizeCutover:[
+					'#sourceServerIDAttr'
+					],
+				GetLaunchConfiguration:[
+					'#sourceServerIDAttr'
+					],
+				GetReplicationConfiguration:[
+					'#sourceServerIDAttr'
+					],
+				InitializeService:[
+					
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				MarkAsArchived:[
+					'#sourceServerIDAttr'
+					],
+				RetryDataReplication:[
+					'#sourceServerIDAttr'
+					],
+				StartCutover:[
+					'#sourceServerIDsAttr','#tagsAttr'
+					],
+				StartTest:[
+					'#sourceServerIDsAttr','#tagsAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TerminateTargetInstances:[
+					'#sourceServerIDsAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateLaunchConfiguration:[
+					'#copyPrivateIpAttr','#copyTagsAttr','#launchDispositionAttr','#licensingAttr','#nameAttr','#sourceServerIDAttr','#targetInstanceTypeRightSizingMethodAttr'
+					],
+				UpdateReplicationConfiguration:[
+					'#associateDefaultSecurityGroupAttr','#bandwidthThrottlingAttr','#createPublicIPAttr','#dataPlaneRoutingAttr','#defaultLargeStagingDiskTypeAttr','#ebsEncryptionAttr','#ebsEncryptionKeyArnAttr','#nameAttr','#replicatedDisksAttr','#replicationServerInstanceTypeAttr','#replicationServersSecurityGroupsIDsAttr','#sourceServerIDAttr','#stagingAreaSubnetIdAttr','#stagingAreaTagsAttr','#useDedicatedReplicationServerAttr'
+					],
+				UpdateReplicationConfigurationTemplate:[
+					'#arnAttr','#associateDefaultSecurityGroupAttr','#bandwidthThrottlingAttr','#createPublicIPAttr','#dataPlaneRoutingAttr','#defaultLargeStagingDiskTypeAttr','#ebsEncryptionAttr','#ebsEncryptionKeyArnAttr','#replicationConfigurationTemplateIDAttr','#replicationServerInstanceTypeAttr','#replicationServersSecurityGroupsIDsAttr','#stagingAreaSubnetIdAttr','#stagingAreaTagsAttr','#useDedicatedReplicationServerAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Mgn">
+<p>
+AWS Mgn
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Mgn.html">Mgn</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Mgn',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'ChangeServerLifeCycleState' },
+			
+				lifeCycle: { value: ""} ,
+				sourceServerID: { value: ""} ,
+				associateDefaultSecurityGroup: { value: ""} ,
+				bandwidthThrottling: { value: ""} ,
+				createPublicIP: { value: ""} ,
+				dataPlaneRouting: { value: ""} ,
+				defaultLargeStagingDiskType: { value: ""} ,
+				ebsEncryption: { value: ""} ,
+				ebsEncryptionKeyArn: { value: ""} ,
+				replicationServerInstanceType: { value: ""} ,
+				replicationServersSecurityGroupsIDs: { value: ""} ,
+				stagingAreaSubnetId: { value: ""} ,
+				stagingAreaTags: { value: ""} ,
+				tags: { value: ""} ,
+				useDedicatedReplicationServer: { value: ""} ,
+				jobID: { value: ""} ,
+				replicationConfigurationTemplateID: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				filters: { value: ""} ,
+				replicationConfigurationTemplateIDs: { value: ""} ,
+				resourceArn: { value: ""} ,
+				sourceServerIDs: { value: ""} ,
+				tagKeys: { value: ""} ,
+				copyPrivateIp: { value: ""} ,
+				copyTags: { value: ""} ,
+				launchDisposition: { value: ""} ,
+				licensing: { value: ""} ,
+				name: { value: ""} ,
+				targetInstanceTypeRightSizingMethod: { value: ""} ,
+				replicatedDisks: { value: ""} ,
+				arn: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Mgn " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-sourceServerID").typedInput({ default: "str", types: ["str"]});
+$("#node-input-associateDefaultSecurityGroup").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-createPublicIP").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-dataPlaneRouting").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultLargeStagingDiskType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ebsEncryption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ebsEncryptionKeyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replicationServerInstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replicationServersSecurityGroupsIDs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stagingAreaSubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stagingAreaTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-useDedicatedReplicationServer").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-jobID").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replicationConfigurationTemplateID").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-copyPrivateIp").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-copyTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-launchDisposition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-licensing").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetInstanceTypeRightSizingMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replicatedDisks").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

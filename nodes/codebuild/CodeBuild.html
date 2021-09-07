@@ -1,0 +1,852 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeBuild">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDeleteBuilds">BatchDeleteBuilds</option>
+		
+			<option value="BatchGetBuildBatches">BatchGetBuildBatches</option>
+		
+			<option value="BatchGetBuilds">BatchGetBuilds</option>
+		
+			<option value="BatchGetProjects">BatchGetProjects</option>
+		
+			<option value="BatchGetReportGroups">BatchGetReportGroups</option>
+		
+			<option value="BatchGetReports">BatchGetReports</option>
+		
+			<option value="CreateProject">CreateProject</option>
+		
+			<option value="CreateReportGroup">CreateReportGroup</option>
+		
+			<option value="CreateWebhook">CreateWebhook</option>
+		
+			<option value="DeleteBuildBatch">DeleteBuildBatch</option>
+		
+			<option value="DeleteProject">DeleteProject</option>
+		
+			<option value="DeleteReport">DeleteReport</option>
+		
+			<option value="DeleteReportGroup">DeleteReportGroup</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteSourceCredentials">DeleteSourceCredentials</option>
+		
+			<option value="DeleteWebhook">DeleteWebhook</option>
+		
+			<option value="DescribeCodeCoverages">DescribeCodeCoverages</option>
+		
+			<option value="DescribeTestCases">DescribeTestCases</option>
+		
+			<option value="GetReportGroupTrend">GetReportGroupTrend</option>
+		
+			<option value="GetResourcePolicy">GetResourcePolicy</option>
+		
+			<option value="ImportSourceCredentials">ImportSourceCredentials</option>
+		
+			<option value="InvalidateProjectCache">InvalidateProjectCache</option>
+		
+			<option value="ListBuildBatches">ListBuildBatches</option>
+		
+			<option value="ListBuildBatchesForProject">ListBuildBatchesForProject</option>
+		
+			<option value="ListBuilds">ListBuilds</option>
+		
+			<option value="ListBuildsForProject">ListBuildsForProject</option>
+		
+			<option value="ListCuratedEnvironmentImages">ListCuratedEnvironmentImages</option>
+		
+			<option value="ListProjects">ListProjects</option>
+		
+			<option value="ListReportGroups">ListReportGroups</option>
+		
+			<option value="ListReports">ListReports</option>
+		
+			<option value="ListReportsForReportGroup">ListReportsForReportGroup</option>
+		
+			<option value="ListSharedProjects">ListSharedProjects</option>
+		
+			<option value="ListSharedReportGroups">ListSharedReportGroups</option>
+		
+			<option value="ListSourceCredentials">ListSourceCredentials</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="RetryBuild">RetryBuild</option>
+		
+			<option value="RetryBuildBatch">RetryBuildBatch</option>
+		
+			<option value="StartBuild">StartBuild</option>
+		
+			<option value="StartBuildBatch">StartBuildBatch</option>
+		
+			<option value="StopBuild">StopBuild</option>
+		
+			<option value="StopBuildBatch">StopBuildBatch</option>
+		
+			<option value="UpdateProject">UpdateProject</option>
+		
+			<option value="UpdateProjectVisibility">UpdateProjectVisibility</option>
+		
+			<option value="UpdateReportGroup">UpdateReportGroup</option>
+		
+			<option value="UpdateWebhook">UpdateWebhook</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='idsAttr' class='hiddenAttrs'>
+		<label for="node-input-ids"><i class="fa fa-tag"></i> ids</label>
+		<input type="text" id="node-input-ids" placeholder="ids"></input>
+	</div> 
+	<div class="form-row" id='namesAttr' class='hiddenAttrs'>
+		<label for="node-input-names"><i class="fa fa-tag"></i> names</label>
+		<input type="text" id="node-input-names" placeholder="names"></input>
+	</div> 
+	<div class="form-row" id='reportGroupArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-reportGroupArns"><i class="fa fa-tag"></i> reportGroupArns</label>
+		<input type="text" id="node-input-reportGroupArns" placeholder="reportGroupArns"></input>
+	</div> 
+	<div class="form-row" id='reportArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-reportArns"><i class="fa fa-tag"></i> reportArns</label>
+		<input type="text" id="node-input-reportArns" placeholder="reportArns"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='sourceAttr' class='hiddenAttrs'>
+		<label for="node-input-source"><i class="fa fa-tag"></i> source</label>
+		<input type="text" id="node-input-source" placeholder="source"></input>
+	</div> 
+	<div class="form-row" id='secondarySourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-secondarySources"><i class="fa fa-tag"></i> secondarySources</label>
+		<input type="text" id="node-input-secondarySources" placeholder="secondarySources"></input>
+	</div> 
+	<div class="form-row" id='sourceVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceVersion"><i class="fa fa-tag"></i> sourceVersion</label>
+		<input type="text" id="node-input-sourceVersion" placeholder="sourceVersion"></input>
+	</div> 
+	<div class="form-row" id='secondarySourceVersionsAttr' class='hiddenAttrs'>
+		<label for="node-input-secondarySourceVersions"><i class="fa fa-tag"></i> secondarySourceVersions</label>
+		<input type="text" id="node-input-secondarySourceVersions" placeholder="secondarySourceVersions"></input>
+	</div> 
+	<div class="form-row" id='artifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-artifacts"><i class="fa fa-tag"></i> artifacts</label>
+		<input type="text" id="node-input-artifacts" placeholder="artifacts"></input>
+	</div> 
+	<div class="form-row" id='secondaryArtifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-secondaryArtifacts"><i class="fa fa-tag"></i> secondaryArtifacts</label>
+		<input type="text" id="node-input-secondaryArtifacts" placeholder="secondaryArtifacts"></input>
+	</div> 
+	<div class="form-row" id='cacheAttr' class='hiddenAttrs'>
+		<label for="node-input-cache"><i class="fa fa-tag"></i> cache</label>
+		<input type="text" id="node-input-cache" placeholder="cache"></input>
+	</div> 
+	<div class="form-row" id='environmentAttr' class='hiddenAttrs'>
+		<label for="node-input-environment"><i class="fa fa-tag"></i> environment</label>
+		<input type="text" id="node-input-environment" placeholder="environment"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRole"><i class="fa fa-tag"></i> serviceRole</label>
+		<input type="text" id="node-input-serviceRole" placeholder="serviceRole"></input>
+	</div> 
+	<div class="form-row" id='timeoutInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-timeoutInMinutes"><i class="fa fa-tag"></i> timeoutInMinutes</label>
+		<input type="text" id="node-input-timeoutInMinutes" placeholder="timeoutInMinutes"></input>
+	</div> 
+	<div class="form-row" id='queuedTimeoutInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-queuedTimeoutInMinutes"><i class="fa fa-tag"></i> queuedTimeoutInMinutes</label>
+		<input type="text" id="node-input-queuedTimeoutInMinutes" placeholder="queuedTimeoutInMinutes"></input>
+	</div> 
+	<div class="form-row" id='encryptionKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionKey"><i class="fa fa-tag"></i> encryptionKey</label>
+		<input type="text" id="node-input-encryptionKey" placeholder="encryptionKey"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='vpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-vpcConfig"><i class="fa fa-tag"></i> vpcConfig</label>
+		<input type="text" id="node-input-vpcConfig" placeholder="vpcConfig"></input>
+	</div> 
+	<div class="form-row" id='badgeEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-badgeEnabled"><i class="fa fa-tag"></i> badgeEnabled</label>
+		<input type="text" id="node-input-badgeEnabled" placeholder="badgeEnabled"></input>
+	</div> 
+	<div class="form-row" id='logsConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-logsConfig"><i class="fa fa-tag"></i> logsConfig</label>
+		<input type="text" id="node-input-logsConfig" placeholder="logsConfig"></input>
+	</div> 
+	<div class="form-row" id='fileSystemLocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-fileSystemLocations"><i class="fa fa-tag"></i> fileSystemLocations</label>
+		<input type="text" id="node-input-fileSystemLocations" placeholder="fileSystemLocations"></input>
+	</div> 
+	<div class="form-row" id='buildBatchConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-buildBatchConfig"><i class="fa fa-tag"></i> buildBatchConfig</label>
+		<input type="text" id="node-input-buildBatchConfig" placeholder="buildBatchConfig"></input>
+	</div> 
+	<div class="form-row" id='concurrentBuildLimitAttr' class='hiddenAttrs'>
+		<label for="node-input-concurrentBuildLimit"><i class="fa fa-tag"></i> concurrentBuildLimit</label>
+		<input type="text" id="node-input-concurrentBuildLimit" placeholder="concurrentBuildLimit"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='exportConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-exportConfig"><i class="fa fa-tag"></i> exportConfig</label>
+		<input type="text" id="node-input-exportConfig" placeholder="exportConfig"></input>
+	</div> 
+	<div class="form-row" id='projectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-projectName"><i class="fa fa-tag"></i> projectName</label>
+		<input type="text" id="node-input-projectName" placeholder="projectName"></input>
+	</div> 
+	<div class="form-row" id='branchFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-branchFilter"><i class="fa fa-tag"></i> branchFilter</label>
+		<input type="text" id="node-input-branchFilter" placeholder="branchFilter"></input>
+	</div> 
+	<div class="form-row" id='filterGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-filterGroups"><i class="fa fa-tag"></i> filterGroups</label>
+		<input type="text" id="node-input-filterGroups" placeholder="filterGroups"></input>
+	</div> 
+	<div class="form-row" id='buildTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-buildType"><i class="fa fa-tag"></i> buildType</label>
+		<input type="text" id="node-input-buildType" placeholder="buildType"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='arnAttr' class='hiddenAttrs'>
+		<label for="node-input-arn"><i class="fa fa-tag"></i> arn</label>
+		<input type="text" id="node-input-arn" placeholder="arn"></input>
+	</div> 
+	<div class="form-row" id='deleteReportsAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteReports"><i class="fa fa-tag"></i> deleteReports</label>
+		<input type="text" id="node-input-deleteReports" placeholder="deleteReports"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='reportArnAttr' class='hiddenAttrs'>
+		<label for="node-input-reportArn"><i class="fa fa-tag"></i> reportArn</label>
+		<input type="text" id="node-input-reportArn" placeholder="reportArn"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='sortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-sortOrder"><i class="fa fa-tag"></i> sortOrder</label>
+		<input type="text" id="node-input-sortOrder" placeholder="sortOrder"></input>
+	</div> 
+	<div class="form-row" id='sortByAttr' class='hiddenAttrs'>
+		<label for="node-input-sortBy"><i class="fa fa-tag"></i> sortBy</label>
+		<input type="text" id="node-input-sortBy" placeholder="sortBy"></input>
+	</div> 
+	<div class="form-row" id='minLineCoveragePercentageAttr' class='hiddenAttrs'>
+		<label for="node-input-minLineCoveragePercentage"><i class="fa fa-tag"></i> minLineCoveragePercentage</label>
+		<input type="text" id="node-input-minLineCoveragePercentage" placeholder="minLineCoveragePercentage"></input>
+	</div> 
+	<div class="form-row" id='maxLineCoveragePercentageAttr' class='hiddenAttrs'>
+		<label for="node-input-maxLineCoveragePercentage"><i class="fa fa-tag"></i> maxLineCoveragePercentage</label>
+		<input type="text" id="node-input-maxLineCoveragePercentage" placeholder="maxLineCoveragePercentage"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='reportGroupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-reportGroupArn"><i class="fa fa-tag"></i> reportGroupArn</label>
+		<input type="text" id="node-input-reportGroupArn" placeholder="reportGroupArn"></input>
+	</div> 
+	<div class="form-row" id='numOfReportsAttr' class='hiddenAttrs'>
+		<label for="node-input-numOfReports"><i class="fa fa-tag"></i> numOfReports</label>
+		<input type="text" id="node-input-numOfReports" placeholder="numOfReports"></input>
+	</div> 
+	<div class="form-row" id='trendFieldAttr' class='hiddenAttrs'>
+		<label for="node-input-trendField"><i class="fa fa-tag"></i> trendField</label>
+		<input type="text" id="node-input-trendField" placeholder="trendField"></input>
+	</div> 
+	<div class="form-row" id='usernameAttr' class='hiddenAttrs'>
+		<label for="node-input-username"><i class="fa fa-tag"></i> username</label>
+		<input type="text" id="node-input-username" placeholder="username"></input>
+	</div> 
+	<div class="form-row" id='tokenAttr' class='hiddenAttrs'>
+		<label for="node-input-token"><i class="fa fa-tag"></i> token</label>
+		<input type="text" id="node-input-token" placeholder="token"></input>
+	</div> 
+	<div class="form-row" id='serverTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-serverType"><i class="fa fa-tag"></i> serverType</label>
+		<input type="text" id="node-input-serverType" placeholder="serverType"></input>
+	</div> 
+	<div class="form-row" id='authTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-authType"><i class="fa fa-tag"></i> authType</label>
+		<input type="text" id="node-input-authType" placeholder="authType"></input>
+	</div> 
+	<div class="form-row" id='shouldOverwriteAttr' class='hiddenAttrs'>
+		<label for="node-input-shouldOverwrite"><i class="fa fa-tag"></i> shouldOverwrite</label>
+		<input type="text" id="node-input-shouldOverwrite" placeholder="shouldOverwrite"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i> policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='idempotencyTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-idempotencyToken"><i class="fa fa-tag"></i> idempotencyToken</label>
+		<input type="text" id="node-input-idempotencyToken" placeholder="idempotencyToken"></input>
+	</div> 
+	<div class="form-row" id='retryTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-retryType"><i class="fa fa-tag"></i> retryType</label>
+		<input type="text" id="node-input-retryType" placeholder="retryType"></input>
+	</div> 
+	<div class="form-row" id='secondarySourcesOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-secondarySourcesOverride"><i class="fa fa-tag"></i> secondarySourcesOverride</label>
+		<input type="text" id="node-input-secondarySourcesOverride" placeholder="secondarySourcesOverride"></input>
+	</div> 
+	<div class="form-row" id='secondarySourcesVersionOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-secondarySourcesVersionOverride"><i class="fa fa-tag"></i> secondarySourcesVersionOverride</label>
+		<input type="text" id="node-input-secondarySourcesVersionOverride" placeholder="secondarySourcesVersionOverride"></input>
+	</div> 
+	<div class="form-row" id='artifactsOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-artifactsOverride"><i class="fa fa-tag"></i> artifactsOverride</label>
+		<input type="text" id="node-input-artifactsOverride" placeholder="artifactsOverride"></input>
+	</div> 
+	<div class="form-row" id='secondaryArtifactsOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-secondaryArtifactsOverride"><i class="fa fa-tag"></i> secondaryArtifactsOverride</label>
+		<input type="text" id="node-input-secondaryArtifactsOverride" placeholder="secondaryArtifactsOverride"></input>
+	</div> 
+	<div class="form-row" id='environmentVariablesOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentVariablesOverride"><i class="fa fa-tag"></i> environmentVariablesOverride</label>
+		<input type="text" id="node-input-environmentVariablesOverride" placeholder="environmentVariablesOverride"></input>
+	</div> 
+	<div class="form-row" id='sourceTypeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceTypeOverride"><i class="fa fa-tag"></i> sourceTypeOverride</label>
+		<input type="text" id="node-input-sourceTypeOverride" placeholder="sourceTypeOverride"></input>
+	</div> 
+	<div class="form-row" id='sourceLocationOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceLocationOverride"><i class="fa fa-tag"></i> sourceLocationOverride</label>
+		<input type="text" id="node-input-sourceLocationOverride" placeholder="sourceLocationOverride"></input>
+	</div> 
+	<div class="form-row" id='sourceAuthOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceAuthOverride"><i class="fa fa-tag"></i> sourceAuthOverride</label>
+		<input type="text" id="node-input-sourceAuthOverride" placeholder="sourceAuthOverride"></input>
+	</div> 
+	<div class="form-row" id='gitCloneDepthOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-gitCloneDepthOverride"><i class="fa fa-tag"></i> gitCloneDepthOverride</label>
+		<input type="text" id="node-input-gitCloneDepthOverride" placeholder="gitCloneDepthOverride"></input>
+	</div> 
+	<div class="form-row" id='gitSubmodulesConfigOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-gitSubmodulesConfigOverride"><i class="fa fa-tag"></i> gitSubmodulesConfigOverride</label>
+		<input type="text" id="node-input-gitSubmodulesConfigOverride" placeholder="gitSubmodulesConfigOverride"></input>
+	</div> 
+	<div class="form-row" id='buildspecOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-buildspecOverride"><i class="fa fa-tag"></i> buildspecOverride</label>
+		<input type="text" id="node-input-buildspecOverride" placeholder="buildspecOverride"></input>
+	</div> 
+	<div class="form-row" id='insecureSslOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-insecureSslOverride"><i class="fa fa-tag"></i> insecureSslOverride</label>
+		<input type="text" id="node-input-insecureSslOverride" placeholder="insecureSslOverride"></input>
+	</div> 
+	<div class="form-row" id='reportBuildStatusOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-reportBuildStatusOverride"><i class="fa fa-tag"></i> reportBuildStatusOverride</label>
+		<input type="text" id="node-input-reportBuildStatusOverride" placeholder="reportBuildStatusOverride"></input>
+	</div> 
+	<div class="form-row" id='buildStatusConfigOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-buildStatusConfigOverride"><i class="fa fa-tag"></i> buildStatusConfigOverride</label>
+		<input type="text" id="node-input-buildStatusConfigOverride" placeholder="buildStatusConfigOverride"></input>
+	</div> 
+	<div class="form-row" id='environmentTypeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentTypeOverride"><i class="fa fa-tag"></i> environmentTypeOverride</label>
+		<input type="text" id="node-input-environmentTypeOverride" placeholder="environmentTypeOverride"></input>
+	</div> 
+	<div class="form-row" id='imageOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-imageOverride"><i class="fa fa-tag"></i> imageOverride</label>
+		<input type="text" id="node-input-imageOverride" placeholder="imageOverride"></input>
+	</div> 
+	<div class="form-row" id='computeTypeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-computeTypeOverride"><i class="fa fa-tag"></i> computeTypeOverride</label>
+		<input type="text" id="node-input-computeTypeOverride" placeholder="computeTypeOverride"></input>
+	</div> 
+	<div class="form-row" id='certificateOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-certificateOverride"><i class="fa fa-tag"></i> certificateOverride</label>
+		<input type="text" id="node-input-certificateOverride" placeholder="certificateOverride"></input>
+	</div> 
+	<div class="form-row" id='cacheOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-cacheOverride"><i class="fa fa-tag"></i> cacheOverride</label>
+		<input type="text" id="node-input-cacheOverride" placeholder="cacheOverride"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRoleOverride"><i class="fa fa-tag"></i> serviceRoleOverride</label>
+		<input type="text" id="node-input-serviceRoleOverride" placeholder="serviceRoleOverride"></input>
+	</div> 
+	<div class="form-row" id='privilegedModeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-privilegedModeOverride"><i class="fa fa-tag"></i> privilegedModeOverride</label>
+		<input type="text" id="node-input-privilegedModeOverride" placeholder="privilegedModeOverride"></input>
+	</div> 
+	<div class="form-row" id='timeoutInMinutesOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-timeoutInMinutesOverride"><i class="fa fa-tag"></i> timeoutInMinutesOverride</label>
+		<input type="text" id="node-input-timeoutInMinutesOverride" placeholder="timeoutInMinutesOverride"></input>
+	</div> 
+	<div class="form-row" id='queuedTimeoutInMinutesOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-queuedTimeoutInMinutesOverride"><i class="fa fa-tag"></i> queuedTimeoutInMinutesOverride</label>
+		<input type="text" id="node-input-queuedTimeoutInMinutesOverride" placeholder="queuedTimeoutInMinutesOverride"></input>
+	</div> 
+	<div class="form-row" id='encryptionKeyOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionKeyOverride"><i class="fa fa-tag"></i> encryptionKeyOverride</label>
+		<input type="text" id="node-input-encryptionKeyOverride" placeholder="encryptionKeyOverride"></input>
+	</div> 
+	<div class="form-row" id='logsConfigOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-logsConfigOverride"><i class="fa fa-tag"></i> logsConfigOverride</label>
+		<input type="text" id="node-input-logsConfigOverride" placeholder="logsConfigOverride"></input>
+	</div> 
+	<div class="form-row" id='registryCredentialOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-registryCredentialOverride"><i class="fa fa-tag"></i> registryCredentialOverride</label>
+		<input type="text" id="node-input-registryCredentialOverride" placeholder="registryCredentialOverride"></input>
+	</div> 
+	<div class="form-row" id='imagePullCredentialsTypeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-imagePullCredentialsTypeOverride"><i class="fa fa-tag"></i> imagePullCredentialsTypeOverride</label>
+		<input type="text" id="node-input-imagePullCredentialsTypeOverride" placeholder="imagePullCredentialsTypeOverride"></input>
+	</div> 
+	<div class="form-row" id='debugSessionEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-debugSessionEnabled"><i class="fa fa-tag"></i> debugSessionEnabled</label>
+		<input type="text" id="node-input-debugSessionEnabled" placeholder="debugSessionEnabled"></input>
+	</div> 
+	<div class="form-row" id='reportBuildBatchStatusOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-reportBuildBatchStatusOverride"><i class="fa fa-tag"></i> reportBuildBatchStatusOverride</label>
+		<input type="text" id="node-input-reportBuildBatchStatusOverride" placeholder="reportBuildBatchStatusOverride"></input>
+	</div> 
+	<div class="form-row" id='buildTimeoutInMinutesOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-buildTimeoutInMinutesOverride"><i class="fa fa-tag"></i> buildTimeoutInMinutesOverride</label>
+		<input type="text" id="node-input-buildTimeoutInMinutesOverride" placeholder="buildTimeoutInMinutesOverride"></input>
+	</div> 
+	<div class="form-row" id='buildBatchConfigOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-buildBatchConfigOverride"><i class="fa fa-tag"></i> buildBatchConfigOverride</label>
+		<input type="text" id="node-input-buildBatchConfigOverride" placeholder="buildBatchConfigOverride"></input>
+	</div> 
+	<div class="form-row" id='projectArnAttr' class='hiddenAttrs'>
+		<label for="node-input-projectArn"><i class="fa fa-tag"></i> projectArn</label>
+		<input type="text" id="node-input-projectArn" placeholder="projectArn"></input>
+	</div> 
+	<div class="form-row" id='projectVisibilityAttr' class='hiddenAttrs'>
+		<label for="node-input-projectVisibility"><i class="fa fa-tag"></i> projectVisibility</label>
+		<input type="text" id="node-input-projectVisibility" placeholder="projectVisibility"></input>
+	</div> 
+	<div class="form-row" id='resourceAccessRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceAccessRole"><i class="fa fa-tag"></i> resourceAccessRole</label>
+		<input type="text" id="node-input-resourceAccessRole" placeholder="resourceAccessRole"></input>
+	</div> 
+	<div class="form-row" id='rotateSecretAttr' class='hiddenAttrs'>
+		<label for="node-input-rotateSecret"><i class="fa fa-tag"></i> rotateSecret</label>
+		<input type="text" id="node-input-rotateSecret" placeholder="rotateSecret"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDeleteBuilds:[
+					'#idsAttr'
+					],
+				BatchGetBuildBatches:[
+					'#idsAttr'
+					],
+				BatchGetBuilds:[
+					'#idsAttr'
+					],
+				BatchGetProjects:[
+					'#namesAttr'
+					],
+				BatchGetReportGroups:[
+					'#reportGroupArnsAttr'
+					],
+				BatchGetReports:[
+					'#reportArnsAttr'
+					],
+				CreateProject:[
+					'#nameAttr','#descriptionAttr','#sourceAttr','#secondarySourcesAttr','#sourceVersionAttr','#secondarySourceVersionsAttr','#artifactsAttr','#secondaryArtifactsAttr','#cacheAttr','#environmentAttr','#serviceRoleAttr','#timeoutInMinutesAttr','#queuedTimeoutInMinutesAttr','#encryptionKeyAttr','#tagsAttr','#vpcConfigAttr','#badgeEnabledAttr','#logsConfigAttr','#fileSystemLocationsAttr','#buildBatchConfigAttr','#concurrentBuildLimitAttr'
+					],
+				CreateReportGroup:[
+					'#nameAttr','#typeAttr','#exportConfigAttr','#tagsAttr'
+					],
+				CreateWebhook:[
+					'#projectNameAttr','#branchFilterAttr','#filterGroupsAttr','#buildTypeAttr'
+					],
+				DeleteBuildBatch:[
+					'#idAttr'
+					],
+				DeleteProject:[
+					'#nameAttr'
+					],
+				DeleteReport:[
+					'#arnAttr'
+					],
+				DeleteReportGroup:[
+					'#arnAttr','#deleteReportsAttr'
+					],
+				DeleteResourcePolicy:[
+					'#resourceArnAttr'
+					],
+				DeleteSourceCredentials:[
+					'#arnAttr'
+					],
+				DeleteWebhook:[
+					'#projectNameAttr'
+					],
+				DescribeCodeCoverages:[
+					'#reportArnAttr','#nextTokenAttr','#maxResultsAttr','#sortOrderAttr','#sortByAttr','#minLineCoveragePercentageAttr','#maxLineCoveragePercentageAttr'
+					],
+				DescribeTestCases:[
+					'#reportArnAttr','#nextTokenAttr','#maxResultsAttr','#filterAttr'
+					],
+				GetReportGroupTrend:[
+					'#reportGroupArnAttr','#numOfReportsAttr','#trendFieldAttr'
+					],
+				GetResourcePolicy:[
+					'#resourceArnAttr'
+					],
+				ImportSourceCredentials:[
+					'#usernameAttr','#tokenAttr','#serverTypeAttr','#authTypeAttr','#shouldOverwriteAttr'
+					],
+				InvalidateProjectCache:[
+					'#projectNameAttr'
+					],
+				ListBuildBatches:[
+					'#filterAttr','#maxResultsAttr','#sortOrderAttr','#nextTokenAttr'
+					],
+				ListBuildBatchesForProject:[
+					'#projectNameAttr','#filterAttr','#maxResultsAttr','#sortOrderAttr','#nextTokenAttr'
+					],
+				ListBuilds:[
+					'#sortOrderAttr','#nextTokenAttr'
+					],
+				ListBuildsForProject:[
+					'#projectNameAttr','#sortOrderAttr','#nextTokenAttr'
+					],
+				ListCuratedEnvironmentImages:[
+					
+					],
+				ListProjects:[
+					'#sortByAttr','#sortOrderAttr','#nextTokenAttr'
+					],
+				ListReportGroups:[
+					'#sortOrderAttr','#sortByAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListReports:[
+					'#sortOrderAttr','#nextTokenAttr','#maxResultsAttr','#filterAttr'
+					],
+				ListReportsForReportGroup:[
+					'#reportGroupArnAttr','#nextTokenAttr','#sortOrderAttr','#maxResultsAttr','#filterAttr'
+					],
+				ListSharedProjects:[
+					'#sortByAttr','#sortOrderAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListSharedReportGroups:[
+					'#sortOrderAttr','#sortByAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListSourceCredentials:[
+					
+					],
+				PutResourcePolicy:[
+					'#policyAttr','#resourceArnAttr'
+					],
+				RetryBuild:[
+					'#idAttr','#idempotencyTokenAttr'
+					],
+				RetryBuildBatch:[
+					'#idAttr','#idempotencyTokenAttr','#retryTypeAttr'
+					],
+				StartBuild:[
+					'#projectNameAttr','#secondarySourcesOverrideAttr','#secondarySourcesVersionOverrideAttr','#sourceVersionAttr','#artifactsOverrideAttr','#secondaryArtifactsOverrideAttr','#environmentVariablesOverrideAttr','#sourceTypeOverrideAttr','#sourceLocationOverrideAttr','#sourceAuthOverrideAttr','#gitCloneDepthOverrideAttr','#gitSubmodulesConfigOverrideAttr','#buildspecOverrideAttr','#insecureSslOverrideAttr','#reportBuildStatusOverrideAttr','#buildStatusConfigOverrideAttr','#environmentTypeOverrideAttr','#imageOverrideAttr','#computeTypeOverrideAttr','#certificateOverrideAttr','#cacheOverrideAttr','#serviceRoleOverrideAttr','#privilegedModeOverrideAttr','#timeoutInMinutesOverrideAttr','#queuedTimeoutInMinutesOverrideAttr','#encryptionKeyOverrideAttr','#idempotencyTokenAttr','#logsConfigOverrideAttr','#registryCredentialOverrideAttr','#imagePullCredentialsTypeOverrideAttr','#debugSessionEnabledAttr'
+					],
+				StartBuildBatch:[
+					'#projectNameAttr','#secondarySourcesOverrideAttr','#secondarySourcesVersionOverrideAttr','#sourceVersionAttr','#artifactsOverrideAttr','#secondaryArtifactsOverrideAttr','#environmentVariablesOverrideAttr','#sourceTypeOverrideAttr','#sourceLocationOverrideAttr','#sourceAuthOverrideAttr','#gitCloneDepthOverrideAttr','#gitSubmodulesConfigOverrideAttr','#buildspecOverrideAttr','#insecureSslOverrideAttr','#reportBuildBatchStatusOverrideAttr','#environmentTypeOverrideAttr','#imageOverrideAttr','#computeTypeOverrideAttr','#certificateOverrideAttr','#cacheOverrideAttr','#serviceRoleOverrideAttr','#privilegedModeOverrideAttr','#buildTimeoutInMinutesOverrideAttr','#queuedTimeoutInMinutesOverrideAttr','#encryptionKeyOverrideAttr','#idempotencyTokenAttr','#logsConfigOverrideAttr','#registryCredentialOverrideAttr','#imagePullCredentialsTypeOverrideAttr','#buildBatchConfigOverrideAttr','#debugSessionEnabledAttr'
+					],
+				StopBuild:[
+					'#idAttr'
+					],
+				StopBuildBatch:[
+					'#idAttr'
+					],
+				UpdateProject:[
+					'#nameAttr','#descriptionAttr','#sourceAttr','#secondarySourcesAttr','#sourceVersionAttr','#secondarySourceVersionsAttr','#artifactsAttr','#secondaryArtifactsAttr','#cacheAttr','#environmentAttr','#serviceRoleAttr','#timeoutInMinutesAttr','#queuedTimeoutInMinutesAttr','#encryptionKeyAttr','#tagsAttr','#vpcConfigAttr','#badgeEnabledAttr','#logsConfigAttr','#fileSystemLocationsAttr','#buildBatchConfigAttr','#concurrentBuildLimitAttr'
+					],
+				UpdateProjectVisibility:[
+					'#projectArnAttr','#projectVisibilityAttr','#resourceAccessRoleAttr'
+					],
+				UpdateReportGroup:[
+					'#arnAttr','#exportConfigAttr','#tagsAttr'
+					],
+				UpdateWebhook:[
+					'#projectNameAttr','#branchFilterAttr','#rotateSecretAttr','#filterGroupsAttr','#buildTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeBuild">
+<p>
+AWS CodeBuild
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeBuild.html">CodeBuild</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeBuild',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDeleteBuilds' },
+			
+				ids: { value: ""} ,
+				names: { value: ""} ,
+				reportGroupArns: { value: ""} ,
+				reportArns: { value: ""} ,
+				name: { value: ""} ,
+				description: { value: ""} ,
+				source: { value: ""} ,
+				secondarySources: { value: ""} ,
+				sourceVersion: { value: ""} ,
+				secondarySourceVersions: { value: ""} ,
+				artifacts: { value: ""} ,
+				secondaryArtifacts: { value: ""} ,
+				cache: { value: ""} ,
+				environment: { value: ""} ,
+				serviceRole: { value: ""} ,
+				timeoutInMinutes: { value: ""} ,
+				queuedTimeoutInMinutes: { value: ""} ,
+				encryptionKey: { value: ""} ,
+				tags: { value: ""} ,
+				vpcConfig: { value: ""} ,
+				badgeEnabled: { value: ""} ,
+				logsConfig: { value: ""} ,
+				fileSystemLocations: { value: ""} ,
+				buildBatchConfig: { value: ""} ,
+				concurrentBuildLimit: { value: ""} ,
+				_type: { value: ""} ,
+				exportConfig: { value: ""} ,
+				projectName: { value: ""} ,
+				branchFilter: { value: ""} ,
+				filterGroups: { value: ""} ,
+				buildType: { value: ""} ,
+				id: { value: ""} ,
+				arn: { value: ""} ,
+				deleteReports: { value: ""} ,
+				resourceArn: { value: ""} ,
+				reportArn: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				sortOrder: { value: ""} ,
+				sortBy: { value: ""} ,
+				minLineCoveragePercentage: { value: ""} ,
+				maxLineCoveragePercentage: { value: ""} ,
+				filter: { value: ""} ,
+				reportGroupArn: { value: ""} ,
+				numOfReports: { value: ""} ,
+				trendField: { value: ""} ,
+				username: { value: ""} ,
+				token: { value: ""} ,
+				serverType: { value: ""} ,
+				authType: { value: ""} ,
+				shouldOverwrite: { value: ""} ,
+				policy: { value: ""} ,
+				idempotencyToken: { value: ""} ,
+				retryType: { value: ""} ,
+				secondarySourcesOverride: { value: ""} ,
+				secondarySourcesVersionOverride: { value: ""} ,
+				artifactsOverride: { value: ""} ,
+				secondaryArtifactsOverride: { value: ""} ,
+				environmentVariablesOverride: { value: ""} ,
+				sourceTypeOverride: { value: ""} ,
+				sourceLocationOverride: { value: ""} ,
+				sourceAuthOverride: { value: ""} ,
+				gitCloneDepthOverride: { value: ""} ,
+				gitSubmodulesConfigOverride: { value: ""} ,
+				buildspecOverride: { value: ""} ,
+				insecureSslOverride: { value: ""} ,
+				reportBuildStatusOverride: { value: ""} ,
+				buildStatusConfigOverride: { value: ""} ,
+				environmentTypeOverride: { value: ""} ,
+				imageOverride: { value: ""} ,
+				computeTypeOverride: { value: ""} ,
+				certificateOverride: { value: ""} ,
+				cacheOverride: { value: ""} ,
+				serviceRoleOverride: { value: ""} ,
+				privilegedModeOverride: { value: ""} ,
+				timeoutInMinutesOverride: { value: ""} ,
+				queuedTimeoutInMinutesOverride: { value: ""} ,
+				encryptionKeyOverride: { value: ""} ,
+				logsConfigOverride: { value: ""} ,
+				registryCredentialOverride: { value: ""} ,
+				imagePullCredentialsTypeOverride: { value: ""} ,
+				debugSessionEnabled: { value: ""} ,
+				reportBuildBatchStatusOverride: { value: ""} ,
+				buildTimeoutInMinutesOverride: { value: ""} ,
+				buildBatchConfigOverride: { value: ""} ,
+				projectArn: { value: ""} ,
+				projectVisibility: { value: ""} ,
+				resourceAccessRole: { value: ""} ,
+				rotateSecret: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeBuild " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ids").typedInput({ default: "str", types: ["str"]});
+$("#node-input-names").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportGroupArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportArns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondarySources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondarySourceVersions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-artifacts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondaryArtifacts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cache").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-timeoutInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-queuedTimeoutInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-encryptionKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-badgeEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-logsConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fileSystemLocations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-buildBatchConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-concurrentBuildLimit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-exportConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-branchFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filterGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-buildType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deleteReports").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-sortOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sortBy").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reportGroupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-numOfReports").typedInput({ default: "num", types: ["num"]});
+$("#node-input-trendField").typedInput({ default: "str", types: ["str"]});
+$("#node-input-username").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-serverType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-shouldOverwrite").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-idempotencyToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-retryType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondarySourcesOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondarySourcesVersionOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-artifactsOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secondaryArtifactsOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentVariablesOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceTypeOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceLocationOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceAuthOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-gitCloneDepthOverride").typedInput({ default: "num", types: ["num"]});
+$("#node-input-gitSubmodulesConfigOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-buildspecOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-insecureSslOverride").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-reportBuildStatusOverride").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-buildStatusConfigOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentTypeOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computeTypeOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-certificateOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cacheOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceRoleOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-privilegedModeOverride").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-timeoutInMinutesOverride").typedInput({ default: "num", types: ["num"]});
+$("#node-input-queuedTimeoutInMinutesOverride").typedInput({ default: "num", types: ["num"]});
+$("#node-input-encryptionKeyOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-logsConfigOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-registryCredentialOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imagePullCredentialsTypeOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-debugSessionEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-reportBuildBatchStatusOverride").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-buildTimeoutInMinutesOverride").typedInput({ default: "num", types: ["num"]});
+$("#node-input-buildBatchConfigOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-projectVisibility").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceAccessRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-rotateSecret").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

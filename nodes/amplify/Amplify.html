@@ -1,0 +1,608 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Amplify">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateApp">CreateApp</option>
+		
+			<option value="CreateBackendEnvironment">CreateBackendEnvironment</option>
+		
+			<option value="CreateBranch">CreateBranch</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDomainAssociation">CreateDomainAssociation</option>
+		
+			<option value="CreateWebhook">CreateWebhook</option>
+		
+			<option value="DeleteApp">DeleteApp</option>
+		
+			<option value="DeleteBackendEnvironment">DeleteBackendEnvironment</option>
+		
+			<option value="DeleteBranch">DeleteBranch</option>
+		
+			<option value="DeleteDomainAssociation">DeleteDomainAssociation</option>
+		
+			<option value="DeleteJob">DeleteJob</option>
+		
+			<option value="DeleteWebhook">DeleteWebhook</option>
+		
+			<option value="GenerateAccessLogs">GenerateAccessLogs</option>
+		
+			<option value="GetApp">GetApp</option>
+		
+			<option value="GetArtifactUrl">GetArtifactUrl</option>
+		
+			<option value="GetBackendEnvironment">GetBackendEnvironment</option>
+		
+			<option value="GetBranch">GetBranch</option>
+		
+			<option value="GetDomainAssociation">GetDomainAssociation</option>
+		
+			<option value="GetJob">GetJob</option>
+		
+			<option value="GetWebhook">GetWebhook</option>
+		
+			<option value="ListApps">ListApps</option>
+		
+			<option value="ListArtifacts">ListArtifacts</option>
+		
+			<option value="ListBackendEnvironments">ListBackendEnvironments</option>
+		
+			<option value="ListBranches">ListBranches</option>
+		
+			<option value="ListDomainAssociations">ListDomainAssociations</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListWebhooks">ListWebhooks</option>
+		
+			<option value="StartDeployment">StartDeployment</option>
+		
+			<option value="StartJob">StartJob</option>
+		
+			<option value="StopJob">StopJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApp">UpdateApp</option>
+		
+			<option value="UpdateBranch">UpdateBranch</option>
+		
+			<option value="UpdateDomainAssociation">UpdateDomainAssociation</option>
+		
+			<option value="UpdateWebhook">UpdateWebhook</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='repositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-repository"><i class="fa fa-tag"></i> repository</label>
+		<input type="text" id="node-input-repository" placeholder="repository"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i> platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='iamServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-iamServiceRoleArn"><i class="fa fa-tag"></i> iamServiceRoleArn</label>
+		<input type="text" id="node-input-iamServiceRoleArn" placeholder="iamServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='oauthTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-oauthToken"><i class="fa fa-tag"></i> oauthToken</label>
+		<input type="text" id="node-input-oauthToken" placeholder="oauthToken"></input>
+	</div> 
+	<div class="form-row" id='accessTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-accessToken"><i class="fa fa-tag"></i> accessToken</label>
+		<input type="text" id="node-input-accessToken" placeholder="accessToken"></input>
+	</div> 
+	<div class="form-row" id='environmentVariablesAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentVariables"><i class="fa fa-tag"></i> environmentVariables</label>
+		<input type="text" id="node-input-environmentVariables" placeholder="environmentVariables"></input>
+	</div> 
+	<div class="form-row" id='enableBranchAutoBuildAttr' class='hiddenAttrs'>
+		<label for="node-input-enableBranchAutoBuild"><i class="fa fa-tag"></i> enableBranchAutoBuild</label>
+		<input type="text" id="node-input-enableBranchAutoBuild" placeholder="enableBranchAutoBuild"></input>
+	</div> 
+	<div class="form-row" id='enableBranchAutoDeletionAttr' class='hiddenAttrs'>
+		<label for="node-input-enableBranchAutoDeletion"><i class="fa fa-tag"></i> enableBranchAutoDeletion</label>
+		<input type="text" id="node-input-enableBranchAutoDeletion" placeholder="enableBranchAutoDeletion"></input>
+	</div> 
+	<div class="form-row" id='enableBasicAuthAttr' class='hiddenAttrs'>
+		<label for="node-input-enableBasicAuth"><i class="fa fa-tag"></i> enableBasicAuth</label>
+		<input type="text" id="node-input-enableBasicAuth" placeholder="enableBasicAuth"></input>
+	</div> 
+	<div class="form-row" id='basicAuthCredentialsAttr' class='hiddenAttrs'>
+		<label for="node-input-basicAuthCredentials"><i class="fa fa-tag"></i> basicAuthCredentials</label>
+		<input type="text" id="node-input-basicAuthCredentials" placeholder="basicAuthCredentials"></input>
+	</div> 
+	<div class="form-row" id='customRulesAttr' class='hiddenAttrs'>
+		<label for="node-input-customRules"><i class="fa fa-tag"></i> customRules</label>
+		<input type="text" id="node-input-customRules" placeholder="customRules"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='buildSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-buildSpec"><i class="fa fa-tag"></i> buildSpec</label>
+		<input type="text" id="node-input-buildSpec" placeholder="buildSpec"></input>
+	</div> 
+	<div class="form-row" id='customHeadersAttr' class='hiddenAttrs'>
+		<label for="node-input-customHeaders"><i class="fa fa-tag"></i> customHeaders</label>
+		<input type="text" id="node-input-customHeaders" placeholder="customHeaders"></input>
+	</div> 
+	<div class="form-row" id='enableAutoBranchCreationAttr' class='hiddenAttrs'>
+		<label for="node-input-enableAutoBranchCreation"><i class="fa fa-tag"></i> enableAutoBranchCreation</label>
+		<input type="text" id="node-input-enableAutoBranchCreation" placeholder="enableAutoBranchCreation"></input>
+	</div> 
+	<div class="form-row" id='autoBranchCreationPatternsAttr' class='hiddenAttrs'>
+		<label for="node-input-autoBranchCreationPatterns"><i class="fa fa-tag"></i> autoBranchCreationPatterns</label>
+		<input type="text" id="node-input-autoBranchCreationPatterns" placeholder="autoBranchCreationPatterns"></input>
+	</div> 
+	<div class="form-row" id='autoBranchCreationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-autoBranchCreationConfig"><i class="fa fa-tag"></i> autoBranchCreationConfig</label>
+		<input type="text" id="node-input-autoBranchCreationConfig" placeholder="autoBranchCreationConfig"></input>
+	</div> 
+	<div class="form-row" id='appIdAttr' class='hiddenAttrs'>
+		<label for="node-input-appId"><i class="fa fa-tag"></i> appId</label>
+		<input type="text" id="node-input-appId" placeholder="appId"></input>
+	</div> 
+	<div class="form-row" id='environmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentName"><i class="fa fa-tag"></i> environmentName</label>
+		<input type="text" id="node-input-environmentName" placeholder="environmentName"></input>
+	</div> 
+	<div class="form-row" id='stackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-stackName"><i class="fa fa-tag"></i> stackName</label>
+		<input type="text" id="node-input-stackName" placeholder="stackName"></input>
+	</div> 
+	<div class="form-row" id='deploymentArtifactsAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentArtifacts"><i class="fa fa-tag"></i> deploymentArtifacts</label>
+		<input type="text" id="node-input-deploymentArtifacts" placeholder="deploymentArtifacts"></input>
+	</div> 
+	<div class="form-row" id='branchNameAttr' class='hiddenAttrs'>
+		<label for="node-input-branchName"><i class="fa fa-tag"></i> branchName</label>
+		<input type="text" id="node-input-branchName" placeholder="branchName"></input>
+	</div> 
+	<div class="form-row" id='stageAttr' class='hiddenAttrs'>
+		<label for="node-input-stage"><i class="fa fa-tag"></i> stage</label>
+		<input type="text" id="node-input-stage" placeholder="stage"></input>
+	</div> 
+	<div class="form-row" id='frameworkAttr' class='hiddenAttrs'>
+		<label for="node-input-framework"><i class="fa fa-tag"></i> framework</label>
+		<input type="text" id="node-input-framework" placeholder="framework"></input>
+	</div> 
+	<div class="form-row" id='enableNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-enableNotification"><i class="fa fa-tag"></i> enableNotification</label>
+		<input type="text" id="node-input-enableNotification" placeholder="enableNotification"></input>
+	</div> 
+	<div class="form-row" id='enableAutoBuildAttr' class='hiddenAttrs'>
+		<label for="node-input-enableAutoBuild"><i class="fa fa-tag"></i> enableAutoBuild</label>
+		<input type="text" id="node-input-enableAutoBuild" placeholder="enableAutoBuild"></input>
+	</div> 
+	<div class="form-row" id='enablePerformanceModeAttr' class='hiddenAttrs'>
+		<label for="node-input-enablePerformanceMode"><i class="fa fa-tag"></i> enablePerformanceMode</label>
+		<input type="text" id="node-input-enablePerformanceMode" placeholder="enablePerformanceMode"></input>
+	</div> 
+	<div class="form-row" id='ttlAttr' class='hiddenAttrs'>
+		<label for="node-input-ttl"><i class="fa fa-tag"></i> ttl</label>
+		<input type="text" id="node-input-ttl" placeholder="ttl"></input>
+	</div> 
+	<div class="form-row" id='displayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-displayName"><i class="fa fa-tag"></i> displayName</label>
+		<input type="text" id="node-input-displayName" placeholder="displayName"></input>
+	</div> 
+	<div class="form-row" id='enablePullRequestPreviewAttr' class='hiddenAttrs'>
+		<label for="node-input-enablePullRequestPreview"><i class="fa fa-tag"></i> enablePullRequestPreview</label>
+		<input type="text" id="node-input-enablePullRequestPreview" placeholder="enablePullRequestPreview"></input>
+	</div> 
+	<div class="form-row" id='pullRequestEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-pullRequestEnvironmentName"><i class="fa fa-tag"></i> pullRequestEnvironmentName</label>
+		<input type="text" id="node-input-pullRequestEnvironmentName" placeholder="pullRequestEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='backendEnvironmentArnAttr' class='hiddenAttrs'>
+		<label for="node-input-backendEnvironmentArn"><i class="fa fa-tag"></i> backendEnvironmentArn</label>
+		<input type="text" id="node-input-backendEnvironmentArn" placeholder="backendEnvironmentArn"></input>
+	</div> 
+	<div class="form-row" id='fileMapAttr' class='hiddenAttrs'>
+		<label for="node-input-fileMap"><i class="fa fa-tag"></i> fileMap</label>
+		<input type="text" id="node-input-fileMap" placeholder="fileMap"></input>
+	</div> 
+	<div class="form-row" id='domainNameAttr' class='hiddenAttrs'>
+		<label for="node-input-domainName"><i class="fa fa-tag"></i> domainName</label>
+		<input type="text" id="node-input-domainName" placeholder="domainName"></input>
+	</div> 
+	<div class="form-row" id='enableAutoSubDomainAttr' class='hiddenAttrs'>
+		<label for="node-input-enableAutoSubDomain"><i class="fa fa-tag"></i> enableAutoSubDomain</label>
+		<input type="text" id="node-input-enableAutoSubDomain" placeholder="enableAutoSubDomain"></input>
+	</div> 
+	<div class="form-row" id='subDomainSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-subDomainSettings"><i class="fa fa-tag"></i> subDomainSettings</label>
+		<input type="text" id="node-input-subDomainSettings" placeholder="subDomainSettings"></input>
+	</div> 
+	<div class="form-row" id='autoSubDomainCreationPatternsAttr' class='hiddenAttrs'>
+		<label for="node-input-autoSubDomainCreationPatterns"><i class="fa fa-tag"></i> autoSubDomainCreationPatterns</label>
+		<input type="text" id="node-input-autoSubDomainCreationPatterns" placeholder="autoSubDomainCreationPatterns"></input>
+	</div> 
+	<div class="form-row" id='autoSubDomainIAMRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-autoSubDomainIAMRole"><i class="fa fa-tag"></i> autoSubDomainIAMRole</label>
+		<input type="text" id="node-input-autoSubDomainIAMRole" placeholder="autoSubDomainIAMRole"></input>
+	</div> 
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='webhookIdAttr' class='hiddenAttrs'>
+		<label for="node-input-webhookId"><i class="fa fa-tag"></i> webhookId</label>
+		<input type="text" id="node-input-webhookId" placeholder="webhookId"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='artifactIdAttr' class='hiddenAttrs'>
+		<label for="node-input-artifactId"><i class="fa fa-tag"></i> artifactId</label>
+		<input type="text" id="node-input-artifactId" placeholder="artifactId"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='sourceUrlAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceUrl"><i class="fa fa-tag"></i> sourceUrl</label>
+		<input type="text" id="node-input-sourceUrl" placeholder="sourceUrl"></input>
+	</div> 
+	<div class="form-row" id='jobTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-jobType"><i class="fa fa-tag"></i> jobType</label>
+		<input type="text" id="node-input-jobType" placeholder="jobType"></input>
+	</div> 
+	<div class="form-row" id='jobReasonAttr' class='hiddenAttrs'>
+		<label for="node-input-jobReason"><i class="fa fa-tag"></i> jobReason</label>
+		<input type="text" id="node-input-jobReason" placeholder="jobReason"></input>
+	</div> 
+	<div class="form-row" id='commitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-commitId"><i class="fa fa-tag"></i> commitId</label>
+		<input type="text" id="node-input-commitId" placeholder="commitId"></input>
+	</div> 
+	<div class="form-row" id='commitMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-commitMessage"><i class="fa fa-tag"></i> commitMessage</label>
+		<input type="text" id="node-input-commitMessage" placeholder="commitMessage"></input>
+	</div> 
+	<div class="form-row" id='commitTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-commitTime"><i class="fa fa-tag"></i> commitTime</label>
+		<input type="text" id="node-input-commitTime" placeholder="commitTime"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateApp:[
+					'#nameAttr','#descriptionAttr','#repositoryAttr','#platformAttr','#iamServiceRoleArnAttr','#oauthTokenAttr','#accessTokenAttr','#environmentVariablesAttr','#enableBranchAutoBuildAttr','#enableBranchAutoDeletionAttr','#enableBasicAuthAttr','#basicAuthCredentialsAttr','#customRulesAttr','#tagsAttr','#buildSpecAttr','#customHeadersAttr','#enableAutoBranchCreationAttr','#autoBranchCreationPatternsAttr','#autoBranchCreationConfigAttr'
+					],
+				CreateBackendEnvironment:[
+					'#appIdAttr','#environmentNameAttr','#stackNameAttr','#deploymentArtifactsAttr'
+					],
+				CreateBranch:[
+					'#appIdAttr','#branchNameAttr','#descriptionAttr','#stageAttr','#frameworkAttr','#enableNotificationAttr','#enableAutoBuildAttr','#environmentVariablesAttr','#basicAuthCredentialsAttr','#enableBasicAuthAttr','#enablePerformanceModeAttr','#tagsAttr','#buildSpecAttr','#ttlAttr','#displayNameAttr','#enablePullRequestPreviewAttr','#pullRequestEnvironmentNameAttr','#backendEnvironmentArnAttr'
+					],
+				CreateDeployment:[
+					'#appIdAttr','#branchNameAttr','#fileMapAttr'
+					],
+				CreateDomainAssociation:[
+					'#appIdAttr','#domainNameAttr','#enableAutoSubDomainAttr','#subDomainSettingsAttr','#autoSubDomainCreationPatternsAttr','#autoSubDomainIAMRoleAttr'
+					],
+				CreateWebhook:[
+					'#appIdAttr','#branchNameAttr','#descriptionAttr'
+					],
+				DeleteApp:[
+					'#appIdAttr'
+					],
+				DeleteBackendEnvironment:[
+					'#appIdAttr','#environmentNameAttr'
+					],
+				DeleteBranch:[
+					'#appIdAttr','#branchNameAttr'
+					],
+				DeleteDomainAssociation:[
+					'#appIdAttr','#domainNameAttr'
+					],
+				DeleteJob:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr'
+					],
+				DeleteWebhook:[
+					'#webhookIdAttr'
+					],
+				GenerateAccessLogs:[
+					'#startTimeAttr','#endTimeAttr','#domainNameAttr','#appIdAttr'
+					],
+				GetApp:[
+					'#appIdAttr'
+					],
+				GetArtifactUrl:[
+					'#artifactIdAttr'
+					],
+				GetBackendEnvironment:[
+					'#appIdAttr','#environmentNameAttr'
+					],
+				GetBranch:[
+					'#appIdAttr','#branchNameAttr'
+					],
+				GetDomainAssociation:[
+					'#appIdAttr','#domainNameAttr'
+					],
+				GetJob:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr'
+					],
+				GetWebhook:[
+					'#webhookIdAttr'
+					],
+				ListApps:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListArtifacts:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListBackendEnvironments:[
+					'#appIdAttr','#environmentNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListBranches:[
+					'#appIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDomainAssociations:[
+					'#appIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListJobs:[
+					'#appIdAttr','#branchNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListWebhooks:[
+					'#appIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				StartDeployment:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr','#sourceUrlAttr'
+					],
+				StartJob:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr','#jobTypeAttr','#jobReasonAttr','#commitIdAttr','#commitMessageAttr','#commitTimeAttr'
+					],
+				StopJob:[
+					'#appIdAttr','#branchNameAttr','#jobIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateApp:[
+					'#appIdAttr','#nameAttr','#descriptionAttr','#platformAttr','#iamServiceRoleArnAttr','#environmentVariablesAttr','#enableBranchAutoBuildAttr','#enableBranchAutoDeletionAttr','#enableBasicAuthAttr','#basicAuthCredentialsAttr','#customRulesAttr','#buildSpecAttr','#customHeadersAttr','#enableAutoBranchCreationAttr','#autoBranchCreationPatternsAttr','#autoBranchCreationConfigAttr','#repositoryAttr','#oauthTokenAttr','#accessTokenAttr'
+					],
+				UpdateBranch:[
+					'#appIdAttr','#branchNameAttr','#descriptionAttr','#frameworkAttr','#stageAttr','#enableNotificationAttr','#enableAutoBuildAttr','#environmentVariablesAttr','#basicAuthCredentialsAttr','#enableBasicAuthAttr','#enablePerformanceModeAttr','#buildSpecAttr','#ttlAttr','#displayNameAttr','#enablePullRequestPreviewAttr','#pullRequestEnvironmentNameAttr','#backendEnvironmentArnAttr'
+					],
+				UpdateDomainAssociation:[
+					'#appIdAttr','#domainNameAttr','#enableAutoSubDomainAttr','#subDomainSettingsAttr','#autoSubDomainCreationPatternsAttr','#autoSubDomainIAMRoleAttr'
+					],
+				UpdateWebhook:[
+					'#webhookIdAttr','#branchNameAttr','#descriptionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Amplify">
+<p>
+AWS Amplify
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Amplify.html">Amplify</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Amplify',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateApp' },
+			
+				name: { value: ""} ,
+				description: { value: ""} ,
+				repository: { value: ""} ,
+				platform: { value: ""} ,
+				iamServiceRoleArn: { value: ""} ,
+				oauthToken: { value: ""} ,
+				accessToken: { value: ""} ,
+				environmentVariables: { value: ""} ,
+				enableBranchAutoBuild: { value: ""} ,
+				enableBranchAutoDeletion: { value: ""} ,
+				enableBasicAuth: { value: ""} ,
+				basicAuthCredentials: { value: ""} ,
+				customRules: { value: ""} ,
+				tags: { value: ""} ,
+				buildSpec: { value: ""} ,
+				customHeaders: { value: ""} ,
+				enableAutoBranchCreation: { value: ""} ,
+				autoBranchCreationPatterns: { value: ""} ,
+				autoBranchCreationConfig: { value: ""} ,
+				appId: { value: ""} ,
+				environmentName: { value: ""} ,
+				stackName: { value: ""} ,
+				deploymentArtifacts: { value: ""} ,
+				branchName: { value: ""} ,
+				stage: { value: ""} ,
+				framework: { value: ""} ,
+				enableNotification: { value: ""} ,
+				enableAutoBuild: { value: ""} ,
+				enablePerformanceMode: { value: ""} ,
+				ttl: { value: ""} ,
+				displayName: { value: ""} ,
+				enablePullRequestPreview: { value: ""} ,
+				pullRequestEnvironmentName: { value: ""} ,
+				backendEnvironmentArn: { value: ""} ,
+				fileMap: { value: ""} ,
+				domainName: { value: ""} ,
+				enableAutoSubDomain: { value: ""} ,
+				subDomainSettings: { value: ""} ,
+				autoSubDomainCreationPatterns: { value: ""} ,
+				autoSubDomainIAMRole: { value: ""} ,
+				jobId: { value: ""} ,
+				webhookId: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				artifactId: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				resourceArn: { value: ""} ,
+				sourceUrl: { value: ""} ,
+				jobType: { value: ""} ,
+				jobReason: { value: ""} ,
+				commitId: { value: ""} ,
+				commitMessage: { value: ""} ,
+				commitTime: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Amplify " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-iamServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-oauthToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accessToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentVariables").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableBranchAutoBuild").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-enableBranchAutoDeletion").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-enableBasicAuth").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-basicAuthCredentials").typedInput({ default: "str", types: ["str"]});
+$("#node-input-customRules").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-buildSpec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-customHeaders").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableAutoBranchCreation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-autoBranchCreationPatterns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoBranchCreationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-appId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentArtifacts").typedInput({ default: "str", types: ["str"]});
+$("#node-input-branchName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-framework").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableNotification").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-enableAutoBuild").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-enablePerformanceMode").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ttl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-displayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enablePullRequestPreview").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-pullRequestEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-backendEnvironmentArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-domainName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableAutoSubDomain").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-subDomainSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoSubDomainCreationPatterns").typedInput({ default: "str", types: ["str"]});
+$("#node-input-autoSubDomainIAMRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-webhookId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-artifactId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceUrl").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobReason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitMessage").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

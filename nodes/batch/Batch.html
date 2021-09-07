@@ -1,0 +1,428 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Batch">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateComputeEnvironment">CreateComputeEnvironment</option>
+		
+			<option value="CreateJobQueue">CreateJobQueue</option>
+		
+			<option value="DeleteComputeEnvironment">DeleteComputeEnvironment</option>
+		
+			<option value="DeleteJobQueue">DeleteJobQueue</option>
+		
+			<option value="DeregisterJobDefinition">DeregisterJobDefinition</option>
+		
+			<option value="DescribeComputeEnvironments">DescribeComputeEnvironments</option>
+		
+			<option value="DescribeJobDefinitions">DescribeJobDefinitions</option>
+		
+			<option value="DescribeJobQueues">DescribeJobQueues</option>
+		
+			<option value="DescribeJobs">DescribeJobs</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RegisterJobDefinition">RegisterJobDefinition</option>
+		
+			<option value="SubmitJob">SubmitJob</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TerminateJob">TerminateJob</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateComputeEnvironment">UpdateComputeEnvironment</option>
+		
+			<option value="UpdateJobQueue">UpdateJobQueue</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='jobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-jobId"><i class="fa fa-tag"></i> jobId</label>
+		<input type="text" id="node-input-jobId" placeholder="jobId"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i> reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='computeEnvironmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-computeEnvironmentName"><i class="fa fa-tag"></i> computeEnvironmentName</label>
+		<input type="text" id="node-input-computeEnvironmentName" placeholder="computeEnvironmentName"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='stateAttr' class='hiddenAttrs'>
+		<label for="node-input-state"><i class="fa fa-tag"></i> state</label>
+		<input type="text" id="node-input-state" placeholder="state"></input>
+	</div> 
+	<div class="form-row" id='computeResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-computeResources"><i class="fa fa-tag"></i> computeResources</label>
+		<input type="text" id="node-input-computeResources" placeholder="computeResources"></input>
+	</div> 
+	<div class="form-row" id='serviceRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRole"><i class="fa fa-tag"></i> serviceRole</label>
+		<input type="text" id="node-input-serviceRole" placeholder="serviceRole"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='jobQueueNameAttr' class='hiddenAttrs'>
+		<label for="node-input-jobQueueName"><i class="fa fa-tag"></i> jobQueueName</label>
+		<input type="text" id="node-input-jobQueueName" placeholder="jobQueueName"></input>
+	</div> 
+	<div class="form-row" id='priorityAttr' class='hiddenAttrs'>
+		<label for="node-input-priority"><i class="fa fa-tag"></i> priority</label>
+		<input type="text" id="node-input-priority" placeholder="priority"></input>
+	</div> 
+	<div class="form-row" id='computeEnvironmentOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-computeEnvironmentOrder"><i class="fa fa-tag"></i> computeEnvironmentOrder</label>
+		<input type="text" id="node-input-computeEnvironmentOrder" placeholder="computeEnvironmentOrder"></input>
+	</div> 
+	<div class="form-row" id='computeEnvironmentAttr' class='hiddenAttrs'>
+		<label for="node-input-computeEnvironment"><i class="fa fa-tag"></i> computeEnvironment</label>
+		<input type="text" id="node-input-computeEnvironment" placeholder="computeEnvironment"></input>
+	</div> 
+	<div class="form-row" id='jobQueueAttr' class='hiddenAttrs'>
+		<label for="node-input-jobQueue"><i class="fa fa-tag"></i> jobQueue</label>
+		<input type="text" id="node-input-jobQueue" placeholder="jobQueue"></input>
+	</div> 
+	<div class="form-row" id='jobDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-jobDefinition"><i class="fa fa-tag"></i> jobDefinition</label>
+		<input type="text" id="node-input-jobDefinition" placeholder="jobDefinition"></input>
+	</div> 
+	<div class="form-row" id='computeEnvironmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-computeEnvironments"><i class="fa fa-tag"></i> computeEnvironments</label>
+		<input type="text" id="node-input-computeEnvironments" placeholder="computeEnvironments"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='jobDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-jobDefinitions"><i class="fa fa-tag"></i> jobDefinitions</label>
+		<input type="text" id="node-input-jobDefinitions" placeholder="jobDefinitions"></input>
+	</div> 
+	<div class="form-row" id='jobDefinitionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-jobDefinitionName"><i class="fa fa-tag"></i> jobDefinitionName</label>
+		<input type="text" id="node-input-jobDefinitionName" placeholder="jobDefinitionName"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='jobQueuesAttr' class='hiddenAttrs'>
+		<label for="node-input-jobQueues"><i class="fa fa-tag"></i> jobQueues</label>
+		<input type="text" id="node-input-jobQueues" placeholder="jobQueues"></input>
+	</div> 
+	<div class="form-row" id='jobsAttr' class='hiddenAttrs'>
+		<label for="node-input-jobs"><i class="fa fa-tag"></i> jobs</label>
+		<input type="text" id="node-input-jobs" placeholder="jobs"></input>
+	</div> 
+	<div class="form-row" id='arrayJobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-arrayJobId"><i class="fa fa-tag"></i> arrayJobId</label>
+		<input type="text" id="node-input-arrayJobId" placeholder="arrayJobId"></input>
+	</div> 
+	<div class="form-row" id='multiNodeJobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-multiNodeJobId"><i class="fa fa-tag"></i> multiNodeJobId</label>
+		<input type="text" id="node-input-multiNodeJobId" placeholder="multiNodeJobId"></input>
+	</div> 
+	<div class="form-row" id='jobStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-jobStatus"><i class="fa fa-tag"></i> jobStatus</label>
+		<input type="text" id="node-input-jobStatus" placeholder="jobStatus"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='parametersAttr' class='hiddenAttrs'>
+		<label for="node-input-parameters"><i class="fa fa-tag"></i> parameters</label>
+		<input type="text" id="node-input-parameters" placeholder="parameters"></input>
+	</div> 
+	<div class="form-row" id='containerPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-containerProperties"><i class="fa fa-tag"></i> containerProperties</label>
+		<input type="text" id="node-input-containerProperties" placeholder="containerProperties"></input>
+	</div> 
+	<div class="form-row" id='nodePropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-nodeProperties"><i class="fa fa-tag"></i> nodeProperties</label>
+		<input type="text" id="node-input-nodeProperties" placeholder="nodeProperties"></input>
+	</div> 
+	<div class="form-row" id='retryStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-retryStrategy"><i class="fa fa-tag"></i> retryStrategy</label>
+		<input type="text" id="node-input-retryStrategy" placeholder="retryStrategy"></input>
+	</div> 
+	<div class="form-row" id='propagateTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-propagateTags"><i class="fa fa-tag"></i> propagateTags</label>
+		<input type="text" id="node-input-propagateTags" placeholder="propagateTags"></input>
+	</div> 
+	<div class="form-row" id='timeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-timeout"><i class="fa fa-tag"></i> timeout</label>
+		<input type="text" id="node-input-timeout" placeholder="timeout"></input>
+	</div> 
+	<div class="form-row" id='platformCapabilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-platformCapabilities"><i class="fa fa-tag"></i> platformCapabilities</label>
+		<input type="text" id="node-input-platformCapabilities" placeholder="platformCapabilities"></input>
+	</div> 
+	<div class="form-row" id='jobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-jobName"><i class="fa fa-tag"></i> jobName</label>
+		<input type="text" id="node-input-jobName" placeholder="jobName"></input>
+	</div> 
+	<div class="form-row" id='arrayPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-arrayProperties"><i class="fa fa-tag"></i> arrayProperties</label>
+		<input type="text" id="node-input-arrayProperties" placeholder="arrayProperties"></input>
+	</div> 
+	<div class="form-row" id='dependsOnAttr' class='hiddenAttrs'>
+		<label for="node-input-dependsOn"><i class="fa fa-tag"></i> dependsOn</label>
+		<input type="text" id="node-input-dependsOn" placeholder="dependsOn"></input>
+	</div> 
+	<div class="form-row" id='containerOverridesAttr' class='hiddenAttrs'>
+		<label for="node-input-containerOverrides"><i class="fa fa-tag"></i> containerOverrides</label>
+		<input type="text" id="node-input-containerOverrides" placeholder="containerOverrides"></input>
+	</div> 
+	<div class="form-row" id='nodeOverridesAttr' class='hiddenAttrs'>
+		<label for="node-input-nodeOverrides"><i class="fa fa-tag"></i> nodeOverrides</label>
+		<input type="text" id="node-input-nodeOverrides" placeholder="nodeOverrides"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJob:[
+					'#jobIdAttr','#reasonAttr'
+					],
+				CreateComputeEnvironment:[
+					'#computeEnvironmentNameAttr','#typeAttr','#stateAttr','#computeResourcesAttr','#serviceRoleAttr','#tagsAttr'
+					],
+				CreateJobQueue:[
+					'#jobQueueNameAttr','#stateAttr','#priorityAttr','#computeEnvironmentOrderAttr','#tagsAttr'
+					],
+				DeleteComputeEnvironment:[
+					'#computeEnvironmentAttr'
+					],
+				DeleteJobQueue:[
+					'#jobQueueAttr'
+					],
+				DeregisterJobDefinition:[
+					'#jobDefinitionAttr'
+					],
+				DescribeComputeEnvironments:[
+					'#computeEnvironmentsAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeJobDefinitions:[
+					'#jobDefinitionsAttr','#maxResultsAttr','#jobDefinitionNameAttr','#statusAttr','#nextTokenAttr'
+					],
+				DescribeJobQueues:[
+					'#jobQueuesAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeJobs:[
+					'#jobsAttr'
+					],
+				ListJobs:[
+					'#jobQueueAttr','#arrayJobIdAttr','#multiNodeJobIdAttr','#jobStatusAttr','#maxResultsAttr','#nextTokenAttr','#filtersAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				RegisterJobDefinition:[
+					'#jobDefinitionNameAttr','#typeAttr','#parametersAttr','#containerPropertiesAttr','#nodePropertiesAttr','#retryStrategyAttr','#propagateTagsAttr','#timeoutAttr','#tagsAttr','#platformCapabilitiesAttr'
+					],
+				SubmitJob:[
+					'#jobNameAttr','#jobQueueAttr','#arrayPropertiesAttr','#dependsOnAttr','#jobDefinitionAttr','#parametersAttr','#containerOverridesAttr','#nodeOverridesAttr','#retryStrategyAttr','#propagateTagsAttr','#timeoutAttr','#tagsAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TerminateJob:[
+					'#jobIdAttr','#reasonAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateComputeEnvironment:[
+					'#computeEnvironmentAttr','#stateAttr','#computeResourcesAttr','#serviceRoleAttr'
+					],
+				UpdateJobQueue:[
+					'#jobQueueAttr','#stateAttr','#priorityAttr','#computeEnvironmentOrderAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Batch">
+<p>
+AWS Batch
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Batch.html">Batch</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Batch',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJob' },
+			
+				jobId: { value: ""} ,
+				reason: { value: ""} ,
+				computeEnvironmentName: { value: ""} ,
+				_type: { value: ""} ,
+				state: { value: ""} ,
+				computeResources: { value: ""} ,
+				serviceRole: { value: ""} ,
+				tags: { value: ""} ,
+				jobQueueName: { value: ""} ,
+				priority: { value: ""} ,
+				computeEnvironmentOrder: { value: ""} ,
+				computeEnvironment: { value: ""} ,
+				jobQueue: { value: ""} ,
+				jobDefinition: { value: ""} ,
+				computeEnvironments: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				jobDefinitions: { value: ""} ,
+				jobDefinitionName: { value: ""} ,
+				status: { value: ""} ,
+				jobQueues: { value: ""} ,
+				jobs: { value: ""} ,
+				arrayJobId: { value: ""} ,
+				multiNodeJobId: { value: ""} ,
+				jobStatus: { value: ""} ,
+				filters: { value: ""} ,
+				resourceArn: { value: ""} ,
+				parameters: { value: ""} ,
+				containerProperties: { value: ""} ,
+				nodeProperties: { value: ""} ,
+				retryStrategy: { value: ""} ,
+				propagateTags: { value: ""} ,
+				timeout: { value: ""} ,
+				platformCapabilities: { value: ""} ,
+				jobName: { value: ""} ,
+				arrayProperties: { value: ""} ,
+				dependsOn: { value: ""} ,
+				containerOverrides: { value: ""} ,
+				nodeOverrides: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Batch " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-jobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computeEnvironmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-state").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-serviceRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobQueueName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-priority").typedInput({ default: "num", types: ["num"]});
+$("#node-input-computeEnvironmentOrder").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computeEnvironment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobQueue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computeEnvironments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobDefinitionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobQueues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobs").typedInput({ default: "str", types: ["str"]});
+$("#node-input-arrayJobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-multiNodeJobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobStatus").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nodeProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-retryStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-propagateTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-timeout").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platformCapabilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-jobName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-dependsOn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerOverrides").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

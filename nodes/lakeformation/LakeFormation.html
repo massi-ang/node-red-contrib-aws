@@ -1,0 +1,340 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS LakeFormation">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddLFTagsToResource">AddLFTagsToResource</option>
+		
+			<option value="BatchGrantPermissions">BatchGrantPermissions</option>
+		
+			<option value="BatchRevokePermissions">BatchRevokePermissions</option>
+		
+			<option value="CreateLFTag">CreateLFTag</option>
+		
+			<option value="DeleteLFTag">DeleteLFTag</option>
+		
+			<option value="DeregisterResource">DeregisterResource</option>
+		
+			<option value="DescribeResource">DescribeResource</option>
+		
+			<option value="GetDataLakeSettings">GetDataLakeSettings</option>
+		
+			<option value="GetEffectivePermissionsForPath">GetEffectivePermissionsForPath</option>
+		
+			<option value="GetLFTag">GetLFTag</option>
+		
+			<option value="GetResourceLFTags">GetResourceLFTags</option>
+		
+			<option value="GrantPermissions">GrantPermissions</option>
+		
+			<option value="ListLFTags">ListLFTags</option>
+		
+			<option value="ListPermissions">ListPermissions</option>
+		
+			<option value="ListResources">ListResources</option>
+		
+			<option value="PutDataLakeSettings">PutDataLakeSettings</option>
+		
+			<option value="RegisterResource">RegisterResource</option>
+		
+			<option value="RemoveLFTagsFromResource">RemoveLFTagsFromResource</option>
+		
+			<option value="RevokePermissions">RevokePermissions</option>
+		
+			<option value="SearchDatabasesByLFTags">SearchDatabasesByLFTags</option>
+		
+			<option value="SearchTablesByLFTags">SearchTablesByLFTags</option>
+		
+			<option value="UpdateLFTag">UpdateLFTag</option>
+		
+			<option value="UpdateResource">UpdateResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CatalogIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CatalogId"><i class="fa fa-tag"></i> CatalogId</label>
+		<input type="text" id="node-input-CatalogId" placeholder="CatalogId"></input>
+	</div> 
+	<div class="form-row" id='ResourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Resource"><i class="fa fa-tag"></i> Resource</label>
+		<input type="text" id="node-input-Resource" placeholder="Resource"></input>
+	</div> 
+	<div class="form-row" id='LFTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-LFTags"><i class="fa fa-tag"></i> LFTags</label>
+		<input type="text" id="node-input-LFTags" placeholder="LFTags"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i> Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='TagKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKey"><i class="fa fa-tag"></i> TagKey</label>
+		<input type="text" id="node-input-TagKey" placeholder="TagKey"></input>
+	</div> 
+	<div class="form-row" id='TagValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-TagValues"><i class="fa fa-tag"></i> TagValues</label>
+		<input type="text" id="node-input-TagValues" placeholder="TagValues"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ShowAssignedLFTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowAssignedLFTags"><i class="fa fa-tag"></i> ShowAssignedLFTags</label>
+		<input type="text" id="node-input-ShowAssignedLFTags" placeholder="ShowAssignedLFTags"></input>
+	</div> 
+	<div class="form-row" id='PrincipalAttr' class='hiddenAttrs'>
+		<label for="node-input-Principal"><i class="fa fa-tag"></i> Principal</label>
+		<input type="text" id="node-input-Principal" placeholder="Principal"></input>
+	</div> 
+	<div class="form-row" id='PermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Permissions"><i class="fa fa-tag"></i> Permissions</label>
+		<input type="text" id="node-input-Permissions" placeholder="Permissions"></input>
+	</div> 
+	<div class="form-row" id='PermissionsWithGrantOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-PermissionsWithGrantOption"><i class="fa fa-tag"></i> PermissionsWithGrantOption</label>
+		<input type="text" id="node-input-PermissionsWithGrantOption" placeholder="PermissionsWithGrantOption"></input>
+	</div> 
+	<div class="form-row" id='ResourceShareTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceShareType"><i class="fa fa-tag"></i> ResourceShareType</label>
+		<input type="text" id="node-input-ResourceShareType" placeholder="ResourceShareType"></input>
+	</div> 
+	<div class="form-row" id='ResourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceType"><i class="fa fa-tag"></i> ResourceType</label>
+		<input type="text" id="node-input-ResourceType" placeholder="ResourceType"></input>
+	</div> 
+	<div class="form-row" id='FilterConditionListAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterConditionList"><i class="fa fa-tag"></i> FilterConditionList</label>
+		<input type="text" id="node-input-FilterConditionList" placeholder="FilterConditionList"></input>
+	</div> 
+	<div class="form-row" id='DataLakeSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-DataLakeSettings"><i class="fa fa-tag"></i> DataLakeSettings</label>
+		<input type="text" id="node-input-DataLakeSettings" placeholder="DataLakeSettings"></input>
+	</div> 
+	<div class="form-row" id='UseServiceLinkedRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-UseServiceLinkedRole"><i class="fa fa-tag"></i> UseServiceLinkedRole</label>
+		<input type="text" id="node-input-UseServiceLinkedRole" placeholder="UseServiceLinkedRole"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i> Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='TagValuesToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-TagValuesToDelete"><i class="fa fa-tag"></i> TagValuesToDelete</label>
+		<input type="text" id="node-input-TagValuesToDelete" placeholder="TagValuesToDelete"></input>
+	</div> 
+	<div class="form-row" id='TagValuesToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-TagValuesToAdd"><i class="fa fa-tag"></i> TagValuesToAdd</label>
+		<input type="text" id="node-input-TagValuesToAdd" placeholder="TagValuesToAdd"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddLFTagsToResource:[
+					'#CatalogIdAttr','#ResourceAttr','#LFTagsAttr'
+					],
+				BatchGrantPermissions:[
+					'#CatalogIdAttr','#EntriesAttr'
+					],
+				BatchRevokePermissions:[
+					'#CatalogIdAttr','#EntriesAttr'
+					],
+				CreateLFTag:[
+					'#CatalogIdAttr','#TagKeyAttr','#TagValuesAttr'
+					],
+				DeleteLFTag:[
+					'#CatalogIdAttr','#TagKeyAttr'
+					],
+				DeregisterResource:[
+					'#ResourceArnAttr'
+					],
+				DescribeResource:[
+					'#ResourceArnAttr'
+					],
+				GetDataLakeSettings:[
+					'#CatalogIdAttr'
+					],
+				GetEffectivePermissionsForPath:[
+					'#CatalogIdAttr','#ResourceArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetLFTag:[
+					'#CatalogIdAttr','#TagKeyAttr'
+					],
+				GetResourceLFTags:[
+					'#CatalogIdAttr','#ResourceAttr','#ShowAssignedLFTagsAttr'
+					],
+				GrantPermissions:[
+					'#CatalogIdAttr','#PrincipalAttr','#ResourceAttr','#PermissionsAttr','#PermissionsWithGrantOptionAttr'
+					],
+				ListLFTags:[
+					'#CatalogIdAttr','#ResourceShareTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListPermissions:[
+					'#CatalogIdAttr','#PrincipalAttr','#ResourceTypeAttr','#ResourceAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListResources:[
+					'#FilterConditionListAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				PutDataLakeSettings:[
+					'#CatalogIdAttr','#DataLakeSettingsAttr'
+					],
+				RegisterResource:[
+					'#ResourceArnAttr','#UseServiceLinkedRoleAttr','#RoleArnAttr'
+					],
+				RemoveLFTagsFromResource:[
+					'#CatalogIdAttr','#ResourceAttr','#LFTagsAttr'
+					],
+				RevokePermissions:[
+					'#CatalogIdAttr','#PrincipalAttr','#ResourceAttr','#PermissionsAttr','#PermissionsWithGrantOptionAttr'
+					],
+				SearchDatabasesByLFTags:[
+					'#NextTokenAttr','#MaxResultsAttr','#CatalogIdAttr','#ExpressionAttr'
+					],
+				SearchTablesByLFTags:[
+					'#NextTokenAttr','#MaxResultsAttr','#CatalogIdAttr','#ExpressionAttr'
+					],
+				UpdateLFTag:[
+					'#CatalogIdAttr','#TagKeyAttr','#TagValuesToDeleteAttr','#TagValuesToAddAttr'
+					],
+				UpdateResource:[
+					'#RoleArnAttr','#ResourceArnAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS LakeFormation">
+<p>
+AWS LakeFormation
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/LakeFormation.html">LakeFormation</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS LakeFormation',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddLFTagsToResource' },
+			
+				CatalogId: { value: ""} ,
+				Resource: { value: ""} ,
+				LFTags: { value: ""} ,
+				Entries: { value: ""} ,
+				TagKey: { value: ""} ,
+				TagValues: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ShowAssignedLFTags: { value: ""} ,
+				Principal: { value: ""} ,
+				Permissions: { value: ""} ,
+				PermissionsWithGrantOption: { value: ""} ,
+				ResourceShareType: { value: ""} ,
+				ResourceType: { value: ""} ,
+				FilterConditionList: { value: ""} ,
+				DataLakeSettings: { value: ""} ,
+				UseServiceLinkedRole: { value: ""} ,
+				RoleArn: { value: ""} ,
+				Expression: { value: ""} ,
+				TagValuesToDelete: { value: ""} ,
+				TagValuesToAdd: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "LakeFormation " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-CatalogId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LFTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Entries").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ShowAssignedLFTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Principal").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Permissions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PermissionsWithGrantOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceShareType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DataLakeSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UseServiceLinkedRole").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Expression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagValuesToDelete").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagValuesToAdd").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,895 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Greengrass">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateRoleToGroup">AssociateRoleToGroup</option>
+		
+			<option value="AssociateServiceRoleToAccount">AssociateServiceRoleToAccount</option>
+		
+			<option value="CreateConnectorDefinition">CreateConnectorDefinition</option>
+		
+			<option value="CreateConnectorDefinitionVersion">CreateConnectorDefinitionVersion</option>
+		
+			<option value="CreateCoreDefinition">CreateCoreDefinition</option>
+		
+			<option value="CreateCoreDefinitionVersion">CreateCoreDefinitionVersion</option>
+		
+			<option value="CreateDeployment">CreateDeployment</option>
+		
+			<option value="CreateDeviceDefinition">CreateDeviceDefinition</option>
+		
+			<option value="CreateDeviceDefinitionVersion">CreateDeviceDefinitionVersion</option>
+		
+			<option value="CreateFunctionDefinition">CreateFunctionDefinition</option>
+		
+			<option value="CreateFunctionDefinitionVersion">CreateFunctionDefinitionVersion</option>
+		
+			<option value="CreateGroup">CreateGroup</option>
+		
+			<option value="CreateGroupCertificateAuthority">CreateGroupCertificateAuthority</option>
+		
+			<option value="CreateGroupVersion">CreateGroupVersion</option>
+		
+			<option value="CreateLoggerDefinition">CreateLoggerDefinition</option>
+		
+			<option value="CreateLoggerDefinitionVersion">CreateLoggerDefinitionVersion</option>
+		
+			<option value="CreateResourceDefinition">CreateResourceDefinition</option>
+		
+			<option value="CreateResourceDefinitionVersion">CreateResourceDefinitionVersion</option>
+		
+			<option value="CreateSoftwareUpdateJob">CreateSoftwareUpdateJob</option>
+		
+			<option value="CreateSubscriptionDefinition">CreateSubscriptionDefinition</option>
+		
+			<option value="CreateSubscriptionDefinitionVersion">CreateSubscriptionDefinitionVersion</option>
+		
+			<option value="DeleteConnectorDefinition">DeleteConnectorDefinition</option>
+		
+			<option value="DeleteCoreDefinition">DeleteCoreDefinition</option>
+		
+			<option value="DeleteDeviceDefinition">DeleteDeviceDefinition</option>
+		
+			<option value="DeleteFunctionDefinition">DeleteFunctionDefinition</option>
+		
+			<option value="DeleteGroup">DeleteGroup</option>
+		
+			<option value="DeleteLoggerDefinition">DeleteLoggerDefinition</option>
+		
+			<option value="DeleteResourceDefinition">DeleteResourceDefinition</option>
+		
+			<option value="DeleteSubscriptionDefinition">DeleteSubscriptionDefinition</option>
+		
+			<option value="DisassociateRoleFromGroup">DisassociateRoleFromGroup</option>
+		
+			<option value="DisassociateServiceRoleFromAccount">DisassociateServiceRoleFromAccount</option>
+		
+			<option value="GetAssociatedRole">GetAssociatedRole</option>
+		
+			<option value="GetBulkDeploymentStatus">GetBulkDeploymentStatus</option>
+		
+			<option value="GetConnectivityInfo">GetConnectivityInfo</option>
+		
+			<option value="GetConnectorDefinition">GetConnectorDefinition</option>
+		
+			<option value="GetConnectorDefinitionVersion">GetConnectorDefinitionVersion</option>
+		
+			<option value="GetCoreDefinition">GetCoreDefinition</option>
+		
+			<option value="GetCoreDefinitionVersion">GetCoreDefinitionVersion</option>
+		
+			<option value="GetDeploymentStatus">GetDeploymentStatus</option>
+		
+			<option value="GetDeviceDefinition">GetDeviceDefinition</option>
+		
+			<option value="GetDeviceDefinitionVersion">GetDeviceDefinitionVersion</option>
+		
+			<option value="GetFunctionDefinition">GetFunctionDefinition</option>
+		
+			<option value="GetFunctionDefinitionVersion">GetFunctionDefinitionVersion</option>
+		
+			<option value="GetGroup">GetGroup</option>
+		
+			<option value="GetGroupCertificateAuthority">GetGroupCertificateAuthority</option>
+		
+			<option value="GetGroupCertificateConfiguration">GetGroupCertificateConfiguration</option>
+		
+			<option value="GetGroupVersion">GetGroupVersion</option>
+		
+			<option value="GetLoggerDefinition">GetLoggerDefinition</option>
+		
+			<option value="GetLoggerDefinitionVersion">GetLoggerDefinitionVersion</option>
+		
+			<option value="GetResourceDefinition">GetResourceDefinition</option>
+		
+			<option value="GetResourceDefinitionVersion">GetResourceDefinitionVersion</option>
+		
+			<option value="GetServiceRoleForAccount">GetServiceRoleForAccount</option>
+		
+			<option value="GetSubscriptionDefinition">GetSubscriptionDefinition</option>
+		
+			<option value="GetSubscriptionDefinitionVersion">GetSubscriptionDefinitionVersion</option>
+		
+			<option value="GetThingRuntimeConfiguration">GetThingRuntimeConfiguration</option>
+		
+			<option value="ListBulkDeploymentDetailedReports">ListBulkDeploymentDetailedReports</option>
+		
+			<option value="ListBulkDeployments">ListBulkDeployments</option>
+		
+			<option value="ListConnectorDefinitionVersions">ListConnectorDefinitionVersions</option>
+		
+			<option value="ListConnectorDefinitions">ListConnectorDefinitions</option>
+		
+			<option value="ListCoreDefinitionVersions">ListCoreDefinitionVersions</option>
+		
+			<option value="ListCoreDefinitions">ListCoreDefinitions</option>
+		
+			<option value="ListDeployments">ListDeployments</option>
+		
+			<option value="ListDeviceDefinitionVersions">ListDeviceDefinitionVersions</option>
+		
+			<option value="ListDeviceDefinitions">ListDeviceDefinitions</option>
+		
+			<option value="ListFunctionDefinitionVersions">ListFunctionDefinitionVersions</option>
+		
+			<option value="ListFunctionDefinitions">ListFunctionDefinitions</option>
+		
+			<option value="ListGroupCertificateAuthorities">ListGroupCertificateAuthorities</option>
+		
+			<option value="ListGroupVersions">ListGroupVersions</option>
+		
+			<option value="ListGroups">ListGroups</option>
+		
+			<option value="ListLoggerDefinitionVersions">ListLoggerDefinitionVersions</option>
+		
+			<option value="ListLoggerDefinitions">ListLoggerDefinitions</option>
+		
+			<option value="ListResourceDefinitionVersions">ListResourceDefinitionVersions</option>
+		
+			<option value="ListResourceDefinitions">ListResourceDefinitions</option>
+		
+			<option value="ListSubscriptionDefinitionVersions">ListSubscriptionDefinitionVersions</option>
+		
+			<option value="ListSubscriptionDefinitions">ListSubscriptionDefinitions</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ResetDeployments">ResetDeployments</option>
+		
+			<option value="StartBulkDeployment">StartBulkDeployment</option>
+		
+			<option value="StopBulkDeployment">StopBulkDeployment</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConnectivityInfo">UpdateConnectivityInfo</option>
+		
+			<option value="UpdateConnectorDefinition">UpdateConnectorDefinition</option>
+		
+			<option value="UpdateCoreDefinition">UpdateCoreDefinition</option>
+		
+			<option value="UpdateDeviceDefinition">UpdateDeviceDefinition</option>
+		
+			<option value="UpdateFunctionDefinition">UpdateFunctionDefinition</option>
+		
+			<option value="UpdateGroup">UpdateGroup</option>
+		
+			<option value="UpdateGroupCertificateConfiguration">UpdateGroupCertificateConfiguration</option>
+		
+			<option value="UpdateLoggerDefinition">UpdateLoggerDefinition</option>
+		
+			<option value="UpdateResourceDefinition">UpdateResourceDefinition</option>
+		
+			<option value="UpdateSubscriptionDefinition">UpdateSubscriptionDefinition</option>
+		
+			<option value="UpdateThingRuntimeConfiguration">UpdateThingRuntimeConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='GroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupId"><i class="fa fa-tag"></i> GroupId</label>
+		<input type="text" id="node-input-GroupId" placeholder="GroupId"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='AmznClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-AmznClientToken"><i class="fa fa-tag"></i> AmznClientToken</label>
+		<input type="text" id="node-input-AmznClientToken" placeholder="AmznClientToken"></input>
+	</div> 
+	<div class="form-row" id='InitialVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-InitialVersion"><i class="fa fa-tag"></i> InitialVersion</label>
+		<input type="text" id="node-input-InitialVersion" placeholder="InitialVersion"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='ConnectorDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectorDefinitionId"><i class="fa fa-tag"></i> ConnectorDefinitionId</label>
+		<input type="text" id="node-input-ConnectorDefinitionId" placeholder="ConnectorDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='ConnectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-Connectors"><i class="fa fa-tag"></i> Connectors</label>
+		<input type="text" id="node-input-Connectors" placeholder="Connectors"></input>
+	</div> 
+	<div class="form-row" id='CoreDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CoreDefinitionId"><i class="fa fa-tag"></i> CoreDefinitionId</label>
+		<input type="text" id="node-input-CoreDefinitionId" placeholder="CoreDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='CoresAttr' class='hiddenAttrs'>
+		<label for="node-input-Cores"><i class="fa fa-tag"></i> Cores</label>
+		<input type="text" id="node-input-Cores" placeholder="Cores"></input>
+	</div> 
+	<div class="form-row" id='DeploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentId"><i class="fa fa-tag"></i> DeploymentId</label>
+		<input type="text" id="node-input-DeploymentId" placeholder="DeploymentId"></input>
+	</div> 
+	<div class="form-row" id='DeploymentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DeploymentType"><i class="fa fa-tag"></i> DeploymentType</label>
+		<input type="text" id="node-input-DeploymentType" placeholder="DeploymentType"></input>
+	</div> 
+	<div class="form-row" id='GroupVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupVersionId"><i class="fa fa-tag"></i> GroupVersionId</label>
+		<input type="text" id="node-input-GroupVersionId" placeholder="GroupVersionId"></input>
+	</div> 
+	<div class="form-row" id='DeviceDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceDefinitionId"><i class="fa fa-tag"></i> DeviceDefinitionId</label>
+		<input type="text" id="node-input-DeviceDefinitionId" placeholder="DeviceDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='DevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-Devices"><i class="fa fa-tag"></i> Devices</label>
+		<input type="text" id="node-input-Devices" placeholder="Devices"></input>
+	</div> 
+	<div class="form-row" id='DefaultConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultConfig"><i class="fa fa-tag"></i> DefaultConfig</label>
+		<input type="text" id="node-input-DefaultConfig" placeholder="DefaultConfig"></input>
+	</div> 
+	<div class="form-row" id='FunctionDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionDefinitionId"><i class="fa fa-tag"></i> FunctionDefinitionId</label>
+		<input type="text" id="node-input-FunctionDefinitionId" placeholder="FunctionDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='FunctionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Functions"><i class="fa fa-tag"></i> Functions</label>
+		<input type="text" id="node-input-Functions" placeholder="Functions"></input>
+	</div> 
+	<div class="form-row" id='ConnectorDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectorDefinitionVersionArn"><i class="fa fa-tag"></i> ConnectorDefinitionVersionArn</label>
+		<input type="text" id="node-input-ConnectorDefinitionVersionArn" placeholder="ConnectorDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='CoreDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-CoreDefinitionVersionArn"><i class="fa fa-tag"></i> CoreDefinitionVersionArn</label>
+		<input type="text" id="node-input-CoreDefinitionVersionArn" placeholder="CoreDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='DeviceDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceDefinitionVersionArn"><i class="fa fa-tag"></i> DeviceDefinitionVersionArn</label>
+		<input type="text" id="node-input-DeviceDefinitionVersionArn" placeholder="DeviceDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='FunctionDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionDefinitionVersionArn"><i class="fa fa-tag"></i> FunctionDefinitionVersionArn</label>
+		<input type="text" id="node-input-FunctionDefinitionVersionArn" placeholder="FunctionDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='LoggerDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggerDefinitionVersionArn"><i class="fa fa-tag"></i> LoggerDefinitionVersionArn</label>
+		<input type="text" id="node-input-LoggerDefinitionVersionArn" placeholder="LoggerDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='ResourceDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceDefinitionVersionArn"><i class="fa fa-tag"></i> ResourceDefinitionVersionArn</label>
+		<input type="text" id="node-input-ResourceDefinitionVersionArn" placeholder="ResourceDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionDefinitionVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionDefinitionVersionArn"><i class="fa fa-tag"></i> SubscriptionDefinitionVersionArn</label>
+		<input type="text" id="node-input-SubscriptionDefinitionVersionArn" placeholder="SubscriptionDefinitionVersionArn"></input>
+	</div> 
+	<div class="form-row" id='LoggerDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggerDefinitionId"><i class="fa fa-tag"></i> LoggerDefinitionId</label>
+		<input type="text" id="node-input-LoggerDefinitionId" placeholder="LoggerDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='LoggersAttr' class='hiddenAttrs'>
+		<label for="node-input-Loggers"><i class="fa fa-tag"></i> Loggers</label>
+		<input type="text" id="node-input-Loggers" placeholder="Loggers"></input>
+	</div> 
+	<div class="form-row" id='ResourceDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceDefinitionId"><i class="fa fa-tag"></i> ResourceDefinitionId</label>
+		<input type="text" id="node-input-ResourceDefinitionId" placeholder="ResourceDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='ResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-Resources"><i class="fa fa-tag"></i> Resources</label>
+		<input type="text" id="node-input-Resources" placeholder="Resources"></input>
+	</div> 
+	<div class="form-row" id='S3UrlSignerRoleAttr' class='hiddenAttrs'>
+		<label for="node-input-S3UrlSignerRole"><i class="fa fa-tag"></i> S3UrlSignerRole</label>
+		<input type="text" id="node-input-S3UrlSignerRole" placeholder="S3UrlSignerRole"></input>
+	</div> 
+	<div class="form-row" id='SoftwareToUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-SoftwareToUpdate"><i class="fa fa-tag"></i> SoftwareToUpdate</label>
+		<input type="text" id="node-input-SoftwareToUpdate" placeholder="SoftwareToUpdate"></input>
+	</div> 
+	<div class="form-row" id='UpdateAgentLogLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateAgentLogLevel"><i class="fa fa-tag"></i> UpdateAgentLogLevel</label>
+		<input type="text" id="node-input-UpdateAgentLogLevel" placeholder="UpdateAgentLogLevel"></input>
+	</div> 
+	<div class="form-row" id='UpdateTargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateTargets"><i class="fa fa-tag"></i> UpdateTargets</label>
+		<input type="text" id="node-input-UpdateTargets" placeholder="UpdateTargets"></input>
+	</div> 
+	<div class="form-row" id='UpdateTargetsArchitectureAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateTargetsArchitecture"><i class="fa fa-tag"></i> UpdateTargetsArchitecture</label>
+		<input type="text" id="node-input-UpdateTargetsArchitecture" placeholder="UpdateTargetsArchitecture"></input>
+	</div> 
+	<div class="form-row" id='UpdateTargetsOperatingSystemAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateTargetsOperatingSystem"><i class="fa fa-tag"></i> UpdateTargetsOperatingSystem</label>
+		<input type="text" id="node-input-UpdateTargetsOperatingSystem" placeholder="UpdateTargetsOperatingSystem"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionDefinitionId"><i class="fa fa-tag"></i> SubscriptionDefinitionId</label>
+		<input type="text" id="node-input-SubscriptionDefinitionId" placeholder="SubscriptionDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Subscriptions"><i class="fa fa-tag"></i> Subscriptions</label>
+		<input type="text" id="node-input-Subscriptions" placeholder="Subscriptions"></input>
+	</div> 
+	<div class="form-row" id='BulkDeploymentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BulkDeploymentId"><i class="fa fa-tag"></i> BulkDeploymentId</label>
+		<input type="text" id="node-input-BulkDeploymentId" placeholder="BulkDeploymentId"></input>
+	</div> 
+	<div class="form-row" id='ThingNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ThingName"><i class="fa fa-tag"></i> ThingName</label>
+		<input type="text" id="node-input-ThingName" placeholder="ThingName"></input>
+	</div> 
+	<div class="form-row" id='ConnectorDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectorDefinitionVersionId"><i class="fa fa-tag"></i> ConnectorDefinitionVersionId</label>
+		<input type="text" id="node-input-ConnectorDefinitionVersionId" placeholder="ConnectorDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='CoreDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CoreDefinitionVersionId"><i class="fa fa-tag"></i> CoreDefinitionVersionId</label>
+		<input type="text" id="node-input-CoreDefinitionVersionId" placeholder="CoreDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='DeviceDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceDefinitionVersionId"><i class="fa fa-tag"></i> DeviceDefinitionVersionId</label>
+		<input type="text" id="node-input-DeviceDefinitionVersionId" placeholder="DeviceDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='FunctionDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionDefinitionVersionId"><i class="fa fa-tag"></i> FunctionDefinitionVersionId</label>
+		<input type="text" id="node-input-FunctionDefinitionVersionId" placeholder="FunctionDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='CertificateAuthorityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateAuthorityId"><i class="fa fa-tag"></i> CertificateAuthorityId</label>
+		<input type="text" id="node-input-CertificateAuthorityId" placeholder="CertificateAuthorityId"></input>
+	</div> 
+	<div class="form-row" id='LoggerDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggerDefinitionVersionId"><i class="fa fa-tag"></i> LoggerDefinitionVersionId</label>
+		<input type="text" id="node-input-LoggerDefinitionVersionId" placeholder="LoggerDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='ResourceDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceDefinitionVersionId"><i class="fa fa-tag"></i> ResourceDefinitionVersionId</label>
+		<input type="text" id="node-input-ResourceDefinitionVersionId" placeholder="ResourceDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionDefinitionVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionDefinitionVersionId"><i class="fa fa-tag"></i> SubscriptionDefinitionVersionId</label>
+		<input type="text" id="node-input-SubscriptionDefinitionVersionId" placeholder="SubscriptionDefinitionVersionId"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='ForceAttr' class='hiddenAttrs'>
+		<label for="node-input-Force"><i class="fa fa-tag"></i> Force</label>
+		<input type="text" id="node-input-Force" placeholder="Force"></input>
+	</div> 
+	<div class="form-row" id='ExecutionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionRoleArn"><i class="fa fa-tag"></i> ExecutionRoleArn</label>
+		<input type="text" id="node-input-ExecutionRoleArn" placeholder="ExecutionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='InputFileUriAttr' class='hiddenAttrs'>
+		<label for="node-input-InputFileUri"><i class="fa fa-tag"></i> InputFileUri</label>
+		<input type="text" id="node-input-InputFileUri" placeholder="InputFileUri"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ConnectivityInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectivityInfo"><i class="fa fa-tag"></i> ConnectivityInfo</label>
+		<input type="text" id="node-input-ConnectivityInfo" placeholder="ConnectivityInfo"></input>
+	</div> 
+	<div class="form-row" id='CertificateExpiryInMillisecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-CertificateExpiryInMilliseconds"><i class="fa fa-tag"></i> CertificateExpiryInMilliseconds</label>
+		<input type="text" id="node-input-CertificateExpiryInMilliseconds" placeholder="CertificateExpiryInMilliseconds"></input>
+	</div> 
+	<div class="form-row" id='TelemetryConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-TelemetryConfiguration"><i class="fa fa-tag"></i> TelemetryConfiguration</label>
+		<input type="text" id="node-input-TelemetryConfiguration" placeholder="TelemetryConfiguration"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateRoleToGroup:[
+					'#GroupIdAttr','#RoleArnAttr'
+					],
+				AssociateServiceRoleToAccount:[
+					'#RoleArnAttr'
+					],
+				CreateConnectorDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateConnectorDefinitionVersion:[
+					'#AmznClientTokenAttr','#ConnectorDefinitionIdAttr','#ConnectorsAttr'
+					],
+				CreateCoreDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateCoreDefinitionVersion:[
+					'#AmznClientTokenAttr','#CoreDefinitionIdAttr','#CoresAttr'
+					],
+				CreateDeployment:[
+					'#AmznClientTokenAttr','#DeploymentIdAttr','#DeploymentTypeAttr','#GroupIdAttr','#GroupVersionIdAttr'
+					],
+				CreateDeviceDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateDeviceDefinitionVersion:[
+					'#AmznClientTokenAttr','#DeviceDefinitionIdAttr','#DevicesAttr'
+					],
+				CreateFunctionDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateFunctionDefinitionVersion:[
+					'#AmznClientTokenAttr','#DefaultConfigAttr','#FunctionDefinitionIdAttr','#FunctionsAttr'
+					],
+				CreateGroup:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateGroupCertificateAuthority:[
+					'#AmznClientTokenAttr','#GroupIdAttr'
+					],
+				CreateGroupVersion:[
+					'#AmznClientTokenAttr','#ConnectorDefinitionVersionArnAttr','#CoreDefinitionVersionArnAttr','#DeviceDefinitionVersionArnAttr','#FunctionDefinitionVersionArnAttr','#GroupIdAttr','#LoggerDefinitionVersionArnAttr','#ResourceDefinitionVersionArnAttr','#SubscriptionDefinitionVersionArnAttr'
+					],
+				CreateLoggerDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateLoggerDefinitionVersion:[
+					'#AmznClientTokenAttr','#LoggerDefinitionIdAttr','#LoggersAttr'
+					],
+				CreateResourceDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateResourceDefinitionVersion:[
+					'#AmznClientTokenAttr','#ResourceDefinitionIdAttr','#ResourcesAttr'
+					],
+				CreateSoftwareUpdateJob:[
+					'#AmznClientTokenAttr','#S3UrlSignerRoleAttr','#SoftwareToUpdateAttr','#UpdateAgentLogLevelAttr','#UpdateTargetsAttr','#UpdateTargetsArchitectureAttr','#UpdateTargetsOperatingSystemAttr'
+					],
+				CreateSubscriptionDefinition:[
+					'#AmznClientTokenAttr','#InitialVersionAttr','#NameAttr','#tagsAttr'
+					],
+				CreateSubscriptionDefinitionVersion:[
+					'#AmznClientTokenAttr','#SubscriptionDefinitionIdAttr','#SubscriptionsAttr'
+					],
+				DeleteConnectorDefinition:[
+					'#ConnectorDefinitionIdAttr'
+					],
+				DeleteCoreDefinition:[
+					'#CoreDefinitionIdAttr'
+					],
+				DeleteDeviceDefinition:[
+					'#DeviceDefinitionIdAttr'
+					],
+				DeleteFunctionDefinition:[
+					'#FunctionDefinitionIdAttr'
+					],
+				DeleteGroup:[
+					'#GroupIdAttr'
+					],
+				DeleteLoggerDefinition:[
+					'#LoggerDefinitionIdAttr'
+					],
+				DeleteResourceDefinition:[
+					'#ResourceDefinitionIdAttr'
+					],
+				DeleteSubscriptionDefinition:[
+					'#SubscriptionDefinitionIdAttr'
+					],
+				DisassociateRoleFromGroup:[
+					'#GroupIdAttr'
+					],
+				DisassociateServiceRoleFromAccount:[
+					
+					],
+				GetAssociatedRole:[
+					'#GroupIdAttr'
+					],
+				GetBulkDeploymentStatus:[
+					'#BulkDeploymentIdAttr'
+					],
+				GetConnectivityInfo:[
+					'#ThingNameAttr'
+					],
+				GetConnectorDefinition:[
+					'#ConnectorDefinitionIdAttr'
+					],
+				GetConnectorDefinitionVersion:[
+					'#ConnectorDefinitionIdAttr','#ConnectorDefinitionVersionIdAttr','#NextTokenAttr'
+					],
+				GetCoreDefinition:[
+					'#CoreDefinitionIdAttr'
+					],
+				GetCoreDefinitionVersion:[
+					'#CoreDefinitionIdAttr','#CoreDefinitionVersionIdAttr'
+					],
+				GetDeploymentStatus:[
+					'#DeploymentIdAttr','#GroupIdAttr'
+					],
+				GetDeviceDefinition:[
+					'#DeviceDefinitionIdAttr'
+					],
+				GetDeviceDefinitionVersion:[
+					'#DeviceDefinitionIdAttr','#DeviceDefinitionVersionIdAttr','#NextTokenAttr'
+					],
+				GetFunctionDefinition:[
+					'#FunctionDefinitionIdAttr'
+					],
+				GetFunctionDefinitionVersion:[
+					'#FunctionDefinitionIdAttr','#FunctionDefinitionVersionIdAttr','#NextTokenAttr'
+					],
+				GetGroup:[
+					'#GroupIdAttr'
+					],
+				GetGroupCertificateAuthority:[
+					'#CertificateAuthorityIdAttr','#GroupIdAttr'
+					],
+				GetGroupCertificateConfiguration:[
+					'#GroupIdAttr'
+					],
+				GetGroupVersion:[
+					'#GroupIdAttr','#GroupVersionIdAttr'
+					],
+				GetLoggerDefinition:[
+					'#LoggerDefinitionIdAttr'
+					],
+				GetLoggerDefinitionVersion:[
+					'#LoggerDefinitionIdAttr','#LoggerDefinitionVersionIdAttr','#NextTokenAttr'
+					],
+				GetResourceDefinition:[
+					'#ResourceDefinitionIdAttr'
+					],
+				GetResourceDefinitionVersion:[
+					'#ResourceDefinitionIdAttr','#ResourceDefinitionVersionIdAttr'
+					],
+				GetServiceRoleForAccount:[
+					
+					],
+				GetSubscriptionDefinition:[
+					'#SubscriptionDefinitionIdAttr'
+					],
+				GetSubscriptionDefinitionVersion:[
+					'#NextTokenAttr','#SubscriptionDefinitionIdAttr','#SubscriptionDefinitionVersionIdAttr'
+					],
+				GetThingRuntimeConfiguration:[
+					'#ThingNameAttr'
+					],
+				ListBulkDeploymentDetailedReports:[
+					'#BulkDeploymentIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListBulkDeployments:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConnectorDefinitionVersions:[
+					'#ConnectorDefinitionIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListConnectorDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCoreDefinitionVersions:[
+					'#CoreDefinitionIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListCoreDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListDeployments:[
+					'#GroupIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListDeviceDefinitionVersions:[
+					'#DeviceDefinitionIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListDeviceDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFunctionDefinitionVersions:[
+					'#FunctionDefinitionIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListFunctionDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListGroupCertificateAuthorities:[
+					'#GroupIdAttr'
+					],
+				ListGroupVersions:[
+					'#GroupIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListGroups:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListLoggerDefinitionVersions:[
+					'#LoggerDefinitionIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListLoggerDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListResourceDefinitionVersions:[
+					'#MaxResultsAttr','#NextTokenAttr','#ResourceDefinitionIdAttr'
+					],
+				ListResourceDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSubscriptionDefinitionVersions:[
+					'#MaxResultsAttr','#NextTokenAttr','#SubscriptionDefinitionIdAttr'
+					],
+				ListSubscriptionDefinitions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ResetDeployments:[
+					'#AmznClientTokenAttr','#ForceAttr','#GroupIdAttr'
+					],
+				StartBulkDeployment:[
+					'#AmznClientTokenAttr','#ExecutionRoleArnAttr','#InputFileUriAttr','#tagsAttr'
+					],
+				StopBulkDeployment:[
+					'#BulkDeploymentIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateConnectivityInfo:[
+					'#ConnectivityInfoAttr','#ThingNameAttr'
+					],
+				UpdateConnectorDefinition:[
+					'#ConnectorDefinitionIdAttr','#NameAttr'
+					],
+				UpdateCoreDefinition:[
+					'#CoreDefinitionIdAttr','#NameAttr'
+					],
+				UpdateDeviceDefinition:[
+					'#DeviceDefinitionIdAttr','#NameAttr'
+					],
+				UpdateFunctionDefinition:[
+					'#FunctionDefinitionIdAttr','#NameAttr'
+					],
+				UpdateGroup:[
+					'#GroupIdAttr','#NameAttr'
+					],
+				UpdateGroupCertificateConfiguration:[
+					'#CertificateExpiryInMillisecondsAttr','#GroupIdAttr'
+					],
+				UpdateLoggerDefinition:[
+					'#LoggerDefinitionIdAttr','#NameAttr'
+					],
+				UpdateResourceDefinition:[
+					'#NameAttr','#ResourceDefinitionIdAttr'
+					],
+				UpdateSubscriptionDefinition:[
+					'#NameAttr','#SubscriptionDefinitionIdAttr'
+					],
+				UpdateThingRuntimeConfiguration:[
+					'#TelemetryConfigurationAttr','#ThingNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Greengrass">
+<p>
+AWS Greengrass
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Greengrass.html">Greengrass</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Greengrass',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateRoleToGroup' },
+			
+				GroupId: { value: ""} ,
+				RoleArn: { value: ""} ,
+				AmznClientToken: { value: ""} ,
+				InitialVersion: { value: ""} ,
+				Name: { value: ""} ,
+				tags: { value: ""} ,
+				ConnectorDefinitionId: { value: ""} ,
+				Connectors: { value: ""} ,
+				CoreDefinitionId: { value: ""} ,
+				Cores: { value: ""} ,
+				DeploymentId: { value: ""} ,
+				DeploymentType: { value: ""} ,
+				GroupVersionId: { value: ""} ,
+				DeviceDefinitionId: { value: ""} ,
+				Devices: { value: ""} ,
+				DefaultConfig: { value: ""} ,
+				FunctionDefinitionId: { value: ""} ,
+				Functions: { value: ""} ,
+				ConnectorDefinitionVersionArn: { value: ""} ,
+				CoreDefinitionVersionArn: { value: ""} ,
+				DeviceDefinitionVersionArn: { value: ""} ,
+				FunctionDefinitionVersionArn: { value: ""} ,
+				LoggerDefinitionVersionArn: { value: ""} ,
+				ResourceDefinitionVersionArn: { value: ""} ,
+				SubscriptionDefinitionVersionArn: { value: ""} ,
+				LoggerDefinitionId: { value: ""} ,
+				Loggers: { value: ""} ,
+				ResourceDefinitionId: { value: ""} ,
+				Resources: { value: ""} ,
+				S3UrlSignerRole: { value: ""} ,
+				SoftwareToUpdate: { value: ""} ,
+				UpdateAgentLogLevel: { value: ""} ,
+				UpdateTargets: { value: ""} ,
+				UpdateTargetsArchitecture: { value: ""} ,
+				UpdateTargetsOperatingSystem: { value: ""} ,
+				SubscriptionDefinitionId: { value: ""} ,
+				Subscriptions: { value: ""} ,
+				BulkDeploymentId: { value: ""} ,
+				ThingName: { value: ""} ,
+				ConnectorDefinitionVersionId: { value: ""} ,
+				NextToken: { value: ""} ,
+				CoreDefinitionVersionId: { value: ""} ,
+				DeviceDefinitionVersionId: { value: ""} ,
+				FunctionDefinitionVersionId: { value: ""} ,
+				CertificateAuthorityId: { value: ""} ,
+				LoggerDefinitionVersionId: { value: ""} ,
+				ResourceDefinitionVersionId: { value: ""} ,
+				SubscriptionDefinitionVersionId: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Force: { value: ""} ,
+				ExecutionRoleArn: { value: ""} ,
+				InputFileUri: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ConnectivityInfo: { value: ""} ,
+				CertificateExpiryInMilliseconds: { value: ""} ,
+				TelemetryConfiguration: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Greengrass " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-GroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AmznClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InitialVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectorDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Connectors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CoreDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Cores").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeploymentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Devices").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Functions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectorDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CoreDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggerDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionDefinitionVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggerDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Loggers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Resources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3UrlSignerRole").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SoftwareToUpdate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UpdateAgentLogLevel").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UpdateTargetsArchitecture").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UpdateTargetsOperatingSystem").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Subscriptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BulkDeploymentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThingName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectorDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CoreDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateAuthorityId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggerDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionDefinitionVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ExecutionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputFileUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectivityInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CertificateExpiryInMilliseconds").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

@@ -1,0 +1,164 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Macie">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateMemberAccount">AssociateMemberAccount</option>
+		
+			<option value="AssociateS3Resources">AssociateS3Resources</option>
+		
+			<option value="DisassociateMemberAccount">DisassociateMemberAccount</option>
+		
+			<option value="DisassociateS3Resources">DisassociateS3Resources</option>
+		
+			<option value="ListMemberAccounts">ListMemberAccounts</option>
+		
+			<option value="ListS3Resources">ListS3Resources</option>
+		
+			<option value="UpdateS3Resources">UpdateS3Resources</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='memberAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-memberAccountId"><i class="fa fa-tag"></i> memberAccountId</label>
+		<input type="text" id="node-input-memberAccountId" placeholder="memberAccountId"></input>
+	</div> 
+	<div class="form-row" id='s3ResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-s3Resources"><i class="fa fa-tag"></i> s3Resources</label>
+		<input type="text" id="node-input-s3Resources" placeholder="s3Resources"></input>
+	</div> 
+	<div class="form-row" id='associatedS3ResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-associatedS3Resources"><i class="fa fa-tag"></i> associatedS3Resources</label>
+		<input type="text" id="node-input-associatedS3Resources" placeholder="associatedS3Resources"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='s3ResourcesUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-s3ResourcesUpdate"><i class="fa fa-tag"></i> s3ResourcesUpdate</label>
+		<input type="text" id="node-input-s3ResourcesUpdate" placeholder="s3ResourcesUpdate"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateMemberAccount:[
+					'#memberAccountIdAttr'
+					],
+				AssociateS3Resources:[
+					'#memberAccountIdAttr','#s3ResourcesAttr'
+					],
+				DisassociateMemberAccount:[
+					'#memberAccountIdAttr'
+					],
+				DisassociateS3Resources:[
+					'#memberAccountIdAttr','#associatedS3ResourcesAttr'
+					],
+				ListMemberAccounts:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListS3Resources:[
+					'#memberAccountIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				UpdateS3Resources:[
+					'#memberAccountIdAttr','#s3ResourcesUpdateAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Macie">
+<p>
+AWS Macie
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Macie.html">Macie</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Macie',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateMemberAccount' },
+			
+				memberAccountId: { value: ""} ,
+				s3Resources: { value: ""} ,
+				associatedS3Resources: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				s3ResourcesUpdate: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Macie " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-memberAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3Resources").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+		}
+	});
+</script>
+

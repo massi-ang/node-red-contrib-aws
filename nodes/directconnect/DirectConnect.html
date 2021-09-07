@@ -1,0 +1,730 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DirectConnect">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptDirectConnectGatewayAssociationProposal">AcceptDirectConnectGatewayAssociationProposal</option>
+		
+			<option value="AllocateConnectionOnInterconnect">AllocateConnectionOnInterconnect</option>
+		
+			<option value="AllocateHostedConnection">AllocateHostedConnection</option>
+		
+			<option value="AllocatePrivateVirtualInterface">AllocatePrivateVirtualInterface</option>
+		
+			<option value="AllocatePublicVirtualInterface">AllocatePublicVirtualInterface</option>
+		
+			<option value="AllocateTransitVirtualInterface">AllocateTransitVirtualInterface</option>
+		
+			<option value="AssociateConnectionWithLag">AssociateConnectionWithLag</option>
+		
+			<option value="AssociateHostedConnection">AssociateHostedConnection</option>
+		
+			<option value="AssociateMacSecKey">AssociateMacSecKey</option>
+		
+			<option value="AssociateVirtualInterface">AssociateVirtualInterface</option>
+		
+			<option value="ConfirmConnection">ConfirmConnection</option>
+		
+			<option value="ConfirmPrivateVirtualInterface">ConfirmPrivateVirtualInterface</option>
+		
+			<option value="ConfirmPublicVirtualInterface">ConfirmPublicVirtualInterface</option>
+		
+			<option value="ConfirmTransitVirtualInterface">ConfirmTransitVirtualInterface</option>
+		
+			<option value="CreateBGPPeer">CreateBGPPeer</option>
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateDirectConnectGateway">CreateDirectConnectGateway</option>
+		
+			<option value="CreateDirectConnectGatewayAssociation">CreateDirectConnectGatewayAssociation</option>
+		
+			<option value="CreateDirectConnectGatewayAssociationProposal">CreateDirectConnectGatewayAssociationProposal</option>
+		
+			<option value="CreateInterconnect">CreateInterconnect</option>
+		
+			<option value="CreateLag">CreateLag</option>
+		
+			<option value="CreatePrivateVirtualInterface">CreatePrivateVirtualInterface</option>
+		
+			<option value="CreatePublicVirtualInterface">CreatePublicVirtualInterface</option>
+		
+			<option value="CreateTransitVirtualInterface">CreateTransitVirtualInterface</option>
+		
+			<option value="DeleteBGPPeer">DeleteBGPPeer</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteDirectConnectGateway">DeleteDirectConnectGateway</option>
+		
+			<option value="DeleteDirectConnectGatewayAssociation">DeleteDirectConnectGatewayAssociation</option>
+		
+			<option value="DeleteDirectConnectGatewayAssociationProposal">DeleteDirectConnectGatewayAssociationProposal</option>
+		
+			<option value="DeleteInterconnect">DeleteInterconnect</option>
+		
+			<option value="DeleteLag">DeleteLag</option>
+		
+			<option value="DeleteVirtualInterface">DeleteVirtualInterface</option>
+		
+			<option value="DescribeConnectionLoa">DescribeConnectionLoa</option>
+		
+			<option value="DescribeConnections">DescribeConnections</option>
+		
+			<option value="DescribeConnectionsOnInterconnect">DescribeConnectionsOnInterconnect</option>
+		
+			<option value="DescribeDirectConnectGatewayAssociationProposals">DescribeDirectConnectGatewayAssociationProposals</option>
+		
+			<option value="DescribeDirectConnectGatewayAssociations">DescribeDirectConnectGatewayAssociations</option>
+		
+			<option value="DescribeDirectConnectGatewayAttachments">DescribeDirectConnectGatewayAttachments</option>
+		
+			<option value="DescribeDirectConnectGateways">DescribeDirectConnectGateways</option>
+		
+			<option value="DescribeHostedConnections">DescribeHostedConnections</option>
+		
+			<option value="DescribeInterconnectLoa">DescribeInterconnectLoa</option>
+		
+			<option value="DescribeInterconnects">DescribeInterconnects</option>
+		
+			<option value="DescribeLags">DescribeLags</option>
+		
+			<option value="DescribeLoa">DescribeLoa</option>
+		
+			<option value="DescribeLocations">DescribeLocations</option>
+		
+			<option value="DescribeTags">DescribeTags</option>
+		
+			<option value="DescribeVirtualGateways">DescribeVirtualGateways</option>
+		
+			<option value="DescribeVirtualInterfaces">DescribeVirtualInterfaces</option>
+		
+			<option value="DisassociateConnectionFromLag">DisassociateConnectionFromLag</option>
+		
+			<option value="DisassociateMacSecKey">DisassociateMacSecKey</option>
+		
+			<option value="ListVirtualInterfaceTestHistory">ListVirtualInterfaceTestHistory</option>
+		
+			<option value="StartBgpFailoverTest">StartBgpFailoverTest</option>
+		
+			<option value="StopBgpFailoverTest">StopBgpFailoverTest</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateConnection">UpdateConnection</option>
+		
+			<option value="UpdateDirectConnectGatewayAssociation">UpdateDirectConnectGatewayAssociation</option>
+		
+			<option value="UpdateLag">UpdateLag</option>
+		
+			<option value="UpdateVirtualInterfaceAttributes">UpdateVirtualInterfaceAttributes</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='directConnectGatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-directConnectGatewayId"><i class="fa fa-tag"></i> directConnectGatewayId</label>
+		<input type="text" id="node-input-directConnectGatewayId" placeholder="directConnectGatewayId"></input>
+	</div> 
+	<div class="form-row" id='proposalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-proposalId"><i class="fa fa-tag"></i> proposalId</label>
+		<input type="text" id="node-input-proposalId" placeholder="proposalId"></input>
+	</div> 
+	<div class="form-row" id='associatedGatewayOwnerAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-associatedGatewayOwnerAccount"><i class="fa fa-tag"></i> associatedGatewayOwnerAccount</label>
+		<input type="text" id="node-input-associatedGatewayOwnerAccount" placeholder="associatedGatewayOwnerAccount"></input>
+	</div> 
+	<div class="form-row" id='overrideAllowedPrefixesToDirectConnectGatewayAttr' class='hiddenAttrs'>
+		<label for="node-input-overrideAllowedPrefixesToDirectConnectGateway"><i class="fa fa-tag"></i> overrideAllowedPrefixesToDirectConnectGateway</label>
+		<input type="text" id="node-input-overrideAllowedPrefixesToDirectConnectGateway" placeholder="overrideAllowedPrefixesToDirectConnectGateway"></input>
+	</div> 
+	<div class="form-row" id='bandwidthAttr' class='hiddenAttrs'>
+		<label for="node-input-bandwidth"><i class="fa fa-tag"></i> bandwidth</label>
+		<input type="text" id="node-input-bandwidth" placeholder="bandwidth"></input>
+	</div> 
+	<div class="form-row" id='connectionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionName"><i class="fa fa-tag"></i> connectionName</label>
+		<input type="text" id="node-input-connectionName" placeholder="connectionName"></input>
+	</div> 
+	<div class="form-row" id='ownerAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-ownerAccount"><i class="fa fa-tag"></i> ownerAccount</label>
+		<input type="text" id="node-input-ownerAccount" placeholder="ownerAccount"></input>
+	</div> 
+	<div class="form-row" id='interconnectIdAttr' class='hiddenAttrs'>
+		<label for="node-input-interconnectId"><i class="fa fa-tag"></i> interconnectId</label>
+		<input type="text" id="node-input-interconnectId" placeholder="interconnectId"></input>
+	</div> 
+	<div class="form-row" id='vlanAttr' class='hiddenAttrs'>
+		<label for="node-input-vlan"><i class="fa fa-tag"></i> vlan</label>
+		<input type="text" id="node-input-vlan" placeholder="vlan"></input>
+	</div> 
+	<div class="form-row" id='connectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionId"><i class="fa fa-tag"></i> connectionId</label>
+		<input type="text" id="node-input-connectionId" placeholder="connectionId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='newPrivateVirtualInterfaceAllocationAttr' class='hiddenAttrs'>
+		<label for="node-input-newPrivateVirtualInterfaceAllocation"><i class="fa fa-tag"></i> newPrivateVirtualInterfaceAllocation</label>
+		<input type="text" id="node-input-newPrivateVirtualInterfaceAllocation" placeholder="newPrivateVirtualInterfaceAllocation"></input>
+	</div> 
+	<div class="form-row" id='newPublicVirtualInterfaceAllocationAttr' class='hiddenAttrs'>
+		<label for="node-input-newPublicVirtualInterfaceAllocation"><i class="fa fa-tag"></i> newPublicVirtualInterfaceAllocation</label>
+		<input type="text" id="node-input-newPublicVirtualInterfaceAllocation" placeholder="newPublicVirtualInterfaceAllocation"></input>
+	</div> 
+	<div class="form-row" id='newTransitVirtualInterfaceAllocationAttr' class='hiddenAttrs'>
+		<label for="node-input-newTransitVirtualInterfaceAllocation"><i class="fa fa-tag"></i> newTransitVirtualInterfaceAllocation</label>
+		<input type="text" id="node-input-newTransitVirtualInterfaceAllocation" placeholder="newTransitVirtualInterfaceAllocation"></input>
+	</div> 
+	<div class="form-row" id='lagIdAttr' class='hiddenAttrs'>
+		<label for="node-input-lagId"><i class="fa fa-tag"></i> lagId</label>
+		<input type="text" id="node-input-lagId" placeholder="lagId"></input>
+	</div> 
+	<div class="form-row" id='parentConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-parentConnectionId"><i class="fa fa-tag"></i> parentConnectionId</label>
+		<input type="text" id="node-input-parentConnectionId" placeholder="parentConnectionId"></input>
+	</div> 
+	<div class="form-row" id='secretARNAttr' class='hiddenAttrs'>
+		<label for="node-input-secretARN"><i class="fa fa-tag"></i> secretARN</label>
+		<input type="text" id="node-input-secretARN" placeholder="secretARN"></input>
+	</div> 
+	<div class="form-row" id='cknAttr' class='hiddenAttrs'>
+		<label for="node-input-ckn"><i class="fa fa-tag"></i> ckn</label>
+		<input type="text" id="node-input-ckn" placeholder="ckn"></input>
+	</div> 
+	<div class="form-row" id='cakAttr' class='hiddenAttrs'>
+		<label for="node-input-cak"><i class="fa fa-tag"></i> cak</label>
+		<input type="text" id="node-input-cak" placeholder="cak"></input>
+	</div> 
+	<div class="form-row" id='virtualInterfaceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualInterfaceId"><i class="fa fa-tag"></i> virtualInterfaceId</label>
+		<input type="text" id="node-input-virtualInterfaceId" placeholder="virtualInterfaceId"></input>
+	</div> 
+	<div class="form-row" id='virtualGatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-virtualGatewayId"><i class="fa fa-tag"></i> virtualGatewayId</label>
+		<input type="text" id="node-input-virtualGatewayId" placeholder="virtualGatewayId"></input>
+	</div> 
+	<div class="form-row" id='newBGPPeerAttr' class='hiddenAttrs'>
+		<label for="node-input-newBGPPeer"><i class="fa fa-tag"></i> newBGPPeer</label>
+		<input type="text" id="node-input-newBGPPeer" placeholder="newBGPPeer"></input>
+	</div> 
+	<div class="form-row" id='locationAttr' class='hiddenAttrs'>
+		<label for="node-input-location"><i class="fa fa-tag"></i> location</label>
+		<input type="text" id="node-input-location" placeholder="location"></input>
+	</div> 
+	<div class="form-row" id='providerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-providerName"><i class="fa fa-tag"></i> providerName</label>
+		<input type="text" id="node-input-providerName" placeholder="providerName"></input>
+	</div> 
+	<div class="form-row" id='requestMACSecAttr' class='hiddenAttrs'>
+		<label for="node-input-requestMACSec"><i class="fa fa-tag"></i> requestMACSec</label>
+		<input type="text" id="node-input-requestMACSec" placeholder="requestMACSec"></input>
+	</div> 
+	<div class="form-row" id='directConnectGatewayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-directConnectGatewayName"><i class="fa fa-tag"></i> directConnectGatewayName</label>
+		<input type="text" id="node-input-directConnectGatewayName" placeholder="directConnectGatewayName"></input>
+	</div> 
+	<div class="form-row" id='amazonSideAsnAttr' class='hiddenAttrs'>
+		<label for="node-input-amazonSideAsn"><i class="fa fa-tag"></i> amazonSideAsn</label>
+		<input type="text" id="node-input-amazonSideAsn" placeholder="amazonSideAsn"></input>
+	</div> 
+	<div class="form-row" id='gatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-gatewayId"><i class="fa fa-tag"></i> gatewayId</label>
+		<input type="text" id="node-input-gatewayId" placeholder="gatewayId"></input>
+	</div> 
+	<div class="form-row" id='addAllowedPrefixesToDirectConnectGatewayAttr' class='hiddenAttrs'>
+		<label for="node-input-addAllowedPrefixesToDirectConnectGateway"><i class="fa fa-tag"></i> addAllowedPrefixesToDirectConnectGateway</label>
+		<input type="text" id="node-input-addAllowedPrefixesToDirectConnectGateway" placeholder="addAllowedPrefixesToDirectConnectGateway"></input>
+	</div> 
+	<div class="form-row" id='directConnectGatewayOwnerAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-directConnectGatewayOwnerAccount"><i class="fa fa-tag"></i> directConnectGatewayOwnerAccount</label>
+		<input type="text" id="node-input-directConnectGatewayOwnerAccount" placeholder="directConnectGatewayOwnerAccount"></input>
+	</div> 
+	<div class="form-row" id='removeAllowedPrefixesToDirectConnectGatewayAttr' class='hiddenAttrs'>
+		<label for="node-input-removeAllowedPrefixesToDirectConnectGateway"><i class="fa fa-tag"></i> removeAllowedPrefixesToDirectConnectGateway</label>
+		<input type="text" id="node-input-removeAllowedPrefixesToDirectConnectGateway" placeholder="removeAllowedPrefixesToDirectConnectGateway"></input>
+	</div> 
+	<div class="form-row" id='interconnectNameAttr' class='hiddenAttrs'>
+		<label for="node-input-interconnectName"><i class="fa fa-tag"></i> interconnectName</label>
+		<input type="text" id="node-input-interconnectName" placeholder="interconnectName"></input>
+	</div> 
+	<div class="form-row" id='numberOfConnectionsAttr' class='hiddenAttrs'>
+		<label for="node-input-numberOfConnections"><i class="fa fa-tag"></i> numberOfConnections</label>
+		<input type="text" id="node-input-numberOfConnections" placeholder="numberOfConnections"></input>
+	</div> 
+	<div class="form-row" id='connectionsBandwidthAttr' class='hiddenAttrs'>
+		<label for="node-input-connectionsBandwidth"><i class="fa fa-tag"></i> connectionsBandwidth</label>
+		<input type="text" id="node-input-connectionsBandwidth" placeholder="connectionsBandwidth"></input>
+	</div> 
+	<div class="form-row" id='lagNameAttr' class='hiddenAttrs'>
+		<label for="node-input-lagName"><i class="fa fa-tag"></i> lagName</label>
+		<input type="text" id="node-input-lagName" placeholder="lagName"></input>
+	</div> 
+	<div class="form-row" id='childConnectionTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-childConnectionTags"><i class="fa fa-tag"></i> childConnectionTags</label>
+		<input type="text" id="node-input-childConnectionTags" placeholder="childConnectionTags"></input>
+	</div> 
+	<div class="form-row" id='newPrivateVirtualInterfaceAttr' class='hiddenAttrs'>
+		<label for="node-input-newPrivateVirtualInterface"><i class="fa fa-tag"></i> newPrivateVirtualInterface</label>
+		<input type="text" id="node-input-newPrivateVirtualInterface" placeholder="newPrivateVirtualInterface"></input>
+	</div> 
+	<div class="form-row" id='newPublicVirtualInterfaceAttr' class='hiddenAttrs'>
+		<label for="node-input-newPublicVirtualInterface"><i class="fa fa-tag"></i> newPublicVirtualInterface</label>
+		<input type="text" id="node-input-newPublicVirtualInterface" placeholder="newPublicVirtualInterface"></input>
+	</div> 
+	<div class="form-row" id='newTransitVirtualInterfaceAttr' class='hiddenAttrs'>
+		<label for="node-input-newTransitVirtualInterface"><i class="fa fa-tag"></i> newTransitVirtualInterface</label>
+		<input type="text" id="node-input-newTransitVirtualInterface" placeholder="newTransitVirtualInterface"></input>
+	</div> 
+	<div class="form-row" id='asnAttr' class='hiddenAttrs'>
+		<label for="node-input-asn"><i class="fa fa-tag"></i> asn</label>
+		<input type="text" id="node-input-asn" placeholder="asn"></input>
+	</div> 
+	<div class="form-row" id='customerAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-customerAddress"><i class="fa fa-tag"></i> customerAddress</label>
+		<input type="text" id="node-input-customerAddress" placeholder="customerAddress"></input>
+	</div> 
+	<div class="form-row" id='bgpPeerIdAttr' class='hiddenAttrs'>
+		<label for="node-input-bgpPeerId"><i class="fa fa-tag"></i> bgpPeerId</label>
+		<input type="text" id="node-input-bgpPeerId" placeholder="bgpPeerId"></input>
+	</div> 
+	<div class="form-row" id='associationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-associationId"><i class="fa fa-tag"></i> associationId</label>
+		<input type="text" id="node-input-associationId" placeholder="associationId"></input>
+	</div> 
+	<div class="form-row" id='loaContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-loaContentType"><i class="fa fa-tag"></i> loaContentType</label>
+		<input type="text" id="node-input-loaContentType" placeholder="loaContentType"></input>
+	</div> 
+	<div class="form-row" id='associatedGatewayIdAttr' class='hiddenAttrs'>
+		<label for="node-input-associatedGatewayId"><i class="fa fa-tag"></i> associatedGatewayId</label>
+		<input type="text" id="node-input-associatedGatewayId" placeholder="associatedGatewayId"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='resourceArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArns"><i class="fa fa-tag"></i> resourceArns</label>
+		<input type="text" id="node-input-resourceArns" placeholder="resourceArns"></input>
+	</div> 
+	<div class="form-row" id='testIdAttr' class='hiddenAttrs'>
+		<label for="node-input-testId"><i class="fa fa-tag"></i> testId</label>
+		<input type="text" id="node-input-testId" placeholder="testId"></input>
+	</div> 
+	<div class="form-row" id='bgpPeersAttr' class='hiddenAttrs'>
+		<label for="node-input-bgpPeers"><i class="fa fa-tag"></i> bgpPeers</label>
+		<input type="text" id="node-input-bgpPeers" placeholder="bgpPeers"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='testDurationInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-testDurationInMinutes"><i class="fa fa-tag"></i> testDurationInMinutes</label>
+		<input type="text" id="node-input-testDurationInMinutes" placeholder="testDurationInMinutes"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='encryptionModeAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionMode"><i class="fa fa-tag"></i> encryptionMode</label>
+		<input type="text" id="node-input-encryptionMode" placeholder="encryptionMode"></input>
+	</div> 
+	<div class="form-row" id='minimumLinksAttr' class='hiddenAttrs'>
+		<label for="node-input-minimumLinks"><i class="fa fa-tag"></i> minimumLinks</label>
+		<input type="text" id="node-input-minimumLinks" placeholder="minimumLinks"></input>
+	</div> 
+	<div class="form-row" id='mtuAttr' class='hiddenAttrs'>
+		<label for="node-input-mtu"><i class="fa fa-tag"></i> mtu</label>
+		<input type="text" id="node-input-mtu" placeholder="mtu"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptDirectConnectGatewayAssociationProposal:[
+					'#directConnectGatewayIdAttr','#proposalIdAttr','#associatedGatewayOwnerAccountAttr','#overrideAllowedPrefixesToDirectConnectGatewayAttr'
+					],
+				AllocateConnectionOnInterconnect:[
+					'#bandwidthAttr','#connectionNameAttr','#ownerAccountAttr','#interconnectIdAttr','#vlanAttr'
+					],
+				AllocateHostedConnection:[
+					'#connectionIdAttr','#ownerAccountAttr','#bandwidthAttr','#connectionNameAttr','#vlanAttr','#tagsAttr'
+					],
+				AllocatePrivateVirtualInterface:[
+					'#connectionIdAttr','#ownerAccountAttr','#newPrivateVirtualInterfaceAllocationAttr'
+					],
+				AllocatePublicVirtualInterface:[
+					'#connectionIdAttr','#ownerAccountAttr','#newPublicVirtualInterfaceAllocationAttr'
+					],
+				AllocateTransitVirtualInterface:[
+					'#connectionIdAttr','#ownerAccountAttr','#newTransitVirtualInterfaceAllocationAttr'
+					],
+				AssociateConnectionWithLag:[
+					'#connectionIdAttr','#lagIdAttr'
+					],
+				AssociateHostedConnection:[
+					'#connectionIdAttr','#parentConnectionIdAttr'
+					],
+				AssociateMacSecKey:[
+					'#connectionIdAttr','#secretARNAttr','#cknAttr','#cakAttr'
+					],
+				AssociateVirtualInterface:[
+					'#virtualInterfaceIdAttr','#connectionIdAttr'
+					],
+				ConfirmConnection:[
+					'#connectionIdAttr'
+					],
+				ConfirmPrivateVirtualInterface:[
+					'#virtualInterfaceIdAttr','#virtualGatewayIdAttr','#directConnectGatewayIdAttr'
+					],
+				ConfirmPublicVirtualInterface:[
+					'#virtualInterfaceIdAttr'
+					],
+				ConfirmTransitVirtualInterface:[
+					'#virtualInterfaceIdAttr','#directConnectGatewayIdAttr'
+					],
+				CreateBGPPeer:[
+					'#virtualInterfaceIdAttr','#newBGPPeerAttr'
+					],
+				CreateConnection:[
+					'#locationAttr','#bandwidthAttr','#connectionNameAttr','#lagIdAttr','#tagsAttr','#providerNameAttr','#requestMACSecAttr'
+					],
+				CreateDirectConnectGateway:[
+					'#directConnectGatewayNameAttr','#amazonSideAsnAttr'
+					],
+				CreateDirectConnectGatewayAssociation:[
+					'#directConnectGatewayIdAttr','#gatewayIdAttr','#addAllowedPrefixesToDirectConnectGatewayAttr','#virtualGatewayIdAttr'
+					],
+				CreateDirectConnectGatewayAssociationProposal:[
+					'#directConnectGatewayIdAttr','#directConnectGatewayOwnerAccountAttr','#gatewayIdAttr','#addAllowedPrefixesToDirectConnectGatewayAttr','#removeAllowedPrefixesToDirectConnectGatewayAttr'
+					],
+				CreateInterconnect:[
+					'#interconnectNameAttr','#bandwidthAttr','#locationAttr','#lagIdAttr','#tagsAttr','#providerNameAttr'
+					],
+				CreateLag:[
+					'#numberOfConnectionsAttr','#locationAttr','#connectionsBandwidthAttr','#lagNameAttr','#connectionIdAttr','#tagsAttr','#childConnectionTagsAttr','#providerNameAttr','#requestMACSecAttr'
+					],
+				CreatePrivateVirtualInterface:[
+					'#connectionIdAttr','#newPrivateVirtualInterfaceAttr'
+					],
+				CreatePublicVirtualInterface:[
+					'#connectionIdAttr','#newPublicVirtualInterfaceAttr'
+					],
+				CreateTransitVirtualInterface:[
+					'#connectionIdAttr','#newTransitVirtualInterfaceAttr'
+					],
+				DeleteBGPPeer:[
+					'#virtualInterfaceIdAttr','#asnAttr','#customerAddressAttr','#bgpPeerIdAttr'
+					],
+				DeleteConnection:[
+					'#connectionIdAttr'
+					],
+				DeleteDirectConnectGateway:[
+					'#directConnectGatewayIdAttr'
+					],
+				DeleteDirectConnectGatewayAssociation:[
+					'#associationIdAttr','#directConnectGatewayIdAttr','#virtualGatewayIdAttr'
+					],
+				DeleteDirectConnectGatewayAssociationProposal:[
+					'#proposalIdAttr'
+					],
+				DeleteInterconnect:[
+					'#interconnectIdAttr'
+					],
+				DeleteLag:[
+					'#lagIdAttr'
+					],
+				DeleteVirtualInterface:[
+					'#virtualInterfaceIdAttr'
+					],
+				DescribeConnectionLoa:[
+					'#connectionIdAttr','#providerNameAttr','#loaContentTypeAttr'
+					],
+				DescribeConnections:[
+					'#connectionIdAttr'
+					],
+				DescribeConnectionsOnInterconnect:[
+					'#interconnectIdAttr'
+					],
+				DescribeDirectConnectGatewayAssociationProposals:[
+					'#directConnectGatewayIdAttr','#proposalIdAttr','#associatedGatewayIdAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeDirectConnectGatewayAssociations:[
+					'#associationIdAttr','#associatedGatewayIdAttr','#directConnectGatewayIdAttr','#maxResultsAttr','#nextTokenAttr','#virtualGatewayIdAttr'
+					],
+				DescribeDirectConnectGatewayAttachments:[
+					'#directConnectGatewayIdAttr','#virtualInterfaceIdAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeDirectConnectGateways:[
+					'#directConnectGatewayIdAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeHostedConnections:[
+					'#connectionIdAttr'
+					],
+				DescribeInterconnectLoa:[
+					'#interconnectIdAttr','#providerNameAttr','#loaContentTypeAttr'
+					],
+				DescribeInterconnects:[
+					'#interconnectIdAttr'
+					],
+				DescribeLags:[
+					'#lagIdAttr'
+					],
+				DescribeLoa:[
+					'#connectionIdAttr','#providerNameAttr','#loaContentTypeAttr'
+					],
+				DescribeLocations:[
+					
+					],
+				DescribeTags:[
+					'#resourceArnsAttr'
+					],
+				DescribeVirtualGateways:[
+					
+					],
+				DescribeVirtualInterfaces:[
+					'#connectionIdAttr','#virtualInterfaceIdAttr'
+					],
+				DisassociateConnectionFromLag:[
+					'#connectionIdAttr','#lagIdAttr'
+					],
+				DisassociateMacSecKey:[
+					'#connectionIdAttr','#secretARNAttr'
+					],
+				ListVirtualInterfaceTestHistory:[
+					'#testIdAttr','#virtualInterfaceIdAttr','#bgpPeersAttr','#statusAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				StartBgpFailoverTest:[
+					'#virtualInterfaceIdAttr','#bgpPeersAttr','#testDurationInMinutesAttr'
+					],
+				StopBgpFailoverTest:[
+					'#virtualInterfaceIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateConnection:[
+					'#connectionIdAttr','#connectionNameAttr','#encryptionModeAttr'
+					],
+				UpdateDirectConnectGatewayAssociation:[
+					'#associationIdAttr','#addAllowedPrefixesToDirectConnectGatewayAttr','#removeAllowedPrefixesToDirectConnectGatewayAttr'
+					],
+				UpdateLag:[
+					'#lagIdAttr','#lagNameAttr','#minimumLinksAttr','#encryptionModeAttr'
+					],
+				UpdateVirtualInterfaceAttributes:[
+					'#virtualInterfaceIdAttr','#mtuAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DirectConnect">
+<p>
+AWS DirectConnect
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DirectConnect.html">DirectConnect</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DirectConnect',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptDirectConnectGatewayAssociationProposal' },
+			
+				directConnectGatewayId: { value: ""} ,
+				proposalId: { value: ""} ,
+				associatedGatewayOwnerAccount: { value: ""} ,
+				overrideAllowedPrefixesToDirectConnectGateway: { value: ""} ,
+				bandwidth: { value: ""} ,
+				connectionName: { value: ""} ,
+				ownerAccount: { value: ""} ,
+				interconnectId: { value: ""} ,
+				vlan: { value: ""} ,
+				connectionId: { value: ""} ,
+				tags: { value: ""} ,
+				newPrivateVirtualInterfaceAllocation: { value: ""} ,
+				newPublicVirtualInterfaceAllocation: { value: ""} ,
+				newTransitVirtualInterfaceAllocation: { value: ""} ,
+				lagId: { value: ""} ,
+				parentConnectionId: { value: ""} ,
+				secretARN: { value: ""} ,
+				ckn: { value: ""} ,
+				cak: { value: ""} ,
+				virtualInterfaceId: { value: ""} ,
+				virtualGatewayId: { value: ""} ,
+				newBGPPeer: { value: ""} ,
+				location: { value: ""} ,
+				providerName: { value: ""} ,
+				requestMACSec: { value: ""} ,
+				directConnectGatewayName: { value: ""} ,
+				amazonSideAsn: { value: ""} ,
+				gatewayId: { value: ""} ,
+				addAllowedPrefixesToDirectConnectGateway: { value: ""} ,
+				directConnectGatewayOwnerAccount: { value: ""} ,
+				removeAllowedPrefixesToDirectConnectGateway: { value: ""} ,
+				interconnectName: { value: ""} ,
+				numberOfConnections: { value: ""} ,
+				connectionsBandwidth: { value: ""} ,
+				lagName: { value: ""} ,
+				childConnectionTags: { value: ""} ,
+				newPrivateVirtualInterface: { value: ""} ,
+				newPublicVirtualInterface: { value: ""} ,
+				newTransitVirtualInterface: { value: ""} ,
+				asn: { value: ""} ,
+				customerAddress: { value: ""} ,
+				bgpPeerId: { value: ""} ,
+				associationId: { value: ""} ,
+				loaContentType: { value: ""} ,
+				associatedGatewayId: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				resourceArns: { value: ""} ,
+				testId: { value: ""} ,
+				bgpPeers: { value: ""} ,
+				status: { value: ""} ,
+				testDurationInMinutes: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tagKeys: { value: ""} ,
+				encryptionMode: { value: ""} ,
+				minimumLinks: { value: ""} ,
+				mtu: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DirectConnect " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-directConnectGatewayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-proposalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-associatedGatewayOwnerAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-overrideAllowedPrefixesToDirectConnectGateway").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bandwidth").typedInput({ default: "str", types: ["str"]});
+$("#node-input-connectionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ownerAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-interconnectId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-vlan").typedInput({ default: "num", types: ["num"]});
+$("#node-input-connectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-lagId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parentConnectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-secretARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ckn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cak").typedInput({ default: "str", types: ["str"]});
+$("#node-input-virtualInterfaceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-virtualGatewayId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-providerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestMACSec").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-directConnectGatewayName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-gatewayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-addAllowedPrefixesToDirectConnectGateway").typedInput({ default: "str", types: ["str"]});
+$("#node-input-directConnectGatewayOwnerAccount").typedInput({ default: "str", types: ["str"]});
+$("#node-input-removeAllowedPrefixesToDirectConnectGateway").typedInput({ default: "str", types: ["str"]});
+$("#node-input-interconnectName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-numberOfConnections").typedInput({ default: "num", types: ["num"]});
+$("#node-input-connectionsBandwidth").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lagName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-childConnectionTags").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-asn").typedInput({ default: "num", types: ["num"]});
+$("#node-input-customerAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bgpPeerId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-associationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loaContentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-associatedGatewayId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-testId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-bgpPeers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-testDurationInMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-encryptionMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-minimumLinks").typedInput({ default: "num", types: ["num"]});
+$("#node-input-mtu").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,173 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MarketplaceMetering">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchMeterUsage">BatchMeterUsage</option>
+		
+			<option value="MeterUsage">MeterUsage</option>
+		
+			<option value="RegisterUsage">RegisterUsage</option>
+		
+			<option value="ResolveCustomer">ResolveCustomer</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='UsageRecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageRecords"><i class="fa fa-tag"></i> UsageRecords</label>
+		<input type="text" id="node-input-UsageRecords" placeholder="UsageRecords"></input>
+	</div> 
+	<div class="form-row" id='ProductCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductCode"><i class="fa fa-tag"></i> ProductCode</label>
+		<input type="text" id="node-input-ProductCode" placeholder="ProductCode"></input>
+	</div> 
+	<div class="form-row" id='TimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-Timestamp"><i class="fa fa-tag"></i> Timestamp</label>
+		<input type="text" id="node-input-Timestamp" placeholder="Timestamp"></input>
+	</div> 
+	<div class="form-row" id='UsageDimensionAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageDimension"><i class="fa fa-tag"></i> UsageDimension</label>
+		<input type="text" id="node-input-UsageDimension" placeholder="UsageDimension"></input>
+	</div> 
+	<div class="form-row" id='UsageQuantityAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageQuantity"><i class="fa fa-tag"></i> UsageQuantity</label>
+		<input type="text" id="node-input-UsageQuantity" placeholder="UsageQuantity"></input>
+	</div> 
+	<div class="form-row" id='DryRunAttr' class='hiddenAttrs'>
+		<label for="node-input-DryRun"><i class="fa fa-tag"></i> DryRun</label>
+		<input type="text" id="node-input-DryRun" placeholder="DryRun"></input>
+	</div> 
+	<div class="form-row" id='UsageAllocationsAttr' class='hiddenAttrs'>
+		<label for="node-input-UsageAllocations"><i class="fa fa-tag"></i> UsageAllocations</label>
+		<input type="text" id="node-input-UsageAllocations" placeholder="UsageAllocations"></input>
+	</div> 
+	<div class="form-row" id='PublicKeyVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicKeyVersion"><i class="fa fa-tag"></i> PublicKeyVersion</label>
+		<input type="text" id="node-input-PublicKeyVersion" placeholder="PublicKeyVersion"></input>
+	</div> 
+	<div class="form-row" id='NonceAttr' class='hiddenAttrs'>
+		<label for="node-input-Nonce"><i class="fa fa-tag"></i> Nonce</label>
+		<input type="text" id="node-input-Nonce" placeholder="Nonce"></input>
+	</div> 
+	<div class="form-row" id='RegistrationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistrationToken"><i class="fa fa-tag"></i> RegistrationToken</label>
+		<input type="text" id="node-input-RegistrationToken" placeholder="RegistrationToken"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchMeterUsage:[
+					'#UsageRecordsAttr','#ProductCodeAttr'
+					],
+				MeterUsage:[
+					'#ProductCodeAttr','#TimestampAttr','#UsageDimensionAttr','#UsageQuantityAttr','#DryRunAttr','#UsageAllocationsAttr'
+					],
+				RegisterUsage:[
+					'#ProductCodeAttr','#PublicKeyVersionAttr','#NonceAttr'
+					],
+				ResolveCustomer:[
+					'#RegistrationTokenAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MarketplaceMetering">
+<p>
+AWS MarketplaceMetering
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MarketplaceMetering.html">MarketplaceMetering</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MarketplaceMetering',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchMeterUsage' },
+			
+				UsageRecords: { value: ""} ,
+				ProductCode: { value: ""} ,
+				Timestamp: { value: ""} ,
+				UsageDimension: { value: ""} ,
+				UsageQuantity: { value: ""} ,
+				DryRun: { value: ""} ,
+				UsageAllocations: { value: ""} ,
+				PublicKeyVersion: { value: ""} ,
+				Nonce: { value: ""} ,
+				RegistrationToken: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MarketplaceMetering " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-UsageRecords").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductCode").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UsageDimension").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UsageQuantity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DryRun").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UsageAllocations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicKeyVersion").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Nonce").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistrationToken").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

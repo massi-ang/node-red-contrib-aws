@@ -1,0 +1,1787 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Chime">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociatePhoneNumberWithUser">AssociatePhoneNumberWithUser</option>
+		
+			<option value="AssociatePhoneNumbersWithVoiceConnector">AssociatePhoneNumbersWithVoiceConnector</option>
+		
+			<option value="AssociatePhoneNumbersWithVoiceConnectorGroup">AssociatePhoneNumbersWithVoiceConnectorGroup</option>
+		
+			<option value="AssociateSigninDelegateGroupsWithAccount">AssociateSigninDelegateGroupsWithAccount</option>
+		
+			<option value="BatchCreateAttendee">BatchCreateAttendee</option>
+		
+			<option value="BatchCreateChannelMembership">BatchCreateChannelMembership</option>
+		
+			<option value="BatchCreateRoomMembership">BatchCreateRoomMembership</option>
+		
+			<option value="BatchDeletePhoneNumber">BatchDeletePhoneNumber</option>
+		
+			<option value="BatchSuspendUser">BatchSuspendUser</option>
+		
+			<option value="BatchUnsuspendUser">BatchUnsuspendUser</option>
+		
+			<option value="BatchUpdatePhoneNumber">BatchUpdatePhoneNumber</option>
+		
+			<option value="BatchUpdateUser">BatchUpdateUser</option>
+		
+			<option value="CreateAccount">CreateAccount</option>
+		
+			<option value="CreateAppInstance">CreateAppInstance</option>
+		
+			<option value="CreateAppInstanceAdmin">CreateAppInstanceAdmin</option>
+		
+			<option value="CreateAppInstanceUser">CreateAppInstanceUser</option>
+		
+			<option value="CreateAttendee">CreateAttendee</option>
+		
+			<option value="CreateBot">CreateBot</option>
+		
+			<option value="CreateChannel">CreateChannel</option>
+		
+			<option value="CreateChannelBan">CreateChannelBan</option>
+		
+			<option value="CreateChannelMembership">CreateChannelMembership</option>
+		
+			<option value="CreateChannelModerator">CreateChannelModerator</option>
+		
+			<option value="CreateMediaCapturePipeline">CreateMediaCapturePipeline</option>
+		
+			<option value="CreateMeeting">CreateMeeting</option>
+		
+			<option value="CreateMeetingDialOut">CreateMeetingDialOut</option>
+		
+			<option value="CreateMeetingWithAttendees">CreateMeetingWithAttendees</option>
+		
+			<option value="CreatePhoneNumberOrder">CreatePhoneNumberOrder</option>
+		
+			<option value="CreateProxySession">CreateProxySession</option>
+		
+			<option value="CreateRoom">CreateRoom</option>
+		
+			<option value="CreateRoomMembership">CreateRoomMembership</option>
+		
+			<option value="CreateSipMediaApplication">CreateSipMediaApplication</option>
+		
+			<option value="CreateSipMediaApplicationCall">CreateSipMediaApplicationCall</option>
+		
+			<option value="CreateSipRule">CreateSipRule</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="CreateVoiceConnector">CreateVoiceConnector</option>
+		
+			<option value="CreateVoiceConnectorGroup">CreateVoiceConnectorGroup</option>
+		
+			<option value="DeleteAccount">DeleteAccount</option>
+		
+			<option value="DeleteAppInstance">DeleteAppInstance</option>
+		
+			<option value="DeleteAppInstanceAdmin">DeleteAppInstanceAdmin</option>
+		
+			<option value="DeleteAppInstanceStreamingConfigurations">DeleteAppInstanceStreamingConfigurations</option>
+		
+			<option value="DeleteAppInstanceUser">DeleteAppInstanceUser</option>
+		
+			<option value="DeleteAttendee">DeleteAttendee</option>
+		
+			<option value="DeleteChannel">DeleteChannel</option>
+		
+			<option value="DeleteChannelBan">DeleteChannelBan</option>
+		
+			<option value="DeleteChannelMembership">DeleteChannelMembership</option>
+		
+			<option value="DeleteChannelMessage">DeleteChannelMessage</option>
+		
+			<option value="DeleteChannelModerator">DeleteChannelModerator</option>
+		
+			<option value="DeleteEventsConfiguration">DeleteEventsConfiguration</option>
+		
+			<option value="DeleteMediaCapturePipeline">DeleteMediaCapturePipeline</option>
+		
+			<option value="DeleteMeeting">DeleteMeeting</option>
+		
+			<option value="DeletePhoneNumber">DeletePhoneNumber</option>
+		
+			<option value="DeleteProxySession">DeleteProxySession</option>
+		
+			<option value="DeleteRoom">DeleteRoom</option>
+		
+			<option value="DeleteRoomMembership">DeleteRoomMembership</option>
+		
+			<option value="DeleteSipMediaApplication">DeleteSipMediaApplication</option>
+		
+			<option value="DeleteSipRule">DeleteSipRule</option>
+		
+			<option value="DeleteVoiceConnector">DeleteVoiceConnector</option>
+		
+			<option value="DeleteVoiceConnectorEmergencyCallingConfiguration">DeleteVoiceConnectorEmergencyCallingConfiguration</option>
+		
+			<option value="DeleteVoiceConnectorGroup">DeleteVoiceConnectorGroup</option>
+		
+			<option value="DeleteVoiceConnectorOrigination">DeleteVoiceConnectorOrigination</option>
+		
+			<option value="DeleteVoiceConnectorProxy">DeleteVoiceConnectorProxy</option>
+		
+			<option value="DeleteVoiceConnectorStreamingConfiguration">DeleteVoiceConnectorStreamingConfiguration</option>
+		
+			<option value="DeleteVoiceConnectorTermination">DeleteVoiceConnectorTermination</option>
+		
+			<option value="DeleteVoiceConnectorTerminationCredentials">DeleteVoiceConnectorTerminationCredentials</option>
+		
+			<option value="DescribeAppInstance">DescribeAppInstance</option>
+		
+			<option value="DescribeAppInstanceAdmin">DescribeAppInstanceAdmin</option>
+		
+			<option value="DescribeAppInstanceUser">DescribeAppInstanceUser</option>
+		
+			<option value="DescribeChannel">DescribeChannel</option>
+		
+			<option value="DescribeChannelBan">DescribeChannelBan</option>
+		
+			<option value="DescribeChannelMembership">DescribeChannelMembership</option>
+		
+			<option value="DescribeChannelMembershipForAppInstanceUser">DescribeChannelMembershipForAppInstanceUser</option>
+		
+			<option value="DescribeChannelModeratedByAppInstanceUser">DescribeChannelModeratedByAppInstanceUser</option>
+		
+			<option value="DescribeChannelModerator">DescribeChannelModerator</option>
+		
+			<option value="DisassociatePhoneNumberFromUser">DisassociatePhoneNumberFromUser</option>
+		
+			<option value="DisassociatePhoneNumbersFromVoiceConnector">DisassociatePhoneNumbersFromVoiceConnector</option>
+		
+			<option value="DisassociatePhoneNumbersFromVoiceConnectorGroup">DisassociatePhoneNumbersFromVoiceConnectorGroup</option>
+		
+			<option value="DisassociateSigninDelegateGroupsFromAccount">DisassociateSigninDelegateGroupsFromAccount</option>
+		
+			<option value="GetAccount">GetAccount</option>
+		
+			<option value="GetAccountSettings">GetAccountSettings</option>
+		
+			<option value="GetAppInstanceRetentionSettings">GetAppInstanceRetentionSettings</option>
+		
+			<option value="GetAppInstanceStreamingConfigurations">GetAppInstanceStreamingConfigurations</option>
+		
+			<option value="GetAttendee">GetAttendee</option>
+		
+			<option value="GetBot">GetBot</option>
+		
+			<option value="GetChannelMessage">GetChannelMessage</option>
+		
+			<option value="GetEventsConfiguration">GetEventsConfiguration</option>
+		
+			<option value="GetGlobalSettings">GetGlobalSettings</option>
+		
+			<option value="GetMediaCapturePipeline">GetMediaCapturePipeline</option>
+		
+			<option value="GetMeeting">GetMeeting</option>
+		
+			<option value="GetMessagingSessionEndpoint">GetMessagingSessionEndpoint</option>
+		
+			<option value="GetPhoneNumber">GetPhoneNumber</option>
+		
+			<option value="GetPhoneNumberOrder">GetPhoneNumberOrder</option>
+		
+			<option value="GetPhoneNumberSettings">GetPhoneNumberSettings</option>
+		
+			<option value="GetProxySession">GetProxySession</option>
+		
+			<option value="GetRetentionSettings">GetRetentionSettings</option>
+		
+			<option value="GetRoom">GetRoom</option>
+		
+			<option value="GetSipMediaApplication">GetSipMediaApplication</option>
+		
+			<option value="GetSipMediaApplicationLoggingConfiguration">GetSipMediaApplicationLoggingConfiguration</option>
+		
+			<option value="GetSipRule">GetSipRule</option>
+		
+			<option value="GetUser">GetUser</option>
+		
+			<option value="GetUserSettings">GetUserSettings</option>
+		
+			<option value="GetVoiceConnector">GetVoiceConnector</option>
+		
+			<option value="GetVoiceConnectorEmergencyCallingConfiguration">GetVoiceConnectorEmergencyCallingConfiguration</option>
+		
+			<option value="GetVoiceConnectorGroup">GetVoiceConnectorGroup</option>
+		
+			<option value="GetVoiceConnectorLoggingConfiguration">GetVoiceConnectorLoggingConfiguration</option>
+		
+			<option value="GetVoiceConnectorOrigination">GetVoiceConnectorOrigination</option>
+		
+			<option value="GetVoiceConnectorProxy">GetVoiceConnectorProxy</option>
+		
+			<option value="GetVoiceConnectorStreamingConfiguration">GetVoiceConnectorStreamingConfiguration</option>
+		
+			<option value="GetVoiceConnectorTermination">GetVoiceConnectorTermination</option>
+		
+			<option value="GetVoiceConnectorTerminationHealth">GetVoiceConnectorTerminationHealth</option>
+		
+			<option value="InviteUsers">InviteUsers</option>
+		
+			<option value="ListAccounts">ListAccounts</option>
+		
+			<option value="ListAppInstanceAdmins">ListAppInstanceAdmins</option>
+		
+			<option value="ListAppInstanceUsers">ListAppInstanceUsers</option>
+		
+			<option value="ListAppInstances">ListAppInstances</option>
+		
+			<option value="ListAttendeeTags">ListAttendeeTags</option>
+		
+			<option value="ListAttendees">ListAttendees</option>
+		
+			<option value="ListBots">ListBots</option>
+		
+			<option value="ListChannelBans">ListChannelBans</option>
+		
+			<option value="ListChannelMemberships">ListChannelMemberships</option>
+		
+			<option value="ListChannelMembershipsForAppInstanceUser">ListChannelMembershipsForAppInstanceUser</option>
+		
+			<option value="ListChannelMessages">ListChannelMessages</option>
+		
+			<option value="ListChannelModerators">ListChannelModerators</option>
+		
+			<option value="ListChannels">ListChannels</option>
+		
+			<option value="ListChannelsModeratedByAppInstanceUser">ListChannelsModeratedByAppInstanceUser</option>
+		
+			<option value="ListMediaCapturePipelines">ListMediaCapturePipelines</option>
+		
+			<option value="ListMeetingTags">ListMeetingTags</option>
+		
+			<option value="ListMeetings">ListMeetings</option>
+		
+			<option value="ListPhoneNumberOrders">ListPhoneNumberOrders</option>
+		
+			<option value="ListPhoneNumbers">ListPhoneNumbers</option>
+		
+			<option value="ListProxySessions">ListProxySessions</option>
+		
+			<option value="ListRoomMemberships">ListRoomMemberships</option>
+		
+			<option value="ListRooms">ListRooms</option>
+		
+			<option value="ListSipMediaApplications">ListSipMediaApplications</option>
+		
+			<option value="ListSipRules">ListSipRules</option>
+		
+			<option value="ListSupportedPhoneNumberCountries">ListSupportedPhoneNumberCountries</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListUsers">ListUsers</option>
+		
+			<option value="ListVoiceConnectorGroups">ListVoiceConnectorGroups</option>
+		
+			<option value="ListVoiceConnectorTerminationCredentials">ListVoiceConnectorTerminationCredentials</option>
+		
+			<option value="ListVoiceConnectors">ListVoiceConnectors</option>
+		
+			<option value="LogoutUser">LogoutUser</option>
+		
+			<option value="PutAppInstanceRetentionSettings">PutAppInstanceRetentionSettings</option>
+		
+			<option value="PutAppInstanceStreamingConfigurations">PutAppInstanceStreamingConfigurations</option>
+		
+			<option value="PutEventsConfiguration">PutEventsConfiguration</option>
+		
+			<option value="PutRetentionSettings">PutRetentionSettings</option>
+		
+			<option value="PutSipMediaApplicationLoggingConfiguration">PutSipMediaApplicationLoggingConfiguration</option>
+		
+			<option value="PutVoiceConnectorEmergencyCallingConfiguration">PutVoiceConnectorEmergencyCallingConfiguration</option>
+		
+			<option value="PutVoiceConnectorLoggingConfiguration">PutVoiceConnectorLoggingConfiguration</option>
+		
+			<option value="PutVoiceConnectorOrigination">PutVoiceConnectorOrigination</option>
+		
+			<option value="PutVoiceConnectorProxy">PutVoiceConnectorProxy</option>
+		
+			<option value="PutVoiceConnectorStreamingConfiguration">PutVoiceConnectorStreamingConfiguration</option>
+		
+			<option value="PutVoiceConnectorTermination">PutVoiceConnectorTermination</option>
+		
+			<option value="PutVoiceConnectorTerminationCredentials">PutVoiceConnectorTerminationCredentials</option>
+		
+			<option value="RedactChannelMessage">RedactChannelMessage</option>
+		
+			<option value="RedactConversationMessage">RedactConversationMessage</option>
+		
+			<option value="RedactRoomMessage">RedactRoomMessage</option>
+		
+			<option value="RegenerateSecurityToken">RegenerateSecurityToken</option>
+		
+			<option value="ResetPersonalPIN">ResetPersonalPIN</option>
+		
+			<option value="RestorePhoneNumber">RestorePhoneNumber</option>
+		
+			<option value="SearchAvailablePhoneNumbers">SearchAvailablePhoneNumbers</option>
+		
+			<option value="SendChannelMessage">SendChannelMessage</option>
+		
+			<option value="StartMeetingTranscription">StartMeetingTranscription</option>
+		
+			<option value="StopMeetingTranscription">StopMeetingTranscription</option>
+		
+			<option value="TagAttendee">TagAttendee</option>
+		
+			<option value="TagMeeting">TagMeeting</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagAttendee">UntagAttendee</option>
+		
+			<option value="UntagMeeting">UntagMeeting</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccount">UpdateAccount</option>
+		
+			<option value="UpdateAccountSettings">UpdateAccountSettings</option>
+		
+			<option value="UpdateAppInstance">UpdateAppInstance</option>
+		
+			<option value="UpdateAppInstanceUser">UpdateAppInstanceUser</option>
+		
+			<option value="UpdateBot">UpdateBot</option>
+		
+			<option value="UpdateChannel">UpdateChannel</option>
+		
+			<option value="UpdateChannelMessage">UpdateChannelMessage</option>
+		
+			<option value="UpdateChannelReadMarker">UpdateChannelReadMarker</option>
+		
+			<option value="UpdateGlobalSettings">UpdateGlobalSettings</option>
+		
+			<option value="UpdatePhoneNumber">UpdatePhoneNumber</option>
+		
+			<option value="UpdatePhoneNumberSettings">UpdatePhoneNumberSettings</option>
+		
+			<option value="UpdateProxySession">UpdateProxySession</option>
+		
+			<option value="UpdateRoom">UpdateRoom</option>
+		
+			<option value="UpdateRoomMembership">UpdateRoomMembership</option>
+		
+			<option value="UpdateSipMediaApplication">UpdateSipMediaApplication</option>
+		
+			<option value="UpdateSipMediaApplicationCall">UpdateSipMediaApplicationCall</option>
+		
+			<option value="UpdateSipRule">UpdateSipRule</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		
+			<option value="UpdateUserSettings">UpdateUserSettings</option>
+		
+			<option value="UpdateVoiceConnector">UpdateVoiceConnector</option>
+		
+			<option value="UpdateVoiceConnectorGroup">UpdateVoiceConnectorGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountId"><i class="fa fa-tag"></i> AccountId</label>
+		<input type="text" id="node-input-AccountId" placeholder="AccountId"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='E164PhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-E164PhoneNumber"><i class="fa fa-tag"></i> E164PhoneNumber</label>
+		<input type="text" id="node-input-E164PhoneNumber" placeholder="E164PhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='VoiceConnectorIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceConnectorId"><i class="fa fa-tag"></i> VoiceConnectorId</label>
+		<input type="text" id="node-input-VoiceConnectorId" placeholder="VoiceConnectorId"></input>
+	</div> 
+	<div class="form-row" id='E164PhoneNumbersAttr' class='hiddenAttrs'>
+		<label for="node-input-E164PhoneNumbers"><i class="fa fa-tag"></i> E164PhoneNumbers</label>
+		<input type="text" id="node-input-E164PhoneNumbers" placeholder="E164PhoneNumbers"></input>
+	</div> 
+	<div class="form-row" id='ForceAssociateAttr' class='hiddenAttrs'>
+		<label for="node-input-ForceAssociate"><i class="fa fa-tag"></i> ForceAssociate</label>
+		<input type="text" id="node-input-ForceAssociate" placeholder="ForceAssociate"></input>
+	</div> 
+	<div class="form-row" id='VoiceConnectorGroupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceConnectorGroupId"><i class="fa fa-tag"></i> VoiceConnectorGroupId</label>
+		<input type="text" id="node-input-VoiceConnectorGroupId" placeholder="VoiceConnectorGroupId"></input>
+	</div> 
+	<div class="form-row" id='SigninDelegateGroupsAttr' class='hiddenAttrs'>
+		<label for="node-input-SigninDelegateGroups"><i class="fa fa-tag"></i> SigninDelegateGroups</label>
+		<input type="text" id="node-input-SigninDelegateGroups" placeholder="SigninDelegateGroups"></input>
+	</div> 
+	<div class="form-row" id='MeetingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MeetingId"><i class="fa fa-tag"></i> MeetingId</label>
+		<input type="text" id="node-input-MeetingId" placeholder="MeetingId"></input>
+	</div> 
+	<div class="form-row" id='AttendeesAttr' class='hiddenAttrs'>
+		<label for="node-input-Attendees"><i class="fa fa-tag"></i> Attendees</label>
+		<input type="text" id="node-input-Attendees" placeholder="Attendees"></input>
+	</div> 
+	<div class="form-row" id='ChannelArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelArn"><i class="fa fa-tag"></i> ChannelArn</label>
+		<input type="text" id="node-input-ChannelArn" placeholder="ChannelArn"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='MemberArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberArns"><i class="fa fa-tag"></i> MemberArns</label>
+		<input type="text" id="node-input-MemberArns" placeholder="MemberArns"></input>
+	</div> 
+	<div class="form-row" id='ChimeBearerAttr' class='hiddenAttrs'>
+		<label for="node-input-ChimeBearer"><i class="fa fa-tag"></i> ChimeBearer</label>
+		<input type="text" id="node-input-ChimeBearer" placeholder="ChimeBearer"></input>
+	</div> 
+	<div class="form-row" id='RoomIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RoomId"><i class="fa fa-tag"></i> RoomId</label>
+		<input type="text" id="node-input-RoomId" placeholder="RoomId"></input>
+	</div> 
+	<div class="form-row" id='MembershipItemListAttr' class='hiddenAttrs'>
+		<label for="node-input-MembershipItemList"><i class="fa fa-tag"></i> MembershipItemList</label>
+		<input type="text" id="node-input-MembershipItemList" placeholder="MembershipItemList"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumberIds"><i class="fa fa-tag"></i> PhoneNumberIds</label>
+		<input type="text" id="node-input-PhoneNumberIds" placeholder="PhoneNumberIds"></input>
+	</div> 
+	<div class="form-row" id='UserIdListAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIdList"><i class="fa fa-tag"></i> UserIdList</label>
+		<input type="text" id="node-input-UserIdList" placeholder="UserIdList"></input>
+	</div> 
+	<div class="form-row" id='UpdatePhoneNumberRequestItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdatePhoneNumberRequestItems"><i class="fa fa-tag"></i> UpdatePhoneNumberRequestItems</label>
+		<input type="text" id="node-input-UpdatePhoneNumberRequestItems" placeholder="UpdatePhoneNumberRequestItems"></input>
+	</div> 
+	<div class="form-row" id='UpdateUserRequestItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateUserRequestItems"><i class="fa fa-tag"></i> UpdateUserRequestItems</label>
+		<input type="text" id="node-input-UpdateUserRequestItems" placeholder="UpdateUserRequestItems"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='MetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-Metadata"><i class="fa fa-tag"></i> Metadata</label>
+		<input type="text" id="node-input-Metadata" placeholder="Metadata"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceAdminArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceAdminArn"><i class="fa fa-tag"></i> AppInstanceAdminArn</label>
+		<input type="text" id="node-input-AppInstanceAdminArn" placeholder="AppInstanceAdminArn"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceArn"><i class="fa fa-tag"></i> AppInstanceArn</label>
+		<input type="text" id="node-input-AppInstanceArn" placeholder="AppInstanceArn"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceUserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceUserId"><i class="fa fa-tag"></i> AppInstanceUserId</label>
+		<input type="text" id="node-input-AppInstanceUserId" placeholder="AppInstanceUserId"></input>
+	</div> 
+	<div class="form-row" id='ExternalUserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalUserId"><i class="fa fa-tag"></i> ExternalUserId</label>
+		<input type="text" id="node-input-ExternalUserId" placeholder="ExternalUserId"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='DomainAttr' class='hiddenAttrs'>
+		<label for="node-input-Domain"><i class="fa fa-tag"></i> Domain</label>
+		<input type="text" id="node-input-Domain" placeholder="Domain"></input>
+	</div> 
+	<div class="form-row" id='ModeAttr' class='hiddenAttrs'>
+		<label for="node-input-Mode"><i class="fa fa-tag"></i> Mode</label>
+		<input type="text" id="node-input-Mode" placeholder="Mode"></input>
+	</div> 
+	<div class="form-row" id='PrivacyAttr' class='hiddenAttrs'>
+		<label for="node-input-Privacy"><i class="fa fa-tag"></i> Privacy</label>
+		<input type="text" id="node-input-Privacy" placeholder="Privacy"></input>
+	</div> 
+	<div class="form-row" id='MemberArnAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberArn"><i class="fa fa-tag"></i> MemberArn</label>
+		<input type="text" id="node-input-MemberArn" placeholder="MemberArn"></input>
+	</div> 
+	<div class="form-row" id='ChannelModeratorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelModeratorArn"><i class="fa fa-tag"></i> ChannelModeratorArn</label>
+		<input type="text" id="node-input-ChannelModeratorArn" placeholder="ChannelModeratorArn"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i> SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i> SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='SinkTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SinkType"><i class="fa fa-tag"></i> SinkType</label>
+		<input type="text" id="node-input-SinkType" placeholder="SinkType"></input>
+	</div> 
+	<div class="form-row" id='SinkArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SinkArn"><i class="fa fa-tag"></i> SinkArn</label>
+		<input type="text" id="node-input-SinkArn" placeholder="SinkArn"></input>
+	</div> 
+	<div class="form-row" id='ExternalMeetingIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExternalMeetingId"><i class="fa fa-tag"></i> ExternalMeetingId</label>
+		<input type="text" id="node-input-ExternalMeetingId" placeholder="ExternalMeetingId"></input>
+	</div> 
+	<div class="form-row" id='MeetingHostIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MeetingHostId"><i class="fa fa-tag"></i> MeetingHostId</label>
+		<input type="text" id="node-input-MeetingHostId" placeholder="MeetingHostId"></input>
+	</div> 
+	<div class="form-row" id='MediaRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaRegion"><i class="fa fa-tag"></i> MediaRegion</label>
+		<input type="text" id="node-input-MediaRegion" placeholder="MediaRegion"></input>
+	</div> 
+	<div class="form-row" id='NotificationsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationsConfiguration"><i class="fa fa-tag"></i> NotificationsConfiguration</label>
+		<input type="text" id="node-input-NotificationsConfiguration" placeholder="NotificationsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='FromPhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-FromPhoneNumber"><i class="fa fa-tag"></i> FromPhoneNumber</label>
+		<input type="text" id="node-input-FromPhoneNumber" placeholder="FromPhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='ToPhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-ToPhoneNumber"><i class="fa fa-tag"></i> ToPhoneNumber</label>
+		<input type="text" id="node-input-ToPhoneNumber" placeholder="ToPhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='JoinTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-JoinToken"><i class="fa fa-tag"></i> JoinToken</label>
+		<input type="text" id="node-input-JoinToken" placeholder="JoinToken"></input>
+	</div> 
+	<div class="form-row" id='ProductTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ProductType"><i class="fa fa-tag"></i> ProductType</label>
+		<input type="text" id="node-input-ProductType" placeholder="ProductType"></input>
+	</div> 
+	<div class="form-row" id='ParticipantPhoneNumbersAttr' class='hiddenAttrs'>
+		<label for="node-input-ParticipantPhoneNumbers"><i class="fa fa-tag"></i> ParticipantPhoneNumbers</label>
+		<input type="text" id="node-input-ParticipantPhoneNumbers" placeholder="ParticipantPhoneNumbers"></input>
+	</div> 
+	<div class="form-row" id='ExpiryMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpiryMinutes"><i class="fa fa-tag"></i> ExpiryMinutes</label>
+		<input type="text" id="node-input-ExpiryMinutes" placeholder="ExpiryMinutes"></input>
+	</div> 
+	<div class="form-row" id='CapabilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-Capabilities"><i class="fa fa-tag"></i> Capabilities</label>
+		<input type="text" id="node-input-Capabilities" placeholder="Capabilities"></input>
+	</div> 
+	<div class="form-row" id='NumberSelectionBehaviorAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberSelectionBehavior"><i class="fa fa-tag"></i> NumberSelectionBehavior</label>
+		<input type="text" id="node-input-NumberSelectionBehavior" placeholder="NumberSelectionBehavior"></input>
+	</div> 
+	<div class="form-row" id='GeoMatchLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-GeoMatchLevel"><i class="fa fa-tag"></i> GeoMatchLevel</label>
+		<input type="text" id="node-input-GeoMatchLevel" placeholder="GeoMatchLevel"></input>
+	</div> 
+	<div class="form-row" id='GeoMatchParamsAttr' class='hiddenAttrs'>
+		<label for="node-input-GeoMatchParams"><i class="fa fa-tag"></i> GeoMatchParams</label>
+		<input type="text" id="node-input-GeoMatchParams" placeholder="GeoMatchParams"></input>
+	</div> 
+	<div class="form-row" id='MemberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MemberId"><i class="fa fa-tag"></i> MemberId</label>
+		<input type="text" id="node-input-MemberId" placeholder="MemberId"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i> Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='AwsRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-AwsRegion"><i class="fa fa-tag"></i> AwsRegion</label>
+		<input type="text" id="node-input-AwsRegion" placeholder="AwsRegion"></input>
+	</div> 
+	<div class="form-row" id='EndpointsAttr' class='hiddenAttrs'>
+		<label for="node-input-Endpoints"><i class="fa fa-tag"></i> Endpoints</label>
+		<input type="text" id="node-input-Endpoints" placeholder="Endpoints"></input>
+	</div> 
+	<div class="form-row" id='SipMediaApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SipMediaApplicationId"><i class="fa fa-tag"></i> SipMediaApplicationId</label>
+		<input type="text" id="node-input-SipMediaApplicationId" placeholder="SipMediaApplicationId"></input>
+	</div> 
+	<div class="form-row" id='TriggerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-TriggerType"><i class="fa fa-tag"></i> TriggerType</label>
+		<input type="text" id="node-input-TriggerType" placeholder="TriggerType"></input>
+	</div> 
+	<div class="form-row" id='TriggerValueAttr' class='hiddenAttrs'>
+		<label for="node-input-TriggerValue"><i class="fa fa-tag"></i> TriggerValue</label>
+		<input type="text" id="node-input-TriggerValue" placeholder="TriggerValue"></input>
+	</div> 
+	<div class="form-row" id='DisabledAttr' class='hiddenAttrs'>
+		<label for="node-input-Disabled"><i class="fa fa-tag"></i> Disabled</label>
+		<input type="text" id="node-input-Disabled" placeholder="Disabled"></input>
+	</div> 
+	<div class="form-row" id='TargetApplicationsAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetApplications"><i class="fa fa-tag"></i> TargetApplications</label>
+		<input type="text" id="node-input-TargetApplications" placeholder="TargetApplications"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i> Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='EmailAttr' class='hiddenAttrs'>
+		<label for="node-input-Email"><i class="fa fa-tag"></i> Email</label>
+		<input type="text" id="node-input-Email" placeholder="Email"></input>
+	</div> 
+	<div class="form-row" id='UserTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-UserType"><i class="fa fa-tag"></i> UserType</label>
+		<input type="text" id="node-input-UserType" placeholder="UserType"></input>
+	</div> 
+	<div class="form-row" id='RequireEncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-RequireEncryption"><i class="fa fa-tag"></i> RequireEncryption</label>
+		<input type="text" id="node-input-RequireEncryption" placeholder="RequireEncryption"></input>
+	</div> 
+	<div class="form-row" id='VoiceConnectorItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceConnectorItems"><i class="fa fa-tag"></i> VoiceConnectorItems</label>
+		<input type="text" id="node-input-VoiceConnectorItems" placeholder="VoiceConnectorItems"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceUserArnAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceUserArn"><i class="fa fa-tag"></i> AppInstanceUserArn</label>
+		<input type="text" id="node-input-AppInstanceUserArn" placeholder="AppInstanceUserArn"></input>
+	</div> 
+	<div class="form-row" id='AttendeeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-AttendeeId"><i class="fa fa-tag"></i> AttendeeId</label>
+		<input type="text" id="node-input-AttendeeId" placeholder="AttendeeId"></input>
+	</div> 
+	<div class="form-row" id='MessageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageId"><i class="fa fa-tag"></i> MessageId</label>
+		<input type="text" id="node-input-MessageId" placeholder="MessageId"></input>
+	</div> 
+	<div class="form-row" id='BotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BotId"><i class="fa fa-tag"></i> BotId</label>
+		<input type="text" id="node-input-BotId" placeholder="BotId"></input>
+	</div> 
+	<div class="form-row" id='MediaPipelineIdAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaPipelineId"><i class="fa fa-tag"></i> MediaPipelineId</label>
+		<input type="text" id="node-input-MediaPipelineId" placeholder="MediaPipelineId"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumberId"><i class="fa fa-tag"></i> PhoneNumberId</label>
+		<input type="text" id="node-input-PhoneNumberId" placeholder="PhoneNumberId"></input>
+	</div> 
+	<div class="form-row" id='ProxySessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ProxySessionId"><i class="fa fa-tag"></i> ProxySessionId</label>
+		<input type="text" id="node-input-ProxySessionId" placeholder="ProxySessionId"></input>
+	</div> 
+	<div class="form-row" id='SipRuleIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SipRuleId"><i class="fa fa-tag"></i> SipRuleId</label>
+		<input type="text" id="node-input-SipRuleId" placeholder="SipRuleId"></input>
+	</div> 
+	<div class="form-row" id='UsernamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Usernames"><i class="fa fa-tag"></i> Usernames</label>
+		<input type="text" id="node-input-Usernames" placeholder="Usernames"></input>
+	</div> 
+	<div class="form-row" id='GroupNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-GroupNames"><i class="fa fa-tag"></i> GroupNames</label>
+		<input type="text" id="node-input-GroupNames" placeholder="GroupNames"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberOrderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumberOrderId"><i class="fa fa-tag"></i> PhoneNumberOrderId</label>
+		<input type="text" id="node-input-PhoneNumberOrderId" placeholder="PhoneNumberOrderId"></input>
+	</div> 
+	<div class="form-row" id='UserEmailListAttr' class='hiddenAttrs'>
+		<label for="node-input-UserEmailList"><i class="fa fa-tag"></i> UserEmailList</label>
+		<input type="text" id="node-input-UserEmailList" placeholder="UserEmailList"></input>
+	</div> 
+	<div class="form-row" id='UserEmailAttr' class='hiddenAttrs'>
+		<label for="node-input-UserEmail"><i class="fa fa-tag"></i> UserEmail</label>
+		<input type="text" id="node-input-UserEmail" placeholder="UserEmail"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='SortOrderAttr' class='hiddenAttrs'>
+		<label for="node-input-SortOrder"><i class="fa fa-tag"></i> SortOrder</label>
+		<input type="text" id="node-input-SortOrder" placeholder="SortOrder"></input>
+	</div> 
+	<div class="form-row" id='NotBeforeAttr' class='hiddenAttrs'>
+		<label for="node-input-NotBefore"><i class="fa fa-tag"></i> NotBefore</label>
+		<input type="text" id="node-input-NotBefore" placeholder="NotBefore"></input>
+	</div> 
+	<div class="form-row" id='NotAfterAttr' class='hiddenAttrs'>
+		<label for="node-input-NotAfter"><i class="fa fa-tag"></i> NotAfter</label>
+		<input type="text" id="node-input-NotAfter" placeholder="NotAfter"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='FilterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterName"><i class="fa fa-tag"></i> FilterName</label>
+		<input type="text" id="node-input-FilterName" placeholder="FilterName"></input>
+	</div> 
+	<div class="form-row" id='FilterValueAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterValue"><i class="fa fa-tag"></i> FilterValue</label>
+		<input type="text" id="node-input-FilterValue" placeholder="FilterValue"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceRetentionSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceRetentionSettings"><i class="fa fa-tag"></i> AppInstanceRetentionSettings</label>
+		<input type="text" id="node-input-AppInstanceRetentionSettings" placeholder="AppInstanceRetentionSettings"></input>
+	</div> 
+	<div class="form-row" id='AppInstanceStreamingConfigurationsAttr' class='hiddenAttrs'>
+		<label for="node-input-AppInstanceStreamingConfigurations"><i class="fa fa-tag"></i> AppInstanceStreamingConfigurations</label>
+		<input type="text" id="node-input-AppInstanceStreamingConfigurations" placeholder="AppInstanceStreamingConfigurations"></input>
+	</div> 
+	<div class="form-row" id='OutboundEventsHTTPSEndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-OutboundEventsHTTPSEndpoint"><i class="fa fa-tag"></i> OutboundEventsHTTPSEndpoint</label>
+		<input type="text" id="node-input-OutboundEventsHTTPSEndpoint" placeholder="OutboundEventsHTTPSEndpoint"></input>
+	</div> 
+	<div class="form-row" id='LambdaFunctionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-LambdaFunctionArn"><i class="fa fa-tag"></i> LambdaFunctionArn</label>
+		<input type="text" id="node-input-LambdaFunctionArn" placeholder="LambdaFunctionArn"></input>
+	</div> 
+	<div class="form-row" id='RetentionSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionSettings"><i class="fa fa-tag"></i> RetentionSettings</label>
+		<input type="text" id="node-input-RetentionSettings" placeholder="RetentionSettings"></input>
+	</div> 
+	<div class="form-row" id='SipMediaApplicationLoggingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SipMediaApplicationLoggingConfiguration"><i class="fa fa-tag"></i> SipMediaApplicationLoggingConfiguration</label>
+		<input type="text" id="node-input-SipMediaApplicationLoggingConfiguration" placeholder="SipMediaApplicationLoggingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='EmergencyCallingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-EmergencyCallingConfiguration"><i class="fa fa-tag"></i> EmergencyCallingConfiguration</label>
+		<input type="text" id="node-input-EmergencyCallingConfiguration" placeholder="EmergencyCallingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='LoggingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LoggingConfiguration"><i class="fa fa-tag"></i> LoggingConfiguration</label>
+		<input type="text" id="node-input-LoggingConfiguration" placeholder="LoggingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='OriginationAttr' class='hiddenAttrs'>
+		<label for="node-input-Origination"><i class="fa fa-tag"></i> Origination</label>
+		<input type="text" id="node-input-Origination" placeholder="Origination"></input>
+	</div> 
+	<div class="form-row" id='DefaultSessionExpiryMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultSessionExpiryMinutes"><i class="fa fa-tag"></i> DefaultSessionExpiryMinutes</label>
+		<input type="text" id="node-input-DefaultSessionExpiryMinutes" placeholder="DefaultSessionExpiryMinutes"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberPoolCountriesAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumberPoolCountries"><i class="fa fa-tag"></i> PhoneNumberPoolCountries</label>
+		<input type="text" id="node-input-PhoneNumberPoolCountries" placeholder="PhoneNumberPoolCountries"></input>
+	</div> 
+	<div class="form-row" id='FallBackPhoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-FallBackPhoneNumber"><i class="fa fa-tag"></i> FallBackPhoneNumber</label>
+		<input type="text" id="node-input-FallBackPhoneNumber" placeholder="FallBackPhoneNumber"></input>
+	</div> 
+	<div class="form-row" id='StreamingConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamingConfiguration"><i class="fa fa-tag"></i> StreamingConfiguration</label>
+		<input type="text" id="node-input-StreamingConfiguration" placeholder="StreamingConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TerminationAttr' class='hiddenAttrs'>
+		<label for="node-input-Termination"><i class="fa fa-tag"></i> Termination</label>
+		<input type="text" id="node-input-Termination" placeholder="Termination"></input>
+	</div> 
+	<div class="form-row" id='CredentialsAttr' class='hiddenAttrs'>
+		<label for="node-input-Credentials"><i class="fa fa-tag"></i> Credentials</label>
+		<input type="text" id="node-input-Credentials" placeholder="Credentials"></input>
+	</div> 
+	<div class="form-row" id='ConversationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ConversationId"><i class="fa fa-tag"></i> ConversationId</label>
+		<input type="text" id="node-input-ConversationId" placeholder="ConversationId"></input>
+	</div> 
+	<div class="form-row" id='AreaCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-AreaCode"><i class="fa fa-tag"></i> AreaCode</label>
+		<input type="text" id="node-input-AreaCode" placeholder="AreaCode"></input>
+	</div> 
+	<div class="form-row" id='CityAttr' class='hiddenAttrs'>
+		<label for="node-input-City"><i class="fa fa-tag"></i> City</label>
+		<input type="text" id="node-input-City" placeholder="City"></input>
+	</div> 
+	<div class="form-row" id='CountryAttr' class='hiddenAttrs'>
+		<label for="node-input-Country"><i class="fa fa-tag"></i> Country</label>
+		<input type="text" id="node-input-Country" placeholder="Country"></input>
+	</div> 
+	<div class="form-row" id='StateAttr' class='hiddenAttrs'>
+		<label for="node-input-State"><i class="fa fa-tag"></i> State</label>
+		<input type="text" id="node-input-State" placeholder="State"></input>
+	</div> 
+	<div class="form-row" id='TollFreePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-TollFreePrefix"><i class="fa fa-tag"></i> TollFreePrefix</label>
+		<input type="text" id="node-input-TollFreePrefix" placeholder="TollFreePrefix"></input>
+	</div> 
+	<div class="form-row" id='PhoneNumberTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PhoneNumberType"><i class="fa fa-tag"></i> PhoneNumberType</label>
+		<input type="text" id="node-input-PhoneNumberType" placeholder="PhoneNumberType"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i> Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='PersistenceAttr' class='hiddenAttrs'>
+		<label for="node-input-Persistence"><i class="fa fa-tag"></i> Persistence</label>
+		<input type="text" id="node-input-Persistence" placeholder="Persistence"></input>
+	</div> 
+	<div class="form-row" id='TranscriptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-TranscriptionConfiguration"><i class="fa fa-tag"></i> TranscriptionConfiguration</label>
+		<input type="text" id="node-input-TranscriptionConfiguration" placeholder="TranscriptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DefaultLicenseAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultLicense"><i class="fa fa-tag"></i> DefaultLicense</label>
+		<input type="text" id="node-input-DefaultLicense" placeholder="DefaultLicense"></input>
+	</div> 
+	<div class="form-row" id='AccountSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccountSettings"><i class="fa fa-tag"></i> AccountSettings</label>
+		<input type="text" id="node-input-AccountSettings" placeholder="AccountSettings"></input>
+	</div> 
+	<div class="form-row" id='BusinessCallingAttr' class='hiddenAttrs'>
+		<label for="node-input-BusinessCalling"><i class="fa fa-tag"></i> BusinessCalling</label>
+		<input type="text" id="node-input-BusinessCalling" placeholder="BusinessCalling"></input>
+	</div> 
+	<div class="form-row" id='VoiceConnectorAttr' class='hiddenAttrs'>
+		<label for="node-input-VoiceConnector"><i class="fa fa-tag"></i> VoiceConnector</label>
+		<input type="text" id="node-input-VoiceConnector" placeholder="VoiceConnector"></input>
+	</div> 
+	<div class="form-row" id='CallingNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CallingName"><i class="fa fa-tag"></i> CallingName</label>
+		<input type="text" id="node-input-CallingName" placeholder="CallingName"></input>
+	</div> 
+	<div class="form-row" id='TransactionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TransactionId"><i class="fa fa-tag"></i> TransactionId</label>
+		<input type="text" id="node-input-TransactionId" placeholder="TransactionId"></input>
+	</div> 
+	<div class="form-row" id='ArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Arguments"><i class="fa fa-tag"></i> Arguments</label>
+		<input type="text" id="node-input-Arguments" placeholder="Arguments"></input>
+	</div> 
+	<div class="form-row" id='LicenseTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-LicenseType"><i class="fa fa-tag"></i> LicenseType</label>
+		<input type="text" id="node-input-LicenseType" placeholder="LicenseType"></input>
+	</div> 
+	<div class="form-row" id='AlexaForBusinessMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-AlexaForBusinessMetadata"><i class="fa fa-tag"></i> AlexaForBusinessMetadata</label>
+		<input type="text" id="node-input-AlexaForBusinessMetadata" placeholder="AlexaForBusinessMetadata"></input>
+	</div> 
+	<div class="form-row" id='UserSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserSettings"><i class="fa fa-tag"></i> UserSettings</label>
+		<input type="text" id="node-input-UserSettings" placeholder="UserSettings"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociatePhoneNumberWithUser:[
+					'#AccountIdAttr','#UserIdAttr','#E164PhoneNumberAttr'
+					],
+				AssociatePhoneNumbersWithVoiceConnector:[
+					'#VoiceConnectorIdAttr','#E164PhoneNumbersAttr','#ForceAssociateAttr'
+					],
+				AssociatePhoneNumbersWithVoiceConnectorGroup:[
+					'#VoiceConnectorGroupIdAttr','#E164PhoneNumbersAttr','#ForceAssociateAttr'
+					],
+				AssociateSigninDelegateGroupsWithAccount:[
+					'#AccountIdAttr','#SigninDelegateGroupsAttr'
+					],
+				BatchCreateAttendee:[
+					'#MeetingIdAttr','#AttendeesAttr'
+					],
+				BatchCreateChannelMembership:[
+					'#ChannelArnAttr','#TypeAttr','#MemberArnsAttr','#ChimeBearerAttr'
+					],
+				BatchCreateRoomMembership:[
+					'#AccountIdAttr','#RoomIdAttr','#MembershipItemListAttr'
+					],
+				BatchDeletePhoneNumber:[
+					'#PhoneNumberIdsAttr'
+					],
+				BatchSuspendUser:[
+					'#AccountIdAttr','#UserIdListAttr'
+					],
+				BatchUnsuspendUser:[
+					'#AccountIdAttr','#UserIdListAttr'
+					],
+				BatchUpdatePhoneNumber:[
+					'#UpdatePhoneNumberRequestItemsAttr'
+					],
+				BatchUpdateUser:[
+					'#AccountIdAttr','#UpdateUserRequestItemsAttr'
+					],
+				CreateAccount:[
+					'#NameAttr'
+					],
+				CreateAppInstance:[
+					'#NameAttr','#MetadataAttr','#ClientRequestTokenAttr','#TagsAttr'
+					],
+				CreateAppInstanceAdmin:[
+					'#AppInstanceAdminArnAttr','#AppInstanceArnAttr'
+					],
+				CreateAppInstanceUser:[
+					'#AppInstanceArnAttr','#AppInstanceUserIdAttr','#NameAttr','#MetadataAttr','#ClientRequestTokenAttr','#TagsAttr'
+					],
+				CreateAttendee:[
+					'#MeetingIdAttr','#ExternalUserIdAttr','#TagsAttr'
+					],
+				CreateBot:[
+					'#AccountIdAttr','#DisplayNameAttr','#DomainAttr'
+					],
+				CreateChannel:[
+					'#AppInstanceArnAttr','#NameAttr','#ModeAttr','#PrivacyAttr','#MetadataAttr','#ClientRequestTokenAttr','#TagsAttr','#ChimeBearerAttr'
+					],
+				CreateChannelBan:[
+					'#ChannelArnAttr','#MemberArnAttr','#ChimeBearerAttr'
+					],
+				CreateChannelMembership:[
+					'#ChannelArnAttr','#MemberArnAttr','#TypeAttr','#ChimeBearerAttr'
+					],
+				CreateChannelModerator:[
+					'#ChannelArnAttr','#ChannelModeratorArnAttr','#ChimeBearerAttr'
+					],
+				CreateMediaCapturePipeline:[
+					'#SourceTypeAttr','#SourceArnAttr','#SinkTypeAttr','#SinkArnAttr','#ClientRequestTokenAttr'
+					],
+				CreateMeeting:[
+					'#ClientRequestTokenAttr','#ExternalMeetingIdAttr','#MeetingHostIdAttr','#MediaRegionAttr','#TagsAttr','#NotificationsConfigurationAttr'
+					],
+				CreateMeetingDialOut:[
+					'#MeetingIdAttr','#FromPhoneNumberAttr','#ToPhoneNumberAttr','#JoinTokenAttr'
+					],
+				CreateMeetingWithAttendees:[
+					'#ClientRequestTokenAttr','#ExternalMeetingIdAttr','#MeetingHostIdAttr','#MediaRegionAttr','#TagsAttr','#NotificationsConfigurationAttr','#AttendeesAttr'
+					],
+				CreatePhoneNumberOrder:[
+					'#ProductTypeAttr','#E164PhoneNumbersAttr'
+					],
+				CreateProxySession:[
+					'#VoiceConnectorIdAttr','#ParticipantPhoneNumbersAttr','#NameAttr','#ExpiryMinutesAttr','#CapabilitiesAttr','#NumberSelectionBehaviorAttr','#GeoMatchLevelAttr','#GeoMatchParamsAttr'
+					],
+				CreateRoom:[
+					'#AccountIdAttr','#NameAttr','#ClientRequestTokenAttr'
+					],
+				CreateRoomMembership:[
+					'#AccountIdAttr','#RoomIdAttr','#MemberIdAttr','#RoleAttr'
+					],
+				CreateSipMediaApplication:[
+					'#AwsRegionAttr','#NameAttr','#EndpointsAttr'
+					],
+				CreateSipMediaApplicationCall:[
+					'#FromPhoneNumberAttr','#ToPhoneNumberAttr','#SipMediaApplicationIdAttr'
+					],
+				CreateSipRule:[
+					'#NameAttr','#TriggerTypeAttr','#TriggerValueAttr','#DisabledAttr','#TargetApplicationsAttr'
+					],
+				CreateUser:[
+					'#AccountIdAttr','#UsernameAttr','#EmailAttr','#UserTypeAttr'
+					],
+				CreateVoiceConnector:[
+					'#NameAttr','#AwsRegionAttr','#RequireEncryptionAttr'
+					],
+				CreateVoiceConnectorGroup:[
+					'#NameAttr','#VoiceConnectorItemsAttr'
+					],
+				DeleteAccount:[
+					'#AccountIdAttr'
+					],
+				DeleteAppInstance:[
+					'#AppInstanceArnAttr'
+					],
+				DeleteAppInstanceAdmin:[
+					'#AppInstanceAdminArnAttr','#AppInstanceArnAttr'
+					],
+				DeleteAppInstanceStreamingConfigurations:[
+					'#AppInstanceArnAttr'
+					],
+				DeleteAppInstanceUser:[
+					'#AppInstanceUserArnAttr'
+					],
+				DeleteAttendee:[
+					'#MeetingIdAttr','#AttendeeIdAttr'
+					],
+				DeleteChannel:[
+					'#ChannelArnAttr','#ChimeBearerAttr'
+					],
+				DeleteChannelBan:[
+					'#ChannelArnAttr','#MemberArnAttr','#ChimeBearerAttr'
+					],
+				DeleteChannelMembership:[
+					'#ChannelArnAttr','#MemberArnAttr','#ChimeBearerAttr'
+					],
+				DeleteChannelMessage:[
+					'#ChannelArnAttr','#MessageIdAttr','#ChimeBearerAttr'
+					],
+				DeleteChannelModerator:[
+					'#ChannelArnAttr','#ChannelModeratorArnAttr','#ChimeBearerAttr'
+					],
+				DeleteEventsConfiguration:[
+					'#AccountIdAttr','#BotIdAttr'
+					],
+				DeleteMediaCapturePipeline:[
+					'#MediaPipelineIdAttr'
+					],
+				DeleteMeeting:[
+					'#MeetingIdAttr'
+					],
+				DeletePhoneNumber:[
+					'#PhoneNumberIdAttr'
+					],
+				DeleteProxySession:[
+					'#VoiceConnectorIdAttr','#ProxySessionIdAttr'
+					],
+				DeleteRoom:[
+					'#AccountIdAttr','#RoomIdAttr'
+					],
+				DeleteRoomMembership:[
+					'#AccountIdAttr','#RoomIdAttr','#MemberIdAttr'
+					],
+				DeleteSipMediaApplication:[
+					'#SipMediaApplicationIdAttr'
+					],
+				DeleteSipRule:[
+					'#SipRuleIdAttr'
+					],
+				DeleteVoiceConnector:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorEmergencyCallingConfiguration:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorGroup:[
+					'#VoiceConnectorGroupIdAttr'
+					],
+				DeleteVoiceConnectorOrigination:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorProxy:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorStreamingConfiguration:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorTermination:[
+					'#VoiceConnectorIdAttr'
+					],
+				DeleteVoiceConnectorTerminationCredentials:[
+					'#VoiceConnectorIdAttr','#UsernamesAttr'
+					],
+				DescribeAppInstance:[
+					'#AppInstanceArnAttr'
+					],
+				DescribeAppInstanceAdmin:[
+					'#AppInstanceAdminArnAttr','#AppInstanceArnAttr'
+					],
+				DescribeAppInstanceUser:[
+					'#AppInstanceUserArnAttr'
+					],
+				DescribeChannel:[
+					'#ChannelArnAttr','#ChimeBearerAttr'
+					],
+				DescribeChannelBan:[
+					'#ChannelArnAttr','#MemberArnAttr','#ChimeBearerAttr'
+					],
+				DescribeChannelMembership:[
+					'#ChannelArnAttr','#MemberArnAttr','#ChimeBearerAttr'
+					],
+				DescribeChannelMembershipForAppInstanceUser:[
+					'#ChannelArnAttr','#AppInstanceUserArnAttr','#ChimeBearerAttr'
+					],
+				DescribeChannelModeratedByAppInstanceUser:[
+					'#ChannelArnAttr','#AppInstanceUserArnAttr','#ChimeBearerAttr'
+					],
+				DescribeChannelModerator:[
+					'#ChannelArnAttr','#ChannelModeratorArnAttr','#ChimeBearerAttr'
+					],
+				DisassociatePhoneNumberFromUser:[
+					'#AccountIdAttr','#UserIdAttr'
+					],
+				DisassociatePhoneNumbersFromVoiceConnector:[
+					'#VoiceConnectorIdAttr','#E164PhoneNumbersAttr'
+					],
+				DisassociatePhoneNumbersFromVoiceConnectorGroup:[
+					'#VoiceConnectorGroupIdAttr','#E164PhoneNumbersAttr'
+					],
+				DisassociateSigninDelegateGroupsFromAccount:[
+					'#AccountIdAttr','#GroupNamesAttr'
+					],
+				GetAccount:[
+					'#AccountIdAttr'
+					],
+				GetAccountSettings:[
+					'#AccountIdAttr'
+					],
+				GetAppInstanceRetentionSettings:[
+					'#AppInstanceArnAttr'
+					],
+				GetAppInstanceStreamingConfigurations:[
+					'#AppInstanceArnAttr'
+					],
+				GetAttendee:[
+					'#MeetingIdAttr','#AttendeeIdAttr'
+					],
+				GetBot:[
+					'#AccountIdAttr','#BotIdAttr'
+					],
+				GetChannelMessage:[
+					'#ChannelArnAttr','#MessageIdAttr','#ChimeBearerAttr'
+					],
+				GetEventsConfiguration:[
+					'#AccountIdAttr','#BotIdAttr'
+					],
+				GetGlobalSettings:[
+					
+					],
+				GetMediaCapturePipeline:[
+					'#MediaPipelineIdAttr'
+					],
+				GetMeeting:[
+					'#MeetingIdAttr'
+					],
+				GetMessagingSessionEndpoint:[
+					
+					],
+				GetPhoneNumber:[
+					'#PhoneNumberIdAttr'
+					],
+				GetPhoneNumberOrder:[
+					'#PhoneNumberOrderIdAttr'
+					],
+				GetPhoneNumberSettings:[
+					
+					],
+				GetProxySession:[
+					'#VoiceConnectorIdAttr','#ProxySessionIdAttr'
+					],
+				GetRetentionSettings:[
+					'#AccountIdAttr'
+					],
+				GetRoom:[
+					'#AccountIdAttr','#RoomIdAttr'
+					],
+				GetSipMediaApplication:[
+					'#SipMediaApplicationIdAttr'
+					],
+				GetSipMediaApplicationLoggingConfiguration:[
+					'#SipMediaApplicationIdAttr'
+					],
+				GetSipRule:[
+					'#SipRuleIdAttr'
+					],
+				GetUser:[
+					'#AccountIdAttr','#UserIdAttr'
+					],
+				GetUserSettings:[
+					'#AccountIdAttr','#UserIdAttr'
+					],
+				GetVoiceConnector:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorEmergencyCallingConfiguration:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorGroup:[
+					'#VoiceConnectorGroupIdAttr'
+					],
+				GetVoiceConnectorLoggingConfiguration:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorOrigination:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorProxy:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorStreamingConfiguration:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorTermination:[
+					'#VoiceConnectorIdAttr'
+					],
+				GetVoiceConnectorTerminationHealth:[
+					'#VoiceConnectorIdAttr'
+					],
+				InviteUsers:[
+					'#AccountIdAttr','#UserEmailListAttr','#UserTypeAttr'
+					],
+				ListAccounts:[
+					'#NameAttr','#UserEmailAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListAppInstanceAdmins:[
+					'#AppInstanceArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAppInstanceUsers:[
+					'#AppInstanceArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAppInstances:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListAttendeeTags:[
+					'#MeetingIdAttr','#AttendeeIdAttr'
+					],
+				ListAttendees:[
+					'#MeetingIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListBots:[
+					'#AccountIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListChannelBans:[
+					'#ChannelArnAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannelMemberships:[
+					'#ChannelArnAttr','#TypeAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannelMembershipsForAppInstanceUser:[
+					'#AppInstanceUserArnAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannelMessages:[
+					'#ChannelArnAttr','#SortOrderAttr','#NotBeforeAttr','#NotAfterAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannelModerators:[
+					'#ChannelArnAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannels:[
+					'#AppInstanceArnAttr','#PrivacyAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListChannelsModeratedByAppInstanceUser:[
+					'#AppInstanceUserArnAttr','#MaxResultsAttr','#NextTokenAttr','#ChimeBearerAttr'
+					],
+				ListMediaCapturePipelines:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListMeetingTags:[
+					'#MeetingIdAttr'
+					],
+				ListMeetings:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPhoneNumberOrders:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPhoneNumbers:[
+					'#StatusAttr','#ProductTypeAttr','#FilterNameAttr','#FilterValueAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListProxySessions:[
+					'#VoiceConnectorIdAttr','#StatusAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListRoomMemberships:[
+					'#AccountIdAttr','#RoomIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListRooms:[
+					'#AccountIdAttr','#MemberIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSipMediaApplications:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSipRules:[
+					'#SipMediaApplicationIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSupportedPhoneNumberCountries:[
+					'#ProductTypeAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr'
+					],
+				ListUsers:[
+					'#AccountIdAttr','#UserEmailAttr','#UserTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListVoiceConnectorGroups:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListVoiceConnectorTerminationCredentials:[
+					'#VoiceConnectorIdAttr'
+					],
+				ListVoiceConnectors:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				LogoutUser:[
+					'#AccountIdAttr','#UserIdAttr'
+					],
+				PutAppInstanceRetentionSettings:[
+					'#AppInstanceArnAttr','#AppInstanceRetentionSettingsAttr'
+					],
+				PutAppInstanceStreamingConfigurations:[
+					'#AppInstanceArnAttr','#AppInstanceStreamingConfigurationsAttr'
+					],
+				PutEventsConfiguration:[
+					'#AccountIdAttr','#BotIdAttr','#OutboundEventsHTTPSEndpointAttr','#LambdaFunctionArnAttr'
+					],
+				PutRetentionSettings:[
+					'#AccountIdAttr','#RetentionSettingsAttr'
+					],
+				PutSipMediaApplicationLoggingConfiguration:[
+					'#SipMediaApplicationIdAttr','#SipMediaApplicationLoggingConfigurationAttr'
+					],
+				PutVoiceConnectorEmergencyCallingConfiguration:[
+					'#VoiceConnectorIdAttr','#EmergencyCallingConfigurationAttr'
+					],
+				PutVoiceConnectorLoggingConfiguration:[
+					'#VoiceConnectorIdAttr','#LoggingConfigurationAttr'
+					],
+				PutVoiceConnectorOrigination:[
+					'#VoiceConnectorIdAttr','#OriginationAttr'
+					],
+				PutVoiceConnectorProxy:[
+					'#VoiceConnectorIdAttr','#DefaultSessionExpiryMinutesAttr','#PhoneNumberPoolCountriesAttr','#FallBackPhoneNumberAttr','#DisabledAttr'
+					],
+				PutVoiceConnectorStreamingConfiguration:[
+					'#VoiceConnectorIdAttr','#StreamingConfigurationAttr'
+					],
+				PutVoiceConnectorTermination:[
+					'#VoiceConnectorIdAttr','#TerminationAttr'
+					],
+				PutVoiceConnectorTerminationCredentials:[
+					'#VoiceConnectorIdAttr','#CredentialsAttr'
+					],
+				RedactChannelMessage:[
+					'#ChannelArnAttr','#MessageIdAttr','#ChimeBearerAttr'
+					],
+				RedactConversationMessage:[
+					'#AccountIdAttr','#ConversationIdAttr','#MessageIdAttr'
+					],
+				RedactRoomMessage:[
+					'#AccountIdAttr','#RoomIdAttr','#MessageIdAttr'
+					],
+				RegenerateSecurityToken:[
+					'#AccountIdAttr','#BotIdAttr'
+					],
+				ResetPersonalPIN:[
+					'#AccountIdAttr','#UserIdAttr'
+					],
+				RestorePhoneNumber:[
+					'#PhoneNumberIdAttr'
+					],
+				SearchAvailablePhoneNumbers:[
+					'#AreaCodeAttr','#CityAttr','#CountryAttr','#StateAttr','#TollFreePrefixAttr','#PhoneNumberTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				SendChannelMessage:[
+					'#ChannelArnAttr','#ContentAttr','#TypeAttr','#PersistenceAttr','#MetadataAttr','#ClientRequestTokenAttr','#ChimeBearerAttr'
+					],
+				StartMeetingTranscription:[
+					'#MeetingIdAttr','#TranscriptionConfigurationAttr'
+					],
+				StopMeetingTranscription:[
+					'#MeetingIdAttr'
+					],
+				TagAttendee:[
+					'#MeetingIdAttr','#AttendeeIdAttr','#TagsAttr'
+					],
+				TagMeeting:[
+					'#MeetingIdAttr','#TagsAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagAttendee:[
+					'#MeetingIdAttr','#AttendeeIdAttr','#TagKeysAttr'
+					],
+				UntagMeeting:[
+					'#MeetingIdAttr','#TagKeysAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateAccount:[
+					'#AccountIdAttr','#NameAttr','#DefaultLicenseAttr'
+					],
+				UpdateAccountSettings:[
+					'#AccountIdAttr','#AccountSettingsAttr'
+					],
+				UpdateAppInstance:[
+					'#AppInstanceArnAttr','#NameAttr','#MetadataAttr'
+					],
+				UpdateAppInstanceUser:[
+					'#AppInstanceUserArnAttr','#NameAttr','#MetadataAttr'
+					],
+				UpdateBot:[
+					'#AccountIdAttr','#BotIdAttr','#DisabledAttr'
+					],
+				UpdateChannel:[
+					'#ChannelArnAttr','#NameAttr','#ModeAttr','#MetadataAttr','#ChimeBearerAttr'
+					],
+				UpdateChannelMessage:[
+					'#ChannelArnAttr','#MessageIdAttr','#ContentAttr','#MetadataAttr','#ChimeBearerAttr'
+					],
+				UpdateChannelReadMarker:[
+					'#ChannelArnAttr','#ChimeBearerAttr'
+					],
+				UpdateGlobalSettings:[
+					'#BusinessCallingAttr','#VoiceConnectorAttr'
+					],
+				UpdatePhoneNumber:[
+					'#PhoneNumberIdAttr','#ProductTypeAttr','#CallingNameAttr'
+					],
+				UpdatePhoneNumberSettings:[
+					'#CallingNameAttr'
+					],
+				UpdateProxySession:[
+					'#VoiceConnectorIdAttr','#ProxySessionIdAttr','#CapabilitiesAttr','#ExpiryMinutesAttr'
+					],
+				UpdateRoom:[
+					'#AccountIdAttr','#RoomIdAttr','#NameAttr'
+					],
+				UpdateRoomMembership:[
+					'#AccountIdAttr','#RoomIdAttr','#MemberIdAttr','#RoleAttr'
+					],
+				UpdateSipMediaApplication:[
+					'#SipMediaApplicationIdAttr','#NameAttr','#EndpointsAttr'
+					],
+				UpdateSipMediaApplicationCall:[
+					'#SipMediaApplicationIdAttr','#TransactionIdAttr','#ArgumentsAttr'
+					],
+				UpdateSipRule:[
+					'#SipRuleIdAttr','#NameAttr','#DisabledAttr','#TargetApplicationsAttr'
+					],
+				UpdateUser:[
+					'#AccountIdAttr','#UserIdAttr','#LicenseTypeAttr','#UserTypeAttr','#AlexaForBusinessMetadataAttr'
+					],
+				UpdateUserSettings:[
+					'#AccountIdAttr','#UserIdAttr','#UserSettingsAttr'
+					],
+				UpdateVoiceConnector:[
+					'#VoiceConnectorIdAttr','#NameAttr','#RequireEncryptionAttr'
+					],
+				UpdateVoiceConnectorGroup:[
+					'#VoiceConnectorGroupIdAttr','#NameAttr','#VoiceConnectorItemsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Chime">
+<p>
+AWS Chime
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Chime.html">Chime</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Chime',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociatePhoneNumberWithUser' },
+			
+				AccountId: { value: ""} ,
+				UserId: { value: ""} ,
+				E164PhoneNumber: { value: ""} ,
+				VoiceConnectorId: { value: ""} ,
+				E164PhoneNumbers: { value: ""} ,
+				ForceAssociate: { value: ""} ,
+				VoiceConnectorGroupId: { value: ""} ,
+				SigninDelegateGroups: { value: ""} ,
+				MeetingId: { value: ""} ,
+				Attendees: { value: ""} ,
+				ChannelArn: { value: ""} ,
+				Type: { value: ""} ,
+				MemberArns: { value: ""} ,
+				ChimeBearer: { value: ""} ,
+				RoomId: { value: ""} ,
+				MembershipItemList: { value: ""} ,
+				PhoneNumberIds: { value: ""} ,
+				UserIdList: { value: ""} ,
+				UpdatePhoneNumberRequestItems: { value: ""} ,
+				UpdateUserRequestItems: { value: ""} ,
+				Name: { value: ""} ,
+				Metadata: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				Tags: { value: ""} ,
+				AppInstanceAdminArn: { value: ""} ,
+				AppInstanceArn: { value: ""} ,
+				AppInstanceUserId: { value: ""} ,
+				ExternalUserId: { value: ""} ,
+				DisplayName: { value: ""} ,
+				Domain: { value: ""} ,
+				Mode: { value: ""} ,
+				Privacy: { value: ""} ,
+				MemberArn: { value: ""} ,
+				ChannelModeratorArn: { value: ""} ,
+				SourceType: { value: ""} ,
+				SourceArn: { value: ""} ,
+				SinkType: { value: ""} ,
+				SinkArn: { value: ""} ,
+				ExternalMeetingId: { value: ""} ,
+				MeetingHostId: { value: ""} ,
+				MediaRegion: { value: ""} ,
+				NotificationsConfiguration: { value: ""} ,
+				FromPhoneNumber: { value: ""} ,
+				ToPhoneNumber: { value: ""} ,
+				JoinToken: { value: ""} ,
+				ProductType: { value: ""} ,
+				ParticipantPhoneNumbers: { value: ""} ,
+				ExpiryMinutes: { value: ""} ,
+				Capabilities: { value: ""} ,
+				NumberSelectionBehavior: { value: ""} ,
+				GeoMatchLevel: { value: ""} ,
+				GeoMatchParams: { value: ""} ,
+				MemberId: { value: ""} ,
+				Role: { value: ""} ,
+				AwsRegion: { value: ""} ,
+				Endpoints: { value: ""} ,
+				SipMediaApplicationId: { value: ""} ,
+				TriggerType: { value: ""} ,
+				TriggerValue: { value: ""} ,
+				Disabled: { value: ""} ,
+				TargetApplications: { value: ""} ,
+				Username: { value: ""} ,
+				Email: { value: ""} ,
+				UserType: { value: ""} ,
+				RequireEncryption: { value: ""} ,
+				VoiceConnectorItems: { value: ""} ,
+				AppInstanceUserArn: { value: ""} ,
+				AttendeeId: { value: ""} ,
+				MessageId: { value: ""} ,
+				BotId: { value: ""} ,
+				MediaPipelineId: { value: ""} ,
+				PhoneNumberId: { value: ""} ,
+				ProxySessionId: { value: ""} ,
+				SipRuleId: { value: ""} ,
+				Usernames: { value: ""} ,
+				GroupNames: { value: ""} ,
+				PhoneNumberOrderId: { value: ""} ,
+				UserEmailList: { value: ""} ,
+				UserEmail: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				SortOrder: { value: ""} ,
+				NotBefore: { value: ""} ,
+				NotAfter: { value: ""} ,
+				Status: { value: ""} ,
+				FilterName: { value: ""} ,
+				FilterValue: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				AppInstanceRetentionSettings: { value: ""} ,
+				AppInstanceStreamingConfigurations: { value: ""} ,
+				OutboundEventsHTTPSEndpoint: { value: ""} ,
+				LambdaFunctionArn: { value: ""} ,
+				RetentionSettings: { value: ""} ,
+				SipMediaApplicationLoggingConfiguration: { value: ""} ,
+				EmergencyCallingConfiguration: { value: ""} ,
+				LoggingConfiguration: { value: ""} ,
+				Origination: { value: ""} ,
+				DefaultSessionExpiryMinutes: { value: ""} ,
+				PhoneNumberPoolCountries: { value: ""} ,
+				FallBackPhoneNumber: { value: ""} ,
+				StreamingConfiguration: { value: ""} ,
+				Termination: { value: ""} ,
+				Credentials: { value: ""} ,
+				ConversationId: { value: ""} ,
+				AreaCode: { value: ""} ,
+				City: { value: ""} ,
+				Country: { value: ""} ,
+				State: { value: ""} ,
+				TollFreePrefix: { value: ""} ,
+				PhoneNumberType: { value: ""} ,
+				Content: { value: ""} ,
+				Persistence: { value: ""} ,
+				TranscriptionConfiguration: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DefaultLicense: { value: ""} ,
+				AccountSettings: { value: ""} ,
+				BusinessCalling: { value: ""} ,
+				VoiceConnector: { value: ""} ,
+				CallingName: { value: ""} ,
+				TransactionId: { value: ""} ,
+				Arguments: { value: ""} ,
+				LicenseType: { value: ""} ,
+				AlexaForBusinessMetadata: { value: ""} ,
+				UserSettings: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Chime " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-E164PhoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VoiceConnectorId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-E164PhoneNumbers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ForceAssociate").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-VoiceConnectorGroupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SigninDelegateGroups").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MeetingId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ChannelArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ChimeBearer").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoomId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PhoneNumberIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserIdList").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Metadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppInstanceAdminArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppInstanceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ExternalUserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Domain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Mode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Privacy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelModeratorArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SinkType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SinkArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExternalMeetingId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MeetingHostId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotificationsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FromPhoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ToPhoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JoinToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProductType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ExpiryMinutes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Capabilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberSelectionBehavior").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GeoMatchLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GeoMatchParams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MemberId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AwsRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Endpoints").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SipMediaApplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TriggerType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TriggerValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Disabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TargetApplications").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Username").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Email").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RequireEncryption").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-VoiceConnectorItems").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppInstanceUserArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttendeeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaPipelineId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PhoneNumberId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProxySessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SipRuleId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Usernames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GroupNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PhoneNumberOrderId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UserEmail").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SortOrder").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppInstanceRetentionSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppInstanceStreamingConfigurations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutboundEventsHTTPSEndpoint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LambdaFunctionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RetentionSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SipMediaApplicationLoggingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EmergencyCallingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LoggingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Origination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultSessionExpiryMinutes").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-FallBackPhoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StreamingConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Termination").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ConversationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AreaCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-City").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Country").typedInput({ default: "str", types: ["str"]});
+$("#node-input-State").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TollFreePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PhoneNumberType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Persistence").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-DefaultLicense").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccountSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BusinessCalling").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VoiceConnector").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CallingName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransactionId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-LicenseType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AlexaForBusinessMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserSettings").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

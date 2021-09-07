@@ -1,0 +1,315 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Firehose">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDeliveryStream">CreateDeliveryStream</option>
+		
+			<option value="DeleteDeliveryStream">DeleteDeliveryStream</option>
+		
+			<option value="DescribeDeliveryStream">DescribeDeliveryStream</option>
+		
+			<option value="ListDeliveryStreams">ListDeliveryStreams</option>
+		
+			<option value="ListTagsForDeliveryStream">ListTagsForDeliveryStream</option>
+		
+			<option value="PutRecord">PutRecord</option>
+		
+			<option value="PutRecordBatch">PutRecordBatch</option>
+		
+			<option value="StartDeliveryStreamEncryption">StartDeliveryStreamEncryption</option>
+		
+			<option value="StopDeliveryStreamEncryption">StopDeliveryStreamEncryption</option>
+		
+			<option value="TagDeliveryStream">TagDeliveryStream</option>
+		
+			<option value="UntagDeliveryStream">UntagDeliveryStream</option>
+		
+			<option value="UpdateDestination">UpdateDestination</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DeliveryStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryStreamName"><i class="fa fa-tag"></i> DeliveryStreamName</label>
+		<input type="text" id="node-input-DeliveryStreamName" placeholder="DeliveryStreamName"></input>
+	</div> 
+	<div class="form-row" id='DeliveryStreamTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryStreamType"><i class="fa fa-tag"></i> DeliveryStreamType</label>
+		<input type="text" id="node-input-DeliveryStreamType" placeholder="DeliveryStreamType"></input>
+	</div> 
+	<div class="form-row" id='KinesisStreamSourceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-KinesisStreamSourceConfiguration"><i class="fa fa-tag"></i> KinesisStreamSourceConfiguration</label>
+		<input type="text" id="node-input-KinesisStreamSourceConfiguration" placeholder="KinesisStreamSourceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='DeliveryStreamEncryptionConfigurationInputAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryStreamEncryptionConfigurationInput"><i class="fa fa-tag"></i> DeliveryStreamEncryptionConfigurationInput</label>
+		<input type="text" id="node-input-DeliveryStreamEncryptionConfigurationInput" placeholder="DeliveryStreamEncryptionConfigurationInput"></input>
+	</div> 
+	<div class="form-row" id='S3DestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-S3DestinationConfiguration"><i class="fa fa-tag"></i> S3DestinationConfiguration</label>
+		<input type="text" id="node-input-S3DestinationConfiguration" placeholder="S3DestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ExtendedS3DestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtendedS3DestinationConfiguration"><i class="fa fa-tag"></i> ExtendedS3DestinationConfiguration</label>
+		<input type="text" id="node-input-ExtendedS3DestinationConfiguration" placeholder="ExtendedS3DestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='RedshiftDestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-RedshiftDestinationConfiguration"><i class="fa fa-tag"></i> RedshiftDestinationConfiguration</label>
+		<input type="text" id="node-input-RedshiftDestinationConfiguration" placeholder="RedshiftDestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ElasticsearchDestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ElasticsearchDestinationConfiguration"><i class="fa fa-tag"></i> ElasticsearchDestinationConfiguration</label>
+		<input type="text" id="node-input-ElasticsearchDestinationConfiguration" placeholder="ElasticsearchDestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='SplunkDestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SplunkDestinationConfiguration"><i class="fa fa-tag"></i> SplunkDestinationConfiguration</label>
+		<input type="text" id="node-input-SplunkDestinationConfiguration" placeholder="SplunkDestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='HttpEndpointDestinationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-HttpEndpointDestinationConfiguration"><i class="fa fa-tag"></i> HttpEndpointDestinationConfiguration</label>
+		<input type="text" id="node-input-HttpEndpointDestinationConfiguration" placeholder="HttpEndpointDestinationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AllowForceDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-AllowForceDelete"><i class="fa fa-tag"></i> AllowForceDelete</label>
+		<input type="text" id="node-input-AllowForceDelete" placeholder="AllowForceDelete"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartDestinationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartDestinationId"><i class="fa fa-tag"></i> ExclusiveStartDestinationId</label>
+		<input type="text" id="node-input-ExclusiveStartDestinationId" placeholder="ExclusiveStartDestinationId"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartDeliveryStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartDeliveryStreamName"><i class="fa fa-tag"></i> ExclusiveStartDeliveryStreamName</label>
+		<input type="text" id="node-input-ExclusiveStartDeliveryStreamName" placeholder="ExclusiveStartDeliveryStreamName"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartTagKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartTagKey"><i class="fa fa-tag"></i> ExclusiveStartTagKey</label>
+		<input type="text" id="node-input-ExclusiveStartTagKey" placeholder="ExclusiveStartTagKey"></input>
+	</div> 
+	<div class="form-row" id='RecordAttr' class='hiddenAttrs'>
+		<label for="node-input-Record"><i class="fa fa-tag"></i> Record</label>
+		<input type="text" id="node-input-Record" placeholder="Record"></input>
+	</div> 
+	<div class="form-row" id='RecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-Records"><i class="fa fa-tag"></i> Records</label>
+		<input type="text" id="node-input-Records" placeholder="Records"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='CurrentDeliveryStreamVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CurrentDeliveryStreamVersionId"><i class="fa fa-tag"></i> CurrentDeliveryStreamVersionId</label>
+		<input type="text" id="node-input-CurrentDeliveryStreamVersionId" placeholder="CurrentDeliveryStreamVersionId"></input>
+	</div> 
+	<div class="form-row" id='DestinationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationId"><i class="fa fa-tag"></i> DestinationId</label>
+		<input type="text" id="node-input-DestinationId" placeholder="DestinationId"></input>
+	</div> 
+	<div class="form-row" id='S3DestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-S3DestinationUpdate"><i class="fa fa-tag"></i> S3DestinationUpdate</label>
+		<input type="text" id="node-input-S3DestinationUpdate" placeholder="S3DestinationUpdate"></input>
+	</div> 
+	<div class="form-row" id='ExtendedS3DestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtendedS3DestinationUpdate"><i class="fa fa-tag"></i> ExtendedS3DestinationUpdate</label>
+		<input type="text" id="node-input-ExtendedS3DestinationUpdate" placeholder="ExtendedS3DestinationUpdate"></input>
+	</div> 
+	<div class="form-row" id='RedshiftDestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-RedshiftDestinationUpdate"><i class="fa fa-tag"></i> RedshiftDestinationUpdate</label>
+		<input type="text" id="node-input-RedshiftDestinationUpdate" placeholder="RedshiftDestinationUpdate"></input>
+	</div> 
+	<div class="form-row" id='ElasticsearchDestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-ElasticsearchDestinationUpdate"><i class="fa fa-tag"></i> ElasticsearchDestinationUpdate</label>
+		<input type="text" id="node-input-ElasticsearchDestinationUpdate" placeholder="ElasticsearchDestinationUpdate"></input>
+	</div> 
+	<div class="form-row" id='SplunkDestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-SplunkDestinationUpdate"><i class="fa fa-tag"></i> SplunkDestinationUpdate</label>
+		<input type="text" id="node-input-SplunkDestinationUpdate" placeholder="SplunkDestinationUpdate"></input>
+	</div> 
+	<div class="form-row" id='HttpEndpointDestinationUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-HttpEndpointDestinationUpdate"><i class="fa fa-tag"></i> HttpEndpointDestinationUpdate</label>
+		<input type="text" id="node-input-HttpEndpointDestinationUpdate" placeholder="HttpEndpointDestinationUpdate"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDeliveryStream:[
+					'#DeliveryStreamNameAttr','#DeliveryStreamTypeAttr','#KinesisStreamSourceConfigurationAttr','#DeliveryStreamEncryptionConfigurationInputAttr','#S3DestinationConfigurationAttr','#ExtendedS3DestinationConfigurationAttr','#RedshiftDestinationConfigurationAttr','#ElasticsearchDestinationConfigurationAttr','#SplunkDestinationConfigurationAttr','#HttpEndpointDestinationConfigurationAttr','#TagsAttr'
+					],
+				DeleteDeliveryStream:[
+					'#DeliveryStreamNameAttr','#AllowForceDeleteAttr'
+					],
+				DescribeDeliveryStream:[
+					'#DeliveryStreamNameAttr','#LimitAttr','#ExclusiveStartDestinationIdAttr'
+					],
+				ListDeliveryStreams:[
+					'#LimitAttr','#DeliveryStreamTypeAttr','#ExclusiveStartDeliveryStreamNameAttr'
+					],
+				ListTagsForDeliveryStream:[
+					'#DeliveryStreamNameAttr','#ExclusiveStartTagKeyAttr','#LimitAttr'
+					],
+				PutRecord:[
+					'#DeliveryStreamNameAttr','#RecordAttr'
+					],
+				PutRecordBatch:[
+					'#DeliveryStreamNameAttr','#RecordsAttr'
+					],
+				StartDeliveryStreamEncryption:[
+					'#DeliveryStreamNameAttr','#DeliveryStreamEncryptionConfigurationInputAttr'
+					],
+				StopDeliveryStreamEncryption:[
+					'#DeliveryStreamNameAttr'
+					],
+				TagDeliveryStream:[
+					'#DeliveryStreamNameAttr','#TagsAttr'
+					],
+				UntagDeliveryStream:[
+					'#DeliveryStreamNameAttr','#TagKeysAttr'
+					],
+				UpdateDestination:[
+					'#DeliveryStreamNameAttr','#CurrentDeliveryStreamVersionIdAttr','#DestinationIdAttr','#S3DestinationUpdateAttr','#ExtendedS3DestinationUpdateAttr','#RedshiftDestinationUpdateAttr','#ElasticsearchDestinationUpdateAttr','#SplunkDestinationUpdateAttr','#HttpEndpointDestinationUpdateAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Firehose">
+<p>
+AWS Firehose
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Firehose.html">Firehose</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Firehose',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDeliveryStream' },
+			
+				DeliveryStreamName: { value: ""} ,
+				DeliveryStreamType: { value: ""} ,
+				KinesisStreamSourceConfiguration: { value: ""} ,
+				DeliveryStreamEncryptionConfigurationInput: { value: ""} ,
+				S3DestinationConfiguration: { value: ""} ,
+				ExtendedS3DestinationConfiguration: { value: ""} ,
+				RedshiftDestinationConfiguration: { value: ""} ,
+				ElasticsearchDestinationConfiguration: { value: ""} ,
+				SplunkDestinationConfiguration: { value: ""} ,
+				HttpEndpointDestinationConfiguration: { value: ""} ,
+				Tags: { value: ""} ,
+				AllowForceDelete: { value: ""} ,
+				Limit: { value: ""} ,
+				ExclusiveStartDestinationId: { value: ""} ,
+				ExclusiveStartDeliveryStreamName: { value: ""} ,
+				ExclusiveStartTagKey: { value: ""} ,
+				Record: { value: ""} ,
+				Records: { value: ""} ,
+				TagKeys: { value: ""} ,
+				CurrentDeliveryStreamVersionId: { value: ""} ,
+				DestinationId: { value: ""} ,
+				S3DestinationUpdate: { value: ""} ,
+				ExtendedS3DestinationUpdate: { value: ""} ,
+				RedshiftDestinationUpdate: { value: ""} ,
+				ElasticsearchDestinationUpdate: { value: ""} ,
+				SplunkDestinationUpdate: { value: ""} ,
+				HttpEndpointDestinationUpdate: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Firehose " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-DeliveryStreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryStreamType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DeliveryStreamEncryptionConfigurationInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3DestinationConfiguration").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AllowForceDelete").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExclusiveStartDestinationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExclusiveStartDeliveryStreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExclusiveStartTagKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Record").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-CurrentDeliveryStreamVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3DestinationUpdate").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+		}
+	});
+</script>
+

@@ -1,0 +1,270 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ComprehendMedical">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="DescribeEntitiesDetectionV2Job">DescribeEntitiesDetectionV2Job</option>
+		
+			<option value="DescribeICD10CMInferenceJob">DescribeICD10CMInferenceJob</option>
+		
+			<option value="DescribePHIDetectionJob">DescribePHIDetectionJob</option>
+		
+			<option value="DescribeRxNormInferenceJob">DescribeRxNormInferenceJob</option>
+		
+			<option value="DetectEntities">DetectEntities</option>
+		
+			<option value="DetectEntitiesV2">DetectEntitiesV2</option>
+		
+			<option value="DetectPHI">DetectPHI</option>
+		
+			<option value="InferICD10CM">InferICD10CM</option>
+		
+			<option value="InferRxNorm">InferRxNorm</option>
+		
+			<option value="ListEntitiesDetectionV2Jobs">ListEntitiesDetectionV2Jobs</option>
+		
+			<option value="ListICD10CMInferenceJobs">ListICD10CMInferenceJobs</option>
+		
+			<option value="ListPHIDetectionJobs">ListPHIDetectionJobs</option>
+		
+			<option value="ListRxNormInferenceJobs">ListRxNormInferenceJobs</option>
+		
+			<option value="StartEntitiesDetectionV2Job">StartEntitiesDetectionV2Job</option>
+		
+			<option value="StartICD10CMInferenceJob">StartICD10CMInferenceJob</option>
+		
+			<option value="StartPHIDetectionJob">StartPHIDetectionJob</option>
+		
+			<option value="StartRxNormInferenceJob">StartRxNormInferenceJob</option>
+		
+			<option value="StopEntitiesDetectionV2Job">StopEntitiesDetectionV2Job</option>
+		
+			<option value="StopICD10CMInferenceJob">StopICD10CMInferenceJob</option>
+		
+			<option value="StopPHIDetectionJob">StopPHIDetectionJob</option>
+		
+			<option value="StopRxNormInferenceJob">StopRxNormInferenceJob</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i> Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='InputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDataConfig"><i class="fa fa-tag"></i> InputDataConfig</label>
+		<input type="text" id="node-input-InputDataConfig" placeholder="InputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='OutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputDataConfig"><i class="fa fa-tag"></i> OutputDataConfig</label>
+		<input type="text" id="node-input-OutputDataConfig" placeholder="OutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='DataAccessRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DataAccessRoleArn"><i class="fa fa-tag"></i> DataAccessRoleArn</label>
+		<input type="text" id="node-input-DataAccessRoleArn" placeholder="DataAccessRoleArn"></input>
+	</div> 
+	<div class="form-row" id='JobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-JobName"><i class="fa fa-tag"></i> JobName</label>
+		<input type="text" id="node-input-JobName" placeholder="JobName"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='KMSKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-KMSKey"><i class="fa fa-tag"></i> KMSKey</label>
+		<input type="text" id="node-input-KMSKey" placeholder="KMSKey"></input>
+	</div> 
+	<div class="form-row" id='LanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-LanguageCode"><i class="fa fa-tag"></i> LanguageCode</label>
+		<input type="text" id="node-input-LanguageCode" placeholder="LanguageCode"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				DescribeEntitiesDetectionV2Job:[
+					'#JobIdAttr'
+					],
+				DescribeICD10CMInferenceJob:[
+					'#JobIdAttr'
+					],
+				DescribePHIDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeRxNormInferenceJob:[
+					'#JobIdAttr'
+					],
+				DetectEntities:[
+					'#TextAttr'
+					],
+				DetectEntitiesV2:[
+					'#TextAttr'
+					],
+				DetectPHI:[
+					'#TextAttr'
+					],
+				InferICD10CM:[
+					'#TextAttr'
+					],
+				InferRxNorm:[
+					'#TextAttr'
+					],
+				ListEntitiesDetectionV2Jobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListICD10CMInferenceJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPHIDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListRxNormInferenceJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				StartEntitiesDetectionV2Job:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#ClientRequestTokenAttr','#KMSKeyAttr','#LanguageCodeAttr'
+					],
+				StartICD10CMInferenceJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#ClientRequestTokenAttr','#KMSKeyAttr','#LanguageCodeAttr'
+					],
+				StartPHIDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#ClientRequestTokenAttr','#KMSKeyAttr','#LanguageCodeAttr'
+					],
+				StartRxNormInferenceJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#ClientRequestTokenAttr','#KMSKeyAttr','#LanguageCodeAttr'
+					],
+				StopEntitiesDetectionV2Job:[
+					'#JobIdAttr'
+					],
+				StopICD10CMInferenceJob:[
+					'#JobIdAttr'
+					],
+				StopPHIDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopRxNormInferenceJob:[
+					'#JobIdAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ComprehendMedical">
+<p>
+AWS ComprehendMedical
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ComprehendMedical.html">ComprehendMedical</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ComprehendMedical',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'DescribeEntitiesDetectionV2Job' },
+			
+				JobId: { value: ""} ,
+				Text: { value: ""} ,
+				Filter: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				InputDataConfig: { value: ""} ,
+				OutputDataConfig: { value: ""} ,
+				DataAccessRoleArn: { value: ""} ,
+				JobName: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				KMSKey: { value: ""} ,
+				LanguageCode: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ComprehendMedical " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Text").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-InputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataAccessRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KMSKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LanguageCode").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

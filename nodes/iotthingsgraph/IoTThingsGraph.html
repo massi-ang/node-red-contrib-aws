@@ -1,0 +1,448 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IoTThingsGraph">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateEntityToThing">AssociateEntityToThing</option>
+		
+			<option value="CreateFlowTemplate">CreateFlowTemplate</option>
+		
+			<option value="CreateSystemInstance">CreateSystemInstance</option>
+		
+			<option value="CreateSystemTemplate">CreateSystemTemplate</option>
+		
+			<option value="DeleteFlowTemplate">DeleteFlowTemplate</option>
+		
+			<option value="DeleteNamespace">DeleteNamespace</option>
+		
+			<option value="DeleteSystemInstance">DeleteSystemInstance</option>
+		
+			<option value="DeleteSystemTemplate">DeleteSystemTemplate</option>
+		
+			<option value="DeploySystemInstance">DeploySystemInstance</option>
+		
+			<option value="DeprecateFlowTemplate">DeprecateFlowTemplate</option>
+		
+			<option value="DeprecateSystemTemplate">DeprecateSystemTemplate</option>
+		
+			<option value="DescribeNamespace">DescribeNamespace</option>
+		
+			<option value="DissociateEntityFromThing">DissociateEntityFromThing</option>
+		
+			<option value="GetEntities">GetEntities</option>
+		
+			<option value="GetFlowTemplate">GetFlowTemplate</option>
+		
+			<option value="GetFlowTemplateRevisions">GetFlowTemplateRevisions</option>
+		
+			<option value="GetNamespaceDeletionStatus">GetNamespaceDeletionStatus</option>
+		
+			<option value="GetSystemInstance">GetSystemInstance</option>
+		
+			<option value="GetSystemTemplate">GetSystemTemplate</option>
+		
+			<option value="GetSystemTemplateRevisions">GetSystemTemplateRevisions</option>
+		
+			<option value="GetUploadStatus">GetUploadStatus</option>
+		
+			<option value="ListFlowExecutionMessages">ListFlowExecutionMessages</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="SearchEntities">SearchEntities</option>
+		
+			<option value="SearchFlowExecutions">SearchFlowExecutions</option>
+		
+			<option value="SearchFlowTemplates">SearchFlowTemplates</option>
+		
+			<option value="SearchSystemInstances">SearchSystemInstances</option>
+		
+			<option value="SearchSystemTemplates">SearchSystemTemplates</option>
+		
+			<option value="SearchThings">SearchThings</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UndeploySystemInstance">UndeploySystemInstance</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFlowTemplate">UpdateFlowTemplate</option>
+		
+			<option value="UpdateSystemTemplate">UpdateSystemTemplate</option>
+		
+			<option value="UploadEntityDefinitions">UploadEntityDefinitions</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='thingNameAttr' class='hiddenAttrs'>
+		<label for="node-input-thingName"><i class="fa fa-tag"></i> thingName</label>
+		<input type="text" id="node-input-thingName" placeholder="thingName"></input>
+	</div> 
+	<div class="form-row" id='entityIdAttr' class='hiddenAttrs'>
+		<label for="node-input-entityId"><i class="fa fa-tag"></i> entityId</label>
+		<input type="text" id="node-input-entityId" placeholder="entityId"></input>
+	</div> 
+	<div class="form-row" id='namespaceVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-namespaceVersion"><i class="fa fa-tag"></i> namespaceVersion</label>
+		<input type="text" id="node-input-namespaceVersion" placeholder="namespaceVersion"></input>
+	</div> 
+	<div class="form-row" id='definitionAttr' class='hiddenAttrs'>
+		<label for="node-input-definition"><i class="fa fa-tag"></i> definition</label>
+		<input type="text" id="node-input-definition" placeholder="definition"></input>
+	</div> 
+	<div class="form-row" id='compatibleNamespaceVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-compatibleNamespaceVersion"><i class="fa fa-tag"></i> compatibleNamespaceVersion</label>
+		<input type="text" id="node-input-compatibleNamespaceVersion" placeholder="compatibleNamespaceVersion"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='targetAttr' class='hiddenAttrs'>
+		<label for="node-input-target"><i class="fa fa-tag"></i> target</label>
+		<input type="text" id="node-input-target" placeholder="target"></input>
+	</div> 
+	<div class="form-row" id='greengrassGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-greengrassGroupName"><i class="fa fa-tag"></i> greengrassGroupName</label>
+		<input type="text" id="node-input-greengrassGroupName" placeholder="greengrassGroupName"></input>
+	</div> 
+	<div class="form-row" id='s3BucketNameAttr' class='hiddenAttrs'>
+		<label for="node-input-s3BucketName"><i class="fa fa-tag"></i> s3BucketName</label>
+		<input type="text" id="node-input-s3BucketName" placeholder="s3BucketName"></input>
+	</div> 
+	<div class="form-row" id='metricsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-metricsConfiguration"><i class="fa fa-tag"></i> metricsConfiguration</label>
+		<input type="text" id="node-input-metricsConfiguration" placeholder="metricsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='flowActionsRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-flowActionsRoleArn"><i class="fa fa-tag"></i> flowActionsRoleArn</label>
+		<input type="text" id="node-input-flowActionsRoleArn" placeholder="flowActionsRoleArn"></input>
+	</div> 
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='namespaceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-namespaceName"><i class="fa fa-tag"></i> namespaceName</label>
+		<input type="text" id="node-input-namespaceName" placeholder="namespaceName"></input>
+	</div> 
+	<div class="form-row" id='entityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-entityType"><i class="fa fa-tag"></i> entityType</label>
+		<input type="text" id="node-input-entityType" placeholder="entityType"></input>
+	</div> 
+	<div class="form-row" id='idsAttr' class='hiddenAttrs'>
+		<label for="node-input-ids"><i class="fa fa-tag"></i> ids</label>
+		<input type="text" id="node-input-ids" placeholder="ids"></input>
+	</div> 
+	<div class="form-row" id='revisionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-revisionNumber"><i class="fa fa-tag"></i> revisionNumber</label>
+		<input type="text" id="node-input-revisionNumber" placeholder="revisionNumber"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='uploadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-uploadId"><i class="fa fa-tag"></i> uploadId</label>
+		<input type="text" id="node-input-uploadId" placeholder="uploadId"></input>
+	</div> 
+	<div class="form-row" id='flowExecutionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-flowExecutionId"><i class="fa fa-tag"></i> flowExecutionId</label>
+		<input type="text" id="node-input-flowExecutionId" placeholder="flowExecutionId"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='entityTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-entityTypes"><i class="fa fa-tag"></i> entityTypes</label>
+		<input type="text" id="node-input-entityTypes" placeholder="entityTypes"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='systemInstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-systemInstanceId"><i class="fa fa-tag"></i> systemInstanceId</label>
+		<input type="text" id="node-input-systemInstanceId" placeholder="systemInstanceId"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='documentAttr' class='hiddenAttrs'>
+		<label for="node-input-document"><i class="fa fa-tag"></i> document</label>
+		<input type="text" id="node-input-document" placeholder="document"></input>
+	</div> 
+	<div class="form-row" id='syncWithPublicNamespaceAttr' class='hiddenAttrs'>
+		<label for="node-input-syncWithPublicNamespace"><i class="fa fa-tag"></i> syncWithPublicNamespace</label>
+		<input type="text" id="node-input-syncWithPublicNamespace" placeholder="syncWithPublicNamespace"></input>
+	</div> 
+	<div class="form-row" id='deprecateExistingEntitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-deprecateExistingEntities"><i class="fa fa-tag"></i> deprecateExistingEntities</label>
+		<input type="text" id="node-input-deprecateExistingEntities" placeholder="deprecateExistingEntities"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateEntityToThing:[
+					'#thingNameAttr','#entityIdAttr','#namespaceVersionAttr'
+					],
+				CreateFlowTemplate:[
+					'#definitionAttr','#compatibleNamespaceVersionAttr'
+					],
+				CreateSystemInstance:[
+					'#tagsAttr','#definitionAttr','#targetAttr','#greengrassGroupNameAttr','#s3BucketNameAttr','#metricsConfigurationAttr','#flowActionsRoleArnAttr'
+					],
+				CreateSystemTemplate:[
+					'#definitionAttr','#compatibleNamespaceVersionAttr'
+					],
+				DeleteFlowTemplate:[
+					'#idAttr'
+					],
+				DeleteNamespace:[
+					
+					],
+				DeleteSystemInstance:[
+					'#idAttr'
+					],
+				DeleteSystemTemplate:[
+					'#idAttr'
+					],
+				DeploySystemInstance:[
+					'#idAttr'
+					],
+				DeprecateFlowTemplate:[
+					'#idAttr'
+					],
+				DeprecateSystemTemplate:[
+					'#idAttr'
+					],
+				DescribeNamespace:[
+					'#namespaceNameAttr'
+					],
+				DissociateEntityFromThing:[
+					'#thingNameAttr','#entityTypeAttr'
+					],
+				GetEntities:[
+					'#idsAttr','#namespaceVersionAttr'
+					],
+				GetFlowTemplate:[
+					'#idAttr','#revisionNumberAttr'
+					],
+				GetFlowTemplateRevisions:[
+					'#idAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetNamespaceDeletionStatus:[
+					
+					],
+				GetSystemInstance:[
+					'#idAttr'
+					],
+				GetSystemTemplate:[
+					'#idAttr','#revisionNumberAttr'
+					],
+				GetSystemTemplateRevisions:[
+					'#idAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetUploadStatus:[
+					'#uploadIdAttr'
+					],
+				ListFlowExecutionMessages:[
+					'#flowExecutionIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#maxResultsAttr','#resourceArnAttr','#nextTokenAttr'
+					],
+				SearchEntities:[
+					'#entityTypesAttr','#filtersAttr','#nextTokenAttr','#maxResultsAttr','#namespaceVersionAttr'
+					],
+				SearchFlowExecutions:[
+					'#systemInstanceIdAttr','#flowExecutionIdAttr','#startTimeAttr','#endTimeAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				SearchFlowTemplates:[
+					'#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				SearchSystemInstances:[
+					'#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				SearchSystemTemplates:[
+					'#filtersAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				SearchThings:[
+					'#entityIdAttr','#nextTokenAttr','#maxResultsAttr','#namespaceVersionAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UndeploySystemInstance:[
+					'#idAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateFlowTemplate:[
+					'#idAttr','#definitionAttr','#compatibleNamespaceVersionAttr'
+					],
+				UpdateSystemTemplate:[
+					'#idAttr','#definitionAttr','#compatibleNamespaceVersionAttr'
+					],
+				UploadEntityDefinitions:[
+					'#documentAttr','#syncWithPublicNamespaceAttr','#deprecateExistingEntitiesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IoTThingsGraph">
+<p>
+AWS IoTThingsGraph
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IoTThingsGraph.html">IoTThingsGraph</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IoTThingsGraph',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateEntityToThing' },
+			
+				thingName: { value: ""} ,
+				entityId: { value: ""} ,
+				namespaceVersion: { value: ""} ,
+				definition: { value: ""} ,
+				compatibleNamespaceVersion: { value: ""} ,
+				tags: { value: ""} ,
+				target: { value: ""} ,
+				greengrassGroupName: { value: ""} ,
+				s3BucketName: { value: ""} ,
+				metricsConfiguration: { value: ""} ,
+				flowActionsRoleArn: { value: ""} ,
+				id: { value: ""} ,
+				namespaceName: { value: ""} ,
+				entityType: { value: ""} ,
+				ids: { value: ""} ,
+				revisionNumber: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				uploadId: { value: ""} ,
+				flowExecutionId: { value: ""} ,
+				resourceArn: { value: ""} ,
+				entityTypes: { value: ""} ,
+				filters: { value: ""} ,
+				systemInstanceId: { value: ""} ,
+				startTime: { value: ""} ,
+				endTime: { value: ""} ,
+				tagKeys: { value: ""} ,
+				document: { value: ""} ,
+				syncWithPublicNamespace: { value: ""} ,
+				deprecateExistingEntities: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IoTThingsGraph " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-thingName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-entityId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-definition").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-target").typedInput({ default: "str", types: ["str"]});
+$("#node-input-greengrassGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-s3BucketName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-metricsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-flowActionsRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-namespaceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-entityType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-uploadId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-flowExecutionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-systemInstanceId").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-document").typedInput({ default: "str", types: ["str"]});
+$("#node-input-syncWithPublicNamespace").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-deprecateExistingEntities").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

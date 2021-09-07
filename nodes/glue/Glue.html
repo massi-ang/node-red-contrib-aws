@@ -1,0 +1,1877 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Glue">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchCreatePartition">BatchCreatePartition</option>
+		
+			<option value="BatchDeleteConnection">BatchDeleteConnection</option>
+		
+			<option value="BatchDeletePartition">BatchDeletePartition</option>
+		
+			<option value="BatchDeleteTable">BatchDeleteTable</option>
+		
+			<option value="BatchDeleteTableVersion">BatchDeleteTableVersion</option>
+		
+			<option value="BatchGetBlueprints">BatchGetBlueprints</option>
+		
+			<option value="BatchGetCrawlers">BatchGetCrawlers</option>
+		
+			<option value="BatchGetDevEndpoints">BatchGetDevEndpoints</option>
+		
+			<option value="BatchGetJobs">BatchGetJobs</option>
+		
+			<option value="BatchGetPartition">BatchGetPartition</option>
+		
+			<option value="BatchGetTriggers">BatchGetTriggers</option>
+		
+			<option value="BatchGetWorkflows">BatchGetWorkflows</option>
+		
+			<option value="BatchStopJobRun">BatchStopJobRun</option>
+		
+			<option value="BatchUpdatePartition">BatchUpdatePartition</option>
+		
+			<option value="CancelMLTaskRun">CancelMLTaskRun</option>
+		
+			<option value="CheckSchemaVersionValidity">CheckSchemaVersionValidity</option>
+		
+			<option value="CreateBlueprint">CreateBlueprint</option>
+		
+			<option value="CreateClassifier">CreateClassifier</option>
+		
+			<option value="CreateConnection">CreateConnection</option>
+		
+			<option value="CreateCrawler">CreateCrawler</option>
+		
+			<option value="CreateDatabase">CreateDatabase</option>
+		
+			<option value="CreateDevEndpoint">CreateDevEndpoint</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="CreateMLTransform">CreateMLTransform</option>
+		
+			<option value="CreatePartition">CreatePartition</option>
+		
+			<option value="CreatePartitionIndex">CreatePartitionIndex</option>
+		
+			<option value="CreateRegistry">CreateRegistry</option>
+		
+			<option value="CreateSchema">CreateSchema</option>
+		
+			<option value="CreateScript">CreateScript</option>
+		
+			<option value="CreateSecurityConfiguration">CreateSecurityConfiguration</option>
+		
+			<option value="CreateTable">CreateTable</option>
+		
+			<option value="CreateTrigger">CreateTrigger</option>
+		
+			<option value="CreateUserDefinedFunction">CreateUserDefinedFunction</option>
+		
+			<option value="CreateWorkflow">CreateWorkflow</option>
+		
+			<option value="DeleteBlueprint">DeleteBlueprint</option>
+		
+			<option value="DeleteClassifier">DeleteClassifier</option>
+		
+			<option value="DeleteColumnStatisticsForPartition">DeleteColumnStatisticsForPartition</option>
+		
+			<option value="DeleteColumnStatisticsForTable">DeleteColumnStatisticsForTable</option>
+		
+			<option value="DeleteConnection">DeleteConnection</option>
+		
+			<option value="DeleteCrawler">DeleteCrawler</option>
+		
+			<option value="DeleteDatabase">DeleteDatabase</option>
+		
+			<option value="DeleteDevEndpoint">DeleteDevEndpoint</option>
+		
+			<option value="DeleteJob">DeleteJob</option>
+		
+			<option value="DeleteMLTransform">DeleteMLTransform</option>
+		
+			<option value="DeletePartition">DeletePartition</option>
+		
+			<option value="DeletePartitionIndex">DeletePartitionIndex</option>
+		
+			<option value="DeleteRegistry">DeleteRegistry</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteSchema">DeleteSchema</option>
+		
+			<option value="DeleteSchemaVersions">DeleteSchemaVersions</option>
+		
+			<option value="DeleteSecurityConfiguration">DeleteSecurityConfiguration</option>
+		
+			<option value="DeleteTable">DeleteTable</option>
+		
+			<option value="DeleteTableVersion">DeleteTableVersion</option>
+		
+			<option value="DeleteTrigger">DeleteTrigger</option>
+		
+			<option value="DeleteUserDefinedFunction">DeleteUserDefinedFunction</option>
+		
+			<option value="DeleteWorkflow">DeleteWorkflow</option>
+		
+			<option value="GetBlueprint">GetBlueprint</option>
+		
+			<option value="GetBlueprintRun">GetBlueprintRun</option>
+		
+			<option value="GetBlueprintRuns">GetBlueprintRuns</option>
+		
+			<option value="GetCatalogImportStatus">GetCatalogImportStatus</option>
+		
+			<option value="GetClassifier">GetClassifier</option>
+		
+			<option value="GetClassifiers">GetClassifiers</option>
+		
+			<option value="GetColumnStatisticsForPartition">GetColumnStatisticsForPartition</option>
+		
+			<option value="GetColumnStatisticsForTable">GetColumnStatisticsForTable</option>
+		
+			<option value="GetConnection">GetConnection</option>
+		
+			<option value="GetConnections">GetConnections</option>
+		
+			<option value="GetCrawler">GetCrawler</option>
+		
+			<option value="GetCrawlerMetrics">GetCrawlerMetrics</option>
+		
+			<option value="GetCrawlers">GetCrawlers</option>
+		
+			<option value="GetDataCatalogEncryptionSettings">GetDataCatalogEncryptionSettings</option>
+		
+			<option value="GetDatabase">GetDatabase</option>
+		
+			<option value="GetDatabases">GetDatabases</option>
+		
+			<option value="GetDataflowGraph">GetDataflowGraph</option>
+		
+			<option value="GetDevEndpoint">GetDevEndpoint</option>
+		
+			<option value="GetDevEndpoints">GetDevEndpoints</option>
+		
+			<option value="GetJob">GetJob</option>
+		
+			<option value="GetJobBookmark">GetJobBookmark</option>
+		
+			<option value="GetJobRun">GetJobRun</option>
+		
+			<option value="GetJobRuns">GetJobRuns</option>
+		
+			<option value="GetJobs">GetJobs</option>
+		
+			<option value="GetMLTaskRun">GetMLTaskRun</option>
+		
+			<option value="GetMLTaskRuns">GetMLTaskRuns</option>
+		
+			<option value="GetMLTransform">GetMLTransform</option>
+		
+			<option value="GetMLTransforms">GetMLTransforms</option>
+		
+			<option value="GetMapping">GetMapping</option>
+		
+			<option value="GetPartition">GetPartition</option>
+		
+			<option value="GetPartitionIndexes">GetPartitionIndexes</option>
+		
+			<option value="GetPartitions">GetPartitions</option>
+		
+			<option value="GetPlan">GetPlan</option>
+		
+			<option value="GetRegistry">GetRegistry</option>
+		
+			<option value="GetResourcePolicies">GetResourcePolicies</option>
+		
+			<option value="GetResourcePolicy">GetResourcePolicy</option>
+		
+			<option value="GetSchema">GetSchema</option>
+		
+			<option value="GetSchemaByDefinition">GetSchemaByDefinition</option>
+		
+			<option value="GetSchemaVersion">GetSchemaVersion</option>
+		
+			<option value="GetSchemaVersionsDiff">GetSchemaVersionsDiff</option>
+		
+			<option value="GetSecurityConfiguration">GetSecurityConfiguration</option>
+		
+			<option value="GetSecurityConfigurations">GetSecurityConfigurations</option>
+		
+			<option value="GetTable">GetTable</option>
+		
+			<option value="GetTableVersion">GetTableVersion</option>
+		
+			<option value="GetTableVersions">GetTableVersions</option>
+		
+			<option value="GetTables">GetTables</option>
+		
+			<option value="GetTags">GetTags</option>
+		
+			<option value="GetTrigger">GetTrigger</option>
+		
+			<option value="GetTriggers">GetTriggers</option>
+		
+			<option value="GetUserDefinedFunction">GetUserDefinedFunction</option>
+		
+			<option value="GetUserDefinedFunctions">GetUserDefinedFunctions</option>
+		
+			<option value="GetWorkflow">GetWorkflow</option>
+		
+			<option value="GetWorkflowRun">GetWorkflowRun</option>
+		
+			<option value="GetWorkflowRunProperties">GetWorkflowRunProperties</option>
+		
+			<option value="GetWorkflowRuns">GetWorkflowRuns</option>
+		
+			<option value="ImportCatalogToGlue">ImportCatalogToGlue</option>
+		
+			<option value="ListBlueprints">ListBlueprints</option>
+		
+			<option value="ListCrawlers">ListCrawlers</option>
+		
+			<option value="ListDevEndpoints">ListDevEndpoints</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="ListMLTransforms">ListMLTransforms</option>
+		
+			<option value="ListRegistries">ListRegistries</option>
+		
+			<option value="ListSchemaVersions">ListSchemaVersions</option>
+		
+			<option value="ListSchemas">ListSchemas</option>
+		
+			<option value="ListTriggers">ListTriggers</option>
+		
+			<option value="ListWorkflows">ListWorkflows</option>
+		
+			<option value="PutDataCatalogEncryptionSettings">PutDataCatalogEncryptionSettings</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="PutSchemaVersionMetadata">PutSchemaVersionMetadata</option>
+		
+			<option value="PutWorkflowRunProperties">PutWorkflowRunProperties</option>
+		
+			<option value="QuerySchemaVersionMetadata">QuerySchemaVersionMetadata</option>
+		
+			<option value="RegisterSchemaVersion">RegisterSchemaVersion</option>
+		
+			<option value="RemoveSchemaVersionMetadata">RemoveSchemaVersionMetadata</option>
+		
+			<option value="ResetJobBookmark">ResetJobBookmark</option>
+		
+			<option value="ResumeWorkflowRun">ResumeWorkflowRun</option>
+		
+			<option value="SearchTables">SearchTables</option>
+		
+			<option value="StartBlueprintRun">StartBlueprintRun</option>
+		
+			<option value="StartCrawler">StartCrawler</option>
+		
+			<option value="StartCrawlerSchedule">StartCrawlerSchedule</option>
+		
+			<option value="StartExportLabelsTaskRun">StartExportLabelsTaskRun</option>
+		
+			<option value="StartImportLabelsTaskRun">StartImportLabelsTaskRun</option>
+		
+			<option value="StartJobRun">StartJobRun</option>
+		
+			<option value="StartMLEvaluationTaskRun">StartMLEvaluationTaskRun</option>
+		
+			<option value="StartMLLabelingSetGenerationTaskRun">StartMLLabelingSetGenerationTaskRun</option>
+		
+			<option value="StartTrigger">StartTrigger</option>
+		
+			<option value="StartWorkflowRun">StartWorkflowRun</option>
+		
+			<option value="StopCrawler">StopCrawler</option>
+		
+			<option value="StopCrawlerSchedule">StopCrawlerSchedule</option>
+		
+			<option value="StopTrigger">StopTrigger</option>
+		
+			<option value="StopWorkflowRun">StopWorkflowRun</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateBlueprint">UpdateBlueprint</option>
+		
+			<option value="UpdateClassifier">UpdateClassifier</option>
+		
+			<option value="UpdateColumnStatisticsForPartition">UpdateColumnStatisticsForPartition</option>
+		
+			<option value="UpdateColumnStatisticsForTable">UpdateColumnStatisticsForTable</option>
+		
+			<option value="UpdateConnection">UpdateConnection</option>
+		
+			<option value="UpdateCrawler">UpdateCrawler</option>
+		
+			<option value="UpdateCrawlerSchedule">UpdateCrawlerSchedule</option>
+		
+			<option value="UpdateDatabase">UpdateDatabase</option>
+		
+			<option value="UpdateDevEndpoint">UpdateDevEndpoint</option>
+		
+			<option value="UpdateJob">UpdateJob</option>
+		
+			<option value="UpdateMLTransform">UpdateMLTransform</option>
+		
+			<option value="UpdatePartition">UpdatePartition</option>
+		
+			<option value="UpdateRegistry">UpdateRegistry</option>
+		
+			<option value="UpdateSchema">UpdateSchema</option>
+		
+			<option value="UpdateTable">UpdateTable</option>
+		
+			<option value="UpdateTrigger">UpdateTrigger</option>
+		
+			<option value="UpdateUserDefinedFunction">UpdateUserDefinedFunction</option>
+		
+			<option value="UpdateWorkflow">UpdateWorkflow</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='CatalogIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CatalogId"><i class="fa fa-tag"></i> CatalogId</label>
+		<input type="text" id="node-input-CatalogId" placeholder="CatalogId"></input>
+	</div> 
+	<div class="form-row" id='DatabaseNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DatabaseName"><i class="fa fa-tag"></i> DatabaseName</label>
+		<input type="text" id="node-input-DatabaseName" placeholder="DatabaseName"></input>
+	</div> 
+	<div class="form-row" id='TableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TableName"><i class="fa fa-tag"></i> TableName</label>
+		<input type="text" id="node-input-TableName" placeholder="TableName"></input>
+	</div> 
+	<div class="form-row" id='PartitionInputListAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionInputList"><i class="fa fa-tag"></i> PartitionInputList</label>
+		<input type="text" id="node-input-PartitionInputList" placeholder="PartitionInputList"></input>
+	</div> 
+	<div class="form-row" id='ConnectionNameListAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionNameList"><i class="fa fa-tag"></i> ConnectionNameList</label>
+		<input type="text" id="node-input-ConnectionNameList" placeholder="ConnectionNameList"></input>
+	</div> 
+	<div class="form-row" id='PartitionsToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionsToDelete"><i class="fa fa-tag"></i> PartitionsToDelete</label>
+		<input type="text" id="node-input-PartitionsToDelete" placeholder="PartitionsToDelete"></input>
+	</div> 
+	<div class="form-row" id='TablesToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-TablesToDelete"><i class="fa fa-tag"></i> TablesToDelete</label>
+		<input type="text" id="node-input-TablesToDelete" placeholder="TablesToDelete"></input>
+	</div> 
+	<div class="form-row" id='VersionIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionIds"><i class="fa fa-tag"></i> VersionIds</label>
+		<input type="text" id="node-input-VersionIds" placeholder="VersionIds"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='IncludeBlueprintAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeBlueprint"><i class="fa fa-tag"></i> IncludeBlueprint</label>
+		<input type="text" id="node-input-IncludeBlueprint" placeholder="IncludeBlueprint"></input>
+	</div> 
+	<div class="form-row" id='IncludeParameterSpecAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeParameterSpec"><i class="fa fa-tag"></i> IncludeParameterSpec</label>
+		<input type="text" id="node-input-IncludeParameterSpec" placeholder="IncludeParameterSpec"></input>
+	</div> 
+	<div class="form-row" id='CrawlerNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-CrawlerNames"><i class="fa fa-tag"></i> CrawlerNames</label>
+		<input type="text" id="node-input-CrawlerNames" placeholder="CrawlerNames"></input>
+	</div> 
+	<div class="form-row" id='DevEndpointNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-DevEndpointNames"><i class="fa fa-tag"></i> DevEndpointNames</label>
+		<input type="text" id="node-input-DevEndpointNames" placeholder="DevEndpointNames"></input>
+	</div> 
+	<div class="form-row" id='JobNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-JobNames"><i class="fa fa-tag"></i> JobNames</label>
+		<input type="text" id="node-input-JobNames" placeholder="JobNames"></input>
+	</div> 
+	<div class="form-row" id='PartitionsToGetAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionsToGet"><i class="fa fa-tag"></i> PartitionsToGet</label>
+		<input type="text" id="node-input-PartitionsToGet" placeholder="PartitionsToGet"></input>
+	</div> 
+	<div class="form-row" id='TriggerNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-TriggerNames"><i class="fa fa-tag"></i> TriggerNames</label>
+		<input type="text" id="node-input-TriggerNames" placeholder="TriggerNames"></input>
+	</div> 
+	<div class="form-row" id='IncludeGraphAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeGraph"><i class="fa fa-tag"></i> IncludeGraph</label>
+		<input type="text" id="node-input-IncludeGraph" placeholder="IncludeGraph"></input>
+	</div> 
+	<div class="form-row" id='JobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-JobName"><i class="fa fa-tag"></i> JobName</label>
+		<input type="text" id="node-input-JobName" placeholder="JobName"></input>
+	</div> 
+	<div class="form-row" id='JobRunIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-JobRunIds"><i class="fa fa-tag"></i> JobRunIds</label>
+		<input type="text" id="node-input-JobRunIds" placeholder="JobRunIds"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i> Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='TransformIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformId"><i class="fa fa-tag"></i> TransformId</label>
+		<input type="text" id="node-input-TransformId" placeholder="TransformId"></input>
+	</div> 
+	<div class="form-row" id='TaskRunIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskRunId"><i class="fa fa-tag"></i> TaskRunId</label>
+		<input type="text" id="node-input-TaskRunId" placeholder="TaskRunId"></input>
+	</div> 
+	<div class="form-row" id='DataFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-DataFormat"><i class="fa fa-tag"></i> DataFormat</label>
+		<input type="text" id="node-input-DataFormat" placeholder="DataFormat"></input>
+	</div> 
+	<div class="form-row" id='SchemaDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaDefinition"><i class="fa fa-tag"></i> SchemaDefinition</label>
+		<input type="text" id="node-input-SchemaDefinition" placeholder="SchemaDefinition"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='BlueprintLocationAttr' class='hiddenAttrs'>
+		<label for="node-input-BlueprintLocation"><i class="fa fa-tag"></i> BlueprintLocation</label>
+		<input type="text" id="node-input-BlueprintLocation" placeholder="BlueprintLocation"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='GrokClassifierAttr' class='hiddenAttrs'>
+		<label for="node-input-GrokClassifier"><i class="fa fa-tag"></i> GrokClassifier</label>
+		<input type="text" id="node-input-GrokClassifier" placeholder="GrokClassifier"></input>
+	</div> 
+	<div class="form-row" id='XMLClassifierAttr' class='hiddenAttrs'>
+		<label for="node-input-XMLClassifier"><i class="fa fa-tag"></i> XMLClassifier</label>
+		<input type="text" id="node-input-XMLClassifier" placeholder="XMLClassifier"></input>
+	</div> 
+	<div class="form-row" id='JsonClassifierAttr' class='hiddenAttrs'>
+		<label for="node-input-JsonClassifier"><i class="fa fa-tag"></i> JsonClassifier</label>
+		<input type="text" id="node-input-JsonClassifier" placeholder="JsonClassifier"></input>
+	</div> 
+	<div class="form-row" id='CsvClassifierAttr' class='hiddenAttrs'>
+		<label for="node-input-CsvClassifier"><i class="fa fa-tag"></i> CsvClassifier</label>
+		<input type="text" id="node-input-CsvClassifier" placeholder="CsvClassifier"></input>
+	</div> 
+	<div class="form-row" id='ConnectionInputAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionInput"><i class="fa fa-tag"></i> ConnectionInput</label>
+		<input type="text" id="node-input-ConnectionInput" placeholder="ConnectionInput"></input>
+	</div> 
+	<div class="form-row" id='RoleAttr' class='hiddenAttrs'>
+		<label for="node-input-Role"><i class="fa fa-tag"></i> Role</label>
+		<input type="text" id="node-input-Role" placeholder="Role"></input>
+	</div> 
+	<div class="form-row" id='TargetsAttr' class='hiddenAttrs'>
+		<label for="node-input-Targets"><i class="fa fa-tag"></i> Targets</label>
+		<input type="text" id="node-input-Targets" placeholder="Targets"></input>
+	</div> 
+	<div class="form-row" id='ScheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-Schedule"><i class="fa fa-tag"></i> Schedule</label>
+		<input type="text" id="node-input-Schedule" placeholder="Schedule"></input>
+	</div> 
+	<div class="form-row" id='ClassifiersAttr' class='hiddenAttrs'>
+		<label for="node-input-Classifiers"><i class="fa fa-tag"></i> Classifiers</label>
+		<input type="text" id="node-input-Classifiers" placeholder="Classifiers"></input>
+	</div> 
+	<div class="form-row" id='TablePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-TablePrefix"><i class="fa fa-tag"></i> TablePrefix</label>
+		<input type="text" id="node-input-TablePrefix" placeholder="TablePrefix"></input>
+	</div> 
+	<div class="form-row" id='SchemaChangePolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaChangePolicy"><i class="fa fa-tag"></i> SchemaChangePolicy</label>
+		<input type="text" id="node-input-SchemaChangePolicy" placeholder="SchemaChangePolicy"></input>
+	</div> 
+	<div class="form-row" id='RecrawlPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-RecrawlPolicy"><i class="fa fa-tag"></i> RecrawlPolicy</label>
+		<input type="text" id="node-input-RecrawlPolicy" placeholder="RecrawlPolicy"></input>
+	</div> 
+	<div class="form-row" id='LineageConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LineageConfiguration"><i class="fa fa-tag"></i> LineageConfiguration</label>
+		<input type="text" id="node-input-LineageConfiguration" placeholder="LineageConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='CrawlerSecurityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-CrawlerSecurityConfiguration"><i class="fa fa-tag"></i> CrawlerSecurityConfiguration</label>
+		<input type="text" id="node-input-CrawlerSecurityConfiguration" placeholder="CrawlerSecurityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='DatabaseInputAttr' class='hiddenAttrs'>
+		<label for="node-input-DatabaseInput"><i class="fa fa-tag"></i> DatabaseInput</label>
+		<input type="text" id="node-input-DatabaseInput" placeholder="DatabaseInput"></input>
+	</div> 
+	<div class="form-row" id='EndpointNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointName"><i class="fa fa-tag"></i> EndpointName</label>
+		<input type="text" id="node-input-EndpointName" placeholder="EndpointName"></input>
+	</div> 
+	<div class="form-row" id='RoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-RoleArn"><i class="fa fa-tag"></i> RoleArn</label>
+		<input type="text" id="node-input-RoleArn" placeholder="RoleArn"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetId"><i class="fa fa-tag"></i> SubnetId</label>
+		<input type="text" id="node-input-SubnetId" placeholder="SubnetId"></input>
+	</div> 
+	<div class="form-row" id='PublicKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicKey"><i class="fa fa-tag"></i> PublicKey</label>
+		<input type="text" id="node-input-PublicKey" placeholder="PublicKey"></input>
+	</div> 
+	<div class="form-row" id='PublicKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-PublicKeys"><i class="fa fa-tag"></i> PublicKeys</label>
+		<input type="text" id="node-input-PublicKeys" placeholder="PublicKeys"></input>
+	</div> 
+	<div class="form-row" id='NumberOfNodesAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfNodes"><i class="fa fa-tag"></i> NumberOfNodes</label>
+		<input type="text" id="node-input-NumberOfNodes" placeholder="NumberOfNodes"></input>
+	</div> 
+	<div class="form-row" id='WorkerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkerType"><i class="fa fa-tag"></i> WorkerType</label>
+		<input type="text" id="node-input-WorkerType" placeholder="WorkerType"></input>
+	</div> 
+	<div class="form-row" id='GlueVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-GlueVersion"><i class="fa fa-tag"></i> GlueVersion</label>
+		<input type="text" id="node-input-GlueVersion" placeholder="GlueVersion"></input>
+	</div> 
+	<div class="form-row" id='NumberOfWorkersAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfWorkers"><i class="fa fa-tag"></i> NumberOfWorkers</label>
+		<input type="text" id="node-input-NumberOfWorkers" placeholder="NumberOfWorkers"></input>
+	</div> 
+	<div class="form-row" id='ExtraPythonLibsS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtraPythonLibsS3Path"><i class="fa fa-tag"></i> ExtraPythonLibsS3Path</label>
+		<input type="text" id="node-input-ExtraPythonLibsS3Path" placeholder="ExtraPythonLibsS3Path"></input>
+	</div> 
+	<div class="form-row" id='ExtraJarsS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-ExtraJarsS3Path"><i class="fa fa-tag"></i> ExtraJarsS3Path</label>
+		<input type="text" id="node-input-ExtraJarsS3Path" placeholder="ExtraJarsS3Path"></input>
+	</div> 
+	<div class="form-row" id='SecurityConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityConfiguration"><i class="fa fa-tag"></i> SecurityConfiguration</label>
+		<input type="text" id="node-input-SecurityConfiguration" placeholder="SecurityConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-Arguments"><i class="fa fa-tag"></i> Arguments</label>
+		<input type="text" id="node-input-Arguments" placeholder="Arguments"></input>
+	</div> 
+	<div class="form-row" id='LogUriAttr' class='hiddenAttrs'>
+		<label for="node-input-LogUri"><i class="fa fa-tag"></i> LogUri</label>
+		<input type="text" id="node-input-LogUri" placeholder="LogUri"></input>
+	</div> 
+	<div class="form-row" id='ExecutionPropertyAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecutionProperty"><i class="fa fa-tag"></i> ExecutionProperty</label>
+		<input type="text" id="node-input-ExecutionProperty" placeholder="ExecutionProperty"></input>
+	</div> 
+	<div class="form-row" id='CommandAttr' class='hiddenAttrs'>
+		<label for="node-input-Command"><i class="fa fa-tag"></i> Command</label>
+		<input type="text" id="node-input-Command" placeholder="Command"></input>
+	</div> 
+	<div class="form-row" id='DefaultArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultArguments"><i class="fa fa-tag"></i> DefaultArguments</label>
+		<input type="text" id="node-input-DefaultArguments" placeholder="DefaultArguments"></input>
+	</div> 
+	<div class="form-row" id='NonOverridableArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-NonOverridableArguments"><i class="fa fa-tag"></i> NonOverridableArguments</label>
+		<input type="text" id="node-input-NonOverridableArguments" placeholder="NonOverridableArguments"></input>
+	</div> 
+	<div class="form-row" id='ConnectionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Connections"><i class="fa fa-tag"></i> Connections</label>
+		<input type="text" id="node-input-Connections" placeholder="Connections"></input>
+	</div> 
+	<div class="form-row" id='MaxRetriesAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxRetries"><i class="fa fa-tag"></i> MaxRetries</label>
+		<input type="text" id="node-input-MaxRetries" placeholder="MaxRetries"></input>
+	</div> 
+	<div class="form-row" id='AllocatedCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-AllocatedCapacity"><i class="fa fa-tag"></i> AllocatedCapacity</label>
+		<input type="text" id="node-input-AllocatedCapacity" placeholder="AllocatedCapacity"></input>
+	</div> 
+	<div class="form-row" id='TimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-Timeout"><i class="fa fa-tag"></i> Timeout</label>
+		<input type="text" id="node-input-Timeout" placeholder="Timeout"></input>
+	</div> 
+	<div class="form-row" id='MaxCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxCapacity"><i class="fa fa-tag"></i> MaxCapacity</label>
+		<input type="text" id="node-input-MaxCapacity" placeholder="MaxCapacity"></input>
+	</div> 
+	<div class="form-row" id='NotificationPropertyAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationProperty"><i class="fa fa-tag"></i> NotificationProperty</label>
+		<input type="text" id="node-input-NotificationProperty" placeholder="NotificationProperty"></input>
+	</div> 
+	<div class="form-row" id='InputRecordTablesAttr' class='hiddenAttrs'>
+		<label for="node-input-InputRecordTables"><i class="fa fa-tag"></i> InputRecordTables</label>
+		<input type="text" id="node-input-InputRecordTables" placeholder="InputRecordTables"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='TransformEncryptionAttr' class='hiddenAttrs'>
+		<label for="node-input-TransformEncryption"><i class="fa fa-tag"></i> TransformEncryption</label>
+		<input type="text" id="node-input-TransformEncryption" placeholder="TransformEncryption"></input>
+	</div> 
+	<div class="form-row" id='PartitionInputAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionInput"><i class="fa fa-tag"></i> PartitionInput</label>
+		<input type="text" id="node-input-PartitionInput" placeholder="PartitionInput"></input>
+	</div> 
+	<div class="form-row" id='PartitionIndexAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionIndex"><i class="fa fa-tag"></i> PartitionIndex</label>
+		<input type="text" id="node-input-PartitionIndex" placeholder="PartitionIndex"></input>
+	</div> 
+	<div class="form-row" id='RegistryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistryName"><i class="fa fa-tag"></i> RegistryName</label>
+		<input type="text" id="node-input-RegistryName" placeholder="RegistryName"></input>
+	</div> 
+	<div class="form-row" id='RegistryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistryId"><i class="fa fa-tag"></i> RegistryId</label>
+		<input type="text" id="node-input-RegistryId" placeholder="RegistryId"></input>
+	</div> 
+	<div class="form-row" id='SchemaNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaName"><i class="fa fa-tag"></i> SchemaName</label>
+		<input type="text" id="node-input-SchemaName" placeholder="SchemaName"></input>
+	</div> 
+	<div class="form-row" id='CompatibilityAttr' class='hiddenAttrs'>
+		<label for="node-input-Compatibility"><i class="fa fa-tag"></i> Compatibility</label>
+		<input type="text" id="node-input-Compatibility" placeholder="Compatibility"></input>
+	</div> 
+	<div class="form-row" id='DagNodesAttr' class='hiddenAttrs'>
+		<label for="node-input-DagNodes"><i class="fa fa-tag"></i> DagNodes</label>
+		<input type="text" id="node-input-DagNodes" placeholder="DagNodes"></input>
+	</div> 
+	<div class="form-row" id='DagEdgesAttr' class='hiddenAttrs'>
+		<label for="node-input-DagEdges"><i class="fa fa-tag"></i> DagEdges</label>
+		<input type="text" id="node-input-DagEdges" placeholder="DagEdges"></input>
+	</div> 
+	<div class="form-row" id='LanguageAttr' class='hiddenAttrs'>
+		<label for="node-input-Language"><i class="fa fa-tag"></i> Language</label>
+		<input type="text" id="node-input-Language" placeholder="Language"></input>
+	</div> 
+	<div class="form-row" id='EncryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionConfiguration"><i class="fa fa-tag"></i> EncryptionConfiguration</label>
+		<input type="text" id="node-input-EncryptionConfiguration" placeholder="EncryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TableInputAttr' class='hiddenAttrs'>
+		<label for="node-input-TableInput"><i class="fa fa-tag"></i> TableInput</label>
+		<input type="text" id="node-input-TableInput" placeholder="TableInput"></input>
+	</div> 
+	<div class="form-row" id='PartitionIndexesAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionIndexes"><i class="fa fa-tag"></i> PartitionIndexes</label>
+		<input type="text" id="node-input-PartitionIndexes" placeholder="PartitionIndexes"></input>
+	</div> 
+	<div class="form-row" id='WorkflowNameAttr' class='hiddenAttrs'>
+		<label for="node-input-WorkflowName"><i class="fa fa-tag"></i> WorkflowName</label>
+		<input type="text" id="node-input-WorkflowName" placeholder="WorkflowName"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='PredicateAttr' class='hiddenAttrs'>
+		<label for="node-input-Predicate"><i class="fa fa-tag"></i> Predicate</label>
+		<input type="text" id="node-input-Predicate" placeholder="Predicate"></input>
+	</div> 
+	<div class="form-row" id='ActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Actions"><i class="fa fa-tag"></i> Actions</label>
+		<input type="text" id="node-input-Actions" placeholder="Actions"></input>
+	</div> 
+	<div class="form-row" id='StartOnCreationAttr' class='hiddenAttrs'>
+		<label for="node-input-StartOnCreation"><i class="fa fa-tag"></i> StartOnCreation</label>
+		<input type="text" id="node-input-StartOnCreation" placeholder="StartOnCreation"></input>
+	</div> 
+	<div class="form-row" id='EventBatchingConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-EventBatchingCondition"><i class="fa fa-tag"></i> EventBatchingCondition</label>
+		<input type="text" id="node-input-EventBatchingCondition" placeholder="EventBatchingCondition"></input>
+	</div> 
+	<div class="form-row" id='FunctionInputAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionInput"><i class="fa fa-tag"></i> FunctionInput</label>
+		<input type="text" id="node-input-FunctionInput" placeholder="FunctionInput"></input>
+	</div> 
+	<div class="form-row" id='DefaultRunPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultRunProperties"><i class="fa fa-tag"></i> DefaultRunProperties</label>
+		<input type="text" id="node-input-DefaultRunProperties" placeholder="DefaultRunProperties"></input>
+	</div> 
+	<div class="form-row" id='MaxConcurrentRunsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxConcurrentRuns"><i class="fa fa-tag"></i> MaxConcurrentRuns</label>
+		<input type="text" id="node-input-MaxConcurrentRuns" placeholder="MaxConcurrentRuns"></input>
+	</div> 
+	<div class="form-row" id='PartitionValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionValues"><i class="fa fa-tag"></i> PartitionValues</label>
+		<input type="text" id="node-input-PartitionValues" placeholder="PartitionValues"></input>
+	</div> 
+	<div class="form-row" id='ColumnNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ColumnName"><i class="fa fa-tag"></i> ColumnName</label>
+		<input type="text" id="node-input-ColumnName" placeholder="ColumnName"></input>
+	</div> 
+	<div class="form-row" id='ConnectionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConnectionName"><i class="fa fa-tag"></i> ConnectionName</label>
+		<input type="text" id="node-input-ConnectionName" placeholder="ConnectionName"></input>
+	</div> 
+	<div class="form-row" id='IndexNameAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexName"><i class="fa fa-tag"></i> IndexName</label>
+		<input type="text" id="node-input-IndexName" placeholder="IndexName"></input>
+	</div> 
+	<div class="form-row" id='PolicyHashConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyHashCondition"><i class="fa fa-tag"></i> PolicyHashCondition</label>
+		<input type="text" id="node-input-PolicyHashCondition" placeholder="PolicyHashCondition"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='SchemaIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaId"><i class="fa fa-tag"></i> SchemaId</label>
+		<input type="text" id="node-input-SchemaId" placeholder="SchemaId"></input>
+	</div> 
+	<div class="form-row" id='VersionsAttr' class='hiddenAttrs'>
+		<label for="node-input-Versions"><i class="fa fa-tag"></i> Versions</label>
+		<input type="text" id="node-input-Versions" placeholder="Versions"></input>
+	</div> 
+	<div class="form-row" id='VersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionId"><i class="fa fa-tag"></i> VersionId</label>
+		<input type="text" id="node-input-VersionId" placeholder="VersionId"></input>
+	</div> 
+	<div class="form-row" id='FunctionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FunctionName"><i class="fa fa-tag"></i> FunctionName</label>
+		<input type="text" id="node-input-FunctionName" placeholder="FunctionName"></input>
+	</div> 
+	<div class="form-row" id='BlueprintNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BlueprintName"><i class="fa fa-tag"></i> BlueprintName</label>
+		<input type="text" id="node-input-BlueprintName" placeholder="BlueprintName"></input>
+	</div> 
+	<div class="form-row" id='RunIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RunId"><i class="fa fa-tag"></i> RunId</label>
+		<input type="text" id="node-input-RunId" placeholder="RunId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ColumnNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ColumnNames"><i class="fa fa-tag"></i> ColumnNames</label>
+		<input type="text" id="node-input-ColumnNames" placeholder="ColumnNames"></input>
+	</div> 
+	<div class="form-row" id='HidePasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-HidePassword"><i class="fa fa-tag"></i> HidePassword</label>
+		<input type="text" id="node-input-HidePassword" placeholder="HidePassword"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='CrawlerNameListAttr' class='hiddenAttrs'>
+		<label for="node-input-CrawlerNameList"><i class="fa fa-tag"></i> CrawlerNameList</label>
+		<input type="text" id="node-input-CrawlerNameList" placeholder="CrawlerNameList"></input>
+	</div> 
+	<div class="form-row" id='ResourceShareTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceShareType"><i class="fa fa-tag"></i> ResourceShareType</label>
+		<input type="text" id="node-input-ResourceShareType" placeholder="ResourceShareType"></input>
+	</div> 
+	<div class="form-row" id='PythonScriptAttr' class='hiddenAttrs'>
+		<label for="node-input-PythonScript"><i class="fa fa-tag"></i> PythonScript</label>
+		<input type="text" id="node-input-PythonScript" placeholder="PythonScript"></input>
+	</div> 
+	<div class="form-row" id='PredecessorsIncludedAttr' class='hiddenAttrs'>
+		<label for="node-input-PredecessorsIncluded"><i class="fa fa-tag"></i> PredecessorsIncluded</label>
+		<input type="text" id="node-input-PredecessorsIncluded" placeholder="PredecessorsIncluded"></input>
+	</div> 
+	<div class="form-row" id='SortAttr' class='hiddenAttrs'>
+		<label for="node-input-Sort"><i class="fa fa-tag"></i> Sort</label>
+		<input type="text" id="node-input-Sort" placeholder="Sort"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='SinksAttr' class='hiddenAttrs'>
+		<label for="node-input-Sinks"><i class="fa fa-tag"></i> Sinks</label>
+		<input type="text" id="node-input-Sinks" placeholder="Sinks"></input>
+	</div> 
+	<div class="form-row" id='LocationAttr' class='hiddenAttrs'>
+		<label for="node-input-Location"><i class="fa fa-tag"></i> Location</label>
+		<input type="text" id="node-input-Location" placeholder="Location"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-Expression"><i class="fa fa-tag"></i> Expression</label>
+		<input type="text" id="node-input-Expression" placeholder="Expression"></input>
+	</div> 
+	<div class="form-row" id='SegmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Segment"><i class="fa fa-tag"></i> Segment</label>
+		<input type="text" id="node-input-Segment" placeholder="Segment"></input>
+	</div> 
+	<div class="form-row" id='ExcludeColumnSchemaAttr' class='hiddenAttrs'>
+		<label for="node-input-ExcludeColumnSchema"><i class="fa fa-tag"></i> ExcludeColumnSchema</label>
+		<input type="text" id="node-input-ExcludeColumnSchema" placeholder="ExcludeColumnSchema"></input>
+	</div> 
+	<div class="form-row" id='MappingAttr' class='hiddenAttrs'>
+		<label for="node-input-Mapping"><i class="fa fa-tag"></i> Mapping</label>
+		<input type="text" id="node-input-Mapping" placeholder="Mapping"></input>
+	</div> 
+	<div class="form-row" id='AdditionalPlanOptionsMapAttr' class='hiddenAttrs'>
+		<label for="node-input-AdditionalPlanOptionsMap"><i class="fa fa-tag"></i> AdditionalPlanOptionsMap</label>
+		<input type="text" id="node-input-AdditionalPlanOptionsMap" placeholder="AdditionalPlanOptionsMap"></input>
+	</div> 
+	<div class="form-row" id='SchemaVersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaVersionId"><i class="fa fa-tag"></i> SchemaVersionId</label>
+		<input type="text" id="node-input-SchemaVersionId" placeholder="SchemaVersionId"></input>
+	</div> 
+	<div class="form-row" id='SchemaVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaVersionNumber"><i class="fa fa-tag"></i> SchemaVersionNumber</label>
+		<input type="text" id="node-input-SchemaVersionNumber" placeholder="SchemaVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='FirstSchemaVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-FirstSchemaVersionNumber"><i class="fa fa-tag"></i> FirstSchemaVersionNumber</label>
+		<input type="text" id="node-input-FirstSchemaVersionNumber" placeholder="FirstSchemaVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='SecondSchemaVersionNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-SecondSchemaVersionNumber"><i class="fa fa-tag"></i> SecondSchemaVersionNumber</label>
+		<input type="text" id="node-input-SecondSchemaVersionNumber" placeholder="SecondSchemaVersionNumber"></input>
+	</div> 
+	<div class="form-row" id='SchemaDiffTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaDiffType"><i class="fa fa-tag"></i> SchemaDiffType</label>
+		<input type="text" id="node-input-SchemaDiffType" placeholder="SchemaDiffType"></input>
+	</div> 
+	<div class="form-row" id='DependentJobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DependentJobName"><i class="fa fa-tag"></i> DependentJobName</label>
+		<input type="text" id="node-input-DependentJobName" placeholder="DependentJobName"></input>
+	</div> 
+	<div class="form-row" id='PatternAttr' class='hiddenAttrs'>
+		<label for="node-input-Pattern"><i class="fa fa-tag"></i> Pattern</label>
+		<input type="text" id="node-input-Pattern" placeholder="Pattern"></input>
+	</div> 
+	<div class="form-row" id='DataCatalogEncryptionSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-DataCatalogEncryptionSettings"><i class="fa fa-tag"></i> DataCatalogEncryptionSettings</label>
+		<input type="text" id="node-input-DataCatalogEncryptionSettings" placeholder="DataCatalogEncryptionSettings"></input>
+	</div> 
+	<div class="form-row" id='PolicyInJsonAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyInJson"><i class="fa fa-tag"></i> PolicyInJson</label>
+		<input type="text" id="node-input-PolicyInJson" placeholder="PolicyInJson"></input>
+	</div> 
+	<div class="form-row" id='PolicyExistsConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyExistsCondition"><i class="fa fa-tag"></i> PolicyExistsCondition</label>
+		<input type="text" id="node-input-PolicyExistsCondition" placeholder="PolicyExistsCondition"></input>
+	</div> 
+	<div class="form-row" id='EnableHybridAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableHybrid"><i class="fa fa-tag"></i> EnableHybrid</label>
+		<input type="text" id="node-input-EnableHybrid" placeholder="EnableHybrid"></input>
+	</div> 
+	<div class="form-row" id='MetadataKeyValueAttr' class='hiddenAttrs'>
+		<label for="node-input-MetadataKeyValue"><i class="fa fa-tag"></i> MetadataKeyValue</label>
+		<input type="text" id="node-input-MetadataKeyValue" placeholder="MetadataKeyValue"></input>
+	</div> 
+	<div class="form-row" id='RunPropertiesAttr' class='hiddenAttrs'>
+		<label for="node-input-RunProperties"><i class="fa fa-tag"></i> RunProperties</label>
+		<input type="text" id="node-input-RunProperties" placeholder="RunProperties"></input>
+	</div> 
+	<div class="form-row" id='MetadataListAttr' class='hiddenAttrs'>
+		<label for="node-input-MetadataList"><i class="fa fa-tag"></i> MetadataList</label>
+		<input type="text" id="node-input-MetadataList" placeholder="MetadataList"></input>
+	</div> 
+	<div class="form-row" id='NodeIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeIds"><i class="fa fa-tag"></i> NodeIds</label>
+		<input type="text" id="node-input-NodeIds" placeholder="NodeIds"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='SearchTextAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchText"><i class="fa fa-tag"></i> SearchText</label>
+		<input type="text" id="node-input-SearchText" placeholder="SearchText"></input>
+	</div> 
+	<div class="form-row" id='SortCriteriaAttr' class='hiddenAttrs'>
+		<label for="node-input-SortCriteria"><i class="fa fa-tag"></i> SortCriteria</label>
+		<input type="text" id="node-input-SortCriteria" placeholder="SortCriteria"></input>
+	</div> 
+	<div class="form-row" id='CrawlerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CrawlerName"><i class="fa fa-tag"></i> CrawlerName</label>
+		<input type="text" id="node-input-CrawlerName" placeholder="CrawlerName"></input>
+	</div> 
+	<div class="form-row" id='OutputS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputS3Path"><i class="fa fa-tag"></i> OutputS3Path</label>
+		<input type="text" id="node-input-OutputS3Path" placeholder="OutputS3Path"></input>
+	</div> 
+	<div class="form-row" id='InputS3PathAttr' class='hiddenAttrs'>
+		<label for="node-input-InputS3Path"><i class="fa fa-tag"></i> InputS3Path</label>
+		<input type="text" id="node-input-InputS3Path" placeholder="InputS3Path"></input>
+	</div> 
+	<div class="form-row" id='ReplaceAllLabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplaceAllLabels"><i class="fa fa-tag"></i> ReplaceAllLabels</label>
+		<input type="text" id="node-input-ReplaceAllLabels" placeholder="ReplaceAllLabels"></input>
+	</div> 
+	<div class="form-row" id='JobRunIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobRunId"><i class="fa fa-tag"></i> JobRunId</label>
+		<input type="text" id="node-input-JobRunId" placeholder="JobRunId"></input>
+	</div> 
+	<div class="form-row" id='TagsToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsToAdd"><i class="fa fa-tag"></i> TagsToAdd</label>
+		<input type="text" id="node-input-TagsToAdd" placeholder="TagsToAdd"></input>
+	</div> 
+	<div class="form-row" id='TagsToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-TagsToRemove"><i class="fa fa-tag"></i> TagsToRemove</label>
+		<input type="text" id="node-input-TagsToRemove" placeholder="TagsToRemove"></input>
+	</div> 
+	<div class="form-row" id='ColumnStatisticsListAttr' class='hiddenAttrs'>
+		<label for="node-input-ColumnStatisticsList"><i class="fa fa-tag"></i> ColumnStatisticsList</label>
+		<input type="text" id="node-input-ColumnStatisticsList" placeholder="ColumnStatisticsList"></input>
+	</div> 
+	<div class="form-row" id='AddPublicKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-AddPublicKeys"><i class="fa fa-tag"></i> AddPublicKeys</label>
+		<input type="text" id="node-input-AddPublicKeys" placeholder="AddPublicKeys"></input>
+	</div> 
+	<div class="form-row" id='DeletePublicKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-DeletePublicKeys"><i class="fa fa-tag"></i> DeletePublicKeys</label>
+		<input type="text" id="node-input-DeletePublicKeys" placeholder="DeletePublicKeys"></input>
+	</div> 
+	<div class="form-row" id='CustomLibrariesAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomLibraries"><i class="fa fa-tag"></i> CustomLibraries</label>
+		<input type="text" id="node-input-CustomLibraries" placeholder="CustomLibraries"></input>
+	</div> 
+	<div class="form-row" id='UpdateEtlLibrariesAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateEtlLibraries"><i class="fa fa-tag"></i> UpdateEtlLibraries</label>
+		<input type="text" id="node-input-UpdateEtlLibraries" placeholder="UpdateEtlLibraries"></input>
+	</div> 
+	<div class="form-row" id='DeleteArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteArguments"><i class="fa fa-tag"></i> DeleteArguments</label>
+		<input type="text" id="node-input-DeleteArguments" placeholder="DeleteArguments"></input>
+	</div> 
+	<div class="form-row" id='AddArgumentsAttr' class='hiddenAttrs'>
+		<label for="node-input-AddArguments"><i class="fa fa-tag"></i> AddArguments</label>
+		<input type="text" id="node-input-AddArguments" placeholder="AddArguments"></input>
+	</div> 
+	<div class="form-row" id='JobUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-JobUpdate"><i class="fa fa-tag"></i> JobUpdate</label>
+		<input type="text" id="node-input-JobUpdate" placeholder="JobUpdate"></input>
+	</div> 
+	<div class="form-row" id='PartitionValueListAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionValueList"><i class="fa fa-tag"></i> PartitionValueList</label>
+		<input type="text" id="node-input-PartitionValueList" placeholder="PartitionValueList"></input>
+	</div> 
+	<div class="form-row" id='SkipArchiveAttr' class='hiddenAttrs'>
+		<label for="node-input-SkipArchive"><i class="fa fa-tag"></i> SkipArchive</label>
+		<input type="text" id="node-input-SkipArchive" placeholder="SkipArchive"></input>
+	</div> 
+	<div class="form-row" id='TriggerUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-TriggerUpdate"><i class="fa fa-tag"></i> TriggerUpdate</label>
+		<input type="text" id="node-input-TriggerUpdate" placeholder="TriggerUpdate"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchCreatePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionInputListAttr'
+					],
+				BatchDeleteConnection:[
+					'#CatalogIdAttr','#ConnectionNameListAttr'
+					],
+				BatchDeletePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionsToDeleteAttr'
+					],
+				BatchDeleteTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TablesToDeleteAttr'
+					],
+				BatchDeleteTableVersion:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#VersionIdsAttr'
+					],
+				BatchGetBlueprints:[
+					'#NamesAttr','#IncludeBlueprintAttr','#IncludeParameterSpecAttr'
+					],
+				BatchGetCrawlers:[
+					'#CrawlerNamesAttr'
+					],
+				BatchGetDevEndpoints:[
+					'#DevEndpointNamesAttr'
+					],
+				BatchGetJobs:[
+					'#JobNamesAttr'
+					],
+				BatchGetPartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionsToGetAttr'
+					],
+				BatchGetTriggers:[
+					'#TriggerNamesAttr'
+					],
+				BatchGetWorkflows:[
+					'#NamesAttr','#IncludeGraphAttr'
+					],
+				BatchStopJobRun:[
+					'#JobNameAttr','#JobRunIdsAttr'
+					],
+				BatchUpdatePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#EntriesAttr'
+					],
+				CancelMLTaskRun:[
+					'#TransformIdAttr','#TaskRunIdAttr'
+					],
+				CheckSchemaVersionValidity:[
+					'#DataFormatAttr','#SchemaDefinitionAttr'
+					],
+				CreateBlueprint:[
+					'#NameAttr','#DescriptionAttr','#BlueprintLocationAttr','#TagsAttr'
+					],
+				CreateClassifier:[
+					'#GrokClassifierAttr','#XMLClassifierAttr','#JsonClassifierAttr','#CsvClassifierAttr'
+					],
+				CreateConnection:[
+					'#CatalogIdAttr','#ConnectionInputAttr'
+					],
+				CreateCrawler:[
+					'#NameAttr','#RoleAttr','#DatabaseNameAttr','#DescriptionAttr','#TargetsAttr','#ScheduleAttr','#ClassifiersAttr','#TablePrefixAttr','#SchemaChangePolicyAttr','#RecrawlPolicyAttr','#LineageConfigurationAttr','#ConfigurationAttr','#CrawlerSecurityConfigurationAttr','#TagsAttr'
+					],
+				CreateDatabase:[
+					'#CatalogIdAttr','#DatabaseInputAttr'
+					],
+				CreateDevEndpoint:[
+					'#EndpointNameAttr','#RoleArnAttr','#SecurityGroupIdsAttr','#SubnetIdAttr','#PublicKeyAttr','#PublicKeysAttr','#NumberOfNodesAttr','#WorkerTypeAttr','#GlueVersionAttr','#NumberOfWorkersAttr','#ExtraPythonLibsS3PathAttr','#ExtraJarsS3PathAttr','#SecurityConfigurationAttr','#TagsAttr','#ArgumentsAttr'
+					],
+				CreateJob:[
+					'#NameAttr','#DescriptionAttr','#LogUriAttr','#RoleAttr','#ExecutionPropertyAttr','#CommandAttr','#DefaultArgumentsAttr','#NonOverridableArgumentsAttr','#ConnectionsAttr','#MaxRetriesAttr','#AllocatedCapacityAttr','#TimeoutAttr','#MaxCapacityAttr','#SecurityConfigurationAttr','#TagsAttr','#NotificationPropertyAttr','#GlueVersionAttr','#NumberOfWorkersAttr','#WorkerTypeAttr'
+					],
+				CreateMLTransform:[
+					'#NameAttr','#DescriptionAttr','#InputRecordTablesAttr','#ParametersAttr','#RoleAttr','#GlueVersionAttr','#MaxCapacityAttr','#WorkerTypeAttr','#NumberOfWorkersAttr','#TimeoutAttr','#MaxRetriesAttr','#TagsAttr','#TransformEncryptionAttr'
+					],
+				CreatePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionInputAttr'
+					],
+				CreatePartitionIndex:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionIndexAttr'
+					],
+				CreateRegistry:[
+					'#RegistryNameAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateSchema:[
+					'#RegistryIdAttr','#SchemaNameAttr','#DataFormatAttr','#CompatibilityAttr','#DescriptionAttr','#TagsAttr','#SchemaDefinitionAttr'
+					],
+				CreateScript:[
+					'#DagNodesAttr','#DagEdgesAttr','#LanguageAttr'
+					],
+				CreateSecurityConfiguration:[
+					'#NameAttr','#EncryptionConfigurationAttr'
+					],
+				CreateTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableInputAttr','#PartitionIndexesAttr'
+					],
+				CreateTrigger:[
+					'#NameAttr','#WorkflowNameAttr','#TypeAttr','#ScheduleAttr','#PredicateAttr','#ActionsAttr','#DescriptionAttr','#StartOnCreationAttr','#TagsAttr','#EventBatchingConditionAttr'
+					],
+				CreateUserDefinedFunction:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#FunctionInputAttr'
+					],
+				CreateWorkflow:[
+					'#NameAttr','#DescriptionAttr','#DefaultRunPropertiesAttr','#TagsAttr','#MaxConcurrentRunsAttr'
+					],
+				DeleteBlueprint:[
+					'#NameAttr'
+					],
+				DeleteClassifier:[
+					'#NameAttr'
+					],
+				DeleteColumnStatisticsForPartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValuesAttr','#ColumnNameAttr'
+					],
+				DeleteColumnStatisticsForTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#ColumnNameAttr'
+					],
+				DeleteConnection:[
+					'#CatalogIdAttr','#ConnectionNameAttr'
+					],
+				DeleteCrawler:[
+					'#NameAttr'
+					],
+				DeleteDatabase:[
+					'#CatalogIdAttr','#NameAttr'
+					],
+				DeleteDevEndpoint:[
+					'#EndpointNameAttr'
+					],
+				DeleteJob:[
+					'#JobNameAttr'
+					],
+				DeleteMLTransform:[
+					'#TransformIdAttr'
+					],
+				DeletePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValuesAttr'
+					],
+				DeletePartitionIndex:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#IndexNameAttr'
+					],
+				DeleteRegistry:[
+					'#RegistryIdAttr'
+					],
+				DeleteResourcePolicy:[
+					'#PolicyHashConditionAttr','#ResourceArnAttr'
+					],
+				DeleteSchema:[
+					'#SchemaIdAttr'
+					],
+				DeleteSchemaVersions:[
+					'#SchemaIdAttr','#VersionsAttr'
+					],
+				DeleteSecurityConfiguration:[
+					'#NameAttr'
+					],
+				DeleteTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#NameAttr'
+					],
+				DeleteTableVersion:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#VersionIdAttr'
+					],
+				DeleteTrigger:[
+					'#NameAttr'
+					],
+				DeleteUserDefinedFunction:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#FunctionNameAttr'
+					],
+				DeleteWorkflow:[
+					'#NameAttr'
+					],
+				GetBlueprint:[
+					'#NameAttr','#IncludeBlueprintAttr','#IncludeParameterSpecAttr'
+					],
+				GetBlueprintRun:[
+					'#BlueprintNameAttr','#RunIdAttr'
+					],
+				GetBlueprintRuns:[
+					'#BlueprintNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetCatalogImportStatus:[
+					'#CatalogIdAttr'
+					],
+				GetClassifier:[
+					'#NameAttr'
+					],
+				GetClassifiers:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetColumnStatisticsForPartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValuesAttr','#ColumnNamesAttr'
+					],
+				GetColumnStatisticsForTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#ColumnNamesAttr'
+					],
+				GetConnection:[
+					'#CatalogIdAttr','#NameAttr','#HidePasswordAttr'
+					],
+				GetConnections:[
+					'#CatalogIdAttr','#FilterAttr','#HidePasswordAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetCrawler:[
+					'#NameAttr'
+					],
+				GetCrawlerMetrics:[
+					'#CrawlerNameListAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetCrawlers:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetDataCatalogEncryptionSettings:[
+					'#CatalogIdAttr'
+					],
+				GetDatabase:[
+					'#CatalogIdAttr','#NameAttr'
+					],
+				GetDatabases:[
+					'#CatalogIdAttr','#NextTokenAttr','#MaxResultsAttr','#ResourceShareTypeAttr'
+					],
+				GetDataflowGraph:[
+					'#PythonScriptAttr'
+					],
+				GetDevEndpoint:[
+					'#EndpointNameAttr'
+					],
+				GetDevEndpoints:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetJob:[
+					'#JobNameAttr'
+					],
+				GetJobBookmark:[
+					'#JobNameAttr','#RunIdAttr'
+					],
+				GetJobRun:[
+					'#JobNameAttr','#RunIdAttr','#PredecessorsIncludedAttr'
+					],
+				GetJobRuns:[
+					'#JobNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetJobs:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetMLTaskRun:[
+					'#TransformIdAttr','#TaskRunIdAttr'
+					],
+				GetMLTaskRuns:[
+					'#TransformIdAttr','#NextTokenAttr','#MaxResultsAttr','#FilterAttr','#SortAttr'
+					],
+				GetMLTransform:[
+					'#TransformIdAttr'
+					],
+				GetMLTransforms:[
+					'#NextTokenAttr','#MaxResultsAttr','#FilterAttr','#SortAttr'
+					],
+				GetMapping:[
+					'#SourceAttr','#SinksAttr','#LocationAttr'
+					],
+				GetPartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValuesAttr'
+					],
+				GetPartitionIndexes:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#NextTokenAttr'
+					],
+				GetPartitions:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#ExpressionAttr','#NextTokenAttr','#SegmentAttr','#MaxResultsAttr','#ExcludeColumnSchemaAttr'
+					],
+				GetPlan:[
+					'#MappingAttr','#SourceAttr','#SinksAttr','#LocationAttr','#LanguageAttr','#AdditionalPlanOptionsMapAttr'
+					],
+				GetRegistry:[
+					'#RegistryIdAttr'
+					],
+				GetResourcePolicies:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetResourcePolicy:[
+					'#ResourceArnAttr'
+					],
+				GetSchema:[
+					'#SchemaIdAttr'
+					],
+				GetSchemaByDefinition:[
+					'#SchemaIdAttr','#SchemaDefinitionAttr'
+					],
+				GetSchemaVersion:[
+					'#SchemaIdAttr','#SchemaVersionIdAttr','#SchemaVersionNumberAttr'
+					],
+				GetSchemaVersionsDiff:[
+					'#SchemaIdAttr','#FirstSchemaVersionNumberAttr','#SecondSchemaVersionNumberAttr','#SchemaDiffTypeAttr'
+					],
+				GetSecurityConfiguration:[
+					'#NameAttr'
+					],
+				GetSecurityConfigurations:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#NameAttr'
+					],
+				GetTableVersion:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#VersionIdAttr'
+					],
+				GetTableVersions:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetTables:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#ExpressionAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetTags:[
+					'#ResourceArnAttr'
+					],
+				GetTrigger:[
+					'#NameAttr'
+					],
+				GetTriggers:[
+					'#NextTokenAttr','#DependentJobNameAttr','#MaxResultsAttr'
+					],
+				GetUserDefinedFunction:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#FunctionNameAttr'
+					],
+				GetUserDefinedFunctions:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#PatternAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				GetWorkflow:[
+					'#NameAttr','#IncludeGraphAttr'
+					],
+				GetWorkflowRun:[
+					'#NameAttr','#RunIdAttr','#IncludeGraphAttr'
+					],
+				GetWorkflowRunProperties:[
+					'#NameAttr','#RunIdAttr'
+					],
+				GetWorkflowRuns:[
+					'#NameAttr','#IncludeGraphAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ImportCatalogToGlue:[
+					'#CatalogIdAttr'
+					],
+				ListBlueprints:[
+					'#NextTokenAttr','#MaxResultsAttr','#TagsAttr'
+					],
+				ListCrawlers:[
+					'#MaxResultsAttr','#NextTokenAttr','#TagsAttr'
+					],
+				ListDevEndpoints:[
+					'#NextTokenAttr','#MaxResultsAttr','#TagsAttr'
+					],
+				ListJobs:[
+					'#NextTokenAttr','#MaxResultsAttr','#TagsAttr'
+					],
+				ListMLTransforms:[
+					'#NextTokenAttr','#MaxResultsAttr','#FilterAttr','#SortAttr','#TagsAttr'
+					],
+				ListRegistries:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSchemaVersions:[
+					'#SchemaIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListSchemas:[
+					'#RegistryIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTriggers:[
+					'#NextTokenAttr','#DependentJobNameAttr','#MaxResultsAttr','#TagsAttr'
+					],
+				ListWorkflows:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				PutDataCatalogEncryptionSettings:[
+					'#CatalogIdAttr','#DataCatalogEncryptionSettingsAttr'
+					],
+				PutResourcePolicy:[
+					'#PolicyInJsonAttr','#ResourceArnAttr','#PolicyHashConditionAttr','#PolicyExistsConditionAttr','#EnableHybridAttr'
+					],
+				PutSchemaVersionMetadata:[
+					'#SchemaIdAttr','#SchemaVersionNumberAttr','#SchemaVersionIdAttr','#MetadataKeyValueAttr'
+					],
+				PutWorkflowRunProperties:[
+					'#NameAttr','#RunIdAttr','#RunPropertiesAttr'
+					],
+				QuerySchemaVersionMetadata:[
+					'#SchemaIdAttr','#SchemaVersionNumberAttr','#SchemaVersionIdAttr','#MetadataListAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				RegisterSchemaVersion:[
+					'#SchemaIdAttr','#SchemaDefinitionAttr'
+					],
+				RemoveSchemaVersionMetadata:[
+					'#SchemaIdAttr','#SchemaVersionNumberAttr','#SchemaVersionIdAttr','#MetadataKeyValueAttr'
+					],
+				ResetJobBookmark:[
+					'#JobNameAttr','#RunIdAttr'
+					],
+				ResumeWorkflowRun:[
+					'#NameAttr','#RunIdAttr','#NodeIdsAttr'
+					],
+				SearchTables:[
+					'#CatalogIdAttr','#NextTokenAttr','#FiltersAttr','#SearchTextAttr','#SortCriteriaAttr','#MaxResultsAttr','#ResourceShareTypeAttr'
+					],
+				StartBlueprintRun:[
+					'#BlueprintNameAttr','#ParametersAttr','#RoleArnAttr'
+					],
+				StartCrawler:[
+					'#NameAttr'
+					],
+				StartCrawlerSchedule:[
+					'#CrawlerNameAttr'
+					],
+				StartExportLabelsTaskRun:[
+					'#TransformIdAttr','#OutputS3PathAttr'
+					],
+				StartImportLabelsTaskRun:[
+					'#TransformIdAttr','#InputS3PathAttr','#ReplaceAllLabelsAttr'
+					],
+				StartJobRun:[
+					'#JobNameAttr','#JobRunIdAttr','#ArgumentsAttr','#AllocatedCapacityAttr','#TimeoutAttr','#MaxCapacityAttr','#SecurityConfigurationAttr','#NotificationPropertyAttr','#WorkerTypeAttr','#NumberOfWorkersAttr'
+					],
+				StartMLEvaluationTaskRun:[
+					'#TransformIdAttr'
+					],
+				StartMLLabelingSetGenerationTaskRun:[
+					'#TransformIdAttr','#OutputS3PathAttr'
+					],
+				StartTrigger:[
+					'#NameAttr'
+					],
+				StartWorkflowRun:[
+					'#NameAttr'
+					],
+				StopCrawler:[
+					'#NameAttr'
+					],
+				StopCrawlerSchedule:[
+					'#CrawlerNameAttr'
+					],
+				StopTrigger:[
+					'#NameAttr'
+					],
+				StopWorkflowRun:[
+					'#NameAttr','#RunIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsToAddAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagsToRemoveAttr'
+					],
+				UpdateBlueprint:[
+					'#NameAttr','#DescriptionAttr','#BlueprintLocationAttr'
+					],
+				UpdateClassifier:[
+					'#GrokClassifierAttr','#XMLClassifierAttr','#JsonClassifierAttr','#CsvClassifierAttr'
+					],
+				UpdateColumnStatisticsForPartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValuesAttr','#ColumnStatisticsListAttr'
+					],
+				UpdateColumnStatisticsForTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#ColumnStatisticsListAttr'
+					],
+				UpdateConnection:[
+					'#CatalogIdAttr','#NameAttr','#ConnectionInputAttr'
+					],
+				UpdateCrawler:[
+					'#NameAttr','#RoleAttr','#DatabaseNameAttr','#DescriptionAttr','#TargetsAttr','#ScheduleAttr','#ClassifiersAttr','#TablePrefixAttr','#SchemaChangePolicyAttr','#RecrawlPolicyAttr','#LineageConfigurationAttr','#ConfigurationAttr','#CrawlerSecurityConfigurationAttr'
+					],
+				UpdateCrawlerSchedule:[
+					'#CrawlerNameAttr','#ScheduleAttr'
+					],
+				UpdateDatabase:[
+					'#CatalogIdAttr','#NameAttr','#DatabaseInputAttr'
+					],
+				UpdateDevEndpoint:[
+					'#EndpointNameAttr','#PublicKeyAttr','#AddPublicKeysAttr','#DeletePublicKeysAttr','#CustomLibrariesAttr','#UpdateEtlLibrariesAttr','#DeleteArgumentsAttr','#AddArgumentsAttr'
+					],
+				UpdateJob:[
+					'#JobNameAttr','#JobUpdateAttr'
+					],
+				UpdateMLTransform:[
+					'#TransformIdAttr','#NameAttr','#DescriptionAttr','#ParametersAttr','#RoleAttr','#GlueVersionAttr','#MaxCapacityAttr','#WorkerTypeAttr','#NumberOfWorkersAttr','#TimeoutAttr','#MaxRetriesAttr'
+					],
+				UpdatePartition:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableNameAttr','#PartitionValueListAttr','#PartitionInputAttr'
+					],
+				UpdateRegistry:[
+					'#RegistryIdAttr','#DescriptionAttr'
+					],
+				UpdateSchema:[
+					'#SchemaIdAttr','#SchemaVersionNumberAttr','#CompatibilityAttr','#DescriptionAttr'
+					],
+				UpdateTable:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#TableInputAttr','#SkipArchiveAttr'
+					],
+				UpdateTrigger:[
+					'#NameAttr','#TriggerUpdateAttr'
+					],
+				UpdateUserDefinedFunction:[
+					'#CatalogIdAttr','#DatabaseNameAttr','#FunctionNameAttr','#FunctionInputAttr'
+					],
+				UpdateWorkflow:[
+					'#NameAttr','#DescriptionAttr','#DefaultRunPropertiesAttr','#MaxConcurrentRunsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Glue">
+<p>
+AWS Glue
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Glue.html">Glue</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Glue',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchCreatePartition' },
+			
+				CatalogId: { value: ""} ,
+				DatabaseName: { value: ""} ,
+				TableName: { value: ""} ,
+				PartitionInputList: { value: ""} ,
+				ConnectionNameList: { value: ""} ,
+				PartitionsToDelete: { value: ""} ,
+				TablesToDelete: { value: ""} ,
+				VersionIds: { value: ""} ,
+				Names: { value: ""} ,
+				IncludeBlueprint: { value: ""} ,
+				IncludeParameterSpec: { value: ""} ,
+				CrawlerNames: { value: ""} ,
+				DevEndpointNames: { value: ""} ,
+				JobNames: { value: ""} ,
+				PartitionsToGet: { value: ""} ,
+				TriggerNames: { value: ""} ,
+				IncludeGraph: { value: ""} ,
+				JobName: { value: ""} ,
+				JobRunIds: { value: ""} ,
+				Entries: { value: ""} ,
+				TransformId: { value: ""} ,
+				TaskRunId: { value: ""} ,
+				DataFormat: { value: ""} ,
+				SchemaDefinition: { value: ""} ,
+				Name: { value: ""} ,
+				Description: { value: ""} ,
+				BlueprintLocation: { value: ""} ,
+				Tags: { value: ""} ,
+				GrokClassifier: { value: ""} ,
+				XMLClassifier: { value: ""} ,
+				JsonClassifier: { value: ""} ,
+				CsvClassifier: { value: ""} ,
+				ConnectionInput: { value: ""} ,
+				Role: { value: ""} ,
+				Targets: { value: ""} ,
+				Schedule: { value: ""} ,
+				Classifiers: { value: ""} ,
+				TablePrefix: { value: ""} ,
+				SchemaChangePolicy: { value: ""} ,
+				RecrawlPolicy: { value: ""} ,
+				LineageConfiguration: { value: ""} ,
+				Configuration: { value: ""} ,
+				CrawlerSecurityConfiguration: { value: ""} ,
+				DatabaseInput: { value: ""} ,
+				EndpointName: { value: ""} ,
+				RoleArn: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				SubnetId: { value: ""} ,
+				PublicKey: { value: ""} ,
+				PublicKeys: { value: ""} ,
+				NumberOfNodes: { value: ""} ,
+				WorkerType: { value: ""} ,
+				GlueVersion: { value: ""} ,
+				NumberOfWorkers: { value: ""} ,
+				ExtraPythonLibsS3Path: { value: ""} ,
+				ExtraJarsS3Path: { value: ""} ,
+				SecurityConfiguration: { value: ""} ,
+				Arguments: { value: ""} ,
+				LogUri: { value: ""} ,
+				ExecutionProperty: { value: ""} ,
+				Command: { value: ""} ,
+				DefaultArguments: { value: ""} ,
+				NonOverridableArguments: { value: ""} ,
+				Connections: { value: ""} ,
+				MaxRetries: { value: ""} ,
+				AllocatedCapacity: { value: ""} ,
+				Timeout: { value: ""} ,
+				MaxCapacity: { value: ""} ,
+				NotificationProperty: { value: ""} ,
+				InputRecordTables: { value: ""} ,
+				Parameters: { value: ""} ,
+				TransformEncryption: { value: ""} ,
+				PartitionInput: { value: ""} ,
+				PartitionIndex: { value: ""} ,
+				RegistryName: { value: ""} ,
+				RegistryId: { value: ""} ,
+				SchemaName: { value: ""} ,
+				Compatibility: { value: ""} ,
+				DagNodes: { value: ""} ,
+				DagEdges: { value: ""} ,
+				Language: { value: ""} ,
+				EncryptionConfiguration: { value: ""} ,
+				TableInput: { value: ""} ,
+				PartitionIndexes: { value: ""} ,
+				WorkflowName: { value: ""} ,
+				Type: { value: ""} ,
+				Predicate: { value: ""} ,
+				Actions: { value: ""} ,
+				StartOnCreation: { value: ""} ,
+				EventBatchingCondition: { value: ""} ,
+				FunctionInput: { value: ""} ,
+				DefaultRunProperties: { value: ""} ,
+				MaxConcurrentRuns: { value: ""} ,
+				PartitionValues: { value: ""} ,
+				ColumnName: { value: ""} ,
+				ConnectionName: { value: ""} ,
+				IndexName: { value: ""} ,
+				PolicyHashCondition: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				SchemaId: { value: ""} ,
+				Versions: { value: ""} ,
+				VersionId: { value: ""} ,
+				FunctionName: { value: ""} ,
+				BlueprintName: { value: ""} ,
+				RunId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ColumnNames: { value: ""} ,
+				HidePassword: { value: ""} ,
+				Filter: { value: ""} ,
+				CrawlerNameList: { value: ""} ,
+				ResourceShareType: { value: ""} ,
+				PythonScript: { value: ""} ,
+				PredecessorsIncluded: { value: ""} ,
+				Sort: { value: ""} ,
+				Source: { value: ""} ,
+				Sinks: { value: ""} ,
+				Location: { value: ""} ,
+				Expression: { value: ""} ,
+				Segment: { value: ""} ,
+				ExcludeColumnSchema: { value: ""} ,
+				Mapping: { value: ""} ,
+				AdditionalPlanOptionsMap: { value: ""} ,
+				SchemaVersionId: { value: ""} ,
+				SchemaVersionNumber: { value: ""} ,
+				FirstSchemaVersionNumber: { value: ""} ,
+				SecondSchemaVersionNumber: { value: ""} ,
+				SchemaDiffType: { value: ""} ,
+				DependentJobName: { value: ""} ,
+				Pattern: { value: ""} ,
+				DataCatalogEncryptionSettings: { value: ""} ,
+				PolicyInJson: { value: ""} ,
+				PolicyExistsCondition: { value: ""} ,
+				EnableHybrid: { value: ""} ,
+				MetadataKeyValue: { value: ""} ,
+				RunProperties: { value: ""} ,
+				MetadataList: { value: ""} ,
+				NodeIds: { value: ""} ,
+				Filters: { value: ""} ,
+				SearchText: { value: ""} ,
+				SortCriteria: { value: ""} ,
+				CrawlerName: { value: ""} ,
+				OutputS3Path: { value: ""} ,
+				InputS3Path: { value: ""} ,
+				ReplaceAllLabels: { value: ""} ,
+				JobRunId: { value: ""} ,
+				TagsToAdd: { value: ""} ,
+				TagsToRemove: { value: ""} ,
+				ColumnStatisticsList: { value: ""} ,
+				AddPublicKeys: { value: ""} ,
+				DeletePublicKeys: { value: ""} ,
+				CustomLibraries: { value: ""} ,
+				UpdateEtlLibraries: { value: ""} ,
+				DeleteArguments: { value: ""} ,
+				AddArguments: { value: ""} ,
+				JobUpdate: { value: ""} ,
+				PartitionValueList: { value: ""} ,
+				SkipArchive: { value: ""} ,
+				TriggerUpdate: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Glue " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-CatalogId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatabaseName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TableName").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+$("#node-input-Names").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeBlueprint").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-IncludeParameterSpec").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CrawlerNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DevEndpointNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PartitionsToGet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TriggerNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeGraph").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-JobName").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-TransformId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskRunId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BlueprintLocation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-ConnectionInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Targets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Schedule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Classifiers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TablePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaChangePolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RecrawlPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LineageConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CrawlerSecurityConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DatabaseInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PublicKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberOfNodes").typedInput({ default: "num", types: ["num"]});
+$("#node-input-WorkerType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlueVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberOfWorkers").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExtraPythonLibsS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExtraJarsS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Arguments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LogUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExecutionProperty").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Command").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultArguments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NonOverridableArguments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Connections").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxRetries").typedInput({ default: "num", types: ["num"]});
+$("#node-input-AllocatedCapacity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Timeout").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-NotificationProperty").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputRecordTables").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TransformEncryption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PartitionInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PartitionIndex").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistryId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Compatibility").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DagNodes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DagEdges").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Language").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TableInput").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-WorkflowName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Predicate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Actions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartOnCreation").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-EventBatchingCondition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionInput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultRunProperties").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxConcurrentRuns").typedInput({ default: "num", types: ["num"]});
+$("#node-input-PartitionValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ColumnName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConnectionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IndexName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyHashCondition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Versions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FunctionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BlueprintName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RunId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ColumnNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HidePassword").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CrawlerNameList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceShareType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PythonScript").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PredecessorsIncluded").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Sort").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sinks").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Expression").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ExcludeColumnSchema").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Mapping").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SchemaVersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaVersionNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FirstSchemaVersionNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecondSchemaVersionNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaDiffType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DependentJobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Pattern").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataCatalogEncryptionSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyInJson").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyExistsCondition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableHybrid").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MetadataKeyValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RunProperties").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NodeIds").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SearchText").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CrawlerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputS3Path").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplaceAllLabels").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-JobRunId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagsToAdd").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ColumnStatisticsList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AddPublicKeys").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeletePublicKeys").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-UpdateEtlLibraries").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DeleteArguments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AddArguments").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PartitionValueList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SkipArchive").typedInput({ default: "bool", types: ["bool"]});
+
+		}
+	});
+</script>
+

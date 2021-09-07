@@ -1,0 +1,946 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeCommit">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateApprovalRuleTemplateWithRepository">AssociateApprovalRuleTemplateWithRepository</option>
+		
+			<option value="BatchAssociateApprovalRuleTemplateWithRepositories">BatchAssociateApprovalRuleTemplateWithRepositories</option>
+		
+			<option value="BatchDescribeMergeConflicts">BatchDescribeMergeConflicts</option>
+		
+			<option value="BatchDisassociateApprovalRuleTemplateFromRepositories">BatchDisassociateApprovalRuleTemplateFromRepositories</option>
+		
+			<option value="BatchGetCommits">BatchGetCommits</option>
+		
+			<option value="BatchGetRepositories">BatchGetRepositories</option>
+		
+			<option value="CreateApprovalRuleTemplate">CreateApprovalRuleTemplate</option>
+		
+			<option value="CreateBranch">CreateBranch</option>
+		
+			<option value="CreateCommit">CreateCommit</option>
+		
+			<option value="CreatePullRequest">CreatePullRequest</option>
+		
+			<option value="CreatePullRequestApprovalRule">CreatePullRequestApprovalRule</option>
+		
+			<option value="CreateRepository">CreateRepository</option>
+		
+			<option value="CreateUnreferencedMergeCommit">CreateUnreferencedMergeCommit</option>
+		
+			<option value="DeleteApprovalRuleTemplate">DeleteApprovalRuleTemplate</option>
+		
+			<option value="DeleteBranch">DeleteBranch</option>
+		
+			<option value="DeleteCommentContent">DeleteCommentContent</option>
+		
+			<option value="DeleteFile">DeleteFile</option>
+		
+			<option value="DeletePullRequestApprovalRule">DeletePullRequestApprovalRule</option>
+		
+			<option value="DeleteRepository">DeleteRepository</option>
+		
+			<option value="DescribeMergeConflicts">DescribeMergeConflicts</option>
+		
+			<option value="DescribePullRequestEvents">DescribePullRequestEvents</option>
+		
+			<option value="DisassociateApprovalRuleTemplateFromRepository">DisassociateApprovalRuleTemplateFromRepository</option>
+		
+			<option value="EvaluatePullRequestApprovalRules">EvaluatePullRequestApprovalRules</option>
+		
+			<option value="GetApprovalRuleTemplate">GetApprovalRuleTemplate</option>
+		
+			<option value="GetBlob">GetBlob</option>
+		
+			<option value="GetBranch">GetBranch</option>
+		
+			<option value="GetComment">GetComment</option>
+		
+			<option value="GetCommentReactions">GetCommentReactions</option>
+		
+			<option value="GetCommentsForComparedCommit">GetCommentsForComparedCommit</option>
+		
+			<option value="GetCommentsForPullRequest">GetCommentsForPullRequest</option>
+		
+			<option value="GetCommit">GetCommit</option>
+		
+			<option value="GetDifferences">GetDifferences</option>
+		
+			<option value="GetFile">GetFile</option>
+		
+			<option value="GetFolder">GetFolder</option>
+		
+			<option value="GetMergeCommit">GetMergeCommit</option>
+		
+			<option value="GetMergeConflicts">GetMergeConflicts</option>
+		
+			<option value="GetMergeOptions">GetMergeOptions</option>
+		
+			<option value="GetPullRequest">GetPullRequest</option>
+		
+			<option value="GetPullRequestApprovalStates">GetPullRequestApprovalStates</option>
+		
+			<option value="GetPullRequestOverrideState">GetPullRequestOverrideState</option>
+		
+			<option value="GetRepository">GetRepository</option>
+		
+			<option value="GetRepositoryTriggers">GetRepositoryTriggers</option>
+		
+			<option value="ListApprovalRuleTemplates">ListApprovalRuleTemplates</option>
+		
+			<option value="ListAssociatedApprovalRuleTemplatesForRepository">ListAssociatedApprovalRuleTemplatesForRepository</option>
+		
+			<option value="ListBranches">ListBranches</option>
+		
+			<option value="ListPullRequests">ListPullRequests</option>
+		
+			<option value="ListRepositories">ListRepositories</option>
+		
+			<option value="ListRepositoriesForApprovalRuleTemplate">ListRepositoriesForApprovalRuleTemplate</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="MergeBranchesByFastForward">MergeBranchesByFastForward</option>
+		
+			<option value="MergeBranchesBySquash">MergeBranchesBySquash</option>
+		
+			<option value="MergeBranchesByThreeWay">MergeBranchesByThreeWay</option>
+		
+			<option value="MergePullRequestByFastForward">MergePullRequestByFastForward</option>
+		
+			<option value="MergePullRequestBySquash">MergePullRequestBySquash</option>
+		
+			<option value="MergePullRequestByThreeWay">MergePullRequestByThreeWay</option>
+		
+			<option value="OverridePullRequestApprovalRules">OverridePullRequestApprovalRules</option>
+		
+			<option value="PostCommentForComparedCommit">PostCommentForComparedCommit</option>
+		
+			<option value="PostCommentForPullRequest">PostCommentForPullRequest</option>
+		
+			<option value="PostCommentReply">PostCommentReply</option>
+		
+			<option value="PutCommentReaction">PutCommentReaction</option>
+		
+			<option value="PutFile">PutFile</option>
+		
+			<option value="PutRepositoryTriggers">PutRepositoryTriggers</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TestRepositoryTriggers">TestRepositoryTriggers</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateApprovalRuleTemplateContent">UpdateApprovalRuleTemplateContent</option>
+		
+			<option value="UpdateApprovalRuleTemplateDescription">UpdateApprovalRuleTemplateDescription</option>
+		
+			<option value="UpdateApprovalRuleTemplateName">UpdateApprovalRuleTemplateName</option>
+		
+			<option value="UpdateComment">UpdateComment</option>
+		
+			<option value="UpdateDefaultBranch">UpdateDefaultBranch</option>
+		
+			<option value="UpdatePullRequestApprovalRuleContent">UpdatePullRequestApprovalRuleContent</option>
+		
+			<option value="UpdatePullRequestApprovalState">UpdatePullRequestApprovalState</option>
+		
+			<option value="UpdatePullRequestDescription">UpdatePullRequestDescription</option>
+		
+			<option value="UpdatePullRequestStatus">UpdatePullRequestStatus</option>
+		
+			<option value="UpdatePullRequestTitle">UpdatePullRequestTitle</option>
+		
+			<option value="UpdateRepositoryDescription">UpdateRepositoryDescription</option>
+		
+			<option value="UpdateRepositoryName">UpdateRepositoryName</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='approvalRuleTemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalRuleTemplateName"><i class="fa fa-tag"></i> approvalRuleTemplateName</label>
+		<input type="text" id="node-input-approvalRuleTemplateName" placeholder="approvalRuleTemplateName"></input>
+	</div> 
+	<div class="form-row" id='repositoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryName"><i class="fa fa-tag"></i> repositoryName</label>
+		<input type="text" id="node-input-repositoryName" placeholder="repositoryName"></input>
+	</div> 
+	<div class="form-row" id='repositoryNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryNames"><i class="fa fa-tag"></i> repositoryNames</label>
+		<input type="text" id="node-input-repositoryNames" placeholder="repositoryNames"></input>
+	</div> 
+	<div class="form-row" id='destinationCommitSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-destinationCommitSpecifier"><i class="fa fa-tag"></i> destinationCommitSpecifier</label>
+		<input type="text" id="node-input-destinationCommitSpecifier" placeholder="destinationCommitSpecifier"></input>
+	</div> 
+	<div class="form-row" id='sourceCommitSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceCommitSpecifier"><i class="fa fa-tag"></i> sourceCommitSpecifier</label>
+		<input type="text" id="node-input-sourceCommitSpecifier" placeholder="sourceCommitSpecifier"></input>
+	</div> 
+	<div class="form-row" id='mergeOptionAttr' class='hiddenAttrs'>
+		<label for="node-input-mergeOption"><i class="fa fa-tag"></i> mergeOption</label>
+		<input type="text" id="node-input-mergeOption" placeholder="mergeOption"></input>
+	</div> 
+	<div class="form-row" id='maxMergeHunksAttr' class='hiddenAttrs'>
+		<label for="node-input-maxMergeHunks"><i class="fa fa-tag"></i> maxMergeHunks</label>
+		<input type="text" id="node-input-maxMergeHunks" placeholder="maxMergeHunks"></input>
+	</div> 
+	<div class="form-row" id='maxConflictFilesAttr' class='hiddenAttrs'>
+		<label for="node-input-maxConflictFiles"><i class="fa fa-tag"></i> maxConflictFiles</label>
+		<input type="text" id="node-input-maxConflictFiles" placeholder="maxConflictFiles"></input>
+	</div> 
+	<div class="form-row" id='filePathsAttr' class='hiddenAttrs'>
+		<label for="node-input-filePaths"><i class="fa fa-tag"></i> filePaths</label>
+		<input type="text" id="node-input-filePaths" placeholder="filePaths"></input>
+	</div> 
+	<div class="form-row" id='conflictDetailLevelAttr' class='hiddenAttrs'>
+		<label for="node-input-conflictDetailLevel"><i class="fa fa-tag"></i> conflictDetailLevel</label>
+		<input type="text" id="node-input-conflictDetailLevel" placeholder="conflictDetailLevel"></input>
+	</div> 
+	<div class="form-row" id='conflictResolutionStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-conflictResolutionStrategy"><i class="fa fa-tag"></i> conflictResolutionStrategy</label>
+		<input type="text" id="node-input-conflictResolutionStrategy" placeholder="conflictResolutionStrategy"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='commitIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-commitIds"><i class="fa fa-tag"></i> commitIds</label>
+		<input type="text" id="node-input-commitIds" placeholder="commitIds"></input>
+	</div> 
+	<div class="form-row" id='approvalRuleTemplateContentAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalRuleTemplateContent"><i class="fa fa-tag"></i> approvalRuleTemplateContent</label>
+		<input type="text" id="node-input-approvalRuleTemplateContent" placeholder="approvalRuleTemplateContent"></input>
+	</div> 
+	<div class="form-row" id='approvalRuleTemplateDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalRuleTemplateDescription"><i class="fa fa-tag"></i> approvalRuleTemplateDescription</label>
+		<input type="text" id="node-input-approvalRuleTemplateDescription" placeholder="approvalRuleTemplateDescription"></input>
+	</div> 
+	<div class="form-row" id='branchNameAttr' class='hiddenAttrs'>
+		<label for="node-input-branchName"><i class="fa fa-tag"></i> branchName</label>
+		<input type="text" id="node-input-branchName" placeholder="branchName"></input>
+	</div> 
+	<div class="form-row" id='commitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-commitId"><i class="fa fa-tag"></i> commitId</label>
+		<input type="text" id="node-input-commitId" placeholder="commitId"></input>
+	</div> 
+	<div class="form-row" id='parentCommitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-parentCommitId"><i class="fa fa-tag"></i> parentCommitId</label>
+		<input type="text" id="node-input-parentCommitId" placeholder="parentCommitId"></input>
+	</div> 
+	<div class="form-row" id='authorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-authorName"><i class="fa fa-tag"></i> authorName</label>
+		<input type="text" id="node-input-authorName" placeholder="authorName"></input>
+	</div> 
+	<div class="form-row" id='emailAttr' class='hiddenAttrs'>
+		<label for="node-input-email"><i class="fa fa-tag"></i> email</label>
+		<input type="text" id="node-input-email" placeholder="email"></input>
+	</div> 
+	<div class="form-row" id='commitMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-commitMessage"><i class="fa fa-tag"></i> commitMessage</label>
+		<input type="text" id="node-input-commitMessage" placeholder="commitMessage"></input>
+	</div> 
+	<div class="form-row" id='keepEmptyFoldersAttr' class='hiddenAttrs'>
+		<label for="node-input-keepEmptyFolders"><i class="fa fa-tag"></i> keepEmptyFolders</label>
+		<input type="text" id="node-input-keepEmptyFolders" placeholder="keepEmptyFolders"></input>
+	</div> 
+	<div class="form-row" id='putFilesAttr' class='hiddenAttrs'>
+		<label for="node-input-putFiles"><i class="fa fa-tag"></i> putFiles</label>
+		<input type="text" id="node-input-putFiles" placeholder="putFiles"></input>
+	</div> 
+	<div class="form-row" id='deleteFilesAttr' class='hiddenAttrs'>
+		<label for="node-input-deleteFiles"><i class="fa fa-tag"></i> deleteFiles</label>
+		<input type="text" id="node-input-deleteFiles" placeholder="deleteFiles"></input>
+	</div> 
+	<div class="form-row" id='setFileModesAttr' class='hiddenAttrs'>
+		<label for="node-input-setFileModes"><i class="fa fa-tag"></i> setFileModes</label>
+		<input type="text" id="node-input-setFileModes" placeholder="setFileModes"></input>
+	</div> 
+	<div class="form-row" id='titleAttr' class='hiddenAttrs'>
+		<label for="node-input-title"><i class="fa fa-tag"></i> title</label>
+		<input type="text" id="node-input-title" placeholder="title"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='targetsAttr' class='hiddenAttrs'>
+		<label for="node-input-targets"><i class="fa fa-tag"></i> targets</label>
+		<input type="text" id="node-input-targets" placeholder="targets"></input>
+	</div> 
+	<div class="form-row" id='clientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientRequestToken"><i class="fa fa-tag"></i> clientRequestToken</label>
+		<input type="text" id="node-input-clientRequestToken" placeholder="clientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='pullRequestIdAttr' class='hiddenAttrs'>
+		<label for="node-input-pullRequestId"><i class="fa fa-tag"></i> pullRequestId</label>
+		<input type="text" id="node-input-pullRequestId" placeholder="pullRequestId"></input>
+	</div> 
+	<div class="form-row" id='approvalRuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalRuleName"><i class="fa fa-tag"></i> approvalRuleName</label>
+		<input type="text" id="node-input-approvalRuleName" placeholder="approvalRuleName"></input>
+	</div> 
+	<div class="form-row" id='approvalRuleContentAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalRuleContent"><i class="fa fa-tag"></i> approvalRuleContent</label>
+		<input type="text" id="node-input-approvalRuleContent" placeholder="approvalRuleContent"></input>
+	</div> 
+	<div class="form-row" id='repositoryDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryDescription"><i class="fa fa-tag"></i> repositoryDescription</label>
+		<input type="text" id="node-input-repositoryDescription" placeholder="repositoryDescription"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='conflictResolutionAttr' class='hiddenAttrs'>
+		<label for="node-input-conflictResolution"><i class="fa fa-tag"></i> conflictResolution</label>
+		<input type="text" id="node-input-conflictResolution" placeholder="conflictResolution"></input>
+	</div> 
+	<div class="form-row" id='commentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-commentId"><i class="fa fa-tag"></i> commentId</label>
+		<input type="text" id="node-input-commentId" placeholder="commentId"></input>
+	</div> 
+	<div class="form-row" id='filePathAttr' class='hiddenAttrs'>
+		<label for="node-input-filePath"><i class="fa fa-tag"></i> filePath</label>
+		<input type="text" id="node-input-filePath" placeholder="filePath"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='pullRequestEventTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-pullRequestEventType"><i class="fa fa-tag"></i> pullRequestEventType</label>
+		<input type="text" id="node-input-pullRequestEventType" placeholder="pullRequestEventType"></input>
+	</div> 
+	<div class="form-row" id='actorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-actorArn"><i class="fa fa-tag"></i> actorArn</label>
+		<input type="text" id="node-input-actorArn" placeholder="actorArn"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='revisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-revisionId"><i class="fa fa-tag"></i> revisionId</label>
+		<input type="text" id="node-input-revisionId" placeholder="revisionId"></input>
+	</div> 
+	<div class="form-row" id='blobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-blobId"><i class="fa fa-tag"></i> blobId</label>
+		<input type="text" id="node-input-blobId" placeholder="blobId"></input>
+	</div> 
+	<div class="form-row" id='reactionUserArnAttr' class='hiddenAttrs'>
+		<label for="node-input-reactionUserArn"><i class="fa fa-tag"></i> reactionUserArn</label>
+		<input type="text" id="node-input-reactionUserArn" placeholder="reactionUserArn"></input>
+	</div> 
+	<div class="form-row" id='beforeCommitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-beforeCommitId"><i class="fa fa-tag"></i> beforeCommitId</label>
+		<input type="text" id="node-input-beforeCommitId" placeholder="beforeCommitId"></input>
+	</div> 
+	<div class="form-row" id='afterCommitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-afterCommitId"><i class="fa fa-tag"></i> afterCommitId</label>
+		<input type="text" id="node-input-afterCommitId" placeholder="afterCommitId"></input>
+	</div> 
+	<div class="form-row" id='beforeCommitSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-beforeCommitSpecifier"><i class="fa fa-tag"></i> beforeCommitSpecifier</label>
+		<input type="text" id="node-input-beforeCommitSpecifier" placeholder="beforeCommitSpecifier"></input>
+	</div> 
+	<div class="form-row" id='afterCommitSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-afterCommitSpecifier"><i class="fa fa-tag"></i> afterCommitSpecifier</label>
+		<input type="text" id="node-input-afterCommitSpecifier" placeholder="afterCommitSpecifier"></input>
+	</div> 
+	<div class="form-row" id='beforePathAttr' class='hiddenAttrs'>
+		<label for="node-input-beforePath"><i class="fa fa-tag"></i> beforePath</label>
+		<input type="text" id="node-input-beforePath" placeholder="beforePath"></input>
+	</div> 
+	<div class="form-row" id='afterPathAttr' class='hiddenAttrs'>
+		<label for="node-input-afterPath"><i class="fa fa-tag"></i> afterPath</label>
+		<input type="text" id="node-input-afterPath" placeholder="afterPath"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='commitSpecifierAttr' class='hiddenAttrs'>
+		<label for="node-input-commitSpecifier"><i class="fa fa-tag"></i> commitSpecifier</label>
+		<input type="text" id="node-input-commitSpecifier" placeholder="commitSpecifier"></input>
+	</div> 
+	<div class="form-row" id='folderPathAttr' class='hiddenAttrs'>
+		<label for="node-input-folderPath"><i class="fa fa-tag"></i> folderPath</label>
+		<input type="text" id="node-input-folderPath" placeholder="folderPath"></input>
+	</div> 
+	<div class="form-row" id='authorArnAttr' class='hiddenAttrs'>
+		<label for="node-input-authorArn"><i class="fa fa-tag"></i> authorArn</label>
+		<input type="text" id="node-input-authorArn" placeholder="authorArn"></input>
+	</div> 
+	<div class="form-row" id='pullRequestStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-pullRequestStatus"><i class="fa fa-tag"></i> pullRequestStatus</label>
+		<input type="text" id="node-input-pullRequestStatus" placeholder="pullRequestStatus"></input>
+	</div> 
+	<div class="form-row" id='sortByAttr' class='hiddenAttrs'>
+		<label for="node-input-sortBy"><i class="fa fa-tag"></i> sortBy</label>
+		<input type="text" id="node-input-sortBy" placeholder="sortBy"></input>
+	</div> 
+	<div class="form-row" id='orderAttr' class='hiddenAttrs'>
+		<label for="node-input-order"><i class="fa fa-tag"></i> order</label>
+		<input type="text" id="node-input-order" placeholder="order"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='targetBranchAttr' class='hiddenAttrs'>
+		<label for="node-input-targetBranch"><i class="fa fa-tag"></i> targetBranch</label>
+		<input type="text" id="node-input-targetBranch" placeholder="targetBranch"></input>
+	</div> 
+	<div class="form-row" id='sourceCommitIdAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceCommitId"><i class="fa fa-tag"></i> sourceCommitId</label>
+		<input type="text" id="node-input-sourceCommitId" placeholder="sourceCommitId"></input>
+	</div> 
+	<div class="form-row" id='overrideStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-overrideStatus"><i class="fa fa-tag"></i> overrideStatus</label>
+		<input type="text" id="node-input-overrideStatus" placeholder="overrideStatus"></input>
+	</div> 
+	<div class="form-row" id='locationAttr' class='hiddenAttrs'>
+		<label for="node-input-location"><i class="fa fa-tag"></i> location</label>
+		<input type="text" id="node-input-location" placeholder="location"></input>
+	</div> 
+	<div class="form-row" id='contentAttr' class='hiddenAttrs'>
+		<label for="node-input-content"><i class="fa fa-tag"></i> content</label>
+		<input type="text" id="node-input-content" placeholder="content"></input>
+	</div> 
+	<div class="form-row" id='inReplyToAttr' class='hiddenAttrs'>
+		<label for="node-input-inReplyTo"><i class="fa fa-tag"></i> inReplyTo</label>
+		<input type="text" id="node-input-inReplyTo" placeholder="inReplyTo"></input>
+	</div> 
+	<div class="form-row" id='reactionValueAttr' class='hiddenAttrs'>
+		<label for="node-input-reactionValue"><i class="fa fa-tag"></i> reactionValue</label>
+		<input type="text" id="node-input-reactionValue" placeholder="reactionValue"></input>
+	</div> 
+	<div class="form-row" id='fileContentAttr' class='hiddenAttrs'>
+		<label for="node-input-fileContent"><i class="fa fa-tag"></i> fileContent</label>
+		<input type="text" id="node-input-fileContent" placeholder="fileContent"></input>
+	</div> 
+	<div class="form-row" id='fileModeAttr' class='hiddenAttrs'>
+		<label for="node-input-fileMode"><i class="fa fa-tag"></i> fileMode</label>
+		<input type="text" id="node-input-fileMode" placeholder="fileMode"></input>
+	</div> 
+	<div class="form-row" id='triggersAttr' class='hiddenAttrs'>
+		<label for="node-input-triggers"><i class="fa fa-tag"></i> triggers</label>
+		<input type="text" id="node-input-triggers" placeholder="triggers"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='newRuleContentAttr' class='hiddenAttrs'>
+		<label for="node-input-newRuleContent"><i class="fa fa-tag"></i> newRuleContent</label>
+		<input type="text" id="node-input-newRuleContent" placeholder="newRuleContent"></input>
+	</div> 
+	<div class="form-row" id='existingRuleContentSha256Attr' class='hiddenAttrs'>
+		<label for="node-input-existingRuleContentSha256"><i class="fa fa-tag"></i> existingRuleContentSha256</label>
+		<input type="text" id="node-input-existingRuleContentSha256" placeholder="existingRuleContentSha256"></input>
+	</div> 
+	<div class="form-row" id='oldApprovalRuleTemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-oldApprovalRuleTemplateName"><i class="fa fa-tag"></i> oldApprovalRuleTemplateName</label>
+		<input type="text" id="node-input-oldApprovalRuleTemplateName" placeholder="oldApprovalRuleTemplateName"></input>
+	</div> 
+	<div class="form-row" id='newApprovalRuleTemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newApprovalRuleTemplateName"><i class="fa fa-tag"></i> newApprovalRuleTemplateName</label>
+		<input type="text" id="node-input-newApprovalRuleTemplateName" placeholder="newApprovalRuleTemplateName"></input>
+	</div> 
+	<div class="form-row" id='defaultBranchNameAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultBranchName"><i class="fa fa-tag"></i> defaultBranchName</label>
+		<input type="text" id="node-input-defaultBranchName" placeholder="defaultBranchName"></input>
+	</div> 
+	<div class="form-row" id='approvalStateAttr' class='hiddenAttrs'>
+		<label for="node-input-approvalState"><i class="fa fa-tag"></i> approvalState</label>
+		<input type="text" id="node-input-approvalState" placeholder="approvalState"></input>
+	</div> 
+	<div class="form-row" id='oldNameAttr' class='hiddenAttrs'>
+		<label for="node-input-oldName"><i class="fa fa-tag"></i> oldName</label>
+		<input type="text" id="node-input-oldName" placeholder="oldName"></input>
+	</div> 
+	<div class="form-row" id='newNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newName"><i class="fa fa-tag"></i> newName</label>
+		<input type="text" id="node-input-newName" placeholder="newName"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateApprovalRuleTemplateWithRepository:[
+					'#approvalRuleTemplateNameAttr','#repositoryNameAttr'
+					],
+				BatchAssociateApprovalRuleTemplateWithRepositories:[
+					'#approvalRuleTemplateNameAttr','#repositoryNamesAttr'
+					],
+				BatchDescribeMergeConflicts:[
+					'#repositoryNameAttr','#destinationCommitSpecifierAttr','#sourceCommitSpecifierAttr','#mergeOptionAttr','#maxMergeHunksAttr','#maxConflictFilesAttr','#filePathsAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#nextTokenAttr'
+					],
+				BatchDisassociateApprovalRuleTemplateFromRepositories:[
+					'#approvalRuleTemplateNameAttr','#repositoryNamesAttr'
+					],
+				BatchGetCommits:[
+					'#commitIdsAttr','#repositoryNameAttr'
+					],
+				BatchGetRepositories:[
+					'#repositoryNamesAttr'
+					],
+				CreateApprovalRuleTemplate:[
+					'#approvalRuleTemplateNameAttr','#approvalRuleTemplateContentAttr','#approvalRuleTemplateDescriptionAttr'
+					],
+				CreateBranch:[
+					'#repositoryNameAttr','#branchNameAttr','#commitIdAttr'
+					],
+				CreateCommit:[
+					'#repositoryNameAttr','#branchNameAttr','#parentCommitIdAttr','#authorNameAttr','#emailAttr','#commitMessageAttr','#keepEmptyFoldersAttr','#putFilesAttr','#deleteFilesAttr','#setFileModesAttr'
+					],
+				CreatePullRequest:[
+					'#titleAttr','#descriptionAttr','#targetsAttr','#clientRequestTokenAttr'
+					],
+				CreatePullRequestApprovalRule:[
+					'#pullRequestIdAttr','#approvalRuleNameAttr','#approvalRuleContentAttr'
+					],
+				CreateRepository:[
+					'#repositoryNameAttr','#repositoryDescriptionAttr','#tagsAttr'
+					],
+				CreateUnreferencedMergeCommit:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#mergeOptionAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#authorNameAttr','#emailAttr','#commitMessageAttr','#keepEmptyFoldersAttr','#conflictResolutionAttr'
+					],
+				DeleteApprovalRuleTemplate:[
+					'#approvalRuleTemplateNameAttr'
+					],
+				DeleteBranch:[
+					'#repositoryNameAttr','#branchNameAttr'
+					],
+				DeleteCommentContent:[
+					'#commentIdAttr'
+					],
+				DeleteFile:[
+					'#repositoryNameAttr','#branchNameAttr','#filePathAttr','#parentCommitIdAttr','#keepEmptyFoldersAttr','#commitMessageAttr','#nameAttr','#emailAttr'
+					],
+				DeletePullRequestApprovalRule:[
+					'#pullRequestIdAttr','#approvalRuleNameAttr'
+					],
+				DeleteRepository:[
+					'#repositoryNameAttr'
+					],
+				DescribeMergeConflicts:[
+					'#repositoryNameAttr','#destinationCommitSpecifierAttr','#sourceCommitSpecifierAttr','#mergeOptionAttr','#maxMergeHunksAttr','#filePathAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#nextTokenAttr'
+					],
+				DescribePullRequestEvents:[
+					'#pullRequestIdAttr','#pullRequestEventTypeAttr','#actorArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				DisassociateApprovalRuleTemplateFromRepository:[
+					'#approvalRuleTemplateNameAttr','#repositoryNameAttr'
+					],
+				EvaluatePullRequestApprovalRules:[
+					'#pullRequestIdAttr','#revisionIdAttr'
+					],
+				GetApprovalRuleTemplate:[
+					'#approvalRuleTemplateNameAttr'
+					],
+				GetBlob:[
+					'#repositoryNameAttr','#blobIdAttr'
+					],
+				GetBranch:[
+					'#repositoryNameAttr','#branchNameAttr'
+					],
+				GetComment:[
+					'#commentIdAttr'
+					],
+				GetCommentReactions:[
+					'#commentIdAttr','#reactionUserArnAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetCommentsForComparedCommit:[
+					'#repositoryNameAttr','#beforeCommitIdAttr','#afterCommitIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetCommentsForPullRequest:[
+					'#pullRequestIdAttr','#repositoryNameAttr','#beforeCommitIdAttr','#afterCommitIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetCommit:[
+					'#repositoryNameAttr','#commitIdAttr'
+					],
+				GetDifferences:[
+					'#repositoryNameAttr','#beforeCommitSpecifierAttr','#afterCommitSpecifierAttr','#beforePathAttr','#afterPathAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				GetFile:[
+					'#repositoryNameAttr','#commitSpecifierAttr','#filePathAttr'
+					],
+				GetFolder:[
+					'#repositoryNameAttr','#commitSpecifierAttr','#folderPathAttr'
+					],
+				GetMergeCommit:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr'
+					],
+				GetMergeConflicts:[
+					'#repositoryNameAttr','#destinationCommitSpecifierAttr','#sourceCommitSpecifierAttr','#mergeOptionAttr','#conflictDetailLevelAttr','#maxConflictFilesAttr','#conflictResolutionStrategyAttr','#nextTokenAttr'
+					],
+				GetMergeOptions:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr'
+					],
+				GetPullRequest:[
+					'#pullRequestIdAttr'
+					],
+				GetPullRequestApprovalStates:[
+					'#pullRequestIdAttr','#revisionIdAttr'
+					],
+				GetPullRequestOverrideState:[
+					'#pullRequestIdAttr','#revisionIdAttr'
+					],
+				GetRepository:[
+					'#repositoryNameAttr'
+					],
+				GetRepositoryTriggers:[
+					'#repositoryNameAttr'
+					],
+				ListApprovalRuleTemplates:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAssociatedApprovalRuleTemplatesForRepository:[
+					'#repositoryNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListBranches:[
+					'#repositoryNameAttr','#nextTokenAttr'
+					],
+				ListPullRequests:[
+					'#repositoryNameAttr','#authorArnAttr','#pullRequestStatusAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListRepositories:[
+					'#nextTokenAttr','#sortByAttr','#orderAttr'
+					],
+				ListRepositoriesForApprovalRuleTemplate:[
+					'#approvalRuleTemplateNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr','#nextTokenAttr'
+					],
+				MergeBranchesByFastForward:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#targetBranchAttr'
+					],
+				MergeBranchesBySquash:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#targetBranchAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#authorNameAttr','#emailAttr','#commitMessageAttr','#keepEmptyFoldersAttr','#conflictResolutionAttr'
+					],
+				MergeBranchesByThreeWay:[
+					'#repositoryNameAttr','#sourceCommitSpecifierAttr','#destinationCommitSpecifierAttr','#targetBranchAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#authorNameAttr','#emailAttr','#commitMessageAttr','#keepEmptyFoldersAttr','#conflictResolutionAttr'
+					],
+				MergePullRequestByFastForward:[
+					'#pullRequestIdAttr','#repositoryNameAttr','#sourceCommitIdAttr'
+					],
+				MergePullRequestBySquash:[
+					'#pullRequestIdAttr','#repositoryNameAttr','#sourceCommitIdAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#commitMessageAttr','#authorNameAttr','#emailAttr','#keepEmptyFoldersAttr','#conflictResolutionAttr'
+					],
+				MergePullRequestByThreeWay:[
+					'#pullRequestIdAttr','#repositoryNameAttr','#sourceCommitIdAttr','#conflictDetailLevelAttr','#conflictResolutionStrategyAttr','#commitMessageAttr','#authorNameAttr','#emailAttr','#keepEmptyFoldersAttr','#conflictResolutionAttr'
+					],
+				OverridePullRequestApprovalRules:[
+					'#pullRequestIdAttr','#revisionIdAttr','#overrideStatusAttr'
+					],
+				PostCommentForComparedCommit:[
+					'#repositoryNameAttr','#beforeCommitIdAttr','#afterCommitIdAttr','#locationAttr','#contentAttr','#clientRequestTokenAttr'
+					],
+				PostCommentForPullRequest:[
+					'#pullRequestIdAttr','#repositoryNameAttr','#beforeCommitIdAttr','#afterCommitIdAttr','#locationAttr','#contentAttr','#clientRequestTokenAttr'
+					],
+				PostCommentReply:[
+					'#inReplyToAttr','#clientRequestTokenAttr','#contentAttr'
+					],
+				PutCommentReaction:[
+					'#commentIdAttr','#reactionValueAttr'
+					],
+				PutFile:[
+					'#repositoryNameAttr','#branchNameAttr','#fileContentAttr','#filePathAttr','#fileModeAttr','#parentCommitIdAttr','#commitMessageAttr','#nameAttr','#emailAttr'
+					],
+				PutRepositoryTriggers:[
+					'#repositoryNameAttr','#triggersAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				TestRepositoryTriggers:[
+					'#repositoryNameAttr','#triggersAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateApprovalRuleTemplateContent:[
+					'#approvalRuleTemplateNameAttr','#newRuleContentAttr','#existingRuleContentSha256Attr'
+					],
+				UpdateApprovalRuleTemplateDescription:[
+					'#approvalRuleTemplateNameAttr','#approvalRuleTemplateDescriptionAttr'
+					],
+				UpdateApprovalRuleTemplateName:[
+					'#oldApprovalRuleTemplateNameAttr','#newApprovalRuleTemplateNameAttr'
+					],
+				UpdateComment:[
+					'#commentIdAttr','#contentAttr'
+					],
+				UpdateDefaultBranch:[
+					'#repositoryNameAttr','#defaultBranchNameAttr'
+					],
+				UpdatePullRequestApprovalRuleContent:[
+					'#pullRequestIdAttr','#approvalRuleNameAttr','#existingRuleContentSha256Attr','#newRuleContentAttr'
+					],
+				UpdatePullRequestApprovalState:[
+					'#pullRequestIdAttr','#revisionIdAttr','#approvalStateAttr'
+					],
+				UpdatePullRequestDescription:[
+					'#pullRequestIdAttr','#descriptionAttr'
+					],
+				UpdatePullRequestStatus:[
+					'#pullRequestIdAttr','#pullRequestStatusAttr'
+					],
+				UpdatePullRequestTitle:[
+					'#pullRequestIdAttr','#titleAttr'
+					],
+				UpdateRepositoryDescription:[
+					'#repositoryNameAttr','#repositoryDescriptionAttr'
+					],
+				UpdateRepositoryName:[
+					'#oldNameAttr','#newNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeCommit">
+<p>
+AWS CodeCommit
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeCommit.html">CodeCommit</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeCommit',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateApprovalRuleTemplateWithRepository' },
+			
+				approvalRuleTemplateName: { value: ""} ,
+				repositoryName: { value: ""} ,
+				repositoryNames: { value: ""} ,
+				destinationCommitSpecifier: { value: ""} ,
+				sourceCommitSpecifier: { value: ""} ,
+				mergeOption: { value: ""} ,
+				maxMergeHunks: { value: ""} ,
+				maxConflictFiles: { value: ""} ,
+				filePaths: { value: ""} ,
+				conflictDetailLevel: { value: ""} ,
+				conflictResolutionStrategy: { value: ""} ,
+				nextToken: { value: ""} ,
+				commitIds: { value: ""} ,
+				approvalRuleTemplateContent: { value: ""} ,
+				approvalRuleTemplateDescription: { value: ""} ,
+				branchName: { value: ""} ,
+				commitId: { value: ""} ,
+				parentCommitId: { value: ""} ,
+				authorName: { value: ""} ,
+				email: { value: ""} ,
+				commitMessage: { value: ""} ,
+				keepEmptyFolders: { value: ""} ,
+				putFiles: { value: ""} ,
+				deleteFiles: { value: ""} ,
+				setFileModes: { value: ""} ,
+				title: { value: ""} ,
+				description: { value: ""} ,
+				targets: { value: ""} ,
+				clientRequestToken: { value: ""} ,
+				pullRequestId: { value: ""} ,
+				approvalRuleName: { value: ""} ,
+				approvalRuleContent: { value: ""} ,
+				repositoryDescription: { value: ""} ,
+				tags: { value: ""} ,
+				conflictResolution: { value: ""} ,
+				commentId: { value: ""} ,
+				filePath: { value: ""} ,
+				name: { value: ""} ,
+				pullRequestEventType: { value: ""} ,
+				actorArn: { value: ""} ,
+				maxResults: { value: ""} ,
+				revisionId: { value: ""} ,
+				blobId: { value: ""} ,
+				reactionUserArn: { value: ""} ,
+				beforeCommitId: { value: ""} ,
+				afterCommitId: { value: ""} ,
+				beforeCommitSpecifier: { value: ""} ,
+				afterCommitSpecifier: { value: ""} ,
+				beforePath: { value: ""} ,
+				afterPath: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				commitSpecifier: { value: ""} ,
+				folderPath: { value: ""} ,
+				authorArn: { value: ""} ,
+				pullRequestStatus: { value: ""} ,
+				sortBy: { value: ""} ,
+				order: { value: ""} ,
+				resourceArn: { value: ""} ,
+				targetBranch: { value: ""} ,
+				sourceCommitId: { value: ""} ,
+				overrideStatus: { value: ""} ,
+				location: { value: ""} ,
+				content: { value: ""} ,
+				inReplyTo: { value: ""} ,
+				reactionValue: { value: ""} ,
+				fileContent: { value: ""} ,
+				fileMode: { value: ""} ,
+				triggers: { value: ""} ,
+				tagKeys: { value: ""} ,
+				newRuleContent: { value: ""} ,
+				existingRuleContentSha256: { value: ""} ,
+				oldApprovalRuleTemplateName: { value: ""} ,
+				newApprovalRuleTemplateName: { value: ""} ,
+				defaultBranchName: { value: ""} ,
+				approvalState: { value: ""} ,
+				oldName: { value: ""} ,
+				newName: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeCommit " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-approvalRuleTemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-destinationCommitSpecifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceCommitSpecifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-mergeOption").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxMergeHunks").typedInput({ default: "num", types: ["num"]});
+$("#node-input-maxConflictFiles").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-conflictDetailLevel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-conflictResolutionStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-approvalRuleTemplateContent").typedInput({ default: "str", types: ["str"]});
+$("#node-input-approvalRuleTemplateDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-branchName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parentCommitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-email").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitMessage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keepEmptyFolders").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-deleteFiles").typedInput({ default: "str", types: ["str"]});
+$("#node-input-setFileModes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-title").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-clientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pullRequestId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-approvalRuleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-approvalRuleContent").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-conflictResolution").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filePath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pullRequestEventType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actorArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-revisionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-blobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reactionUserArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-beforeCommitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-afterCommitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-beforeCommitSpecifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-afterCommitSpecifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-beforePath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-afterPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-commitSpecifier").typedInput({ default: "str", types: ["str"]});
+$("#node-input-folderPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-authorArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pullRequestStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sortBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-order").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetBranch").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceCommitId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-overrideStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-location").typedInput({ default: "str", types: ["str"]});
+$("#node-input-content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inReplyTo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reactionValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fileContent").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-fileMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-triggers").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-newRuleContent").typedInput({ default: "str", types: ["str"]});
+$("#node-input-existingRuleContentSha256").typedInput({ default: "str", types: ["str"]});
+$("#node-input-oldApprovalRuleTemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newApprovalRuleTemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultBranchName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-approvalState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-oldName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newName").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

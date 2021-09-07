@@ -1,0 +1,652 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS WorkDocs">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AbortDocumentVersionUpload">AbortDocumentVersionUpload</option>
+		
+			<option value="ActivateUser">ActivateUser</option>
+		
+			<option value="AddResourcePermissions">AddResourcePermissions</option>
+		
+			<option value="CreateComment">CreateComment</option>
+		
+			<option value="CreateCustomMetadata">CreateCustomMetadata</option>
+		
+			<option value="CreateFolder">CreateFolder</option>
+		
+			<option value="CreateLabels">CreateLabels</option>
+		
+			<option value="CreateNotificationSubscription">CreateNotificationSubscription</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="DeactivateUser">DeactivateUser</option>
+		
+			<option value="DeleteComment">DeleteComment</option>
+		
+			<option value="DeleteCustomMetadata">DeleteCustomMetadata</option>
+		
+			<option value="DeleteDocument">DeleteDocument</option>
+		
+			<option value="DeleteFolder">DeleteFolder</option>
+		
+			<option value="DeleteFolderContents">DeleteFolderContents</option>
+		
+			<option value="DeleteLabels">DeleteLabels</option>
+		
+			<option value="DeleteNotificationSubscription">DeleteNotificationSubscription</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DescribeActivities">DescribeActivities</option>
+		
+			<option value="DescribeComments">DescribeComments</option>
+		
+			<option value="DescribeDocumentVersions">DescribeDocumentVersions</option>
+		
+			<option value="DescribeFolderContents">DescribeFolderContents</option>
+		
+			<option value="DescribeGroups">DescribeGroups</option>
+		
+			<option value="DescribeNotificationSubscriptions">DescribeNotificationSubscriptions</option>
+		
+			<option value="DescribeResourcePermissions">DescribeResourcePermissions</option>
+		
+			<option value="DescribeRootFolders">DescribeRootFolders</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="GetCurrentUser">GetCurrentUser</option>
+		
+			<option value="GetDocument">GetDocument</option>
+		
+			<option value="GetDocumentPath">GetDocumentPath</option>
+		
+			<option value="GetDocumentVersion">GetDocumentVersion</option>
+		
+			<option value="GetFolder">GetFolder</option>
+		
+			<option value="GetFolderPath">GetFolderPath</option>
+		
+			<option value="GetResources">GetResources</option>
+		
+			<option value="InitiateDocumentVersionUpload">InitiateDocumentVersionUpload</option>
+		
+			<option value="RemoveAllResourcePermissions">RemoveAllResourcePermissions</option>
+		
+			<option value="RemoveResourcePermission">RemoveResourcePermission</option>
+		
+			<option value="UpdateDocument">UpdateDocument</option>
+		
+			<option value="UpdateDocumentVersion">UpdateDocumentVersion</option>
+		
+			<option value="UpdateFolder">UpdateFolder</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='AuthenticationTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationToken"><i class="fa fa-tag"></i> AuthenticationToken</label>
+		<input type="text" id="node-input-AuthenticationToken" placeholder="AuthenticationToken"></input>
+	</div> 
+	<div class="form-row" id='DocumentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentId"><i class="fa fa-tag"></i> DocumentId</label>
+		<input type="text" id="node-input-DocumentId" placeholder="DocumentId"></input>
+	</div> 
+	<div class="form-row" id='VersionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionId"><i class="fa fa-tag"></i> VersionId</label>
+		<input type="text" id="node-input-VersionId" placeholder="VersionId"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='PrincipalsAttr' class='hiddenAttrs'>
+		<label for="node-input-Principals"><i class="fa fa-tag"></i> Principals</label>
+		<input type="text" id="node-input-Principals" placeholder="Principals"></input>
+	</div> 
+	<div class="form-row" id='NotificationOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationOptions"><i class="fa fa-tag"></i> NotificationOptions</label>
+		<input type="text" id="node-input-NotificationOptions" placeholder="NotificationOptions"></input>
+	</div> 
+	<div class="form-row" id='ParentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentId"><i class="fa fa-tag"></i> ParentId</label>
+		<input type="text" id="node-input-ParentId" placeholder="ParentId"></input>
+	</div> 
+	<div class="form-row" id='ThreadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ThreadId"><i class="fa fa-tag"></i> ThreadId</label>
+		<input type="text" id="node-input-ThreadId" placeholder="ThreadId"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i> Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='VisibilityAttr' class='hiddenAttrs'>
+		<label for="node-input-Visibility"><i class="fa fa-tag"></i> Visibility</label>
+		<input type="text" id="node-input-Visibility" placeholder="Visibility"></input>
+	</div> 
+	<div class="form-row" id='NotifyCollaboratorsAttr' class='hiddenAttrs'>
+		<label for="node-input-NotifyCollaborators"><i class="fa fa-tag"></i> NotifyCollaborators</label>
+		<input type="text" id="node-input-NotifyCollaborators" placeholder="NotifyCollaborators"></input>
+	</div> 
+	<div class="form-row" id='CustomMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomMetadata"><i class="fa fa-tag"></i> CustomMetadata</label>
+		<input type="text" id="node-input-CustomMetadata" placeholder="CustomMetadata"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ParentFolderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentFolderId"><i class="fa fa-tag"></i> ParentFolderId</label>
+		<input type="text" id="node-input-ParentFolderId" placeholder="ParentFolderId"></input>
+	</div> 
+	<div class="form-row" id='LabelsAttr' class='hiddenAttrs'>
+		<label for="node-input-Labels"><i class="fa fa-tag"></i> Labels</label>
+		<input type="text" id="node-input-Labels" placeholder="Labels"></input>
+	</div> 
+	<div class="form-row" id='OrganizationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationId"><i class="fa fa-tag"></i> OrganizationId</label>
+		<input type="text" id="node-input-OrganizationId" placeholder="OrganizationId"></input>
+	</div> 
+	<div class="form-row" id='EndpointAttr' class='hiddenAttrs'>
+		<label for="node-input-Endpoint"><i class="fa fa-tag"></i> Endpoint</label>
+		<input type="text" id="node-input-Endpoint" placeholder="Endpoint"></input>
+	</div> 
+	<div class="form-row" id='ProtocolAttr' class='hiddenAttrs'>
+		<label for="node-input-Protocol"><i class="fa fa-tag"></i> Protocol</label>
+		<input type="text" id="node-input-Protocol" placeholder="Protocol"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionType"><i class="fa fa-tag"></i> SubscriptionType</label>
+		<input type="text" id="node-input-SubscriptionType" placeholder="SubscriptionType"></input>
+	</div> 
+	<div class="form-row" id='UsernameAttr' class='hiddenAttrs'>
+		<label for="node-input-Username"><i class="fa fa-tag"></i> Username</label>
+		<input type="text" id="node-input-Username" placeholder="Username"></input>
+	</div> 
+	<div class="form-row" id='EmailAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailAddress"><i class="fa fa-tag"></i> EmailAddress</label>
+		<input type="text" id="node-input-EmailAddress" placeholder="EmailAddress"></input>
+	</div> 
+	<div class="form-row" id='GivenNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GivenName"><i class="fa fa-tag"></i> GivenName</label>
+		<input type="text" id="node-input-GivenName" placeholder="GivenName"></input>
+	</div> 
+	<div class="form-row" id='SurnameAttr' class='hiddenAttrs'>
+		<label for="node-input-Surname"><i class="fa fa-tag"></i> Surname</label>
+		<input type="text" id="node-input-Surname" placeholder="Surname"></input>
+	</div> 
+	<div class="form-row" id='PasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-Password"><i class="fa fa-tag"></i> Password</label>
+		<input type="text" id="node-input-Password" placeholder="Password"></input>
+	</div> 
+	<div class="form-row" id='TimeZoneIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeZoneId"><i class="fa fa-tag"></i> TimeZoneId</label>
+		<input type="text" id="node-input-TimeZoneId" placeholder="TimeZoneId"></input>
+	</div> 
+	<div class="form-row" id='StorageRuleAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageRule"><i class="fa fa-tag"></i> StorageRule</label>
+		<input type="text" id="node-input-StorageRule" placeholder="StorageRule"></input>
+	</div> 
+	<div class="form-row" id='CommentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-CommentId"><i class="fa fa-tag"></i> CommentId</label>
+		<input type="text" id="node-input-CommentId" placeholder="CommentId"></input>
+	</div> 
+	<div class="form-row" id='KeysAttr' class='hiddenAttrs'>
+		<label for="node-input-Keys"><i class="fa fa-tag"></i> Keys</label>
+		<input type="text" id="node-input-Keys" placeholder="Keys"></input>
+	</div> 
+	<div class="form-row" id='DeleteAllAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteAll"><i class="fa fa-tag"></i> DeleteAll</label>
+		<input type="text" id="node-input-DeleteAll" placeholder="DeleteAll"></input>
+	</div> 
+	<div class="form-row" id='FolderIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FolderId"><i class="fa fa-tag"></i> FolderId</label>
+		<input type="text" id="node-input-FolderId" placeholder="FolderId"></input>
+	</div> 
+	<div class="form-row" id='SubscriptionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SubscriptionId"><i class="fa fa-tag"></i> SubscriptionId</label>
+		<input type="text" id="node-input-SubscriptionId" placeholder="SubscriptionId"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='ActivityTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-ActivityTypes"><i class="fa fa-tag"></i> ActivityTypes</label>
+		<input type="text" id="node-input-ActivityTypes" placeholder="ActivityTypes"></input>
+	</div> 
+	<div class="form-row" id='IncludeIndirectActivitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeIndirectActivities"><i class="fa fa-tag"></i> IncludeIndirectActivities</label>
+		<input type="text" id="node-input-IncludeIndirectActivities" placeholder="IncludeIndirectActivities"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	<div class="form-row" id='IncludeAttr' class='hiddenAttrs'>
+		<label for="node-input-Include"><i class="fa fa-tag"></i> Include</label>
+		<input type="text" id="node-input-Include" placeholder="Include"></input>
+	</div> 
+	<div class="form-row" id='FieldsAttr' class='hiddenAttrs'>
+		<label for="node-input-Fields"><i class="fa fa-tag"></i> Fields</label>
+		<input type="text" id="node-input-Fields" placeholder="Fields"></input>
+	</div> 
+	<div class="form-row" id='SortAttr' class='hiddenAttrs'>
+		<label for="node-input-Sort"><i class="fa fa-tag"></i> Sort</label>
+		<input type="text" id="node-input-Sort" placeholder="Sort"></input>
+	</div> 
+	<div class="form-row" id='OrderAttr' class='hiddenAttrs'>
+		<label for="node-input-Order"><i class="fa fa-tag"></i> Order</label>
+		<input type="text" id="node-input-Order" placeholder="Order"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='SearchQueryAttr' class='hiddenAttrs'>
+		<label for="node-input-SearchQuery"><i class="fa fa-tag"></i> SearchQuery</label>
+		<input type="text" id="node-input-SearchQuery" placeholder="SearchQuery"></input>
+	</div> 
+	<div class="form-row" id='PrincipalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-PrincipalId"><i class="fa fa-tag"></i> PrincipalId</label>
+		<input type="text" id="node-input-PrincipalId" placeholder="PrincipalId"></input>
+	</div> 
+	<div class="form-row" id='UserIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserIds"><i class="fa fa-tag"></i> UserIds</label>
+		<input type="text" id="node-input-UserIds" placeholder="UserIds"></input>
+	</div> 
+	<div class="form-row" id='QueryAttr' class='hiddenAttrs'>
+		<label for="node-input-Query"><i class="fa fa-tag"></i> Query</label>
+		<input type="text" id="node-input-Query" placeholder="Query"></input>
+	</div> 
+	<div class="form-row" id='IncludeCustomMetadataAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeCustomMetadata"><i class="fa fa-tag"></i> IncludeCustomMetadata</label>
+		<input type="text" id="node-input-IncludeCustomMetadata" placeholder="IncludeCustomMetadata"></input>
+	</div> 
+	<div class="form-row" id='CollectionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-CollectionType"><i class="fa fa-tag"></i> CollectionType</label>
+		<input type="text" id="node-input-CollectionType" placeholder="CollectionType"></input>
+	</div> 
+	<div class="form-row" id='IdAttr' class='hiddenAttrs'>
+		<label for="node-input-Id"><i class="fa fa-tag"></i> Id</label>
+		<input type="text" id="node-input-Id" placeholder="Id"></input>
+	</div> 
+	<div class="form-row" id='ContentCreatedTimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentCreatedTimestamp"><i class="fa fa-tag"></i> ContentCreatedTimestamp</label>
+		<input type="text" id="node-input-ContentCreatedTimestamp" placeholder="ContentCreatedTimestamp"></input>
+	</div> 
+	<div class="form-row" id='ContentModifiedTimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentModifiedTimestamp"><i class="fa fa-tag"></i> ContentModifiedTimestamp</label>
+		<input type="text" id="node-input-ContentModifiedTimestamp" placeholder="ContentModifiedTimestamp"></input>
+	</div> 
+	<div class="form-row" id='ContentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ContentType"><i class="fa fa-tag"></i> ContentType</label>
+		<input type="text" id="node-input-ContentType" placeholder="ContentType"></input>
+	</div> 
+	<div class="form-row" id='DocumentSizeInBytesAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentSizeInBytes"><i class="fa fa-tag"></i> DocumentSizeInBytes</label>
+		<input type="text" id="node-input-DocumentSizeInBytes" placeholder="DocumentSizeInBytes"></input>
+	</div> 
+	<div class="form-row" id='PrincipalTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-PrincipalType"><i class="fa fa-tag"></i> PrincipalType</label>
+		<input type="text" id="node-input-PrincipalType" placeholder="PrincipalType"></input>
+	</div> 
+	<div class="form-row" id='ResourceStateAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceState"><i class="fa fa-tag"></i> ResourceState</label>
+		<input type="text" id="node-input-ResourceState" placeholder="ResourceState"></input>
+	</div> 
+	<div class="form-row" id='VersionStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-VersionStatus"><i class="fa fa-tag"></i> VersionStatus</label>
+		<input type="text" id="node-input-VersionStatus" placeholder="VersionStatus"></input>
+	</div> 
+	<div class="form-row" id='LocaleAttr' class='hiddenAttrs'>
+		<label for="node-input-Locale"><i class="fa fa-tag"></i> Locale</label>
+		<input type="text" id="node-input-Locale" placeholder="Locale"></input>
+	</div> 
+	<div class="form-row" id='GrantPoweruserPrivilegesAttr' class='hiddenAttrs'>
+		<label for="node-input-GrantPoweruserPrivileges"><i class="fa fa-tag"></i> GrantPoweruserPrivileges</label>
+		<input type="text" id="node-input-GrantPoweruserPrivileges" placeholder="GrantPoweruserPrivileges"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AbortDocumentVersionUpload:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr'
+					],
+				ActivateUser:[
+					'#UserIdAttr','#AuthenticationTokenAttr'
+					],
+				AddResourcePermissions:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr','#PrincipalsAttr','#NotificationOptionsAttr'
+					],
+				CreateComment:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr','#ParentIdAttr','#ThreadIdAttr','#TextAttr','#VisibilityAttr','#NotifyCollaboratorsAttr'
+					],
+				CreateCustomMetadata:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr','#VersionIdAttr','#CustomMetadataAttr'
+					],
+				CreateFolder:[
+					'#AuthenticationTokenAttr','#NameAttr','#ParentFolderIdAttr'
+					],
+				CreateLabels:[
+					'#ResourceIdAttr','#LabelsAttr','#AuthenticationTokenAttr'
+					],
+				CreateNotificationSubscription:[
+					'#OrganizationIdAttr','#EndpointAttr','#ProtocolAttr','#SubscriptionTypeAttr'
+					],
+				CreateUser:[
+					'#OrganizationIdAttr','#UsernameAttr','#EmailAddressAttr','#GivenNameAttr','#SurnameAttr','#PasswordAttr','#TimeZoneIdAttr','#StorageRuleAttr','#AuthenticationTokenAttr'
+					],
+				DeactivateUser:[
+					'#UserIdAttr','#AuthenticationTokenAttr'
+					],
+				DeleteComment:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr','#CommentIdAttr'
+					],
+				DeleteCustomMetadata:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr','#VersionIdAttr','#KeysAttr','#DeleteAllAttr'
+					],
+				DeleteDocument:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr'
+					],
+				DeleteFolder:[
+					'#AuthenticationTokenAttr','#FolderIdAttr'
+					],
+				DeleteFolderContents:[
+					'#AuthenticationTokenAttr','#FolderIdAttr'
+					],
+				DeleteLabels:[
+					'#ResourceIdAttr','#AuthenticationTokenAttr','#LabelsAttr','#DeleteAllAttr'
+					],
+				DeleteNotificationSubscription:[
+					'#SubscriptionIdAttr','#OrganizationIdAttr'
+					],
+				DeleteUser:[
+					'#AuthenticationTokenAttr','#UserIdAttr'
+					],
+				DescribeActivities:[
+					'#AuthenticationTokenAttr','#StartTimeAttr','#EndTimeAttr','#OrganizationIdAttr','#ActivityTypesAttr','#ResourceIdAttr','#UserIdAttr','#IncludeIndirectActivitiesAttr','#LimitAttr','#MarkerAttr'
+					],
+				DescribeComments:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr','#LimitAttr','#MarkerAttr'
+					],
+				DescribeDocumentVersions:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#MarkerAttr','#LimitAttr','#IncludeAttr','#FieldsAttr'
+					],
+				DescribeFolderContents:[
+					'#AuthenticationTokenAttr','#FolderIdAttr','#SortAttr','#OrderAttr','#LimitAttr','#MarkerAttr','#TypeAttr','#IncludeAttr'
+					],
+				DescribeGroups:[
+					'#AuthenticationTokenAttr','#SearchQueryAttr','#OrganizationIdAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeNotificationSubscriptions:[
+					'#OrganizationIdAttr','#MarkerAttr','#LimitAttr'
+					],
+				DescribeResourcePermissions:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr','#PrincipalIdAttr','#LimitAttr','#MarkerAttr'
+					],
+				DescribeRootFolders:[
+					'#AuthenticationTokenAttr','#LimitAttr','#MarkerAttr'
+					],
+				DescribeUsers:[
+					'#AuthenticationTokenAttr','#OrganizationIdAttr','#UserIdsAttr','#QueryAttr','#IncludeAttr','#OrderAttr','#SortAttr','#MarkerAttr','#LimitAttr','#FieldsAttr'
+					],
+				GetCurrentUser:[
+					'#AuthenticationTokenAttr'
+					],
+				GetDocument:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#IncludeCustomMetadataAttr'
+					],
+				GetDocumentPath:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#LimitAttr','#FieldsAttr','#MarkerAttr'
+					],
+				GetDocumentVersion:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr','#FieldsAttr','#IncludeCustomMetadataAttr'
+					],
+				GetFolder:[
+					'#AuthenticationTokenAttr','#FolderIdAttr','#IncludeCustomMetadataAttr'
+					],
+				GetFolderPath:[
+					'#AuthenticationTokenAttr','#FolderIdAttr','#LimitAttr','#FieldsAttr','#MarkerAttr'
+					],
+				GetResources:[
+					'#AuthenticationTokenAttr','#UserIdAttr','#CollectionTypeAttr','#LimitAttr','#MarkerAttr'
+					],
+				InitiateDocumentVersionUpload:[
+					'#AuthenticationTokenAttr','#IdAttr','#NameAttr','#ContentCreatedTimestampAttr','#ContentModifiedTimestampAttr','#ContentTypeAttr','#DocumentSizeInBytesAttr','#ParentFolderIdAttr'
+					],
+				RemoveAllResourcePermissions:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr'
+					],
+				RemoveResourcePermission:[
+					'#AuthenticationTokenAttr','#ResourceIdAttr','#PrincipalIdAttr','#PrincipalTypeAttr'
+					],
+				UpdateDocument:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#NameAttr','#ParentFolderIdAttr','#ResourceStateAttr'
+					],
+				UpdateDocumentVersion:[
+					'#AuthenticationTokenAttr','#DocumentIdAttr','#VersionIdAttr','#VersionStatusAttr'
+					],
+				UpdateFolder:[
+					'#AuthenticationTokenAttr','#FolderIdAttr','#NameAttr','#ParentFolderIdAttr','#ResourceStateAttr'
+					],
+				UpdateUser:[
+					'#AuthenticationTokenAttr','#UserIdAttr','#GivenNameAttr','#SurnameAttr','#TypeAttr','#StorageRuleAttr','#TimeZoneIdAttr','#LocaleAttr','#GrantPoweruserPrivilegesAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS WorkDocs">
+<p>
+AWS WorkDocs
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/WorkDocs.html">WorkDocs</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS WorkDocs',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AbortDocumentVersionUpload' },
+			
+				AuthenticationToken: { value: ""} ,
+				DocumentId: { value: ""} ,
+				VersionId: { value: ""} ,
+				UserId: { value: ""} ,
+				ResourceId: { value: ""} ,
+				Principals: { value: ""} ,
+				NotificationOptions: { value: ""} ,
+				ParentId: { value: ""} ,
+				ThreadId: { value: ""} ,
+				Text: { value: ""} ,
+				Visibility: { value: ""} ,
+				NotifyCollaborators: { value: ""} ,
+				CustomMetadata: { value: ""} ,
+				Name: { value: ""} ,
+				ParentFolderId: { value: ""} ,
+				Labels: { value: ""} ,
+				OrganizationId: { value: ""} ,
+				Endpoint: { value: ""} ,
+				Protocol: { value: ""} ,
+				SubscriptionType: { value: ""} ,
+				Username: { value: ""} ,
+				EmailAddress: { value: ""} ,
+				GivenName: { value: ""} ,
+				Surname: { value: ""} ,
+				Password: { value: ""} ,
+				TimeZoneId: { value: ""} ,
+				StorageRule: { value: ""} ,
+				CommentId: { value: ""} ,
+				Keys: { value: ""} ,
+				DeleteAll: { value: ""} ,
+				FolderId: { value: ""} ,
+				SubscriptionId: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				ActivityTypes: { value: ""} ,
+				IncludeIndirectActivities: { value: ""} ,
+				Limit: { value: ""} ,
+				Marker: { value: ""} ,
+				Include: { value: ""} ,
+				Fields: { value: ""} ,
+				Sort: { value: ""} ,
+				Order: { value: ""} ,
+				Type: { value: ""} ,
+				SearchQuery: { value: ""} ,
+				PrincipalId: { value: ""} ,
+				UserIds: { value: ""} ,
+				Query: { value: ""} ,
+				IncludeCustomMetadata: { value: ""} ,
+				CollectionType: { value: ""} ,
+				Id: { value: ""} ,
+				ContentCreatedTimestamp: { value: ""} ,
+				ContentModifiedTimestamp: { value: ""} ,
+				ContentType: { value: ""} ,
+				DocumentSizeInBytes: { value: ""} ,
+				PrincipalType: { value: ""} ,
+				ResourceState: { value: ""} ,
+				VersionStatus: { value: ""} ,
+				Locale: { value: ""} ,
+				GrantPoweruserPrivileges: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "WorkDocs " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-AuthenticationToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ParentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ThreadId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Text").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Visibility").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NotifyCollaborators").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CustomMetadata").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParentFolderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Labels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Endpoint").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Protocol").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Username").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EmailAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GivenName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Surname").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-TimeZoneId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageRule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CommentId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DeleteAll").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-FolderId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubscriptionId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ActivityTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeIndirectActivities").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Include").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Fields").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Sort").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Order").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SearchQuery").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PrincipalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Query").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeCustomMetadata").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CollectionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Id").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ContentType").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-PrincipalType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceState").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VersionStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Locale").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GrantPoweruserPrivileges").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -1,0 +1,560 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Proton">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AcceptEnvironmentAccountConnection">AcceptEnvironmentAccountConnection</option>
+		
+			<option value="CancelEnvironmentDeployment">CancelEnvironmentDeployment</option>
+		
+			<option value="CancelServiceInstanceDeployment">CancelServiceInstanceDeployment</option>
+		
+			<option value="CancelServicePipelineDeployment">CancelServicePipelineDeployment</option>
+		
+			<option value="CreateEnvironment">CreateEnvironment</option>
+		
+			<option value="CreateEnvironmentAccountConnection">CreateEnvironmentAccountConnection</option>
+		
+			<option value="CreateEnvironmentTemplate">CreateEnvironmentTemplate</option>
+		
+			<option value="CreateEnvironmentTemplateVersion">CreateEnvironmentTemplateVersion</option>
+		
+			<option value="CreateService">CreateService</option>
+		
+			<option value="CreateServiceTemplate">CreateServiceTemplate</option>
+		
+			<option value="CreateServiceTemplateVersion">CreateServiceTemplateVersion</option>
+		
+			<option value="DeleteEnvironment">DeleteEnvironment</option>
+		
+			<option value="DeleteEnvironmentAccountConnection">DeleteEnvironmentAccountConnection</option>
+		
+			<option value="DeleteEnvironmentTemplate">DeleteEnvironmentTemplate</option>
+		
+			<option value="DeleteEnvironmentTemplateVersion">DeleteEnvironmentTemplateVersion</option>
+		
+			<option value="DeleteService">DeleteService</option>
+		
+			<option value="DeleteServiceTemplate">DeleteServiceTemplate</option>
+		
+			<option value="DeleteServiceTemplateVersion">DeleteServiceTemplateVersion</option>
+		
+			<option value="GetAccountSettings">GetAccountSettings</option>
+		
+			<option value="GetEnvironment">GetEnvironment</option>
+		
+			<option value="GetEnvironmentAccountConnection">GetEnvironmentAccountConnection</option>
+		
+			<option value="GetEnvironmentTemplate">GetEnvironmentTemplate</option>
+		
+			<option value="GetEnvironmentTemplateVersion">GetEnvironmentTemplateVersion</option>
+		
+			<option value="GetService">GetService</option>
+		
+			<option value="GetServiceInstance">GetServiceInstance</option>
+		
+			<option value="GetServiceTemplate">GetServiceTemplate</option>
+		
+			<option value="GetServiceTemplateVersion">GetServiceTemplateVersion</option>
+		
+			<option value="ListEnvironmentAccountConnections">ListEnvironmentAccountConnections</option>
+		
+			<option value="ListEnvironmentTemplateVersions">ListEnvironmentTemplateVersions</option>
+		
+			<option value="ListEnvironmentTemplates">ListEnvironmentTemplates</option>
+		
+			<option value="ListEnvironments">ListEnvironments</option>
+		
+			<option value="ListServiceInstances">ListServiceInstances</option>
+		
+			<option value="ListServiceTemplateVersions">ListServiceTemplateVersions</option>
+		
+			<option value="ListServiceTemplates">ListServiceTemplates</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RejectEnvironmentAccountConnection">RejectEnvironmentAccountConnection</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAccountSettings">UpdateAccountSettings</option>
+		
+			<option value="UpdateEnvironment">UpdateEnvironment</option>
+		
+			<option value="UpdateEnvironmentAccountConnection">UpdateEnvironmentAccountConnection</option>
+		
+			<option value="UpdateEnvironmentTemplate">UpdateEnvironmentTemplate</option>
+		
+			<option value="UpdateEnvironmentTemplateVersion">UpdateEnvironmentTemplateVersion</option>
+		
+			<option value="UpdateService">UpdateService</option>
+		
+			<option value="UpdateServiceInstance">UpdateServiceInstance</option>
+		
+			<option value="UpdateServicePipeline">UpdateServicePipeline</option>
+		
+			<option value="UpdateServiceTemplate">UpdateServiceTemplate</option>
+		
+			<option value="UpdateServiceTemplateVersion">UpdateServiceTemplateVersion</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='idAttr' class='hiddenAttrs'>
+		<label for="node-input-id"><i class="fa fa-tag"></i> id</label>
+		<input type="text" id="node-input-id" placeholder="id"></input>
+	</div> 
+	<div class="form-row" id='environmentNameAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentName"><i class="fa fa-tag"></i> environmentName</label>
+		<input type="text" id="node-input-environmentName" placeholder="environmentName"></input>
+	</div> 
+	<div class="form-row" id='serviceInstanceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceInstanceName"><i class="fa fa-tag"></i> serviceInstanceName</label>
+		<input type="text" id="node-input-serviceInstanceName" placeholder="serviceInstanceName"></input>
+	</div> 
+	<div class="form-row" id='serviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceName"><i class="fa fa-tag"></i> serviceName</label>
+		<input type="text" id="node-input-serviceName" placeholder="serviceName"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='environmentAccountConnectionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentAccountConnectionId"><i class="fa fa-tag"></i> environmentAccountConnectionId</label>
+		<input type="text" id="node-input-environmentAccountConnectionId" placeholder="environmentAccountConnectionId"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='protonServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-protonServiceRoleArn"><i class="fa fa-tag"></i> protonServiceRoleArn</label>
+		<input type="text" id="node-input-protonServiceRoleArn" placeholder="protonServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='specAttr' class='hiddenAttrs'>
+		<label for="node-input-spec"><i class="fa fa-tag"></i> spec</label>
+		<input type="text" id="node-input-spec" placeholder="spec"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='templateMajorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-templateMajorVersion"><i class="fa fa-tag"></i> templateMajorVersion</label>
+		<input type="text" id="node-input-templateMajorVersion" placeholder="templateMajorVersion"></input>
+	</div> 
+	<div class="form-row" id='templateMinorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-templateMinorVersion"><i class="fa fa-tag"></i> templateMinorVersion</label>
+		<input type="text" id="node-input-templateMinorVersion" placeholder="templateMinorVersion"></input>
+	</div> 
+	<div class="form-row" id='templateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-templateName"><i class="fa fa-tag"></i> templateName</label>
+		<input type="text" id="node-input-templateName" placeholder="templateName"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='managementAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-managementAccountId"><i class="fa fa-tag"></i> managementAccountId</label>
+		<input type="text" id="node-input-managementAccountId" placeholder="managementAccountId"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i> roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='displayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-displayName"><i class="fa fa-tag"></i> displayName</label>
+		<input type="text" id="node-input-displayName" placeholder="displayName"></input>
+	</div> 
+	<div class="form-row" id='encryptionKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionKey"><i class="fa fa-tag"></i> encryptionKey</label>
+		<input type="text" id="node-input-encryptionKey" placeholder="encryptionKey"></input>
+	</div> 
+	<div class="form-row" id='provisioningAttr' class='hiddenAttrs'>
+		<label for="node-input-provisioning"><i class="fa fa-tag"></i> provisioning</label>
+		<input type="text" id="node-input-provisioning" placeholder="provisioning"></input>
+	</div> 
+	<div class="form-row" id='majorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-majorVersion"><i class="fa fa-tag"></i> majorVersion</label>
+		<input type="text" id="node-input-majorVersion" placeholder="majorVersion"></input>
+	</div> 
+	<div class="form-row" id='sourceAttr' class='hiddenAttrs'>
+		<label for="node-input-source"><i class="fa fa-tag"></i> source</label>
+		<input type="text" id="node-input-source" placeholder="source"></input>
+	</div> 
+	<div class="form-row" id='branchNameAttr' class='hiddenAttrs'>
+		<label for="node-input-branchName"><i class="fa fa-tag"></i> branchName</label>
+		<input type="text" id="node-input-branchName" placeholder="branchName"></input>
+	</div> 
+	<div class="form-row" id='repositoryConnectionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryConnectionArn"><i class="fa fa-tag"></i> repositoryConnectionArn</label>
+		<input type="text" id="node-input-repositoryConnectionArn" placeholder="repositoryConnectionArn"></input>
+	</div> 
+	<div class="form-row" id='repositoryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryId"><i class="fa fa-tag"></i> repositoryId</label>
+		<input type="text" id="node-input-repositoryId" placeholder="repositoryId"></input>
+	</div> 
+	<div class="form-row" id='pipelineProvisioningAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineProvisioning"><i class="fa fa-tag"></i> pipelineProvisioning</label>
+		<input type="text" id="node-input-pipelineProvisioning" placeholder="pipelineProvisioning"></input>
+	</div> 
+	<div class="form-row" id='compatibleEnvironmentTemplatesAttr' class='hiddenAttrs'>
+		<label for="node-input-compatibleEnvironmentTemplates"><i class="fa fa-tag"></i> compatibleEnvironmentTemplates</label>
+		<input type="text" id="node-input-compatibleEnvironmentTemplates" placeholder="compatibleEnvironmentTemplates"></input>
+	</div> 
+	<div class="form-row" id='minorVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-minorVersion"><i class="fa fa-tag"></i> minorVersion</label>
+		<input type="text" id="node-input-minorVersion" placeholder="minorVersion"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='requestedByAttr' class='hiddenAttrs'>
+		<label for="node-input-requestedBy"><i class="fa fa-tag"></i> requestedBy</label>
+		<input type="text" id="node-input-requestedBy" placeholder="requestedBy"></input>
+	</div> 
+	<div class="form-row" id='statusesAttr' class='hiddenAttrs'>
+		<label for="node-input-statuses"><i class="fa fa-tag"></i> statuses</label>
+		<input type="text" id="node-input-statuses" placeholder="statuses"></input>
+	</div> 
+	<div class="form-row" id='environmentTemplatesAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentTemplates"><i class="fa fa-tag"></i> environmentTemplates</label>
+		<input type="text" id="node-input-environmentTemplates" placeholder="environmentTemplates"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='pipelineServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-pipelineServiceRoleArn"><i class="fa fa-tag"></i> pipelineServiceRoleArn</label>
+		<input type="text" id="node-input-pipelineServiceRoleArn" placeholder="pipelineServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='deploymentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentType"><i class="fa fa-tag"></i> deploymentType</label>
+		<input type="text" id="node-input-deploymentType" placeholder="deploymentType"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AcceptEnvironmentAccountConnection:[
+					'#idAttr'
+					],
+				CancelEnvironmentDeployment:[
+					'#environmentNameAttr'
+					],
+				CancelServiceInstanceDeployment:[
+					'#serviceInstanceNameAttr','#serviceNameAttr'
+					],
+				CancelServicePipelineDeployment:[
+					'#serviceNameAttr'
+					],
+				CreateEnvironment:[
+					'#descriptionAttr','#environmentAccountConnectionIdAttr','#nameAttr','#protonServiceRoleArnAttr','#specAttr','#tagsAttr','#templateMajorVersionAttr','#templateMinorVersionAttr','#templateNameAttr'
+					],
+				CreateEnvironmentAccountConnection:[
+					'#clientTokenAttr','#environmentNameAttr','#managementAccountIdAttr','#roleArnAttr'
+					],
+				CreateEnvironmentTemplate:[
+					'#descriptionAttr','#displayNameAttr','#encryptionKeyAttr','#nameAttr','#provisioningAttr','#tagsAttr'
+					],
+				CreateEnvironmentTemplateVersion:[
+					'#clientTokenAttr','#descriptionAttr','#majorVersionAttr','#sourceAttr','#tagsAttr','#templateNameAttr'
+					],
+				CreateService:[
+					'#branchNameAttr','#descriptionAttr','#nameAttr','#repositoryConnectionArnAttr','#repositoryIdAttr','#specAttr','#tagsAttr','#templateMajorVersionAttr','#templateMinorVersionAttr','#templateNameAttr'
+					],
+				CreateServiceTemplate:[
+					'#descriptionAttr','#displayNameAttr','#encryptionKeyAttr','#nameAttr','#pipelineProvisioningAttr','#tagsAttr'
+					],
+				CreateServiceTemplateVersion:[
+					'#clientTokenAttr','#compatibleEnvironmentTemplatesAttr','#descriptionAttr','#majorVersionAttr','#sourceAttr','#tagsAttr','#templateNameAttr'
+					],
+				DeleteEnvironment:[
+					'#nameAttr'
+					],
+				DeleteEnvironmentAccountConnection:[
+					'#idAttr'
+					],
+				DeleteEnvironmentTemplate:[
+					'#nameAttr'
+					],
+				DeleteEnvironmentTemplateVersion:[
+					'#majorVersionAttr','#minorVersionAttr','#templateNameAttr'
+					],
+				DeleteService:[
+					'#nameAttr'
+					],
+				DeleteServiceTemplate:[
+					'#nameAttr'
+					],
+				DeleteServiceTemplateVersion:[
+					'#majorVersionAttr','#minorVersionAttr','#templateNameAttr'
+					],
+				GetAccountSettings:[
+					
+					],
+				GetEnvironment:[
+					'#nameAttr'
+					],
+				GetEnvironmentAccountConnection:[
+					'#idAttr'
+					],
+				GetEnvironmentTemplate:[
+					'#nameAttr'
+					],
+				GetEnvironmentTemplateVersion:[
+					'#majorVersionAttr','#minorVersionAttr','#templateNameAttr'
+					],
+				GetService:[
+					'#nameAttr'
+					],
+				GetServiceInstance:[
+					'#nameAttr','#serviceNameAttr'
+					],
+				GetServiceTemplate:[
+					'#nameAttr'
+					],
+				GetServiceTemplateVersion:[
+					'#majorVersionAttr','#minorVersionAttr','#templateNameAttr'
+					],
+				ListEnvironmentAccountConnections:[
+					'#environmentNameAttr','#maxResultsAttr','#nextTokenAttr','#requestedByAttr','#statusesAttr'
+					],
+				ListEnvironmentTemplateVersions:[
+					'#majorVersionAttr','#maxResultsAttr','#nextTokenAttr','#templateNameAttr'
+					],
+				ListEnvironmentTemplates:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListEnvironments:[
+					'#environmentTemplatesAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListServiceInstances:[
+					'#maxResultsAttr','#nextTokenAttr','#serviceNameAttr'
+					],
+				ListServiceTemplateVersions:[
+					'#majorVersionAttr','#maxResultsAttr','#nextTokenAttr','#templateNameAttr'
+					],
+				ListServiceTemplates:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListServices:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#maxResultsAttr','#nextTokenAttr','#resourceArnAttr'
+					],
+				RejectEnvironmentAccountConnection:[
+					'#idAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAccountSettings:[
+					'#pipelineServiceRoleArnAttr'
+					],
+				UpdateEnvironment:[
+					'#deploymentTypeAttr','#descriptionAttr','#environmentAccountConnectionIdAttr','#nameAttr','#protonServiceRoleArnAttr','#specAttr','#templateMajorVersionAttr','#templateMinorVersionAttr'
+					],
+				UpdateEnvironmentAccountConnection:[
+					'#idAttr','#roleArnAttr'
+					],
+				UpdateEnvironmentTemplate:[
+					'#descriptionAttr','#displayNameAttr','#nameAttr'
+					],
+				UpdateEnvironmentTemplateVersion:[
+					'#descriptionAttr','#majorVersionAttr','#minorVersionAttr','#statusAttr','#templateNameAttr'
+					],
+				UpdateService:[
+					'#descriptionAttr','#nameAttr','#specAttr'
+					],
+				UpdateServiceInstance:[
+					'#deploymentTypeAttr','#nameAttr','#serviceNameAttr','#specAttr','#templateMajorVersionAttr','#templateMinorVersionAttr'
+					],
+				UpdateServicePipeline:[
+					'#deploymentTypeAttr','#serviceNameAttr','#specAttr','#templateMajorVersionAttr','#templateMinorVersionAttr'
+					],
+				UpdateServiceTemplate:[
+					'#descriptionAttr','#displayNameAttr','#nameAttr'
+					],
+				UpdateServiceTemplateVersion:[
+					'#compatibleEnvironmentTemplatesAttr','#descriptionAttr','#majorVersionAttr','#minorVersionAttr','#statusAttr','#templateNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Proton">
+<p>
+AWS Proton
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Proton.html">Proton</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Proton',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AcceptEnvironmentAccountConnection' },
+			
+				id: { value: ""} ,
+				environmentName: { value: ""} ,
+				serviceInstanceName: { value: ""} ,
+				serviceName: { value: ""} ,
+				description: { value: ""} ,
+				environmentAccountConnectionId: { value: ""} ,
+				name: { value: ""} ,
+				protonServiceRoleArn: { value: ""} ,
+				spec: { value: ""} ,
+				tags: { value: ""} ,
+				templateMajorVersion: { value: ""} ,
+				templateMinorVersion: { value: ""} ,
+				templateName: { value: ""} ,
+				clientToken: { value: ""} ,
+				managementAccountId: { value: ""} ,
+				roleArn: { value: ""} ,
+				displayName: { value: ""} ,
+				encryptionKey: { value: ""} ,
+				provisioning: { value: ""} ,
+				majorVersion: { value: ""} ,
+				source: { value: ""} ,
+				branchName: { value: ""} ,
+				repositoryConnectionArn: { value: ""} ,
+				repositoryId: { value: ""} ,
+				pipelineProvisioning: { value: ""} ,
+				compatibleEnvironmentTemplates: { value: ""} ,
+				minorVersion: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				requestedBy: { value: ""} ,
+				statuses: { value: ""} ,
+				environmentTemplates: { value: ""} ,
+				resourceArn: { value: ""} ,
+				tagKeys: { value: ""} ,
+				pipelineServiceRoleArn: { value: ""} ,
+				deploymentType: { value: ""} ,
+				status: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Proton " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-id").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceInstanceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-environmentAccountConnectionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-protonServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-spec").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateMajorVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateMinorVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-templateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-managementAccountId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-displayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-encryptionKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-provisioning").typedInput({ default: "str", types: ["str"]});
+$("#node-input-majorVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-branchName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryConnectionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pipelineProvisioning").typedInput({ default: "str", types: ["str"]});
+$("#node-input-compatibleEnvironmentTemplates").typedInput({ default: "str", types: ["str"]});
+$("#node-input-minorVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requestedBy").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-pipelineServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

@@ -33,6 +33,53 @@ module.exports = {
 			return (Object.keys(reqs));
 		}
 
+		function getAllMembers(serviceDef) {
+			reqs = {};
+			Object.keys(serviceDef.operations).map(op => {
+				if (serviceDef.operations[op].input && serviceDef.operations[op].input.members) {
+					return (Object.keys(serviceDef.operations[op].input.members).forEach(req => { 
+						reqs[req] = serviceDef.operations[op].input.members[req].type || 'str'; }))
+				} else {
+					return [];
+				}
+			})
+			//console.log(JSON.stringify(reqs));
+			return (Object.keys(reqs));
+		}
+
+		function getAllMembersWithTypes(serviceDef) {
+			reqs = {};
+			Object.keys(serviceDef.operations).map(op => {
+				if (serviceDef.operations[op].input && serviceDef.operations[op].input.members) {
+					return (Object.keys(serviceDef.operations[op].input.members).forEach(req => { 
+						reqs[req] = serviceDef.operations[op].input.members[req].type || 'str'; }))
+				} else {
+					return [];
+				}
+			})
+			//console.log(JSON.stringify(reqs));
+			return (reqs);
+		}
+
+		function generateOnEditPrepareStatements(serviceDef) {
+			const typeMap = {
+				"str": "str",
+				"integer": "num",
+				"boolean": "bool",
+				"blob": "bin"
+			}
+			var attributes = getAllMembersWithTypes(serviceDef);
+
+			const statements = Object.keys(attributes).map(n => {
+				if (!typeMap[attributes[n]]) {
+					return;
+				}
+				return `$("#node-input-${n}").typedInput({ default: "${typeMap[attributes[n]]}", types: ["${typeMap[attributes[n]]}"]});`
+			})
+
+			return statements;
+		}
+
 		mappings = {
 			'IoT Data Plane': 'IotData'
 		}
@@ -68,7 +115,7 @@ module.exports = {
   limitations under the License.
 -->
 
-<script type="text/x-red" data-template-name="AWS ${serviceDef.metadata.serviceName}">
+<script type="text/html" data-template-name="AWS ${serviceDef.metadata.serviceName}">
 		<style scoped>
 				.hiddenAttrs {display:none;}
 				.visibleAttrs {display:block;}
@@ -86,14 +133,14 @@ module.exports = {
 		</select>
 	</div>
 	<div class="form-row">
-		<label for="node-input-name"><i class="fa fa-tag"></i>Name</label>
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
 		<input type="text" id="node-input-name" placeholder="Name"></input>
 	</div>
 	<hr/>
 	<div id="AttrHolder">
-	      ${getReqs(serviceDef).map(r => `
+	      ${getAllMembers(serviceDef).map(r => `
 	<div class="form-row" id='${r}Attr' class='hiddenAttrs'>
-		<label for="node-input-${r}"><i class="fa fa-tag"></i>${r}</label>
+		<label for="node-input-${r}"><i class="fa fa-tag"></i> ${r}</label>
 		<input type="text" id="node-input-${r}" placeholder="${r}"></input>
 	</div> `
 		).join('')}
@@ -103,7 +150,11 @@ module.exports = {
 	  var nodeOps={
 			${mapKeys(serviceDef.operations, op => `
 				${op}:[
-					${(serviceDef.operations[op].input) ? mapKeys(serviceDef.operations[op].input.required, reqIdx => `'#${serviceDef.operations[op].input.required[reqIdx]}Attr'`, ',') : ''}
+					${(serviceDef.operations[op].input && serviceDef.operations[op].input.members ) ? mapKeys(serviceDef.operations[op].input.members, 
+						reqIdx => {
+							let attr = serviceDef.operations[op].input.members[reqIdx];
+							return `'#${reqIdx}Attr'`;
+						}, ',') : ''}
 					]`, ',')}
 		};
 		$('#node-input-operation').on('change',function(){
@@ -115,7 +166,7 @@ module.exports = {
 
 </script>
 
-<script type="text/x-red" data-help-name="AWS ${serviceDef.metadata.serviceName}">
+<script type="text/html" data-help-name="AWS ${serviceDef.metadata.serviceName}">
 <p>
 AWS ${serviceDef.metadata.serviceName}
 </p>
@@ -135,20 +186,23 @@ NOTE: Parameters must be specified in the message, using the case specified in t
 		defaults: {
 			aws: {type:"amazon config",required:true},
 			operation: { value: '${Object.keys(serviceDef.operations)[0]}' },
-			${getReqs(serviceDef).map(req => { if (req === 'type') return '_type'; return req;}).map(req => `
+			${getAllMembers(serviceDef).map(req => { if (req === 'type') return '_type'; return req;}).map(req => `
 				${req}: { value: ""} ,`).join('')}
 			name: { value: "" }
 		},
 		inputs:1,
         outputs: 2,
         outputLabels: ["data","err"],
-		icon: "aws.png",
+		icon: "../../icons/aws.png",
 		align: "right",
 		label: function() {
 			return this.name || "${serviceDef.metadata.serviceName} " + this.operation;
 		},
-		oneditprepare: function () {
-
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			${generateOnEditPrepareStatements(serviceDef).join("\n")}
 		}
 	});
 </script>
@@ -172,6 +226,8 @@ NOTE: Parameters must be specified in the message, using the case specified in t
  * See the License for the specific language governing permissions and
  * limitations under the License.
  **/
+
+const { copyArgs } = require('../../lib/util');
 
 module.exports = function(RED) {
 	"use strict";
@@ -219,61 +275,47 @@ module.exports = function(RED) {
 
 		var awsService = new AWS.${serviceDef.metadata.serviceName}( { 'region': node.region } );
 		
-		node.on("input", function(msg) {
+		node.on("input", function(msg, send, done) {
 			var aService = msg.AWSConfig?new AWS.${serviceDef.metadata.serviceName}(msg.AWSConfig) : awsService;
 
-			node.sendMsg = function (err, data, msg) {
+			node.sendMsg = function (err, data) {
 				if (err) {
-				    node.status({fill:"red",shape:"ring",text:"error"});
-                    node.error("failed: " + err.toString(), msg);
-                    node.send([null, { err: err }]);
+				    node.status({ fill: "red", shape: "ring", text: "error"});
+                    send([null, { err: err }]);
+					done(err);
     				return;
 				} else {
-				msg.payload = data;
-				node.status({});
+					msg.payload = data;
+					node.status({});
 				}
-				node.send([msg,null]);
+				send([msg,null]);
+				done();
 			};
 
-			if (typeof service[node.operation] == "function"){
-				node.status({fill:"blue",shape:"dot",text:node.operation});
-				service[node.operation](aService,msg,function(err,data){
-   				node.sendMsg(err, data, msg);
-   			});
+			if (typeof service[node.operation] === "function") {
+				node.status({fill: "blue", shape: "dot", text: node.operation});
+				service[node.operation](aService,msg,function(err,data) {
+   				  node.sendMsg(err, data);
+   			    });
 			} else {
-				node.error("failed: Operation node defined - "+node.operation);
+				done(new Error("Operation not defined - "+node.operation));
 			}
 
 		});
-		var copyArg=function(src,arg,out,outArg,isObject){
-			var tmpValue=src[arg];
-			outArg = (typeof outArg !== 'undefined') ? outArg : arg;
-
-			if (typeof src[arg] !== 'undefined'){
-				if (isObject && typeof src[arg]=="string" && src[arg] != "") {
-					tmpValue=JSON.parse(src[arg]);
-				}
-				out[outArg]=tmpValue;
-			}
-                        //AWS API takes 'Payload' not 'payload' (see Lambda)
-                        if (arg=="Payload" && typeof tmpValue == 'undefined'){
-                                out[arg]=src["payload"];
-                        }
-
-		}
 
 		var service={};
 
 		${mapKeys(serviceDef.operations, op => `
 		service.${op}=function(svc,msg,cb){
 			var params={};
-			//copyArgs
 			${(serviceDef.operations[op].input && serviceDef.operations[op].input.required) ? mapKeys(serviceDef.operations[op].input.required, input => `
-			copyArg(n,"${serviceDef.operations[op].input.required[input]==='type'?'_type':serviceDef.operations[op].input.required[input]}",params,${serviceDef.operations[op].input.required[input]==='type'?'"type"':'undefined'},${typeof serviceDef.operations[op].input.members[serviceDef.operations[op].input.required[input]].shape !== "undefined"}); `) : ''}
+			copyArgs(n,"${serviceDef.operations[op].input.required[input]==='type'?'_type':serviceDef.operations[op].input.required[input]}",params,${serviceDef.operations[op].input.required[input]==='type'?'"type"':'undefined'},${typeof serviceDef.operations[op].input.members[serviceDef.operations[op].input.required[input]].shape !== "undefined"}); `) : ''}
 			${(serviceDef.operations[op].input && serviceDef.operations[op].input.members) ? mapKeys(serviceDef.operations[op].input.members, input => `
-			copyArg(msg,"${input}",params,undefined,${typeof serviceDef.operations[op].input.members[input].shape !== "undefined"}); `) : ''}
+			copyArgs(n,"${input}",params,undefined,${typeof serviceDef.operations[op].input.members[input].shape !== "undefined"}); `) : ''}
+			${(serviceDef.operations[op].input && serviceDef.operations[op].input.members) ? mapKeys(serviceDef.operations[op].input.members, input => `
+			copyArgs(msg,"${input}",params,undefined,${typeof serviceDef.operations[op].input.members[input].shape !== "undefined"}); `) : ''}
 			${(serviceDef.operations[op].input && serviceDef.operations[op].input.shape) ? mapKeys(serviceDef.shapes[serviceDef.operations[op].input.shape].members, input => `
-			copyArg(msg,"${input}",params,undefined,true); `) : ''}
+			copyArgs(msg,"${input}",params,undefined,true); `) : ''}
 
 			svc.${firstLetterLowercase(op)}(params,cb);
 		}
@@ -285,10 +327,9 @@ module.exports = function(RED) {
 
 };
 `;
-
-		fs.writeFileSync(`build/${serviceDef.metadata.serviceName}.html`, htmlFile);
-		fs.writeFileSync(`build/${serviceDef.metadata.serviceName}.js`, jsFile);
-
-		//console.log(`${serviceDef.metadata.serviceName} written to build dir`);
+		fs.mkdirSync(`build/${serviceDef.metadata.serviceName.toLowerCase()}`, {recursive: true});
+		fs.writeFileSync(`build/${serviceDef.metadata.serviceName.toLowerCase()}/${serviceDef.metadata.serviceName}.html`, htmlFile);
+		fs.writeFileSync(`build/${serviceDef.metadata.serviceName.toLowerCase()}/${serviceDef.metadata.serviceName}.js`, jsFile);
+		//fs.symlinkSync(`build/${serviceDef.metadata.serviceName.toLowerCase()}/icons`, './icons', "dir");
 	}
 };

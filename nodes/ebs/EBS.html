@@ -1,0 +1,261 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS EBS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CompleteSnapshot">CompleteSnapshot</option>
+		
+			<option value="GetSnapshotBlock">GetSnapshotBlock</option>
+		
+			<option value="ListChangedBlocks">ListChangedBlocks</option>
+		
+			<option value="ListSnapshotBlocks">ListSnapshotBlocks</option>
+		
+			<option value="PutSnapshotBlock">PutSnapshotBlock</option>
+		
+			<option value="StartSnapshot">StartSnapshot</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotId"><i class="fa fa-tag"></i> SnapshotId</label>
+		<input type="text" id="node-input-SnapshotId" placeholder="SnapshotId"></input>
+	</div> 
+	<div class="form-row" id='ChangedBlocksCountAttr' class='hiddenAttrs'>
+		<label for="node-input-ChangedBlocksCount"><i class="fa fa-tag"></i> ChangedBlocksCount</label>
+		<input type="text" id="node-input-ChangedBlocksCount" placeholder="ChangedBlocksCount"></input>
+	</div> 
+	<div class="form-row" id='ChecksumAttr' class='hiddenAttrs'>
+		<label for="node-input-Checksum"><i class="fa fa-tag"></i> Checksum</label>
+		<input type="text" id="node-input-Checksum" placeholder="Checksum"></input>
+	</div> 
+	<div class="form-row" id='ChecksumAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-ChecksumAlgorithm"><i class="fa fa-tag"></i> ChecksumAlgorithm</label>
+		<input type="text" id="node-input-ChecksumAlgorithm" placeholder="ChecksumAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='ChecksumAggregationMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-ChecksumAggregationMethod"><i class="fa fa-tag"></i> ChecksumAggregationMethod</label>
+		<input type="text" id="node-input-ChecksumAggregationMethod" placeholder="ChecksumAggregationMethod"></input>
+	</div> 
+	<div class="form-row" id='BlockIndexAttr' class='hiddenAttrs'>
+		<label for="node-input-BlockIndex"><i class="fa fa-tag"></i> BlockIndex</label>
+		<input type="text" id="node-input-BlockIndex" placeholder="BlockIndex"></input>
+	</div> 
+	<div class="form-row" id='BlockTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-BlockToken"><i class="fa fa-tag"></i> BlockToken</label>
+		<input type="text" id="node-input-BlockToken" placeholder="BlockToken"></input>
+	</div> 
+	<div class="form-row" id='FirstSnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FirstSnapshotId"><i class="fa fa-tag"></i> FirstSnapshotId</label>
+		<input type="text" id="node-input-FirstSnapshotId" placeholder="FirstSnapshotId"></input>
+	</div> 
+	<div class="form-row" id='SecondSnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SecondSnapshotId"><i class="fa fa-tag"></i> SecondSnapshotId</label>
+		<input type="text" id="node-input-SecondSnapshotId" placeholder="SecondSnapshotId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StartingBlockIndexAttr' class='hiddenAttrs'>
+		<label for="node-input-StartingBlockIndex"><i class="fa fa-tag"></i> StartingBlockIndex</label>
+		<input type="text" id="node-input-StartingBlockIndex" placeholder="StartingBlockIndex"></input>
+	</div> 
+	<div class="form-row" id='BlockDataAttr' class='hiddenAttrs'>
+		<label for="node-input-BlockData"><i class="fa fa-tag"></i> BlockData</label>
+		<input type="text" id="node-input-BlockData" placeholder="BlockData"></input>
+	</div> 
+	<div class="form-row" id='DataLengthAttr' class='hiddenAttrs'>
+		<label for="node-input-DataLength"><i class="fa fa-tag"></i> DataLength</label>
+		<input type="text" id="node-input-DataLength" placeholder="DataLength"></input>
+	</div> 
+	<div class="form-row" id='ProgressAttr' class='hiddenAttrs'>
+		<label for="node-input-Progress"><i class="fa fa-tag"></i> Progress</label>
+		<input type="text" id="node-input-Progress" placeholder="Progress"></input>
+	</div> 
+	<div class="form-row" id='VolumeSizeAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeSize"><i class="fa fa-tag"></i> VolumeSize</label>
+		<input type="text" id="node-input-VolumeSize" placeholder="VolumeSize"></input>
+	</div> 
+	<div class="form-row" id='ParentSnapshotIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ParentSnapshotId"><i class="fa fa-tag"></i> ParentSnapshotId</label>
+		<input type="text" id="node-input-ParentSnapshotId" placeholder="ParentSnapshotId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='EncryptedAttr' class='hiddenAttrs'>
+		<label for="node-input-Encrypted"><i class="fa fa-tag"></i> Encrypted</label>
+		<input type="text" id="node-input-Encrypted" placeholder="Encrypted"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyArnAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyArn"><i class="fa fa-tag"></i> KmsKeyArn</label>
+		<input type="text" id="node-input-KmsKeyArn" placeholder="KmsKeyArn"></input>
+	</div> 
+	<div class="form-row" id='TimeoutAttr' class='hiddenAttrs'>
+		<label for="node-input-Timeout"><i class="fa fa-tag"></i> Timeout</label>
+		<input type="text" id="node-input-Timeout" placeholder="Timeout"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CompleteSnapshot:[
+					'#SnapshotIdAttr','#ChangedBlocksCountAttr','#ChecksumAttr','#ChecksumAlgorithmAttr','#ChecksumAggregationMethodAttr'
+					],
+				GetSnapshotBlock:[
+					'#SnapshotIdAttr','#BlockIndexAttr','#BlockTokenAttr'
+					],
+				ListChangedBlocks:[
+					'#FirstSnapshotIdAttr','#SecondSnapshotIdAttr','#NextTokenAttr','#MaxResultsAttr','#StartingBlockIndexAttr'
+					],
+				ListSnapshotBlocks:[
+					'#SnapshotIdAttr','#NextTokenAttr','#MaxResultsAttr','#StartingBlockIndexAttr'
+					],
+				PutSnapshotBlock:[
+					'#SnapshotIdAttr','#BlockIndexAttr','#BlockDataAttr','#DataLengthAttr','#ProgressAttr','#ChecksumAttr','#ChecksumAlgorithmAttr'
+					],
+				StartSnapshot:[
+					'#VolumeSizeAttr','#ParentSnapshotIdAttr','#TagsAttr','#DescriptionAttr','#ClientTokenAttr','#EncryptedAttr','#KmsKeyArnAttr','#TimeoutAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS EBS">
+<p>
+AWS EBS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/EBS.html">EBS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS EBS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CompleteSnapshot' },
+			
+				SnapshotId: { value: ""} ,
+				ChangedBlocksCount: { value: ""} ,
+				Checksum: { value: ""} ,
+				ChecksumAlgorithm: { value: ""} ,
+				ChecksumAggregationMethod: { value: ""} ,
+				BlockIndex: { value: ""} ,
+				BlockToken: { value: ""} ,
+				FirstSnapshotId: { value: ""} ,
+				SecondSnapshotId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				StartingBlockIndex: { value: ""} ,
+				BlockData: { value: ""} ,
+				DataLength: { value: ""} ,
+				Progress: { value: ""} ,
+				VolumeSize: { value: ""} ,
+				ParentSnapshotId: { value: ""} ,
+				Tags: { value: ""} ,
+				Description: { value: ""} ,
+				ClientToken: { value: ""} ,
+				Encrypted: { value: ""} ,
+				KmsKeyArn: { value: ""} ,
+				Timeout: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "EBS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChangedBlocksCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Checksum").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChecksumAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChecksumAggregationMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BlockIndex").typedInput({ default: "num", types: ["num"]});
+$("#node-input-BlockToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FirstSnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecondSnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-StartingBlockIndex").typedInput({ default: "num", types: ["num"]});
+$("#node-input-BlockData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataLength").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Progress").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-ParentSnapshotId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Encrypted").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-KmsKeyArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Timeout").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

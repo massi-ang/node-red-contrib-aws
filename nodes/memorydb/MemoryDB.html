@@ -1,0 +1,622 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS MemoryDB">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchUpdateCluster">BatchUpdateCluster</option>
+		
+			<option value="CopySnapshot">CopySnapshot</option>
+		
+			<option value="CreateACL">CreateACL</option>
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateParameterGroup">CreateParameterGroup</option>
+		
+			<option value="CreateSnapshot">CreateSnapshot</option>
+		
+			<option value="CreateSubnetGroup">CreateSubnetGroup</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="DeleteACL">DeleteACL</option>
+		
+			<option value="DeleteCluster">DeleteCluster</option>
+		
+			<option value="DeleteParameterGroup">DeleteParameterGroup</option>
+		
+			<option value="DeleteSnapshot">DeleteSnapshot</option>
+		
+			<option value="DeleteSubnetGroup">DeleteSubnetGroup</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DescribeACLs">DescribeACLs</option>
+		
+			<option value="DescribeClusters">DescribeClusters</option>
+		
+			<option value="DescribeEngineVersions">DescribeEngineVersions</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeParameterGroups">DescribeParameterGroups</option>
+		
+			<option value="DescribeParameters">DescribeParameters</option>
+		
+			<option value="DescribeServiceUpdates">DescribeServiceUpdates</option>
+		
+			<option value="DescribeSnapshots">DescribeSnapshots</option>
+		
+			<option value="DescribeSubnetGroups">DescribeSubnetGroups</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="FailoverShard">FailoverShard</option>
+		
+			<option value="ListAllowedNodeTypeUpdates">ListAllowedNodeTypeUpdates</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="ResetParameterGroup">ResetParameterGroup</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateACL">UpdateACL</option>
+		
+			<option value="UpdateCluster">UpdateCluster</option>
+		
+			<option value="UpdateParameterGroup">UpdateParameterGroup</option>
+		
+			<option value="UpdateSubnetGroup">UpdateSubnetGroup</option>
+		
+			<option value="UpdateUser">UpdateUser</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClusterNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterNames"><i class="fa fa-tag"></i> ClusterNames</label>
+		<input type="text" id="node-input-ClusterNames" placeholder="ClusterNames"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdate"><i class="fa fa-tag"></i> ServiceUpdate</label>
+		<input type="text" id="node-input-ServiceUpdate" placeholder="ServiceUpdate"></input>
+	</div> 
+	<div class="form-row" id='SourceSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceSnapshotName"><i class="fa fa-tag"></i> SourceSnapshotName</label>
+		<input type="text" id="node-input-SourceSnapshotName" placeholder="SourceSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='TargetSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetSnapshotName"><i class="fa fa-tag"></i> TargetSnapshotName</label>
+		<input type="text" id="node-input-TargetSnapshotName" placeholder="TargetSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='TargetBucketAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetBucket"><i class="fa fa-tag"></i> TargetBucket</label>
+		<input type="text" id="node-input-TargetBucket" placeholder="TargetBucket"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ACLNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ACLName"><i class="fa fa-tag"></i> ACLName</label>
+		<input type="text" id="node-input-ACLName" placeholder="ACLName"></input>
+	</div> 
+	<div class="form-row" id='UserNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-UserNames"><i class="fa fa-tag"></i> UserNames</label>
+		<input type="text" id="node-input-UserNames" placeholder="UserNames"></input>
+	</div> 
+	<div class="form-row" id='ClusterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterName"><i class="fa fa-tag"></i> ClusterName</label>
+		<input type="text" id="node-input-ClusterName" placeholder="ClusterName"></input>
+	</div> 
+	<div class="form-row" id='NodeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeType"><i class="fa fa-tag"></i> NodeType</label>
+		<input type="text" id="node-input-NodeType" placeholder="NodeType"></input>
+	</div> 
+	<div class="form-row" id='ParameterGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterGroupName"><i class="fa fa-tag"></i> ParameterGroupName</label>
+		<input type="text" id="node-input-ParameterGroupName" placeholder="ParameterGroupName"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='NumShardsAttr' class='hiddenAttrs'>
+		<label for="node-input-NumShards"><i class="fa fa-tag"></i> NumShards</label>
+		<input type="text" id="node-input-NumShards" placeholder="NumShards"></input>
+	</div> 
+	<div class="form-row" id='NumReplicasPerShardAttr' class='hiddenAttrs'>
+		<label for="node-input-NumReplicasPerShard"><i class="fa fa-tag"></i> NumReplicasPerShard</label>
+		<input type="text" id="node-input-NumReplicasPerShard" placeholder="NumReplicasPerShard"></input>
+	</div> 
+	<div class="form-row" id='SubnetGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetGroupName"><i class="fa fa-tag"></i> SubnetGroupName</label>
+		<input type="text" id="node-input-SubnetGroupName" placeholder="SubnetGroupName"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='MaintenanceWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-MaintenanceWindow"><i class="fa fa-tag"></i> MaintenanceWindow</label>
+		<input type="text" id="node-input-MaintenanceWindow" placeholder="MaintenanceWindow"></input>
+	</div> 
+	<div class="form-row" id='PortAttr' class='hiddenAttrs'>
+		<label for="node-input-Port"><i class="fa fa-tag"></i> Port</label>
+		<input type="text" id="node-input-Port" placeholder="Port"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicArn"><i class="fa fa-tag"></i> SnsTopicArn</label>
+		<input type="text" id="node-input-SnsTopicArn" placeholder="SnsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='TLSEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-TLSEnabled"><i class="fa fa-tag"></i> TLSEnabled</label>
+		<input type="text" id="node-input-TLSEnabled" placeholder="TLSEnabled"></input>
+	</div> 
+	<div class="form-row" id='SnapshotArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotArns"><i class="fa fa-tag"></i> SnapshotArns</label>
+		<input type="text" id="node-input-SnapshotArns" placeholder="SnapshotArns"></input>
+	</div> 
+	<div class="form-row" id='SnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotName"><i class="fa fa-tag"></i> SnapshotName</label>
+		<input type="text" id="node-input-SnapshotName" placeholder="SnapshotName"></input>
+	</div> 
+	<div class="form-row" id='SnapshotRetentionLimitAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotRetentionLimit"><i class="fa fa-tag"></i> SnapshotRetentionLimit</label>
+		<input type="text" id="node-input-SnapshotRetentionLimit" placeholder="SnapshotRetentionLimit"></input>
+	</div> 
+	<div class="form-row" id='SnapshotWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-SnapshotWindow"><i class="fa fa-tag"></i> SnapshotWindow</label>
+		<input type="text" id="node-input-SnapshotWindow" placeholder="SnapshotWindow"></input>
+	</div> 
+	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i> EngineVersion</label>
+		<input type="text" id="node-input-EngineVersion" placeholder="EngineVersion"></input>
+	</div> 
+	<div class="form-row" id='AutoMinorVersionUpgradeAttr' class='hiddenAttrs'>
+		<label for="node-input-AutoMinorVersionUpgrade"><i class="fa fa-tag"></i> AutoMinorVersionUpgrade</label>
+		<input type="text" id="node-input-AutoMinorVersionUpgrade" placeholder="AutoMinorVersionUpgrade"></input>
+	</div> 
+	<div class="form-row" id='FamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-Family"><i class="fa fa-tag"></i> Family</label>
+		<input type="text" id="node-input-Family" placeholder="Family"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationModeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationMode"><i class="fa fa-tag"></i> AuthenticationMode</label>
+		<input type="text" id="node-input-AuthenticationMode" placeholder="AuthenticationMode"></input>
+	</div> 
+	<div class="form-row" id='AccessStringAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessString"><i class="fa fa-tag"></i> AccessString</label>
+		<input type="text" id="node-input-AccessString" placeholder="AccessString"></input>
+	</div> 
+	<div class="form-row" id='FinalSnapshotNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FinalSnapshotName"><i class="fa fa-tag"></i> FinalSnapshotName</label>
+		<input type="text" id="node-input-FinalSnapshotName" placeholder="FinalSnapshotName"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ShowShardDetailsAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowShardDetails"><i class="fa fa-tag"></i> ShowShardDetails</label>
+		<input type="text" id="node-input-ShowShardDetails" placeholder="ShowShardDetails"></input>
+	</div> 
+	<div class="form-row" id='ParameterGroupFamilyAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterGroupFamily"><i class="fa fa-tag"></i> ParameterGroupFamily</label>
+		<input type="text" id="node-input-ParameterGroupFamily" placeholder="ParameterGroupFamily"></input>
+	</div> 
+	<div class="form-row" id='DefaultOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultOnly"><i class="fa fa-tag"></i> DefaultOnly</label>
+		<input type="text" id="node-input-DefaultOnly" placeholder="DefaultOnly"></input>
+	</div> 
+	<div class="form-row" id='SourceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceName"><i class="fa fa-tag"></i> SourceName</label>
+		<input type="text" id="node-input-SourceName" placeholder="SourceName"></input>
+	</div> 
+	<div class="form-row" id='SourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceType"><i class="fa fa-tag"></i> SourceType</label>
+		<input type="text" id="node-input-SourceType" placeholder="SourceType"></input>
+	</div> 
+	<div class="form-row" id='StartTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTime"><i class="fa fa-tag"></i> StartTime</label>
+		<input type="text" id="node-input-StartTime" placeholder="StartTime"></input>
+	</div> 
+	<div class="form-row" id='EndTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTime"><i class="fa fa-tag"></i> EndTime</label>
+		<input type="text" id="node-input-EndTime" placeholder="EndTime"></input>
+	</div> 
+	<div class="form-row" id='DurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Duration"><i class="fa fa-tag"></i> Duration</label>
+		<input type="text" id="node-input-Duration" placeholder="Duration"></input>
+	</div> 
+	<div class="form-row" id='ServiceUpdateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceUpdateName"><i class="fa fa-tag"></i> ServiceUpdateName</label>
+		<input type="text" id="node-input-ServiceUpdateName" placeholder="ServiceUpdateName"></input>
+	</div> 
+	<div class="form-row" id='StatusAttr' class='hiddenAttrs'>
+		<label for="node-input-Status"><i class="fa fa-tag"></i> Status</label>
+		<input type="text" id="node-input-Status" placeholder="Status"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='ShowDetailAttr' class='hiddenAttrs'>
+		<label for="node-input-ShowDetail"><i class="fa fa-tag"></i> ShowDetail</label>
+		<input type="text" id="node-input-ShowDetail" placeholder="ShowDetail"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='ShardNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardName"><i class="fa fa-tag"></i> ShardName</label>
+		<input type="text" id="node-input-ShardName" placeholder="ShardName"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='AllParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-AllParameters"><i class="fa fa-tag"></i> AllParameters</label>
+		<input type="text" id="node-input-AllParameters" placeholder="AllParameters"></input>
+	</div> 
+	<div class="form-row" id='ParameterNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterNames"><i class="fa fa-tag"></i> ParameterNames</label>
+		<input type="text" id="node-input-ParameterNames" placeholder="ParameterNames"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='UserNamesToAddAttr' class='hiddenAttrs'>
+		<label for="node-input-UserNamesToAdd"><i class="fa fa-tag"></i> UserNamesToAdd</label>
+		<input type="text" id="node-input-UserNamesToAdd" placeholder="UserNamesToAdd"></input>
+	</div> 
+	<div class="form-row" id='UserNamesToRemoveAttr' class='hiddenAttrs'>
+		<label for="node-input-UserNamesToRemove"><i class="fa fa-tag"></i> UserNamesToRemove</label>
+		<input type="text" id="node-input-UserNamesToRemove" placeholder="UserNamesToRemove"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopicStatus"><i class="fa fa-tag"></i> SnsTopicStatus</label>
+		<input type="text" id="node-input-SnsTopicStatus" placeholder="SnsTopicStatus"></input>
+	</div> 
+	<div class="form-row" id='ReplicaConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaConfiguration"><i class="fa fa-tag"></i> ReplicaConfiguration</label>
+		<input type="text" id="node-input-ReplicaConfiguration" placeholder="ReplicaConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ShardConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardConfiguration"><i class="fa fa-tag"></i> ShardConfiguration</label>
+		<input type="text" id="node-input-ShardConfiguration" placeholder="ShardConfiguration"></input>
+	</div> 
+	<div class="form-row" id='ParameterNameValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-ParameterNameValues"><i class="fa fa-tag"></i> ParameterNameValues</label>
+		<input type="text" id="node-input-ParameterNameValues" placeholder="ParameterNameValues"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchUpdateCluster:[
+					'#ClusterNamesAttr','#ServiceUpdateAttr'
+					],
+				CopySnapshot:[
+					'#SourceSnapshotNameAttr','#TargetSnapshotNameAttr','#TargetBucketAttr','#KmsKeyIdAttr','#TagsAttr'
+					],
+				CreateACL:[
+					'#ACLNameAttr','#UserNamesAttr','#TagsAttr'
+					],
+				CreateCluster:[
+					'#ClusterNameAttr','#NodeTypeAttr','#ParameterGroupNameAttr','#DescriptionAttr','#NumShardsAttr','#NumReplicasPerShardAttr','#SubnetGroupNameAttr','#SecurityGroupIdsAttr','#MaintenanceWindowAttr','#PortAttr','#SnsTopicArnAttr','#TLSEnabledAttr','#KmsKeyIdAttr','#SnapshotArnsAttr','#SnapshotNameAttr','#SnapshotRetentionLimitAttr','#TagsAttr','#SnapshotWindowAttr','#ACLNameAttr','#EngineVersionAttr','#AutoMinorVersionUpgradeAttr'
+					],
+				CreateParameterGroup:[
+					'#ParameterGroupNameAttr','#FamilyAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateSnapshot:[
+					'#ClusterNameAttr','#SnapshotNameAttr','#KmsKeyIdAttr','#TagsAttr'
+					],
+				CreateSubnetGroup:[
+					'#SubnetGroupNameAttr','#DescriptionAttr','#SubnetIdsAttr','#TagsAttr'
+					],
+				CreateUser:[
+					'#UserNameAttr','#AuthenticationModeAttr','#AccessStringAttr','#TagsAttr'
+					],
+				DeleteACL:[
+					'#ACLNameAttr'
+					],
+				DeleteCluster:[
+					'#ClusterNameAttr','#FinalSnapshotNameAttr'
+					],
+				DeleteParameterGroup:[
+					'#ParameterGroupNameAttr'
+					],
+				DeleteSnapshot:[
+					'#SnapshotNameAttr'
+					],
+				DeleteSubnetGroup:[
+					'#SubnetGroupNameAttr'
+					],
+				DeleteUser:[
+					'#UserNameAttr'
+					],
+				DescribeACLs:[
+					'#ACLNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeClusters:[
+					'#ClusterNameAttr','#MaxResultsAttr','#NextTokenAttr','#ShowShardDetailsAttr'
+					],
+				DescribeEngineVersions:[
+					'#EngineVersionAttr','#ParameterGroupFamilyAttr','#MaxResultsAttr','#NextTokenAttr','#DefaultOnlyAttr'
+					],
+				DescribeEvents:[
+					'#SourceNameAttr','#SourceTypeAttr','#StartTimeAttr','#EndTimeAttr','#DurationAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeParameterGroups:[
+					'#ParameterGroupNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeParameters:[
+					'#ParameterGroupNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeServiceUpdates:[
+					'#ServiceUpdateNameAttr','#ClusterNamesAttr','#StatusAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeSnapshots:[
+					'#ClusterNameAttr','#SnapshotNameAttr','#SourceAttr','#NextTokenAttr','#MaxResultsAttr','#ShowDetailAttr'
+					],
+				DescribeSubnetGroups:[
+					'#SubnetGroupNameAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeUsers:[
+					'#UserNameAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				FailoverShard:[
+					'#ClusterNameAttr','#ShardNameAttr'
+					],
+				ListAllowedNodeTypeUpdates:[
+					'#ClusterNameAttr'
+					],
+				ListTags:[
+					'#ResourceArnAttr'
+					],
+				ResetParameterGroup:[
+					'#ParameterGroupNameAttr','#AllParametersAttr','#ParameterNamesAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateACL:[
+					'#ACLNameAttr','#UserNamesToAddAttr','#UserNamesToRemoveAttr'
+					],
+				UpdateCluster:[
+					'#ClusterNameAttr','#DescriptionAttr','#SecurityGroupIdsAttr','#MaintenanceWindowAttr','#SnsTopicArnAttr','#SnsTopicStatusAttr','#ParameterGroupNameAttr','#SnapshotWindowAttr','#SnapshotRetentionLimitAttr','#NodeTypeAttr','#EngineVersionAttr','#ReplicaConfigurationAttr','#ShardConfigurationAttr','#ACLNameAttr'
+					],
+				UpdateParameterGroup:[
+					'#ParameterGroupNameAttr','#ParameterNameValuesAttr'
+					],
+				UpdateSubnetGroup:[
+					'#SubnetGroupNameAttr','#DescriptionAttr','#SubnetIdsAttr'
+					],
+				UpdateUser:[
+					'#UserNameAttr','#AuthenticationModeAttr','#AccessStringAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS MemoryDB">
+<p>
+AWS MemoryDB
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/MemoryDB.html">MemoryDB</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS MemoryDB',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchUpdateCluster' },
+			
+				ClusterNames: { value: ""} ,
+				ServiceUpdate: { value: ""} ,
+				SourceSnapshotName: { value: ""} ,
+				TargetSnapshotName: { value: ""} ,
+				TargetBucket: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				Tags: { value: ""} ,
+				ACLName: { value: ""} ,
+				UserNames: { value: ""} ,
+				ClusterName: { value: ""} ,
+				NodeType: { value: ""} ,
+				ParameterGroupName: { value: ""} ,
+				Description: { value: ""} ,
+				NumShards: { value: ""} ,
+				NumReplicasPerShard: { value: ""} ,
+				SubnetGroupName: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				MaintenanceWindow: { value: ""} ,
+				Port: { value: ""} ,
+				SnsTopicArn: { value: ""} ,
+				TLSEnabled: { value: ""} ,
+				SnapshotArns: { value: ""} ,
+				SnapshotName: { value: ""} ,
+				SnapshotRetentionLimit: { value: ""} ,
+				SnapshotWindow: { value: ""} ,
+				EngineVersion: { value: ""} ,
+				AutoMinorVersionUpgrade: { value: ""} ,
+				Family: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				UserName: { value: ""} ,
+				AuthenticationMode: { value: ""} ,
+				AccessString: { value: ""} ,
+				FinalSnapshotName: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ShowShardDetails: { value: ""} ,
+				ParameterGroupFamily: { value: ""} ,
+				DefaultOnly: { value: ""} ,
+				SourceName: { value: ""} ,
+				SourceType: { value: ""} ,
+				StartTime: { value: ""} ,
+				EndTime: { value: ""} ,
+				Duration: { value: ""} ,
+				ServiceUpdateName: { value: ""} ,
+				Status: { value: ""} ,
+				Source: { value: ""} ,
+				ShowDetail: { value: ""} ,
+				Filters: { value: ""} ,
+				ShardName: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				AllParameters: { value: ""} ,
+				ParameterNames: { value: ""} ,
+				TagKeys: { value: ""} ,
+				UserNamesToAdd: { value: ""} ,
+				UserNamesToRemove: { value: ""} ,
+				SnsTopicStatus: { value: ""} ,
+				ReplicaConfiguration: { value: ""} ,
+				ShardConfiguration: { value: ""} ,
+				ParameterNameValues: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "MemoryDB " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ClusterNames").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-SourceSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetBucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ACLName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClusterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NodeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ParameterGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumShards").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NumReplicasPerShard").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SubnetGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaintenanceWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Port").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SnsTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TLSEnabled").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-SnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnapshotRetentionLimit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SnapshotWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AutoMinorVersionUpgrade").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Family").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthenticationMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessString").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FinalSnapshotName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShowShardDetails").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ParameterGroupFamily").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SourceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceType").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Duration").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ServiceUpdateName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShowDetail").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-ShardName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AllParameters").typedInput({ default: "bool", types: ["bool"]});
+
+
+$("#node-input-UserNamesToAdd").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserNamesToRemove").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopicStatus").typedInput({ default: "str", types: ["str"]});
+
+
+
+		}
+	});
+</script>
+

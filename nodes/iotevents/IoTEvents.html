@@ -1,0 +1,379 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IoTEvents">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateAlarmModel">CreateAlarmModel</option>
+		
+			<option value="CreateDetectorModel">CreateDetectorModel</option>
+		
+			<option value="CreateInput">CreateInput</option>
+		
+			<option value="DeleteAlarmModel">DeleteAlarmModel</option>
+		
+			<option value="DeleteDetectorModel">DeleteDetectorModel</option>
+		
+			<option value="DeleteInput">DeleteInput</option>
+		
+			<option value="DescribeAlarmModel">DescribeAlarmModel</option>
+		
+			<option value="DescribeDetectorModel">DescribeDetectorModel</option>
+		
+			<option value="DescribeDetectorModelAnalysis">DescribeDetectorModelAnalysis</option>
+		
+			<option value="DescribeInput">DescribeInput</option>
+		
+			<option value="DescribeLoggingOptions">DescribeLoggingOptions</option>
+		
+			<option value="GetDetectorModelAnalysisResults">GetDetectorModelAnalysisResults</option>
+		
+			<option value="ListAlarmModelVersions">ListAlarmModelVersions</option>
+		
+			<option value="ListAlarmModels">ListAlarmModels</option>
+		
+			<option value="ListDetectorModelVersions">ListDetectorModelVersions</option>
+		
+			<option value="ListDetectorModels">ListDetectorModels</option>
+		
+			<option value="ListInputRoutings">ListInputRoutings</option>
+		
+			<option value="ListInputs">ListInputs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutLoggingOptions">PutLoggingOptions</option>
+		
+			<option value="StartDetectorModelAnalysis">StartDetectorModelAnalysis</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateAlarmModel">UpdateAlarmModel</option>
+		
+			<option value="UpdateDetectorModel">UpdateDetectorModel</option>
+		
+			<option value="UpdateInput">UpdateInput</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='alarmModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmModelName"><i class="fa fa-tag"></i> alarmModelName</label>
+		<input type="text" id="node-input-alarmModelName" placeholder="alarmModelName"></input>
+	</div> 
+	<div class="form-row" id='alarmModelDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmModelDescription"><i class="fa fa-tag"></i> alarmModelDescription</label>
+		<input type="text" id="node-input-alarmModelDescription" placeholder="alarmModelDescription"></input>
+	</div> 
+	<div class="form-row" id='roleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-roleArn"><i class="fa fa-tag"></i> roleArn</label>
+		<input type="text" id="node-input-roleArn" placeholder="roleArn"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='keyAttr' class='hiddenAttrs'>
+		<label for="node-input-key"><i class="fa fa-tag"></i> key</label>
+		<input type="text" id="node-input-key" placeholder="key"></input>
+	</div> 
+	<div class="form-row" id='severityAttr' class='hiddenAttrs'>
+		<label for="node-input-severity"><i class="fa fa-tag"></i> severity</label>
+		<input type="text" id="node-input-severity" placeholder="severity"></input>
+	</div> 
+	<div class="form-row" id='alarmRuleAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmRule"><i class="fa fa-tag"></i> alarmRule</label>
+		<input type="text" id="node-input-alarmRule" placeholder="alarmRule"></input>
+	</div> 
+	<div class="form-row" id='alarmNotificationAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmNotification"><i class="fa fa-tag"></i> alarmNotification</label>
+		<input type="text" id="node-input-alarmNotification" placeholder="alarmNotification"></input>
+	</div> 
+	<div class="form-row" id='alarmEventActionsAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmEventActions"><i class="fa fa-tag"></i> alarmEventActions</label>
+		<input type="text" id="node-input-alarmEventActions" placeholder="alarmEventActions"></input>
+	</div> 
+	<div class="form-row" id='alarmCapabilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmCapabilities"><i class="fa fa-tag"></i> alarmCapabilities</label>
+		<input type="text" id="node-input-alarmCapabilities" placeholder="alarmCapabilities"></input>
+	</div> 
+	<div class="form-row" id='detectorModelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-detectorModelName"><i class="fa fa-tag"></i> detectorModelName</label>
+		<input type="text" id="node-input-detectorModelName" placeholder="detectorModelName"></input>
+	</div> 
+	<div class="form-row" id='detectorModelDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-detectorModelDefinition"><i class="fa fa-tag"></i> detectorModelDefinition</label>
+		<input type="text" id="node-input-detectorModelDefinition" placeholder="detectorModelDefinition"></input>
+	</div> 
+	<div class="form-row" id='detectorModelDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-detectorModelDescription"><i class="fa fa-tag"></i> detectorModelDescription</label>
+		<input type="text" id="node-input-detectorModelDescription" placeholder="detectorModelDescription"></input>
+	</div> 
+	<div class="form-row" id='evaluationMethodAttr' class='hiddenAttrs'>
+		<label for="node-input-evaluationMethod"><i class="fa fa-tag"></i> evaluationMethod</label>
+		<input type="text" id="node-input-evaluationMethod" placeholder="evaluationMethod"></input>
+	</div> 
+	<div class="form-row" id='inputNameAttr' class='hiddenAttrs'>
+		<label for="node-input-inputName"><i class="fa fa-tag"></i> inputName</label>
+		<input type="text" id="node-input-inputName" placeholder="inputName"></input>
+	</div> 
+	<div class="form-row" id='inputDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-inputDescription"><i class="fa fa-tag"></i> inputDescription</label>
+		<input type="text" id="node-input-inputDescription" placeholder="inputDescription"></input>
+	</div> 
+	<div class="form-row" id='inputDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-inputDefinition"><i class="fa fa-tag"></i> inputDefinition</label>
+		<input type="text" id="node-input-inputDefinition" placeholder="inputDefinition"></input>
+	</div> 
+	<div class="form-row" id='alarmModelVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-alarmModelVersion"><i class="fa fa-tag"></i> alarmModelVersion</label>
+		<input type="text" id="node-input-alarmModelVersion" placeholder="alarmModelVersion"></input>
+	</div> 
+	<div class="form-row" id='detectorModelVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-detectorModelVersion"><i class="fa fa-tag"></i> detectorModelVersion</label>
+		<input type="text" id="node-input-detectorModelVersion" placeholder="detectorModelVersion"></input>
+	</div> 
+	<div class="form-row" id='analysisIdAttr' class='hiddenAttrs'>
+		<label for="node-input-analysisId"><i class="fa fa-tag"></i> analysisId</label>
+		<input type="text" id="node-input-analysisId" placeholder="analysisId"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='inputIdentifierAttr' class='hiddenAttrs'>
+		<label for="node-input-inputIdentifier"><i class="fa fa-tag"></i> inputIdentifier</label>
+		<input type="text" id="node-input-inputIdentifier" placeholder="inputIdentifier"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='loggingOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-loggingOptions"><i class="fa fa-tag"></i> loggingOptions</label>
+		<input type="text" id="node-input-loggingOptions" placeholder="loggingOptions"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateAlarmModel:[
+					'#alarmModelNameAttr','#alarmModelDescriptionAttr','#roleArnAttr','#tagsAttr','#keyAttr','#severityAttr','#alarmRuleAttr','#alarmNotificationAttr','#alarmEventActionsAttr','#alarmCapabilitiesAttr'
+					],
+				CreateDetectorModel:[
+					'#detectorModelNameAttr','#detectorModelDefinitionAttr','#detectorModelDescriptionAttr','#keyAttr','#roleArnAttr','#tagsAttr','#evaluationMethodAttr'
+					],
+				CreateInput:[
+					'#inputNameAttr','#inputDescriptionAttr','#inputDefinitionAttr','#tagsAttr'
+					],
+				DeleteAlarmModel:[
+					'#alarmModelNameAttr'
+					],
+				DeleteDetectorModel:[
+					'#detectorModelNameAttr'
+					],
+				DeleteInput:[
+					'#inputNameAttr'
+					],
+				DescribeAlarmModel:[
+					'#alarmModelNameAttr','#alarmModelVersionAttr'
+					],
+				DescribeDetectorModel:[
+					'#detectorModelNameAttr','#detectorModelVersionAttr'
+					],
+				DescribeDetectorModelAnalysis:[
+					'#analysisIdAttr'
+					],
+				DescribeInput:[
+					'#inputNameAttr'
+					],
+				DescribeLoggingOptions:[
+					
+					],
+				GetDetectorModelAnalysisResults:[
+					'#analysisIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAlarmModelVersions:[
+					'#alarmModelNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAlarmModels:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDetectorModelVersions:[
+					'#detectorModelNameAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListDetectorModels:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListInputRoutings:[
+					'#inputIdentifierAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListInputs:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutLoggingOptions:[
+					'#loggingOptionsAttr'
+					],
+				StartDetectorModelAnalysis:[
+					'#detectorModelDefinitionAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateAlarmModel:[
+					'#alarmModelNameAttr','#alarmModelDescriptionAttr','#roleArnAttr','#severityAttr','#alarmRuleAttr','#alarmNotificationAttr','#alarmEventActionsAttr','#alarmCapabilitiesAttr'
+					],
+				UpdateDetectorModel:[
+					'#detectorModelNameAttr','#detectorModelDefinitionAttr','#detectorModelDescriptionAttr','#roleArnAttr','#evaluationMethodAttr'
+					],
+				UpdateInput:[
+					'#inputNameAttr','#inputDescriptionAttr','#inputDefinitionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IoTEvents">
+<p>
+AWS IoTEvents
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IoTEvents.html">IoTEvents</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IoTEvents',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateAlarmModel' },
+			
+				alarmModelName: { value: ""} ,
+				alarmModelDescription: { value: ""} ,
+				roleArn: { value: ""} ,
+				tags: { value: ""} ,
+				key: { value: ""} ,
+				severity: { value: ""} ,
+				alarmRule: { value: ""} ,
+				alarmNotification: { value: ""} ,
+				alarmEventActions: { value: ""} ,
+				alarmCapabilities: { value: ""} ,
+				detectorModelName: { value: ""} ,
+				detectorModelDefinition: { value: ""} ,
+				detectorModelDescription: { value: ""} ,
+				evaluationMethod: { value: ""} ,
+				inputName: { value: ""} ,
+				inputDescription: { value: ""} ,
+				inputDefinition: { value: ""} ,
+				alarmModelVersion: { value: ""} ,
+				detectorModelVersion: { value: ""} ,
+				analysisId: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				inputIdentifier: { value: ""} ,
+				resourceArn: { value: ""} ,
+				loggingOptions: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IoTEvents " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-alarmModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmModelDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-roleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-key").typedInput({ default: "str", types: ["str"]});
+$("#node-input-severity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-alarmRule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmNotification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmEventActions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmCapabilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-detectorModelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-detectorModelDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-detectorModelDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-evaluationMethod").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inputName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inputDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inputDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-alarmModelVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-detectorModelVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-analysisId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loggingOptions").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

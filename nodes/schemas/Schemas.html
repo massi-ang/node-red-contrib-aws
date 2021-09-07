@@ -1,0 +1,398 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Schemas">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateDiscoverer">CreateDiscoverer</option>
+		
+			<option value="CreateRegistry">CreateRegistry</option>
+		
+			<option value="CreateSchema">CreateSchema</option>
+		
+			<option value="DeleteDiscoverer">DeleteDiscoverer</option>
+		
+			<option value="DeleteRegistry">DeleteRegistry</option>
+		
+			<option value="DeleteResourcePolicy">DeleteResourcePolicy</option>
+		
+			<option value="DeleteSchema">DeleteSchema</option>
+		
+			<option value="DeleteSchemaVersion">DeleteSchemaVersion</option>
+		
+			<option value="DescribeCodeBinding">DescribeCodeBinding</option>
+		
+			<option value="DescribeDiscoverer">DescribeDiscoverer</option>
+		
+			<option value="DescribeRegistry">DescribeRegistry</option>
+		
+			<option value="DescribeSchema">DescribeSchema</option>
+		
+			<option value="ExportSchema">ExportSchema</option>
+		
+			<option value="GetCodeBindingSource">GetCodeBindingSource</option>
+		
+			<option value="GetDiscoveredSchema">GetDiscoveredSchema</option>
+		
+			<option value="GetResourcePolicy">GetResourcePolicy</option>
+		
+			<option value="ListDiscoverers">ListDiscoverers</option>
+		
+			<option value="ListRegistries">ListRegistries</option>
+		
+			<option value="ListSchemaVersions">ListSchemaVersions</option>
+		
+			<option value="ListSchemas">ListSchemas</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutCodeBinding">PutCodeBinding</option>
+		
+			<option value="PutResourcePolicy">PutResourcePolicy</option>
+		
+			<option value="SearchSchemas">SearchSchemas</option>
+		
+			<option value="StartDiscoverer">StartDiscoverer</option>
+		
+			<option value="StopDiscoverer">StopDiscoverer</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDiscoverer">UpdateDiscoverer</option>
+		
+			<option value="UpdateRegistry">UpdateRegistry</option>
+		
+			<option value="UpdateSchema">UpdateSchema</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i> SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='CrossAccountAttr' class='hiddenAttrs'>
+		<label for="node-input-CrossAccount"><i class="fa fa-tag"></i> CrossAccount</label>
+		<input type="text" id="node-input-CrossAccount" placeholder="CrossAccount"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='RegistryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistryName"><i class="fa fa-tag"></i> RegistryName</label>
+		<input type="text" id="node-input-RegistryName" placeholder="RegistryName"></input>
+	</div> 
+	<div class="form-row" id='ContentAttr' class='hiddenAttrs'>
+		<label for="node-input-Content"><i class="fa fa-tag"></i> Content</label>
+		<input type="text" id="node-input-Content" placeholder="Content"></input>
+	</div> 
+	<div class="form-row" id='SchemaNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaName"><i class="fa fa-tag"></i> SchemaName</label>
+		<input type="text" id="node-input-SchemaName" placeholder="SchemaName"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='DiscovererIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DiscovererId"><i class="fa fa-tag"></i> DiscovererId</label>
+		<input type="text" id="node-input-DiscovererId" placeholder="DiscovererId"></input>
+	</div> 
+	<div class="form-row" id='SchemaVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaVersion"><i class="fa fa-tag"></i> SchemaVersion</label>
+		<input type="text" id="node-input-SchemaVersion" placeholder="SchemaVersion"></input>
+	</div> 
+	<div class="form-row" id='LanguageAttr' class='hiddenAttrs'>
+		<label for="node-input-Language"><i class="fa fa-tag"></i> Language</label>
+		<input type="text" id="node-input-Language" placeholder="Language"></input>
+	</div> 
+	<div class="form-row" id='EventsAttr' class='hiddenAttrs'>
+		<label for="node-input-Events"><i class="fa fa-tag"></i> Events</label>
+		<input type="text" id="node-input-Events" placeholder="Events"></input>
+	</div> 
+	<div class="form-row" id='DiscovererIdPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-DiscovererIdPrefix"><i class="fa fa-tag"></i> DiscovererIdPrefix</label>
+		<input type="text" id="node-input-DiscovererIdPrefix" placeholder="DiscovererIdPrefix"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='SourceArnPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArnPrefix"><i class="fa fa-tag"></i> SourceArnPrefix</label>
+		<input type="text" id="node-input-SourceArnPrefix" placeholder="SourceArnPrefix"></input>
+	</div> 
+	<div class="form-row" id='RegistryNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-RegistryNamePrefix"><i class="fa fa-tag"></i> RegistryNamePrefix</label>
+		<input type="text" id="node-input-RegistryNamePrefix" placeholder="RegistryNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='ScopeAttr' class='hiddenAttrs'>
+		<label for="node-input-Scope"><i class="fa fa-tag"></i> Scope</label>
+		<input type="text" id="node-input-Scope" placeholder="Scope"></input>
+	</div> 
+	<div class="form-row" id='SchemaNamePrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-SchemaNamePrefix"><i class="fa fa-tag"></i> SchemaNamePrefix</label>
+		<input type="text" id="node-input-SchemaNamePrefix" placeholder="SchemaNamePrefix"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='RevisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-RevisionId"><i class="fa fa-tag"></i> RevisionId</label>
+		<input type="text" id="node-input-RevisionId" placeholder="RevisionId"></input>
+	</div> 
+	<div class="form-row" id='KeywordsAttr' class='hiddenAttrs'>
+		<label for="node-input-Keywords"><i class="fa fa-tag"></i> Keywords</label>
+		<input type="text" id="node-input-Keywords" placeholder="Keywords"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientTokenId"><i class="fa fa-tag"></i> ClientTokenId</label>
+		<input type="text" id="node-input-ClientTokenId" placeholder="ClientTokenId"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateDiscoverer:[
+					'#DescriptionAttr','#SourceArnAttr','#CrossAccountAttr','#TagsAttr'
+					],
+				CreateRegistry:[
+					'#DescriptionAttr','#RegistryNameAttr','#TagsAttr'
+					],
+				CreateSchema:[
+					'#ContentAttr','#DescriptionAttr','#RegistryNameAttr','#SchemaNameAttr','#TagsAttr','#TypeAttr'
+					],
+				DeleteDiscoverer:[
+					'#DiscovererIdAttr'
+					],
+				DeleteRegistry:[
+					'#RegistryNameAttr'
+					],
+				DeleteResourcePolicy:[
+					'#RegistryNameAttr'
+					],
+				DeleteSchema:[
+					'#RegistryNameAttr','#SchemaNameAttr'
+					],
+				DeleteSchemaVersion:[
+					'#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr'
+					],
+				DescribeCodeBinding:[
+					'#LanguageAttr','#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr'
+					],
+				DescribeDiscoverer:[
+					'#DiscovererIdAttr'
+					],
+				DescribeRegistry:[
+					'#RegistryNameAttr'
+					],
+				DescribeSchema:[
+					'#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr'
+					],
+				ExportSchema:[
+					'#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr','#TypeAttr'
+					],
+				GetCodeBindingSource:[
+					'#LanguageAttr','#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr'
+					],
+				GetDiscoveredSchema:[
+					'#EventsAttr','#TypeAttr'
+					],
+				GetResourcePolicy:[
+					'#RegistryNameAttr'
+					],
+				ListDiscoverers:[
+					'#DiscovererIdPrefixAttr','#LimitAttr','#NextTokenAttr','#SourceArnPrefixAttr'
+					],
+				ListRegistries:[
+					'#LimitAttr','#NextTokenAttr','#RegistryNamePrefixAttr','#ScopeAttr'
+					],
+				ListSchemaVersions:[
+					'#LimitAttr','#NextTokenAttr','#RegistryNameAttr','#SchemaNameAttr'
+					],
+				ListSchemas:[
+					'#LimitAttr','#NextTokenAttr','#RegistryNameAttr','#SchemaNamePrefixAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				PutCodeBinding:[
+					'#LanguageAttr','#RegistryNameAttr','#SchemaNameAttr','#SchemaVersionAttr'
+					],
+				PutResourcePolicy:[
+					'#PolicyAttr','#RegistryNameAttr','#RevisionIdAttr'
+					],
+				SearchSchemas:[
+					'#KeywordsAttr','#LimitAttr','#NextTokenAttr','#RegistryNameAttr'
+					],
+				StartDiscoverer:[
+					'#DiscovererIdAttr'
+					],
+				StopDiscoverer:[
+					'#DiscovererIdAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDiscoverer:[
+					'#DescriptionAttr','#DiscovererIdAttr','#CrossAccountAttr'
+					],
+				UpdateRegistry:[
+					'#DescriptionAttr','#RegistryNameAttr'
+					],
+				UpdateSchema:[
+					'#ClientTokenIdAttr','#ContentAttr','#DescriptionAttr','#RegistryNameAttr','#SchemaNameAttr','#TypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Schemas">
+<p>
+AWS Schemas
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Schemas.html">Schemas</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Schemas',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateDiscoverer' },
+			
+				Description: { value: ""} ,
+				SourceArn: { value: ""} ,
+				CrossAccount: { value: ""} ,
+				Tags: { value: ""} ,
+				RegistryName: { value: ""} ,
+				Content: { value: ""} ,
+				SchemaName: { value: ""} ,
+				Type: { value: ""} ,
+				DiscovererId: { value: ""} ,
+				SchemaVersion: { value: ""} ,
+				Language: { value: ""} ,
+				Events: { value: ""} ,
+				DiscovererIdPrefix: { value: ""} ,
+				Limit: { value: ""} ,
+				NextToken: { value: ""} ,
+				SourceArnPrefix: { value: ""} ,
+				RegistryNamePrefix: { value: ""} ,
+				Scope: { value: ""} ,
+				SchemaNamePrefix: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Policy: { value: ""} ,
+				RevisionId: { value: ""} ,
+				Keywords: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ClientTokenId: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Schemas " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CrossAccount").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Content").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DiscovererId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Language").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DiscovererIdPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceArnPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegistryNamePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Scope").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SchemaNamePrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RevisionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Keywords").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ClientTokenId").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

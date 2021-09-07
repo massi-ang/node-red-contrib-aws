@@ -1,0 +1,380 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS OpsWorksCM">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateNode">AssociateNode</option>
+		
+			<option value="CreateBackup">CreateBackup</option>
+		
+			<option value="CreateServer">CreateServer</option>
+		
+			<option value="DeleteBackup">DeleteBackup</option>
+		
+			<option value="DeleteServer">DeleteServer</option>
+		
+			<option value="DescribeAccountAttributes">DescribeAccountAttributes</option>
+		
+			<option value="DescribeBackups">DescribeBackups</option>
+		
+			<option value="DescribeEvents">DescribeEvents</option>
+		
+			<option value="DescribeNodeAssociationStatus">DescribeNodeAssociationStatus</option>
+		
+			<option value="DescribeServers">DescribeServers</option>
+		
+			<option value="DisassociateNode">DisassociateNode</option>
+		
+			<option value="ExportServerEngineAttribute">ExportServerEngineAttribute</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="RestoreServer">RestoreServer</option>
+		
+			<option value="StartMaintenance">StartMaintenance</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateServer">UpdateServer</option>
+		
+			<option value="UpdateServerEngineAttributes">UpdateServerEngineAttributes</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ServerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ServerName"><i class="fa fa-tag"></i> ServerName</label>
+		<input type="text" id="node-input-ServerName" placeholder="ServerName"></input>
+	</div> 
+	<div class="form-row" id='NodeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeName"><i class="fa fa-tag"></i> NodeName</label>
+		<input type="text" id="node-input-NodeName" placeholder="NodeName"></input>
+	</div> 
+	<div class="form-row" id='EngineAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineAttributes"><i class="fa fa-tag"></i> EngineAttributes</label>
+		<input type="text" id="node-input-EngineAttributes" placeholder="EngineAttributes"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='AssociatePublicIpAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-AssociatePublicIpAddress"><i class="fa fa-tag"></i> AssociatePublicIpAddress</label>
+		<input type="text" id="node-input-AssociatePublicIpAddress" placeholder="AssociatePublicIpAddress"></input>
+	</div> 
+	<div class="form-row" id='CustomDomainAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomDomain"><i class="fa fa-tag"></i> CustomDomain</label>
+		<input type="text" id="node-input-CustomDomain" placeholder="CustomDomain"></input>
+	</div> 
+	<div class="form-row" id='CustomCertificateAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomCertificate"><i class="fa fa-tag"></i> CustomCertificate</label>
+		<input type="text" id="node-input-CustomCertificate" placeholder="CustomCertificate"></input>
+	</div> 
+	<div class="form-row" id='CustomPrivateKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-CustomPrivateKey"><i class="fa fa-tag"></i> CustomPrivateKey</label>
+		<input type="text" id="node-input-CustomPrivateKey" placeholder="CustomPrivateKey"></input>
+	</div> 
+	<div class="form-row" id='DisableAutomatedBackupAttr' class='hiddenAttrs'>
+		<label for="node-input-DisableAutomatedBackup"><i class="fa fa-tag"></i> DisableAutomatedBackup</label>
+		<input type="text" id="node-input-DisableAutomatedBackup" placeholder="DisableAutomatedBackup"></input>
+	</div> 
+	<div class="form-row" id='EngineAttr' class='hiddenAttrs'>
+		<label for="node-input-Engine"><i class="fa fa-tag"></i> Engine</label>
+		<input type="text" id="node-input-Engine" placeholder="Engine"></input>
+	</div> 
+	<div class="form-row" id='EngineModelAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineModel"><i class="fa fa-tag"></i> EngineModel</label>
+		<input type="text" id="node-input-EngineModel" placeholder="EngineModel"></input>
+	</div> 
+	<div class="form-row" id='EngineVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-EngineVersion"><i class="fa fa-tag"></i> EngineVersion</label>
+		<input type="text" id="node-input-EngineVersion" placeholder="EngineVersion"></input>
+	</div> 
+	<div class="form-row" id='BackupRetentionCountAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupRetentionCount"><i class="fa fa-tag"></i> BackupRetentionCount</label>
+		<input type="text" id="node-input-BackupRetentionCount" placeholder="BackupRetentionCount"></input>
+	</div> 
+	<div class="form-row" id='InstanceProfileArnAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceProfileArn"><i class="fa fa-tag"></i> InstanceProfileArn</label>
+		<input type="text" id="node-input-InstanceProfileArn" placeholder="InstanceProfileArn"></input>
+	</div> 
+	<div class="form-row" id='InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceType"><i class="fa fa-tag"></i> InstanceType</label>
+		<input type="text" id="node-input-InstanceType" placeholder="InstanceType"></input>
+	</div> 
+	<div class="form-row" id='KeyPairAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyPair"><i class="fa fa-tag"></i> KeyPair</label>
+		<input type="text" id="node-input-KeyPair" placeholder="KeyPair"></input>
+	</div> 
+	<div class="form-row" id='PreferredMaintenanceWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredMaintenanceWindow"><i class="fa fa-tag"></i> PreferredMaintenanceWindow</label>
+		<input type="text" id="node-input-PreferredMaintenanceWindow" placeholder="PreferredMaintenanceWindow"></input>
+	</div> 
+	<div class="form-row" id='PreferredBackupWindowAttr' class='hiddenAttrs'>
+		<label for="node-input-PreferredBackupWindow"><i class="fa fa-tag"></i> PreferredBackupWindow</label>
+		<input type="text" id="node-input-PreferredBackupWindow" placeholder="PreferredBackupWindow"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='ServiceRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceRoleArn"><i class="fa fa-tag"></i> ServiceRoleArn</label>
+		<input type="text" id="node-input-ServiceRoleArn" placeholder="ServiceRoleArn"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='BackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupId"><i class="fa fa-tag"></i> BackupId</label>
+		<input type="text" id="node-input-BackupId" placeholder="BackupId"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NodeAssociationStatusTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NodeAssociationStatusToken"><i class="fa fa-tag"></i> NodeAssociationStatusToken</label>
+		<input type="text" id="node-input-NodeAssociationStatusToken" placeholder="NodeAssociationStatusToken"></input>
+	</div> 
+	<div class="form-row" id='ExportAttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportAttributeName"><i class="fa fa-tag"></i> ExportAttributeName</label>
+		<input type="text" id="node-input-ExportAttributeName" placeholder="ExportAttributeName"></input>
+	</div> 
+	<div class="form-row" id='InputAttributesAttr' class='hiddenAttrs'>
+		<label for="node-input-InputAttributes"><i class="fa fa-tag"></i> InputAttributes</label>
+		<input type="text" id="node-input-InputAttributes" placeholder="InputAttributes"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='AttributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeName"><i class="fa fa-tag"></i> AttributeName</label>
+		<input type="text" id="node-input-AttributeName" placeholder="AttributeName"></input>
+	</div> 
+	<div class="form-row" id='AttributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeValue"><i class="fa fa-tag"></i> AttributeValue</label>
+		<input type="text" id="node-input-AttributeValue" placeholder="AttributeValue"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateNode:[
+					'#ServerNameAttr','#NodeNameAttr','#EngineAttributesAttr'
+					],
+				CreateBackup:[
+					'#ServerNameAttr','#DescriptionAttr','#TagsAttr'
+					],
+				CreateServer:[
+					'#AssociatePublicIpAddressAttr','#CustomDomainAttr','#CustomCertificateAttr','#CustomPrivateKeyAttr','#DisableAutomatedBackupAttr','#EngineAttr','#EngineModelAttr','#EngineVersionAttr','#EngineAttributesAttr','#BackupRetentionCountAttr','#ServerNameAttr','#InstanceProfileArnAttr','#InstanceTypeAttr','#KeyPairAttr','#PreferredMaintenanceWindowAttr','#PreferredBackupWindowAttr','#SecurityGroupIdsAttr','#ServiceRoleArnAttr','#SubnetIdsAttr','#TagsAttr','#BackupIdAttr'
+					],
+				DeleteBackup:[
+					'#BackupIdAttr'
+					],
+				DeleteServer:[
+					'#ServerNameAttr'
+					],
+				DescribeAccountAttributes:[
+					
+					],
+				DescribeBackups:[
+					'#BackupIdAttr','#ServerNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeEvents:[
+					'#ServerNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeNodeAssociationStatus:[
+					'#NodeAssociationStatusTokenAttr','#ServerNameAttr'
+					],
+				DescribeServers:[
+					'#ServerNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DisassociateNode:[
+					'#ServerNameAttr','#NodeNameAttr','#EngineAttributesAttr'
+					],
+				ExportServerEngineAttribute:[
+					'#ExportAttributeNameAttr','#ServerNameAttr','#InputAttributesAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				RestoreServer:[
+					'#BackupIdAttr','#ServerNameAttr','#InstanceTypeAttr','#KeyPairAttr'
+					],
+				StartMaintenance:[
+					'#ServerNameAttr','#EngineAttributesAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateServer:[
+					'#DisableAutomatedBackupAttr','#BackupRetentionCountAttr','#ServerNameAttr','#PreferredMaintenanceWindowAttr','#PreferredBackupWindowAttr'
+					],
+				UpdateServerEngineAttributes:[
+					'#ServerNameAttr','#AttributeNameAttr','#AttributeValueAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS OpsWorksCM">
+<p>
+AWS OpsWorksCM
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/OpsWorksCM.html">OpsWorksCM</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS OpsWorksCM',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateNode' },
+			
+				ServerName: { value: ""} ,
+				NodeName: { value: ""} ,
+				EngineAttributes: { value: ""} ,
+				Description: { value: ""} ,
+				Tags: { value: ""} ,
+				AssociatePublicIpAddress: { value: ""} ,
+				CustomDomain: { value: ""} ,
+				CustomCertificate: { value: ""} ,
+				CustomPrivateKey: { value: ""} ,
+				DisableAutomatedBackup: { value: ""} ,
+				Engine: { value: ""} ,
+				EngineModel: { value: ""} ,
+				EngineVersion: { value: ""} ,
+				BackupRetentionCount: { value: ""} ,
+				InstanceProfileArn: { value: ""} ,
+				InstanceType: { value: ""} ,
+				KeyPair: { value: ""} ,
+				PreferredMaintenanceWindow: { value: ""} ,
+				PreferredBackupWindow: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				ServiceRoleArn: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				BackupId: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NodeAssociationStatusToken: { value: ""} ,
+				ExportAttributeName: { value: ""} ,
+				InputAttributes: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				AttributeName: { value: ""} ,
+				AttributeValue: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "OpsWorksCM " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ServerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NodeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AssociatePublicIpAddress").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-CustomDomain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CustomCertificate").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DisableAutomatedBackup").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Engine").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineModel").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EngineVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupRetentionCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-InstanceProfileArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyPair").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredMaintenanceWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PreferredBackupWindow").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NodeAssociationStatusToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExportAttributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputAttributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-AttributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeValue").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

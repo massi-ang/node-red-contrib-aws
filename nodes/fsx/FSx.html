@@ -1,0 +1,456 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS FSx">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateFileSystemAliases">AssociateFileSystemAliases</option>
+		
+			<option value="CancelDataRepositoryTask">CancelDataRepositoryTask</option>
+		
+			<option value="CopyBackup">CopyBackup</option>
+		
+			<option value="CreateBackup">CreateBackup</option>
+		
+			<option value="CreateDataRepositoryTask">CreateDataRepositoryTask</option>
+		
+			<option value="CreateFileSystem">CreateFileSystem</option>
+		
+			<option value="CreateFileSystemFromBackup">CreateFileSystemFromBackup</option>
+		
+			<option value="CreateStorageVirtualMachine">CreateStorageVirtualMachine</option>
+		
+			<option value="CreateVolume">CreateVolume</option>
+		
+			<option value="CreateVolumeFromBackup">CreateVolumeFromBackup</option>
+		
+			<option value="DeleteBackup">DeleteBackup</option>
+		
+			<option value="DeleteFileSystem">DeleteFileSystem</option>
+		
+			<option value="DeleteStorageVirtualMachine">DeleteStorageVirtualMachine</option>
+		
+			<option value="DeleteVolume">DeleteVolume</option>
+		
+			<option value="DescribeBackups">DescribeBackups</option>
+		
+			<option value="DescribeDataRepositoryTasks">DescribeDataRepositoryTasks</option>
+		
+			<option value="DescribeFileSystemAliases">DescribeFileSystemAliases</option>
+		
+			<option value="DescribeFileSystems">DescribeFileSystems</option>
+		
+			<option value="DescribeStorageVirtualMachines">DescribeStorageVirtualMachines</option>
+		
+			<option value="DescribeVolumes">DescribeVolumes</option>
+		
+			<option value="DisassociateFileSystemAliases">DisassociateFileSystemAliases</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateFileSystem">UpdateFileSystem</option>
+		
+			<option value="UpdateStorageVirtualMachine">UpdateStorageVirtualMachine</option>
+		
+			<option value="UpdateVolume">UpdateVolume</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='FileSystemIdAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemId"><i class="fa fa-tag"></i> FileSystemId</label>
+		<input type="text" id="node-input-FileSystemId" placeholder="FileSystemId"></input>
+	</div> 
+	<div class="form-row" id='AliasesAttr' class='hiddenAttrs'>
+		<label for="node-input-Aliases"><i class="fa fa-tag"></i> Aliases</label>
+		<input type="text" id="node-input-Aliases" placeholder="Aliases"></input>
+	</div> 
+	<div class="form-row" id='TaskIdAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskId"><i class="fa fa-tag"></i> TaskId</label>
+		<input type="text" id="node-input-TaskId" placeholder="TaskId"></input>
+	</div> 
+	<div class="form-row" id='SourceBackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBackupId"><i class="fa fa-tag"></i> SourceBackupId</label>
+		<input type="text" id="node-input-SourceBackupId" placeholder="SourceBackupId"></input>
+	</div> 
+	<div class="form-row" id='SourceRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceRegion"><i class="fa fa-tag"></i> SourceRegion</label>
+		<input type="text" id="node-input-SourceRegion" placeholder="SourceRegion"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='CopyTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-CopyTags"><i class="fa fa-tag"></i> CopyTags</label>
+		<input type="text" id="node-input-CopyTags" placeholder="CopyTags"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='VolumeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeId"><i class="fa fa-tag"></i> VolumeId</label>
+		<input type="text" id="node-input-VolumeId" placeholder="VolumeId"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='PathsAttr' class='hiddenAttrs'>
+		<label for="node-input-Paths"><i class="fa fa-tag"></i> Paths</label>
+		<input type="text" id="node-input-Paths" placeholder="Paths"></input>
+	</div> 
+	<div class="form-row" id='ReportAttr' class='hiddenAttrs'>
+		<label for="node-input-Report"><i class="fa fa-tag"></i> Report</label>
+		<input type="text" id="node-input-Report" placeholder="Report"></input>
+	</div> 
+	<div class="form-row" id='FileSystemTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemType"><i class="fa fa-tag"></i> FileSystemType</label>
+		<input type="text" id="node-input-FileSystemType" placeholder="FileSystemType"></input>
+	</div> 
+	<div class="form-row" id='StorageCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageCapacity"><i class="fa fa-tag"></i> StorageCapacity</label>
+		<input type="text" id="node-input-StorageCapacity" placeholder="StorageCapacity"></input>
+	</div> 
+	<div class="form-row" id='StorageTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageType"><i class="fa fa-tag"></i> StorageType</label>
+		<input type="text" id="node-input-StorageType" placeholder="StorageType"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='SecurityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SecurityGroupIds"><i class="fa fa-tag"></i> SecurityGroupIds</label>
+		<input type="text" id="node-input-SecurityGroupIds" placeholder="SecurityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='WindowsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-WindowsConfiguration"><i class="fa fa-tag"></i> WindowsConfiguration</label>
+		<input type="text" id="node-input-WindowsConfiguration" placeholder="WindowsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='LustreConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-LustreConfiguration"><i class="fa fa-tag"></i> LustreConfiguration</label>
+		<input type="text" id="node-input-LustreConfiguration" placeholder="LustreConfiguration"></input>
+	</div> 
+	<div class="form-row" id='OntapConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-OntapConfiguration"><i class="fa fa-tag"></i> OntapConfiguration</label>
+		<input type="text" id="node-input-OntapConfiguration" placeholder="OntapConfiguration"></input>
+	</div> 
+	<div class="form-row" id='BackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupId"><i class="fa fa-tag"></i> BackupId</label>
+		<input type="text" id="node-input-BackupId" placeholder="BackupId"></input>
+	</div> 
+	<div class="form-row" id='ActiveDirectoryConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-ActiveDirectoryConfiguration"><i class="fa fa-tag"></i> ActiveDirectoryConfiguration</label>
+		<input type="text" id="node-input-ActiveDirectoryConfiguration" placeholder="ActiveDirectoryConfiguration"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='SvmAdminPasswordAttr' class='hiddenAttrs'>
+		<label for="node-input-SvmAdminPassword"><i class="fa fa-tag"></i> SvmAdminPassword</label>
+		<input type="text" id="node-input-SvmAdminPassword" placeholder="SvmAdminPassword"></input>
+	</div> 
+	<div class="form-row" id='RootVolumeSecurityStyleAttr' class='hiddenAttrs'>
+		<label for="node-input-RootVolumeSecurityStyle"><i class="fa fa-tag"></i> RootVolumeSecurityStyle</label>
+		<input type="text" id="node-input-RootVolumeSecurityStyle" placeholder="RootVolumeSecurityStyle"></input>
+	</div> 
+	<div class="form-row" id='VolumeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeType"><i class="fa fa-tag"></i> VolumeType</label>
+		<input type="text" id="node-input-VolumeType" placeholder="VolumeType"></input>
+	</div> 
+	<div class="form-row" id='StorageVirtualMachineIdAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageVirtualMachineId"><i class="fa fa-tag"></i> StorageVirtualMachineId</label>
+		<input type="text" id="node-input-StorageVirtualMachineId" placeholder="StorageVirtualMachineId"></input>
+	</div> 
+	<div class="form-row" id='BackupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupIds"><i class="fa fa-tag"></i> BackupIds</label>
+		<input type="text" id="node-input-BackupIds" placeholder="BackupIds"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='TaskIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-TaskIds"><i class="fa fa-tag"></i> TaskIds</label>
+		<input type="text" id="node-input-TaskIds" placeholder="TaskIds"></input>
+	</div> 
+	<div class="form-row" id='FileSystemIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-FileSystemIds"><i class="fa fa-tag"></i> FileSystemIds</label>
+		<input type="text" id="node-input-FileSystemIds" placeholder="FileSystemIds"></input>
+	</div> 
+	<div class="form-row" id='StorageVirtualMachineIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageVirtualMachineIds"><i class="fa fa-tag"></i> StorageVirtualMachineIds</label>
+		<input type="text" id="node-input-StorageVirtualMachineIds" placeholder="StorageVirtualMachineIds"></input>
+	</div> 
+	<div class="form-row" id='VolumeIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeIds"><i class="fa fa-tag"></i> VolumeIds</label>
+		<input type="text" id="node-input-VolumeIds" placeholder="VolumeIds"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateFileSystemAliases:[
+					'#ClientRequestTokenAttr','#FileSystemIdAttr','#AliasesAttr'
+					],
+				CancelDataRepositoryTask:[
+					'#TaskIdAttr'
+					],
+				CopyBackup:[
+					'#ClientRequestTokenAttr','#SourceBackupIdAttr','#SourceRegionAttr','#KmsKeyIdAttr','#CopyTagsAttr','#TagsAttr'
+					],
+				CreateBackup:[
+					'#FileSystemIdAttr','#ClientRequestTokenAttr','#TagsAttr','#VolumeIdAttr'
+					],
+				CreateDataRepositoryTask:[
+					'#TypeAttr','#PathsAttr','#FileSystemIdAttr','#ReportAttr','#ClientRequestTokenAttr','#TagsAttr'
+					],
+				CreateFileSystem:[
+					'#ClientRequestTokenAttr','#FileSystemTypeAttr','#StorageCapacityAttr','#StorageTypeAttr','#SubnetIdsAttr','#SecurityGroupIdsAttr','#TagsAttr','#KmsKeyIdAttr','#WindowsConfigurationAttr','#LustreConfigurationAttr','#OntapConfigurationAttr'
+					],
+				CreateFileSystemFromBackup:[
+					'#BackupIdAttr','#ClientRequestTokenAttr','#SubnetIdsAttr','#SecurityGroupIdsAttr','#TagsAttr','#WindowsConfigurationAttr','#LustreConfigurationAttr','#StorageTypeAttr','#KmsKeyIdAttr'
+					],
+				CreateStorageVirtualMachine:[
+					'#ActiveDirectoryConfigurationAttr','#ClientRequestTokenAttr','#FileSystemIdAttr','#NameAttr','#SvmAdminPasswordAttr','#TagsAttr','#RootVolumeSecurityStyleAttr'
+					],
+				CreateVolume:[
+					'#ClientRequestTokenAttr','#VolumeTypeAttr','#NameAttr','#OntapConfigurationAttr','#TagsAttr'
+					],
+				CreateVolumeFromBackup:[
+					'#BackupIdAttr','#ClientRequestTokenAttr','#NameAttr','#OntapConfigurationAttr','#TagsAttr'
+					],
+				DeleteBackup:[
+					'#BackupIdAttr','#ClientRequestTokenAttr'
+					],
+				DeleteFileSystem:[
+					'#FileSystemIdAttr','#ClientRequestTokenAttr','#WindowsConfigurationAttr','#LustreConfigurationAttr'
+					],
+				DeleteStorageVirtualMachine:[
+					'#ClientRequestTokenAttr','#StorageVirtualMachineIdAttr'
+					],
+				DeleteVolume:[
+					'#ClientRequestTokenAttr','#VolumeIdAttr','#OntapConfigurationAttr'
+					],
+				DescribeBackups:[
+					'#BackupIdsAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeDataRepositoryTasks:[
+					'#TaskIdsAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeFileSystemAliases:[
+					'#ClientRequestTokenAttr','#FileSystemIdAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeFileSystems:[
+					'#FileSystemIdsAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeStorageVirtualMachines:[
+					'#StorageVirtualMachineIdsAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeVolumes:[
+					'#VolumeIdsAttr','#FiltersAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DisassociateFileSystemAliases:[
+					'#ClientRequestTokenAttr','#FileSystemIdAttr','#AliasesAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceARNAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeysAttr'
+					],
+				UpdateFileSystem:[
+					'#FileSystemIdAttr','#ClientRequestTokenAttr','#StorageCapacityAttr','#WindowsConfigurationAttr','#LustreConfigurationAttr','#OntapConfigurationAttr'
+					],
+				UpdateStorageVirtualMachine:[
+					'#ActiveDirectoryConfigurationAttr','#ClientRequestTokenAttr','#StorageVirtualMachineIdAttr','#SvmAdminPasswordAttr'
+					],
+				UpdateVolume:[
+					'#ClientRequestTokenAttr','#VolumeIdAttr','#OntapConfigurationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS FSx">
+<p>
+AWS FSx
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/FSx.html">FSx</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS FSx',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateFileSystemAliases' },
+			
+				ClientRequestToken: { value: ""} ,
+				FileSystemId: { value: ""} ,
+				Aliases: { value: ""} ,
+				TaskId: { value: ""} ,
+				SourceBackupId: { value: ""} ,
+				SourceRegion: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				CopyTags: { value: ""} ,
+				Tags: { value: ""} ,
+				VolumeId: { value: ""} ,
+				Type: { value: ""} ,
+				Paths: { value: ""} ,
+				Report: { value: ""} ,
+				FileSystemType: { value: ""} ,
+				StorageCapacity: { value: ""} ,
+				StorageType: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				SecurityGroupIds: { value: ""} ,
+				WindowsConfiguration: { value: ""} ,
+				LustreConfiguration: { value: ""} ,
+				OntapConfiguration: { value: ""} ,
+				BackupId: { value: ""} ,
+				ActiveDirectoryConfiguration: { value: ""} ,
+				Name: { value: ""} ,
+				SvmAdminPassword: { value: ""} ,
+				RootVolumeSecurityStyle: { value: ""} ,
+				VolumeType: { value: ""} ,
+				StorageVirtualMachineId: { value: ""} ,
+				BackupIds: { value: ""} ,
+				Filters: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				TaskIds: { value: ""} ,
+				FileSystemIds: { value: ""} ,
+				StorageVirtualMachineIds: { value: ""} ,
+				VolumeIds: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "FSx " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileSystemId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Aliases").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TaskId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceBackupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CopyTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Paths").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Report").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileSystemType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageCapacity").typedInput({ default: "num", types: ["num"]});
+$("#node-input-StorageType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SubnetIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SecurityGroupIds").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-BackupId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SvmAdminPassword").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RootVolumeSecurityStyle").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StorageVirtualMachineId").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

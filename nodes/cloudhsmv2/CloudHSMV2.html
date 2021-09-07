@@ -1,0 +1,300 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CloudHSMV2">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CopyBackupToRegion">CopyBackupToRegion</option>
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateHsm">CreateHsm</option>
+		
+			<option value="DeleteBackup">DeleteBackup</option>
+		
+			<option value="DeleteCluster">DeleteCluster</option>
+		
+			<option value="DeleteHsm">DeleteHsm</option>
+		
+			<option value="DescribeBackups">DescribeBackups</option>
+		
+			<option value="DescribeClusters">DescribeClusters</option>
+		
+			<option value="InitializeCluster">InitializeCluster</option>
+		
+			<option value="ListTags">ListTags</option>
+		
+			<option value="ModifyBackupAttributes">ModifyBackupAttributes</option>
+		
+			<option value="ModifyCluster">ModifyCluster</option>
+		
+			<option value="RestoreBackup">RestoreBackup</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='DestinationRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationRegion"><i class="fa fa-tag"></i> DestinationRegion</label>
+		<input type="text" id="node-input-DestinationRegion" placeholder="DestinationRegion"></input>
+	</div> 
+	<div class="form-row" id='BackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupId"><i class="fa fa-tag"></i> BackupId</label>
+		<input type="text" id="node-input-BackupId" placeholder="BackupId"></input>
+	</div> 
+	<div class="form-row" id='TagListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagList"><i class="fa fa-tag"></i> TagList</label>
+		<input type="text" id="node-input-TagList" placeholder="TagList"></input>
+	</div> 
+	<div class="form-row" id='BackupRetentionPolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupRetentionPolicy"><i class="fa fa-tag"></i> BackupRetentionPolicy</label>
+		<input type="text" id="node-input-BackupRetentionPolicy" placeholder="BackupRetentionPolicy"></input>
+	</div> 
+	<div class="form-row" id='HsmTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-HsmType"><i class="fa fa-tag"></i> HsmType</label>
+		<input type="text" id="node-input-HsmType" placeholder="HsmType"></input>
+	</div> 
+	<div class="form-row" id='SourceBackupIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceBackupId"><i class="fa fa-tag"></i> SourceBackupId</label>
+		<input type="text" id="node-input-SourceBackupId" placeholder="SourceBackupId"></input>
+	</div> 
+	<div class="form-row" id='SubnetIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SubnetIds"><i class="fa fa-tag"></i> SubnetIds</label>
+		<input type="text" id="node-input-SubnetIds" placeholder="SubnetIds"></input>
+	</div> 
+	<div class="form-row" id='ClusterIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ClusterId"><i class="fa fa-tag"></i> ClusterId</label>
+		<input type="text" id="node-input-ClusterId" placeholder="ClusterId"></input>
+	</div> 
+	<div class="form-row" id='AvailabilityZoneAttr' class='hiddenAttrs'>
+		<label for="node-input-AvailabilityZone"><i class="fa fa-tag"></i> AvailabilityZone</label>
+		<input type="text" id="node-input-AvailabilityZone" placeholder="AvailabilityZone"></input>
+	</div> 
+	<div class="form-row" id='IpAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-IpAddress"><i class="fa fa-tag"></i> IpAddress</label>
+		<input type="text" id="node-input-IpAddress" placeholder="IpAddress"></input>
+	</div> 
+	<div class="form-row" id='HsmIdAttr' class='hiddenAttrs'>
+		<label for="node-input-HsmId"><i class="fa fa-tag"></i> HsmId</label>
+		<input type="text" id="node-input-HsmId" placeholder="HsmId"></input>
+	</div> 
+	<div class="form-row" id='EniIdAttr' class='hiddenAttrs'>
+		<label for="node-input-EniId"><i class="fa fa-tag"></i> EniId</label>
+		<input type="text" id="node-input-EniId" placeholder="EniId"></input>
+	</div> 
+	<div class="form-row" id='EniIpAttr' class='hiddenAttrs'>
+		<label for="node-input-EniIp"><i class="fa fa-tag"></i> EniIp</label>
+		<input type="text" id="node-input-EniIp" placeholder="EniIp"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='FiltersAttr' class='hiddenAttrs'>
+		<label for="node-input-Filters"><i class="fa fa-tag"></i> Filters</label>
+		<input type="text" id="node-input-Filters" placeholder="Filters"></input>
+	</div> 
+	<div class="form-row" id='SortAscendingAttr' class='hiddenAttrs'>
+		<label for="node-input-SortAscending"><i class="fa fa-tag"></i> SortAscending</label>
+		<input type="text" id="node-input-SortAscending" placeholder="SortAscending"></input>
+	</div> 
+	<div class="form-row" id='SignedCertAttr' class='hiddenAttrs'>
+		<label for="node-input-SignedCert"><i class="fa fa-tag"></i> SignedCert</label>
+		<input type="text" id="node-input-SignedCert" placeholder="SignedCert"></input>
+	</div> 
+	<div class="form-row" id='TrustAnchorAttr' class='hiddenAttrs'>
+		<label for="node-input-TrustAnchor"><i class="fa fa-tag"></i> TrustAnchor</label>
+		<input type="text" id="node-input-TrustAnchor" placeholder="TrustAnchor"></input>
+	</div> 
+	<div class="form-row" id='ResourceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceId"><i class="fa fa-tag"></i> ResourceId</label>
+		<input type="text" id="node-input-ResourceId" placeholder="ResourceId"></input>
+	</div> 
+	<div class="form-row" id='NeverExpiresAttr' class='hiddenAttrs'>
+		<label for="node-input-NeverExpires"><i class="fa fa-tag"></i> NeverExpires</label>
+		<input type="text" id="node-input-NeverExpires" placeholder="NeverExpires"></input>
+	</div> 
+	<div class="form-row" id='TagKeyListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeyList"><i class="fa fa-tag"></i> TagKeyList</label>
+		<input type="text" id="node-input-TagKeyList" placeholder="TagKeyList"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CopyBackupToRegion:[
+					'#DestinationRegionAttr','#BackupIdAttr','#TagListAttr'
+					],
+				CreateCluster:[
+					'#BackupRetentionPolicyAttr','#HsmTypeAttr','#SourceBackupIdAttr','#SubnetIdsAttr','#TagListAttr'
+					],
+				CreateHsm:[
+					'#ClusterIdAttr','#AvailabilityZoneAttr','#IpAddressAttr'
+					],
+				DeleteBackup:[
+					'#BackupIdAttr'
+					],
+				DeleteCluster:[
+					'#ClusterIdAttr'
+					],
+				DeleteHsm:[
+					'#ClusterIdAttr','#HsmIdAttr','#EniIdAttr','#EniIpAttr'
+					],
+				DescribeBackups:[
+					'#NextTokenAttr','#MaxResultsAttr','#FiltersAttr','#SortAscendingAttr'
+					],
+				DescribeClusters:[
+					'#FiltersAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				InitializeCluster:[
+					'#ClusterIdAttr','#SignedCertAttr','#TrustAnchorAttr'
+					],
+				ListTags:[
+					'#ResourceIdAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ModifyBackupAttributes:[
+					'#BackupIdAttr','#NeverExpiresAttr'
+					],
+				ModifyCluster:[
+					'#BackupRetentionPolicyAttr','#ClusterIdAttr'
+					],
+				RestoreBackup:[
+					'#BackupIdAttr'
+					],
+				TagResource:[
+					'#ResourceIdAttr','#TagListAttr'
+					],
+				UntagResource:[
+					'#ResourceIdAttr','#TagKeyListAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CloudHSMV2">
+<p>
+AWS CloudHSMV2
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CloudHSMV2.html">CloudHSMV2</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CloudHSMV2',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CopyBackupToRegion' },
+			
+				DestinationRegion: { value: ""} ,
+				BackupId: { value: ""} ,
+				TagList: { value: ""} ,
+				BackupRetentionPolicy: { value: ""} ,
+				HsmType: { value: ""} ,
+				SourceBackupId: { value: ""} ,
+				SubnetIds: { value: ""} ,
+				ClusterId: { value: ""} ,
+				AvailabilityZone: { value: ""} ,
+				IpAddress: { value: ""} ,
+				HsmId: { value: ""} ,
+				EniId: { value: ""} ,
+				EniIp: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				Filters: { value: ""} ,
+				SortAscending: { value: ""} ,
+				SignedCert: { value: ""} ,
+				TrustAnchor: { value: ""} ,
+				ResourceId: { value: ""} ,
+				NeverExpires: { value: ""} ,
+				TagKeyList: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CloudHSMV2 " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-DestinationRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupRetentionPolicy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HsmType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceBackupId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ClusterId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AvailabilityZone").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IpAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-HsmId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EniId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EniIp").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SortAscending").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-SignedCert").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrustAnchor").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NeverExpires").typedInput({ default: "bool", types: ["bool"]});
+
+		}
+	});
+</script>
+

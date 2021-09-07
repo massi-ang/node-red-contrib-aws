@@ -1,0 +1,729 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS AppStream">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateFleet">AssociateFleet</option>
+		
+			<option value="BatchAssociateUserStack">BatchAssociateUserStack</option>
+		
+			<option value="BatchDisassociateUserStack">BatchDisassociateUserStack</option>
+		
+			<option value="CopyImage">CopyImage</option>
+		
+			<option value="CreateDirectoryConfig">CreateDirectoryConfig</option>
+		
+			<option value="CreateFleet">CreateFleet</option>
+		
+			<option value="CreateImageBuilder">CreateImageBuilder</option>
+		
+			<option value="CreateImageBuilderStreamingURL">CreateImageBuilderStreamingURL</option>
+		
+			<option value="CreateStack">CreateStack</option>
+		
+			<option value="CreateStreamingURL">CreateStreamingURL</option>
+		
+			<option value="CreateUpdatedImage">CreateUpdatedImage</option>
+		
+			<option value="CreateUsageReportSubscription">CreateUsageReportSubscription</option>
+		
+			<option value="CreateUser">CreateUser</option>
+		
+			<option value="DeleteDirectoryConfig">DeleteDirectoryConfig</option>
+		
+			<option value="DeleteFleet">DeleteFleet</option>
+		
+			<option value="DeleteImage">DeleteImage</option>
+		
+			<option value="DeleteImageBuilder">DeleteImageBuilder</option>
+		
+			<option value="DeleteImagePermissions">DeleteImagePermissions</option>
+		
+			<option value="DeleteStack">DeleteStack</option>
+		
+			<option value="DeleteUsageReportSubscription">DeleteUsageReportSubscription</option>
+		
+			<option value="DeleteUser">DeleteUser</option>
+		
+			<option value="DescribeDirectoryConfigs">DescribeDirectoryConfigs</option>
+		
+			<option value="DescribeFleets">DescribeFleets</option>
+		
+			<option value="DescribeImageBuilders">DescribeImageBuilders</option>
+		
+			<option value="DescribeImagePermissions">DescribeImagePermissions</option>
+		
+			<option value="DescribeImages">DescribeImages</option>
+		
+			<option value="DescribeSessions">DescribeSessions</option>
+		
+			<option value="DescribeStacks">DescribeStacks</option>
+		
+			<option value="DescribeUsageReportSubscriptions">DescribeUsageReportSubscriptions</option>
+		
+			<option value="DescribeUserStackAssociations">DescribeUserStackAssociations</option>
+		
+			<option value="DescribeUsers">DescribeUsers</option>
+		
+			<option value="DisableUser">DisableUser</option>
+		
+			<option value="DisassociateFleet">DisassociateFleet</option>
+		
+			<option value="EnableUser">EnableUser</option>
+		
+			<option value="ExpireSession">ExpireSession</option>
+		
+			<option value="ListAssociatedFleets">ListAssociatedFleets</option>
+		
+			<option value="ListAssociatedStacks">ListAssociatedStacks</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartFleet">StartFleet</option>
+		
+			<option value="StartImageBuilder">StartImageBuilder</option>
+		
+			<option value="StopFleet">StopFleet</option>
+		
+			<option value="StopImageBuilder">StopImageBuilder</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDirectoryConfig">UpdateDirectoryConfig</option>
+		
+			<option value="UpdateFleet">UpdateFleet</option>
+		
+			<option value="UpdateImagePermissions">UpdateImagePermissions</option>
+		
+			<option value="UpdateStack">UpdateStack</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='FleetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetName"><i class="fa fa-tag"></i> FleetName</label>
+		<input type="text" id="node-input-FleetName" placeholder="FleetName"></input>
+	</div> 
+	<div class="form-row" id='StackNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StackName"><i class="fa fa-tag"></i> StackName</label>
+		<input type="text" id="node-input-StackName" placeholder="StackName"></input>
+	</div> 
+	<div class="form-row" id='UserStackAssociationsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserStackAssociations"><i class="fa fa-tag"></i> UserStackAssociations</label>
+		<input type="text" id="node-input-UserStackAssociations" placeholder="UserStackAssociations"></input>
+	</div> 
+	<div class="form-row" id='SourceImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceImageName"><i class="fa fa-tag"></i> SourceImageName</label>
+		<input type="text" id="node-input-SourceImageName" placeholder="SourceImageName"></input>
+	</div> 
+	<div class="form-row" id='DestinationImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationImageName"><i class="fa fa-tag"></i> DestinationImageName</label>
+		<input type="text" id="node-input-DestinationImageName" placeholder="DestinationImageName"></input>
+	</div> 
+	<div class="form-row" id='DestinationRegionAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationRegion"><i class="fa fa-tag"></i> DestinationRegion</label>
+		<input type="text" id="node-input-DestinationRegion" placeholder="DestinationRegion"></input>
+	</div> 
+	<div class="form-row" id='DestinationImageDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationImageDescription"><i class="fa fa-tag"></i> DestinationImageDescription</label>
+		<input type="text" id="node-input-DestinationImageDescription" placeholder="DestinationImageDescription"></input>
+	</div> 
+	<div class="form-row" id='DirectoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryName"><i class="fa fa-tag"></i> DirectoryName</label>
+		<input type="text" id="node-input-DirectoryName" placeholder="DirectoryName"></input>
+	</div> 
+	<div class="form-row" id='OrganizationalUnitDistinguishedNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-OrganizationalUnitDistinguishedNames"><i class="fa fa-tag"></i> OrganizationalUnitDistinguishedNames</label>
+		<input type="text" id="node-input-OrganizationalUnitDistinguishedNames" placeholder="OrganizationalUnitDistinguishedNames"></input>
+	</div> 
+	<div class="form-row" id='ServiceAccountCredentialsAttr' class='hiddenAttrs'>
+		<label for="node-input-ServiceAccountCredentials"><i class="fa fa-tag"></i> ServiceAccountCredentials</label>
+		<input type="text" id="node-input-ServiceAccountCredentials" placeholder="ServiceAccountCredentials"></input>
+	</div> 
+	<div class="form-row" id='NameAttr' class='hiddenAttrs'>
+		<label for="node-input-Name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-Name" placeholder="Name"></input>
+	</div> 
+	<div class="form-row" id='ImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageName"><i class="fa fa-tag"></i> ImageName</label>
+		<input type="text" id="node-input-ImageName" placeholder="ImageName"></input>
+	</div> 
+	<div class="form-row" id='ImageArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ImageArn"><i class="fa fa-tag"></i> ImageArn</label>
+		<input type="text" id="node-input-ImageArn" placeholder="ImageArn"></input>
+	</div> 
+	<div class="form-row" id='InstanceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-InstanceType"><i class="fa fa-tag"></i> InstanceType</label>
+		<input type="text" id="node-input-InstanceType" placeholder="InstanceType"></input>
+	</div> 
+	<div class="form-row" id='FleetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-FleetType"><i class="fa fa-tag"></i> FleetType</label>
+		<input type="text" id="node-input-FleetType" placeholder="FleetType"></input>
+	</div> 
+	<div class="form-row" id='ComputeCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-ComputeCapacity"><i class="fa fa-tag"></i> ComputeCapacity</label>
+		<input type="text" id="node-input-ComputeCapacity" placeholder="ComputeCapacity"></input>
+	</div> 
+	<div class="form-row" id='VpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcConfig"><i class="fa fa-tag"></i> VpcConfig</label>
+		<input type="text" id="node-input-VpcConfig" placeholder="VpcConfig"></input>
+	</div> 
+	<div class="form-row" id='MaxUserDurationInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxUserDurationInSeconds"><i class="fa fa-tag"></i> MaxUserDurationInSeconds</label>
+		<input type="text" id="node-input-MaxUserDurationInSeconds" placeholder="MaxUserDurationInSeconds"></input>
+	</div> 
+	<div class="form-row" id='DisconnectTimeoutInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-DisconnectTimeoutInSeconds"><i class="fa fa-tag"></i> DisconnectTimeoutInSeconds</label>
+		<input type="text" id="node-input-DisconnectTimeoutInSeconds" placeholder="DisconnectTimeoutInSeconds"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='DisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DisplayName"><i class="fa fa-tag"></i> DisplayName</label>
+		<input type="text" id="node-input-DisplayName" placeholder="DisplayName"></input>
+	</div> 
+	<div class="form-row" id='EnableDefaultInternetAccessAttr' class='hiddenAttrs'>
+		<label for="node-input-EnableDefaultInternetAccess"><i class="fa fa-tag"></i> EnableDefaultInternetAccess</label>
+		<input type="text" id="node-input-EnableDefaultInternetAccess" placeholder="EnableDefaultInternetAccess"></input>
+	</div> 
+	<div class="form-row" id='DomainJoinInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-DomainJoinInfo"><i class="fa fa-tag"></i> DomainJoinInfo</label>
+		<input type="text" id="node-input-DomainJoinInfo" placeholder="DomainJoinInfo"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='IdleDisconnectTimeoutInSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-IdleDisconnectTimeoutInSeconds"><i class="fa fa-tag"></i> IdleDisconnectTimeoutInSeconds</label>
+		<input type="text" id="node-input-IdleDisconnectTimeoutInSeconds" placeholder="IdleDisconnectTimeoutInSeconds"></input>
+	</div> 
+	<div class="form-row" id='IamRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-IamRoleArn"><i class="fa fa-tag"></i> IamRoleArn</label>
+		<input type="text" id="node-input-IamRoleArn" placeholder="IamRoleArn"></input>
+	</div> 
+	<div class="form-row" id='StreamViewAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamView"><i class="fa fa-tag"></i> StreamView</label>
+		<input type="text" id="node-input-StreamView" placeholder="StreamView"></input>
+	</div> 
+	<div class="form-row" id='AppstreamAgentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-AppstreamAgentVersion"><i class="fa fa-tag"></i> AppstreamAgentVersion</label>
+		<input type="text" id="node-input-AppstreamAgentVersion" placeholder="AppstreamAgentVersion"></input>
+	</div> 
+	<div class="form-row" id='AccessEndpointsAttr' class='hiddenAttrs'>
+		<label for="node-input-AccessEndpoints"><i class="fa fa-tag"></i> AccessEndpoints</label>
+		<input type="text" id="node-input-AccessEndpoints" placeholder="AccessEndpoints"></input>
+	</div> 
+	<div class="form-row" id='ValidityAttr' class='hiddenAttrs'>
+		<label for="node-input-Validity"><i class="fa fa-tag"></i> Validity</label>
+		<input type="text" id="node-input-Validity" placeholder="Validity"></input>
+	</div> 
+	<div class="form-row" id='StorageConnectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-StorageConnectors"><i class="fa fa-tag"></i> StorageConnectors</label>
+		<input type="text" id="node-input-StorageConnectors" placeholder="StorageConnectors"></input>
+	</div> 
+	<div class="form-row" id='RedirectURLAttr' class='hiddenAttrs'>
+		<label for="node-input-RedirectURL"><i class="fa fa-tag"></i> RedirectURL</label>
+		<input type="text" id="node-input-RedirectURL" placeholder="RedirectURL"></input>
+	</div> 
+	<div class="form-row" id='FeedbackURLAttr' class='hiddenAttrs'>
+		<label for="node-input-FeedbackURL"><i class="fa fa-tag"></i> FeedbackURL</label>
+		<input type="text" id="node-input-FeedbackURL" placeholder="FeedbackURL"></input>
+	</div> 
+	<div class="form-row" id='UserSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-UserSettings"><i class="fa fa-tag"></i> UserSettings</label>
+		<input type="text" id="node-input-UserSettings" placeholder="UserSettings"></input>
+	</div> 
+	<div class="form-row" id='ApplicationSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationSettings"><i class="fa fa-tag"></i> ApplicationSettings</label>
+		<input type="text" id="node-input-ApplicationSettings" placeholder="ApplicationSettings"></input>
+	</div> 
+	<div class="form-row" id='EmbedHostDomainsAttr' class='hiddenAttrs'>
+		<label for="node-input-EmbedHostDomains"><i class="fa fa-tag"></i> EmbedHostDomains</label>
+		<input type="text" id="node-input-EmbedHostDomains" placeholder="EmbedHostDomains"></input>
+	</div> 
+	<div class="form-row" id='UserIdAttr' class='hiddenAttrs'>
+		<label for="node-input-UserId"><i class="fa fa-tag"></i> UserId</label>
+		<input type="text" id="node-input-UserId" placeholder="UserId"></input>
+	</div> 
+	<div class="form-row" id='ApplicationIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ApplicationId"><i class="fa fa-tag"></i> ApplicationId</label>
+		<input type="text" id="node-input-ApplicationId" placeholder="ApplicationId"></input>
+	</div> 
+	<div class="form-row" id='SessionContextAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionContext"><i class="fa fa-tag"></i> SessionContext</label>
+		<input type="text" id="node-input-SessionContext" placeholder="SessionContext"></input>
+	</div> 
+	<div class="form-row" id='existingImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-existingImageName"><i class="fa fa-tag"></i> existingImageName</label>
+		<input type="text" id="node-input-existingImageName" placeholder="existingImageName"></input>
+	</div> 
+	<div class="form-row" id='newImageNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newImageName"><i class="fa fa-tag"></i> newImageName</label>
+		<input type="text" id="node-input-newImageName" placeholder="newImageName"></input>
+	</div> 
+	<div class="form-row" id='newImageDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-newImageDescription"><i class="fa fa-tag"></i> newImageDescription</label>
+		<input type="text" id="node-input-newImageDescription" placeholder="newImageDescription"></input>
+	</div> 
+	<div class="form-row" id='newImageDisplayNameAttr' class='hiddenAttrs'>
+		<label for="node-input-newImageDisplayName"><i class="fa fa-tag"></i> newImageDisplayName</label>
+		<input type="text" id="node-input-newImageDisplayName" placeholder="newImageDisplayName"></input>
+	</div> 
+	<div class="form-row" id='newImageTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-newImageTags"><i class="fa fa-tag"></i> newImageTags</label>
+		<input type="text" id="node-input-newImageTags" placeholder="newImageTags"></input>
+	</div> 
+	<div class="form-row" id='dryRunAttr' class='hiddenAttrs'>
+		<label for="node-input-dryRun"><i class="fa fa-tag"></i> dryRun</label>
+		<input type="text" id="node-input-dryRun" placeholder="dryRun"></input>
+	</div> 
+	<div class="form-row" id='UserNameAttr' class='hiddenAttrs'>
+		<label for="node-input-UserName"><i class="fa fa-tag"></i> UserName</label>
+		<input type="text" id="node-input-UserName" placeholder="UserName"></input>
+	</div> 
+	<div class="form-row" id='MessageActionAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageAction"><i class="fa fa-tag"></i> MessageAction</label>
+		<input type="text" id="node-input-MessageAction" placeholder="MessageAction"></input>
+	</div> 
+	<div class="form-row" id='FirstNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FirstName"><i class="fa fa-tag"></i> FirstName</label>
+		<input type="text" id="node-input-FirstName" placeholder="FirstName"></input>
+	</div> 
+	<div class="form-row" id='LastNameAttr' class='hiddenAttrs'>
+		<label for="node-input-LastName"><i class="fa fa-tag"></i> LastName</label>
+		<input type="text" id="node-input-LastName" placeholder="LastName"></input>
+	</div> 
+	<div class="form-row" id='AuthenticationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-AuthenticationType"><i class="fa fa-tag"></i> AuthenticationType</label>
+		<input type="text" id="node-input-AuthenticationType" placeholder="AuthenticationType"></input>
+	</div> 
+	<div class="form-row" id='SharedAccountIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedAccountId"><i class="fa fa-tag"></i> SharedAccountId</label>
+		<input type="text" id="node-input-SharedAccountId" placeholder="SharedAccountId"></input>
+	</div> 
+	<div class="form-row" id='DirectoryNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-DirectoryNames"><i class="fa fa-tag"></i> DirectoryNames</label>
+		<input type="text" id="node-input-DirectoryNames" placeholder="DirectoryNames"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='NamesAttr' class='hiddenAttrs'>
+		<label for="node-input-Names"><i class="fa fa-tag"></i> Names</label>
+		<input type="text" id="node-input-Names" placeholder="Names"></input>
+	</div> 
+	<div class="form-row" id='SharedAwsAccountIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-SharedAwsAccountIds"><i class="fa fa-tag"></i> SharedAwsAccountIds</label>
+		<input type="text" id="node-input-SharedAwsAccountIds" placeholder="SharedAwsAccountIds"></input>
+	</div> 
+	<div class="form-row" id='ArnsAttr' class='hiddenAttrs'>
+		<label for="node-input-Arns"><i class="fa fa-tag"></i> Arns</label>
+		<input type="text" id="node-input-Arns" placeholder="Arns"></input>
+	</div> 
+	<div class="form-row" id='TypeAttr' class='hiddenAttrs'>
+		<label for="node-input-Type"><i class="fa fa-tag"></i> Type</label>
+		<input type="text" id="node-input-Type" placeholder="Type"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='SessionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionId"><i class="fa fa-tag"></i> SessionId</label>
+		<input type="text" id="node-input-SessionId" placeholder="SessionId"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='DeleteVpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteVpcConfig"><i class="fa fa-tag"></i> DeleteVpcConfig</label>
+		<input type="text" id="node-input-DeleteVpcConfig" placeholder="DeleteVpcConfig"></input>
+	</div> 
+	<div class="form-row" id='AttributesToDeleteAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributesToDelete"><i class="fa fa-tag"></i> AttributesToDelete</label>
+		<input type="text" id="node-input-AttributesToDelete" placeholder="AttributesToDelete"></input>
+	</div> 
+	<div class="form-row" id='ImagePermissionsAttr' class='hiddenAttrs'>
+		<label for="node-input-ImagePermissions"><i class="fa fa-tag"></i> ImagePermissions</label>
+		<input type="text" id="node-input-ImagePermissions" placeholder="ImagePermissions"></input>
+	</div> 
+	<div class="form-row" id='DeleteStorageConnectorsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeleteStorageConnectors"><i class="fa fa-tag"></i> DeleteStorageConnectors</label>
+		<input type="text" id="node-input-DeleteStorageConnectors" placeholder="DeleteStorageConnectors"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateFleet:[
+					'#FleetNameAttr','#StackNameAttr'
+					],
+				BatchAssociateUserStack:[
+					'#UserStackAssociationsAttr'
+					],
+				BatchDisassociateUserStack:[
+					'#UserStackAssociationsAttr'
+					],
+				CopyImage:[
+					'#SourceImageNameAttr','#DestinationImageNameAttr','#DestinationRegionAttr','#DestinationImageDescriptionAttr'
+					],
+				CreateDirectoryConfig:[
+					'#DirectoryNameAttr','#OrganizationalUnitDistinguishedNamesAttr','#ServiceAccountCredentialsAttr'
+					],
+				CreateFleet:[
+					'#NameAttr','#ImageNameAttr','#ImageArnAttr','#InstanceTypeAttr','#FleetTypeAttr','#ComputeCapacityAttr','#VpcConfigAttr','#MaxUserDurationInSecondsAttr','#DisconnectTimeoutInSecondsAttr','#DescriptionAttr','#DisplayNameAttr','#EnableDefaultInternetAccessAttr','#DomainJoinInfoAttr','#TagsAttr','#IdleDisconnectTimeoutInSecondsAttr','#IamRoleArnAttr','#StreamViewAttr'
+					],
+				CreateImageBuilder:[
+					'#NameAttr','#ImageNameAttr','#ImageArnAttr','#InstanceTypeAttr','#DescriptionAttr','#DisplayNameAttr','#VpcConfigAttr','#IamRoleArnAttr','#EnableDefaultInternetAccessAttr','#DomainJoinInfoAttr','#AppstreamAgentVersionAttr','#TagsAttr','#AccessEndpointsAttr'
+					],
+				CreateImageBuilderStreamingURL:[
+					'#NameAttr','#ValidityAttr'
+					],
+				CreateStack:[
+					'#NameAttr','#DescriptionAttr','#DisplayNameAttr','#StorageConnectorsAttr','#RedirectURLAttr','#FeedbackURLAttr','#UserSettingsAttr','#ApplicationSettingsAttr','#TagsAttr','#AccessEndpointsAttr','#EmbedHostDomainsAttr'
+					],
+				CreateStreamingURL:[
+					'#StackNameAttr','#FleetNameAttr','#UserIdAttr','#ApplicationIdAttr','#ValidityAttr','#SessionContextAttr'
+					],
+				CreateUpdatedImage:[
+					'#existingImageNameAttr','#newImageNameAttr','#newImageDescriptionAttr','#newImageDisplayNameAttr','#newImageTagsAttr','#dryRunAttr'
+					],
+				CreateUsageReportSubscription:[
+					
+					],
+				CreateUser:[
+					'#UserNameAttr','#MessageActionAttr','#FirstNameAttr','#LastNameAttr','#AuthenticationTypeAttr'
+					],
+				DeleteDirectoryConfig:[
+					'#DirectoryNameAttr'
+					],
+				DeleteFleet:[
+					'#NameAttr'
+					],
+				DeleteImage:[
+					'#NameAttr'
+					],
+				DeleteImageBuilder:[
+					'#NameAttr'
+					],
+				DeleteImagePermissions:[
+					'#NameAttr','#SharedAccountIdAttr'
+					],
+				DeleteStack:[
+					'#NameAttr'
+					],
+				DeleteUsageReportSubscription:[
+					
+					],
+				DeleteUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				DescribeDirectoryConfigs:[
+					'#DirectoryNamesAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeFleets:[
+					'#NamesAttr','#NextTokenAttr'
+					],
+				DescribeImageBuilders:[
+					'#NamesAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeImagePermissions:[
+					'#NameAttr','#MaxResultsAttr','#SharedAwsAccountIdsAttr','#NextTokenAttr'
+					],
+				DescribeImages:[
+					'#NamesAttr','#ArnsAttr','#TypeAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				DescribeSessions:[
+					'#StackNameAttr','#FleetNameAttr','#UserIdAttr','#NextTokenAttr','#LimitAttr','#AuthenticationTypeAttr'
+					],
+				DescribeStacks:[
+					'#NamesAttr','#NextTokenAttr'
+					],
+				DescribeUsageReportSubscriptions:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeUserStackAssociations:[
+					'#StackNameAttr','#UserNameAttr','#AuthenticationTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DescribeUsers:[
+					'#AuthenticationTypeAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				DisableUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				DisassociateFleet:[
+					'#FleetNameAttr','#StackNameAttr'
+					],
+				EnableUser:[
+					'#UserNameAttr','#AuthenticationTypeAttr'
+					],
+				ExpireSession:[
+					'#SessionIdAttr'
+					],
+				ListAssociatedFleets:[
+					'#StackNameAttr','#NextTokenAttr'
+					],
+				ListAssociatedStacks:[
+					'#FleetNameAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				StartFleet:[
+					'#NameAttr'
+					],
+				StartImageBuilder:[
+					'#NameAttr','#AppstreamAgentVersionAttr'
+					],
+				StopFleet:[
+					'#NameAttr'
+					],
+				StopImageBuilder:[
+					'#NameAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateDirectoryConfig:[
+					'#DirectoryNameAttr','#OrganizationalUnitDistinguishedNamesAttr','#ServiceAccountCredentialsAttr'
+					],
+				UpdateFleet:[
+					'#ImageNameAttr','#ImageArnAttr','#NameAttr','#InstanceTypeAttr','#ComputeCapacityAttr','#VpcConfigAttr','#MaxUserDurationInSecondsAttr','#DisconnectTimeoutInSecondsAttr','#DeleteVpcConfigAttr','#DescriptionAttr','#DisplayNameAttr','#EnableDefaultInternetAccessAttr','#DomainJoinInfoAttr','#IdleDisconnectTimeoutInSecondsAttr','#AttributesToDeleteAttr','#IamRoleArnAttr','#StreamViewAttr'
+					],
+				UpdateImagePermissions:[
+					'#NameAttr','#SharedAccountIdAttr','#ImagePermissionsAttr'
+					],
+				UpdateStack:[
+					'#DisplayNameAttr','#DescriptionAttr','#NameAttr','#StorageConnectorsAttr','#DeleteStorageConnectorsAttr','#RedirectURLAttr','#FeedbackURLAttr','#AttributesToDeleteAttr','#UserSettingsAttr','#ApplicationSettingsAttr','#AccessEndpointsAttr','#EmbedHostDomainsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS AppStream">
+<p>
+AWS AppStream
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/AppStream.html">AppStream</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS AppStream',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateFleet' },
+			
+				FleetName: { value: ""} ,
+				StackName: { value: ""} ,
+				UserStackAssociations: { value: ""} ,
+				SourceImageName: { value: ""} ,
+				DestinationImageName: { value: ""} ,
+				DestinationRegion: { value: ""} ,
+				DestinationImageDescription: { value: ""} ,
+				DirectoryName: { value: ""} ,
+				OrganizationalUnitDistinguishedNames: { value: ""} ,
+				ServiceAccountCredentials: { value: ""} ,
+				Name: { value: ""} ,
+				ImageName: { value: ""} ,
+				ImageArn: { value: ""} ,
+				InstanceType: { value: ""} ,
+				FleetType: { value: ""} ,
+				ComputeCapacity: { value: ""} ,
+				VpcConfig: { value: ""} ,
+				MaxUserDurationInSeconds: { value: ""} ,
+				DisconnectTimeoutInSeconds: { value: ""} ,
+				Description: { value: ""} ,
+				DisplayName: { value: ""} ,
+				EnableDefaultInternetAccess: { value: ""} ,
+				DomainJoinInfo: { value: ""} ,
+				Tags: { value: ""} ,
+				IdleDisconnectTimeoutInSeconds: { value: ""} ,
+				IamRoleArn: { value: ""} ,
+				StreamView: { value: ""} ,
+				AppstreamAgentVersion: { value: ""} ,
+				AccessEndpoints: { value: ""} ,
+				Validity: { value: ""} ,
+				StorageConnectors: { value: ""} ,
+				RedirectURL: { value: ""} ,
+				FeedbackURL: { value: ""} ,
+				UserSettings: { value: ""} ,
+				ApplicationSettings: { value: ""} ,
+				EmbedHostDomains: { value: ""} ,
+				UserId: { value: ""} ,
+				ApplicationId: { value: ""} ,
+				SessionContext: { value: ""} ,
+				existingImageName: { value: ""} ,
+				newImageName: { value: ""} ,
+				newImageDescription: { value: ""} ,
+				newImageDisplayName: { value: ""} ,
+				newImageTags: { value: ""} ,
+				dryRun: { value: ""} ,
+				UserName: { value: ""} ,
+				MessageAction: { value: ""} ,
+				FirstName: { value: ""} ,
+				LastName: { value: ""} ,
+				AuthenticationType: { value: ""} ,
+				SharedAccountId: { value: ""} ,
+				DirectoryNames: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				Names: { value: ""} ,
+				SharedAwsAccountIds: { value: ""} ,
+				Arns: { value: ""} ,
+				Type: { value: ""} ,
+				Limit: { value: ""} ,
+				SessionId: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				TagKeys: { value: ""} ,
+				DeleteVpcConfig: { value: ""} ,
+				AttributesToDelete: { value: ""} ,
+				ImagePermissions: { value: ""} ,
+				DeleteStorageConnectors: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "AppStream " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-FleetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StackName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserStackAssociations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationRegion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationImageDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DirectoryName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OrganizationalUnitDistinguishedNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ServiceAccountCredentials").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ImageArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InstanceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FleetType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ComputeCapacity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxUserDurationInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-DisconnectTimeoutInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EnableDefaultInternetAccess").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DomainJoinInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IdleDisconnectTimeoutInSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-IamRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StreamView").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AppstreamAgentVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AccessEndpoints").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-StorageConnectors").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RedirectURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FeedbackURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplicationSettings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EmbedHostDomains").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UserId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ApplicationId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SessionContext").typedInput({ default: "str", types: ["str"]});
+$("#node-input-existingImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newImageName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newImageDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newImageDisplayName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-newImageTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dryRun").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-UserName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MessageAction").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FirstName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LastName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AuthenticationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SharedAccountId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Names").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-SessionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DeleteVpcConfig").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-ImagePermissions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeleteStorageConnectors").typedInput({ default: "bool", types: ["bool"]});
+		}
+	});
+</script>
+

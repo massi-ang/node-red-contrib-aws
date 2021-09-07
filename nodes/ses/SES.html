@@ -1,0 +1,814 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS SES">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CloneReceiptRuleSet">CloneReceiptRuleSet</option>
+		
+			<option value="CreateConfigurationSet">CreateConfigurationSet</option>
+		
+			<option value="CreateConfigurationSetEventDestination">CreateConfigurationSetEventDestination</option>
+		
+			<option value="CreateConfigurationSetTrackingOptions">CreateConfigurationSetTrackingOptions</option>
+		
+			<option value="CreateCustomVerificationEmailTemplate">CreateCustomVerificationEmailTemplate</option>
+		
+			<option value="CreateReceiptFilter">CreateReceiptFilter</option>
+		
+			<option value="CreateReceiptRule">CreateReceiptRule</option>
+		
+			<option value="CreateReceiptRuleSet">CreateReceiptRuleSet</option>
+		
+			<option value="CreateTemplate">CreateTemplate</option>
+		
+			<option value="DeleteConfigurationSet">DeleteConfigurationSet</option>
+		
+			<option value="DeleteConfigurationSetEventDestination">DeleteConfigurationSetEventDestination</option>
+		
+			<option value="DeleteConfigurationSetTrackingOptions">DeleteConfigurationSetTrackingOptions</option>
+		
+			<option value="DeleteCustomVerificationEmailTemplate">DeleteCustomVerificationEmailTemplate</option>
+		
+			<option value="DeleteIdentity">DeleteIdentity</option>
+		
+			<option value="DeleteIdentityPolicy">DeleteIdentityPolicy</option>
+		
+			<option value="DeleteReceiptFilter">DeleteReceiptFilter</option>
+		
+			<option value="DeleteReceiptRule">DeleteReceiptRule</option>
+		
+			<option value="DeleteReceiptRuleSet">DeleteReceiptRuleSet</option>
+		
+			<option value="DeleteTemplate">DeleteTemplate</option>
+		
+			<option value="DeleteVerifiedEmailAddress">DeleteVerifiedEmailAddress</option>
+		
+			<option value="DescribeActiveReceiptRuleSet">DescribeActiveReceiptRuleSet</option>
+		
+			<option value="DescribeConfigurationSet">DescribeConfigurationSet</option>
+		
+			<option value="DescribeReceiptRule">DescribeReceiptRule</option>
+		
+			<option value="DescribeReceiptRuleSet">DescribeReceiptRuleSet</option>
+		
+			<option value="GetAccountSendingEnabled">GetAccountSendingEnabled</option>
+		
+			<option value="GetCustomVerificationEmailTemplate">GetCustomVerificationEmailTemplate</option>
+		
+			<option value="GetIdentityDkimAttributes">GetIdentityDkimAttributes</option>
+		
+			<option value="GetIdentityMailFromDomainAttributes">GetIdentityMailFromDomainAttributes</option>
+		
+			<option value="GetIdentityNotificationAttributes">GetIdentityNotificationAttributes</option>
+		
+			<option value="GetIdentityPolicies">GetIdentityPolicies</option>
+		
+			<option value="GetIdentityVerificationAttributes">GetIdentityVerificationAttributes</option>
+		
+			<option value="GetSendQuota">GetSendQuota</option>
+		
+			<option value="GetSendStatistics">GetSendStatistics</option>
+		
+			<option value="GetTemplate">GetTemplate</option>
+		
+			<option value="ListConfigurationSets">ListConfigurationSets</option>
+		
+			<option value="ListCustomVerificationEmailTemplates">ListCustomVerificationEmailTemplates</option>
+		
+			<option value="ListIdentities">ListIdentities</option>
+		
+			<option value="ListIdentityPolicies">ListIdentityPolicies</option>
+		
+			<option value="ListReceiptFilters">ListReceiptFilters</option>
+		
+			<option value="ListReceiptRuleSets">ListReceiptRuleSets</option>
+		
+			<option value="ListTemplates">ListTemplates</option>
+		
+			<option value="ListVerifiedEmailAddresses">ListVerifiedEmailAddresses</option>
+		
+			<option value="PutConfigurationSetDeliveryOptions">PutConfigurationSetDeliveryOptions</option>
+		
+			<option value="PutIdentityPolicy">PutIdentityPolicy</option>
+		
+			<option value="ReorderReceiptRuleSet">ReorderReceiptRuleSet</option>
+		
+			<option value="SendBounce">SendBounce</option>
+		
+			<option value="SendBulkTemplatedEmail">SendBulkTemplatedEmail</option>
+		
+			<option value="SendCustomVerificationEmail">SendCustomVerificationEmail</option>
+		
+			<option value="SendEmail">SendEmail</option>
+		
+			<option value="SendRawEmail">SendRawEmail</option>
+		
+			<option value="SendTemplatedEmail">SendTemplatedEmail</option>
+		
+			<option value="SetActiveReceiptRuleSet">SetActiveReceiptRuleSet</option>
+		
+			<option value="SetIdentityDkimEnabled">SetIdentityDkimEnabled</option>
+		
+			<option value="SetIdentityFeedbackForwardingEnabled">SetIdentityFeedbackForwardingEnabled</option>
+		
+			<option value="SetIdentityHeadersInNotificationsEnabled">SetIdentityHeadersInNotificationsEnabled</option>
+		
+			<option value="SetIdentityMailFromDomain">SetIdentityMailFromDomain</option>
+		
+			<option value="SetIdentityNotificationTopic">SetIdentityNotificationTopic</option>
+		
+			<option value="SetReceiptRulePosition">SetReceiptRulePosition</option>
+		
+			<option value="TestRenderTemplate">TestRenderTemplate</option>
+		
+			<option value="UpdateAccountSendingEnabled">UpdateAccountSendingEnabled</option>
+		
+			<option value="UpdateConfigurationSetEventDestination">UpdateConfigurationSetEventDestination</option>
+		
+			<option value="UpdateConfigurationSetReputationMetricsEnabled">UpdateConfigurationSetReputationMetricsEnabled</option>
+		
+			<option value="UpdateConfigurationSetSendingEnabled">UpdateConfigurationSetSendingEnabled</option>
+		
+			<option value="UpdateConfigurationSetTrackingOptions">UpdateConfigurationSetTrackingOptions</option>
+		
+			<option value="UpdateCustomVerificationEmailTemplate">UpdateCustomVerificationEmailTemplate</option>
+		
+			<option value="UpdateReceiptRule">UpdateReceiptRule</option>
+		
+			<option value="UpdateTemplate">UpdateTemplate</option>
+		
+			<option value="VerifyDomainDkim">VerifyDomainDkim</option>
+		
+			<option value="VerifyDomainIdentity">VerifyDomainIdentity</option>
+		
+			<option value="VerifyEmailAddress">VerifyEmailAddress</option>
+		
+			<option value="VerifyEmailIdentity">VerifyEmailIdentity</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='RuleSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleSetName"><i class="fa fa-tag"></i> RuleSetName</label>
+		<input type="text" id="node-input-RuleSetName" placeholder="RuleSetName"></input>
+	</div> 
+	<div class="form-row" id='OriginalRuleSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginalRuleSetName"><i class="fa fa-tag"></i> OriginalRuleSetName</label>
+		<input type="text" id="node-input-OriginalRuleSetName" placeholder="OriginalRuleSetName"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationSetAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationSet"><i class="fa fa-tag"></i> ConfigurationSet</label>
+		<input type="text" id="node-input-ConfigurationSet" placeholder="ConfigurationSet"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationSetNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationSetName"><i class="fa fa-tag"></i> ConfigurationSetName</label>
+		<input type="text" id="node-input-ConfigurationSetName" placeholder="ConfigurationSetName"></input>
+	</div> 
+	<div class="form-row" id='EventDestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-EventDestination"><i class="fa fa-tag"></i> EventDestination</label>
+		<input type="text" id="node-input-EventDestination" placeholder="EventDestination"></input>
+	</div> 
+	<div class="form-row" id='TrackingOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-TrackingOptions"><i class="fa fa-tag"></i> TrackingOptions</label>
+		<input type="text" id="node-input-TrackingOptions" placeholder="TrackingOptions"></input>
+	</div> 
+	<div class="form-row" id='TemplateNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateName"><i class="fa fa-tag"></i> TemplateName</label>
+		<input type="text" id="node-input-TemplateName" placeholder="TemplateName"></input>
+	</div> 
+	<div class="form-row" id='FromEmailAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-FromEmailAddress"><i class="fa fa-tag"></i> FromEmailAddress</label>
+		<input type="text" id="node-input-FromEmailAddress" placeholder="FromEmailAddress"></input>
+	</div> 
+	<div class="form-row" id='TemplateSubjectAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateSubject"><i class="fa fa-tag"></i> TemplateSubject</label>
+		<input type="text" id="node-input-TemplateSubject" placeholder="TemplateSubject"></input>
+	</div> 
+	<div class="form-row" id='TemplateContentAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateContent"><i class="fa fa-tag"></i> TemplateContent</label>
+		<input type="text" id="node-input-TemplateContent" placeholder="TemplateContent"></input>
+	</div> 
+	<div class="form-row" id='SuccessRedirectionURLAttr' class='hiddenAttrs'>
+		<label for="node-input-SuccessRedirectionURL"><i class="fa fa-tag"></i> SuccessRedirectionURL</label>
+		<input type="text" id="node-input-SuccessRedirectionURL" placeholder="SuccessRedirectionURL"></input>
+	</div> 
+	<div class="form-row" id='FailureRedirectionURLAttr' class='hiddenAttrs'>
+		<label for="node-input-FailureRedirectionURL"><i class="fa fa-tag"></i> FailureRedirectionURL</label>
+		<input type="text" id="node-input-FailureRedirectionURL" placeholder="FailureRedirectionURL"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='AfterAttr' class='hiddenAttrs'>
+		<label for="node-input-After"><i class="fa fa-tag"></i> After</label>
+		<input type="text" id="node-input-After" placeholder="After"></input>
+	</div> 
+	<div class="form-row" id='RuleAttr' class='hiddenAttrs'>
+		<label for="node-input-Rule"><i class="fa fa-tag"></i> Rule</label>
+		<input type="text" id="node-input-Rule" placeholder="Rule"></input>
+	</div> 
+	<div class="form-row" id='TemplateAttr' class='hiddenAttrs'>
+		<label for="node-input-Template"><i class="fa fa-tag"></i> Template</label>
+		<input type="text" id="node-input-Template" placeholder="Template"></input>
+	</div> 
+	<div class="form-row" id='EventDestinationNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EventDestinationName"><i class="fa fa-tag"></i> EventDestinationName</label>
+		<input type="text" id="node-input-EventDestinationName" placeholder="EventDestinationName"></input>
+	</div> 
+	<div class="form-row" id='IdentityAttr' class='hiddenAttrs'>
+		<label for="node-input-Identity"><i class="fa fa-tag"></i> Identity</label>
+		<input type="text" id="node-input-Identity" placeholder="Identity"></input>
+	</div> 
+	<div class="form-row" id='PolicyNameAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyName"><i class="fa fa-tag"></i> PolicyName</label>
+		<input type="text" id="node-input-PolicyName" placeholder="PolicyName"></input>
+	</div> 
+	<div class="form-row" id='FilterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterName"><i class="fa fa-tag"></i> FilterName</label>
+		<input type="text" id="node-input-FilterName" placeholder="FilterName"></input>
+	</div> 
+	<div class="form-row" id='RuleNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleName"><i class="fa fa-tag"></i> RuleName</label>
+		<input type="text" id="node-input-RuleName" placeholder="RuleName"></input>
+	</div> 
+	<div class="form-row" id='EmailAddressAttr' class='hiddenAttrs'>
+		<label for="node-input-EmailAddress"><i class="fa fa-tag"></i> EmailAddress</label>
+		<input type="text" id="node-input-EmailAddress" placeholder="EmailAddress"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationSetAttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ConfigurationSetAttributeNames"><i class="fa fa-tag"></i> ConfigurationSetAttributeNames</label>
+		<input type="text" id="node-input-ConfigurationSetAttributeNames" placeholder="ConfigurationSetAttributeNames"></input>
+	</div> 
+	<div class="form-row" id='IdentitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-Identities"><i class="fa fa-tag"></i> Identities</label>
+		<input type="text" id="node-input-Identities" placeholder="Identities"></input>
+	</div> 
+	<div class="form-row" id='PolicyNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-PolicyNames"><i class="fa fa-tag"></i> PolicyNames</label>
+		<input type="text" id="node-input-PolicyNames" placeholder="PolicyNames"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxItems"><i class="fa fa-tag"></i> MaxItems</label>
+		<input type="text" id="node-input-MaxItems" placeholder="MaxItems"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='IdentityTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-IdentityType"><i class="fa fa-tag"></i> IdentityType</label>
+		<input type="text" id="node-input-IdentityType" placeholder="IdentityType"></input>
+	</div> 
+	<div class="form-row" id='DeliveryOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeliveryOptions"><i class="fa fa-tag"></i> DeliveryOptions</label>
+		<input type="text" id="node-input-DeliveryOptions" placeholder="DeliveryOptions"></input>
+	</div> 
+	<div class="form-row" id='PolicyAttr' class='hiddenAttrs'>
+		<label for="node-input-Policy"><i class="fa fa-tag"></i> Policy</label>
+		<input type="text" id="node-input-Policy" placeholder="Policy"></input>
+	</div> 
+	<div class="form-row" id='RuleNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-RuleNames"><i class="fa fa-tag"></i> RuleNames</label>
+		<input type="text" id="node-input-RuleNames" placeholder="RuleNames"></input>
+	</div> 
+	<div class="form-row" id='OriginalMessageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-OriginalMessageId"><i class="fa fa-tag"></i> OriginalMessageId</label>
+		<input type="text" id="node-input-OriginalMessageId" placeholder="OriginalMessageId"></input>
+	</div> 
+	<div class="form-row" id='BounceSenderAttr' class='hiddenAttrs'>
+		<label for="node-input-BounceSender"><i class="fa fa-tag"></i> BounceSender</label>
+		<input type="text" id="node-input-BounceSender" placeholder="BounceSender"></input>
+	</div> 
+	<div class="form-row" id='ExplanationAttr' class='hiddenAttrs'>
+		<label for="node-input-Explanation"><i class="fa fa-tag"></i> Explanation</label>
+		<input type="text" id="node-input-Explanation" placeholder="Explanation"></input>
+	</div> 
+	<div class="form-row" id='MessageDsnAttr' class='hiddenAttrs'>
+		<label for="node-input-MessageDsn"><i class="fa fa-tag"></i> MessageDsn</label>
+		<input type="text" id="node-input-MessageDsn" placeholder="MessageDsn"></input>
+	</div> 
+	<div class="form-row" id='BouncedRecipientInfoListAttr' class='hiddenAttrs'>
+		<label for="node-input-BouncedRecipientInfoList"><i class="fa fa-tag"></i> BouncedRecipientInfoList</label>
+		<input type="text" id="node-input-BouncedRecipientInfoList" placeholder="BouncedRecipientInfoList"></input>
+	</div> 
+	<div class="form-row" id='BounceSenderArnAttr' class='hiddenAttrs'>
+		<label for="node-input-BounceSenderArn"><i class="fa fa-tag"></i> BounceSenderArn</label>
+		<input type="text" id="node-input-BounceSenderArn" placeholder="BounceSenderArn"></input>
+	</div> 
+	<div class="form-row" id='SourceAttr' class='hiddenAttrs'>
+		<label for="node-input-Source"><i class="fa fa-tag"></i> Source</label>
+		<input type="text" id="node-input-Source" placeholder="Source"></input>
+	</div> 
+	<div class="form-row" id='SourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceArn"><i class="fa fa-tag"></i> SourceArn</label>
+		<input type="text" id="node-input-SourceArn" placeholder="SourceArn"></input>
+	</div> 
+	<div class="form-row" id='ReplyToAddressesAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplyToAddresses"><i class="fa fa-tag"></i> ReplyToAddresses</label>
+		<input type="text" id="node-input-ReplyToAddresses" placeholder="ReplyToAddresses"></input>
+	</div> 
+	<div class="form-row" id='ReturnPathAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnPath"><i class="fa fa-tag"></i> ReturnPath</label>
+		<input type="text" id="node-input-ReturnPath" placeholder="ReturnPath"></input>
+	</div> 
+	<div class="form-row" id='ReturnPathArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnPathArn"><i class="fa fa-tag"></i> ReturnPathArn</label>
+		<input type="text" id="node-input-ReturnPathArn" placeholder="ReturnPathArn"></input>
+	</div> 
+	<div class="form-row" id='DefaultTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultTags"><i class="fa fa-tag"></i> DefaultTags</label>
+		<input type="text" id="node-input-DefaultTags" placeholder="DefaultTags"></input>
+	</div> 
+	<div class="form-row" id='TemplateArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateArn"><i class="fa fa-tag"></i> TemplateArn</label>
+		<input type="text" id="node-input-TemplateArn" placeholder="TemplateArn"></input>
+	</div> 
+	<div class="form-row" id='DefaultTemplateDataAttr' class='hiddenAttrs'>
+		<label for="node-input-DefaultTemplateData"><i class="fa fa-tag"></i> DefaultTemplateData</label>
+		<input type="text" id="node-input-DefaultTemplateData" placeholder="DefaultTemplateData"></input>
+	</div> 
+	<div class="form-row" id='DestinationsAttr' class='hiddenAttrs'>
+		<label for="node-input-Destinations"><i class="fa fa-tag"></i> Destinations</label>
+		<input type="text" id="node-input-Destinations" placeholder="Destinations"></input>
+	</div> 
+	<div class="form-row" id='DestinationAttr' class='hiddenAttrs'>
+		<label for="node-input-Destination"><i class="fa fa-tag"></i> Destination</label>
+		<input type="text" id="node-input-Destination" placeholder="Destination"></input>
+	</div> 
+	<div class="form-row" id='MessageAttr' class='hiddenAttrs'>
+		<label for="node-input-Message"><i class="fa fa-tag"></i> Message</label>
+		<input type="text" id="node-input-Message" placeholder="Message"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='RawMessageAttr' class='hiddenAttrs'>
+		<label for="node-input-RawMessage"><i class="fa fa-tag"></i> RawMessage</label>
+		<input type="text" id="node-input-RawMessage" placeholder="RawMessage"></input>
+	</div> 
+	<div class="form-row" id='FromArnAttr' class='hiddenAttrs'>
+		<label for="node-input-FromArn"><i class="fa fa-tag"></i> FromArn</label>
+		<input type="text" id="node-input-FromArn" placeholder="FromArn"></input>
+	</div> 
+	<div class="form-row" id='TemplateDataAttr' class='hiddenAttrs'>
+		<label for="node-input-TemplateData"><i class="fa fa-tag"></i> TemplateData</label>
+		<input type="text" id="node-input-TemplateData" placeholder="TemplateData"></input>
+	</div> 
+	<div class="form-row" id='DkimEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-DkimEnabled"><i class="fa fa-tag"></i> DkimEnabled</label>
+		<input type="text" id="node-input-DkimEnabled" placeholder="DkimEnabled"></input>
+	</div> 
+	<div class="form-row" id='ForwardingEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-ForwardingEnabled"><i class="fa fa-tag"></i> ForwardingEnabled</label>
+		<input type="text" id="node-input-ForwardingEnabled" placeholder="ForwardingEnabled"></input>
+	</div> 
+	<div class="form-row" id='NotificationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-NotificationType"><i class="fa fa-tag"></i> NotificationType</label>
+		<input type="text" id="node-input-NotificationType" placeholder="NotificationType"></input>
+	</div> 
+	<div class="form-row" id='EnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-Enabled"><i class="fa fa-tag"></i> Enabled</label>
+		<input type="text" id="node-input-Enabled" placeholder="Enabled"></input>
+	</div> 
+	<div class="form-row" id='MailFromDomainAttr' class='hiddenAttrs'>
+		<label for="node-input-MailFromDomain"><i class="fa fa-tag"></i> MailFromDomain</label>
+		<input type="text" id="node-input-MailFromDomain" placeholder="MailFromDomain"></input>
+	</div> 
+	<div class="form-row" id='BehaviorOnMXFailureAttr' class='hiddenAttrs'>
+		<label for="node-input-BehaviorOnMXFailure"><i class="fa fa-tag"></i> BehaviorOnMXFailure</label>
+		<input type="text" id="node-input-BehaviorOnMXFailure" placeholder="BehaviorOnMXFailure"></input>
+	</div> 
+	<div class="form-row" id='SnsTopicAttr' class='hiddenAttrs'>
+		<label for="node-input-SnsTopic"><i class="fa fa-tag"></i> SnsTopic</label>
+		<input type="text" id="node-input-SnsTopic" placeholder="SnsTopic"></input>
+	</div> 
+	<div class="form-row" id='DomainAttr' class='hiddenAttrs'>
+		<label for="node-input-Domain"><i class="fa fa-tag"></i> Domain</label>
+		<input type="text" id="node-input-Domain" placeholder="Domain"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CloneReceiptRuleSet:[
+					'#RuleSetNameAttr','#OriginalRuleSetNameAttr'
+					],
+				CreateConfigurationSet:[
+					'#ConfigurationSetAttr'
+					],
+				CreateConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationAttr'
+					],
+				CreateConfigurationSetTrackingOptions:[
+					'#ConfigurationSetNameAttr','#TrackingOptionsAttr'
+					],
+				CreateCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr','#FromEmailAddressAttr','#TemplateSubjectAttr','#TemplateContentAttr','#SuccessRedirectionURLAttr','#FailureRedirectionURLAttr'
+					],
+				CreateReceiptFilter:[
+					'#FilterAttr'
+					],
+				CreateReceiptRule:[
+					'#RuleSetNameAttr','#AfterAttr','#RuleAttr'
+					],
+				CreateReceiptRuleSet:[
+					'#RuleSetNameAttr'
+					],
+				CreateTemplate:[
+					'#TemplateAttr'
+					],
+				DeleteConfigurationSet:[
+					'#ConfigurationSetNameAttr'
+					],
+				DeleteConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationNameAttr'
+					],
+				DeleteConfigurationSetTrackingOptions:[
+					'#ConfigurationSetNameAttr'
+					],
+				DeleteCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				DeleteIdentity:[
+					'#IdentityAttr'
+					],
+				DeleteIdentityPolicy:[
+					'#IdentityAttr','#PolicyNameAttr'
+					],
+				DeleteReceiptFilter:[
+					'#FilterNameAttr'
+					],
+				DeleteReceiptRule:[
+					'#RuleSetNameAttr','#RuleNameAttr'
+					],
+				DeleteReceiptRuleSet:[
+					'#RuleSetNameAttr'
+					],
+				DeleteTemplate:[
+					'#TemplateNameAttr'
+					],
+				DeleteVerifiedEmailAddress:[
+					'#EmailAddressAttr'
+					],
+				DescribeActiveReceiptRuleSet:[
+					
+					],
+				DescribeConfigurationSet:[
+					'#ConfigurationSetNameAttr','#ConfigurationSetAttributeNamesAttr'
+					],
+				DescribeReceiptRule:[
+					'#RuleSetNameAttr','#RuleNameAttr'
+					],
+				DescribeReceiptRuleSet:[
+					'#RuleSetNameAttr'
+					],
+				GetAccountSendingEnabled:[
+					
+					],
+				GetCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr'
+					],
+				GetIdentityDkimAttributes:[
+					'#IdentitiesAttr'
+					],
+				GetIdentityMailFromDomainAttributes:[
+					'#IdentitiesAttr'
+					],
+				GetIdentityNotificationAttributes:[
+					'#IdentitiesAttr'
+					],
+				GetIdentityPolicies:[
+					'#IdentityAttr','#PolicyNamesAttr'
+					],
+				GetIdentityVerificationAttributes:[
+					'#IdentitiesAttr'
+					],
+				GetSendQuota:[
+					
+					],
+				GetSendStatistics:[
+					
+					],
+				GetTemplate:[
+					'#TemplateNameAttr'
+					],
+				ListConfigurationSets:[
+					'#NextTokenAttr','#MaxItemsAttr'
+					],
+				ListCustomVerificationEmailTemplates:[
+					'#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListIdentities:[
+					'#IdentityTypeAttr','#NextTokenAttr','#MaxItemsAttr'
+					],
+				ListIdentityPolicies:[
+					'#IdentityAttr'
+					],
+				ListReceiptFilters:[
+					
+					],
+				ListReceiptRuleSets:[
+					'#NextTokenAttr'
+					],
+				ListTemplates:[
+					'#NextTokenAttr','#MaxItemsAttr'
+					],
+				ListVerifiedEmailAddresses:[
+					
+					],
+				PutConfigurationSetDeliveryOptions:[
+					'#ConfigurationSetNameAttr','#DeliveryOptionsAttr'
+					],
+				PutIdentityPolicy:[
+					'#IdentityAttr','#PolicyNameAttr','#PolicyAttr'
+					],
+				ReorderReceiptRuleSet:[
+					'#RuleSetNameAttr','#RuleNamesAttr'
+					],
+				SendBounce:[
+					'#OriginalMessageIdAttr','#BounceSenderAttr','#ExplanationAttr','#MessageDsnAttr','#BouncedRecipientInfoListAttr','#BounceSenderArnAttr'
+					],
+				SendBulkTemplatedEmail:[
+					'#SourceAttr','#SourceArnAttr','#ReplyToAddressesAttr','#ReturnPathAttr','#ReturnPathArnAttr','#ConfigurationSetNameAttr','#DefaultTagsAttr','#TemplateAttr','#TemplateArnAttr','#DefaultTemplateDataAttr','#DestinationsAttr'
+					],
+				SendCustomVerificationEmail:[
+					'#EmailAddressAttr','#TemplateNameAttr','#ConfigurationSetNameAttr'
+					],
+				SendEmail:[
+					'#SourceAttr','#DestinationAttr','#MessageAttr','#ReplyToAddressesAttr','#ReturnPathAttr','#SourceArnAttr','#ReturnPathArnAttr','#TagsAttr','#ConfigurationSetNameAttr'
+					],
+				SendRawEmail:[
+					'#SourceAttr','#DestinationsAttr','#RawMessageAttr','#FromArnAttr','#SourceArnAttr','#ReturnPathArnAttr','#TagsAttr','#ConfigurationSetNameAttr'
+					],
+				SendTemplatedEmail:[
+					'#SourceAttr','#DestinationAttr','#ReplyToAddressesAttr','#ReturnPathAttr','#SourceArnAttr','#ReturnPathArnAttr','#TagsAttr','#ConfigurationSetNameAttr','#TemplateAttr','#TemplateArnAttr','#TemplateDataAttr'
+					],
+				SetActiveReceiptRuleSet:[
+					'#RuleSetNameAttr'
+					],
+				SetIdentityDkimEnabled:[
+					'#IdentityAttr','#DkimEnabledAttr'
+					],
+				SetIdentityFeedbackForwardingEnabled:[
+					'#IdentityAttr','#ForwardingEnabledAttr'
+					],
+				SetIdentityHeadersInNotificationsEnabled:[
+					'#IdentityAttr','#NotificationTypeAttr','#EnabledAttr'
+					],
+				SetIdentityMailFromDomain:[
+					'#IdentityAttr','#MailFromDomainAttr','#BehaviorOnMXFailureAttr'
+					],
+				SetIdentityNotificationTopic:[
+					'#IdentityAttr','#NotificationTypeAttr','#SnsTopicAttr'
+					],
+				SetReceiptRulePosition:[
+					'#RuleSetNameAttr','#RuleNameAttr','#AfterAttr'
+					],
+				TestRenderTemplate:[
+					'#TemplateNameAttr','#TemplateDataAttr'
+					],
+				UpdateAccountSendingEnabled:[
+					'#EnabledAttr'
+					],
+				UpdateConfigurationSetEventDestination:[
+					'#ConfigurationSetNameAttr','#EventDestinationAttr'
+					],
+				UpdateConfigurationSetReputationMetricsEnabled:[
+					'#ConfigurationSetNameAttr','#EnabledAttr'
+					],
+				UpdateConfigurationSetSendingEnabled:[
+					'#ConfigurationSetNameAttr','#EnabledAttr'
+					],
+				UpdateConfigurationSetTrackingOptions:[
+					'#ConfigurationSetNameAttr','#TrackingOptionsAttr'
+					],
+				UpdateCustomVerificationEmailTemplate:[
+					'#TemplateNameAttr','#FromEmailAddressAttr','#TemplateSubjectAttr','#TemplateContentAttr','#SuccessRedirectionURLAttr','#FailureRedirectionURLAttr'
+					],
+				UpdateReceiptRule:[
+					'#RuleSetNameAttr','#RuleAttr'
+					],
+				UpdateTemplate:[
+					'#TemplateAttr'
+					],
+				VerifyDomainDkim:[
+					'#DomainAttr'
+					],
+				VerifyDomainIdentity:[
+					'#DomainAttr'
+					],
+				VerifyEmailAddress:[
+					'#EmailAddressAttr'
+					],
+				VerifyEmailIdentity:[
+					'#EmailAddressAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS SES">
+<p>
+AWS SES
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/SES.html">SES</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS SES',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CloneReceiptRuleSet' },
+			
+				RuleSetName: { value: ""} ,
+				OriginalRuleSetName: { value: ""} ,
+				ConfigurationSet: { value: ""} ,
+				ConfigurationSetName: { value: ""} ,
+				EventDestination: { value: ""} ,
+				TrackingOptions: { value: ""} ,
+				TemplateName: { value: ""} ,
+				FromEmailAddress: { value: ""} ,
+				TemplateSubject: { value: ""} ,
+				TemplateContent: { value: ""} ,
+				SuccessRedirectionURL: { value: ""} ,
+				FailureRedirectionURL: { value: ""} ,
+				Filter: { value: ""} ,
+				After: { value: ""} ,
+				Rule: { value: ""} ,
+				Template: { value: ""} ,
+				EventDestinationName: { value: ""} ,
+				Identity: { value: ""} ,
+				PolicyName: { value: ""} ,
+				FilterName: { value: ""} ,
+				RuleName: { value: ""} ,
+				EmailAddress: { value: ""} ,
+				ConfigurationSetAttributeNames: { value: ""} ,
+				Identities: { value: ""} ,
+				PolicyNames: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxItems: { value: ""} ,
+				MaxResults: { value: ""} ,
+				IdentityType: { value: ""} ,
+				DeliveryOptions: { value: ""} ,
+				Policy: { value: ""} ,
+				RuleNames: { value: ""} ,
+				OriginalMessageId: { value: ""} ,
+				BounceSender: { value: ""} ,
+				Explanation: { value: ""} ,
+				MessageDsn: { value: ""} ,
+				BouncedRecipientInfoList: { value: ""} ,
+				BounceSenderArn: { value: ""} ,
+				Source: { value: ""} ,
+				SourceArn: { value: ""} ,
+				ReplyToAddresses: { value: ""} ,
+				ReturnPath: { value: ""} ,
+				ReturnPathArn: { value: ""} ,
+				DefaultTags: { value: ""} ,
+				TemplateArn: { value: ""} ,
+				DefaultTemplateData: { value: ""} ,
+				Destinations: { value: ""} ,
+				Destination: { value: ""} ,
+				Message: { value: ""} ,
+				Tags: { value: ""} ,
+				RawMessage: { value: ""} ,
+				FromArn: { value: ""} ,
+				TemplateData: { value: ""} ,
+				DkimEnabled: { value: ""} ,
+				ForwardingEnabled: { value: ""} ,
+				NotificationType: { value: ""} ,
+				Enabled: { value: ""} ,
+				MailFromDomain: { value: ""} ,
+				BehaviorOnMXFailure: { value: ""} ,
+				SnsTopic: { value: ""} ,
+				Domain: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "SES " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-RuleSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OriginalRuleSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConfigurationSetName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EventDestination").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrackingOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FromEmailAddress").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateSubject").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateContent").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SuccessRedirectionURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FailureRedirectionURL").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-After").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Rule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Template").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EventDestinationName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Identity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RuleName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EmailAddress").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Identities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PolicyNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxItems").typedInput({ default: "num", types: ["num"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-IdentityType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeliveryOptions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Policy").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-OriginalMessageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BounceSender").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Explanation").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-BounceSenderArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Source").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplyToAddresses").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnPath").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnPathArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DefaultTemplateData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Destinations").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Destination").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-FromArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TemplateData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DkimEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ForwardingEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NotificationType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Enabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-MailFromDomain").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BehaviorOnMXFailure").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SnsTopic").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Domain").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

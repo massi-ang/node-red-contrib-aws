@@ -1,0 +1,146 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS QLDBSession">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="SendCommand">SendCommand</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='SessionTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-SessionToken"><i class="fa fa-tag"></i> SessionToken</label>
+		<input type="text" id="node-input-SessionToken" placeholder="SessionToken"></input>
+	</div> 
+	<div class="form-row" id='StartSessionAttr' class='hiddenAttrs'>
+		<label for="node-input-StartSession"><i class="fa fa-tag"></i> StartSession</label>
+		<input type="text" id="node-input-StartSession" placeholder="StartSession"></input>
+	</div> 
+	<div class="form-row" id='StartTransactionAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTransaction"><i class="fa fa-tag"></i> StartTransaction</label>
+		<input type="text" id="node-input-StartTransaction" placeholder="StartTransaction"></input>
+	</div> 
+	<div class="form-row" id='EndSessionAttr' class='hiddenAttrs'>
+		<label for="node-input-EndSession"><i class="fa fa-tag"></i> EndSession</label>
+		<input type="text" id="node-input-EndSession" placeholder="EndSession"></input>
+	</div> 
+	<div class="form-row" id='CommitTransactionAttr' class='hiddenAttrs'>
+		<label for="node-input-CommitTransaction"><i class="fa fa-tag"></i> CommitTransaction</label>
+		<input type="text" id="node-input-CommitTransaction" placeholder="CommitTransaction"></input>
+	</div> 
+	<div class="form-row" id='AbortTransactionAttr' class='hiddenAttrs'>
+		<label for="node-input-AbortTransaction"><i class="fa fa-tag"></i> AbortTransaction</label>
+		<input type="text" id="node-input-AbortTransaction" placeholder="AbortTransaction"></input>
+	</div> 
+	<div class="form-row" id='ExecuteStatementAttr' class='hiddenAttrs'>
+		<label for="node-input-ExecuteStatement"><i class="fa fa-tag"></i> ExecuteStatement</label>
+		<input type="text" id="node-input-ExecuteStatement" placeholder="ExecuteStatement"></input>
+	</div> 
+	<div class="form-row" id='FetchPageAttr' class='hiddenAttrs'>
+		<label for="node-input-FetchPage"><i class="fa fa-tag"></i> FetchPage</label>
+		<input type="text" id="node-input-FetchPage" placeholder="FetchPage"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				SendCommand:[
+					'#SessionTokenAttr','#StartSessionAttr','#StartTransactionAttr','#EndSessionAttr','#CommitTransactionAttr','#AbortTransactionAttr','#ExecuteStatementAttr','#FetchPageAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS QLDBSession">
+<p>
+AWS QLDBSession
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/QLDBSession.html">QLDBSession</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS QLDBSession',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'SendCommand' },
+			
+				SessionToken: { value: ""} ,
+				StartSession: { value: ""} ,
+				StartTransaction: { value: ""} ,
+				EndSession: { value: ""} ,
+				CommitTransaction: { value: ""} ,
+				AbortTransaction: { value: ""} ,
+				ExecuteStatement: { value: ""} ,
+				FetchPage: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "QLDBSession " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-SessionToken").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+
+
+		}
+	});
+</script>
+

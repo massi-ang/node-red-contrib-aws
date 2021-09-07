@@ -1,0 +1,953 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ECS">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateCapacityProvider">CreateCapacityProvider</option>
+		
+			<option value="CreateCluster">CreateCluster</option>
+		
+			<option value="CreateService">CreateService</option>
+		
+			<option value="CreateTaskSet">CreateTaskSet</option>
+		
+			<option value="DeleteAccountSetting">DeleteAccountSetting</option>
+		
+			<option value="DeleteAttributes">DeleteAttributes</option>
+		
+			<option value="DeleteCapacityProvider">DeleteCapacityProvider</option>
+		
+			<option value="DeleteCluster">DeleteCluster</option>
+		
+			<option value="DeleteService">DeleteService</option>
+		
+			<option value="DeleteTaskSet">DeleteTaskSet</option>
+		
+			<option value="DeregisterContainerInstance">DeregisterContainerInstance</option>
+		
+			<option value="DeregisterTaskDefinition">DeregisterTaskDefinition</option>
+		
+			<option value="DescribeCapacityProviders">DescribeCapacityProviders</option>
+		
+			<option value="DescribeClusters">DescribeClusters</option>
+		
+			<option value="DescribeContainerInstances">DescribeContainerInstances</option>
+		
+			<option value="DescribeServices">DescribeServices</option>
+		
+			<option value="DescribeTaskDefinition">DescribeTaskDefinition</option>
+		
+			<option value="DescribeTaskSets">DescribeTaskSets</option>
+		
+			<option value="DescribeTasks">DescribeTasks</option>
+		
+			<option value="DiscoverPollEndpoint">DiscoverPollEndpoint</option>
+		
+			<option value="ExecuteCommand">ExecuteCommand</option>
+		
+			<option value="ListAccountSettings">ListAccountSettings</option>
+		
+			<option value="ListAttributes">ListAttributes</option>
+		
+			<option value="ListClusters">ListClusters</option>
+		
+			<option value="ListContainerInstances">ListContainerInstances</option>
+		
+			<option value="ListServices">ListServices</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTaskDefinitionFamilies">ListTaskDefinitionFamilies</option>
+		
+			<option value="ListTaskDefinitions">ListTaskDefinitions</option>
+		
+			<option value="ListTasks">ListTasks</option>
+		
+			<option value="PutAccountSetting">PutAccountSetting</option>
+		
+			<option value="PutAccountSettingDefault">PutAccountSettingDefault</option>
+		
+			<option value="PutAttributes">PutAttributes</option>
+		
+			<option value="PutClusterCapacityProviders">PutClusterCapacityProviders</option>
+		
+			<option value="RegisterContainerInstance">RegisterContainerInstance</option>
+		
+			<option value="RegisterTaskDefinition">RegisterTaskDefinition</option>
+		
+			<option value="RunTask">RunTask</option>
+		
+			<option value="StartTask">StartTask</option>
+		
+			<option value="StopTask">StopTask</option>
+		
+			<option value="SubmitAttachmentStateChanges">SubmitAttachmentStateChanges</option>
+		
+			<option value="SubmitContainerStateChange">SubmitContainerStateChange</option>
+		
+			<option value="SubmitTaskStateChange">SubmitTaskStateChange</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateCapacityProvider">UpdateCapacityProvider</option>
+		
+			<option value="UpdateCluster">UpdateCluster</option>
+		
+			<option value="UpdateClusterSettings">UpdateClusterSettings</option>
+		
+			<option value="UpdateContainerAgent">UpdateContainerAgent</option>
+		
+			<option value="UpdateContainerInstancesState">UpdateContainerInstancesState</option>
+		
+			<option value="UpdateService">UpdateService</option>
+		
+			<option value="UpdateServicePrimaryTaskSet">UpdateServicePrimaryTaskSet</option>
+		
+			<option value="UpdateTaskSet">UpdateTaskSet</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='autoScalingGroupProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-autoScalingGroupProvider"><i class="fa fa-tag"></i> autoScalingGroupProvider</label>
+		<input type="text" id="node-input-autoScalingGroupProvider" placeholder="autoScalingGroupProvider"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='clusterNameAttr' class='hiddenAttrs'>
+		<label for="node-input-clusterName"><i class="fa fa-tag"></i> clusterName</label>
+		<input type="text" id="node-input-clusterName" placeholder="clusterName"></input>
+	</div> 
+	<div class="form-row" id='settingsAttr' class='hiddenAttrs'>
+		<label for="node-input-settings"><i class="fa fa-tag"></i> settings</label>
+		<input type="text" id="node-input-settings" placeholder="settings"></input>
+	</div> 
+	<div class="form-row" id='configurationAttr' class='hiddenAttrs'>
+		<label for="node-input-configuration"><i class="fa fa-tag"></i> configuration</label>
+		<input type="text" id="node-input-configuration" placeholder="configuration"></input>
+	</div> 
+	<div class="form-row" id='capacityProvidersAttr' class='hiddenAttrs'>
+		<label for="node-input-capacityProviders"><i class="fa fa-tag"></i> capacityProviders</label>
+		<input type="text" id="node-input-capacityProviders" placeholder="capacityProviders"></input>
+	</div> 
+	<div class="form-row" id='defaultCapacityProviderStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-defaultCapacityProviderStrategy"><i class="fa fa-tag"></i> defaultCapacityProviderStrategy</label>
+		<input type="text" id="node-input-defaultCapacityProviderStrategy" placeholder="defaultCapacityProviderStrategy"></input>
+	</div> 
+	<div class="form-row" id='clusterAttr' class='hiddenAttrs'>
+		<label for="node-input-cluster"><i class="fa fa-tag"></i> cluster</label>
+		<input type="text" id="node-input-cluster" placeholder="cluster"></input>
+	</div> 
+	<div class="form-row" id='serviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceName"><i class="fa fa-tag"></i> serviceName</label>
+		<input type="text" id="node-input-serviceName" placeholder="serviceName"></input>
+	</div> 
+	<div class="form-row" id='taskDefinitionAttr' class='hiddenAttrs'>
+		<label for="node-input-taskDefinition"><i class="fa fa-tag"></i> taskDefinition</label>
+		<input type="text" id="node-input-taskDefinition" placeholder="taskDefinition"></input>
+	</div> 
+	<div class="form-row" id='loadBalancersAttr' class='hiddenAttrs'>
+		<label for="node-input-loadBalancers"><i class="fa fa-tag"></i> loadBalancers</label>
+		<input type="text" id="node-input-loadBalancers" placeholder="loadBalancers"></input>
+	</div> 
+	<div class="form-row" id='serviceRegistriesAttr' class='hiddenAttrs'>
+		<label for="node-input-serviceRegistries"><i class="fa fa-tag"></i> serviceRegistries</label>
+		<input type="text" id="node-input-serviceRegistries" placeholder="serviceRegistries"></input>
+	</div> 
+	<div class="form-row" id='desiredCountAttr' class='hiddenAttrs'>
+		<label for="node-input-desiredCount"><i class="fa fa-tag"></i> desiredCount</label>
+		<input type="text" id="node-input-desiredCount" placeholder="desiredCount"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='launchTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-launchType"><i class="fa fa-tag"></i> launchType</label>
+		<input type="text" id="node-input-launchType" placeholder="launchType"></input>
+	</div> 
+	<div class="form-row" id='capacityProviderStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-capacityProviderStrategy"><i class="fa fa-tag"></i> capacityProviderStrategy</label>
+		<input type="text" id="node-input-capacityProviderStrategy" placeholder="capacityProviderStrategy"></input>
+	</div> 
+	<div class="form-row" id='platformVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-platformVersion"><i class="fa fa-tag"></i> platformVersion</label>
+		<input type="text" id="node-input-platformVersion" placeholder="platformVersion"></input>
+	</div> 
+	<div class="form-row" id='roleAttr' class='hiddenAttrs'>
+		<label for="node-input-role"><i class="fa fa-tag"></i> role</label>
+		<input type="text" id="node-input-role" placeholder="role"></input>
+	</div> 
+	<div class="form-row" id='deploymentConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentConfiguration"><i class="fa fa-tag"></i> deploymentConfiguration</label>
+		<input type="text" id="node-input-deploymentConfiguration" placeholder="deploymentConfiguration"></input>
+	</div> 
+	<div class="form-row" id='placementConstraintsAttr' class='hiddenAttrs'>
+		<label for="node-input-placementConstraints"><i class="fa fa-tag"></i> placementConstraints</label>
+		<input type="text" id="node-input-placementConstraints" placeholder="placementConstraints"></input>
+	</div> 
+	<div class="form-row" id='placementStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-placementStrategy"><i class="fa fa-tag"></i> placementStrategy</label>
+		<input type="text" id="node-input-placementStrategy" placeholder="placementStrategy"></input>
+	</div> 
+	<div class="form-row" id='networkConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-networkConfiguration"><i class="fa fa-tag"></i> networkConfiguration</label>
+		<input type="text" id="node-input-networkConfiguration" placeholder="networkConfiguration"></input>
+	</div> 
+	<div class="form-row" id='healthCheckGracePeriodSecondsAttr' class='hiddenAttrs'>
+		<label for="node-input-healthCheckGracePeriodSeconds"><i class="fa fa-tag"></i> healthCheckGracePeriodSeconds</label>
+		<input type="text" id="node-input-healthCheckGracePeriodSeconds" placeholder="healthCheckGracePeriodSeconds"></input>
+	</div> 
+	<div class="form-row" id='schedulingStrategyAttr' class='hiddenAttrs'>
+		<label for="node-input-schedulingStrategy"><i class="fa fa-tag"></i> schedulingStrategy</label>
+		<input type="text" id="node-input-schedulingStrategy" placeholder="schedulingStrategy"></input>
+	</div> 
+	<div class="form-row" id='deploymentControllerAttr' class='hiddenAttrs'>
+		<label for="node-input-deploymentController"><i class="fa fa-tag"></i> deploymentController</label>
+		<input type="text" id="node-input-deploymentController" placeholder="deploymentController"></input>
+	</div> 
+	<div class="form-row" id='enableECSManagedTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-enableECSManagedTags"><i class="fa fa-tag"></i> enableECSManagedTags</label>
+		<input type="text" id="node-input-enableECSManagedTags" placeholder="enableECSManagedTags"></input>
+	</div> 
+	<div class="form-row" id='propagateTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-propagateTags"><i class="fa fa-tag"></i> propagateTags</label>
+		<input type="text" id="node-input-propagateTags" placeholder="propagateTags"></input>
+	</div> 
+	<div class="form-row" id='enableExecuteCommandAttr' class='hiddenAttrs'>
+		<label for="node-input-enableExecuteCommand"><i class="fa fa-tag"></i> enableExecuteCommand</label>
+		<input type="text" id="node-input-enableExecuteCommand" placeholder="enableExecuteCommand"></input>
+	</div> 
+	<div class="form-row" id='serviceAttr' class='hiddenAttrs'>
+		<label for="node-input-service"><i class="fa fa-tag"></i> service</label>
+		<input type="text" id="node-input-service" placeholder="service"></input>
+	</div> 
+	<div class="form-row" id='externalIdAttr' class='hiddenAttrs'>
+		<label for="node-input-externalId"><i class="fa fa-tag"></i> externalId</label>
+		<input type="text" id="node-input-externalId" placeholder="externalId"></input>
+	</div> 
+	<div class="form-row" id='scaleAttr' class='hiddenAttrs'>
+		<label for="node-input-scale"><i class="fa fa-tag"></i> scale</label>
+		<input type="text" id="node-input-scale" placeholder="scale"></input>
+	</div> 
+	<div class="form-row" id='principalArnAttr' class='hiddenAttrs'>
+		<label for="node-input-principalArn"><i class="fa fa-tag"></i> principalArn</label>
+		<input type="text" id="node-input-principalArn" placeholder="principalArn"></input>
+	</div> 
+	<div class="form-row" id='attributesAttr' class='hiddenAttrs'>
+		<label for="node-input-attributes"><i class="fa fa-tag"></i> attributes</label>
+		<input type="text" id="node-input-attributes" placeholder="attributes"></input>
+	</div> 
+	<div class="form-row" id='capacityProviderAttr' class='hiddenAttrs'>
+		<label for="node-input-capacityProvider"><i class="fa fa-tag"></i> capacityProvider</label>
+		<input type="text" id="node-input-capacityProvider" placeholder="capacityProvider"></input>
+	</div> 
+	<div class="form-row" id='forceAttr' class='hiddenAttrs'>
+		<label for="node-input-force"><i class="fa fa-tag"></i> force</label>
+		<input type="text" id="node-input-force" placeholder="force"></input>
+	</div> 
+	<div class="form-row" id='taskSetAttr' class='hiddenAttrs'>
+		<label for="node-input-taskSet"><i class="fa fa-tag"></i> taskSet</label>
+		<input type="text" id="node-input-taskSet" placeholder="taskSet"></input>
+	</div> 
+	<div class="form-row" id='containerInstanceAttr' class='hiddenAttrs'>
+		<label for="node-input-containerInstance"><i class="fa fa-tag"></i> containerInstance</label>
+		<input type="text" id="node-input-containerInstance" placeholder="containerInstance"></input>
+	</div> 
+	<div class="form-row" id='includeAttr' class='hiddenAttrs'>
+		<label for="node-input-include"><i class="fa fa-tag"></i> include</label>
+		<input type="text" id="node-input-include" placeholder="include"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='clustersAttr' class='hiddenAttrs'>
+		<label for="node-input-clusters"><i class="fa fa-tag"></i> clusters</label>
+		<input type="text" id="node-input-clusters" placeholder="clusters"></input>
+	</div> 
+	<div class="form-row" id='containerInstancesAttr' class='hiddenAttrs'>
+		<label for="node-input-containerInstances"><i class="fa fa-tag"></i> containerInstances</label>
+		<input type="text" id="node-input-containerInstances" placeholder="containerInstances"></input>
+	</div> 
+	<div class="form-row" id='servicesAttr' class='hiddenAttrs'>
+		<label for="node-input-services"><i class="fa fa-tag"></i> services</label>
+		<input type="text" id="node-input-services" placeholder="services"></input>
+	</div> 
+	<div class="form-row" id='taskSetsAttr' class='hiddenAttrs'>
+		<label for="node-input-taskSets"><i class="fa fa-tag"></i> taskSets</label>
+		<input type="text" id="node-input-taskSets" placeholder="taskSets"></input>
+	</div> 
+	<div class="form-row" id='tasksAttr' class='hiddenAttrs'>
+		<label for="node-input-tasks"><i class="fa fa-tag"></i> tasks</label>
+		<input type="text" id="node-input-tasks" placeholder="tasks"></input>
+	</div> 
+	<div class="form-row" id='containerAttr' class='hiddenAttrs'>
+		<label for="node-input-container"><i class="fa fa-tag"></i> container</label>
+		<input type="text" id="node-input-container" placeholder="container"></input>
+	</div> 
+	<div class="form-row" id='commandAttr' class='hiddenAttrs'>
+		<label for="node-input-command"><i class="fa fa-tag"></i> command</label>
+		<input type="text" id="node-input-command" placeholder="command"></input>
+	</div> 
+	<div class="form-row" id='interactiveAttr' class='hiddenAttrs'>
+		<label for="node-input-interactive"><i class="fa fa-tag"></i> interactive</label>
+		<input type="text" id="node-input-interactive" placeholder="interactive"></input>
+	</div> 
+	<div class="form-row" id='taskAttr' class='hiddenAttrs'>
+		<label for="node-input-task"><i class="fa fa-tag"></i> task</label>
+		<input type="text" id="node-input-task" placeholder="task"></input>
+	</div> 
+	<div class="form-row" id='valueAttr' class='hiddenAttrs'>
+		<label for="node-input-value"><i class="fa fa-tag"></i> value</label>
+		<input type="text" id="node-input-value" placeholder="value"></input>
+	</div> 
+	<div class="form-row" id='effectiveSettingsAttr' class='hiddenAttrs'>
+		<label for="node-input-effectiveSettings"><i class="fa fa-tag"></i> effectiveSettings</label>
+		<input type="text" id="node-input-effectiveSettings" placeholder="effectiveSettings"></input>
+	</div> 
+	<div class="form-row" id='targetTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-targetType"><i class="fa fa-tag"></i> targetType</label>
+		<input type="text" id="node-input-targetType" placeholder="targetType"></input>
+	</div> 
+	<div class="form-row" id='attributeNameAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeName"><i class="fa fa-tag"></i> attributeName</label>
+		<input type="text" id="node-input-attributeName" placeholder="attributeName"></input>
+	</div> 
+	<div class="form-row" id='attributeValueAttr' class='hiddenAttrs'>
+		<label for="node-input-attributeValue"><i class="fa fa-tag"></i> attributeValue</label>
+		<input type="text" id="node-input-attributeValue" placeholder="attributeValue"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='familyPrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-familyPrefix"><i class="fa fa-tag"></i> familyPrefix</label>
+		<input type="text" id="node-input-familyPrefix" placeholder="familyPrefix"></input>
+	</div> 
+	<div class="form-row" id='sortAttr' class='hiddenAttrs'>
+		<label for="node-input-sort"><i class="fa fa-tag"></i> sort</label>
+		<input type="text" id="node-input-sort" placeholder="sort"></input>
+	</div> 
+	<div class="form-row" id='familyAttr' class='hiddenAttrs'>
+		<label for="node-input-family"><i class="fa fa-tag"></i> family</label>
+		<input type="text" id="node-input-family" placeholder="family"></input>
+	</div> 
+	<div class="form-row" id='startedByAttr' class='hiddenAttrs'>
+		<label for="node-input-startedBy"><i class="fa fa-tag"></i> startedBy</label>
+		<input type="text" id="node-input-startedBy" placeholder="startedBy"></input>
+	</div> 
+	<div class="form-row" id='desiredStatusAttr' class='hiddenAttrs'>
+		<label for="node-input-desiredStatus"><i class="fa fa-tag"></i> desiredStatus</label>
+		<input type="text" id="node-input-desiredStatus" placeholder="desiredStatus"></input>
+	</div> 
+	<div class="form-row" id='instanceIdentityDocumentAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceIdentityDocument"><i class="fa fa-tag"></i> instanceIdentityDocument</label>
+		<input type="text" id="node-input-instanceIdentityDocument" placeholder="instanceIdentityDocument"></input>
+	</div> 
+	<div class="form-row" id='instanceIdentityDocumentSignatureAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceIdentityDocumentSignature"><i class="fa fa-tag"></i> instanceIdentityDocumentSignature</label>
+		<input type="text" id="node-input-instanceIdentityDocumentSignature" placeholder="instanceIdentityDocumentSignature"></input>
+	</div> 
+	<div class="form-row" id='totalResourcesAttr' class='hiddenAttrs'>
+		<label for="node-input-totalResources"><i class="fa fa-tag"></i> totalResources</label>
+		<input type="text" id="node-input-totalResources" placeholder="totalResources"></input>
+	</div> 
+	<div class="form-row" id='versionInfoAttr' class='hiddenAttrs'>
+		<label for="node-input-versionInfo"><i class="fa fa-tag"></i> versionInfo</label>
+		<input type="text" id="node-input-versionInfo" placeholder="versionInfo"></input>
+	</div> 
+	<div class="form-row" id='containerInstanceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-containerInstanceArn"><i class="fa fa-tag"></i> containerInstanceArn</label>
+		<input type="text" id="node-input-containerInstanceArn" placeholder="containerInstanceArn"></input>
+	</div> 
+	<div class="form-row" id='platformDevicesAttr' class='hiddenAttrs'>
+		<label for="node-input-platformDevices"><i class="fa fa-tag"></i> platformDevices</label>
+		<input type="text" id="node-input-platformDevices" placeholder="platformDevices"></input>
+	</div> 
+	<div class="form-row" id='taskRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-taskRoleArn"><i class="fa fa-tag"></i> taskRoleArn</label>
+		<input type="text" id="node-input-taskRoleArn" placeholder="taskRoleArn"></input>
+	</div> 
+	<div class="form-row" id='executionRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-executionRoleArn"><i class="fa fa-tag"></i> executionRoleArn</label>
+		<input type="text" id="node-input-executionRoleArn" placeholder="executionRoleArn"></input>
+	</div> 
+	<div class="form-row" id='networkModeAttr' class='hiddenAttrs'>
+		<label for="node-input-networkMode"><i class="fa fa-tag"></i> networkMode</label>
+		<input type="text" id="node-input-networkMode" placeholder="networkMode"></input>
+	</div> 
+	<div class="form-row" id='containerDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-containerDefinitions"><i class="fa fa-tag"></i> containerDefinitions</label>
+		<input type="text" id="node-input-containerDefinitions" placeholder="containerDefinitions"></input>
+	</div> 
+	<div class="form-row" id='volumesAttr' class='hiddenAttrs'>
+		<label for="node-input-volumes"><i class="fa fa-tag"></i> volumes</label>
+		<input type="text" id="node-input-volumes" placeholder="volumes"></input>
+	</div> 
+	<div class="form-row" id='requiresCompatibilitiesAttr' class='hiddenAttrs'>
+		<label for="node-input-requiresCompatibilities"><i class="fa fa-tag"></i> requiresCompatibilities</label>
+		<input type="text" id="node-input-requiresCompatibilities" placeholder="requiresCompatibilities"></input>
+	</div> 
+	<div class="form-row" id='cpuAttr' class='hiddenAttrs'>
+		<label for="node-input-cpu"><i class="fa fa-tag"></i> cpu</label>
+		<input type="text" id="node-input-cpu" placeholder="cpu"></input>
+	</div> 
+	<div class="form-row" id='memoryAttr' class='hiddenAttrs'>
+		<label for="node-input-memory"><i class="fa fa-tag"></i> memory</label>
+		<input type="text" id="node-input-memory" placeholder="memory"></input>
+	</div> 
+	<div class="form-row" id='pidModeAttr' class='hiddenAttrs'>
+		<label for="node-input-pidMode"><i class="fa fa-tag"></i> pidMode</label>
+		<input type="text" id="node-input-pidMode" placeholder="pidMode"></input>
+	</div> 
+	<div class="form-row" id='ipcModeAttr' class='hiddenAttrs'>
+		<label for="node-input-ipcMode"><i class="fa fa-tag"></i> ipcMode</label>
+		<input type="text" id="node-input-ipcMode" placeholder="ipcMode"></input>
+	</div> 
+	<div class="form-row" id='proxyConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-proxyConfiguration"><i class="fa fa-tag"></i> proxyConfiguration</label>
+		<input type="text" id="node-input-proxyConfiguration" placeholder="proxyConfiguration"></input>
+	</div> 
+	<div class="form-row" id='inferenceAcceleratorsAttr' class='hiddenAttrs'>
+		<label for="node-input-inferenceAccelerators"><i class="fa fa-tag"></i> inferenceAccelerators</label>
+		<input type="text" id="node-input-inferenceAccelerators" placeholder="inferenceAccelerators"></input>
+	</div> 
+	<div class="form-row" id='ephemeralStorageAttr' class='hiddenAttrs'>
+		<label for="node-input-ephemeralStorage"><i class="fa fa-tag"></i> ephemeralStorage</label>
+		<input type="text" id="node-input-ephemeralStorage" placeholder="ephemeralStorage"></input>
+	</div> 
+	<div class="form-row" id='countAttr' class='hiddenAttrs'>
+		<label for="node-input-count"><i class="fa fa-tag"></i> count</label>
+		<input type="text" id="node-input-count" placeholder="count"></input>
+	</div> 
+	<div class="form-row" id='groupAttr' class='hiddenAttrs'>
+		<label for="node-input-group"><i class="fa fa-tag"></i> group</label>
+		<input type="text" id="node-input-group" placeholder="group"></input>
+	</div> 
+	<div class="form-row" id='overridesAttr' class='hiddenAttrs'>
+		<label for="node-input-overrides"><i class="fa fa-tag"></i> overrides</label>
+		<input type="text" id="node-input-overrides" placeholder="overrides"></input>
+	</div> 
+	<div class="form-row" id='referenceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-referenceId"><i class="fa fa-tag"></i> referenceId</label>
+		<input type="text" id="node-input-referenceId" placeholder="referenceId"></input>
+	</div> 
+	<div class="form-row" id='reasonAttr' class='hiddenAttrs'>
+		<label for="node-input-reason"><i class="fa fa-tag"></i> reason</label>
+		<input type="text" id="node-input-reason" placeholder="reason"></input>
+	</div> 
+	<div class="form-row" id='attachmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-attachments"><i class="fa fa-tag"></i> attachments</label>
+		<input type="text" id="node-input-attachments" placeholder="attachments"></input>
+	</div> 
+	<div class="form-row" id='containerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-containerName"><i class="fa fa-tag"></i> containerName</label>
+		<input type="text" id="node-input-containerName" placeholder="containerName"></input>
+	</div> 
+	<div class="form-row" id='runtimeIdAttr' class='hiddenAttrs'>
+		<label for="node-input-runtimeId"><i class="fa fa-tag"></i> runtimeId</label>
+		<input type="text" id="node-input-runtimeId" placeholder="runtimeId"></input>
+	</div> 
+	<div class="form-row" id='exitCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-exitCode"><i class="fa fa-tag"></i> exitCode</label>
+		<input type="text" id="node-input-exitCode" placeholder="exitCode"></input>
+	</div> 
+	<div class="form-row" id='networkBindingsAttr' class='hiddenAttrs'>
+		<label for="node-input-networkBindings"><i class="fa fa-tag"></i> networkBindings</label>
+		<input type="text" id="node-input-networkBindings" placeholder="networkBindings"></input>
+	</div> 
+	<div class="form-row" id='containersAttr' class='hiddenAttrs'>
+		<label for="node-input-containers"><i class="fa fa-tag"></i> containers</label>
+		<input type="text" id="node-input-containers" placeholder="containers"></input>
+	</div> 
+	<div class="form-row" id='managedAgentsAttr' class='hiddenAttrs'>
+		<label for="node-input-managedAgents"><i class="fa fa-tag"></i> managedAgents</label>
+		<input type="text" id="node-input-managedAgents" placeholder="managedAgents"></input>
+	</div> 
+	<div class="form-row" id='pullStartedAtAttr' class='hiddenAttrs'>
+		<label for="node-input-pullStartedAt"><i class="fa fa-tag"></i> pullStartedAt</label>
+		<input type="text" id="node-input-pullStartedAt" placeholder="pullStartedAt"></input>
+	</div> 
+	<div class="form-row" id='pullStoppedAtAttr' class='hiddenAttrs'>
+		<label for="node-input-pullStoppedAt"><i class="fa fa-tag"></i> pullStoppedAt</label>
+		<input type="text" id="node-input-pullStoppedAt" placeholder="pullStoppedAt"></input>
+	</div> 
+	<div class="form-row" id='executionStoppedAtAttr' class='hiddenAttrs'>
+		<label for="node-input-executionStoppedAt"><i class="fa fa-tag"></i> executionStoppedAt</label>
+		<input type="text" id="node-input-executionStoppedAt" placeholder="executionStoppedAt"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='forceNewDeploymentAttr' class='hiddenAttrs'>
+		<label for="node-input-forceNewDeployment"><i class="fa fa-tag"></i> forceNewDeployment</label>
+		<input type="text" id="node-input-forceNewDeployment" placeholder="forceNewDeployment"></input>
+	</div> 
+	<div class="form-row" id='primaryTaskSetAttr' class='hiddenAttrs'>
+		<label for="node-input-primaryTaskSet"><i class="fa fa-tag"></i> primaryTaskSet</label>
+		<input type="text" id="node-input-primaryTaskSet" placeholder="primaryTaskSet"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateCapacityProvider:[
+					'#nameAttr','#autoScalingGroupProviderAttr','#tagsAttr'
+					],
+				CreateCluster:[
+					'#clusterNameAttr','#tagsAttr','#settingsAttr','#configurationAttr','#capacityProvidersAttr','#defaultCapacityProviderStrategyAttr'
+					],
+				CreateService:[
+					'#clusterAttr','#serviceNameAttr','#taskDefinitionAttr','#loadBalancersAttr','#serviceRegistriesAttr','#desiredCountAttr','#clientTokenAttr','#launchTypeAttr','#capacityProviderStrategyAttr','#platformVersionAttr','#roleAttr','#deploymentConfigurationAttr','#placementConstraintsAttr','#placementStrategyAttr','#networkConfigurationAttr','#healthCheckGracePeriodSecondsAttr','#schedulingStrategyAttr','#deploymentControllerAttr','#tagsAttr','#enableECSManagedTagsAttr','#propagateTagsAttr','#enableExecuteCommandAttr'
+					],
+				CreateTaskSet:[
+					'#serviceAttr','#clusterAttr','#externalIdAttr','#taskDefinitionAttr','#networkConfigurationAttr','#loadBalancersAttr','#serviceRegistriesAttr','#launchTypeAttr','#capacityProviderStrategyAttr','#platformVersionAttr','#scaleAttr','#clientTokenAttr','#tagsAttr'
+					],
+				DeleteAccountSetting:[
+					'#nameAttr','#principalArnAttr'
+					],
+				DeleteAttributes:[
+					'#clusterAttr','#attributesAttr'
+					],
+				DeleteCapacityProvider:[
+					'#capacityProviderAttr'
+					],
+				DeleteCluster:[
+					'#clusterAttr'
+					],
+				DeleteService:[
+					'#clusterAttr','#serviceAttr','#forceAttr'
+					],
+				DeleteTaskSet:[
+					'#clusterAttr','#serviceAttr','#taskSetAttr','#forceAttr'
+					],
+				DeregisterContainerInstance:[
+					'#clusterAttr','#containerInstanceAttr','#forceAttr'
+					],
+				DeregisterTaskDefinition:[
+					'#taskDefinitionAttr'
+					],
+				DescribeCapacityProviders:[
+					'#capacityProvidersAttr','#includeAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				DescribeClusters:[
+					'#clustersAttr','#includeAttr'
+					],
+				DescribeContainerInstances:[
+					'#clusterAttr','#containerInstancesAttr','#includeAttr'
+					],
+				DescribeServices:[
+					'#clusterAttr','#servicesAttr','#includeAttr'
+					],
+				DescribeTaskDefinition:[
+					'#taskDefinitionAttr','#includeAttr'
+					],
+				DescribeTaskSets:[
+					'#clusterAttr','#serviceAttr','#taskSetsAttr','#includeAttr'
+					],
+				DescribeTasks:[
+					'#clusterAttr','#tasksAttr','#includeAttr'
+					],
+				DiscoverPollEndpoint:[
+					'#containerInstanceAttr','#clusterAttr'
+					],
+				ExecuteCommand:[
+					'#clusterAttr','#containerAttr','#commandAttr','#interactiveAttr','#taskAttr'
+					],
+				ListAccountSettings:[
+					'#nameAttr','#valueAttr','#principalArnAttr','#effectiveSettingsAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListAttributes:[
+					'#clusterAttr','#targetTypeAttr','#attributeNameAttr','#attributeValueAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListClusters:[
+					'#nextTokenAttr','#maxResultsAttr'
+					],
+				ListContainerInstances:[
+					'#clusterAttr','#filterAttr','#nextTokenAttr','#maxResultsAttr','#statusAttr'
+					],
+				ListServices:[
+					'#clusterAttr','#nextTokenAttr','#maxResultsAttr','#launchTypeAttr','#schedulingStrategyAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				ListTaskDefinitionFamilies:[
+					'#familyPrefixAttr','#statusAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTaskDefinitions:[
+					'#familyPrefixAttr','#statusAttr','#sortAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				ListTasks:[
+					'#clusterAttr','#containerInstanceAttr','#familyAttr','#nextTokenAttr','#maxResultsAttr','#startedByAttr','#serviceNameAttr','#desiredStatusAttr','#launchTypeAttr'
+					],
+				PutAccountSetting:[
+					'#nameAttr','#valueAttr','#principalArnAttr'
+					],
+				PutAccountSettingDefault:[
+					'#nameAttr','#valueAttr'
+					],
+				PutAttributes:[
+					'#clusterAttr','#attributesAttr'
+					],
+				PutClusterCapacityProviders:[
+					'#clusterAttr','#capacityProvidersAttr','#defaultCapacityProviderStrategyAttr'
+					],
+				RegisterContainerInstance:[
+					'#clusterAttr','#instanceIdentityDocumentAttr','#instanceIdentityDocumentSignatureAttr','#totalResourcesAttr','#versionInfoAttr','#containerInstanceArnAttr','#attributesAttr','#platformDevicesAttr','#tagsAttr'
+					],
+				RegisterTaskDefinition:[
+					'#familyAttr','#taskRoleArnAttr','#executionRoleArnAttr','#networkModeAttr','#containerDefinitionsAttr','#volumesAttr','#placementConstraintsAttr','#requiresCompatibilitiesAttr','#cpuAttr','#memoryAttr','#tagsAttr','#pidModeAttr','#ipcModeAttr','#proxyConfigurationAttr','#inferenceAcceleratorsAttr','#ephemeralStorageAttr'
+					],
+				RunTask:[
+					'#capacityProviderStrategyAttr','#clusterAttr','#countAttr','#enableECSManagedTagsAttr','#enableExecuteCommandAttr','#groupAttr','#launchTypeAttr','#networkConfigurationAttr','#overridesAttr','#placementConstraintsAttr','#placementStrategyAttr','#platformVersionAttr','#propagateTagsAttr','#referenceIdAttr','#startedByAttr','#tagsAttr','#taskDefinitionAttr'
+					],
+				StartTask:[
+					'#clusterAttr','#containerInstancesAttr','#enableECSManagedTagsAttr','#enableExecuteCommandAttr','#groupAttr','#networkConfigurationAttr','#overridesAttr','#propagateTagsAttr','#referenceIdAttr','#startedByAttr','#tagsAttr','#taskDefinitionAttr'
+					],
+				StopTask:[
+					'#clusterAttr','#taskAttr','#reasonAttr'
+					],
+				SubmitAttachmentStateChanges:[
+					'#clusterAttr','#attachmentsAttr'
+					],
+				SubmitContainerStateChange:[
+					'#clusterAttr','#taskAttr','#containerNameAttr','#runtimeIdAttr','#statusAttr','#exitCodeAttr','#reasonAttr','#networkBindingsAttr'
+					],
+				SubmitTaskStateChange:[
+					'#clusterAttr','#taskAttr','#statusAttr','#reasonAttr','#containersAttr','#attachmentsAttr','#managedAgentsAttr','#pullStartedAtAttr','#pullStoppedAtAttr','#executionStoppedAtAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateCapacityProvider:[
+					'#nameAttr','#autoScalingGroupProviderAttr'
+					],
+				UpdateCluster:[
+					'#clusterAttr','#settingsAttr','#configurationAttr'
+					],
+				UpdateClusterSettings:[
+					'#clusterAttr','#settingsAttr'
+					],
+				UpdateContainerAgent:[
+					'#clusterAttr','#containerInstanceAttr'
+					],
+				UpdateContainerInstancesState:[
+					'#clusterAttr','#containerInstancesAttr','#statusAttr'
+					],
+				UpdateService:[
+					'#clusterAttr','#serviceAttr','#desiredCountAttr','#taskDefinitionAttr','#capacityProviderStrategyAttr','#deploymentConfigurationAttr','#networkConfigurationAttr','#placementConstraintsAttr','#placementStrategyAttr','#platformVersionAttr','#forceNewDeploymentAttr','#healthCheckGracePeriodSecondsAttr','#enableExecuteCommandAttr'
+					],
+				UpdateServicePrimaryTaskSet:[
+					'#clusterAttr','#serviceAttr','#primaryTaskSetAttr'
+					],
+				UpdateTaskSet:[
+					'#clusterAttr','#serviceAttr','#taskSetAttr','#scaleAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ECS">
+<p>
+AWS ECS
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ECS.html">ECS</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ECS',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateCapacityProvider' },
+			
+				name: { value: ""} ,
+				autoScalingGroupProvider: { value: ""} ,
+				tags: { value: ""} ,
+				clusterName: { value: ""} ,
+				settings: { value: ""} ,
+				configuration: { value: ""} ,
+				capacityProviders: { value: ""} ,
+				defaultCapacityProviderStrategy: { value: ""} ,
+				cluster: { value: ""} ,
+				serviceName: { value: ""} ,
+				taskDefinition: { value: ""} ,
+				loadBalancers: { value: ""} ,
+				serviceRegistries: { value: ""} ,
+				desiredCount: { value: ""} ,
+				clientToken: { value: ""} ,
+				launchType: { value: ""} ,
+				capacityProviderStrategy: { value: ""} ,
+				platformVersion: { value: ""} ,
+				role: { value: ""} ,
+				deploymentConfiguration: { value: ""} ,
+				placementConstraints: { value: ""} ,
+				placementStrategy: { value: ""} ,
+				networkConfiguration: { value: ""} ,
+				healthCheckGracePeriodSeconds: { value: ""} ,
+				schedulingStrategy: { value: ""} ,
+				deploymentController: { value: ""} ,
+				enableECSManagedTags: { value: ""} ,
+				propagateTags: { value: ""} ,
+				enableExecuteCommand: { value: ""} ,
+				service: { value: ""} ,
+				externalId: { value: ""} ,
+				scale: { value: ""} ,
+				principalArn: { value: ""} ,
+				attributes: { value: ""} ,
+				capacityProvider: { value: ""} ,
+				force: { value: ""} ,
+				taskSet: { value: ""} ,
+				containerInstance: { value: ""} ,
+				include: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				clusters: { value: ""} ,
+				containerInstances: { value: ""} ,
+				services: { value: ""} ,
+				taskSets: { value: ""} ,
+				tasks: { value: ""} ,
+				container: { value: ""} ,
+				command: { value: ""} ,
+				interactive: { value: ""} ,
+				task: { value: ""} ,
+				value: { value: ""} ,
+				effectiveSettings: { value: ""} ,
+				targetType: { value: ""} ,
+				attributeName: { value: ""} ,
+				attributeValue: { value: ""} ,
+				filter: { value: ""} ,
+				status: { value: ""} ,
+				resourceArn: { value: ""} ,
+				familyPrefix: { value: ""} ,
+				sort: { value: ""} ,
+				family: { value: ""} ,
+				startedBy: { value: ""} ,
+				desiredStatus: { value: ""} ,
+				instanceIdentityDocument: { value: ""} ,
+				instanceIdentityDocumentSignature: { value: ""} ,
+				totalResources: { value: ""} ,
+				versionInfo: { value: ""} ,
+				containerInstanceArn: { value: ""} ,
+				platformDevices: { value: ""} ,
+				taskRoleArn: { value: ""} ,
+				executionRoleArn: { value: ""} ,
+				networkMode: { value: ""} ,
+				containerDefinitions: { value: ""} ,
+				volumes: { value: ""} ,
+				requiresCompatibilities: { value: ""} ,
+				cpu: { value: ""} ,
+				memory: { value: ""} ,
+				pidMode: { value: ""} ,
+				ipcMode: { value: ""} ,
+				proxyConfiguration: { value: ""} ,
+				inferenceAccelerators: { value: ""} ,
+				ephemeralStorage: { value: ""} ,
+				count: { value: ""} ,
+				group: { value: ""} ,
+				overrides: { value: ""} ,
+				referenceId: { value: ""} ,
+				reason: { value: ""} ,
+				attachments: { value: ""} ,
+				containerName: { value: ""} ,
+				runtimeId: { value: ""} ,
+				exitCode: { value: ""} ,
+				networkBindings: { value: ""} ,
+				containers: { value: ""} ,
+				managedAgents: { value: ""} ,
+				pullStartedAt: { value: ""} ,
+				pullStoppedAt: { value: ""} ,
+				executionStoppedAt: { value: ""} ,
+				tagKeys: { value: ""} ,
+				forceNewDeployment: { value: ""} ,
+				primaryTaskSet: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ECS " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clusterName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-settings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-capacityProviders").typedInput({ default: "str", types: ["str"]});
+$("#node-input-defaultCapacityProviderStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cluster").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskDefinition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-loadBalancers").typedInput({ default: "str", types: ["str"]});
+$("#node-input-serviceRegistries").typedInput({ default: "str", types: ["str"]});
+$("#node-input-desiredCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-launchType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-capacityProviderStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platformVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-role").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-placementConstraints").typedInput({ default: "str", types: ["str"]});
+$("#node-input-placementStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-networkConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-healthCheckGracePeriodSeconds").typedInput({ default: "num", types: ["num"]});
+$("#node-input-schedulingStrategy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-deploymentController").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableECSManagedTags").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-propagateTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enableExecuteCommand").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-service").typedInput({ default: "str", types: ["str"]});
+$("#node-input-externalId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-scale").typedInput({ default: "str", types: ["str"]});
+$("#node-input-principalArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-capacityProvider").typedInput({ default: "str", types: ["str"]});
+$("#node-input-force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-taskSet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerInstance").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clusters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerInstances").typedInput({ default: "str", types: ["str"]});
+$("#node-input-services").typedInput({ default: "str", types: ["str"]});
+$("#node-input-taskSets").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tasks").typedInput({ default: "str", types: ["str"]});
+$("#node-input-container").typedInput({ default: "str", types: ["str"]});
+$("#node-input-command").typedInput({ default: "str", types: ["str"]});
+$("#node-input-interactive").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-task").typedInput({ default: "str", types: ["str"]});
+$("#node-input-value").typedInput({ default: "str", types: ["str"]});
+$("#node-input-effectiveSettings").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-targetType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributeName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attributeValue").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-familyPrefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sort").typedInput({ default: "str", types: ["str"]});
+$("#node-input-family").typedInput({ default: "str", types: ["str"]});
+$("#node-input-startedBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-desiredStatus").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceIdentityDocument").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceIdentityDocumentSignature").typedInput({ default: "str", types: ["str"]});
+$("#node-input-totalResources").typedInput({ default: "str", types: ["str"]});
+$("#node-input-versionInfo").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerInstanceArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-taskRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-executionRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-networkMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-volumes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-requiresCompatibilities").typedInput({ default: "str", types: ["str"]});
+$("#node-input-cpu").typedInput({ default: "str", types: ["str"]});
+$("#node-input-memory").typedInput({ default: "str", types: ["str"]});
+$("#node-input-pidMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ipcMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-proxyConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-inferenceAccelerators").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ephemeralStorage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-count").typedInput({ default: "num", types: ["num"]});
+$("#node-input-group").typedInput({ default: "str", types: ["str"]});
+$("#node-input-overrides").typedInput({ default: "str", types: ["str"]});
+$("#node-input-referenceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-reason").typedInput({ default: "str", types: ["str"]});
+$("#node-input-attachments").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-runtimeId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-exitCode").typedInput({ default: "num", types: ["num"]});
+$("#node-input-networkBindings").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+
+
+$("#node-input-forceNewDeployment").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-primaryTaskSet").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

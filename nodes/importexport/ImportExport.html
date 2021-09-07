@@ -1,0 +1,237 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ImportExport">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelJob">CancelJob</option>
+		
+			<option value="CreateJob">CreateJob</option>
+		
+			<option value="GetShippingLabel">GetShippingLabel</option>
+		
+			<option value="GetStatus">GetStatus</option>
+		
+			<option value="ListJobs">ListJobs</option>
+		
+			<option value="UpdateJob">UpdateJob</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='APIVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-APIVersion"><i class="fa fa-tag"></i> APIVersion</label>
+		<input type="text" id="node-input-APIVersion" placeholder="APIVersion"></input>
+	</div> 
+	<div class="form-row" id='JobTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-JobType"><i class="fa fa-tag"></i> JobType</label>
+		<input type="text" id="node-input-JobType" placeholder="JobType"></input>
+	</div> 
+	<div class="form-row" id='ManifestAttr' class='hiddenAttrs'>
+		<label for="node-input-Manifest"><i class="fa fa-tag"></i> Manifest</label>
+		<input type="text" id="node-input-Manifest" placeholder="Manifest"></input>
+	</div> 
+	<div class="form-row" id='ManifestAddendumAttr' class='hiddenAttrs'>
+		<label for="node-input-ManifestAddendum"><i class="fa fa-tag"></i> ManifestAddendum</label>
+		<input type="text" id="node-input-ManifestAddendum" placeholder="ManifestAddendum"></input>
+	</div> 
+	<div class="form-row" id='ValidateOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-ValidateOnly"><i class="fa fa-tag"></i> ValidateOnly</label>
+		<input type="text" id="node-input-ValidateOnly" placeholder="ValidateOnly"></input>
+	</div> 
+	<div class="form-row" id='jobIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-jobIds"><i class="fa fa-tag"></i> jobIds</label>
+		<input type="text" id="node-input-jobIds" placeholder="jobIds"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='companyAttr' class='hiddenAttrs'>
+		<label for="node-input-company"><i class="fa fa-tag"></i> company</label>
+		<input type="text" id="node-input-company" placeholder="company"></input>
+	</div> 
+	<div class="form-row" id='phoneNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-phoneNumber"><i class="fa fa-tag"></i> phoneNumber</label>
+		<input type="text" id="node-input-phoneNumber" placeholder="phoneNumber"></input>
+	</div> 
+	<div class="form-row" id='countryAttr' class='hiddenAttrs'>
+		<label for="node-input-country"><i class="fa fa-tag"></i> country</label>
+		<input type="text" id="node-input-country" placeholder="country"></input>
+	</div> 
+	<div class="form-row" id='stateOrProvinceAttr' class='hiddenAttrs'>
+		<label for="node-input-stateOrProvince"><i class="fa fa-tag"></i> stateOrProvince</label>
+		<input type="text" id="node-input-stateOrProvince" placeholder="stateOrProvince"></input>
+	</div> 
+	<div class="form-row" id='cityAttr' class='hiddenAttrs'>
+		<label for="node-input-city"><i class="fa fa-tag"></i> city</label>
+		<input type="text" id="node-input-city" placeholder="city"></input>
+	</div> 
+	<div class="form-row" id='postalCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-postalCode"><i class="fa fa-tag"></i> postalCode</label>
+		<input type="text" id="node-input-postalCode" placeholder="postalCode"></input>
+	</div> 
+	<div class="form-row" id='street1Attr' class='hiddenAttrs'>
+		<label for="node-input-street1"><i class="fa fa-tag"></i> street1</label>
+		<input type="text" id="node-input-street1" placeholder="street1"></input>
+	</div> 
+	<div class="form-row" id='street2Attr' class='hiddenAttrs'>
+		<label for="node-input-street2"><i class="fa fa-tag"></i> street2</label>
+		<input type="text" id="node-input-street2" placeholder="street2"></input>
+	</div> 
+	<div class="form-row" id='street3Attr' class='hiddenAttrs'>
+		<label for="node-input-street3"><i class="fa fa-tag"></i> street3</label>
+		<input type="text" id="node-input-street3" placeholder="street3"></input>
+	</div> 
+	<div class="form-row" id='MaxJobsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxJobs"><i class="fa fa-tag"></i> MaxJobs</label>
+		<input type="text" id="node-input-MaxJobs" placeholder="MaxJobs"></input>
+	</div> 
+	<div class="form-row" id='MarkerAttr' class='hiddenAttrs'>
+		<label for="node-input-Marker"><i class="fa fa-tag"></i> Marker</label>
+		<input type="text" id="node-input-Marker" placeholder="Marker"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelJob:[
+					'#JobIdAttr','#APIVersionAttr'
+					],
+				CreateJob:[
+					'#JobTypeAttr','#ManifestAttr','#ManifestAddendumAttr','#ValidateOnlyAttr','#APIVersionAttr'
+					],
+				GetShippingLabel:[
+					'#jobIdsAttr','#nameAttr','#companyAttr','#phoneNumberAttr','#countryAttr','#stateOrProvinceAttr','#cityAttr','#postalCodeAttr','#street1Attr','#street2Attr','#street3Attr','#APIVersionAttr'
+					],
+				GetStatus:[
+					'#JobIdAttr','#APIVersionAttr'
+					],
+				ListJobs:[
+					'#MaxJobsAttr','#MarkerAttr','#APIVersionAttr'
+					],
+				UpdateJob:[
+					'#JobIdAttr','#ManifestAttr','#JobTypeAttr','#ValidateOnlyAttr','#APIVersionAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ImportExport">
+<p>
+AWS ImportExport
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ImportExport.html">ImportExport</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ImportExport',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelJob' },
+			
+				JobId: { value: ""} ,
+				APIVersion: { value: ""} ,
+				JobType: { value: ""} ,
+				Manifest: { value: ""} ,
+				ManifestAddendum: { value: ""} ,
+				ValidateOnly: { value: ""} ,
+				jobIds: { value: ""} ,
+				name: { value: ""} ,
+				company: { value: ""} ,
+				phoneNumber: { value: ""} ,
+				country: { value: ""} ,
+				stateOrProvince: { value: ""} ,
+				city: { value: ""} ,
+				postalCode: { value: ""} ,
+				street1: { value: ""} ,
+				street2: { value: ""} ,
+				street3: { value: ""} ,
+				MaxJobs: { value: ""} ,
+				Marker: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ImportExport " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-APIVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Manifest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ManifestAddendum").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ValidateOnly").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-company").typedInput({ default: "str", types: ["str"]});
+$("#node-input-phoneNumber").typedInput({ default: "str", types: ["str"]});
+$("#node-input-country").typedInput({ default: "str", types: ["str"]});
+$("#node-input-stateOrProvince").typedInput({ default: "str", types: ["str"]});
+$("#node-input-city").typedInput({ default: "str", types: ["str"]});
+$("#node-input-postalCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-street1").typedInput({ default: "str", types: ["str"]});
+$("#node-input-street2").typedInput({ default: "str", types: ["str"]});
+$("#node-input-street3").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxJobs").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Marker").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

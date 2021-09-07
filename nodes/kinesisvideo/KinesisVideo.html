@@ -1,0 +1,320 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS KinesisVideo">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateSignalingChannel">CreateSignalingChannel</option>
+		
+			<option value="CreateStream">CreateStream</option>
+		
+			<option value="DeleteSignalingChannel">DeleteSignalingChannel</option>
+		
+			<option value="DeleteStream">DeleteStream</option>
+		
+			<option value="DescribeSignalingChannel">DescribeSignalingChannel</option>
+		
+			<option value="DescribeStream">DescribeStream</option>
+		
+			<option value="GetDataEndpoint">GetDataEndpoint</option>
+		
+			<option value="GetSignalingChannelEndpoint">GetSignalingChannelEndpoint</option>
+		
+			<option value="ListSignalingChannels">ListSignalingChannels</option>
+		
+			<option value="ListStreams">ListStreams</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTagsForStream">ListTagsForStream</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TagStream">TagStream</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UntagStream">UntagStream</option>
+		
+			<option value="UpdateDataRetention">UpdateDataRetention</option>
+		
+			<option value="UpdateSignalingChannel">UpdateSignalingChannel</option>
+		
+			<option value="UpdateStream">UpdateStream</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ChannelNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelName"><i class="fa fa-tag"></i> ChannelName</label>
+		<input type="text" id="node-input-ChannelName" placeholder="ChannelName"></input>
+	</div> 
+	<div class="form-row" id='ChannelTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelType"><i class="fa fa-tag"></i> ChannelType</label>
+		<input type="text" id="node-input-ChannelType" placeholder="ChannelType"></input>
+	</div> 
+	<div class="form-row" id='SingleMasterConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SingleMasterConfiguration"><i class="fa fa-tag"></i> SingleMasterConfiguration</label>
+		<input type="text" id="node-input-SingleMasterConfiguration" placeholder="SingleMasterConfiguration"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='DeviceNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceName"><i class="fa fa-tag"></i> DeviceName</label>
+		<input type="text" id="node-input-DeviceName" placeholder="DeviceName"></input>
+	</div> 
+	<div class="form-row" id='StreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamName"><i class="fa fa-tag"></i> StreamName</label>
+		<input type="text" id="node-input-StreamName" placeholder="StreamName"></input>
+	</div> 
+	<div class="form-row" id='MediaTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-MediaType"><i class="fa fa-tag"></i> MediaType</label>
+		<input type="text" id="node-input-MediaType" placeholder="MediaType"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='DataRetentionInHoursAttr' class='hiddenAttrs'>
+		<label for="node-input-DataRetentionInHours"><i class="fa fa-tag"></i> DataRetentionInHours</label>
+		<input type="text" id="node-input-DataRetentionInHours" placeholder="DataRetentionInHours"></input>
+	</div> 
+	<div class="form-row" id='ChannelARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelARN"><i class="fa fa-tag"></i> ChannelARN</label>
+		<input type="text" id="node-input-ChannelARN" placeholder="ChannelARN"></input>
+	</div> 
+	<div class="form-row" id='CurrentVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-CurrentVersion"><i class="fa fa-tag"></i> CurrentVersion</label>
+		<input type="text" id="node-input-CurrentVersion" placeholder="CurrentVersion"></input>
+	</div> 
+	<div class="form-row" id='StreamARNAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamARN"><i class="fa fa-tag"></i> StreamARN</label>
+		<input type="text" id="node-input-StreamARN" placeholder="StreamARN"></input>
+	</div> 
+	<div class="form-row" id='APINameAttr' class='hiddenAttrs'>
+		<label for="node-input-APIName"><i class="fa fa-tag"></i> APIName</label>
+		<input type="text" id="node-input-APIName" placeholder="APIName"></input>
+	</div> 
+	<div class="form-row" id='SingleMasterChannelEndpointConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-SingleMasterChannelEndpointConfiguration"><i class="fa fa-tag"></i> SingleMasterChannelEndpointConfiguration</label>
+		<input type="text" id="node-input-SingleMasterChannelEndpointConfiguration" placeholder="SingleMasterChannelEndpointConfiguration"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='ChannelNameConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-ChannelNameCondition"><i class="fa fa-tag"></i> ChannelNameCondition</label>
+		<input type="text" id="node-input-ChannelNameCondition" placeholder="ChannelNameCondition"></input>
+	</div> 
+	<div class="form-row" id='StreamNameConditionAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamNameCondition"><i class="fa fa-tag"></i> StreamNameCondition</label>
+		<input type="text" id="node-input-StreamNameCondition" placeholder="StreamNameCondition"></input>
+	</div> 
+	<div class="form-row" id='ResourceARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceARN"><i class="fa fa-tag"></i> ResourceARN</label>
+		<input type="text" id="node-input-ResourceARN" placeholder="ResourceARN"></input>
+	</div> 
+	<div class="form-row" id='TagKeyListAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeyList"><i class="fa fa-tag"></i> TagKeyList</label>
+		<input type="text" id="node-input-TagKeyList" placeholder="TagKeyList"></input>
+	</div> 
+	<div class="form-row" id='OperationAttr' class='hiddenAttrs'>
+		<label for="node-input-Operation"><i class="fa fa-tag"></i> Operation</label>
+		<input type="text" id="node-input-Operation" placeholder="Operation"></input>
+	</div> 
+	<div class="form-row" id='DataRetentionChangeInHoursAttr' class='hiddenAttrs'>
+		<label for="node-input-DataRetentionChangeInHours"><i class="fa fa-tag"></i> DataRetentionChangeInHours</label>
+		<input type="text" id="node-input-DataRetentionChangeInHours" placeholder="DataRetentionChangeInHours"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateSignalingChannel:[
+					'#ChannelNameAttr','#ChannelTypeAttr','#SingleMasterConfigurationAttr','#TagsAttr'
+					],
+				CreateStream:[
+					'#DeviceNameAttr','#StreamNameAttr','#MediaTypeAttr','#KmsKeyIdAttr','#DataRetentionInHoursAttr','#TagsAttr'
+					],
+				DeleteSignalingChannel:[
+					'#ChannelARNAttr','#CurrentVersionAttr'
+					],
+				DeleteStream:[
+					'#StreamARNAttr','#CurrentVersionAttr'
+					],
+				DescribeSignalingChannel:[
+					'#ChannelNameAttr','#ChannelARNAttr'
+					],
+				DescribeStream:[
+					'#StreamNameAttr','#StreamARNAttr'
+					],
+				GetDataEndpoint:[
+					'#StreamNameAttr','#StreamARNAttr','#APINameAttr'
+					],
+				GetSignalingChannelEndpoint:[
+					'#ChannelARNAttr','#SingleMasterChannelEndpointConfigurationAttr'
+					],
+				ListSignalingChannels:[
+					'#MaxResultsAttr','#NextTokenAttr','#ChannelNameConditionAttr'
+					],
+				ListStreams:[
+					'#MaxResultsAttr','#NextTokenAttr','#StreamNameConditionAttr'
+					],
+				ListTagsForResource:[
+					'#NextTokenAttr','#ResourceARNAttr'
+					],
+				ListTagsForStream:[
+					'#NextTokenAttr','#StreamARNAttr','#StreamNameAttr'
+					],
+				TagResource:[
+					'#ResourceARNAttr','#TagsAttr'
+					],
+				TagStream:[
+					'#StreamARNAttr','#StreamNameAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceARNAttr','#TagKeyListAttr'
+					],
+				UntagStream:[
+					'#StreamARNAttr','#StreamNameAttr','#TagKeyListAttr'
+					],
+				UpdateDataRetention:[
+					'#StreamNameAttr','#StreamARNAttr','#CurrentVersionAttr','#OperationAttr','#DataRetentionChangeInHoursAttr'
+					],
+				UpdateSignalingChannel:[
+					'#ChannelARNAttr','#CurrentVersionAttr','#SingleMasterConfigurationAttr'
+					],
+				UpdateStream:[
+					'#StreamNameAttr','#StreamARNAttr','#CurrentVersionAttr','#DeviceNameAttr','#MediaTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS KinesisVideo">
+<p>
+AWS KinesisVideo
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/KinesisVideo.html">KinesisVideo</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS KinesisVideo',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateSignalingChannel' },
+			
+				ChannelName: { value: ""} ,
+				ChannelType: { value: ""} ,
+				SingleMasterConfiguration: { value: ""} ,
+				Tags: { value: ""} ,
+				DeviceName: { value: ""} ,
+				StreamName: { value: ""} ,
+				MediaType: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				DataRetentionInHours: { value: ""} ,
+				ChannelARN: { value: ""} ,
+				CurrentVersion: { value: ""} ,
+				StreamARN: { value: ""} ,
+				APIName: { value: ""} ,
+				SingleMasterChannelEndpointConfiguration: { value: ""} ,
+				MaxResults: { value: ""} ,
+				NextToken: { value: ""} ,
+				ChannelNameCondition: { value: ""} ,
+				StreamNameCondition: { value: ""} ,
+				ResourceARN: { value: ""} ,
+				TagKeyList: { value: ""} ,
+				Operation: { value: ""} ,
+				DataRetentionChangeInHours: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "KinesisVideo " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ChannelName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ChannelType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SingleMasterConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MediaType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataRetentionInHours").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ChannelARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-CurrentVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StreamARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-APIName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ResourceARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TagKeyList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Operation").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataRetentionChangeInHours").typedInput({ default: "num", types: ["num"]});
+		}
+	});
+</script>
+

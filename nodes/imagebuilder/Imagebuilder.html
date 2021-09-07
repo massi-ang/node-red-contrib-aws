@@ -1,0 +1,692 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Imagebuilder">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CancelImageCreation">CancelImageCreation</option>
+		
+			<option value="CreateComponent">CreateComponent</option>
+		
+			<option value="CreateContainerRecipe">CreateContainerRecipe</option>
+		
+			<option value="CreateDistributionConfiguration">CreateDistributionConfiguration</option>
+		
+			<option value="CreateImage">CreateImage</option>
+		
+			<option value="CreateImagePipeline">CreateImagePipeline</option>
+		
+			<option value="CreateImageRecipe">CreateImageRecipe</option>
+		
+			<option value="CreateInfrastructureConfiguration">CreateInfrastructureConfiguration</option>
+		
+			<option value="DeleteComponent">DeleteComponent</option>
+		
+			<option value="DeleteContainerRecipe">DeleteContainerRecipe</option>
+		
+			<option value="DeleteDistributionConfiguration">DeleteDistributionConfiguration</option>
+		
+			<option value="DeleteImage">DeleteImage</option>
+		
+			<option value="DeleteImagePipeline">DeleteImagePipeline</option>
+		
+			<option value="DeleteImageRecipe">DeleteImageRecipe</option>
+		
+			<option value="DeleteInfrastructureConfiguration">DeleteInfrastructureConfiguration</option>
+		
+			<option value="GetComponent">GetComponent</option>
+		
+			<option value="GetComponentPolicy">GetComponentPolicy</option>
+		
+			<option value="GetContainerRecipe">GetContainerRecipe</option>
+		
+			<option value="GetContainerRecipePolicy">GetContainerRecipePolicy</option>
+		
+			<option value="GetDistributionConfiguration">GetDistributionConfiguration</option>
+		
+			<option value="GetImage">GetImage</option>
+		
+			<option value="GetImagePipeline">GetImagePipeline</option>
+		
+			<option value="GetImagePolicy">GetImagePolicy</option>
+		
+			<option value="GetImageRecipe">GetImageRecipe</option>
+		
+			<option value="GetImageRecipePolicy">GetImageRecipePolicy</option>
+		
+			<option value="GetInfrastructureConfiguration">GetInfrastructureConfiguration</option>
+		
+			<option value="ImportComponent">ImportComponent</option>
+		
+			<option value="ListComponentBuildVersions">ListComponentBuildVersions</option>
+		
+			<option value="ListComponents">ListComponents</option>
+		
+			<option value="ListContainerRecipes">ListContainerRecipes</option>
+		
+			<option value="ListDistributionConfigurations">ListDistributionConfigurations</option>
+		
+			<option value="ListImageBuildVersions">ListImageBuildVersions</option>
+		
+			<option value="ListImagePackages">ListImagePackages</option>
+		
+			<option value="ListImagePipelineImages">ListImagePipelineImages</option>
+		
+			<option value="ListImagePipelines">ListImagePipelines</option>
+		
+			<option value="ListImageRecipes">ListImageRecipes</option>
+		
+			<option value="ListImages">ListImages</option>
+		
+			<option value="ListInfrastructureConfigurations">ListInfrastructureConfigurations</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutComponentPolicy">PutComponentPolicy</option>
+		
+			<option value="PutContainerRecipePolicy">PutContainerRecipePolicy</option>
+		
+			<option value="PutImagePolicy">PutImagePolicy</option>
+		
+			<option value="PutImageRecipePolicy">PutImageRecipePolicy</option>
+		
+			<option value="StartImagePipelineExecution">StartImagePipelineExecution</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateDistributionConfiguration">UpdateDistributionConfiguration</option>
+		
+			<option value="UpdateImagePipeline">UpdateImagePipeline</option>
+		
+			<option value="UpdateInfrastructureConfiguration">UpdateInfrastructureConfiguration</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='imageBuildVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageBuildVersionArn"><i class="fa fa-tag"></i> imageBuildVersionArn</label>
+		<input type="text" id="node-input-imageBuildVersionArn" placeholder="imageBuildVersionArn"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='nameAttr' class='hiddenAttrs'>
+		<label for="node-input-name"><i class="fa fa-tag"></i> name</label>
+		<input type="text" id="node-input-name" placeholder="name"></input>
+	</div> 
+	<div class="form-row" id='semanticVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-semanticVersion"><i class="fa fa-tag"></i> semanticVersion</label>
+		<input type="text" id="node-input-semanticVersion" placeholder="semanticVersion"></input>
+	</div> 
+	<div class="form-row" id='descriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-description"><i class="fa fa-tag"></i> description</label>
+		<input type="text" id="node-input-description" placeholder="description"></input>
+	</div> 
+	<div class="form-row" id='changeDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-changeDescription"><i class="fa fa-tag"></i> changeDescription</label>
+		<input type="text" id="node-input-changeDescription" placeholder="changeDescription"></input>
+	</div> 
+	<div class="form-row" id='platformAttr' class='hiddenAttrs'>
+		<label for="node-input-platform"><i class="fa fa-tag"></i> platform</label>
+		<input type="text" id="node-input-platform" placeholder="platform"></input>
+	</div> 
+	<div class="form-row" id='supportedOsVersionsAttr' class='hiddenAttrs'>
+		<label for="node-input-supportedOsVersions"><i class="fa fa-tag"></i> supportedOsVersions</label>
+		<input type="text" id="node-input-supportedOsVersions" placeholder="supportedOsVersions"></input>
+	</div> 
+	<div class="form-row" id='dataAttr' class='hiddenAttrs'>
+		<label for="node-input-data"><i class="fa fa-tag"></i> data</label>
+		<input type="text" id="node-input-data" placeholder="data"></input>
+	</div> 
+	<div class="form-row" id='uriAttr' class='hiddenAttrs'>
+		<label for="node-input-uri"><i class="fa fa-tag"></i> uri</label>
+		<input type="text" id="node-input-uri" placeholder="uri"></input>
+	</div> 
+	<div class="form-row" id='kmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-kmsKeyId"><i class="fa fa-tag"></i> kmsKeyId</label>
+		<input type="text" id="node-input-kmsKeyId" placeholder="kmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='containerTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-containerType"><i class="fa fa-tag"></i> containerType</label>
+		<input type="text" id="node-input-containerType" placeholder="containerType"></input>
+	</div> 
+	<div class="form-row" id='componentsAttr' class='hiddenAttrs'>
+		<label for="node-input-components"><i class="fa fa-tag"></i> components</label>
+		<input type="text" id="node-input-components" placeholder="components"></input>
+	</div> 
+	<div class="form-row" id='instanceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceConfiguration"><i class="fa fa-tag"></i> instanceConfiguration</label>
+		<input type="text" id="node-input-instanceConfiguration" placeholder="instanceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='dockerfileTemplateDataAttr' class='hiddenAttrs'>
+		<label for="node-input-dockerfileTemplateData"><i class="fa fa-tag"></i> dockerfileTemplateData</label>
+		<input type="text" id="node-input-dockerfileTemplateData" placeholder="dockerfileTemplateData"></input>
+	</div> 
+	<div class="form-row" id='dockerfileTemplateUriAttr' class='hiddenAttrs'>
+		<label for="node-input-dockerfileTemplateUri"><i class="fa fa-tag"></i> dockerfileTemplateUri</label>
+		<input type="text" id="node-input-dockerfileTemplateUri" placeholder="dockerfileTemplateUri"></input>
+	</div> 
+	<div class="form-row" id='platformOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-platformOverride"><i class="fa fa-tag"></i> platformOverride</label>
+		<input type="text" id="node-input-platformOverride" placeholder="platformOverride"></input>
+	</div> 
+	<div class="form-row" id='imageOsVersionOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-imageOsVersionOverride"><i class="fa fa-tag"></i> imageOsVersionOverride</label>
+		<input type="text" id="node-input-imageOsVersionOverride" placeholder="imageOsVersionOverride"></input>
+	</div> 
+	<div class="form-row" id='parentImageAttr' class='hiddenAttrs'>
+		<label for="node-input-parentImage"><i class="fa fa-tag"></i> parentImage</label>
+		<input type="text" id="node-input-parentImage" placeholder="parentImage"></input>
+	</div> 
+	<div class="form-row" id='workingDirectoryAttr' class='hiddenAttrs'>
+		<label for="node-input-workingDirectory"><i class="fa fa-tag"></i> workingDirectory</label>
+		<input type="text" id="node-input-workingDirectory" placeholder="workingDirectory"></input>
+	</div> 
+	<div class="form-row" id='targetRepositoryAttr' class='hiddenAttrs'>
+		<label for="node-input-targetRepository"><i class="fa fa-tag"></i> targetRepository</label>
+		<input type="text" id="node-input-targetRepository" placeholder="targetRepository"></input>
+	</div> 
+	<div class="form-row" id='distributionsAttr' class='hiddenAttrs'>
+		<label for="node-input-distributions"><i class="fa fa-tag"></i> distributions</label>
+		<input type="text" id="node-input-distributions" placeholder="distributions"></input>
+	</div> 
+	<div class="form-row" id='imageRecipeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageRecipeArn"><i class="fa fa-tag"></i> imageRecipeArn</label>
+		<input type="text" id="node-input-imageRecipeArn" placeholder="imageRecipeArn"></input>
+	</div> 
+	<div class="form-row" id='containerRecipeArnAttr' class='hiddenAttrs'>
+		<label for="node-input-containerRecipeArn"><i class="fa fa-tag"></i> containerRecipeArn</label>
+		<input type="text" id="node-input-containerRecipeArn" placeholder="containerRecipeArn"></input>
+	</div> 
+	<div class="form-row" id='distributionConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-distributionConfigurationArn"><i class="fa fa-tag"></i> distributionConfigurationArn</label>
+		<input type="text" id="node-input-distributionConfigurationArn" placeholder="distributionConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='infrastructureConfigurationArnAttr' class='hiddenAttrs'>
+		<label for="node-input-infrastructureConfigurationArn"><i class="fa fa-tag"></i> infrastructureConfigurationArn</label>
+		<input type="text" id="node-input-infrastructureConfigurationArn" placeholder="infrastructureConfigurationArn"></input>
+	</div> 
+	<div class="form-row" id='imageTestsConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-imageTestsConfiguration"><i class="fa fa-tag"></i> imageTestsConfiguration</label>
+		<input type="text" id="node-input-imageTestsConfiguration" placeholder="imageTestsConfiguration"></input>
+	</div> 
+	<div class="form-row" id='enhancedImageMetadataEnabledAttr' class='hiddenAttrs'>
+		<label for="node-input-enhancedImageMetadataEnabled"><i class="fa fa-tag"></i> enhancedImageMetadataEnabled</label>
+		<input type="text" id="node-input-enhancedImageMetadataEnabled" placeholder="enhancedImageMetadataEnabled"></input>
+	</div> 
+	<div class="form-row" id='scheduleAttr' class='hiddenAttrs'>
+		<label for="node-input-schedule"><i class="fa fa-tag"></i> schedule</label>
+		<input type="text" id="node-input-schedule" placeholder="schedule"></input>
+	</div> 
+	<div class="form-row" id='statusAttr' class='hiddenAttrs'>
+		<label for="node-input-status"><i class="fa fa-tag"></i> status</label>
+		<input type="text" id="node-input-status" placeholder="status"></input>
+	</div> 
+	<div class="form-row" id='blockDeviceMappingsAttr' class='hiddenAttrs'>
+		<label for="node-input-blockDeviceMappings"><i class="fa fa-tag"></i> blockDeviceMappings</label>
+		<input type="text" id="node-input-blockDeviceMappings" placeholder="blockDeviceMappings"></input>
+	</div> 
+	<div class="form-row" id='additionalInstanceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-additionalInstanceConfiguration"><i class="fa fa-tag"></i> additionalInstanceConfiguration</label>
+		<input type="text" id="node-input-additionalInstanceConfiguration" placeholder="additionalInstanceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='instanceTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceTypes"><i class="fa fa-tag"></i> instanceTypes</label>
+		<input type="text" id="node-input-instanceTypes" placeholder="instanceTypes"></input>
+	</div> 
+	<div class="form-row" id='instanceProfileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-instanceProfileName"><i class="fa fa-tag"></i> instanceProfileName</label>
+		<input type="text" id="node-input-instanceProfileName" placeholder="instanceProfileName"></input>
+	</div> 
+	<div class="form-row" id='securityGroupIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-securityGroupIds"><i class="fa fa-tag"></i> securityGroupIds</label>
+		<input type="text" id="node-input-securityGroupIds" placeholder="securityGroupIds"></input>
+	</div> 
+	<div class="form-row" id='subnetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-subnetId"><i class="fa fa-tag"></i> subnetId</label>
+		<input type="text" id="node-input-subnetId" placeholder="subnetId"></input>
+	</div> 
+	<div class="form-row" id='loggingAttr' class='hiddenAttrs'>
+		<label for="node-input-logging"><i class="fa fa-tag"></i> logging</label>
+		<input type="text" id="node-input-logging" placeholder="logging"></input>
+	</div> 
+	<div class="form-row" id='keyPairAttr' class='hiddenAttrs'>
+		<label for="node-input-keyPair"><i class="fa fa-tag"></i> keyPair</label>
+		<input type="text" id="node-input-keyPair" placeholder="keyPair"></input>
+	</div> 
+	<div class="form-row" id='terminateInstanceOnFailureAttr' class='hiddenAttrs'>
+		<label for="node-input-terminateInstanceOnFailure"><i class="fa fa-tag"></i> terminateInstanceOnFailure</label>
+		<input type="text" id="node-input-terminateInstanceOnFailure" placeholder="terminateInstanceOnFailure"></input>
+	</div> 
+	<div class="form-row" id='snsTopicArnAttr' class='hiddenAttrs'>
+		<label for="node-input-snsTopicArn"><i class="fa fa-tag"></i> snsTopicArn</label>
+		<input type="text" id="node-input-snsTopicArn" placeholder="snsTopicArn"></input>
+	</div> 
+	<div class="form-row" id='resourceTagsAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceTags"><i class="fa fa-tag"></i> resourceTags</label>
+		<input type="text" id="node-input-resourceTags" placeholder="resourceTags"></input>
+	</div> 
+	<div class="form-row" id='componentBuildVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentBuildVersionArn"><i class="fa fa-tag"></i> componentBuildVersionArn</label>
+		<input type="text" id="node-input-componentBuildVersionArn" placeholder="componentBuildVersionArn"></input>
+	</div> 
+	<div class="form-row" id='imagePipelineArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imagePipelineArn"><i class="fa fa-tag"></i> imagePipelineArn</label>
+		<input type="text" id="node-input-imagePipelineArn" placeholder="imagePipelineArn"></input>
+	</div> 
+	<div class="form-row" id='componentArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentArn"><i class="fa fa-tag"></i> componentArn</label>
+		<input type="text" id="node-input-componentArn" placeholder="componentArn"></input>
+	</div> 
+	<div class="form-row" id='imageArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageArn"><i class="fa fa-tag"></i> imageArn</label>
+		<input type="text" id="node-input-imageArn" placeholder="imageArn"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='formatAttr' class='hiddenAttrs'>
+		<label for="node-input-format"><i class="fa fa-tag"></i> format</label>
+		<input type="text" id="node-input-format" placeholder="format"></input>
+	</div> 
+	<div class="form-row" id='componentVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-componentVersionArn"><i class="fa fa-tag"></i> componentVersionArn</label>
+		<input type="text" id="node-input-componentVersionArn" placeholder="componentVersionArn"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='ownerAttr' class='hiddenAttrs'>
+		<label for="node-input-owner"><i class="fa fa-tag"></i> owner</label>
+		<input type="text" id="node-input-owner" placeholder="owner"></input>
+	</div> 
+	<div class="form-row" id='filtersAttr' class='hiddenAttrs'>
+		<label for="node-input-filters"><i class="fa fa-tag"></i> filters</label>
+		<input type="text" id="node-input-filters" placeholder="filters"></input>
+	</div> 
+	<div class="form-row" id='byNameAttr' class='hiddenAttrs'>
+		<label for="node-input-byName"><i class="fa fa-tag"></i> byName</label>
+		<input type="text" id="node-input-byName" placeholder="byName"></input>
+	</div> 
+	<div class="form-row" id='imageVersionArnAttr' class='hiddenAttrs'>
+		<label for="node-input-imageVersionArn"><i class="fa fa-tag"></i> imageVersionArn</label>
+		<input type="text" id="node-input-imageVersionArn" placeholder="imageVersionArn"></input>
+	</div> 
+	<div class="form-row" id='includeDeprecatedAttr' class='hiddenAttrs'>
+		<label for="node-input-includeDeprecated"><i class="fa fa-tag"></i> includeDeprecated</label>
+		<input type="text" id="node-input-includeDeprecated" placeholder="includeDeprecated"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='policyAttr' class='hiddenAttrs'>
+		<label for="node-input-policy"><i class="fa fa-tag"></i> policy</label>
+		<input type="text" id="node-input-policy" placeholder="policy"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CancelImageCreation:[
+					'#imageBuildVersionArnAttr','#clientTokenAttr'
+					],
+				CreateComponent:[
+					'#nameAttr','#semanticVersionAttr','#descriptionAttr','#changeDescriptionAttr','#platformAttr','#supportedOsVersionsAttr','#dataAttr','#uriAttr','#kmsKeyIdAttr','#tagsAttr','#clientTokenAttr'
+					],
+				CreateContainerRecipe:[
+					'#containerTypeAttr','#nameAttr','#descriptionAttr','#semanticVersionAttr','#componentsAttr','#instanceConfigurationAttr','#dockerfileTemplateDataAttr','#dockerfileTemplateUriAttr','#platformOverrideAttr','#imageOsVersionOverrideAttr','#parentImageAttr','#tagsAttr','#workingDirectoryAttr','#targetRepositoryAttr','#kmsKeyIdAttr','#clientTokenAttr'
+					],
+				CreateDistributionConfiguration:[
+					'#nameAttr','#descriptionAttr','#distributionsAttr','#tagsAttr','#clientTokenAttr'
+					],
+				CreateImage:[
+					'#imageRecipeArnAttr','#containerRecipeArnAttr','#distributionConfigurationArnAttr','#infrastructureConfigurationArnAttr','#imageTestsConfigurationAttr','#enhancedImageMetadataEnabledAttr','#tagsAttr','#clientTokenAttr'
+					],
+				CreateImagePipeline:[
+					'#nameAttr','#descriptionAttr','#imageRecipeArnAttr','#containerRecipeArnAttr','#infrastructureConfigurationArnAttr','#distributionConfigurationArnAttr','#imageTestsConfigurationAttr','#enhancedImageMetadataEnabledAttr','#scheduleAttr','#statusAttr','#tagsAttr','#clientTokenAttr'
+					],
+				CreateImageRecipe:[
+					'#nameAttr','#descriptionAttr','#semanticVersionAttr','#componentsAttr','#parentImageAttr','#blockDeviceMappingsAttr','#tagsAttr','#workingDirectoryAttr','#additionalInstanceConfigurationAttr','#clientTokenAttr'
+					],
+				CreateInfrastructureConfiguration:[
+					'#nameAttr','#descriptionAttr','#instanceTypesAttr','#instanceProfileNameAttr','#securityGroupIdsAttr','#subnetIdAttr','#loggingAttr','#keyPairAttr','#terminateInstanceOnFailureAttr','#snsTopicArnAttr','#resourceTagsAttr','#tagsAttr','#clientTokenAttr'
+					],
+				DeleteComponent:[
+					'#componentBuildVersionArnAttr'
+					],
+				DeleteContainerRecipe:[
+					'#containerRecipeArnAttr'
+					],
+				DeleteDistributionConfiguration:[
+					'#distributionConfigurationArnAttr'
+					],
+				DeleteImage:[
+					'#imageBuildVersionArnAttr'
+					],
+				DeleteImagePipeline:[
+					'#imagePipelineArnAttr'
+					],
+				DeleteImageRecipe:[
+					'#imageRecipeArnAttr'
+					],
+				DeleteInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr'
+					],
+				GetComponent:[
+					'#componentBuildVersionArnAttr'
+					],
+				GetComponentPolicy:[
+					'#componentArnAttr'
+					],
+				GetContainerRecipe:[
+					'#containerRecipeArnAttr'
+					],
+				GetContainerRecipePolicy:[
+					'#containerRecipeArnAttr'
+					],
+				GetDistributionConfiguration:[
+					'#distributionConfigurationArnAttr'
+					],
+				GetImage:[
+					'#imageBuildVersionArnAttr'
+					],
+				GetImagePipeline:[
+					'#imagePipelineArnAttr'
+					],
+				GetImagePolicy:[
+					'#imageArnAttr'
+					],
+				GetImageRecipe:[
+					'#imageRecipeArnAttr'
+					],
+				GetImageRecipePolicy:[
+					'#imageRecipeArnAttr'
+					],
+				GetInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr'
+					],
+				ImportComponent:[
+					'#nameAttr','#semanticVersionAttr','#descriptionAttr','#changeDescriptionAttr','#typeAttr','#formatAttr','#platformAttr','#dataAttr','#uriAttr','#kmsKeyIdAttr','#tagsAttr','#clientTokenAttr'
+					],
+				ListComponentBuildVersions:[
+					'#componentVersionArnAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListComponents:[
+					'#ownerAttr','#filtersAttr','#byNameAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListContainerRecipes:[
+					'#ownerAttr','#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListDistributionConfigurations:[
+					'#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImageBuildVersions:[
+					'#imageVersionArnAttr','#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImagePackages:[
+					'#imageBuildVersionArnAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImagePipelineImages:[
+					'#imagePipelineArnAttr','#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImagePipelines:[
+					'#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImageRecipes:[
+					'#ownerAttr','#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListImages:[
+					'#ownerAttr','#filtersAttr','#byNameAttr','#maxResultsAttr','#nextTokenAttr','#includeDeprecatedAttr'
+					],
+				ListInfrastructureConfigurations:[
+					'#filtersAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutComponentPolicy:[
+					'#componentArnAttr','#policyAttr'
+					],
+				PutContainerRecipePolicy:[
+					'#containerRecipeArnAttr','#policyAttr'
+					],
+				PutImagePolicy:[
+					'#imageArnAttr','#policyAttr'
+					],
+				PutImageRecipePolicy:[
+					'#imageRecipeArnAttr','#policyAttr'
+					],
+				StartImagePipelineExecution:[
+					'#imagePipelineArnAttr','#clientTokenAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateDistributionConfiguration:[
+					'#distributionConfigurationArnAttr','#descriptionAttr','#distributionsAttr','#clientTokenAttr'
+					],
+				UpdateImagePipeline:[
+					'#imagePipelineArnAttr','#descriptionAttr','#imageRecipeArnAttr','#containerRecipeArnAttr','#infrastructureConfigurationArnAttr','#distributionConfigurationArnAttr','#imageTestsConfigurationAttr','#enhancedImageMetadataEnabledAttr','#scheduleAttr','#statusAttr','#clientTokenAttr'
+					],
+				UpdateInfrastructureConfiguration:[
+					'#infrastructureConfigurationArnAttr','#descriptionAttr','#instanceTypesAttr','#instanceProfileNameAttr','#securityGroupIdsAttr','#subnetIdAttr','#loggingAttr','#keyPairAttr','#terminateInstanceOnFailureAttr','#snsTopicArnAttr','#clientTokenAttr','#resourceTagsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Imagebuilder">
+<p>
+AWS Imagebuilder
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Imagebuilder.html">Imagebuilder</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Imagebuilder',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CancelImageCreation' },
+			
+				imageBuildVersionArn: { value: ""} ,
+				clientToken: { value: ""} ,
+				name: { value: ""} ,
+				semanticVersion: { value: ""} ,
+				description: { value: ""} ,
+				changeDescription: { value: ""} ,
+				platform: { value: ""} ,
+				supportedOsVersions: { value: ""} ,
+				data: { value: ""} ,
+				uri: { value: ""} ,
+				kmsKeyId: { value: ""} ,
+				tags: { value: ""} ,
+				containerType: { value: ""} ,
+				components: { value: ""} ,
+				instanceConfiguration: { value: ""} ,
+				dockerfileTemplateData: { value: ""} ,
+				dockerfileTemplateUri: { value: ""} ,
+				platformOverride: { value: ""} ,
+				imageOsVersionOverride: { value: ""} ,
+				parentImage: { value: ""} ,
+				workingDirectory: { value: ""} ,
+				targetRepository: { value: ""} ,
+				distributions: { value: ""} ,
+				imageRecipeArn: { value: ""} ,
+				containerRecipeArn: { value: ""} ,
+				distributionConfigurationArn: { value: ""} ,
+				infrastructureConfigurationArn: { value: ""} ,
+				imageTestsConfiguration: { value: ""} ,
+				enhancedImageMetadataEnabled: { value: ""} ,
+				schedule: { value: ""} ,
+				status: { value: ""} ,
+				blockDeviceMappings: { value: ""} ,
+				additionalInstanceConfiguration: { value: ""} ,
+				instanceTypes: { value: ""} ,
+				instanceProfileName: { value: ""} ,
+				securityGroupIds: { value: ""} ,
+				subnetId: { value: ""} ,
+				logging: { value: ""} ,
+				keyPair: { value: ""} ,
+				terminateInstanceOnFailure: { value: ""} ,
+				snsTopicArn: { value: ""} ,
+				resourceTags: { value: ""} ,
+				componentBuildVersionArn: { value: ""} ,
+				imagePipelineArn: { value: ""} ,
+				componentArn: { value: ""} ,
+				imageArn: { value: ""} ,
+				_type: { value: ""} ,
+				format: { value: ""} ,
+				componentVersionArn: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				owner: { value: ""} ,
+				filters: { value: ""} ,
+				byName: { value: ""} ,
+				imageVersionArn: { value: ""} ,
+				includeDeprecated: { value: ""} ,
+				resourceArn: { value: ""} ,
+				policy: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Imagebuilder " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-imageBuildVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-name").typedInput({ default: "str", types: ["str"]});
+$("#node-input-semanticVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-changeDescription").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-supportedOsVersions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-data").typedInput({ default: "str", types: ["str"]});
+$("#node-input-uri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-kmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-components").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dockerfileTemplateData").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dockerfileTemplateUri").typedInput({ default: "str", types: ["str"]});
+$("#node-input-platformOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageOsVersionOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-parentImage").typedInput({ default: "str", types: ["str"]});
+$("#node-input-workingDirectory").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetRepository").typedInput({ default: "str", types: ["str"]});
+$("#node-input-distributions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageRecipeArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-containerRecipeArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-distributionConfigurationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-infrastructureConfigurationArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageTestsConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-enhancedImageMetadataEnabled").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-schedule").typedInput({ default: "str", types: ["str"]});
+$("#node-input-status").typedInput({ default: "str", types: ["str"]});
+$("#node-input-blockDeviceMappings").typedInput({ default: "str", types: ["str"]});
+$("#node-input-additionalInstanceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-instanceProfileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-securityGroupIds").typedInput({ default: "str", types: ["str"]});
+$("#node-input-subnetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-logging").typedInput({ default: "str", types: ["str"]});
+$("#node-input-keyPair").typedInput({ default: "str", types: ["str"]});
+$("#node-input-terminateInstanceOnFailure").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-snsTopicArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceTags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-componentBuildVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imagePipelineArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-componentArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+$("#node-input-format").typedInput({ default: "str", types: ["str"]});
+$("#node-input-componentVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-owner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-filters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-byName").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-imageVersionArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeDeprecated").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policy").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

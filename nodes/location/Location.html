@@ -1,0 +1,637 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Location">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AssociateTrackerConsumer">AssociateTrackerConsumer</option>
+		
+			<option value="BatchDeleteDevicePositionHistory">BatchDeleteDevicePositionHistory</option>
+		
+			<option value="BatchDeleteGeofence">BatchDeleteGeofence</option>
+		
+			<option value="BatchEvaluateGeofences">BatchEvaluateGeofences</option>
+		
+			<option value="BatchGetDevicePosition">BatchGetDevicePosition</option>
+		
+			<option value="BatchPutGeofence">BatchPutGeofence</option>
+		
+			<option value="BatchUpdateDevicePosition">BatchUpdateDevicePosition</option>
+		
+			<option value="CalculateRoute">CalculateRoute</option>
+		
+			<option value="CreateGeofenceCollection">CreateGeofenceCollection</option>
+		
+			<option value="CreateMap">CreateMap</option>
+		
+			<option value="CreatePlaceIndex">CreatePlaceIndex</option>
+		
+			<option value="CreateRouteCalculator">CreateRouteCalculator</option>
+		
+			<option value="CreateTracker">CreateTracker</option>
+		
+			<option value="DeleteGeofenceCollection">DeleteGeofenceCollection</option>
+		
+			<option value="DeleteMap">DeleteMap</option>
+		
+			<option value="DeletePlaceIndex">DeletePlaceIndex</option>
+		
+			<option value="DeleteRouteCalculator">DeleteRouteCalculator</option>
+		
+			<option value="DeleteTracker">DeleteTracker</option>
+		
+			<option value="DescribeGeofenceCollection">DescribeGeofenceCollection</option>
+		
+			<option value="DescribeMap">DescribeMap</option>
+		
+			<option value="DescribePlaceIndex">DescribePlaceIndex</option>
+		
+			<option value="DescribeRouteCalculator">DescribeRouteCalculator</option>
+		
+			<option value="DescribeTracker">DescribeTracker</option>
+		
+			<option value="DisassociateTrackerConsumer">DisassociateTrackerConsumer</option>
+		
+			<option value="GetDevicePosition">GetDevicePosition</option>
+		
+			<option value="GetDevicePositionHistory">GetDevicePositionHistory</option>
+		
+			<option value="GetGeofence">GetGeofence</option>
+		
+			<option value="GetMapGlyphs">GetMapGlyphs</option>
+		
+			<option value="GetMapSprites">GetMapSprites</option>
+		
+			<option value="GetMapStyleDescriptor">GetMapStyleDescriptor</option>
+		
+			<option value="GetMapTile">GetMapTile</option>
+		
+			<option value="ListDevicePositions">ListDevicePositions</option>
+		
+			<option value="ListGeofenceCollections">ListGeofenceCollections</option>
+		
+			<option value="ListGeofences">ListGeofences</option>
+		
+			<option value="ListMaps">ListMaps</option>
+		
+			<option value="ListPlaceIndexes">ListPlaceIndexes</option>
+		
+			<option value="ListRouteCalculators">ListRouteCalculators</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTrackerConsumers">ListTrackerConsumers</option>
+		
+			<option value="ListTrackers">ListTrackers</option>
+		
+			<option value="PutGeofence">PutGeofence</option>
+		
+			<option value="SearchPlaceIndexForPosition">SearchPlaceIndexForPosition</option>
+		
+			<option value="SearchPlaceIndexForText">SearchPlaceIndexForText</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateGeofenceCollection">UpdateGeofenceCollection</option>
+		
+			<option value="UpdateMap">UpdateMap</option>
+		
+			<option value="UpdatePlaceIndex">UpdatePlaceIndex</option>
+		
+			<option value="UpdateRouteCalculator">UpdateRouteCalculator</option>
+		
+			<option value="UpdateTracker">UpdateTracker</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='ConsumerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsumerArn"><i class="fa fa-tag"></i> ConsumerArn</label>
+		<input type="text" id="node-input-ConsumerArn" placeholder="ConsumerArn"></input>
+	</div> 
+	<div class="form-row" id='TrackerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TrackerName"><i class="fa fa-tag"></i> TrackerName</label>
+		<input type="text" id="node-input-TrackerName" placeholder="TrackerName"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceIds"><i class="fa fa-tag"></i> DeviceIds</label>
+		<input type="text" id="node-input-DeviceIds" placeholder="DeviceIds"></input>
+	</div> 
+	<div class="form-row" id='CollectionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CollectionName"><i class="fa fa-tag"></i> CollectionName</label>
+		<input type="text" id="node-input-CollectionName" placeholder="CollectionName"></input>
+	</div> 
+	<div class="form-row" id='GeofenceIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-GeofenceIds"><i class="fa fa-tag"></i> GeofenceIds</label>
+		<input type="text" id="node-input-GeofenceIds" placeholder="GeofenceIds"></input>
+	</div> 
+	<div class="form-row" id='DevicePositionUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-DevicePositionUpdates"><i class="fa fa-tag"></i> DevicePositionUpdates</label>
+		<input type="text" id="node-input-DevicePositionUpdates" placeholder="DevicePositionUpdates"></input>
+	</div> 
+	<div class="form-row" id='EntriesAttr' class='hiddenAttrs'>
+		<label for="node-input-Entries"><i class="fa fa-tag"></i> Entries</label>
+		<input type="text" id="node-input-Entries" placeholder="Entries"></input>
+	</div> 
+	<div class="form-row" id='UpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-Updates"><i class="fa fa-tag"></i> Updates</label>
+		<input type="text" id="node-input-Updates" placeholder="Updates"></input>
+	</div> 
+	<div class="form-row" id='CalculatorNameAttr' class='hiddenAttrs'>
+		<label for="node-input-CalculatorName"><i class="fa fa-tag"></i> CalculatorName</label>
+		<input type="text" id="node-input-CalculatorName" placeholder="CalculatorName"></input>
+	</div> 
+	<div class="form-row" id='CarModeOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-CarModeOptions"><i class="fa fa-tag"></i> CarModeOptions</label>
+		<input type="text" id="node-input-CarModeOptions" placeholder="CarModeOptions"></input>
+	</div> 
+	<div class="form-row" id='DepartNowAttr' class='hiddenAttrs'>
+		<label for="node-input-DepartNow"><i class="fa fa-tag"></i> DepartNow</label>
+		<input type="text" id="node-input-DepartNow" placeholder="DepartNow"></input>
+	</div> 
+	<div class="form-row" id='DeparturePositionAttr' class='hiddenAttrs'>
+		<label for="node-input-DeparturePosition"><i class="fa fa-tag"></i> DeparturePosition</label>
+		<input type="text" id="node-input-DeparturePosition" placeholder="DeparturePosition"></input>
+	</div> 
+	<div class="form-row" id='DepartureTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-DepartureTime"><i class="fa fa-tag"></i> DepartureTime</label>
+		<input type="text" id="node-input-DepartureTime" placeholder="DepartureTime"></input>
+	</div> 
+	<div class="form-row" id='DestinationPositionAttr' class='hiddenAttrs'>
+		<label for="node-input-DestinationPosition"><i class="fa fa-tag"></i> DestinationPosition</label>
+		<input type="text" id="node-input-DestinationPosition" placeholder="DestinationPosition"></input>
+	</div> 
+	<div class="form-row" id='DistanceUnitAttr' class='hiddenAttrs'>
+		<label for="node-input-DistanceUnit"><i class="fa fa-tag"></i> DistanceUnit</label>
+		<input type="text" id="node-input-DistanceUnit" placeholder="DistanceUnit"></input>
+	</div> 
+	<div class="form-row" id='IncludeLegGeometryAttr' class='hiddenAttrs'>
+		<label for="node-input-IncludeLegGeometry"><i class="fa fa-tag"></i> IncludeLegGeometry</label>
+		<input type="text" id="node-input-IncludeLegGeometry" placeholder="IncludeLegGeometry"></input>
+	</div> 
+	<div class="form-row" id='TravelModeAttr' class='hiddenAttrs'>
+		<label for="node-input-TravelMode"><i class="fa fa-tag"></i> TravelMode</label>
+		<input type="text" id="node-input-TravelMode" placeholder="TravelMode"></input>
+	</div> 
+	<div class="form-row" id='TruckModeOptionsAttr' class='hiddenAttrs'>
+		<label for="node-input-TruckModeOptions"><i class="fa fa-tag"></i> TruckModeOptions</label>
+		<input type="text" id="node-input-TruckModeOptions" placeholder="TruckModeOptions"></input>
+	</div> 
+	<div class="form-row" id='WaypointPositionsAttr' class='hiddenAttrs'>
+		<label for="node-input-WaypointPositions"><i class="fa fa-tag"></i> WaypointPositions</label>
+		<input type="text" id="node-input-WaypointPositions" placeholder="WaypointPositions"></input>
+	</div> 
+	<div class="form-row" id='DescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-Description"><i class="fa fa-tag"></i> Description</label>
+		<input type="text" id="node-input-Description" placeholder="Description"></input>
+	</div> 
+	<div class="form-row" id='KmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KmsKeyId"><i class="fa fa-tag"></i> KmsKeyId</label>
+		<input type="text" id="node-input-KmsKeyId" placeholder="KmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='PricingPlanAttr' class='hiddenAttrs'>
+		<label for="node-input-PricingPlan"><i class="fa fa-tag"></i> PricingPlan</label>
+		<input type="text" id="node-input-PricingPlan" placeholder="PricingPlan"></input>
+	</div> 
+	<div class="form-row" id='PricingPlanDataSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-PricingPlanDataSource"><i class="fa fa-tag"></i> PricingPlanDataSource</label>
+		<input type="text" id="node-input-PricingPlanDataSource" placeholder="PricingPlanDataSource"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-Configuration"><i class="fa fa-tag"></i> Configuration</label>
+		<input type="text" id="node-input-Configuration" placeholder="Configuration"></input>
+	</div> 
+	<div class="form-row" id='MapNameAttr' class='hiddenAttrs'>
+		<label for="node-input-MapName"><i class="fa fa-tag"></i> MapName</label>
+		<input type="text" id="node-input-MapName" placeholder="MapName"></input>
+	</div> 
+	<div class="form-row" id='DataSourceAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSource"><i class="fa fa-tag"></i> DataSource</label>
+		<input type="text" id="node-input-DataSource" placeholder="DataSource"></input>
+	</div> 
+	<div class="form-row" id='DataSourceConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-DataSourceConfiguration"><i class="fa fa-tag"></i> DataSourceConfiguration</label>
+		<input type="text" id="node-input-DataSourceConfiguration" placeholder="DataSourceConfiguration"></input>
+	</div> 
+	<div class="form-row" id='IndexNameAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexName"><i class="fa fa-tag"></i> IndexName</label>
+		<input type="text" id="node-input-IndexName" placeholder="IndexName"></input>
+	</div> 
+	<div class="form-row" id='DeviceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-DeviceId"><i class="fa fa-tag"></i> DeviceId</label>
+		<input type="text" id="node-input-DeviceId" placeholder="DeviceId"></input>
+	</div> 
+	<div class="form-row" id='EndTimeExclusiveAttr' class='hiddenAttrs'>
+		<label for="node-input-EndTimeExclusive"><i class="fa fa-tag"></i> EndTimeExclusive</label>
+		<input type="text" id="node-input-EndTimeExclusive" placeholder="EndTimeExclusive"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='StartTimeInclusiveAttr' class='hiddenAttrs'>
+		<label for="node-input-StartTimeInclusive"><i class="fa fa-tag"></i> StartTimeInclusive</label>
+		<input type="text" id="node-input-StartTimeInclusive" placeholder="StartTimeInclusive"></input>
+	</div> 
+	<div class="form-row" id='GeofenceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-GeofenceId"><i class="fa fa-tag"></i> GeofenceId</label>
+		<input type="text" id="node-input-GeofenceId" placeholder="GeofenceId"></input>
+	</div> 
+	<div class="form-row" id='FontStackAttr' class='hiddenAttrs'>
+		<label for="node-input-FontStack"><i class="fa fa-tag"></i> FontStack</label>
+		<input type="text" id="node-input-FontStack" placeholder="FontStack"></input>
+	</div> 
+	<div class="form-row" id='FontUnicodeRangeAttr' class='hiddenAttrs'>
+		<label for="node-input-FontUnicodeRange"><i class="fa fa-tag"></i> FontUnicodeRange</label>
+		<input type="text" id="node-input-FontUnicodeRange" placeholder="FontUnicodeRange"></input>
+	</div> 
+	<div class="form-row" id='FileNameAttr' class='hiddenAttrs'>
+		<label for="node-input-FileName"><i class="fa fa-tag"></i> FileName</label>
+		<input type="text" id="node-input-FileName" placeholder="FileName"></input>
+	</div> 
+	<div class="form-row" id='XAttr' class='hiddenAttrs'>
+		<label for="node-input-X"><i class="fa fa-tag"></i> X</label>
+		<input type="text" id="node-input-X" placeholder="X"></input>
+	</div> 
+	<div class="form-row" id='YAttr' class='hiddenAttrs'>
+		<label for="node-input-Y"><i class="fa fa-tag"></i> Y</label>
+		<input type="text" id="node-input-Y" placeholder="Y"></input>
+	</div> 
+	<div class="form-row" id='ZAttr' class='hiddenAttrs'>
+		<label for="node-input-Z"><i class="fa fa-tag"></i> Z</label>
+		<input type="text" id="node-input-Z" placeholder="Z"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='GeometryAttr' class='hiddenAttrs'>
+		<label for="node-input-Geometry"><i class="fa fa-tag"></i> Geometry</label>
+		<input type="text" id="node-input-Geometry" placeholder="Geometry"></input>
+	</div> 
+	<div class="form-row" id='PositionAttr' class='hiddenAttrs'>
+		<label for="node-input-Position"><i class="fa fa-tag"></i> Position</label>
+		<input type="text" id="node-input-Position" placeholder="Position"></input>
+	</div> 
+	<div class="form-row" id='BiasPositionAttr' class='hiddenAttrs'>
+		<label for="node-input-BiasPosition"><i class="fa fa-tag"></i> BiasPosition</label>
+		<input type="text" id="node-input-BiasPosition" placeholder="BiasPosition"></input>
+	</div> 
+	<div class="form-row" id='FilterBBoxAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterBBox"><i class="fa fa-tag"></i> FilterBBox</label>
+		<input type="text" id="node-input-FilterBBox" placeholder="FilterBBox"></input>
+	</div> 
+	<div class="form-row" id='FilterCountriesAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterCountries"><i class="fa fa-tag"></i> FilterCountries</label>
+		<input type="text" id="node-input-FilterCountries" placeholder="FilterCountries"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i> Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AssociateTrackerConsumer:[
+					'#ConsumerArnAttr','#TrackerNameAttr'
+					],
+				BatchDeleteDevicePositionHistory:[
+					'#DeviceIdsAttr','#TrackerNameAttr'
+					],
+				BatchDeleteGeofence:[
+					'#CollectionNameAttr','#GeofenceIdsAttr'
+					],
+				BatchEvaluateGeofences:[
+					'#CollectionNameAttr','#DevicePositionUpdatesAttr'
+					],
+				BatchGetDevicePosition:[
+					'#DeviceIdsAttr','#TrackerNameAttr'
+					],
+				BatchPutGeofence:[
+					'#CollectionNameAttr','#EntriesAttr'
+					],
+				BatchUpdateDevicePosition:[
+					'#TrackerNameAttr','#UpdatesAttr'
+					],
+				CalculateRoute:[
+					'#CalculatorNameAttr','#CarModeOptionsAttr','#DepartNowAttr','#DeparturePositionAttr','#DepartureTimeAttr','#DestinationPositionAttr','#DistanceUnitAttr','#IncludeLegGeometryAttr','#TravelModeAttr','#TruckModeOptionsAttr','#WaypointPositionsAttr'
+					],
+				CreateGeofenceCollection:[
+					'#CollectionNameAttr','#DescriptionAttr','#KmsKeyIdAttr','#PricingPlanAttr','#PricingPlanDataSourceAttr','#TagsAttr'
+					],
+				CreateMap:[
+					'#ConfigurationAttr','#DescriptionAttr','#MapNameAttr','#PricingPlanAttr','#TagsAttr'
+					],
+				CreatePlaceIndex:[
+					'#DataSourceAttr','#DataSourceConfigurationAttr','#DescriptionAttr','#IndexNameAttr','#PricingPlanAttr','#TagsAttr'
+					],
+				CreateRouteCalculator:[
+					'#CalculatorNameAttr','#DataSourceAttr','#DescriptionAttr','#PricingPlanAttr','#TagsAttr'
+					],
+				CreateTracker:[
+					'#DescriptionAttr','#KmsKeyIdAttr','#PricingPlanAttr','#PricingPlanDataSourceAttr','#TagsAttr','#TrackerNameAttr'
+					],
+				DeleteGeofenceCollection:[
+					'#CollectionNameAttr'
+					],
+				DeleteMap:[
+					'#MapNameAttr'
+					],
+				DeletePlaceIndex:[
+					'#IndexNameAttr'
+					],
+				DeleteRouteCalculator:[
+					'#CalculatorNameAttr'
+					],
+				DeleteTracker:[
+					'#TrackerNameAttr'
+					],
+				DescribeGeofenceCollection:[
+					'#CollectionNameAttr'
+					],
+				DescribeMap:[
+					'#MapNameAttr'
+					],
+				DescribePlaceIndex:[
+					'#IndexNameAttr'
+					],
+				DescribeRouteCalculator:[
+					'#CalculatorNameAttr'
+					],
+				DescribeTracker:[
+					'#TrackerNameAttr'
+					],
+				DisassociateTrackerConsumer:[
+					'#ConsumerArnAttr','#TrackerNameAttr'
+					],
+				GetDevicePosition:[
+					'#DeviceIdAttr','#TrackerNameAttr'
+					],
+				GetDevicePositionHistory:[
+					'#DeviceIdAttr','#EndTimeExclusiveAttr','#NextTokenAttr','#StartTimeInclusiveAttr','#TrackerNameAttr'
+					],
+				GetGeofence:[
+					'#CollectionNameAttr','#GeofenceIdAttr'
+					],
+				GetMapGlyphs:[
+					'#FontStackAttr','#FontUnicodeRangeAttr','#MapNameAttr'
+					],
+				GetMapSprites:[
+					'#FileNameAttr','#MapNameAttr'
+					],
+				GetMapStyleDescriptor:[
+					'#MapNameAttr'
+					],
+				GetMapTile:[
+					'#MapNameAttr','#XAttr','#YAttr','#ZAttr'
+					],
+				ListDevicePositions:[
+					'#MaxResultsAttr','#NextTokenAttr','#TrackerNameAttr'
+					],
+				ListGeofenceCollections:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListGeofences:[
+					'#CollectionNameAttr','#NextTokenAttr'
+					],
+				ListMaps:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListPlaceIndexes:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListRouteCalculators:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTrackerConsumers:[
+					'#MaxResultsAttr','#NextTokenAttr','#TrackerNameAttr'
+					],
+				ListTrackers:[
+					'#MaxResultsAttr','#NextTokenAttr'
+					],
+				PutGeofence:[
+					'#CollectionNameAttr','#GeofenceIdAttr','#GeometryAttr'
+					],
+				SearchPlaceIndexForPosition:[
+					'#IndexNameAttr','#MaxResultsAttr','#PositionAttr'
+					],
+				SearchPlaceIndexForText:[
+					'#BiasPositionAttr','#FilterBBoxAttr','#FilterCountriesAttr','#IndexNameAttr','#MaxResultsAttr','#TextAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateGeofenceCollection:[
+					'#CollectionNameAttr','#DescriptionAttr','#PricingPlanAttr','#PricingPlanDataSourceAttr'
+					],
+				UpdateMap:[
+					'#DescriptionAttr','#MapNameAttr','#PricingPlanAttr'
+					],
+				UpdatePlaceIndex:[
+					'#DataSourceConfigurationAttr','#DescriptionAttr','#IndexNameAttr','#PricingPlanAttr'
+					],
+				UpdateRouteCalculator:[
+					'#CalculatorNameAttr','#DescriptionAttr','#PricingPlanAttr'
+					],
+				UpdateTracker:[
+					'#DescriptionAttr','#PricingPlanAttr','#PricingPlanDataSourceAttr','#TrackerNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Location">
+<p>
+AWS Location
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Location.html">Location</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Location',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AssociateTrackerConsumer' },
+			
+				ConsumerArn: { value: ""} ,
+				TrackerName: { value: ""} ,
+				DeviceIds: { value: ""} ,
+				CollectionName: { value: ""} ,
+				GeofenceIds: { value: ""} ,
+				DevicePositionUpdates: { value: ""} ,
+				Entries: { value: ""} ,
+				Updates: { value: ""} ,
+				CalculatorName: { value: ""} ,
+				CarModeOptions: { value: ""} ,
+				DepartNow: { value: ""} ,
+				DeparturePosition: { value: ""} ,
+				DepartureTime: { value: ""} ,
+				DestinationPosition: { value: ""} ,
+				DistanceUnit: { value: ""} ,
+				IncludeLegGeometry: { value: ""} ,
+				TravelMode: { value: ""} ,
+				TruckModeOptions: { value: ""} ,
+				WaypointPositions: { value: ""} ,
+				Description: { value: ""} ,
+				KmsKeyId: { value: ""} ,
+				PricingPlan: { value: ""} ,
+				PricingPlanDataSource: { value: ""} ,
+				Tags: { value: ""} ,
+				Configuration: { value: ""} ,
+				MapName: { value: ""} ,
+				DataSource: { value: ""} ,
+				DataSourceConfiguration: { value: ""} ,
+				IndexName: { value: ""} ,
+				DeviceId: { value: ""} ,
+				EndTimeExclusive: { value: ""} ,
+				NextToken: { value: ""} ,
+				StartTimeInclusive: { value: ""} ,
+				GeofenceId: { value: ""} ,
+				FontStack: { value: ""} ,
+				FontUnicodeRange: { value: ""} ,
+				FileName: { value: ""} ,
+				X: { value: ""} ,
+				Y: { value: ""} ,
+				Z: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Geometry: { value: ""} ,
+				Position: { value: ""} ,
+				BiasPosition: { value: ""} ,
+				FilterBBox: { value: ""} ,
+				FilterCountries: { value: ""} ,
+				Text: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Location " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-ConsumerArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TrackerName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-CollectionName").typedInput({ default: "str", types: ["str"]});
+
+
+
+
+$("#node-input-CalculatorName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-DepartNow").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-DeparturePosition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DepartureTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DestinationPosition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DistanceUnit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IncludeLegGeometry").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-TravelMode").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-Description").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PricingPlan").typedInput({ default: "str", types: ["str"]});
+$("#node-input-PricingPlanDataSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Configuration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MapName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSource").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataSourceConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IndexName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DeviceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndTimeExclusive").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartTimeInclusive").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GeofenceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FontStack").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FontUnicodeRange").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FileName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-X").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Y").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Z").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Geometry").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Position").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BiasPosition").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterBBox").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterCountries").typedInput({ default: "str", types: ["str"]});
+
+
+		}
+	});
+</script>
+

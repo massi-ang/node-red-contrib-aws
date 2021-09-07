@@ -1,0 +1,444 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Kinesis">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddTagsToStream">AddTagsToStream</option>
+		
+			<option value="CreateStream">CreateStream</option>
+		
+			<option value="DecreaseStreamRetentionPeriod">DecreaseStreamRetentionPeriod</option>
+		
+			<option value="DeleteStream">DeleteStream</option>
+		
+			<option value="DeregisterStreamConsumer">DeregisterStreamConsumer</option>
+		
+			<option value="DescribeLimits">DescribeLimits</option>
+		
+			<option value="DescribeStream">DescribeStream</option>
+		
+			<option value="DescribeStreamConsumer">DescribeStreamConsumer</option>
+		
+			<option value="DescribeStreamSummary">DescribeStreamSummary</option>
+		
+			<option value="DisableEnhancedMonitoring">DisableEnhancedMonitoring</option>
+		
+			<option value="EnableEnhancedMonitoring">EnableEnhancedMonitoring</option>
+		
+			<option value="GetRecords">GetRecords</option>
+		
+			<option value="GetShardIterator">GetShardIterator</option>
+		
+			<option value="IncreaseStreamRetentionPeriod">IncreaseStreamRetentionPeriod</option>
+		
+			<option value="ListShards">ListShards</option>
+		
+			<option value="ListStreamConsumers">ListStreamConsumers</option>
+		
+			<option value="ListStreams">ListStreams</option>
+		
+			<option value="ListTagsForStream">ListTagsForStream</option>
+		
+			<option value="MergeShards">MergeShards</option>
+		
+			<option value="PutRecord">PutRecord</option>
+		
+			<option value="PutRecords">PutRecords</option>
+		
+			<option value="RegisterStreamConsumer">RegisterStreamConsumer</option>
+		
+			<option value="RemoveTagsFromStream">RemoveTagsFromStream</option>
+		
+			<option value="SplitShard">SplitShard</option>
+		
+			<option value="StartStreamEncryption">StartStreamEncryption</option>
+		
+			<option value="StopStreamEncryption">StopStreamEncryption</option>
+		
+			<option value="UpdateShardCount">UpdateShardCount</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='StreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamName"><i class="fa fa-tag"></i> StreamName</label>
+		<input type="text" id="node-input-StreamName" placeholder="StreamName"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='ShardCountAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardCount"><i class="fa fa-tag"></i> ShardCount</label>
+		<input type="text" id="node-input-ShardCount" placeholder="ShardCount"></input>
+	</div> 
+	<div class="form-row" id='RetentionPeriodHoursAttr' class='hiddenAttrs'>
+		<label for="node-input-RetentionPeriodHours"><i class="fa fa-tag"></i> RetentionPeriodHours</label>
+		<input type="text" id="node-input-RetentionPeriodHours" placeholder="RetentionPeriodHours"></input>
+	</div> 
+	<div class="form-row" id='EnforceConsumerDeletionAttr' class='hiddenAttrs'>
+		<label for="node-input-EnforceConsumerDeletion"><i class="fa fa-tag"></i> EnforceConsumerDeletion</label>
+		<input type="text" id="node-input-EnforceConsumerDeletion" placeholder="EnforceConsumerDeletion"></input>
+	</div> 
+	<div class="form-row" id='StreamARNAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamARN"><i class="fa fa-tag"></i> StreamARN</label>
+		<input type="text" id="node-input-StreamARN" placeholder="StreamARN"></input>
+	</div> 
+	<div class="form-row" id='ConsumerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsumerName"><i class="fa fa-tag"></i> ConsumerName</label>
+		<input type="text" id="node-input-ConsumerName" placeholder="ConsumerName"></input>
+	</div> 
+	<div class="form-row" id='ConsumerARNAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsumerARN"><i class="fa fa-tag"></i> ConsumerARN</label>
+		<input type="text" id="node-input-ConsumerARN" placeholder="ConsumerARN"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartShardIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartShardId"><i class="fa fa-tag"></i> ExclusiveStartShardId</label>
+		<input type="text" id="node-input-ExclusiveStartShardId" placeholder="ExclusiveStartShardId"></input>
+	</div> 
+	<div class="form-row" id='ShardLevelMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardLevelMetrics"><i class="fa fa-tag"></i> ShardLevelMetrics</label>
+		<input type="text" id="node-input-ShardLevelMetrics" placeholder="ShardLevelMetrics"></input>
+	</div> 
+	<div class="form-row" id='ShardIteratorAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardIterator"><i class="fa fa-tag"></i> ShardIterator</label>
+		<input type="text" id="node-input-ShardIterator" placeholder="ShardIterator"></input>
+	</div> 
+	<div class="form-row" id='ShardIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardId"><i class="fa fa-tag"></i> ShardId</label>
+		<input type="text" id="node-input-ShardId" placeholder="ShardId"></input>
+	</div> 
+	<div class="form-row" id='ShardIteratorTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardIteratorType"><i class="fa fa-tag"></i> ShardIteratorType</label>
+		<input type="text" id="node-input-ShardIteratorType" placeholder="ShardIteratorType"></input>
+	</div> 
+	<div class="form-row" id='StartingSequenceNumberAttr' class='hiddenAttrs'>
+		<label for="node-input-StartingSequenceNumber"><i class="fa fa-tag"></i> StartingSequenceNumber</label>
+		<input type="text" id="node-input-StartingSequenceNumber" placeholder="StartingSequenceNumber"></input>
+	</div> 
+	<div class="form-row" id='TimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-Timestamp"><i class="fa fa-tag"></i> Timestamp</label>
+		<input type="text" id="node-input-Timestamp" placeholder="Timestamp"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='StreamCreationTimestampAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamCreationTimestamp"><i class="fa fa-tag"></i> StreamCreationTimestamp</label>
+		<input type="text" id="node-input-StreamCreationTimestamp" placeholder="StreamCreationTimestamp"></input>
+	</div> 
+	<div class="form-row" id='ShardFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardFilter"><i class="fa fa-tag"></i> ShardFilter</label>
+		<input type="text" id="node-input-ShardFilter" placeholder="ShardFilter"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartStreamNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartStreamName"><i class="fa fa-tag"></i> ExclusiveStartStreamName</label>
+		<input type="text" id="node-input-ExclusiveStartStreamName" placeholder="ExclusiveStartStreamName"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartTagKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartTagKey"><i class="fa fa-tag"></i> ExclusiveStartTagKey</label>
+		<input type="text" id="node-input-ExclusiveStartTagKey" placeholder="ExclusiveStartTagKey"></input>
+	</div> 
+	<div class="form-row" id='ShardToMergeAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardToMerge"><i class="fa fa-tag"></i> ShardToMerge</label>
+		<input type="text" id="node-input-ShardToMerge" placeholder="ShardToMerge"></input>
+	</div> 
+	<div class="form-row" id='AdjacentShardToMergeAttr' class='hiddenAttrs'>
+		<label for="node-input-AdjacentShardToMerge"><i class="fa fa-tag"></i> AdjacentShardToMerge</label>
+		<input type="text" id="node-input-AdjacentShardToMerge" placeholder="AdjacentShardToMerge"></input>
+	</div> 
+	<div class="form-row" id='DataAttr' class='hiddenAttrs'>
+		<label for="node-input-Data"><i class="fa fa-tag"></i> Data</label>
+		<input type="text" id="node-input-Data" placeholder="Data"></input>
+	</div> 
+	<div class="form-row" id='PartitionKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-PartitionKey"><i class="fa fa-tag"></i> PartitionKey</label>
+		<input type="text" id="node-input-PartitionKey" placeholder="PartitionKey"></input>
+	</div> 
+	<div class="form-row" id='ExplicitHashKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ExplicitHashKey"><i class="fa fa-tag"></i> ExplicitHashKey</label>
+		<input type="text" id="node-input-ExplicitHashKey" placeholder="ExplicitHashKey"></input>
+	</div> 
+	<div class="form-row" id='SequenceNumberForOrderingAttr' class='hiddenAttrs'>
+		<label for="node-input-SequenceNumberForOrdering"><i class="fa fa-tag"></i> SequenceNumberForOrdering</label>
+		<input type="text" id="node-input-SequenceNumberForOrdering" placeholder="SequenceNumberForOrdering"></input>
+	</div> 
+	<div class="form-row" id='RecordsAttr' class='hiddenAttrs'>
+		<label for="node-input-Records"><i class="fa fa-tag"></i> Records</label>
+		<input type="text" id="node-input-Records" placeholder="Records"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='ShardToSplitAttr' class='hiddenAttrs'>
+		<label for="node-input-ShardToSplit"><i class="fa fa-tag"></i> ShardToSplit</label>
+		<input type="text" id="node-input-ShardToSplit" placeholder="ShardToSplit"></input>
+	</div> 
+	<div class="form-row" id='NewStartingHashKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-NewStartingHashKey"><i class="fa fa-tag"></i> NewStartingHashKey</label>
+		<input type="text" id="node-input-NewStartingHashKey" placeholder="NewStartingHashKey"></input>
+	</div> 
+	<div class="form-row" id='EncryptionTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-EncryptionType"><i class="fa fa-tag"></i> EncryptionType</label>
+		<input type="text" id="node-input-EncryptionType" placeholder="EncryptionType"></input>
+	</div> 
+	<div class="form-row" id='KeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyId"><i class="fa fa-tag"></i> KeyId</label>
+		<input type="text" id="node-input-KeyId" placeholder="KeyId"></input>
+	</div> 
+	<div class="form-row" id='TargetShardCountAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetShardCount"><i class="fa fa-tag"></i> TargetShardCount</label>
+		<input type="text" id="node-input-TargetShardCount" placeholder="TargetShardCount"></input>
+	</div> 
+	<div class="form-row" id='ScalingTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-ScalingType"><i class="fa fa-tag"></i> ScalingType</label>
+		<input type="text" id="node-input-ScalingType" placeholder="ScalingType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddTagsToStream:[
+					'#StreamNameAttr','#TagsAttr'
+					],
+				CreateStream:[
+					'#StreamNameAttr','#ShardCountAttr'
+					],
+				DecreaseStreamRetentionPeriod:[
+					'#StreamNameAttr','#RetentionPeriodHoursAttr'
+					],
+				DeleteStream:[
+					'#StreamNameAttr','#EnforceConsumerDeletionAttr'
+					],
+				DeregisterStreamConsumer:[
+					'#StreamARNAttr','#ConsumerNameAttr','#ConsumerARNAttr'
+					],
+				DescribeLimits:[
+					
+					],
+				DescribeStream:[
+					'#StreamNameAttr','#LimitAttr','#ExclusiveStartShardIdAttr'
+					],
+				DescribeStreamConsumer:[
+					'#StreamARNAttr','#ConsumerNameAttr','#ConsumerARNAttr'
+					],
+				DescribeStreamSummary:[
+					'#StreamNameAttr'
+					],
+				DisableEnhancedMonitoring:[
+					'#StreamNameAttr','#ShardLevelMetricsAttr'
+					],
+				EnableEnhancedMonitoring:[
+					'#StreamNameAttr','#ShardLevelMetricsAttr'
+					],
+				GetRecords:[
+					'#ShardIteratorAttr','#LimitAttr'
+					],
+				GetShardIterator:[
+					'#StreamNameAttr','#ShardIdAttr','#ShardIteratorTypeAttr','#StartingSequenceNumberAttr','#TimestampAttr'
+					],
+				IncreaseStreamRetentionPeriod:[
+					'#StreamNameAttr','#RetentionPeriodHoursAttr'
+					],
+				ListShards:[
+					'#StreamNameAttr','#NextTokenAttr','#ExclusiveStartShardIdAttr','#MaxResultsAttr','#StreamCreationTimestampAttr','#ShardFilterAttr'
+					],
+				ListStreamConsumers:[
+					'#StreamARNAttr','#NextTokenAttr','#MaxResultsAttr','#StreamCreationTimestampAttr'
+					],
+				ListStreams:[
+					'#LimitAttr','#ExclusiveStartStreamNameAttr'
+					],
+				ListTagsForStream:[
+					'#StreamNameAttr','#ExclusiveStartTagKeyAttr','#LimitAttr'
+					],
+				MergeShards:[
+					'#StreamNameAttr','#ShardToMergeAttr','#AdjacentShardToMergeAttr'
+					],
+				PutRecord:[
+					'#StreamNameAttr','#DataAttr','#PartitionKeyAttr','#ExplicitHashKeyAttr','#SequenceNumberForOrderingAttr'
+					],
+				PutRecords:[
+					'#RecordsAttr','#StreamNameAttr'
+					],
+				RegisterStreamConsumer:[
+					'#StreamARNAttr','#ConsumerNameAttr'
+					],
+				RemoveTagsFromStream:[
+					'#StreamNameAttr','#TagKeysAttr'
+					],
+				SplitShard:[
+					'#StreamNameAttr','#ShardToSplitAttr','#NewStartingHashKeyAttr'
+					],
+				StartStreamEncryption:[
+					'#StreamNameAttr','#EncryptionTypeAttr','#KeyIdAttr'
+					],
+				StopStreamEncryption:[
+					'#StreamNameAttr','#EncryptionTypeAttr','#KeyIdAttr'
+					],
+				UpdateShardCount:[
+					'#StreamNameAttr','#TargetShardCountAttr','#ScalingTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Kinesis">
+<p>
+AWS Kinesis
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Kinesis.html">Kinesis</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Kinesis',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddTagsToStream' },
+			
+				StreamName: { value: ""} ,
+				Tags: { value: ""} ,
+				ShardCount: { value: ""} ,
+				RetentionPeriodHours: { value: ""} ,
+				EnforceConsumerDeletion: { value: ""} ,
+				StreamARN: { value: ""} ,
+				ConsumerName: { value: ""} ,
+				ConsumerARN: { value: ""} ,
+				Limit: { value: ""} ,
+				ExclusiveStartShardId: { value: ""} ,
+				ShardLevelMetrics: { value: ""} ,
+				ShardIterator: { value: ""} ,
+				ShardId: { value: ""} ,
+				ShardIteratorType: { value: ""} ,
+				StartingSequenceNumber: { value: ""} ,
+				Timestamp: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				StreamCreationTimestamp: { value: ""} ,
+				ShardFilter: { value: ""} ,
+				ExclusiveStartStreamName: { value: ""} ,
+				ExclusiveStartTagKey: { value: ""} ,
+				ShardToMerge: { value: ""} ,
+				AdjacentShardToMerge: { value: ""} ,
+				Data: { value: ""} ,
+				PartitionKey: { value: ""} ,
+				ExplicitHashKey: { value: ""} ,
+				SequenceNumberForOrdering: { value: ""} ,
+				Records: { value: ""} ,
+				TagKeys: { value: ""} ,
+				ShardToSplit: { value: ""} ,
+				NewStartingHashKey: { value: ""} ,
+				EncryptionType: { value: ""} ,
+				KeyId: { value: ""} ,
+				TargetShardCount: { value: ""} ,
+				ScalingType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Kinesis " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-StreamName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ShardCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RetentionPeriodHours").typedInput({ default: "num", types: ["num"]});
+$("#node-input-EnforceConsumerDeletion").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-StreamARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConsumerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConsumerARN").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExclusiveStartShardId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShardLevelMetrics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShardIterator").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShardId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShardIteratorType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StartingSequenceNumber").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-ExclusiveStartStreamName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExclusiveStartTagKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ShardToMerge").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AdjacentShardToMerge").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Data").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-PartitionKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExplicitHashKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SequenceNumberForOrdering").typedInput({ default: "str", types: ["str"]});
+
+
+$("#node-input-ShardToSplit").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NewStartingHashKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EncryptionType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetShardCount").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ScalingType").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

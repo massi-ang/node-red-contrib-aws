@@ -1,0 +1,218 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS IotDeviceAdvisor">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateSuiteDefinition">CreateSuiteDefinition</option>
+		
+			<option value="DeleteSuiteDefinition">DeleteSuiteDefinition</option>
+		
+			<option value="GetSuiteDefinition">GetSuiteDefinition</option>
+		
+			<option value="GetSuiteRun">GetSuiteRun</option>
+		
+			<option value="GetSuiteRunReport">GetSuiteRunReport</option>
+		
+			<option value="ListSuiteDefinitions">ListSuiteDefinitions</option>
+		
+			<option value="ListSuiteRuns">ListSuiteRuns</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="StartSuiteRun">StartSuiteRun</option>
+		
+			<option value="StopSuiteRun">StopSuiteRun</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateSuiteDefinition">UpdateSuiteDefinition</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='suiteDefinitionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-suiteDefinitionConfiguration"><i class="fa fa-tag"></i> suiteDefinitionConfiguration</label>
+		<input type="text" id="node-input-suiteDefinitionConfiguration" placeholder="suiteDefinitionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='suiteDefinitionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-suiteDefinitionId"><i class="fa fa-tag"></i> suiteDefinitionId</label>
+		<input type="text" id="node-input-suiteDefinitionId" placeholder="suiteDefinitionId"></input>
+	</div> 
+	<div class="form-row" id='suiteDefinitionVersionAttr' class='hiddenAttrs'>
+		<label for="node-input-suiteDefinitionVersion"><i class="fa fa-tag"></i> suiteDefinitionVersion</label>
+		<input type="text" id="node-input-suiteDefinitionVersion" placeholder="suiteDefinitionVersion"></input>
+	</div> 
+	<div class="form-row" id='suiteRunIdAttr' class='hiddenAttrs'>
+		<label for="node-input-suiteRunId"><i class="fa fa-tag"></i> suiteRunId</label>
+		<input type="text" id="node-input-suiteRunId" placeholder="suiteRunId"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='suiteRunConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-suiteRunConfiguration"><i class="fa fa-tag"></i> suiteRunConfiguration</label>
+		<input type="text" id="node-input-suiteRunConfiguration" placeholder="suiteRunConfiguration"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateSuiteDefinition:[
+					'#suiteDefinitionConfigurationAttr','#tagsAttr'
+					],
+				DeleteSuiteDefinition:[
+					'#suiteDefinitionIdAttr'
+					],
+				GetSuiteDefinition:[
+					'#suiteDefinitionIdAttr','#suiteDefinitionVersionAttr'
+					],
+				GetSuiteRun:[
+					'#suiteDefinitionIdAttr','#suiteRunIdAttr'
+					],
+				GetSuiteRunReport:[
+					'#suiteDefinitionIdAttr','#suiteRunIdAttr'
+					],
+				ListSuiteDefinitions:[
+					'#maxResultsAttr','#nextTokenAttr'
+					],
+				ListSuiteRuns:[
+					'#suiteDefinitionIdAttr','#suiteDefinitionVersionAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				StartSuiteRun:[
+					'#suiteDefinitionIdAttr','#suiteDefinitionVersionAttr','#suiteRunConfigurationAttr','#tagsAttr'
+					],
+				StopSuiteRun:[
+					'#suiteDefinitionIdAttr','#suiteRunIdAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateSuiteDefinition:[
+					'#suiteDefinitionIdAttr','#suiteDefinitionConfigurationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS IotDeviceAdvisor">
+<p>
+AWS IotDeviceAdvisor
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/IotDeviceAdvisor.html">IotDeviceAdvisor</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS IotDeviceAdvisor',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateSuiteDefinition' },
+			
+				suiteDefinitionConfiguration: { value: ""} ,
+				tags: { value: ""} ,
+				suiteDefinitionId: { value: ""} ,
+				suiteDefinitionVersion: { value: ""} ,
+				suiteRunId: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				resourceArn: { value: ""} ,
+				suiteRunConfiguration: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "IotDeviceAdvisor " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-suiteDefinitionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-suiteDefinitionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-suiteDefinitionVersion").typedInput({ default: "str", types: ["str"]});
+$("#node-input-suiteRunId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-suiteRunConfiguration").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

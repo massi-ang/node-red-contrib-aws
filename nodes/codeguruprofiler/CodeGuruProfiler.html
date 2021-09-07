@@ -1,0 +1,406 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS CodeGuruProfiler">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="AddNotificationChannels">AddNotificationChannels</option>
+		
+			<option value="BatchGetFrameMetricData">BatchGetFrameMetricData</option>
+		
+			<option value="ConfigureAgent">ConfigureAgent</option>
+		
+			<option value="CreateProfilingGroup">CreateProfilingGroup</option>
+		
+			<option value="DeleteProfilingGroup">DeleteProfilingGroup</option>
+		
+			<option value="DescribeProfilingGroup">DescribeProfilingGroup</option>
+		
+			<option value="GetFindingsReportAccountSummary">GetFindingsReportAccountSummary</option>
+		
+			<option value="GetNotificationConfiguration">GetNotificationConfiguration</option>
+		
+			<option value="GetPolicy">GetPolicy</option>
+		
+			<option value="GetProfile">GetProfile</option>
+		
+			<option value="GetRecommendations">GetRecommendations</option>
+		
+			<option value="ListFindingsReports">ListFindingsReports</option>
+		
+			<option value="ListProfileTimes">ListProfileTimes</option>
+		
+			<option value="ListProfilingGroups">ListProfilingGroups</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PostAgentProfile">PostAgentProfile</option>
+		
+			<option value="PutPermission">PutPermission</option>
+		
+			<option value="RemoveNotificationChannel">RemoveNotificationChannel</option>
+		
+			<option value="RemovePermission">RemovePermission</option>
+		
+			<option value="SubmitFeedback">SubmitFeedback</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateProfilingGroup">UpdateProfilingGroup</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='channelsAttr' class='hiddenAttrs'>
+		<label for="node-input-channels"><i class="fa fa-tag"></i> channels</label>
+		<input type="text" id="node-input-channels" placeholder="channels"></input>
+	</div> 
+	<div class="form-row" id='profilingGroupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-profilingGroupName"><i class="fa fa-tag"></i> profilingGroupName</label>
+		<input type="text" id="node-input-profilingGroupName" placeholder="profilingGroupName"></input>
+	</div> 
+	<div class="form-row" id='endTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-endTime"><i class="fa fa-tag"></i> endTime</label>
+		<input type="text" id="node-input-endTime" placeholder="endTime"></input>
+	</div> 
+	<div class="form-row" id='frameMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-frameMetrics"><i class="fa fa-tag"></i> frameMetrics</label>
+		<input type="text" id="node-input-frameMetrics" placeholder="frameMetrics"></input>
+	</div> 
+	<div class="form-row" id='periodAttr' class='hiddenAttrs'>
+		<label for="node-input-period"><i class="fa fa-tag"></i> period</label>
+		<input type="text" id="node-input-period" placeholder="period"></input>
+	</div> 
+	<div class="form-row" id='startTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-startTime"><i class="fa fa-tag"></i> startTime</label>
+		<input type="text" id="node-input-startTime" placeholder="startTime"></input>
+	</div> 
+	<div class="form-row" id='targetResolutionAttr' class='hiddenAttrs'>
+		<label for="node-input-targetResolution"><i class="fa fa-tag"></i> targetResolution</label>
+		<input type="text" id="node-input-targetResolution" placeholder="targetResolution"></input>
+	</div> 
+	<div class="form-row" id='fleetInstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-fleetInstanceId"><i class="fa fa-tag"></i> fleetInstanceId</label>
+		<input type="text" id="node-input-fleetInstanceId" placeholder="fleetInstanceId"></input>
+	</div> 
+	<div class="form-row" id='metadataAttr' class='hiddenAttrs'>
+		<label for="node-input-metadata"><i class="fa fa-tag"></i> metadata</label>
+		<input type="text" id="node-input-metadata" placeholder="metadata"></input>
+	</div> 
+	<div class="form-row" id='agentOrchestrationConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-agentOrchestrationConfig"><i class="fa fa-tag"></i> agentOrchestrationConfig</label>
+		<input type="text" id="node-input-agentOrchestrationConfig" placeholder="agentOrchestrationConfig"></input>
+	</div> 
+	<div class="form-row" id='clientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-clientToken"><i class="fa fa-tag"></i> clientToken</label>
+		<input type="text" id="node-input-clientToken" placeholder="clientToken"></input>
+	</div> 
+	<div class="form-row" id='computePlatformAttr' class='hiddenAttrs'>
+		<label for="node-input-computePlatform"><i class="fa fa-tag"></i> computePlatform</label>
+		<input type="text" id="node-input-computePlatform" placeholder="computePlatform"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='dailyReportsOnlyAttr' class='hiddenAttrs'>
+		<label for="node-input-dailyReportsOnly"><i class="fa fa-tag"></i> dailyReportsOnly</label>
+		<input type="text" id="node-input-dailyReportsOnly" placeholder="dailyReportsOnly"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='acceptAttr' class='hiddenAttrs'>
+		<label for="node-input-accept"><i class="fa fa-tag"></i> accept</label>
+		<input type="text" id="node-input-accept" placeholder="accept"></input>
+	</div> 
+	<div class="form-row" id='maxDepthAttr' class='hiddenAttrs'>
+		<label for="node-input-maxDepth"><i class="fa fa-tag"></i> maxDepth</label>
+		<input type="text" id="node-input-maxDepth" placeholder="maxDepth"></input>
+	</div> 
+	<div class="form-row" id='localeAttr' class='hiddenAttrs'>
+		<label for="node-input-locale"><i class="fa fa-tag"></i> locale</label>
+		<input type="text" id="node-input-locale" placeholder="locale"></input>
+	</div> 
+	<div class="form-row" id='orderByAttr' class='hiddenAttrs'>
+		<label for="node-input-orderBy"><i class="fa fa-tag"></i> orderBy</label>
+		<input type="text" id="node-input-orderBy" placeholder="orderBy"></input>
+	</div> 
+	<div class="form-row" id='includeDescriptionAttr' class='hiddenAttrs'>
+		<label for="node-input-includeDescription"><i class="fa fa-tag"></i> includeDescription</label>
+		<input type="text" id="node-input-includeDescription" placeholder="includeDescription"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='agentProfileAttr' class='hiddenAttrs'>
+		<label for="node-input-agentProfile"><i class="fa fa-tag"></i> agentProfile</label>
+		<input type="text" id="node-input-agentProfile" placeholder="agentProfile"></input>
+	</div> 
+	<div class="form-row" id='contentTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-contentType"><i class="fa fa-tag"></i> contentType</label>
+		<input type="text" id="node-input-contentType" placeholder="contentType"></input>
+	</div> 
+	<div class="form-row" id='profileTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-profileToken"><i class="fa fa-tag"></i> profileToken</label>
+		<input type="text" id="node-input-profileToken" placeholder="profileToken"></input>
+	</div> 
+	<div class="form-row" id='actionGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-actionGroup"><i class="fa fa-tag"></i> actionGroup</label>
+		<input type="text" id="node-input-actionGroup" placeholder="actionGroup"></input>
+	</div> 
+	<div class="form-row" id='principalsAttr' class='hiddenAttrs'>
+		<label for="node-input-principals"><i class="fa fa-tag"></i> principals</label>
+		<input type="text" id="node-input-principals" placeholder="principals"></input>
+	</div> 
+	<div class="form-row" id='revisionIdAttr' class='hiddenAttrs'>
+		<label for="node-input-revisionId"><i class="fa fa-tag"></i> revisionId</label>
+		<input type="text" id="node-input-revisionId" placeholder="revisionId"></input>
+	</div> 
+	<div class="form-row" id='channelIdAttr' class='hiddenAttrs'>
+		<label for="node-input-channelId"><i class="fa fa-tag"></i> channelId</label>
+		<input type="text" id="node-input-channelId" placeholder="channelId"></input>
+	</div> 
+	<div class="form-row" id='anomalyInstanceIdAttr' class='hiddenAttrs'>
+		<label for="node-input-anomalyInstanceId"><i class="fa fa-tag"></i> anomalyInstanceId</label>
+		<input type="text" id="node-input-anomalyInstanceId" placeholder="anomalyInstanceId"></input>
+	</div> 
+	<div class="form-row" id='commentAttr' class='hiddenAttrs'>
+		<label for="node-input-comment"><i class="fa fa-tag"></i> comment</label>
+		<input type="text" id="node-input-comment" placeholder="comment"></input>
+	</div> 
+	<div class="form-row" id='typeAttr' class='hiddenAttrs'>
+		<label for="node-input-type"><i class="fa fa-tag"></i> type</label>
+		<input type="text" id="node-input-type" placeholder="type"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				AddNotificationChannels:[
+					'#channelsAttr','#profilingGroupNameAttr'
+					],
+				BatchGetFrameMetricData:[
+					'#endTimeAttr','#frameMetricsAttr','#periodAttr','#profilingGroupNameAttr','#startTimeAttr','#targetResolutionAttr'
+					],
+				ConfigureAgent:[
+					'#fleetInstanceIdAttr','#metadataAttr','#profilingGroupNameAttr'
+					],
+				CreateProfilingGroup:[
+					'#agentOrchestrationConfigAttr','#clientTokenAttr','#computePlatformAttr','#profilingGroupNameAttr','#tagsAttr'
+					],
+				DeleteProfilingGroup:[
+					'#profilingGroupNameAttr'
+					],
+				DescribeProfilingGroup:[
+					'#profilingGroupNameAttr'
+					],
+				GetFindingsReportAccountSummary:[
+					'#dailyReportsOnlyAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				GetNotificationConfiguration:[
+					'#profilingGroupNameAttr'
+					],
+				GetPolicy:[
+					'#profilingGroupNameAttr'
+					],
+				GetProfile:[
+					'#acceptAttr','#endTimeAttr','#maxDepthAttr','#periodAttr','#profilingGroupNameAttr','#startTimeAttr'
+					],
+				GetRecommendations:[
+					'#endTimeAttr','#localeAttr','#profilingGroupNameAttr','#startTimeAttr'
+					],
+				ListFindingsReports:[
+					'#dailyReportsOnlyAttr','#endTimeAttr','#maxResultsAttr','#nextTokenAttr','#profilingGroupNameAttr','#startTimeAttr'
+					],
+				ListProfileTimes:[
+					'#endTimeAttr','#maxResultsAttr','#nextTokenAttr','#orderByAttr','#periodAttr','#profilingGroupNameAttr','#startTimeAttr'
+					],
+				ListProfilingGroups:[
+					'#includeDescriptionAttr','#maxResultsAttr','#nextTokenAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PostAgentProfile:[
+					'#agentProfileAttr','#contentTypeAttr','#profileTokenAttr','#profilingGroupNameAttr'
+					],
+				PutPermission:[
+					'#actionGroupAttr','#principalsAttr','#profilingGroupNameAttr','#revisionIdAttr'
+					],
+				RemoveNotificationChannel:[
+					'#channelIdAttr','#profilingGroupNameAttr'
+					],
+				RemovePermission:[
+					'#actionGroupAttr','#profilingGroupNameAttr','#revisionIdAttr'
+					],
+				SubmitFeedback:[
+					'#anomalyInstanceIdAttr','#commentAttr','#profilingGroupNameAttr','#typeAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UpdateProfilingGroup:[
+					'#agentOrchestrationConfigAttr','#profilingGroupNameAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS CodeGuruProfiler">
+<p>
+AWS CodeGuruProfiler
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/CodeGuruProfiler.html">CodeGuruProfiler</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS CodeGuruProfiler',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'AddNotificationChannels' },
+			
+				channels: { value: ""} ,
+				profilingGroupName: { value: ""} ,
+				endTime: { value: ""} ,
+				frameMetrics: { value: ""} ,
+				period: { value: ""} ,
+				startTime: { value: ""} ,
+				targetResolution: { value: ""} ,
+				fleetInstanceId: { value: ""} ,
+				metadata: { value: ""} ,
+				agentOrchestrationConfig: { value: ""} ,
+				clientToken: { value: ""} ,
+				computePlatform: { value: ""} ,
+				tags: { value: ""} ,
+				dailyReportsOnly: { value: ""} ,
+				maxResults: { value: ""} ,
+				nextToken: { value: ""} ,
+				accept: { value: ""} ,
+				maxDepth: { value: ""} ,
+				locale: { value: ""} ,
+				orderBy: { value: ""} ,
+				includeDescription: { value: ""} ,
+				resourceArn: { value: ""} ,
+				agentProfile: { value: ""} ,
+				contentType: { value: ""} ,
+				profileToken: { value: ""} ,
+				actionGroup: { value: ""} ,
+				principals: { value: ""} ,
+				revisionId: { value: ""} ,
+				channelId: { value: ""} ,
+				anomalyInstanceId: { value: ""} ,
+				comment: { value: ""} ,
+				_type: { value: ""} ,
+				tagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "CodeGuruProfiler " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-channels").typedInput({ default: "str", types: ["str"]});
+$("#node-input-profilingGroupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-endTime").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-period").typedInput({ default: "str", types: ["str"]});
+$("#node-input-startTime").typedInput({ default: "str", types: ["str"]});
+$("#node-input-targetResolution").typedInput({ default: "str", types: ["str"]});
+$("#node-input-fleetInstanceId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-agentOrchestrationConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-clientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-computePlatform").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-dailyReportsOnly").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-accept").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxDepth").typedInput({ default: "num", types: ["num"]});
+$("#node-input-locale").typedInput({ default: "str", types: ["str"]});
+$("#node-input-orderBy").typedInput({ default: "str", types: ["str"]});
+$("#node-input-includeDescription").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-agentProfile").typedInput({ default: "bin", types: ["bin"]});
+$("#node-input-contentType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-profileToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-actionGroup").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-revisionId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-channelId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-anomalyInstanceId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-comment").typedInput({ default: "str", types: ["str"]});
+$("#node-input-type").typedInput({ default: "str", types: ["str"]});
+
+		}
+	});
+</script>
+

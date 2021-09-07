@@ -1,0 +1,883 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS DynamoDB">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchExecuteStatement">BatchExecuteStatement</option>
+		
+			<option value="BatchGetItem">BatchGetItem</option>
+		
+			<option value="BatchWriteItem">BatchWriteItem</option>
+		
+			<option value="CreateBackup">CreateBackup</option>
+		
+			<option value="CreateGlobalTable">CreateGlobalTable</option>
+		
+			<option value="CreateTable">CreateTable</option>
+		
+			<option value="DeleteBackup">DeleteBackup</option>
+		
+			<option value="DeleteItem">DeleteItem</option>
+		
+			<option value="DeleteTable">DeleteTable</option>
+		
+			<option value="DescribeBackup">DescribeBackup</option>
+		
+			<option value="DescribeContinuousBackups">DescribeContinuousBackups</option>
+		
+			<option value="DescribeContributorInsights">DescribeContributorInsights</option>
+		
+			<option value="DescribeEndpoints">DescribeEndpoints</option>
+		
+			<option value="DescribeExport">DescribeExport</option>
+		
+			<option value="DescribeGlobalTable">DescribeGlobalTable</option>
+		
+			<option value="DescribeGlobalTableSettings">DescribeGlobalTableSettings</option>
+		
+			<option value="DescribeKinesisStreamingDestination">DescribeKinesisStreamingDestination</option>
+		
+			<option value="DescribeLimits">DescribeLimits</option>
+		
+			<option value="DescribeTable">DescribeTable</option>
+		
+			<option value="DescribeTableReplicaAutoScaling">DescribeTableReplicaAutoScaling</option>
+		
+			<option value="DescribeTimeToLive">DescribeTimeToLive</option>
+		
+			<option value="DisableKinesisStreamingDestination">DisableKinesisStreamingDestination</option>
+		
+			<option value="EnableKinesisStreamingDestination">EnableKinesisStreamingDestination</option>
+		
+			<option value="ExecuteStatement">ExecuteStatement</option>
+		
+			<option value="ExecuteTransaction">ExecuteTransaction</option>
+		
+			<option value="ExportTableToPointInTime">ExportTableToPointInTime</option>
+		
+			<option value="GetItem">GetItem</option>
+		
+			<option value="ListBackups">ListBackups</option>
+		
+			<option value="ListContributorInsights">ListContributorInsights</option>
+		
+			<option value="ListExports">ListExports</option>
+		
+			<option value="ListGlobalTables">ListGlobalTables</option>
+		
+			<option value="ListTables">ListTables</option>
+		
+			<option value="ListTagsOfResource">ListTagsOfResource</option>
+		
+			<option value="PutItem">PutItem</option>
+		
+			<option value="Query">Query</option>
+		
+			<option value="RestoreTableFromBackup">RestoreTableFromBackup</option>
+		
+			<option value="RestoreTableToPointInTime">RestoreTableToPointInTime</option>
+		
+			<option value="Scan">Scan</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="TransactGetItems">TransactGetItems</option>
+		
+			<option value="TransactWriteItems">TransactWriteItems</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateContinuousBackups">UpdateContinuousBackups</option>
+		
+			<option value="UpdateContributorInsights">UpdateContributorInsights</option>
+		
+			<option value="UpdateGlobalTable">UpdateGlobalTable</option>
+		
+			<option value="UpdateGlobalTableSettings">UpdateGlobalTableSettings</option>
+		
+			<option value="UpdateItem">UpdateItem</option>
+		
+			<option value="UpdateTable">UpdateTable</option>
+		
+			<option value="UpdateTableReplicaAutoScaling">UpdateTableReplicaAutoScaling</option>
+		
+			<option value="UpdateTimeToLive">UpdateTimeToLive</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='StatementsAttr' class='hiddenAttrs'>
+		<label for="node-input-Statements"><i class="fa fa-tag"></i> Statements</label>
+		<input type="text" id="node-input-Statements" placeholder="Statements"></input>
+	</div> 
+	<div class="form-row" id='RequestItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-RequestItems"><i class="fa fa-tag"></i> RequestItems</label>
+		<input type="text" id="node-input-RequestItems" placeholder="RequestItems"></input>
+	</div> 
+	<div class="form-row" id='ReturnConsumedCapacityAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnConsumedCapacity"><i class="fa fa-tag"></i> ReturnConsumedCapacity</label>
+		<input type="text" id="node-input-ReturnConsumedCapacity" placeholder="ReturnConsumedCapacity"></input>
+	</div> 
+	<div class="form-row" id='ReturnItemCollectionMetricsAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnItemCollectionMetrics"><i class="fa fa-tag"></i> ReturnItemCollectionMetrics</label>
+		<input type="text" id="node-input-ReturnItemCollectionMetrics" placeholder="ReturnItemCollectionMetrics"></input>
+	</div> 
+	<div class="form-row" id='TableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TableName"><i class="fa fa-tag"></i> TableName</label>
+		<input type="text" id="node-input-TableName" placeholder="TableName"></input>
+	</div> 
+	<div class="form-row" id='BackupNameAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupName"><i class="fa fa-tag"></i> BackupName</label>
+		<input type="text" id="node-input-BackupName" placeholder="BackupName"></input>
+	</div> 
+	<div class="form-row" id='GlobalTableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalTableName"><i class="fa fa-tag"></i> GlobalTableName</label>
+		<input type="text" id="node-input-GlobalTableName" placeholder="GlobalTableName"></input>
+	</div> 
+	<div class="form-row" id='ReplicationGroupAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicationGroup"><i class="fa fa-tag"></i> ReplicationGroup</label>
+		<input type="text" id="node-input-ReplicationGroup" placeholder="ReplicationGroup"></input>
+	</div> 
+	<div class="form-row" id='AttributeDefinitionsAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeDefinitions"><i class="fa fa-tag"></i> AttributeDefinitions</label>
+		<input type="text" id="node-input-AttributeDefinitions" placeholder="AttributeDefinitions"></input>
+	</div> 
+	<div class="form-row" id='KeySchemaAttr' class='hiddenAttrs'>
+		<label for="node-input-KeySchema"><i class="fa fa-tag"></i> KeySchema</label>
+		<input type="text" id="node-input-KeySchema" placeholder="KeySchema"></input>
+	</div> 
+	<div class="form-row" id='LocalSecondaryIndexesAttr' class='hiddenAttrs'>
+		<label for="node-input-LocalSecondaryIndexes"><i class="fa fa-tag"></i> LocalSecondaryIndexes</label>
+		<input type="text" id="node-input-LocalSecondaryIndexes" placeholder="LocalSecondaryIndexes"></input>
+	</div> 
+	<div class="form-row" id='GlobalSecondaryIndexesAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalSecondaryIndexes"><i class="fa fa-tag"></i> GlobalSecondaryIndexes</label>
+		<input type="text" id="node-input-GlobalSecondaryIndexes" placeholder="GlobalSecondaryIndexes"></input>
+	</div> 
+	<div class="form-row" id='BillingModeAttr' class='hiddenAttrs'>
+		<label for="node-input-BillingMode"><i class="fa fa-tag"></i> BillingMode</label>
+		<input type="text" id="node-input-BillingMode" placeholder="BillingMode"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedThroughputAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedThroughput"><i class="fa fa-tag"></i> ProvisionedThroughput</label>
+		<input type="text" id="node-input-ProvisionedThroughput" placeholder="ProvisionedThroughput"></input>
+	</div> 
+	<div class="form-row" id='StreamSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-StreamSpecification"><i class="fa fa-tag"></i> StreamSpecification</label>
+		<input type="text" id="node-input-StreamSpecification" placeholder="StreamSpecification"></input>
+	</div> 
+	<div class="form-row" id='SSESpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-SSESpecification"><i class="fa fa-tag"></i> SSESpecification</label>
+		<input type="text" id="node-input-SSESpecification" placeholder="SSESpecification"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='BackupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupArn"><i class="fa fa-tag"></i> BackupArn</label>
+		<input type="text" id="node-input-BackupArn" placeholder="BackupArn"></input>
+	</div> 
+	<div class="form-row" id='KeyAttr' class='hiddenAttrs'>
+		<label for="node-input-Key"><i class="fa fa-tag"></i> Key</label>
+		<input type="text" id="node-input-Key" placeholder="Key"></input>
+	</div> 
+	<div class="form-row" id='ExpectedAttr' class='hiddenAttrs'>
+		<label for="node-input-Expected"><i class="fa fa-tag"></i> Expected</label>
+		<input type="text" id="node-input-Expected" placeholder="Expected"></input>
+	</div> 
+	<div class="form-row" id='ConditionalOperatorAttr' class='hiddenAttrs'>
+		<label for="node-input-ConditionalOperator"><i class="fa fa-tag"></i> ConditionalOperator</label>
+		<input type="text" id="node-input-ConditionalOperator" placeholder="ConditionalOperator"></input>
+	</div> 
+	<div class="form-row" id='ReturnValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-ReturnValues"><i class="fa fa-tag"></i> ReturnValues</label>
+		<input type="text" id="node-input-ReturnValues" placeholder="ReturnValues"></input>
+	</div> 
+	<div class="form-row" id='ConditionExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-ConditionExpression"><i class="fa fa-tag"></i> ConditionExpression</label>
+		<input type="text" id="node-input-ConditionExpression" placeholder="ConditionExpression"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttributeNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpressionAttributeNames"><i class="fa fa-tag"></i> ExpressionAttributeNames</label>
+		<input type="text" id="node-input-ExpressionAttributeNames" placeholder="ExpressionAttributeNames"></input>
+	</div> 
+	<div class="form-row" id='ExpressionAttributeValuesAttr' class='hiddenAttrs'>
+		<label for="node-input-ExpressionAttributeValues"><i class="fa fa-tag"></i> ExpressionAttributeValues</label>
+		<input type="text" id="node-input-ExpressionAttributeValues" placeholder="ExpressionAttributeValues"></input>
+	</div> 
+	<div class="form-row" id='IndexNameAttr' class='hiddenAttrs'>
+		<label for="node-input-IndexName"><i class="fa fa-tag"></i> IndexName</label>
+		<input type="text" id="node-input-IndexName" placeholder="IndexName"></input>
+	</div> 
+	<div class="form-row" id='ExportArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportArn"><i class="fa fa-tag"></i> ExportArn</label>
+		<input type="text" id="node-input-ExportArn" placeholder="ExportArn"></input>
+	</div> 
+	<div class="form-row" id='StatementAttr' class='hiddenAttrs'>
+		<label for="node-input-Statement"><i class="fa fa-tag"></i> Statement</label>
+		<input type="text" id="node-input-Statement" placeholder="Statement"></input>
+	</div> 
+	<div class="form-row" id='ParametersAttr' class='hiddenAttrs'>
+		<label for="node-input-Parameters"><i class="fa fa-tag"></i> Parameters</label>
+		<input type="text" id="node-input-Parameters" placeholder="Parameters"></input>
+	</div> 
+	<div class="form-row" id='ConsistentReadAttr' class='hiddenAttrs'>
+		<label for="node-input-ConsistentRead"><i class="fa fa-tag"></i> ConsistentRead</label>
+		<input type="text" id="node-input-ConsistentRead" placeholder="ConsistentRead"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='TransactStatementsAttr' class='hiddenAttrs'>
+		<label for="node-input-TransactStatements"><i class="fa fa-tag"></i> TransactStatements</label>
+		<input type="text" id="node-input-TransactStatements" placeholder="TransactStatements"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='TableArnAttr' class='hiddenAttrs'>
+		<label for="node-input-TableArn"><i class="fa fa-tag"></i> TableArn</label>
+		<input type="text" id="node-input-TableArn" placeholder="TableArn"></input>
+	</div> 
+	<div class="form-row" id='ExportTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportTime"><i class="fa fa-tag"></i> ExportTime</label>
+		<input type="text" id="node-input-ExportTime" placeholder="ExportTime"></input>
+	</div> 
+	<div class="form-row" id='ClientTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientToken"><i class="fa fa-tag"></i> ClientToken</label>
+		<input type="text" id="node-input-ClientToken" placeholder="ClientToken"></input>
+	</div> 
+	<div class="form-row" id='S3BucketAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Bucket"><i class="fa fa-tag"></i> S3Bucket</label>
+		<input type="text" id="node-input-S3Bucket" placeholder="S3Bucket"></input>
+	</div> 
+	<div class="form-row" id='S3BucketOwnerAttr' class='hiddenAttrs'>
+		<label for="node-input-S3BucketOwner"><i class="fa fa-tag"></i> S3BucketOwner</label>
+		<input type="text" id="node-input-S3BucketOwner" placeholder="S3BucketOwner"></input>
+	</div> 
+	<div class="form-row" id='S3PrefixAttr' class='hiddenAttrs'>
+		<label for="node-input-S3Prefix"><i class="fa fa-tag"></i> S3Prefix</label>
+		<input type="text" id="node-input-S3Prefix" placeholder="S3Prefix"></input>
+	</div> 
+	<div class="form-row" id='S3SseAlgorithmAttr' class='hiddenAttrs'>
+		<label for="node-input-S3SseAlgorithm"><i class="fa fa-tag"></i> S3SseAlgorithm</label>
+		<input type="text" id="node-input-S3SseAlgorithm" placeholder="S3SseAlgorithm"></input>
+	</div> 
+	<div class="form-row" id='S3SseKmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-S3SseKmsKeyId"><i class="fa fa-tag"></i> S3SseKmsKeyId</label>
+		<input type="text" id="node-input-S3SseKmsKeyId" placeholder="S3SseKmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='ExportFormatAttr' class='hiddenAttrs'>
+		<label for="node-input-ExportFormat"><i class="fa fa-tag"></i> ExportFormat</label>
+		<input type="text" id="node-input-ExportFormat" placeholder="ExportFormat"></input>
+	</div> 
+	<div class="form-row" id='AttributesToGetAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributesToGet"><i class="fa fa-tag"></i> AttributesToGet</label>
+		<input type="text" id="node-input-AttributesToGet" placeholder="AttributesToGet"></input>
+	</div> 
+	<div class="form-row" id='ProjectionExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-ProjectionExpression"><i class="fa fa-tag"></i> ProjectionExpression</label>
+		<input type="text" id="node-input-ProjectionExpression" placeholder="ProjectionExpression"></input>
+	</div> 
+	<div class="form-row" id='LimitAttr' class='hiddenAttrs'>
+		<label for="node-input-Limit"><i class="fa fa-tag"></i> Limit</label>
+		<input type="text" id="node-input-Limit" placeholder="Limit"></input>
+	</div> 
+	<div class="form-row" id='TimeRangeLowerBoundAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeRangeLowerBound"><i class="fa fa-tag"></i> TimeRangeLowerBound</label>
+		<input type="text" id="node-input-TimeRangeLowerBound" placeholder="TimeRangeLowerBound"></input>
+	</div> 
+	<div class="form-row" id='TimeRangeUpperBoundAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeRangeUpperBound"><i class="fa fa-tag"></i> TimeRangeUpperBound</label>
+		<input type="text" id="node-input-TimeRangeUpperBound" placeholder="TimeRangeUpperBound"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartBackupArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartBackupArn"><i class="fa fa-tag"></i> ExclusiveStartBackupArn</label>
+		<input type="text" id="node-input-ExclusiveStartBackupArn" placeholder="ExclusiveStartBackupArn"></input>
+	</div> 
+	<div class="form-row" id='BackupTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-BackupType"><i class="fa fa-tag"></i> BackupType</label>
+		<input type="text" id="node-input-BackupType" placeholder="BackupType"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartGlobalTableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartGlobalTableName"><i class="fa fa-tag"></i> ExclusiveStartGlobalTableName</label>
+		<input type="text" id="node-input-ExclusiveStartGlobalTableName" placeholder="ExclusiveStartGlobalTableName"></input>
+	</div> 
+	<div class="form-row" id='RegionNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RegionName"><i class="fa fa-tag"></i> RegionName</label>
+		<input type="text" id="node-input-RegionName" placeholder="RegionName"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartTableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartTableName"><i class="fa fa-tag"></i> ExclusiveStartTableName</label>
+		<input type="text" id="node-input-ExclusiveStartTableName" placeholder="ExclusiveStartTableName"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='ItemAttr' class='hiddenAttrs'>
+		<label for="node-input-Item"><i class="fa fa-tag"></i> Item</label>
+		<input type="text" id="node-input-Item" placeholder="Item"></input>
+	</div> 
+	<div class="form-row" id='SelectAttr' class='hiddenAttrs'>
+		<label for="node-input-Select"><i class="fa fa-tag"></i> Select</label>
+		<input type="text" id="node-input-Select" placeholder="Select"></input>
+	</div> 
+	<div class="form-row" id='KeyConditionsAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyConditions"><i class="fa fa-tag"></i> KeyConditions</label>
+		<input type="text" id="node-input-KeyConditions" placeholder="KeyConditions"></input>
+	</div> 
+	<div class="form-row" id='QueryFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-QueryFilter"><i class="fa fa-tag"></i> QueryFilter</label>
+		<input type="text" id="node-input-QueryFilter" placeholder="QueryFilter"></input>
+	</div> 
+	<div class="form-row" id='ScanIndexForwardAttr' class='hiddenAttrs'>
+		<label for="node-input-ScanIndexForward"><i class="fa fa-tag"></i> ScanIndexForward</label>
+		<input type="text" id="node-input-ScanIndexForward" placeholder="ScanIndexForward"></input>
+	</div> 
+	<div class="form-row" id='ExclusiveStartKeyAttr' class='hiddenAttrs'>
+		<label for="node-input-ExclusiveStartKey"><i class="fa fa-tag"></i> ExclusiveStartKey</label>
+		<input type="text" id="node-input-ExclusiveStartKey" placeholder="ExclusiveStartKey"></input>
+	</div> 
+	<div class="form-row" id='FilterExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-FilterExpression"><i class="fa fa-tag"></i> FilterExpression</label>
+		<input type="text" id="node-input-FilterExpression" placeholder="FilterExpression"></input>
+	</div> 
+	<div class="form-row" id='KeyConditionExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-KeyConditionExpression"><i class="fa fa-tag"></i> KeyConditionExpression</label>
+		<input type="text" id="node-input-KeyConditionExpression" placeholder="KeyConditionExpression"></input>
+	</div> 
+	<div class="form-row" id='TargetTableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetTableName"><i class="fa fa-tag"></i> TargetTableName</label>
+		<input type="text" id="node-input-TargetTableName" placeholder="TargetTableName"></input>
+	</div> 
+	<div class="form-row" id='BillingModeOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-BillingModeOverride"><i class="fa fa-tag"></i> BillingModeOverride</label>
+		<input type="text" id="node-input-BillingModeOverride" placeholder="BillingModeOverride"></input>
+	</div> 
+	<div class="form-row" id='GlobalSecondaryIndexOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalSecondaryIndexOverride"><i class="fa fa-tag"></i> GlobalSecondaryIndexOverride</label>
+		<input type="text" id="node-input-GlobalSecondaryIndexOverride" placeholder="GlobalSecondaryIndexOverride"></input>
+	</div> 
+	<div class="form-row" id='LocalSecondaryIndexOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-LocalSecondaryIndexOverride"><i class="fa fa-tag"></i> LocalSecondaryIndexOverride</label>
+		<input type="text" id="node-input-LocalSecondaryIndexOverride" placeholder="LocalSecondaryIndexOverride"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedThroughputOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedThroughputOverride"><i class="fa fa-tag"></i> ProvisionedThroughputOverride</label>
+		<input type="text" id="node-input-ProvisionedThroughputOverride" placeholder="ProvisionedThroughputOverride"></input>
+	</div> 
+	<div class="form-row" id='SSESpecificationOverrideAttr' class='hiddenAttrs'>
+		<label for="node-input-SSESpecificationOverride"><i class="fa fa-tag"></i> SSESpecificationOverride</label>
+		<input type="text" id="node-input-SSESpecificationOverride" placeholder="SSESpecificationOverride"></input>
+	</div> 
+	<div class="form-row" id='SourceTableArnAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceTableArn"><i class="fa fa-tag"></i> SourceTableArn</label>
+		<input type="text" id="node-input-SourceTableArn" placeholder="SourceTableArn"></input>
+	</div> 
+	<div class="form-row" id='SourceTableNameAttr' class='hiddenAttrs'>
+		<label for="node-input-SourceTableName"><i class="fa fa-tag"></i> SourceTableName</label>
+		<input type="text" id="node-input-SourceTableName" placeholder="SourceTableName"></input>
+	</div> 
+	<div class="form-row" id='UseLatestRestorableTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-UseLatestRestorableTime"><i class="fa fa-tag"></i> UseLatestRestorableTime</label>
+		<input type="text" id="node-input-UseLatestRestorableTime" placeholder="UseLatestRestorableTime"></input>
+	</div> 
+	<div class="form-row" id='RestoreDateTimeAttr' class='hiddenAttrs'>
+		<label for="node-input-RestoreDateTime"><i class="fa fa-tag"></i> RestoreDateTime</label>
+		<input type="text" id="node-input-RestoreDateTime" placeholder="RestoreDateTime"></input>
+	</div> 
+	<div class="form-row" id='ScanFilterAttr' class='hiddenAttrs'>
+		<label for="node-input-ScanFilter"><i class="fa fa-tag"></i> ScanFilter</label>
+		<input type="text" id="node-input-ScanFilter" placeholder="ScanFilter"></input>
+	</div> 
+	<div class="form-row" id='TotalSegmentsAttr' class='hiddenAttrs'>
+		<label for="node-input-TotalSegments"><i class="fa fa-tag"></i> TotalSegments</label>
+		<input type="text" id="node-input-TotalSegments" placeholder="TotalSegments"></input>
+	</div> 
+	<div class="form-row" id='SegmentAttr' class='hiddenAttrs'>
+		<label for="node-input-Segment"><i class="fa fa-tag"></i> Segment</label>
+		<input type="text" id="node-input-Segment" placeholder="Segment"></input>
+	</div> 
+	<div class="form-row" id='TransactItemsAttr' class='hiddenAttrs'>
+		<label for="node-input-TransactItems"><i class="fa fa-tag"></i> TransactItems</label>
+		<input type="text" id="node-input-TransactItems" placeholder="TransactItems"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	<div class="form-row" id='PointInTimeRecoverySpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-PointInTimeRecoverySpecification"><i class="fa fa-tag"></i> PointInTimeRecoverySpecification</label>
+		<input type="text" id="node-input-PointInTimeRecoverySpecification" placeholder="PointInTimeRecoverySpecification"></input>
+	</div> 
+	<div class="form-row" id='ContributorInsightsActionAttr' class='hiddenAttrs'>
+		<label for="node-input-ContributorInsightsAction"><i class="fa fa-tag"></i> ContributorInsightsAction</label>
+		<input type="text" id="node-input-ContributorInsightsAction" placeholder="ContributorInsightsAction"></input>
+	</div> 
+	<div class="form-row" id='ReplicaUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaUpdates"><i class="fa fa-tag"></i> ReplicaUpdates</label>
+		<input type="text" id="node-input-ReplicaUpdates" placeholder="ReplicaUpdates"></input>
+	</div> 
+	<div class="form-row" id='GlobalTableBillingModeAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalTableBillingMode"><i class="fa fa-tag"></i> GlobalTableBillingMode</label>
+		<input type="text" id="node-input-GlobalTableBillingMode" placeholder="GlobalTableBillingMode"></input>
+	</div> 
+	<div class="form-row" id='GlobalTableProvisionedWriteCapacityUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalTableProvisionedWriteCapacityUnits"><i class="fa fa-tag"></i> GlobalTableProvisionedWriteCapacityUnits</label>
+		<input type="text" id="node-input-GlobalTableProvisionedWriteCapacityUnits" placeholder="GlobalTableProvisionedWriteCapacityUnits"></input>
+	</div> 
+	<div class="form-row" id='GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"><i class="fa fa-tag"></i> GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate</label>
+		<input type="text" id="node-input-GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate" placeholder="GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate"></input>
+	</div> 
+	<div class="form-row" id='GlobalTableGlobalSecondaryIndexSettingsUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalTableGlobalSecondaryIndexSettingsUpdate"><i class="fa fa-tag"></i> GlobalTableGlobalSecondaryIndexSettingsUpdate</label>
+		<input type="text" id="node-input-GlobalTableGlobalSecondaryIndexSettingsUpdate" placeholder="GlobalTableGlobalSecondaryIndexSettingsUpdate"></input>
+	</div> 
+	<div class="form-row" id='ReplicaSettingsUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-ReplicaSettingsUpdate"><i class="fa fa-tag"></i> ReplicaSettingsUpdate</label>
+		<input type="text" id="node-input-ReplicaSettingsUpdate" placeholder="ReplicaSettingsUpdate"></input>
+	</div> 
+	<div class="form-row" id='AttributeUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-AttributeUpdates"><i class="fa fa-tag"></i> AttributeUpdates</label>
+		<input type="text" id="node-input-AttributeUpdates" placeholder="AttributeUpdates"></input>
+	</div> 
+	<div class="form-row" id='UpdateExpressionAttr' class='hiddenAttrs'>
+		<label for="node-input-UpdateExpression"><i class="fa fa-tag"></i> UpdateExpression</label>
+		<input type="text" id="node-input-UpdateExpression" placeholder="UpdateExpression"></input>
+	</div> 
+	<div class="form-row" id='GlobalSecondaryIndexUpdatesAttr' class='hiddenAttrs'>
+		<label for="node-input-GlobalSecondaryIndexUpdates"><i class="fa fa-tag"></i> GlobalSecondaryIndexUpdates</label>
+		<input type="text" id="node-input-GlobalSecondaryIndexUpdates" placeholder="GlobalSecondaryIndexUpdates"></input>
+	</div> 
+	<div class="form-row" id='ProvisionedWriteCapacityAutoScalingUpdateAttr' class='hiddenAttrs'>
+		<label for="node-input-ProvisionedWriteCapacityAutoScalingUpdate"><i class="fa fa-tag"></i> ProvisionedWriteCapacityAutoScalingUpdate</label>
+		<input type="text" id="node-input-ProvisionedWriteCapacityAutoScalingUpdate" placeholder="ProvisionedWriteCapacityAutoScalingUpdate"></input>
+	</div> 
+	<div class="form-row" id='TimeToLiveSpecificationAttr' class='hiddenAttrs'>
+		<label for="node-input-TimeToLiveSpecification"><i class="fa fa-tag"></i> TimeToLiveSpecification</label>
+		<input type="text" id="node-input-TimeToLiveSpecification" placeholder="TimeToLiveSpecification"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchExecuteStatement:[
+					'#StatementsAttr'
+					],
+				BatchGetItem:[
+					'#RequestItemsAttr','#ReturnConsumedCapacityAttr'
+					],
+				BatchWriteItem:[
+					'#RequestItemsAttr','#ReturnConsumedCapacityAttr','#ReturnItemCollectionMetricsAttr'
+					],
+				CreateBackup:[
+					'#TableNameAttr','#BackupNameAttr'
+					],
+				CreateGlobalTable:[
+					'#GlobalTableNameAttr','#ReplicationGroupAttr'
+					],
+				CreateTable:[
+					'#AttributeDefinitionsAttr','#TableNameAttr','#KeySchemaAttr','#LocalSecondaryIndexesAttr','#GlobalSecondaryIndexesAttr','#BillingModeAttr','#ProvisionedThroughputAttr','#StreamSpecificationAttr','#SSESpecificationAttr','#TagsAttr'
+					],
+				DeleteBackup:[
+					'#BackupArnAttr'
+					],
+				DeleteItem:[
+					'#TableNameAttr','#KeyAttr','#ExpectedAttr','#ConditionalOperatorAttr','#ReturnValuesAttr','#ReturnConsumedCapacityAttr','#ReturnItemCollectionMetricsAttr','#ConditionExpressionAttr','#ExpressionAttributeNamesAttr','#ExpressionAttributeValuesAttr'
+					],
+				DeleteTable:[
+					'#TableNameAttr'
+					],
+				DescribeBackup:[
+					'#BackupArnAttr'
+					],
+				DescribeContinuousBackups:[
+					'#TableNameAttr'
+					],
+				DescribeContributorInsights:[
+					'#TableNameAttr','#IndexNameAttr'
+					],
+				DescribeEndpoints:[
+					
+					],
+				DescribeExport:[
+					'#ExportArnAttr'
+					],
+				DescribeGlobalTable:[
+					'#GlobalTableNameAttr'
+					],
+				DescribeGlobalTableSettings:[
+					'#GlobalTableNameAttr'
+					],
+				DescribeKinesisStreamingDestination:[
+					'#TableNameAttr'
+					],
+				DescribeLimits:[
+					
+					],
+				DescribeTable:[
+					'#TableNameAttr'
+					],
+				DescribeTableReplicaAutoScaling:[
+					'#TableNameAttr'
+					],
+				DescribeTimeToLive:[
+					'#TableNameAttr'
+					],
+				DisableKinesisStreamingDestination:[
+					
+					],
+				EnableKinesisStreamingDestination:[
+					
+					],
+				ExecuteStatement:[
+					'#StatementAttr','#ParametersAttr','#ConsistentReadAttr','#NextTokenAttr'
+					],
+				ExecuteTransaction:[
+					'#TransactStatementsAttr','#ClientRequestTokenAttr'
+					],
+				ExportTableToPointInTime:[
+					'#TableArnAttr','#ExportTimeAttr','#ClientTokenAttr','#S3BucketAttr','#S3BucketOwnerAttr','#S3PrefixAttr','#S3SseAlgorithmAttr','#S3SseKmsKeyIdAttr','#ExportFormatAttr'
+					],
+				GetItem:[
+					'#TableNameAttr','#KeyAttr','#AttributesToGetAttr','#ConsistentReadAttr','#ReturnConsumedCapacityAttr','#ProjectionExpressionAttr','#ExpressionAttributeNamesAttr'
+					],
+				ListBackups:[
+					'#TableNameAttr','#LimitAttr','#TimeRangeLowerBoundAttr','#TimeRangeUpperBoundAttr','#ExclusiveStartBackupArnAttr','#BackupTypeAttr'
+					],
+				ListContributorInsights:[
+					'#TableNameAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListExports:[
+					'#TableArnAttr','#MaxResultsAttr','#NextTokenAttr'
+					],
+				ListGlobalTables:[
+					'#ExclusiveStartGlobalTableNameAttr','#LimitAttr','#RegionNameAttr'
+					],
+				ListTables:[
+					'#ExclusiveStartTableNameAttr','#LimitAttr'
+					],
+				ListTagsOfResource:[
+					'#ResourceArnAttr','#NextTokenAttr'
+					],
+				PutItem:[
+					'#TableNameAttr','#ItemAttr','#ExpectedAttr','#ReturnValuesAttr','#ReturnConsumedCapacityAttr','#ReturnItemCollectionMetricsAttr','#ConditionalOperatorAttr','#ConditionExpressionAttr','#ExpressionAttributeNamesAttr','#ExpressionAttributeValuesAttr'
+					],
+				Query:[
+					'#TableNameAttr','#IndexNameAttr','#SelectAttr','#AttributesToGetAttr','#LimitAttr','#ConsistentReadAttr','#KeyConditionsAttr','#QueryFilterAttr','#ConditionalOperatorAttr','#ScanIndexForwardAttr','#ExclusiveStartKeyAttr','#ReturnConsumedCapacityAttr','#ProjectionExpressionAttr','#FilterExpressionAttr','#KeyConditionExpressionAttr','#ExpressionAttributeNamesAttr','#ExpressionAttributeValuesAttr'
+					],
+				RestoreTableFromBackup:[
+					'#TargetTableNameAttr','#BackupArnAttr','#BillingModeOverrideAttr','#GlobalSecondaryIndexOverrideAttr','#LocalSecondaryIndexOverrideAttr','#ProvisionedThroughputOverrideAttr','#SSESpecificationOverrideAttr'
+					],
+				RestoreTableToPointInTime:[
+					'#SourceTableArnAttr','#SourceTableNameAttr','#TargetTableNameAttr','#UseLatestRestorableTimeAttr','#RestoreDateTimeAttr','#BillingModeOverrideAttr','#GlobalSecondaryIndexOverrideAttr','#LocalSecondaryIndexOverrideAttr','#ProvisionedThroughputOverrideAttr','#SSESpecificationOverrideAttr'
+					],
+				Scan:[
+					'#TableNameAttr','#IndexNameAttr','#AttributesToGetAttr','#LimitAttr','#SelectAttr','#ScanFilterAttr','#ConditionalOperatorAttr','#ExclusiveStartKeyAttr','#ReturnConsumedCapacityAttr','#TotalSegmentsAttr','#SegmentAttr','#ProjectionExpressionAttr','#FilterExpressionAttr','#ExpressionAttributeNamesAttr','#ExpressionAttributeValuesAttr','#ConsistentReadAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				TransactGetItems:[
+					'#TransactItemsAttr','#ReturnConsumedCapacityAttr'
+					],
+				TransactWriteItems:[
+					'#TransactItemsAttr','#ReturnConsumedCapacityAttr','#ReturnItemCollectionMetricsAttr','#ClientRequestTokenAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateContinuousBackups:[
+					'#TableNameAttr','#PointInTimeRecoverySpecificationAttr'
+					],
+				UpdateContributorInsights:[
+					'#TableNameAttr','#IndexNameAttr','#ContributorInsightsActionAttr'
+					],
+				UpdateGlobalTable:[
+					'#GlobalTableNameAttr','#ReplicaUpdatesAttr'
+					],
+				UpdateGlobalTableSettings:[
+					'#GlobalTableNameAttr','#GlobalTableBillingModeAttr','#GlobalTableProvisionedWriteCapacityUnitsAttr','#GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdateAttr','#GlobalTableGlobalSecondaryIndexSettingsUpdateAttr','#ReplicaSettingsUpdateAttr'
+					],
+				UpdateItem:[
+					'#TableNameAttr','#KeyAttr','#AttributeUpdatesAttr','#ExpectedAttr','#ConditionalOperatorAttr','#ReturnValuesAttr','#ReturnConsumedCapacityAttr','#ReturnItemCollectionMetricsAttr','#UpdateExpressionAttr','#ConditionExpressionAttr','#ExpressionAttributeNamesAttr','#ExpressionAttributeValuesAttr'
+					],
+				UpdateTable:[
+					'#AttributeDefinitionsAttr','#TableNameAttr','#BillingModeAttr','#ProvisionedThroughputAttr','#GlobalSecondaryIndexUpdatesAttr','#StreamSpecificationAttr','#SSESpecificationAttr','#ReplicaUpdatesAttr'
+					],
+				UpdateTableReplicaAutoScaling:[
+					'#GlobalSecondaryIndexUpdatesAttr','#TableNameAttr','#ProvisionedWriteCapacityAutoScalingUpdateAttr','#ReplicaUpdatesAttr'
+					],
+				UpdateTimeToLive:[
+					'#TableNameAttr','#TimeToLiveSpecificationAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS DynamoDB">
+<p>
+AWS DynamoDB
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/DynamoDB.html">DynamoDB</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS DynamoDB',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchExecuteStatement' },
+			
+				Statements: { value: ""} ,
+				RequestItems: { value: ""} ,
+				ReturnConsumedCapacity: { value: ""} ,
+				ReturnItemCollectionMetrics: { value: ""} ,
+				TableName: { value: ""} ,
+				BackupName: { value: ""} ,
+				GlobalTableName: { value: ""} ,
+				ReplicationGroup: { value: ""} ,
+				AttributeDefinitions: { value: ""} ,
+				KeySchema: { value: ""} ,
+				LocalSecondaryIndexes: { value: ""} ,
+				GlobalSecondaryIndexes: { value: ""} ,
+				BillingMode: { value: ""} ,
+				ProvisionedThroughput: { value: ""} ,
+				StreamSpecification: { value: ""} ,
+				SSESpecification: { value: ""} ,
+				Tags: { value: ""} ,
+				BackupArn: { value: ""} ,
+				Key: { value: ""} ,
+				Expected: { value: ""} ,
+				ConditionalOperator: { value: ""} ,
+				ReturnValues: { value: ""} ,
+				ConditionExpression: { value: ""} ,
+				ExpressionAttributeNames: { value: ""} ,
+				ExpressionAttributeValues: { value: ""} ,
+				IndexName: { value: ""} ,
+				ExportArn: { value: ""} ,
+				Statement: { value: ""} ,
+				Parameters: { value: ""} ,
+				ConsistentRead: { value: ""} ,
+				NextToken: { value: ""} ,
+				TransactStatements: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				TableArn: { value: ""} ,
+				ExportTime: { value: ""} ,
+				ClientToken: { value: ""} ,
+				S3Bucket: { value: ""} ,
+				S3BucketOwner: { value: ""} ,
+				S3Prefix: { value: ""} ,
+				S3SseAlgorithm: { value: ""} ,
+				S3SseKmsKeyId: { value: ""} ,
+				ExportFormat: { value: ""} ,
+				AttributesToGet: { value: ""} ,
+				ProjectionExpression: { value: ""} ,
+				Limit: { value: ""} ,
+				TimeRangeLowerBound: { value: ""} ,
+				TimeRangeUpperBound: { value: ""} ,
+				ExclusiveStartBackupArn: { value: ""} ,
+				BackupType: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ExclusiveStartGlobalTableName: { value: ""} ,
+				RegionName: { value: ""} ,
+				ExclusiveStartTableName: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				Item: { value: ""} ,
+				Select: { value: ""} ,
+				KeyConditions: { value: ""} ,
+				QueryFilter: { value: ""} ,
+				ScanIndexForward: { value: ""} ,
+				ExclusiveStartKey: { value: ""} ,
+				FilterExpression: { value: ""} ,
+				KeyConditionExpression: { value: ""} ,
+				TargetTableName: { value: ""} ,
+				BillingModeOverride: { value: ""} ,
+				GlobalSecondaryIndexOverride: { value: ""} ,
+				LocalSecondaryIndexOverride: { value: ""} ,
+				ProvisionedThroughputOverride: { value: ""} ,
+				SSESpecificationOverride: { value: ""} ,
+				SourceTableArn: { value: ""} ,
+				SourceTableName: { value: ""} ,
+				UseLatestRestorableTime: { value: ""} ,
+				RestoreDateTime: { value: ""} ,
+				ScanFilter: { value: ""} ,
+				TotalSegments: { value: ""} ,
+				Segment: { value: ""} ,
+				TransactItems: { value: ""} ,
+				TagKeys: { value: ""} ,
+				PointInTimeRecoverySpecification: { value: ""} ,
+				ContributorInsightsAction: { value: ""} ,
+				ReplicaUpdates: { value: ""} ,
+				GlobalTableBillingMode: { value: ""} ,
+				GlobalTableProvisionedWriteCapacityUnits: { value: ""} ,
+				GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate: { value: ""} ,
+				GlobalTableGlobalSecondaryIndexSettingsUpdate: { value: ""} ,
+				ReplicaSettingsUpdate: { value: ""} ,
+				AttributeUpdates: { value: ""} ,
+				UpdateExpression: { value: ""} ,
+				GlobalSecondaryIndexUpdates: { value: ""} ,
+				ProvisionedWriteCapacityAutoScalingUpdate: { value: ""} ,
+				TimeToLiveSpecification: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "DynamoDB " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			
+$("#node-input-RequestItems").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnConsumedCapacity").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnItemCollectionMetrics").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalTableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReplicationGroup").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributeDefinitions").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeySchema").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LocalSecondaryIndexes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalSecondaryIndexes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BillingMode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionedThroughput").typedInput({ default: "str", types: ["str"]});
+$("#node-input-StreamSpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSESpecification").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Key").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Expected").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConditionalOperator").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ReturnValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConditionExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExpressionAttributeNames").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExpressionAttributeValues").typedInput({ default: "str", types: ["str"]});
+$("#node-input-IndexName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExportArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Statement").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Parameters").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ConsistentRead").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TableArn").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ClientToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3Bucket").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3BucketOwner").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3Prefix").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3SseAlgorithm").typedInput({ default: "str", types: ["str"]});
+$("#node-input-S3SseKmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExportFormat").typedInput({ default: "str", types: ["str"]});
+$("#node-input-AttributesToGet").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProjectionExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Limit").typedInput({ default: "num", types: ["num"]});
+
+
+$("#node-input-ExclusiveStartBackupArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BackupType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ExclusiveStartGlobalTableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RegionName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ExclusiveStartTableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Item").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Select").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-QueryFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ScanIndexForward").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-ExclusiveStartKey").typedInput({ default: "str", types: ["str"]});
+$("#node-input-FilterExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-KeyConditionExpression").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetTableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-BillingModeOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-GlobalSecondaryIndexOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LocalSecondaryIndexOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ProvisionedThroughputOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SSESpecificationOverride").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceTableArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-SourceTableName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-UseLatestRestorableTime").typedInput({ default: "bool", types: ["bool"]});
+
+$("#node-input-ScanFilter").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TotalSegments").typedInput({ default: "num", types: ["num"]});
+$("#node-input-Segment").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-ContributorInsightsAction").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-GlobalTableBillingMode").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-GlobalTableProvisionedWriteCapacityAutoScalingSettingsUpdate").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-UpdateExpression").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-ProvisionedWriteCapacityAutoScalingUpdate").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TimeToLiveSpecification").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+

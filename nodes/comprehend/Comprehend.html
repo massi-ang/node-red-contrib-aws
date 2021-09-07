@@ -1,0 +1,578 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Comprehend">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchDetectDominantLanguage">BatchDetectDominantLanguage</option>
+		
+			<option value="BatchDetectEntities">BatchDetectEntities</option>
+		
+			<option value="BatchDetectKeyPhrases">BatchDetectKeyPhrases</option>
+		
+			<option value="BatchDetectSentiment">BatchDetectSentiment</option>
+		
+			<option value="BatchDetectSyntax">BatchDetectSyntax</option>
+		
+			<option value="ClassifyDocument">ClassifyDocument</option>
+		
+			<option value="ContainsPiiEntities">ContainsPiiEntities</option>
+		
+			<option value="CreateDocumentClassifier">CreateDocumentClassifier</option>
+		
+			<option value="CreateEndpoint">CreateEndpoint</option>
+		
+			<option value="CreateEntityRecognizer">CreateEntityRecognizer</option>
+		
+			<option value="DeleteDocumentClassifier">DeleteDocumentClassifier</option>
+		
+			<option value="DeleteEndpoint">DeleteEndpoint</option>
+		
+			<option value="DeleteEntityRecognizer">DeleteEntityRecognizer</option>
+		
+			<option value="DescribeDocumentClassificationJob">DescribeDocumentClassificationJob</option>
+		
+			<option value="DescribeDocumentClassifier">DescribeDocumentClassifier</option>
+		
+			<option value="DescribeDominantLanguageDetectionJob">DescribeDominantLanguageDetectionJob</option>
+		
+			<option value="DescribeEndpoint">DescribeEndpoint</option>
+		
+			<option value="DescribeEntitiesDetectionJob">DescribeEntitiesDetectionJob</option>
+		
+			<option value="DescribeEntityRecognizer">DescribeEntityRecognizer</option>
+		
+			<option value="DescribeEventsDetectionJob">DescribeEventsDetectionJob</option>
+		
+			<option value="DescribeKeyPhrasesDetectionJob">DescribeKeyPhrasesDetectionJob</option>
+		
+			<option value="DescribePiiEntitiesDetectionJob">DescribePiiEntitiesDetectionJob</option>
+		
+			<option value="DescribeSentimentDetectionJob">DescribeSentimentDetectionJob</option>
+		
+			<option value="DescribeTopicsDetectionJob">DescribeTopicsDetectionJob</option>
+		
+			<option value="DetectDominantLanguage">DetectDominantLanguage</option>
+		
+			<option value="DetectEntities">DetectEntities</option>
+		
+			<option value="DetectKeyPhrases">DetectKeyPhrases</option>
+		
+			<option value="DetectPiiEntities">DetectPiiEntities</option>
+		
+			<option value="DetectSentiment">DetectSentiment</option>
+		
+			<option value="DetectSyntax">DetectSyntax</option>
+		
+			<option value="ListDocumentClassificationJobs">ListDocumentClassificationJobs</option>
+		
+			<option value="ListDocumentClassifiers">ListDocumentClassifiers</option>
+		
+			<option value="ListDominantLanguageDetectionJobs">ListDominantLanguageDetectionJobs</option>
+		
+			<option value="ListEndpoints">ListEndpoints</option>
+		
+			<option value="ListEntitiesDetectionJobs">ListEntitiesDetectionJobs</option>
+		
+			<option value="ListEntityRecognizers">ListEntityRecognizers</option>
+		
+			<option value="ListEventsDetectionJobs">ListEventsDetectionJobs</option>
+		
+			<option value="ListKeyPhrasesDetectionJobs">ListKeyPhrasesDetectionJobs</option>
+		
+			<option value="ListPiiEntitiesDetectionJobs">ListPiiEntitiesDetectionJobs</option>
+		
+			<option value="ListSentimentDetectionJobs">ListSentimentDetectionJobs</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="ListTopicsDetectionJobs">ListTopicsDetectionJobs</option>
+		
+			<option value="StartDocumentClassificationJob">StartDocumentClassificationJob</option>
+		
+			<option value="StartDominantLanguageDetectionJob">StartDominantLanguageDetectionJob</option>
+		
+			<option value="StartEntitiesDetectionJob">StartEntitiesDetectionJob</option>
+		
+			<option value="StartEventsDetectionJob">StartEventsDetectionJob</option>
+		
+			<option value="StartKeyPhrasesDetectionJob">StartKeyPhrasesDetectionJob</option>
+		
+			<option value="StartPiiEntitiesDetectionJob">StartPiiEntitiesDetectionJob</option>
+		
+			<option value="StartSentimentDetectionJob">StartSentimentDetectionJob</option>
+		
+			<option value="StartTopicsDetectionJob">StartTopicsDetectionJob</option>
+		
+			<option value="StopDominantLanguageDetectionJob">StopDominantLanguageDetectionJob</option>
+		
+			<option value="StopEntitiesDetectionJob">StopEntitiesDetectionJob</option>
+		
+			<option value="StopEventsDetectionJob">StopEventsDetectionJob</option>
+		
+			<option value="StopKeyPhrasesDetectionJob">StopKeyPhrasesDetectionJob</option>
+		
+			<option value="StopPiiEntitiesDetectionJob">StopPiiEntitiesDetectionJob</option>
+		
+			<option value="StopSentimentDetectionJob">StopSentimentDetectionJob</option>
+		
+			<option value="StopTrainingDocumentClassifier">StopTrainingDocumentClassifier</option>
+		
+			<option value="StopTrainingEntityRecognizer">StopTrainingEntityRecognizer</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UpdateEndpoint">UpdateEndpoint</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='TextListAttr' class='hiddenAttrs'>
+		<label for="node-input-TextList"><i class="fa fa-tag"></i> TextList</label>
+		<input type="text" id="node-input-TextList" placeholder="TextList"></input>
+	</div> 
+	<div class="form-row" id='LanguageCodeAttr' class='hiddenAttrs'>
+		<label for="node-input-LanguageCode"><i class="fa fa-tag"></i> LanguageCode</label>
+		<input type="text" id="node-input-LanguageCode" placeholder="LanguageCode"></input>
+	</div> 
+	<div class="form-row" id='TextAttr' class='hiddenAttrs'>
+		<label for="node-input-Text"><i class="fa fa-tag"></i> Text</label>
+		<input type="text" id="node-input-Text" placeholder="Text"></input>
+	</div> 
+	<div class="form-row" id='EndpointArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointArn"><i class="fa fa-tag"></i> EndpointArn</label>
+		<input type="text" id="node-input-EndpointArn" placeholder="EndpointArn"></input>
+	</div> 
+	<div class="form-row" id='DocumentClassifierNameAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentClassifierName"><i class="fa fa-tag"></i> DocumentClassifierName</label>
+		<input type="text" id="node-input-DocumentClassifierName" placeholder="DocumentClassifierName"></input>
+	</div> 
+	<div class="form-row" id='DataAccessRoleArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DataAccessRoleArn"><i class="fa fa-tag"></i> DataAccessRoleArn</label>
+		<input type="text" id="node-input-DataAccessRoleArn" placeholder="DataAccessRoleArn"></input>
+	</div> 
+	<div class="form-row" id='TagsAttr' class='hiddenAttrs'>
+		<label for="node-input-Tags"><i class="fa fa-tag"></i> Tags</label>
+		<input type="text" id="node-input-Tags" placeholder="Tags"></input>
+	</div> 
+	<div class="form-row" id='InputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-InputDataConfig"><i class="fa fa-tag"></i> InputDataConfig</label>
+		<input type="text" id="node-input-InputDataConfig" placeholder="InputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='OutputDataConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-OutputDataConfig"><i class="fa fa-tag"></i> OutputDataConfig</label>
+		<input type="text" id="node-input-OutputDataConfig" placeholder="OutputDataConfig"></input>
+	</div> 
+	<div class="form-row" id='ClientRequestTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-ClientRequestToken"><i class="fa fa-tag"></i> ClientRequestToken</label>
+		<input type="text" id="node-input-ClientRequestToken" placeholder="ClientRequestToken"></input>
+	</div> 
+	<div class="form-row" id='VolumeKmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-VolumeKmsKeyId"><i class="fa fa-tag"></i> VolumeKmsKeyId</label>
+		<input type="text" id="node-input-VolumeKmsKeyId" placeholder="VolumeKmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='VpcConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-VpcConfig"><i class="fa fa-tag"></i> VpcConfig</label>
+		<input type="text" id="node-input-VpcConfig" placeholder="VpcConfig"></input>
+	</div> 
+	<div class="form-row" id='ModeAttr' class='hiddenAttrs'>
+		<label for="node-input-Mode"><i class="fa fa-tag"></i> Mode</label>
+		<input type="text" id="node-input-Mode" placeholder="Mode"></input>
+	</div> 
+	<div class="form-row" id='ModelKmsKeyIdAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelKmsKeyId"><i class="fa fa-tag"></i> ModelKmsKeyId</label>
+		<input type="text" id="node-input-ModelKmsKeyId" placeholder="ModelKmsKeyId"></input>
+	</div> 
+	<div class="form-row" id='EndpointNameAttr' class='hiddenAttrs'>
+		<label for="node-input-EndpointName"><i class="fa fa-tag"></i> EndpointName</label>
+		<input type="text" id="node-input-EndpointName" placeholder="EndpointName"></input>
+	</div> 
+	<div class="form-row" id='ModelArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ModelArn"><i class="fa fa-tag"></i> ModelArn</label>
+		<input type="text" id="node-input-ModelArn" placeholder="ModelArn"></input>
+	</div> 
+	<div class="form-row" id='DesiredInferenceUnitsAttr' class='hiddenAttrs'>
+		<label for="node-input-DesiredInferenceUnits"><i class="fa fa-tag"></i> DesiredInferenceUnits</label>
+		<input type="text" id="node-input-DesiredInferenceUnits" placeholder="DesiredInferenceUnits"></input>
+	</div> 
+	<div class="form-row" id='RecognizerNameAttr' class='hiddenAttrs'>
+		<label for="node-input-RecognizerName"><i class="fa fa-tag"></i> RecognizerName</label>
+		<input type="text" id="node-input-RecognizerName" placeholder="RecognizerName"></input>
+	</div> 
+	<div class="form-row" id='DocumentClassifierArnAttr' class='hiddenAttrs'>
+		<label for="node-input-DocumentClassifierArn"><i class="fa fa-tag"></i> DocumentClassifierArn</label>
+		<input type="text" id="node-input-DocumentClassifierArn" placeholder="DocumentClassifierArn"></input>
+	</div> 
+	<div class="form-row" id='EntityRecognizerArnAttr' class='hiddenAttrs'>
+		<label for="node-input-EntityRecognizerArn"><i class="fa fa-tag"></i> EntityRecognizerArn</label>
+		<input type="text" id="node-input-EntityRecognizerArn" placeholder="EntityRecognizerArn"></input>
+	</div> 
+	<div class="form-row" id='JobIdAttr' class='hiddenAttrs'>
+		<label for="node-input-JobId"><i class="fa fa-tag"></i> JobId</label>
+		<input type="text" id="node-input-JobId" placeholder="JobId"></input>
+	</div> 
+	<div class="form-row" id='FilterAttr' class='hiddenAttrs'>
+		<label for="node-input-Filter"><i class="fa fa-tag"></i> Filter</label>
+		<input type="text" id="node-input-Filter" placeholder="Filter"></input>
+	</div> 
+	<div class="form-row" id='NextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-NextToken"><i class="fa fa-tag"></i> NextToken</label>
+		<input type="text" id="node-input-NextToken" placeholder="NextToken"></input>
+	</div> 
+	<div class="form-row" id='MaxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-MaxResults"><i class="fa fa-tag"></i> MaxResults</label>
+		<input type="text" id="node-input-MaxResults" placeholder="MaxResults"></input>
+	</div> 
+	<div class="form-row" id='ResourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-ResourceArn"><i class="fa fa-tag"></i> ResourceArn</label>
+		<input type="text" id="node-input-ResourceArn" placeholder="ResourceArn"></input>
+	</div> 
+	<div class="form-row" id='JobNameAttr' class='hiddenAttrs'>
+		<label for="node-input-JobName"><i class="fa fa-tag"></i> JobName</label>
+		<input type="text" id="node-input-JobName" placeholder="JobName"></input>
+	</div> 
+	<div class="form-row" id='TargetEventTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-TargetEventTypes"><i class="fa fa-tag"></i> TargetEventTypes</label>
+		<input type="text" id="node-input-TargetEventTypes" placeholder="TargetEventTypes"></input>
+	</div> 
+	<div class="form-row" id='RedactionConfigAttr' class='hiddenAttrs'>
+		<label for="node-input-RedactionConfig"><i class="fa fa-tag"></i> RedactionConfig</label>
+		<input type="text" id="node-input-RedactionConfig" placeholder="RedactionConfig"></input>
+	</div> 
+	<div class="form-row" id='NumberOfTopicsAttr' class='hiddenAttrs'>
+		<label for="node-input-NumberOfTopics"><i class="fa fa-tag"></i> NumberOfTopics</label>
+		<input type="text" id="node-input-NumberOfTopics" placeholder="NumberOfTopics"></input>
+	</div> 
+	<div class="form-row" id='TagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-TagKeys"><i class="fa fa-tag"></i> TagKeys</label>
+		<input type="text" id="node-input-TagKeys" placeholder="TagKeys"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchDetectDominantLanguage:[
+					'#TextListAttr'
+					],
+				BatchDetectEntities:[
+					'#TextListAttr','#LanguageCodeAttr'
+					],
+				BatchDetectKeyPhrases:[
+					'#TextListAttr','#LanguageCodeAttr'
+					],
+				BatchDetectSentiment:[
+					'#TextListAttr','#LanguageCodeAttr'
+					],
+				BatchDetectSyntax:[
+					'#TextListAttr','#LanguageCodeAttr'
+					],
+				ClassifyDocument:[
+					'#TextAttr','#EndpointArnAttr'
+					],
+				ContainsPiiEntities:[
+					'#TextAttr','#LanguageCodeAttr'
+					],
+				CreateDocumentClassifier:[
+					'#DocumentClassifierNameAttr','#DataAccessRoleArnAttr','#TagsAttr','#InputDataConfigAttr','#OutputDataConfigAttr','#ClientRequestTokenAttr','#LanguageCodeAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#ModeAttr','#ModelKmsKeyIdAttr'
+					],
+				CreateEndpoint:[
+					'#EndpointNameAttr','#ModelArnAttr','#DesiredInferenceUnitsAttr','#ClientRequestTokenAttr','#TagsAttr','#DataAccessRoleArnAttr'
+					],
+				CreateEntityRecognizer:[
+					'#RecognizerNameAttr','#DataAccessRoleArnAttr','#TagsAttr','#InputDataConfigAttr','#ClientRequestTokenAttr','#LanguageCodeAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#ModelKmsKeyIdAttr'
+					],
+				DeleteDocumentClassifier:[
+					'#DocumentClassifierArnAttr'
+					],
+				DeleteEndpoint:[
+					'#EndpointArnAttr'
+					],
+				DeleteEntityRecognizer:[
+					'#EntityRecognizerArnAttr'
+					],
+				DescribeDocumentClassificationJob:[
+					'#JobIdAttr'
+					],
+				DescribeDocumentClassifier:[
+					'#DocumentClassifierArnAttr'
+					],
+				DescribeDominantLanguageDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeEndpoint:[
+					'#EndpointArnAttr'
+					],
+				DescribeEntitiesDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeEntityRecognizer:[
+					'#EntityRecognizerArnAttr'
+					],
+				DescribeEventsDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeKeyPhrasesDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribePiiEntitiesDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeSentimentDetectionJob:[
+					'#JobIdAttr'
+					],
+				DescribeTopicsDetectionJob:[
+					'#JobIdAttr'
+					],
+				DetectDominantLanguage:[
+					'#TextAttr'
+					],
+				DetectEntities:[
+					'#TextAttr','#LanguageCodeAttr','#EndpointArnAttr'
+					],
+				DetectKeyPhrases:[
+					'#TextAttr','#LanguageCodeAttr'
+					],
+				DetectPiiEntities:[
+					'#TextAttr','#LanguageCodeAttr'
+					],
+				DetectSentiment:[
+					'#TextAttr','#LanguageCodeAttr'
+					],
+				DetectSyntax:[
+					'#TextAttr','#LanguageCodeAttr'
+					],
+				ListDocumentClassificationJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDocumentClassifiers:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListDominantLanguageDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListEndpoints:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListEntitiesDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListEntityRecognizers:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListEventsDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListKeyPhrasesDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListPiiEntitiesDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListSentimentDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				ListTagsForResource:[
+					'#ResourceArnAttr'
+					],
+				ListTopicsDetectionJobs:[
+					'#FilterAttr','#NextTokenAttr','#MaxResultsAttr'
+					],
+				StartDocumentClassificationJob:[
+					'#JobNameAttr','#DocumentClassifierArnAttr','#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StartDominantLanguageDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StartEntitiesDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#EntityRecognizerArnAttr','#LanguageCodeAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StartEventsDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#LanguageCodeAttr','#ClientRequestTokenAttr','#TargetEventTypesAttr','#TagsAttr'
+					],
+				StartKeyPhrasesDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#LanguageCodeAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StartPiiEntitiesDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#ModeAttr','#RedactionConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#LanguageCodeAttr','#ClientRequestTokenAttr','#TagsAttr'
+					],
+				StartSentimentDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#LanguageCodeAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StartTopicsDetectionJob:[
+					'#InputDataConfigAttr','#OutputDataConfigAttr','#DataAccessRoleArnAttr','#JobNameAttr','#NumberOfTopicsAttr','#ClientRequestTokenAttr','#VolumeKmsKeyIdAttr','#VpcConfigAttr','#TagsAttr'
+					],
+				StopDominantLanguageDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopEntitiesDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopEventsDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopKeyPhrasesDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopPiiEntitiesDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopSentimentDetectionJob:[
+					'#JobIdAttr'
+					],
+				StopTrainingDocumentClassifier:[
+					'#DocumentClassifierArnAttr'
+					],
+				StopTrainingEntityRecognizer:[
+					'#EntityRecognizerArnAttr'
+					],
+				TagResource:[
+					'#ResourceArnAttr','#TagsAttr'
+					],
+				UntagResource:[
+					'#ResourceArnAttr','#TagKeysAttr'
+					],
+				UpdateEndpoint:[
+					'#EndpointArnAttr','#DesiredInferenceUnitsAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Comprehend">
+<p>
+AWS Comprehend
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Comprehend.html">Comprehend</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Comprehend',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchDetectDominantLanguage' },
+			
+				TextList: { value: ""} ,
+				LanguageCode: { value: ""} ,
+				Text: { value: ""} ,
+				EndpointArn: { value: ""} ,
+				DocumentClassifierName: { value: ""} ,
+				DataAccessRoleArn: { value: ""} ,
+				Tags: { value: ""} ,
+				InputDataConfig: { value: ""} ,
+				OutputDataConfig: { value: ""} ,
+				ClientRequestToken: { value: ""} ,
+				VolumeKmsKeyId: { value: ""} ,
+				VpcConfig: { value: ""} ,
+				Mode: { value: ""} ,
+				ModelKmsKeyId: { value: ""} ,
+				EndpointName: { value: ""} ,
+				ModelArn: { value: ""} ,
+				DesiredInferenceUnits: { value: ""} ,
+				RecognizerName: { value: ""} ,
+				DocumentClassifierArn: { value: ""} ,
+				EntityRecognizerArn: { value: ""} ,
+				JobId: { value: ""} ,
+				Filter: { value: ""} ,
+				NextToken: { value: ""} ,
+				MaxResults: { value: ""} ,
+				ResourceArn: { value: ""} ,
+				JobName: { value: ""} ,
+				TargetEventTypes: { value: ""} ,
+				RedactionConfig: { value: ""} ,
+				NumberOfTopics: { value: ""} ,
+				TagKeys: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Comprehend " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-TextList").typedInput({ default: "str", types: ["str"]});
+$("#node-input-LanguageCode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Text").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentClassifierName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DataAccessRoleArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-InputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-OutputDataConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ClientRequestToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VolumeKmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-VpcConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-Mode").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelKmsKeyId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EndpointName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-ModelArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DesiredInferenceUnits").typedInput({ default: "num", types: ["num"]});
+$("#node-input-RecognizerName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-DocumentClassifierArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-EntityRecognizerArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobId").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-NextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-MaxResults").typedInput({ default: "num", types: ["num"]});
+$("#node-input-ResourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-JobName").typedInput({ default: "str", types: ["str"]});
+$("#node-input-TargetEventTypes").typedInput({ default: "str", types: ["str"]});
+$("#node-input-RedactionConfig").typedInput({ default: "str", types: ["str"]});
+$("#node-input-NumberOfTopics").typedInput({ default: "num", types: ["num"]});
+
+		}
+	});
+</script>
+

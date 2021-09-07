@@ -1,0 +1,443 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS ECR">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="BatchCheckLayerAvailability">BatchCheckLayerAvailability</option>
+		
+			<option value="BatchDeleteImage">BatchDeleteImage</option>
+		
+			<option value="BatchGetImage">BatchGetImage</option>
+		
+			<option value="CompleteLayerUpload">CompleteLayerUpload</option>
+		
+			<option value="CreateRepository">CreateRepository</option>
+		
+			<option value="DeleteLifecyclePolicy">DeleteLifecyclePolicy</option>
+		
+			<option value="DeleteRegistryPolicy">DeleteRegistryPolicy</option>
+		
+			<option value="DeleteRepository">DeleteRepository</option>
+		
+			<option value="DeleteRepositoryPolicy">DeleteRepositoryPolicy</option>
+		
+			<option value="DescribeImageScanFindings">DescribeImageScanFindings</option>
+		
+			<option value="DescribeImages">DescribeImages</option>
+		
+			<option value="DescribeRegistry">DescribeRegistry</option>
+		
+			<option value="DescribeRepositories">DescribeRepositories</option>
+		
+			<option value="GetAuthorizationToken">GetAuthorizationToken</option>
+		
+			<option value="GetDownloadUrlForLayer">GetDownloadUrlForLayer</option>
+		
+			<option value="GetLifecyclePolicy">GetLifecyclePolicy</option>
+		
+			<option value="GetLifecyclePolicyPreview">GetLifecyclePolicyPreview</option>
+		
+			<option value="GetRegistryPolicy">GetRegistryPolicy</option>
+		
+			<option value="GetRepositoryPolicy">GetRepositoryPolicy</option>
+		
+			<option value="InitiateLayerUpload">InitiateLayerUpload</option>
+		
+			<option value="ListImages">ListImages</option>
+		
+			<option value="ListTagsForResource">ListTagsForResource</option>
+		
+			<option value="PutImage">PutImage</option>
+		
+			<option value="PutImageScanningConfiguration">PutImageScanningConfiguration</option>
+		
+			<option value="PutImageTagMutability">PutImageTagMutability</option>
+		
+			<option value="PutLifecyclePolicy">PutLifecyclePolicy</option>
+		
+			<option value="PutRegistryPolicy">PutRegistryPolicy</option>
+		
+			<option value="PutReplicationConfiguration">PutReplicationConfiguration</option>
+		
+			<option value="SetRepositoryPolicy">SetRepositoryPolicy</option>
+		
+			<option value="StartImageScan">StartImageScan</option>
+		
+			<option value="StartLifecyclePolicyPreview">StartLifecyclePolicyPreview</option>
+		
+			<option value="TagResource">TagResource</option>
+		
+			<option value="UntagResource">UntagResource</option>
+		
+			<option value="UploadLayerPart">UploadLayerPart</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='registryIdAttr' class='hiddenAttrs'>
+		<label for="node-input-registryId"><i class="fa fa-tag"></i> registryId</label>
+		<input type="text" id="node-input-registryId" placeholder="registryId"></input>
+	</div> 
+	<div class="form-row" id='repositoryNameAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryName"><i class="fa fa-tag"></i> repositoryName</label>
+		<input type="text" id="node-input-repositoryName" placeholder="repositoryName"></input>
+	</div> 
+	<div class="form-row" id='layerDigestsAttr' class='hiddenAttrs'>
+		<label for="node-input-layerDigests"><i class="fa fa-tag"></i> layerDigests</label>
+		<input type="text" id="node-input-layerDigests" placeholder="layerDigests"></input>
+	</div> 
+	<div class="form-row" id='imageIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-imageIds"><i class="fa fa-tag"></i> imageIds</label>
+		<input type="text" id="node-input-imageIds" placeholder="imageIds"></input>
+	</div> 
+	<div class="form-row" id='acceptedMediaTypesAttr' class='hiddenAttrs'>
+		<label for="node-input-acceptedMediaTypes"><i class="fa fa-tag"></i> acceptedMediaTypes</label>
+		<input type="text" id="node-input-acceptedMediaTypes" placeholder="acceptedMediaTypes"></input>
+	</div> 
+	<div class="form-row" id='uploadIdAttr' class='hiddenAttrs'>
+		<label for="node-input-uploadId"><i class="fa fa-tag"></i> uploadId</label>
+		<input type="text" id="node-input-uploadId" placeholder="uploadId"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='imageTagMutabilityAttr' class='hiddenAttrs'>
+		<label for="node-input-imageTagMutability"><i class="fa fa-tag"></i> imageTagMutability</label>
+		<input type="text" id="node-input-imageTagMutability" placeholder="imageTagMutability"></input>
+	</div> 
+	<div class="form-row" id='imageScanningConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-imageScanningConfiguration"><i class="fa fa-tag"></i> imageScanningConfiguration</label>
+		<input type="text" id="node-input-imageScanningConfiguration" placeholder="imageScanningConfiguration"></input>
+	</div> 
+	<div class="form-row" id='encryptionConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-encryptionConfiguration"><i class="fa fa-tag"></i> encryptionConfiguration</label>
+		<input type="text" id="node-input-encryptionConfiguration" placeholder="encryptionConfiguration"></input>
+	</div> 
+	<div class="form-row" id='forceAttr' class='hiddenAttrs'>
+		<label for="node-input-force"><i class="fa fa-tag"></i> force</label>
+		<input type="text" id="node-input-force" placeholder="force"></input>
+	</div> 
+	<div class="form-row" id='imageIdAttr' class='hiddenAttrs'>
+		<label for="node-input-imageId"><i class="fa fa-tag"></i> imageId</label>
+		<input type="text" id="node-input-imageId" placeholder="imageId"></input>
+	</div> 
+	<div class="form-row" id='nextTokenAttr' class='hiddenAttrs'>
+		<label for="node-input-nextToken"><i class="fa fa-tag"></i> nextToken</label>
+		<input type="text" id="node-input-nextToken" placeholder="nextToken"></input>
+	</div> 
+	<div class="form-row" id='maxResultsAttr' class='hiddenAttrs'>
+		<label for="node-input-maxResults"><i class="fa fa-tag"></i> maxResults</label>
+		<input type="text" id="node-input-maxResults" placeholder="maxResults"></input>
+	</div> 
+	<div class="form-row" id='filterAttr' class='hiddenAttrs'>
+		<label for="node-input-filter"><i class="fa fa-tag"></i> filter</label>
+		<input type="text" id="node-input-filter" placeholder="filter"></input>
+	</div> 
+	<div class="form-row" id='repositoryNamesAttr' class='hiddenAttrs'>
+		<label for="node-input-repositoryNames"><i class="fa fa-tag"></i> repositoryNames</label>
+		<input type="text" id="node-input-repositoryNames" placeholder="repositoryNames"></input>
+	</div> 
+	<div class="form-row" id='registryIdsAttr' class='hiddenAttrs'>
+		<label for="node-input-registryIds"><i class="fa fa-tag"></i> registryIds</label>
+		<input type="text" id="node-input-registryIds" placeholder="registryIds"></input>
+	</div> 
+	<div class="form-row" id='layerDigestAttr' class='hiddenAttrs'>
+		<label for="node-input-layerDigest"><i class="fa fa-tag"></i> layerDigest</label>
+		<input type="text" id="node-input-layerDigest" placeholder="layerDigest"></input>
+	</div> 
+	<div class="form-row" id='resourceArnAttr' class='hiddenAttrs'>
+		<label for="node-input-resourceArn"><i class="fa fa-tag"></i> resourceArn</label>
+		<input type="text" id="node-input-resourceArn" placeholder="resourceArn"></input>
+	</div> 
+	<div class="form-row" id='imageManifestAttr' class='hiddenAttrs'>
+		<label for="node-input-imageManifest"><i class="fa fa-tag"></i> imageManifest</label>
+		<input type="text" id="node-input-imageManifest" placeholder="imageManifest"></input>
+	</div> 
+	<div class="form-row" id='imageManifestMediaTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-imageManifestMediaType"><i class="fa fa-tag"></i> imageManifestMediaType</label>
+		<input type="text" id="node-input-imageManifestMediaType" placeholder="imageManifestMediaType"></input>
+	</div> 
+	<div class="form-row" id='imageTagAttr' class='hiddenAttrs'>
+		<label for="node-input-imageTag"><i class="fa fa-tag"></i> imageTag</label>
+		<input type="text" id="node-input-imageTag" placeholder="imageTag"></input>
+	</div> 
+	<div class="form-row" id='imageDigestAttr' class='hiddenAttrs'>
+		<label for="node-input-imageDigest"><i class="fa fa-tag"></i> imageDigest</label>
+		<input type="text" id="node-input-imageDigest" placeholder="imageDigest"></input>
+	</div> 
+	<div class="form-row" id='lifecyclePolicyTextAttr' class='hiddenAttrs'>
+		<label for="node-input-lifecyclePolicyText"><i class="fa fa-tag"></i> lifecyclePolicyText</label>
+		<input type="text" id="node-input-lifecyclePolicyText" placeholder="lifecyclePolicyText"></input>
+	</div> 
+	<div class="form-row" id='policyTextAttr' class='hiddenAttrs'>
+		<label for="node-input-policyText"><i class="fa fa-tag"></i> policyText</label>
+		<input type="text" id="node-input-policyText" placeholder="policyText"></input>
+	</div> 
+	<div class="form-row" id='replicationConfigurationAttr' class='hiddenAttrs'>
+		<label for="node-input-replicationConfiguration"><i class="fa fa-tag"></i> replicationConfiguration</label>
+		<input type="text" id="node-input-replicationConfiguration" placeholder="replicationConfiguration"></input>
+	</div> 
+	<div class="form-row" id='tagKeysAttr' class='hiddenAttrs'>
+		<label for="node-input-tagKeys"><i class="fa fa-tag"></i> tagKeys</label>
+		<input type="text" id="node-input-tagKeys" placeholder="tagKeys"></input>
+	</div> 
+	<div class="form-row" id='partFirstByteAttr' class='hiddenAttrs'>
+		<label for="node-input-partFirstByte"><i class="fa fa-tag"></i> partFirstByte</label>
+		<input type="text" id="node-input-partFirstByte" placeholder="partFirstByte"></input>
+	</div> 
+	<div class="form-row" id='partLastByteAttr' class='hiddenAttrs'>
+		<label for="node-input-partLastByte"><i class="fa fa-tag"></i> partLastByte</label>
+		<input type="text" id="node-input-partLastByte" placeholder="partLastByte"></input>
+	</div> 
+	<div class="form-row" id='layerPartBlobAttr' class='hiddenAttrs'>
+		<label for="node-input-layerPartBlob"><i class="fa fa-tag"></i> layerPartBlob</label>
+		<input type="text" id="node-input-layerPartBlob" placeholder="layerPartBlob"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				BatchCheckLayerAvailability:[
+					'#registryIdAttr','#repositoryNameAttr','#layerDigestsAttr'
+					],
+				BatchDeleteImage:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdsAttr'
+					],
+				BatchGetImage:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdsAttr','#acceptedMediaTypesAttr'
+					],
+				CompleteLayerUpload:[
+					'#registryIdAttr','#repositoryNameAttr','#uploadIdAttr','#layerDigestsAttr'
+					],
+				CreateRepository:[
+					'#repositoryNameAttr','#tagsAttr','#imageTagMutabilityAttr','#imageScanningConfigurationAttr','#encryptionConfigurationAttr'
+					],
+				DeleteLifecyclePolicy:[
+					'#registryIdAttr','#repositoryNameAttr'
+					],
+				DeleteRegistryPolicy:[
+					
+					],
+				DeleteRepository:[
+					'#registryIdAttr','#repositoryNameAttr','#forceAttr'
+					],
+				DeleteRepositoryPolicy:[
+					'#registryIdAttr','#repositoryNameAttr'
+					],
+				DescribeImageScanFindings:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				DescribeImages:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdsAttr','#nextTokenAttr','#maxResultsAttr','#filterAttr'
+					],
+				DescribeRegistry:[
+					
+					],
+				DescribeRepositories:[
+					'#registryIdAttr','#repositoryNamesAttr','#nextTokenAttr','#maxResultsAttr'
+					],
+				GetAuthorizationToken:[
+					'#registryIdsAttr'
+					],
+				GetDownloadUrlForLayer:[
+					'#registryIdAttr','#repositoryNameAttr','#layerDigestAttr'
+					],
+				GetLifecyclePolicy:[
+					'#registryIdAttr','#repositoryNameAttr'
+					],
+				GetLifecyclePolicyPreview:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdsAttr','#nextTokenAttr','#maxResultsAttr','#filterAttr'
+					],
+				GetRegistryPolicy:[
+					
+					],
+				GetRepositoryPolicy:[
+					'#registryIdAttr','#repositoryNameAttr'
+					],
+				InitiateLayerUpload:[
+					'#registryIdAttr','#repositoryNameAttr'
+					],
+				ListImages:[
+					'#registryIdAttr','#repositoryNameAttr','#nextTokenAttr','#maxResultsAttr','#filterAttr'
+					],
+				ListTagsForResource:[
+					'#resourceArnAttr'
+					],
+				PutImage:[
+					'#registryIdAttr','#repositoryNameAttr','#imageManifestAttr','#imageManifestMediaTypeAttr','#imageTagAttr','#imageDigestAttr'
+					],
+				PutImageScanningConfiguration:[
+					'#registryIdAttr','#repositoryNameAttr','#imageScanningConfigurationAttr'
+					],
+				PutImageTagMutability:[
+					'#registryIdAttr','#repositoryNameAttr','#imageTagMutabilityAttr'
+					],
+				PutLifecyclePolicy:[
+					'#registryIdAttr','#repositoryNameAttr','#lifecyclePolicyTextAttr'
+					],
+				PutRegistryPolicy:[
+					'#policyTextAttr'
+					],
+				PutReplicationConfiguration:[
+					'#replicationConfigurationAttr'
+					],
+				SetRepositoryPolicy:[
+					'#registryIdAttr','#repositoryNameAttr','#policyTextAttr','#forceAttr'
+					],
+				StartImageScan:[
+					'#registryIdAttr','#repositoryNameAttr','#imageIdAttr'
+					],
+				StartLifecyclePolicyPreview:[
+					'#registryIdAttr','#repositoryNameAttr','#lifecyclePolicyTextAttr'
+					],
+				TagResource:[
+					'#resourceArnAttr','#tagsAttr'
+					],
+				UntagResource:[
+					'#resourceArnAttr','#tagKeysAttr'
+					],
+				UploadLayerPart:[
+					'#registryIdAttr','#repositoryNameAttr','#uploadIdAttr','#partFirstByteAttr','#partLastByteAttr','#layerPartBlobAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS ECR">
+<p>
+AWS ECR
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/ECR.html">ECR</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS ECR',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'BatchCheckLayerAvailability' },
+			
+				registryId: { value: ""} ,
+				repositoryName: { value: ""} ,
+				layerDigests: { value: ""} ,
+				imageIds: { value: ""} ,
+				acceptedMediaTypes: { value: ""} ,
+				uploadId: { value: ""} ,
+				tags: { value: ""} ,
+				imageTagMutability: { value: ""} ,
+				imageScanningConfiguration: { value: ""} ,
+				encryptionConfiguration: { value: ""} ,
+				force: { value: ""} ,
+				imageId: { value: ""} ,
+				nextToken: { value: ""} ,
+				maxResults: { value: ""} ,
+				filter: { value: ""} ,
+				repositoryNames: { value: ""} ,
+				registryIds: { value: ""} ,
+				layerDigest: { value: ""} ,
+				resourceArn: { value: ""} ,
+				imageManifest: { value: ""} ,
+				imageManifestMediaType: { value: ""} ,
+				imageTag: { value: ""} ,
+				imageDigest: { value: ""} ,
+				lifecyclePolicyText: { value: ""} ,
+				policyText: { value: ""} ,
+				replicationConfiguration: { value: ""} ,
+				tagKeys: { value: ""} ,
+				partFirstByte: { value: ""} ,
+				partLastByte: { value: ""} ,
+				layerPartBlob: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "ECR " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-registryId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-repositoryName").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-imageIds").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-uploadId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageTagMutability").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageScanningConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-encryptionConfiguration").typedInput({ default: "str", types: ["str"]});
+$("#node-input-force").typedInput({ default: "bool", types: ["bool"]});
+$("#node-input-imageId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-nextToken").typedInput({ default: "str", types: ["str"]});
+$("#node-input-maxResults").typedInput({ default: "num", types: ["num"]});
+
+
+
+$("#node-input-layerDigest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-resourceArn").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageManifest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageManifestMediaType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageTag").typedInput({ default: "str", types: ["str"]});
+$("#node-input-imageDigest").typedInput({ default: "str", types: ["str"]});
+$("#node-input-lifecyclePolicyText").typedInput({ default: "str", types: ["str"]});
+$("#node-input-policyText").typedInput({ default: "str", types: ["str"]});
+$("#node-input-replicationConfiguration").typedInput({ default: "str", types: ["str"]});
+
+
+
+$("#node-input-layerPartBlob").typedInput({ default: "bin", types: ["bin"]});
+		}
+	});
+</script>
+

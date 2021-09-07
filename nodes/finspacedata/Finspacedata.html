@@ -1,0 +1,168 @@
+
+<!--
+  Copyright 2021 Daniel Thomas.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+  http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License.
+-->
+
+<script type="text/html" data-template-name="AWS Finspacedata">
+		<style scoped>
+				.hiddenAttrs {display:none;}
+				.visibleAttrs {display:block;}
+		</style>
+	<div class="form-row">
+		<label for="node-input-aws"><i class="fa fa-user"></i> AWS</label>
+		<input type="text" id="node-input-aws">
+	</div>
+	<div class="form-row">
+		<label for="node-input-operation"><i class="fa fa-wrench"></i> Operation</label>
+		<select type="text" id="node-input-operation">
+		
+			<option value="CreateChangeset">CreateChangeset</option>
+		
+			<option value="GetProgrammaticAccessCredentials">GetProgrammaticAccessCredentials</option>
+		
+			<option value="GetWorkingLocation">GetWorkingLocation</option>
+		;
+		</select>
+	</div>
+	<div class="form-row">
+		<label for="node-input-name"><i class="fa fa-tag"></i> Name</label>
+		<input type="text" id="node-input-name" placeholder="Name"></input>
+	</div>
+	<hr/>
+	<div id="AttrHolder">
+	      
+	<div class="form-row" id='datasetIdAttr' class='hiddenAttrs'>
+		<label for="node-input-datasetId"><i class="fa fa-tag"></i> datasetId</label>
+		<input type="text" id="node-input-datasetId" placeholder="datasetId"></input>
+	</div> 
+	<div class="form-row" id='changeTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-changeType"><i class="fa fa-tag"></i> changeType</label>
+		<input type="text" id="node-input-changeType" placeholder="changeType"></input>
+	</div> 
+	<div class="form-row" id='sourceTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceType"><i class="fa fa-tag"></i> sourceType</label>
+		<input type="text" id="node-input-sourceType" placeholder="sourceType"></input>
+	</div> 
+	<div class="form-row" id='sourceParamsAttr' class='hiddenAttrs'>
+		<label for="node-input-sourceParams"><i class="fa fa-tag"></i> sourceParams</label>
+		<input type="text" id="node-input-sourceParams" placeholder="sourceParams"></input>
+	</div> 
+	<div class="form-row" id='formatTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-formatType"><i class="fa fa-tag"></i> formatType</label>
+		<input type="text" id="node-input-formatType" placeholder="formatType"></input>
+	</div> 
+	<div class="form-row" id='formatParamsAttr' class='hiddenAttrs'>
+		<label for="node-input-formatParams"><i class="fa fa-tag"></i> formatParams</label>
+		<input type="text" id="node-input-formatParams" placeholder="formatParams"></input>
+	</div> 
+	<div class="form-row" id='tagsAttr' class='hiddenAttrs'>
+		<label for="node-input-tags"><i class="fa fa-tag"></i> tags</label>
+		<input type="text" id="node-input-tags" placeholder="tags"></input>
+	</div> 
+	<div class="form-row" id='durationInMinutesAttr' class='hiddenAttrs'>
+		<label for="node-input-durationInMinutes"><i class="fa fa-tag"></i> durationInMinutes</label>
+		<input type="text" id="node-input-durationInMinutes" placeholder="durationInMinutes"></input>
+	</div> 
+	<div class="form-row" id='environmentIdAttr' class='hiddenAttrs'>
+		<label for="node-input-environmentId"><i class="fa fa-tag"></i> environmentId</label>
+		<input type="text" id="node-input-environmentId" placeholder="environmentId"></input>
+	</div> 
+	<div class="form-row" id='locationTypeAttr' class='hiddenAttrs'>
+		<label for="node-input-locationType"><i class="fa fa-tag"></i> locationType</label>
+		<input type="text" id="node-input-locationType" placeholder="locationType"></input>
+	</div> 
+	</div>
+
+ <script>
+	  var nodeOps={
+			
+				CreateChangeset:[
+					'#datasetIdAttr','#changeTypeAttr','#sourceTypeAttr','#sourceParamsAttr','#formatTypeAttr','#formatParamsAttr','#tagsAttr'
+					],
+				GetProgrammaticAccessCredentials:[
+					'#durationInMinutesAttr','#environmentIdAttr'
+					],
+				GetWorkingLocation:[
+					'#locationTypeAttr'
+					]
+		};
+		$('#node-input-operation').on('change',function(){
+			$('#AttrHolder').children().addClass('hiddenAttrs').removeClass('visibleAttrs');
+				if (nodeOps[this.value])
+					$(nodeOps[this.value].join()).addClass('visibleAttrs').removeClass('hiddenAttrs');
+		 });
+ </script>
+
+</script>
+
+<script type="text/html" data-help-name="AWS Finspacedata">
+<p>
+AWS Finspacedata
+</p>
+<p>
+NOTE: Parameters must be specified in the message, using the case specified in the AWS API documentation (normally UpperCaseLeading)..
+</p>
+<h3>References</h3>
+<ul>
+    <li><a href="https://docs.aws.amazon.com/AWSJavaScriptSDK/latest/AWS/Finspacedata.html">Finspacedata</a></li>
+</ul>
+</script>
+
+<script type="text/javascript">
+	RED.nodes.registerType('AWS Finspacedata',{
+		category: 'AWS',
+		color:"#C0DEED",
+		defaults: {
+			aws: {type:"amazon config",required:true},
+			operation: { value: 'CreateChangeset' },
+			
+				datasetId: { value: ""} ,
+				changeType: { value: ""} ,
+				sourceType: { value: ""} ,
+				sourceParams: { value: ""} ,
+				formatType: { value: ""} ,
+				formatParams: { value: ""} ,
+				tags: { value: ""} ,
+				durationInMinutes: { value: ""} ,
+				environmentId: { value: ""} ,
+				locationType: { value: ""} ,
+			name: { value: "" }
+		},
+		inputs:1,
+        outputs: 2,
+        outputLabels: ["data","err"],
+		icon: "../../icons/aws.png",
+		align: "right",
+		label: function() {
+			return this.name || "Finspacedata " + this.operation;
+		},
+		labelStyle: function() {
+			return this.name?"node_label_italic":"";
+		},
+		oneditprepare: function() {
+			$("#node-input-datasetId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-changeType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-sourceParams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-formatType").typedInput({ default: "str", types: ["str"]});
+$("#node-input-formatParams").typedInput({ default: "str", types: ["str"]});
+$("#node-input-tags").typedInput({ default: "str", types: ["str"]});
+
+$("#node-input-environmentId").typedInput({ default: "str", types: ["str"]});
+$("#node-input-locationType").typedInput({ default: "str", types: ["str"]});
+		}
+	});
+</script>
+
