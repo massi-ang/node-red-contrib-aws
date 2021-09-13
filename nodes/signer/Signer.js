@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddProfilePermission=function(svc,msg,cb){
+			service.AddProfilePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"action",params,undefined,false); 
@@ -119,9 +118,7 @@ module.exports = function(RED) {
 
 			svc.addProfilePermission(params,cb);
 		}
-
-		
-		service.CancelSigningProfile=function(svc,msg,cb){
+			service.CancelSigningProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profileName",params,undefined,false); 
@@ -133,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.cancelSigningProfile(params,cb);
 		}
-
-		
-		service.DescribeSigningJob=function(svc,msg,cb){
+			service.DescribeSigningJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -147,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.describeSigningJob(params,cb);
 		}
-
-		
-		service.GetSigningPlatform=function(svc,msg,cb){
+			service.GetSigningPlatform=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"platformId",params,undefined,false); 
@@ -161,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.getSigningPlatform(params,cb);
 		}
-
-		
-		service.GetSigningProfile=function(svc,msg,cb){
+			service.GetSigningProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profileName",params,undefined,false); 
@@ -177,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.getSigningProfile(params,cb);
 		}
-
-		
-		service.ListProfilePermissions=function(svc,msg,cb){
+			service.ListProfilePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profileName",params,undefined,false); 
@@ -193,18 +182,16 @@ module.exports = function(RED) {
 
 			svc.listProfilePermissions(params,cb);
 		}
-
-		
-		service.ListSigningJobs=function(svc,msg,cb){
+			service.ListSigningJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"platformId",params,undefined,false); 
 			copyArgs(n,"requestedBy",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"isRevoked",params,undefined,false); 
+			copyArgs(Boolean(n),"isRevoked",params,undefined,false); 
 			copyArgs(n,"signatureExpiresBefore",params,undefined,false); 
 			copyArgs(n,"signatureExpiresAfter",params,undefined,false); 
 			copyArgs(n,"jobInvoker",params,undefined,false); 
@@ -222,16 +209,14 @@ module.exports = function(RED) {
 
 			svc.listSigningJobs(params,cb);
 		}
-
-		
-		service.ListSigningPlatforms=function(svc,msg,cb){
+			service.ListSigningPlatforms=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"category",params,undefined,false); 
 			copyArgs(n,"partner",params,undefined,false); 
 			copyArgs(n,"target",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"category",params,undefined,false); 
@@ -243,14 +228,12 @@ module.exports = function(RED) {
 
 			svc.listSigningPlatforms(params,cb);
 		}
-
-		
-		service.ListSigningProfiles=function(svc,msg,cb){
+			service.ListSigningProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeCanceled",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"includeCanceled",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"platformId",params,undefined,false); 
 			copyArgs(n,"statuses",params,undefined,false); 
@@ -264,9 +247,7 @@ module.exports = function(RED) {
 
 			svc.listSigningProfiles(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -278,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutSigningProfile=function(svc,msg,cb){
+			service.PutSigningProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profileName",params,undefined,false); 
@@ -305,9 +284,7 @@ module.exports = function(RED) {
 
 			svc.putSigningProfile(params,cb);
 		}
-
-		
-		service.RemoveProfilePermission=function(svc,msg,cb){
+			service.RemoveProfilePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"revisionId",params,undefined,false); 
@@ -325,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.removeProfilePermission(params,cb);
 		}
-
-		
-		service.RevokeSignature=function(svc,msg,cb){
+			service.RevokeSignature=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reason",params,undefined,false); 
@@ -344,9 +319,7 @@ module.exports = function(RED) {
 
 			svc.revokeSignature(params,cb);
 		}
-
-		
-		service.RevokeSigningProfile=function(svc,msg,cb){
+			service.RevokeSigningProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profileVersion",params,undefined,false); 
@@ -367,9 +340,7 @@ module.exports = function(RED) {
 
 			svc.revokeSigningProfile(params,cb);
 		}
-
-		
-		service.StartSigningJob=function(svc,msg,cb){
+			service.StartSigningJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"source",params,undefined,true); 
@@ -392,9 +363,7 @@ module.exports = function(RED) {
 
 			svc.startSigningJob(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -409,9 +378,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -426,9 +393,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Signer", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateEncryptionConfig=function(svc,msg,cb){
+			service.AssociateEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.associateEncryptionConfig(params,cb);
 		}
-
-		
-		service.AssociateIdentityProviderConfig=function(svc,msg,cb){
+			service.AssociateIdentityProviderConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.associateIdentityProviderConfig(params,cb);
 		}
-
-		
-		service.CreateAddon=function(svc,msg,cb){
+			service.CreateAddon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -159,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.createAddon(params,cb);
 		}
-
-		
-		service.CreateCluster=function(svc,msg,cb){
+			service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -191,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.createCluster(params,cb);
 		}
-
-		
-		service.CreateFargateProfile=function(svc,msg,cb){
+			service.CreateFargateProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"fargateProfileName",params,undefined,false); 
@@ -219,9 +210,7 @@ module.exports = function(RED) {
 
 			svc.createFargateProfile(params,cb);
 		}
-
-		
-		service.CreateNodegroup=function(svc,msg,cb){
+			service.CreateNodegroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -232,7 +221,7 @@ module.exports = function(RED) {
 			copyArgs(n,"clusterName",params,undefined,false); 
 			copyArgs(n,"nodegroupName",params,undefined,false); 
 			copyArgs(n,"scalingConfig",params,undefined,true); 
-			copyArgs(n,"diskSize",params,undefined,false); 
+			copyArgs(Number(n),"diskSize",params,undefined,false); 
 			copyArgs(n,"subnets",params,undefined,true); 
 			copyArgs(n,"instanceTypes",params,undefined,true); 
 			copyArgs(n,"amiType",params,undefined,false); 
@@ -270,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.createNodegroup(params,cb);
 		}
-
-		
-		service.DeleteAddon=function(svc,msg,cb){
+			service.DeleteAddon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -280,7 +267,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
 			copyArgs(n,"addonName",params,undefined,false); 
-			copyArgs(n,"preserve",params,undefined,false); 
+			copyArgs(Boolean(n),"preserve",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
 			copyArgs(msg,"addonName",params,undefined,false); 
@@ -289,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.deleteAddon(params,cb);
 		}
-
-		
-		service.DeleteCluster=function(svc,msg,cb){
+			service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -303,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.deleteCluster(params,cb);
 		}
-
-		
-		service.DeleteFargateProfile=function(svc,msg,cb){
+			service.DeleteFargateProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -320,9 +303,7 @@ module.exports = function(RED) {
 
 			svc.deleteFargateProfile(params,cb);
 		}
-
-		
-		service.DeleteNodegroup=function(svc,msg,cb){
+			service.DeleteNodegroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -337,9 +318,7 @@ module.exports = function(RED) {
 
 			svc.deleteNodegroup(params,cb);
 		}
-
-		
-		service.DescribeAddon=function(svc,msg,cb){
+			service.DescribeAddon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -354,14 +333,12 @@ module.exports = function(RED) {
 
 			svc.describeAddon(params,cb);
 		}
-
-		
-		service.DescribeAddonVersions=function(svc,msg,cb){
+			service.DescribeAddonVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"kubernetesVersion",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"addonName",params,undefined,false); 
 			
@@ -373,9 +350,7 @@ module.exports = function(RED) {
 
 			svc.describeAddonVersions(params,cb);
 		}
-
-		
-		service.DescribeCluster=function(svc,msg,cb){
+			service.DescribeCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -387,9 +362,7 @@ module.exports = function(RED) {
 
 			svc.describeCluster(params,cb);
 		}
-
-		
-		service.DescribeFargateProfile=function(svc,msg,cb){
+			service.DescribeFargateProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -404,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.describeFargateProfile(params,cb);
 		}
-
-		
-		service.DescribeIdentityProviderConfig=function(svc,msg,cb){
+			service.DescribeIdentityProviderConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -421,9 +392,7 @@ module.exports = function(RED) {
 
 			svc.describeIdentityProviderConfig(params,cb);
 		}
-
-		
-		service.DescribeNodegroup=function(svc,msg,cb){
+			service.DescribeNodegroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -438,9 +407,7 @@ module.exports = function(RED) {
 
 			svc.describeNodegroup(params,cb);
 		}
-
-		
-		service.DescribeUpdate=function(svc,msg,cb){
+			service.DescribeUpdate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -459,9 +426,7 @@ module.exports = function(RED) {
 
 			svc.describeUpdate(params,cb);
 		}
-
-		
-		service.DisassociateIdentityProviderConfig=function(svc,msg,cb){
+			service.DisassociateIdentityProviderConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -478,15 +443,13 @@ module.exports = function(RED) {
 
 			svc.disassociateIdentityProviderConfig(params,cb);
 		}
-
-		
-		service.ListAddons=function(svc,msg,cb){
+			service.ListAddons=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
@@ -496,13 +459,11 @@ module.exports = function(RED) {
 
 			svc.listAddons(params,cb);
 		}
-
-		
-		service.ListClusters=function(svc,msg,cb){
+			service.ListClusters=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -511,15 +472,13 @@ module.exports = function(RED) {
 
 			svc.listClusters(params,cb);
 		}
-
-		
-		service.ListFargateProfiles=function(svc,msg,cb){
+			service.ListFargateProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
@@ -529,15 +488,13 @@ module.exports = function(RED) {
 
 			svc.listFargateProfiles(params,cb);
 		}
-
-		
-		service.ListIdentityProviderConfigs=function(svc,msg,cb){
+			service.ListIdentityProviderConfigs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
@@ -547,15 +504,13 @@ module.exports = function(RED) {
 
 			svc.listIdentityProviderConfigs(params,cb);
 		}
-
-		
-		service.ListNodegroups=function(svc,msg,cb){
+			service.ListNodegroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
@@ -565,9 +520,7 @@ module.exports = function(RED) {
 
 			svc.listNodegroups(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -579,9 +532,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListUpdates=function(svc,msg,cb){
+			service.ListUpdates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -590,7 +541,7 @@ module.exports = function(RED) {
 			copyArgs(n,"nodegroupName",params,undefined,false); 
 			copyArgs(n,"addonName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nodegroupName",params,undefined,false); 
@@ -601,9 +552,7 @@ module.exports = function(RED) {
 
 			svc.listUpdates(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -618,9 +567,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -635,9 +582,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAddon=function(svc,msg,cb){
+			service.UpdateAddon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -660,9 +605,7 @@ module.exports = function(RED) {
 
 			svc.updateAddon(params,cb);
 		}
-
-		
-		service.UpdateClusterConfig=function(svc,msg,cb){
+			service.UpdateClusterConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -680,9 +623,7 @@ module.exports = function(RED) {
 
 			svc.updateClusterConfig(params,cb);
 		}
-
-		
-		service.UpdateClusterVersion=function(svc,msg,cb){
+			service.UpdateClusterVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -699,9 +640,7 @@ module.exports = function(RED) {
 
 			svc.updateClusterVersion(params,cb);
 		}
-
-		
-		service.UpdateNodegroupConfig=function(svc,msg,cb){
+			service.UpdateNodegroupConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -726,9 +665,7 @@ module.exports = function(RED) {
 
 			svc.updateNodegroupConfig(params,cb);
 		}
-
-		
-		service.UpdateNodegroupVersion=function(svc,msg,cb){
+			service.UpdateNodegroupVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clusterName",params,undefined,false); 
@@ -739,7 +676,7 @@ module.exports = function(RED) {
 			copyArgs(n,"version",params,undefined,false); 
 			copyArgs(n,"releaseVersion",params,undefined,false); 
 			copyArgs(n,"launchTemplate",params,undefined,true); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
 			
 			copyArgs(msg,"clusterName",params,undefined,false); 
@@ -753,9 +690,7 @@ module.exports = function(RED) {
 
 			svc.updateNodegroupVersion(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS EKS", AmazonAPINode);
 

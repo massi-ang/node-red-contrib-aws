@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AllocateStaticIp=function(svc,msg,cb){
+			service.AllocateStaticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"staticIpName",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.allocateStaticIp(params,cb);
 		}
-
-		
-		service.AttachCertificateToDistribution=function(svc,msg,cb){
+			service.AttachCertificateToDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"distributionName",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.attachCertificateToDistribution(params,cb);
 		}
-
-		
-		service.AttachDisk=function(svc,msg,cb){
+			service.AttachDisk=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.attachDisk(params,cb);
 		}
-
-		
-		service.AttachInstancesToLoadBalancer=function(svc,msg,cb){
+			service.AttachInstancesToLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -160,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.attachInstancesToLoadBalancer(params,cb);
 		}
-
-		
-		service.AttachLoadBalancerTlsCertificate=function(svc,msg,cb){
+			service.AttachLoadBalancerTlsCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -177,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.attachLoadBalancerTlsCertificate(params,cb);
 		}
-
-		
-		service.AttachStaticIp=function(svc,msg,cb){
+			service.AttachStaticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"staticIpName",params,undefined,false); 
@@ -194,9 +183,7 @@ module.exports = function(RED) {
 
 			svc.attachStaticIp(params,cb);
 		}
-
-		
-		service.CloseInstancePublicPorts=function(svc,msg,cb){
+			service.CloseInstancePublicPorts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portInfo",params,undefined,true); 
@@ -211,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.closeInstancePublicPorts(params,cb);
 		}
-
-		
-		service.CopySnapshot=function(svc,msg,cb){
+			service.CopySnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"targetSnapshotName",params,undefined,false); 
@@ -222,7 +207,7 @@ module.exports = function(RED) {
 			copyArgs(n,"sourceSnapshotName",params,undefined,false); 
 			copyArgs(n,"sourceResourceName",params,undefined,false); 
 			copyArgs(n,"restoreDate",params,undefined,false); 
-			copyArgs(n,"useLatestRestorableAutoSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"useLatestRestorableAutoSnapshot",params,undefined,false); 
 			copyArgs(n,"targetSnapshotName",params,undefined,false); 
 			copyArgs(n,"sourceRegion",params,undefined,false); 
 			
@@ -236,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.copySnapshot(params,cb);
 		}
-
-		
-		service.CreateBucket=function(svc,msg,cb){
+			service.CreateBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -247,7 +230,7 @@ module.exports = function(RED) {
 			copyArgs(n,"bucketName",params,undefined,false); 
 			copyArgs(n,"bundleId",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
-			copyArgs(n,"enableObjectVersioning",params,undefined,false); 
+			copyArgs(Boolean(n),"enableObjectVersioning",params,undefined,false); 
 			
 			copyArgs(msg,"bucketName",params,undefined,false); 
 			copyArgs(msg,"bundleId",params,undefined,false); 
@@ -257,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createBucket(params,cb);
 		}
-
-		
-		service.CreateBucketAccessKey=function(svc,msg,cb){
+			service.CreateBucketAccessKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -271,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.createBucketAccessKey(params,cb);
 		}
-
-		
-		service.CreateCertificate=function(svc,msg,cb){
+			service.CreateCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateName",params,undefined,false); 
@@ -292,9 +271,7 @@ module.exports = function(RED) {
 
 			svc.createCertificate(params,cb);
 		}
-
-		
-		service.CreateCloudFormationStack=function(svc,msg,cb){
+			service.CreateCloudFormationStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instances",params,undefined,false); 
@@ -306,9 +283,7 @@ module.exports = function(RED) {
 
 			svc.createCloudFormationStack(params,cb);
 		}
-
-		
-		service.CreateContactMethod=function(svc,msg,cb){
+			service.CreateContactMethod=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"protocol",params,undefined,false); 
@@ -323,18 +298,16 @@ module.exports = function(RED) {
 
 			svc.createContactMethod(params,cb);
 		}
-
-		
-		service.CreateContainerService=function(svc,msg,cb){
+			service.CreateContainerService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			copyArgs(n,"power",params,undefined,false); 
-			copyArgs(n,"scale",params,undefined,false); 
+			copyArgs(Number(n),"scale",params,undefined,false); 
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			copyArgs(n,"power",params,undefined,false); 
-			copyArgs(n,"scale",params,undefined,false); 
+			copyArgs(Number(n),"scale",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"publicDomainNames",params,undefined,true); 
 			copyArgs(n,"deployment",params,undefined,false); 
@@ -349,9 +322,7 @@ module.exports = function(RED) {
 
 			svc.createContainerService(params,cb);
 		}
-
-		
-		service.CreateContainerServiceDeployment=function(svc,msg,cb){
+			service.CreateContainerServiceDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -367,9 +338,7 @@ module.exports = function(RED) {
 
 			svc.createContainerServiceDeployment(params,cb);
 		}
-
-		
-		service.CreateContainerServiceRegistryLogin=function(svc,msg,cb){
+			service.CreateContainerServiceRegistryLogin=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -378,18 +347,16 @@ module.exports = function(RED) {
 
 			svc.createContainerServiceRegistryLogin(params,cb);
 		}
-
-		
-		service.CreateDisk=function(svc,msg,cb){
+			service.CreateDisk=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
 			copyArgs(n,"availabilityZone",params,undefined,false); 
-			copyArgs(n,"sizeInGb",params,undefined,false); 
+			copyArgs(Number(n),"sizeInGb",params,undefined,false); 
 			
 			copyArgs(n,"diskName",params,undefined,false); 
 			copyArgs(n,"availabilityZone",params,undefined,false); 
-			copyArgs(n,"sizeInGb",params,undefined,false); 
+			copyArgs(Number(n),"sizeInGb",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"addOns",params,undefined,true); 
 			
@@ -402,24 +369,22 @@ module.exports = function(RED) {
 
 			svc.createDisk(params,cb);
 		}
-
-		
-		service.CreateDiskFromSnapshot=function(svc,msg,cb){
+			service.CreateDiskFromSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
 			copyArgs(n,"availabilityZone",params,undefined,false); 
-			copyArgs(n,"sizeInGb",params,undefined,false); 
+			copyArgs(Number(n),"sizeInGb",params,undefined,false); 
 			
 			copyArgs(n,"diskName",params,undefined,false); 
 			copyArgs(n,"diskSnapshotName",params,undefined,false); 
 			copyArgs(n,"availabilityZone",params,undefined,false); 
-			copyArgs(n,"sizeInGb",params,undefined,false); 
+			copyArgs(Number(n),"sizeInGb",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"addOns",params,undefined,true); 
 			copyArgs(n,"sourceDiskName",params,undefined,false); 
 			copyArgs(n,"restoreDate",params,undefined,false); 
-			copyArgs(n,"useLatestRestorableAutoSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"useLatestRestorableAutoSnapshot",params,undefined,false); 
 			
 			copyArgs(msg,"diskName",params,undefined,false); 
 			copyArgs(msg,"diskSnapshotName",params,undefined,false); 
@@ -434,9 +399,7 @@ module.exports = function(RED) {
 
 			svc.createDiskFromSnapshot(params,cb);
 		}
-
-		
-		service.CreateDiskSnapshot=function(svc,msg,cb){
+			service.CreateDiskSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskSnapshotName",params,undefined,false); 
@@ -454,9 +417,7 @@ module.exports = function(RED) {
 
 			svc.createDiskSnapshot(params,cb);
 		}
-
-		
-		service.CreateDistribution=function(svc,msg,cb){
+			service.CreateDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"distributionName",params,undefined,false); 
@@ -485,9 +446,7 @@ module.exports = function(RED) {
 
 			svc.createDistribution(params,cb);
 		}
-
-		
-		service.CreateDomain=function(svc,msg,cb){
+			service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -501,9 +460,7 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-
-		
-		service.CreateDomainEntry=function(svc,msg,cb){
+			service.CreateDomainEntry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -518,9 +475,7 @@ module.exports = function(RED) {
 
 			svc.createDomainEntry(params,cb);
 		}
-
-		
-		service.CreateInstanceSnapshot=function(svc,msg,cb){
+			service.CreateInstanceSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceSnapshotName",params,undefined,false); 
@@ -537,9 +492,7 @@ module.exports = function(RED) {
 
 			svc.createInstanceSnapshot(params,cb);
 		}
-
-		
-		service.CreateInstances=function(svc,msg,cb){
+			service.CreateInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceNames",params,undefined,true); 
@@ -572,9 +525,7 @@ module.exports = function(RED) {
 
 			svc.createInstances(params,cb);
 		}
-
-		
-		service.CreateInstancesFromSnapshot=function(svc,msg,cb){
+			service.CreateInstancesFromSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceNames",params,undefined,true); 
@@ -593,7 +544,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ipAddressType",params,undefined,false); 
 			copyArgs(n,"sourceInstanceName",params,undefined,false); 
 			copyArgs(n,"restoreDate",params,undefined,false); 
-			copyArgs(n,"useLatestRestorableAutoSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"useLatestRestorableAutoSnapshot",params,undefined,false); 
 			
 			copyArgs(msg,"instanceNames",params,undefined,true); 
 			copyArgs(msg,"attachedDiskMapping",params,undefined,false); 
@@ -612,9 +563,7 @@ module.exports = function(RED) {
 
 			svc.createInstancesFromSnapshot(params,cb);
 		}
-
-		
-		service.CreateKeyPair=function(svc,msg,cb){
+			service.CreateKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"keyPairName",params,undefined,false); 
@@ -628,16 +577,14 @@ module.exports = function(RED) {
 
 			svc.createKeyPair(params,cb);
 		}
-
-		
-		service.CreateLoadBalancer=function(svc,msg,cb){
+			service.CreateLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
-			copyArgs(n,"instancePort",params,undefined,false); 
+			copyArgs(Number(n),"instancePort",params,undefined,false); 
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
-			copyArgs(n,"instancePort",params,undefined,false); 
+			copyArgs(Number(n),"instancePort",params,undefined,false); 
 			copyArgs(n,"healthCheckPath",params,undefined,false); 
 			copyArgs(n,"certificateName",params,undefined,false); 
 			copyArgs(n,"certificateDomainName",params,undefined,false); 
@@ -657,9 +604,7 @@ module.exports = function(RED) {
 
 			svc.createLoadBalancer(params,cb);
 		}
-
-		
-		service.CreateLoadBalancerTlsCertificate=function(svc,msg,cb){
+			service.CreateLoadBalancerTlsCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -681,9 +626,7 @@ module.exports = function(RED) {
 
 			svc.createLoadBalancerTlsCertificate(params,cb);
 		}
-
-		
-		service.CreateRelationalDatabase=function(svc,msg,cb){
+			service.CreateRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -701,7 +644,7 @@ module.exports = function(RED) {
 			copyArgs(n,"masterUserPassword",params,undefined,true); 
 			copyArgs(n,"preferredBackupWindow",params,undefined,false); 
 			copyArgs(n,"preferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"publiclyAccessible",params,undefined,false); 
+			copyArgs(Boolean(n),"publiclyAccessible",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -719,21 +662,19 @@ module.exports = function(RED) {
 
 			svc.createRelationalDatabase(params,cb);
 		}
-
-		
-		service.CreateRelationalDatabaseFromSnapshot=function(svc,msg,cb){
+			service.CreateRelationalDatabaseFromSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			copyArgs(n,"availabilityZone",params,undefined,false); 
-			copyArgs(n,"publiclyAccessible",params,undefined,false); 
+			copyArgs(Boolean(n),"publiclyAccessible",params,undefined,false); 
 			copyArgs(n,"relationalDatabaseSnapshotName",params,undefined,false); 
 			copyArgs(n,"relationalDatabaseBundleId",params,undefined,false); 
 			copyArgs(n,"sourceRelationalDatabaseName",params,undefined,false); 
 			copyArgs(n,"restoreTime",params,undefined,false); 
-			copyArgs(n,"useLatestRestorableTime",params,undefined,false); 
+			copyArgs(Boolean(n),"useLatestRestorableTime",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -749,9 +690,7 @@ module.exports = function(RED) {
 
 			svc.createRelationalDatabaseFromSnapshot(params,cb);
 		}
-
-		
-		service.CreateRelationalDatabaseSnapshot=function(svc,msg,cb){
+			service.CreateRelationalDatabaseSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -768,9 +707,7 @@ module.exports = function(RED) {
 
 			svc.createRelationalDatabaseSnapshot(params,cb);
 		}
-
-		
-		service.DeleteAlarm=function(svc,msg,cb){
+			service.DeleteAlarm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmName",params,undefined,false); 
@@ -782,9 +719,7 @@ module.exports = function(RED) {
 
 			svc.deleteAlarm(params,cb);
 		}
-
-		
-		service.DeleteAutoSnapshot=function(svc,msg,cb){
+			service.DeleteAutoSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -799,15 +734,13 @@ module.exports = function(RED) {
 
 			svc.deleteAutoSnapshot(params,cb);
 		}
-
-		
-		service.DeleteBucket=function(svc,msg,cb){
+			service.DeleteBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
-			copyArgs(n,"forceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"bucketName",params,undefined,false); 
 			copyArgs(msg,"forceDelete",params,undefined,false); 
@@ -815,9 +748,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucket(params,cb);
 		}
-
-		
-		service.DeleteBucketAccessKey=function(svc,msg,cb){
+			service.DeleteBucketAccessKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -832,9 +763,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketAccessKey(params,cb);
 		}
-
-		
-		service.DeleteCertificate=function(svc,msg,cb){
+			service.DeleteCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateName",params,undefined,false); 
@@ -846,9 +775,7 @@ module.exports = function(RED) {
 
 			svc.deleteCertificate(params,cb);
 		}
-
-		
-		service.DeleteContactMethod=function(svc,msg,cb){
+			service.DeleteContactMethod=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"protocol",params,undefined,false); 
@@ -860,9 +787,7 @@ module.exports = function(RED) {
 
 			svc.deleteContactMethod(params,cb);
 		}
-
-		
-		service.DeleteContainerImage=function(svc,msg,cb){
+			service.DeleteContainerImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -877,9 +802,7 @@ module.exports = function(RED) {
 
 			svc.deleteContainerImage(params,cb);
 		}
-
-		
-		service.DeleteContainerService=function(svc,msg,cb){
+			service.DeleteContainerService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -891,15 +814,13 @@ module.exports = function(RED) {
 
 			svc.deleteContainerService(params,cb);
 		}
-
-		
-		service.DeleteDisk=function(svc,msg,cb){
+			service.DeleteDisk=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
 			
 			copyArgs(n,"diskName",params,undefined,false); 
-			copyArgs(n,"forceDeleteAddOns",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDeleteAddOns",params,undefined,false); 
 			
 			copyArgs(msg,"diskName",params,undefined,false); 
 			copyArgs(msg,"forceDeleteAddOns",params,undefined,false); 
@@ -907,9 +828,7 @@ module.exports = function(RED) {
 
 			svc.deleteDisk(params,cb);
 		}
-
-		
-		service.DeleteDiskSnapshot=function(svc,msg,cb){
+			service.DeleteDiskSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskSnapshotName",params,undefined,false); 
@@ -921,9 +840,7 @@ module.exports = function(RED) {
 
 			svc.deleteDiskSnapshot(params,cb);
 		}
-
-		
-		service.DeleteDistribution=function(svc,msg,cb){
+			service.DeleteDistribution=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -934,9 +851,7 @@ module.exports = function(RED) {
 
 			svc.deleteDistribution(params,cb);
 		}
-
-		
-		service.DeleteDomain=function(svc,msg,cb){
+			service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -948,9 +863,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-
-		
-		service.DeleteDomainEntry=function(svc,msg,cb){
+			service.DeleteDomainEntry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -965,15 +878,13 @@ module.exports = function(RED) {
 
 			svc.deleteDomainEntry(params,cb);
 		}
-
-		
-		service.DeleteInstance=function(svc,msg,cb){
+			service.DeleteInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
-			copyArgs(n,"forceDeleteAddOns",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDeleteAddOns",params,undefined,false); 
 			
 			copyArgs(msg,"instanceName",params,undefined,false); 
 			copyArgs(msg,"forceDeleteAddOns",params,undefined,false); 
@@ -981,9 +892,7 @@ module.exports = function(RED) {
 
 			svc.deleteInstance(params,cb);
 		}
-
-		
-		service.DeleteInstanceSnapshot=function(svc,msg,cb){
+			service.DeleteInstanceSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceSnapshotName",params,undefined,false); 
@@ -995,9 +904,7 @@ module.exports = function(RED) {
 
 			svc.deleteInstanceSnapshot(params,cb);
 		}
-
-		
-		service.DeleteKeyPair=function(svc,msg,cb){
+			service.DeleteKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"keyPairName",params,undefined,false); 
@@ -1009,9 +916,7 @@ module.exports = function(RED) {
 
 			svc.deleteKeyPair(params,cb);
 		}
-
-		
-		service.DeleteKnownHostKeys=function(svc,msg,cb){
+			service.DeleteKnownHostKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -1023,9 +928,7 @@ module.exports = function(RED) {
 
 			svc.deleteKnownHostKeys(params,cb);
 		}
-
-		
-		service.DeleteLoadBalancer=function(svc,msg,cb){
+			service.DeleteLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -1037,9 +940,7 @@ module.exports = function(RED) {
 
 			svc.deleteLoadBalancer(params,cb);
 		}
-
-		
-		service.DeleteLoadBalancerTlsCertificate=function(svc,msg,cb){
+			service.DeleteLoadBalancerTlsCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -1047,7 +948,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
 			copyArgs(n,"certificateName",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			
 			copyArgs(msg,"loadBalancerName",params,undefined,false); 
 			copyArgs(msg,"certificateName",params,undefined,false); 
@@ -1056,15 +957,13 @@ module.exports = function(RED) {
 
 			svc.deleteLoadBalancerTlsCertificate(params,cb);
 		}
-
-		
-		service.DeleteRelationalDatabase=function(svc,msg,cb){
+			service.DeleteRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
-			copyArgs(n,"skipFinalSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"skipFinalSnapshot",params,undefined,false); 
 			copyArgs(n,"finalRelationalDatabaseSnapshotName",params,undefined,false); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -1074,9 +973,7 @@ module.exports = function(RED) {
 
 			svc.deleteRelationalDatabase(params,cb);
 		}
-
-		
-		service.DeleteRelationalDatabaseSnapshot=function(svc,msg,cb){
+			service.DeleteRelationalDatabaseSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseSnapshotName",params,undefined,false); 
@@ -1088,9 +985,7 @@ module.exports = function(RED) {
 
 			svc.deleteRelationalDatabaseSnapshot(params,cb);
 		}
-
-		
-		service.DetachCertificateFromDistribution=function(svc,msg,cb){
+			service.DetachCertificateFromDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"distributionName",params,undefined,false); 
@@ -1102,9 +997,7 @@ module.exports = function(RED) {
 
 			svc.detachCertificateFromDistribution(params,cb);
 		}
-
-		
-		service.DetachDisk=function(svc,msg,cb){
+			service.DetachDisk=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
@@ -1116,9 +1009,7 @@ module.exports = function(RED) {
 
 			svc.detachDisk(params,cb);
 		}
-
-		
-		service.DetachInstancesFromLoadBalancer=function(svc,msg,cb){
+			service.DetachInstancesFromLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -1133,9 +1024,7 @@ module.exports = function(RED) {
 
 			svc.detachInstancesFromLoadBalancer(params,cb);
 		}
-
-		
-		service.DetachStaticIp=function(svc,msg,cb){
+			service.DetachStaticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"staticIpName",params,undefined,false); 
@@ -1147,9 +1036,7 @@ module.exports = function(RED) {
 
 			svc.detachStaticIp(params,cb);
 		}
-
-		
-		service.DisableAddOn=function(svc,msg,cb){
+			service.DisableAddOn=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"addOnType",params,undefined,false); 
@@ -1164,9 +1051,7 @@ module.exports = function(RED) {
 
 			svc.disableAddOn(params,cb);
 		}
-
-		
-		service.DownloadDefaultKeyPair=function(svc,msg,cb){
+			service.DownloadDefaultKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1175,9 +1060,7 @@ module.exports = function(RED) {
 
 			svc.downloadDefaultKeyPair(params,cb);
 		}
-
-		
-		service.EnableAddOn=function(svc,msg,cb){
+			service.EnableAddOn=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -1192,9 +1075,7 @@ module.exports = function(RED) {
 
 			svc.enableAddOn(params,cb);
 		}
-
-		
-		service.ExportSnapshot=function(svc,msg,cb){
+			service.ExportSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceSnapshotName",params,undefined,false); 
@@ -1206,9 +1087,7 @@ module.exports = function(RED) {
 
 			svc.exportSnapshot(params,cb);
 		}
-
-		
-		service.GetActiveNames=function(svc,msg,cb){
+			service.GetActiveNames=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1219,9 +1098,7 @@ module.exports = function(RED) {
 
 			svc.getActiveNames(params,cb);
 		}
-
-		
-		service.GetAlarms=function(svc,msg,cb){
+			service.GetAlarms=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1236,9 +1113,7 @@ module.exports = function(RED) {
 
 			svc.getAlarms(params,cb);
 		}
-
-		
-		service.GetAutoSnapshots=function(svc,msg,cb){
+			service.GetAutoSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -1250,13 +1125,11 @@ module.exports = function(RED) {
 
 			svc.getAutoSnapshots(params,cb);
 		}
-
-		
-		service.GetBlueprints=function(svc,msg,cb){
+			service.GetBlueprints=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeInactive",params,undefined,false); 
+			copyArgs(Boolean(n),"includeInactive",params,undefined,false); 
 			copyArgs(n,"pageToken",params,undefined,false); 
 			
 			copyArgs(msg,"includeInactive",params,undefined,false); 
@@ -1265,9 +1138,7 @@ module.exports = function(RED) {
 
 			svc.getBlueprints(params,cb);
 		}
-
-		
-		service.GetBucketAccessKeys=function(svc,msg,cb){
+			service.GetBucketAccessKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -1279,29 +1150,25 @@ module.exports = function(RED) {
 
 			svc.getBucketAccessKeys(params,cb);
 		}
-
-		
-		service.GetBucketBundles=function(svc,msg,cb){
+			service.GetBucketBundles=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeInactive",params,undefined,false); 
+			copyArgs(Boolean(n),"includeInactive",params,undefined,false); 
 			
 			copyArgs(msg,"includeInactive",params,undefined,false); 
 			
 
 			svc.getBucketBundles(params,cb);
 		}
-
-		
-		service.GetBucketMetricData=function(svc,msg,cb){
+			service.GetBucketMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			copyArgs(n,"unit",params,undefined,false); 
 			
@@ -1309,7 +1176,7 @@ module.exports = function(RED) {
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			copyArgs(n,"unit",params,undefined,false); 
 			
@@ -1324,15 +1191,13 @@ module.exports = function(RED) {
 
 			svc.getBucketMetricData(params,cb);
 		}
-
-		
-		service.GetBuckets=function(svc,msg,cb){
+			service.GetBuckets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
 			copyArgs(n,"pageToken",params,undefined,false); 
-			copyArgs(n,"includeConnectedResources",params,undefined,false); 
+			copyArgs(Boolean(n),"includeConnectedResources",params,undefined,false); 
 			
 			copyArgs(msg,"bucketName",params,undefined,false); 
 			copyArgs(msg,"pageToken",params,undefined,false); 
@@ -1341,13 +1206,11 @@ module.exports = function(RED) {
 
 			svc.getBuckets(params,cb);
 		}
-
-		
-		service.GetBundles=function(svc,msg,cb){
+			service.GetBundles=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeInactive",params,undefined,false); 
+			copyArgs(Boolean(n),"includeInactive",params,undefined,false); 
 			copyArgs(n,"pageToken",params,undefined,false); 
 			
 			copyArgs(msg,"includeInactive",params,undefined,false); 
@@ -1356,14 +1219,12 @@ module.exports = function(RED) {
 
 			svc.getBundles(params,cb);
 		}
-
-		
-		service.GetCertificates=function(svc,msg,cb){
+			service.GetCertificates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"certificateStatuses",params,undefined,false); 
-			copyArgs(n,"includeCertificateDetails",params,undefined,false); 
+			copyArgs(Boolean(n),"includeCertificateDetails",params,undefined,false); 
 			copyArgs(n,"certificateName",params,undefined,false); 
 			
 			copyArgs(msg,"certificateStatuses",params,undefined,false); 
@@ -1373,9 +1234,7 @@ module.exports = function(RED) {
 
 			svc.getCertificates(params,cb);
 		}
-
-		
-		service.GetCloudFormationStackRecords=function(svc,msg,cb){
+			service.GetCloudFormationStackRecords=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1386,9 +1245,7 @@ module.exports = function(RED) {
 
 			svc.getCloudFormationStackRecords(params,cb);
 		}
-
-		
-		service.GetContactMethods=function(svc,msg,cb){
+			service.GetContactMethods=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1399,9 +1256,7 @@ module.exports = function(RED) {
 
 			svc.getContactMethods(params,cb);
 		}
-
-		
-		service.GetContainerAPIMetadata=function(svc,msg,cb){
+			service.GetContainerAPIMetadata=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1410,9 +1265,7 @@ module.exports = function(RED) {
 
 			svc.getContainerAPIMetadata(params,cb);
 		}
-
-		
-		service.GetContainerImages=function(svc,msg,cb){
+			service.GetContainerImages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -1424,9 +1277,7 @@ module.exports = function(RED) {
 
 			svc.getContainerImages(params,cb);
 		}
-
-		
-		service.GetContainerLog=function(svc,msg,cb){
+			service.GetContainerLog=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -1449,9 +1300,7 @@ module.exports = function(RED) {
 
 			svc.getContainerLog(params,cb);
 		}
-
-		
-		service.GetContainerServiceDeployments=function(svc,msg,cb){
+			service.GetContainerServiceDeployments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -1463,23 +1312,21 @@ module.exports = function(RED) {
 
 			svc.getContainerServiceDeployments(params,cb);
 		}
-
-		
-		service.GetContainerServiceMetricData=function(svc,msg,cb){
+			service.GetContainerServiceMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			
 			copyArgs(msg,"serviceName",params,undefined,false); 
@@ -1492,9 +1339,7 @@ module.exports = function(RED) {
 
 			svc.getContainerServiceMetricData(params,cb);
 		}
-
-		
-		service.GetContainerServicePowers=function(svc,msg,cb){
+			service.GetContainerServicePowers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1503,9 +1348,7 @@ module.exports = function(RED) {
 
 			svc.getContainerServicePowers(params,cb);
 		}
-
-		
-		service.GetContainerServices=function(svc,msg,cb){
+			service.GetContainerServices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1516,9 +1359,7 @@ module.exports = function(RED) {
 
 			svc.getContainerServices(params,cb);
 		}
-
-		
-		service.GetDisk=function(svc,msg,cb){
+			service.GetDisk=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskName",params,undefined,false); 
@@ -1530,9 +1371,7 @@ module.exports = function(RED) {
 
 			svc.getDisk(params,cb);
 		}
-
-		
-		service.GetDiskSnapshot=function(svc,msg,cb){
+			service.GetDiskSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"diskSnapshotName",params,undefined,false); 
@@ -1544,9 +1383,7 @@ module.exports = function(RED) {
 
 			svc.getDiskSnapshot(params,cb);
 		}
-
-		
-		service.GetDiskSnapshots=function(svc,msg,cb){
+			service.GetDiskSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1557,9 +1394,7 @@ module.exports = function(RED) {
 
 			svc.getDiskSnapshots(params,cb);
 		}
-
-		
-		service.GetDisks=function(svc,msg,cb){
+			service.GetDisks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1570,9 +1405,7 @@ module.exports = function(RED) {
 
 			svc.getDisks(params,cb);
 		}
-
-		
-		service.GetDistributionBundles=function(svc,msg,cb){
+			service.GetDistributionBundles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1581,9 +1414,7 @@ module.exports = function(RED) {
 
 			svc.getDistributionBundles(params,cb);
 		}
-
-		
-		service.GetDistributionLatestCacheReset=function(svc,msg,cb){
+			service.GetDistributionLatestCacheReset=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1594,16 +1425,14 @@ module.exports = function(RED) {
 
 			svc.getDistributionLatestCacheReset(params,cb);
 		}
-
-		
-		service.GetDistributionMetricData=function(svc,msg,cb){
+			service.GetDistributionMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"distributionName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			
@@ -1611,7 +1440,7 @@ module.exports = function(RED) {
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
 			copyArgs(n,"statistics",params,undefined,true); 
 			
@@ -1626,9 +1455,7 @@ module.exports = function(RED) {
 
 			svc.getDistributionMetricData(params,cb);
 		}
-
-		
-		service.GetDistributions=function(svc,msg,cb){
+			service.GetDistributions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1641,9 +1468,7 @@ module.exports = function(RED) {
 
 			svc.getDistributions(params,cb);
 		}
-
-		
-		service.GetDomain=function(svc,msg,cb){
+			service.GetDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -1655,9 +1480,7 @@ module.exports = function(RED) {
 
 			svc.getDomain(params,cb);
 		}
-
-		
-		service.GetDomains=function(svc,msg,cb){
+			service.GetDomains=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1668,9 +1491,7 @@ module.exports = function(RED) {
 
 			svc.getDomains(params,cb);
 		}
-
-		
-		service.GetExportSnapshotRecords=function(svc,msg,cb){
+			service.GetExportSnapshotRecords=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1681,9 +1502,7 @@ module.exports = function(RED) {
 
 			svc.getExportSnapshotRecords(params,cb);
 		}
-
-		
-		service.GetInstance=function(svc,msg,cb){
+			service.GetInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -1695,9 +1514,7 @@ module.exports = function(RED) {
 
 			svc.getInstance(params,cb);
 		}
-
-		
-		service.GetInstanceAccessDetails=function(svc,msg,cb){
+			service.GetInstanceAccessDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -1711,14 +1528,12 @@ module.exports = function(RED) {
 
 			svc.getInstanceAccessDetails(params,cb);
 		}
-
-		
-		service.GetInstanceMetricData=function(svc,msg,cb){
+			service.GetInstanceMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -1726,7 +1541,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -1743,9 +1558,7 @@ module.exports = function(RED) {
 
 			svc.getInstanceMetricData(params,cb);
 		}
-
-		
-		service.GetInstancePortStates=function(svc,msg,cb){
+			service.GetInstancePortStates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -1757,9 +1570,7 @@ module.exports = function(RED) {
 
 			svc.getInstancePortStates(params,cb);
 		}
-
-		
-		service.GetInstanceSnapshot=function(svc,msg,cb){
+			service.GetInstanceSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceSnapshotName",params,undefined,false); 
@@ -1771,9 +1582,7 @@ module.exports = function(RED) {
 
 			svc.getInstanceSnapshot(params,cb);
 		}
-
-		
-		service.GetInstanceSnapshots=function(svc,msg,cb){
+			service.GetInstanceSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1784,9 +1593,7 @@ module.exports = function(RED) {
 
 			svc.getInstanceSnapshots(params,cb);
 		}
-
-		
-		service.GetInstanceState=function(svc,msg,cb){
+			service.GetInstanceState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -1798,9 +1605,7 @@ module.exports = function(RED) {
 
 			svc.getInstanceState(params,cb);
 		}
-
-		
-		service.GetInstances=function(svc,msg,cb){
+			service.GetInstances=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1811,9 +1616,7 @@ module.exports = function(RED) {
 
 			svc.getInstances(params,cb);
 		}
-
-		
-		service.GetKeyPair=function(svc,msg,cb){
+			service.GetKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"keyPairName",params,undefined,false); 
@@ -1825,9 +1628,7 @@ module.exports = function(RED) {
 
 			svc.getKeyPair(params,cb);
 		}
-
-		
-		service.GetKeyPairs=function(svc,msg,cb){
+			service.GetKeyPairs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1838,9 +1639,7 @@ module.exports = function(RED) {
 
 			svc.getKeyPairs(params,cb);
 		}
-
-		
-		service.GetLoadBalancer=function(svc,msg,cb){
+			service.GetLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -1852,14 +1651,12 @@ module.exports = function(RED) {
 
 			svc.getLoadBalancer(params,cb);
 		}
-
-		
-		service.GetLoadBalancerMetricData=function(svc,msg,cb){
+			service.GetLoadBalancerMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -1867,7 +1664,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -1884,9 +1681,7 @@ module.exports = function(RED) {
 
 			svc.getLoadBalancerMetricData(params,cb);
 		}
-
-		
-		service.GetLoadBalancerTlsCertificates=function(svc,msg,cb){
+			service.GetLoadBalancerTlsCertificates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -1898,9 +1693,7 @@ module.exports = function(RED) {
 
 			svc.getLoadBalancerTlsCertificates(params,cb);
 		}
-
-		
-		service.GetLoadBalancers=function(svc,msg,cb){
+			service.GetLoadBalancers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1911,9 +1704,7 @@ module.exports = function(RED) {
 
 			svc.getLoadBalancers(params,cb);
 		}
-
-		
-		service.GetOperation=function(svc,msg,cb){
+			service.GetOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"operationId",params,undefined,false); 
@@ -1925,9 +1716,7 @@ module.exports = function(RED) {
 
 			svc.getOperation(params,cb);
 		}
-
-		
-		service.GetOperations=function(svc,msg,cb){
+			service.GetOperations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1938,9 +1727,7 @@ module.exports = function(RED) {
 
 			svc.getOperations(params,cb);
 		}
-
-		
-		service.GetOperationsForResource=function(svc,msg,cb){
+			service.GetOperationsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -1954,14 +1741,12 @@ module.exports = function(RED) {
 
 			svc.getOperationsForResource(params,cb);
 		}
-
-		
-		service.GetRegions=function(svc,msg,cb){
+			service.GetRegions=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeAvailabilityZones",params,undefined,false); 
-			copyArgs(n,"includeRelationalDatabaseAvailabilityZones",params,undefined,false); 
+			copyArgs(Boolean(n),"includeAvailabilityZones",params,undefined,false); 
+			copyArgs(Boolean(n),"includeRelationalDatabaseAvailabilityZones",params,undefined,false); 
 			
 			copyArgs(msg,"includeAvailabilityZones",params,undefined,false); 
 			copyArgs(msg,"includeRelationalDatabaseAvailabilityZones",params,undefined,false); 
@@ -1969,9 +1754,7 @@ module.exports = function(RED) {
 
 			svc.getRegions(params,cb);
 		}
-
-		
-		service.GetRelationalDatabase=function(svc,msg,cb){
+			service.GetRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -1983,9 +1766,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabase(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseBlueprints=function(svc,msg,cb){
+			service.GetRelationalDatabaseBlueprints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1996,9 +1777,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseBlueprints(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseBundles=function(svc,msg,cb){
+			service.GetRelationalDatabaseBundles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2009,15 +1788,13 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseBundles(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseEvents=function(svc,msg,cb){
+			service.GetRelationalDatabaseEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
-			copyArgs(n,"durationInMinutes",params,undefined,false); 
+			copyArgs(Number(n),"durationInMinutes",params,undefined,false); 
 			copyArgs(n,"pageToken",params,undefined,false); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -2027,9 +1804,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseEvents(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseLogEvents=function(svc,msg,cb){
+			service.GetRelationalDatabaseLogEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2039,7 +1814,7 @@ module.exports = function(RED) {
 			copyArgs(n,"logStreamName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"startFromHead",params,undefined,false); 
+			copyArgs(Boolean(n),"startFromHead",params,undefined,false); 
 			copyArgs(n,"pageToken",params,undefined,false); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -2052,9 +1827,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseLogEvents(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseLogStreams=function(svc,msg,cb){
+			service.GetRelationalDatabaseLogStreams=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2066,9 +1839,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseLogStreams(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseMasterUserPassword=function(svc,msg,cb){
+			service.GetRelationalDatabaseMasterUserPassword=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2082,14 +1853,12 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseMasterUserPassword(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseMetricData=function(svc,msg,cb){
+			service.GetRelationalDatabaseMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -2097,7 +1866,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"unit",params,undefined,false); 
@@ -2114,9 +1883,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseMetricData(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseParameters=function(svc,msg,cb){
+			service.GetRelationalDatabaseParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2130,9 +1897,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseParameters(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseSnapshot=function(svc,msg,cb){
+			service.GetRelationalDatabaseSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseSnapshotName",params,undefined,false); 
@@ -2144,9 +1909,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseSnapshot(params,cb);
 		}
-
-		
-		service.GetRelationalDatabaseSnapshots=function(svc,msg,cb){
+			service.GetRelationalDatabaseSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2157,9 +1920,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabaseSnapshots(params,cb);
 		}
-
-		
-		service.GetRelationalDatabases=function(svc,msg,cb){
+			service.GetRelationalDatabases=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2170,9 +1931,7 @@ module.exports = function(RED) {
 
 			svc.getRelationalDatabases(params,cb);
 		}
-
-		
-		service.GetStaticIp=function(svc,msg,cb){
+			service.GetStaticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"staticIpName",params,undefined,false); 
@@ -2184,9 +1943,7 @@ module.exports = function(RED) {
 
 			svc.getStaticIp(params,cb);
 		}
-
-		
-		service.GetStaticIps=function(svc,msg,cb){
+			service.GetStaticIps=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2197,9 +1954,7 @@ module.exports = function(RED) {
 
 			svc.getStaticIps(params,cb);
 		}
-
-		
-		service.ImportKeyPair=function(svc,msg,cb){
+			service.ImportKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"keyPairName",params,undefined,false); 
@@ -2214,9 +1969,7 @@ module.exports = function(RED) {
 
 			svc.importKeyPair(params,cb);
 		}
-
-		
-		service.IsVpcPeered=function(svc,msg,cb){
+			service.IsVpcPeered=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2225,9 +1978,7 @@ module.exports = function(RED) {
 
 			svc.isVpcPeered(params,cb);
 		}
-
-		
-		service.OpenInstancePublicPorts=function(svc,msg,cb){
+			service.OpenInstancePublicPorts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portInfo",params,undefined,true); 
@@ -2242,9 +1993,7 @@ module.exports = function(RED) {
 
 			svc.openInstancePublicPorts(params,cb);
 		}
-
-		
-		service.PeerVpc=function(svc,msg,cb){
+			service.PeerVpc=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2253,9 +2002,7 @@ module.exports = function(RED) {
 
 			svc.peerVpc(params,cb);
 		}
-
-		
-		service.PutAlarm=function(svc,msg,cb){
+			service.PutAlarm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmName",params,undefined,false); 
@@ -2263,19 +2010,19 @@ module.exports = function(RED) {
 			copyArgs(n,"monitoredResourceName",params,undefined,false); 
 			copyArgs(n,"comparisonOperator",params,undefined,false); 
 			copyArgs(n,"threshold",params,undefined,false); 
-			copyArgs(n,"evaluationPeriods",params,undefined,false); 
+			copyArgs(Number(n),"evaluationPeriods",params,undefined,false); 
 			
 			copyArgs(n,"alarmName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"monitoredResourceName",params,undefined,false); 
 			copyArgs(n,"comparisonOperator",params,undefined,false); 
 			copyArgs(n,"threshold",params,undefined,false); 
-			copyArgs(n,"evaluationPeriods",params,undefined,false); 
-			copyArgs(n,"datapointsToAlarm",params,undefined,false); 
+			copyArgs(Number(n),"evaluationPeriods",params,undefined,false); 
+			copyArgs(Number(n),"datapointsToAlarm",params,undefined,false); 
 			copyArgs(n,"treatMissingData",params,undefined,false); 
 			copyArgs(n,"contactProtocols",params,undefined,true); 
 			copyArgs(n,"notificationTriggers",params,undefined,true); 
-			copyArgs(n,"notificationEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"notificationEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"alarmName",params,undefined,false); 
 			copyArgs(msg,"metricName",params,undefined,false); 
@@ -2292,9 +2039,7 @@ module.exports = function(RED) {
 
 			svc.putAlarm(params,cb);
 		}
-
-		
-		service.PutInstancePublicPorts=function(svc,msg,cb){
+			service.PutInstancePublicPorts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portInfos",params,undefined,false); 
@@ -2309,9 +2054,7 @@ module.exports = function(RED) {
 
 			svc.putInstancePublicPorts(params,cb);
 		}
-
-		
-		service.RebootInstance=function(svc,msg,cb){
+			service.RebootInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -2323,9 +2066,7 @@ module.exports = function(RED) {
 
 			svc.rebootInstance(params,cb);
 		}
-
-		
-		service.RebootRelationalDatabase=function(svc,msg,cb){
+			service.RebootRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2337,9 +2078,7 @@ module.exports = function(RED) {
 
 			svc.rebootRelationalDatabase(params,cb);
 		}
-
-		
-		service.RegisterContainerImage=function(svc,msg,cb){
+			service.RegisterContainerImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -2357,9 +2096,7 @@ module.exports = function(RED) {
 
 			svc.registerContainerImage(params,cb);
 		}
-
-		
-		service.ReleaseStaticIp=function(svc,msg,cb){
+			service.ReleaseStaticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"staticIpName",params,undefined,false); 
@@ -2371,9 +2108,7 @@ module.exports = function(RED) {
 
 			svc.releaseStaticIp(params,cb);
 		}
-
-		
-		service.ResetDistributionCache=function(svc,msg,cb){
+			service.ResetDistributionCache=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2384,9 +2119,7 @@ module.exports = function(RED) {
 
 			svc.resetDistributionCache(params,cb);
 		}
-
-		
-		service.SendContactMethodVerification=function(svc,msg,cb){
+			service.SendContactMethodVerification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"protocol",params,undefined,false); 
@@ -2398,9 +2131,7 @@ module.exports = function(RED) {
 
 			svc.sendContactMethodVerification(params,cb);
 		}
-
-		
-		service.SetIpAddressType=function(svc,msg,cb){
+			service.SetIpAddressType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceType",params,undefined,false); 
@@ -2418,9 +2149,7 @@ module.exports = function(RED) {
 
 			svc.setIpAddressType(params,cb);
 		}
-
-		
-		service.SetResourceAccessForBucket=function(svc,msg,cb){
+			service.SetResourceAccessForBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -2438,9 +2167,7 @@ module.exports = function(RED) {
 
 			svc.setResourceAccessForBucket(params,cb);
 		}
-
-		
-		service.StartInstance=function(svc,msg,cb){
+			service.StartInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -2452,9 +2179,7 @@ module.exports = function(RED) {
 
 			svc.startInstance(params,cb);
 		}
-
-		
-		service.StartRelationalDatabase=function(svc,msg,cb){
+			service.StartRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2466,15 +2191,13 @@ module.exports = function(RED) {
 
 			svc.startRelationalDatabase(params,cb);
 		}
-
-		
-		service.StopInstance=function(svc,msg,cb){
+			service.StopInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			
 			copyArgs(msg,"instanceName",params,undefined,false); 
 			copyArgs(msg,"force",params,undefined,false); 
@@ -2482,9 +2205,7 @@ module.exports = function(RED) {
 
 			svc.stopInstance(params,cb);
 		}
-
-		
-		service.StopRelationalDatabase=function(svc,msg,cb){
+			service.StopRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2498,9 +2219,7 @@ module.exports = function(RED) {
 
 			svc.stopRelationalDatabase(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -2517,9 +2236,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.TestAlarm=function(svc,msg,cb){
+			service.TestAlarm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmName",params,undefined,false); 
@@ -2534,9 +2251,7 @@ module.exports = function(RED) {
 
 			svc.testAlarm(params,cb);
 		}
-
-		
-		service.UnpeerVpc=function(svc,msg,cb){
+			service.UnpeerVpc=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2545,9 +2260,7 @@ module.exports = function(RED) {
 
 			svc.unpeerVpc(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceName",params,undefined,false); 
@@ -2564,9 +2277,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateBucket=function(svc,msg,cb){
+			service.UpdateBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -2584,9 +2295,7 @@ module.exports = function(RED) {
 
 			svc.updateBucket(params,cb);
 		}
-
-		
-		service.UpdateBucketBundle=function(svc,msg,cb){
+			service.UpdateBucketBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bucketName",params,undefined,false); 
@@ -2601,17 +2310,15 @@ module.exports = function(RED) {
 
 			svc.updateBucketBundle(params,cb);
 		}
-
-		
-		service.UpdateContainerService=function(svc,msg,cb){
+			service.UpdateContainerService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
 			copyArgs(n,"power",params,undefined,false); 
-			copyArgs(n,"scale",params,undefined,false); 
-			copyArgs(n,"isDisabled",params,undefined,false); 
+			copyArgs(Number(n),"scale",params,undefined,false); 
+			copyArgs(Boolean(n),"isDisabled",params,undefined,false); 
 			copyArgs(n,"publicDomainNames",params,undefined,true); 
 			
 			copyArgs(msg,"serviceName",params,undefined,false); 
@@ -2623,9 +2330,7 @@ module.exports = function(RED) {
 
 			svc.updateContainerService(params,cb);
 		}
-
-		
-		service.UpdateDistribution=function(svc,msg,cb){
+			service.UpdateDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"distributionName",params,undefined,false); 
@@ -2635,7 +2340,7 @@ module.exports = function(RED) {
 			copyArgs(n,"defaultCacheBehavior",params,undefined,true); 
 			copyArgs(n,"cacheBehaviorSettings",params,undefined,true); 
 			copyArgs(n,"cacheBehaviors",params,undefined,true); 
-			copyArgs(n,"isEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"isEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"distributionName",params,undefined,false); 
 			copyArgs(msg,"origin",params,undefined,true); 
@@ -2647,9 +2352,7 @@ module.exports = function(RED) {
 
 			svc.updateDistribution(params,cb);
 		}
-
-		
-		service.UpdateDistributionBundle=function(svc,msg,cb){
+			service.UpdateDistributionBundle=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2662,9 +2365,7 @@ module.exports = function(RED) {
 
 			svc.updateDistributionBundle(params,cb);
 		}
-
-		
-		service.UpdateDomainEntry=function(svc,msg,cb){
+			service.UpdateDomainEntry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -2679,9 +2380,7 @@ module.exports = function(RED) {
 
 			svc.updateDomainEntry(params,cb);
 		}
-
-		
-		service.UpdateLoadBalancerAttribute=function(svc,msg,cb){
+			service.UpdateLoadBalancerAttribute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loadBalancerName",params,undefined,false); 
@@ -2699,22 +2398,20 @@ module.exports = function(RED) {
 
 			svc.updateLoadBalancerAttribute(params,cb);
 		}
-
-		
-		service.UpdateRelationalDatabase=function(svc,msg,cb){
+			service.UpdateRelationalDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
 			copyArgs(n,"masterUserPassword",params,undefined,true); 
-			copyArgs(n,"rotateMasterUserPassword",params,undefined,false); 
+			copyArgs(Boolean(n),"rotateMasterUserPassword",params,undefined,false); 
 			copyArgs(n,"preferredBackupWindow",params,undefined,false); 
 			copyArgs(n,"preferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"enableBackupRetention",params,undefined,false); 
-			copyArgs(n,"disableBackupRetention",params,undefined,false); 
-			copyArgs(n,"publiclyAccessible",params,undefined,false); 
-			copyArgs(n,"applyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBackupRetention",params,undefined,false); 
+			copyArgs(Boolean(n),"disableBackupRetention",params,undefined,false); 
+			copyArgs(Boolean(n),"publiclyAccessible",params,undefined,false); 
+			copyArgs(Boolean(n),"applyImmediately",params,undefined,false); 
 			copyArgs(n,"caCertificateIdentifier",params,undefined,false); 
 			
 			copyArgs(msg,"relationalDatabaseName",params,undefined,false); 
@@ -2731,9 +2428,7 @@ module.exports = function(RED) {
 
 			svc.updateRelationalDatabase(params,cb);
 		}
-
-		
-		service.UpdateRelationalDatabaseParameters=function(svc,msg,cb){
+			service.UpdateRelationalDatabaseParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"relationalDatabaseName",params,undefined,false); 
@@ -2748,9 +2443,7 @@ module.exports = function(RED) {
 
 			svc.updateRelationalDatabaseParameters(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Lightsail", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateRoleToGroup=function(svc,msg,cb){
+			service.AssociateRoleToGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.associateRoleToGroup(params,cb);
 		}
-
-		
-		service.AssociateServiceRoleToAccount=function(svc,msg,cb){
+			service.AssociateServiceRoleToAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.associateServiceRoleToAccount(params,cb);
 		}
-
-		
-		service.CreateConnectorDefinition=function(svc,msg,cb){
+			service.CreateConnectorDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -142,9 +137,7 @@ module.exports = function(RED) {
 
 			svc.createConnectorDefinition(params,cb);
 		}
-
-		
-		service.CreateConnectorDefinitionVersion=function(svc,msg,cb){
+			service.CreateConnectorDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -160,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.createConnectorDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateCoreDefinition=function(svc,msg,cb){
+			service.CreateCoreDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -179,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.createCoreDefinition(params,cb);
 		}
-
-		
-		service.CreateCoreDefinitionVersion=function(svc,msg,cb){
+			service.CreateCoreDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -197,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.createCoreDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateDeployment=function(svc,msg,cb){
+			service.CreateDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.createDeployment(params,cb);
 		}
-
-		
-		service.CreateDeviceDefinition=function(svc,msg,cb){
+			service.CreateDeviceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.createDeviceDefinition(params,cb);
 		}
-
-		
-		service.CreateDeviceDefinitionVersion=function(svc,msg,cb){
+			service.CreateDeviceDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionId",params,undefined,false); 
@@ -257,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createDeviceDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateFunctionDefinition=function(svc,msg,cb){
+			service.CreateFunctionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -276,9 +257,7 @@ module.exports = function(RED) {
 
 			svc.createFunctionDefinition(params,cb);
 		}
-
-		
-		service.CreateFunctionDefinitionVersion=function(svc,msg,cb){
+			service.CreateFunctionDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -296,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.createFunctionDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateGroup=function(svc,msg,cb){
+			service.CreateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -316,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.createGroup(params,cb);
 		}
-
-		
-		service.CreateGroupCertificateAuthority=function(svc,msg,cb){
+			service.CreateGroupCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -332,9 +307,7 @@ module.exports = function(RED) {
 
 			svc.createGroupCertificateAuthority(params,cb);
 		}
-
-		
-		service.CreateGroupVersion=function(svc,msg,cb){
+			service.CreateGroupVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -362,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.createGroupVersion(params,cb);
 		}
-
-		
-		service.CreateLoggerDefinition=function(svc,msg,cb){
+			service.CreateLoggerDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -381,9 +352,7 @@ module.exports = function(RED) {
 
 			svc.createLoggerDefinition(params,cb);
 		}
-
-		
-		service.CreateLoggerDefinitionVersion=function(svc,msg,cb){
+			service.CreateLoggerDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionId",params,undefined,false); 
@@ -399,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.createLoggerDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateResourceDefinition=function(svc,msg,cb){
+			service.CreateResourceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -418,9 +385,7 @@ module.exports = function(RED) {
 
 			svc.createResourceDefinition(params,cb);
 		}
-
-		
-		service.CreateResourceDefinitionVersion=function(svc,msg,cb){
+			service.CreateResourceDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionId",params,undefined,false); 
@@ -436,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.createResourceDefinitionVersion(params,cb);
 		}
-
-		
-		service.CreateSoftwareUpdateJob=function(svc,msg,cb){
+			service.CreateSoftwareUpdateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"S3UrlSignerRole",params,undefined,false); 
@@ -466,9 +429,7 @@ module.exports = function(RED) {
 
 			svc.createSoftwareUpdateJob(params,cb);
 		}
-
-		
-		service.CreateSubscriptionDefinition=function(svc,msg,cb){
+			service.CreateSubscriptionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -485,9 +446,7 @@ module.exports = function(RED) {
 
 			svc.createSubscriptionDefinition(params,cb);
 		}
-
-		
-		service.CreateSubscriptionDefinitionVersion=function(svc,msg,cb){
+			service.CreateSubscriptionDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -503,9 +462,7 @@ module.exports = function(RED) {
 
 			svc.createSubscriptionDefinitionVersion(params,cb);
 		}
-
-		
-		service.DeleteConnectorDefinition=function(svc,msg,cb){
+			service.DeleteConnectorDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -517,9 +474,7 @@ module.exports = function(RED) {
 
 			svc.deleteConnectorDefinition(params,cb);
 		}
-
-		
-		service.DeleteCoreDefinition=function(svc,msg,cb){
+			service.DeleteCoreDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -531,9 +486,7 @@ module.exports = function(RED) {
 
 			svc.deleteCoreDefinition(params,cb);
 		}
-
-		
-		service.DeleteDeviceDefinition=function(svc,msg,cb){
+			service.DeleteDeviceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionId",params,undefined,false); 
@@ -545,9 +498,7 @@ module.exports = function(RED) {
 
 			svc.deleteDeviceDefinition(params,cb);
 		}
-
-		
-		service.DeleteFunctionDefinition=function(svc,msg,cb){
+			service.DeleteFunctionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -559,9 +510,7 @@ module.exports = function(RED) {
 
 			svc.deleteFunctionDefinition(params,cb);
 		}
-
-		
-		service.DeleteGroup=function(svc,msg,cb){
+			service.DeleteGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -573,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.deleteGroup(params,cb);
 		}
-
-		
-		service.DeleteLoggerDefinition=function(svc,msg,cb){
+			service.DeleteLoggerDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionId",params,undefined,false); 
@@ -587,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.deleteLoggerDefinition(params,cb);
 		}
-
-		
-		service.DeleteResourceDefinition=function(svc,msg,cb){
+			service.DeleteResourceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionId",params,undefined,false); 
@@ -601,9 +546,7 @@ module.exports = function(RED) {
 
 			svc.deleteResourceDefinition(params,cb);
 		}
-
-		
-		service.DeleteSubscriptionDefinition=function(svc,msg,cb){
+			service.DeleteSubscriptionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -615,9 +558,7 @@ module.exports = function(RED) {
 
 			svc.deleteSubscriptionDefinition(params,cb);
 		}
-
-		
-		service.DisassociateRoleFromGroup=function(svc,msg,cb){
+			service.DisassociateRoleFromGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -629,9 +570,7 @@ module.exports = function(RED) {
 
 			svc.disassociateRoleFromGroup(params,cb);
 		}
-
-		
-		service.DisassociateServiceRoleFromAccount=function(svc,msg,cb){
+			service.DisassociateServiceRoleFromAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -640,9 +579,7 @@ module.exports = function(RED) {
 
 			svc.disassociateServiceRoleFromAccount(params,cb);
 		}
-
-		
-		service.GetAssociatedRole=function(svc,msg,cb){
+			service.GetAssociatedRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -654,9 +591,7 @@ module.exports = function(RED) {
 
 			svc.getAssociatedRole(params,cb);
 		}
-
-		
-		service.GetBulkDeploymentStatus=function(svc,msg,cb){
+			service.GetBulkDeploymentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BulkDeploymentId",params,undefined,false); 
@@ -668,9 +603,7 @@ module.exports = function(RED) {
 
 			svc.getBulkDeploymentStatus(params,cb);
 		}
-
-		
-		service.GetConnectivityInfo=function(svc,msg,cb){
+			service.GetConnectivityInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ThingName",params,undefined,false); 
@@ -682,9 +615,7 @@ module.exports = function(RED) {
 
 			svc.getConnectivityInfo(params,cb);
 		}
-
-		
-		service.GetConnectorDefinition=function(svc,msg,cb){
+			service.GetConnectorDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -696,9 +627,7 @@ module.exports = function(RED) {
 
 			svc.getConnectorDefinition(params,cb);
 		}
-
-		
-		service.GetConnectorDefinitionVersion=function(svc,msg,cb){
+			service.GetConnectorDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -715,9 +644,7 @@ module.exports = function(RED) {
 
 			svc.getConnectorDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetCoreDefinition=function(svc,msg,cb){
+			service.GetCoreDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -729,9 +656,7 @@ module.exports = function(RED) {
 
 			svc.getCoreDefinition(params,cb);
 		}
-
-		
-		service.GetCoreDefinitionVersion=function(svc,msg,cb){
+			service.GetCoreDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -746,9 +671,7 @@ module.exports = function(RED) {
 
 			svc.getCoreDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetDeploymentStatus=function(svc,msg,cb){
+			service.GetDeploymentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -763,9 +686,7 @@ module.exports = function(RED) {
 
 			svc.getDeploymentStatus(params,cb);
 		}
-
-		
-		service.GetDeviceDefinition=function(svc,msg,cb){
+			service.GetDeviceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionId",params,undefined,false); 
@@ -777,9 +698,7 @@ module.exports = function(RED) {
 
 			svc.getDeviceDefinition(params,cb);
 		}
-
-		
-		service.GetDeviceDefinitionVersion=function(svc,msg,cb){
+			service.GetDeviceDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionVersionId",params,undefined,false); 
@@ -796,9 +715,7 @@ module.exports = function(RED) {
 
 			svc.getDeviceDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetFunctionDefinition=function(svc,msg,cb){
+			service.GetFunctionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -810,9 +727,7 @@ module.exports = function(RED) {
 
 			svc.getFunctionDefinition(params,cb);
 		}
-
-		
-		service.GetFunctionDefinitionVersion=function(svc,msg,cb){
+			service.GetFunctionDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -829,9 +744,7 @@ module.exports = function(RED) {
 
 			svc.getFunctionDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetGroup=function(svc,msg,cb){
+			service.GetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -843,9 +756,7 @@ module.exports = function(RED) {
 
 			svc.getGroup(params,cb);
 		}
-
-		
-		service.GetGroupCertificateAuthority=function(svc,msg,cb){
+			service.GetGroupCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityId",params,undefined,false); 
@@ -860,9 +771,7 @@ module.exports = function(RED) {
 
 			svc.getGroupCertificateAuthority(params,cb);
 		}
-
-		
-		service.GetGroupCertificateConfiguration=function(svc,msg,cb){
+			service.GetGroupCertificateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -874,9 +783,7 @@ module.exports = function(RED) {
 
 			svc.getGroupCertificateConfiguration(params,cb);
 		}
-
-		
-		service.GetGroupVersion=function(svc,msg,cb){
+			service.GetGroupVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupVersionId",params,undefined,false); 
@@ -891,9 +798,7 @@ module.exports = function(RED) {
 
 			svc.getGroupVersion(params,cb);
 		}
-
-		
-		service.GetLoggerDefinition=function(svc,msg,cb){
+			service.GetLoggerDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionId",params,undefined,false); 
@@ -905,9 +810,7 @@ module.exports = function(RED) {
 
 			svc.getLoggerDefinition(params,cb);
 		}
-
-		
-		service.GetLoggerDefinitionVersion=function(svc,msg,cb){
+			service.GetLoggerDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionVersionId",params,undefined,false); 
@@ -924,9 +827,7 @@ module.exports = function(RED) {
 
 			svc.getLoggerDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetResourceDefinition=function(svc,msg,cb){
+			service.GetResourceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionId",params,undefined,false); 
@@ -938,9 +839,7 @@ module.exports = function(RED) {
 
 			svc.getResourceDefinition(params,cb);
 		}
-
-		
-		service.GetResourceDefinitionVersion=function(svc,msg,cb){
+			service.GetResourceDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionVersionId",params,undefined,false); 
@@ -955,9 +854,7 @@ module.exports = function(RED) {
 
 			svc.getResourceDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetServiceRoleForAccount=function(svc,msg,cb){
+			service.GetServiceRoleForAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -966,9 +863,7 @@ module.exports = function(RED) {
 
 			svc.getServiceRoleForAccount(params,cb);
 		}
-
-		
-		service.GetSubscriptionDefinition=function(svc,msg,cb){
+			service.GetSubscriptionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -980,9 +875,7 @@ module.exports = function(RED) {
 
 			svc.getSubscriptionDefinition(params,cb);
 		}
-
-		
-		service.GetSubscriptionDefinitionVersion=function(svc,msg,cb){
+			service.GetSubscriptionDefinitionVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -999,9 +892,7 @@ module.exports = function(RED) {
 
 			svc.getSubscriptionDefinitionVersion(params,cb);
 		}
-
-		
-		service.GetThingRuntimeConfiguration=function(svc,msg,cb){
+			service.GetThingRuntimeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ThingName",params,undefined,false); 
@@ -1013,9 +904,7 @@ module.exports = function(RED) {
 
 			svc.getThingRuntimeConfiguration(params,cb);
 		}
-
-		
-		service.ListBulkDeploymentDetailedReports=function(svc,msg,cb){
+			service.ListBulkDeploymentDetailedReports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BulkDeploymentId",params,undefined,false); 
@@ -1031,9 +920,7 @@ module.exports = function(RED) {
 
 			svc.listBulkDeploymentDetailedReports(params,cb);
 		}
-
-		
-		service.ListBulkDeployments=function(svc,msg,cb){
+			service.ListBulkDeployments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1046,9 +933,7 @@ module.exports = function(RED) {
 
 			svc.listBulkDeployments(params,cb);
 		}
-
-		
-		service.ListConnectorDefinitionVersions=function(svc,msg,cb){
+			service.ListConnectorDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -1064,9 +949,7 @@ module.exports = function(RED) {
 
 			svc.listConnectorDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListConnectorDefinitions=function(svc,msg,cb){
+			service.ListConnectorDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1079,9 +962,7 @@ module.exports = function(RED) {
 
 			svc.listConnectorDefinitions(params,cb);
 		}
-
-		
-		service.ListCoreDefinitionVersions=function(svc,msg,cb){
+			service.ListCoreDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -1097,9 +978,7 @@ module.exports = function(RED) {
 
 			svc.listCoreDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListCoreDefinitions=function(svc,msg,cb){
+			service.ListCoreDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1112,9 +991,7 @@ module.exports = function(RED) {
 
 			svc.listCoreDefinitions(params,cb);
 		}
-
-		
-		service.ListDeployments=function(svc,msg,cb){
+			service.ListDeployments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -1130,9 +1007,7 @@ module.exports = function(RED) {
 
 			svc.listDeployments(params,cb);
 		}
-
-		
-		service.ListDeviceDefinitionVersions=function(svc,msg,cb){
+			service.ListDeviceDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionId",params,undefined,false); 
@@ -1148,9 +1023,7 @@ module.exports = function(RED) {
 
 			svc.listDeviceDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListDeviceDefinitions=function(svc,msg,cb){
+			service.ListDeviceDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1163,9 +1036,7 @@ module.exports = function(RED) {
 
 			svc.listDeviceDefinitions(params,cb);
 		}
-
-		
-		service.ListFunctionDefinitionVersions=function(svc,msg,cb){
+			service.ListFunctionDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -1181,9 +1052,7 @@ module.exports = function(RED) {
 
 			svc.listFunctionDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListFunctionDefinitions=function(svc,msg,cb){
+			service.ListFunctionDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1196,9 +1065,7 @@ module.exports = function(RED) {
 
 			svc.listFunctionDefinitions(params,cb);
 		}
-
-		
-		service.ListGroupCertificateAuthorities=function(svc,msg,cb){
+			service.ListGroupCertificateAuthorities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -1210,9 +1077,7 @@ module.exports = function(RED) {
 
 			svc.listGroupCertificateAuthorities(params,cb);
 		}
-
-		
-		service.ListGroupVersions=function(svc,msg,cb){
+			service.ListGroupVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -1228,9 +1093,7 @@ module.exports = function(RED) {
 
 			svc.listGroupVersions(params,cb);
 		}
-
-		
-		service.ListGroups=function(svc,msg,cb){
+			service.ListGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1243,9 +1106,7 @@ module.exports = function(RED) {
 
 			svc.listGroups(params,cb);
 		}
-
-		
-		service.ListLoggerDefinitionVersions=function(svc,msg,cb){
+			service.ListLoggerDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionId",params,undefined,false); 
@@ -1261,9 +1122,7 @@ module.exports = function(RED) {
 
 			svc.listLoggerDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListLoggerDefinitions=function(svc,msg,cb){
+			service.ListLoggerDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1276,9 +1135,7 @@ module.exports = function(RED) {
 
 			svc.listLoggerDefinitions(params,cb);
 		}
-
-		
-		service.ListResourceDefinitionVersions=function(svc,msg,cb){
+			service.ListResourceDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionId",params,undefined,false); 
@@ -1294,9 +1151,7 @@ module.exports = function(RED) {
 
 			svc.listResourceDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListResourceDefinitions=function(svc,msg,cb){
+			service.ListResourceDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1309,9 +1164,7 @@ module.exports = function(RED) {
 
 			svc.listResourceDefinitions(params,cb);
 		}
-
-		
-		service.ListSubscriptionDefinitionVersions=function(svc,msg,cb){
+			service.ListSubscriptionDefinitionVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -1327,9 +1180,7 @@ module.exports = function(RED) {
 
 			svc.listSubscriptionDefinitionVersions(params,cb);
 		}
-
-		
-		service.ListSubscriptionDefinitions=function(svc,msg,cb){
+			service.ListSubscriptionDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1342,9 +1193,7 @@ module.exports = function(RED) {
 
 			svc.listSubscriptionDefinitions(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1356,15 +1205,13 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ResetDeployments=function(svc,msg,cb){
+			service.ResetDeployments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
 			
 			copyArgs(n,"AmznClientToken",params,undefined,false); 
-			copyArgs(n,"Force",params,undefined,false); 
+			copyArgs(Boolean(n),"Force",params,undefined,false); 
 			copyArgs(n,"GroupId",params,undefined,false); 
 			
 			copyArgs(msg,"AmznClientToken",params,undefined,false); 
@@ -1374,9 +1221,7 @@ module.exports = function(RED) {
 
 			svc.resetDeployments(params,cb);
 		}
-
-		
-		service.StartBulkDeployment=function(svc,msg,cb){
+			service.StartBulkDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExecutionRoleArn",params,undefined,false); 
@@ -1395,9 +1240,7 @@ module.exports = function(RED) {
 
 			svc.startBulkDeployment(params,cb);
 		}
-
-		
-		service.StopBulkDeployment=function(svc,msg,cb){
+			service.StopBulkDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BulkDeploymentId",params,undefined,false); 
@@ -1409,9 +1252,7 @@ module.exports = function(RED) {
 
 			svc.stopBulkDeployment(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1425,9 +1266,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -1442,9 +1281,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateConnectivityInfo=function(svc,msg,cb){
+			service.UpdateConnectivityInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ThingName",params,undefined,false); 
@@ -1458,9 +1295,7 @@ module.exports = function(RED) {
 
 			svc.updateConnectivityInfo(params,cb);
 		}
-
-		
-		service.UpdateConnectorDefinition=function(svc,msg,cb){
+			service.UpdateConnectorDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectorDefinitionId",params,undefined,false); 
@@ -1474,9 +1309,7 @@ module.exports = function(RED) {
 
 			svc.updateConnectorDefinition(params,cb);
 		}
-
-		
-		service.UpdateCoreDefinition=function(svc,msg,cb){
+			service.UpdateCoreDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CoreDefinitionId",params,undefined,false); 
@@ -1490,9 +1323,7 @@ module.exports = function(RED) {
 
 			svc.updateCoreDefinition(params,cb);
 		}
-
-		
-		service.UpdateDeviceDefinition=function(svc,msg,cb){
+			service.UpdateDeviceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceDefinitionId",params,undefined,false); 
@@ -1506,9 +1337,7 @@ module.exports = function(RED) {
 
 			svc.updateDeviceDefinition(params,cb);
 		}
-
-		
-		service.UpdateFunctionDefinition=function(svc,msg,cb){
+			service.UpdateFunctionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FunctionDefinitionId",params,undefined,false); 
@@ -1522,9 +1351,7 @@ module.exports = function(RED) {
 
 			svc.updateFunctionDefinition(params,cb);
 		}
-
-		
-		service.UpdateGroup=function(svc,msg,cb){
+			service.UpdateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -1538,9 +1365,7 @@ module.exports = function(RED) {
 
 			svc.updateGroup(params,cb);
 		}
-
-		
-		service.UpdateGroupCertificateConfiguration=function(svc,msg,cb){
+			service.UpdateGroupCertificateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -1554,9 +1379,7 @@ module.exports = function(RED) {
 
 			svc.updateGroupCertificateConfiguration(params,cb);
 		}
-
-		
-		service.UpdateLoggerDefinition=function(svc,msg,cb){
+			service.UpdateLoggerDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggerDefinitionId",params,undefined,false); 
@@ -1570,9 +1393,7 @@ module.exports = function(RED) {
 
 			svc.updateLoggerDefinition(params,cb);
 		}
-
-		
-		service.UpdateResourceDefinition=function(svc,msg,cb){
+			service.UpdateResourceDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceDefinitionId",params,undefined,false); 
@@ -1586,9 +1407,7 @@ module.exports = function(RED) {
 
 			svc.updateResourceDefinition(params,cb);
 		}
-
-		
-		service.UpdateSubscriptionDefinition=function(svc,msg,cb){
+			service.UpdateSubscriptionDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionDefinitionId",params,undefined,false); 
@@ -1602,9 +1421,7 @@ module.exports = function(RED) {
 
 			svc.updateSubscriptionDefinition(params,cb);
 		}
-
-		
-		service.UpdateThingRuntimeConfiguration=function(svc,msg,cb){
+			service.UpdateThingRuntimeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ThingName",params,undefined,false); 
@@ -1618,9 +1435,7 @@ module.exports = function(RED) {
 
 			svc.updateThingRuntimeConfiguration(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Greengrass", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateHomeRegionControl=function(svc,msg,cb){
+			service.CreateHomeRegionControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HomeRegion",params,undefined,false); 
@@ -102,7 +101,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"HomeRegion",params,undefined,false); 
 			copyArgs(n,"Target",params,undefined,true); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"HomeRegion",params,undefined,false); 
 			copyArgs(msg,"Target",params,undefined,true); 
@@ -111,16 +110,14 @@ module.exports = function(RED) {
 
 			svc.createHomeRegionControl(params,cb);
 		}
-
-		
-		service.DescribeHomeRegionControls=function(svc,msg,cb){
+			service.DescribeHomeRegionControls=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ControlId",params,undefined,false); 
 			copyArgs(n,"HomeRegion",params,undefined,false); 
 			copyArgs(n,"Target",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ControlId",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.describeHomeRegionControls(params,cb);
 		}
-
-		
-		service.GetHomeRegion=function(svc,msg,cb){
+			service.GetHomeRegion=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.getHomeRegion(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MigrationHubConfig", AmazonAPINode);
 

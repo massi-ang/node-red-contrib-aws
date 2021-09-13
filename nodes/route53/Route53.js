@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.ActivateKeySigningKey=function(svc,msg,cb){
+			service.ActivateKeySigningKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.activateKeySigningKey(params,cb);
 		}
-
-		
-		service.AssociateVPCWithHostedZone=function(svc,msg,cb){
+			service.AssociateVPCWithHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -128,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.associateVPCWithHostedZone(params,cb);
 		}
-
-		
-		service.ChangeResourceRecordSets=function(svc,msg,cb){
+			service.ChangeResourceRecordSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -145,9 +140,7 @@ module.exports = function(RED) {
 
 			svc.changeResourceRecordSets(params,cb);
 		}
-
-		
-		service.ChangeTagsForResource=function(svc,msg,cb){
+			service.ChangeTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -166,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.changeTagsForResource(params,cb);
 		}
-
-		
-		service.CreateHealthCheck=function(svc,msg,cb){
+			service.CreateHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CallerReference",params,undefined,false); 
@@ -183,9 +174,7 @@ module.exports = function(RED) {
 
 			svc.createHealthCheck(params,cb);
 		}
-
-		
-		service.CreateHostedZone=function(svc,msg,cb){
+			service.CreateHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -206,9 +195,7 @@ module.exports = function(RED) {
 
 			svc.createHostedZone(params,cb);
 		}
-
-		
-		service.CreateKeySigningKey=function(svc,msg,cb){
+			service.CreateKeySigningKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CallerReference",params,undefined,false); 
@@ -232,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.createKeySigningKey(params,cb);
 		}
-
-		
-		service.CreateQueryLoggingConfig=function(svc,msg,cb){
+			service.CreateQueryLoggingConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -249,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.createQueryLoggingConfig(params,cb);
 		}
-
-		
-		service.CreateReusableDelegationSet=function(svc,msg,cb){
+			service.CreateReusableDelegationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CallerReference",params,undefined,false); 
@@ -265,9 +248,7 @@ module.exports = function(RED) {
 
 			svc.createReusableDelegationSet(params,cb);
 		}
-
-		
-		service.CreateTrafficPolicy=function(svc,msg,cb){
+			service.CreateTrafficPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -284,22 +265,20 @@ module.exports = function(RED) {
 
 			svc.createTrafficPolicy(params,cb);
 		}
-
-		
-		service.CreateTrafficPolicyInstance=function(svc,msg,cb){
+			service.CreateTrafficPolicyInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"TTL",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"TTL",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			
 			copyArgs(msg,"HostedZoneId",params,undefined,false); 
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -310,9 +289,7 @@ module.exports = function(RED) {
 
 			svc.createTrafficPolicyInstance(params,cb);
 		}
-
-		
-		service.CreateTrafficPolicyVersion=function(svc,msg,cb){
+			service.CreateTrafficPolicyVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -329,9 +306,7 @@ module.exports = function(RED) {
 
 			svc.createTrafficPolicyVersion(params,cb);
 		}
-
-		
-		service.CreateVPCAssociationAuthorization=function(svc,msg,cb){
+			service.CreateVPCAssociationAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -346,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.createVPCAssociationAuthorization(params,cb);
 		}
-
-		
-		service.DeactivateKeySigningKey=function(svc,msg,cb){
+			service.DeactivateKeySigningKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -363,9 +336,7 @@ module.exports = function(RED) {
 
 			svc.deactivateKeySigningKey(params,cb);
 		}
-
-		
-		service.DeleteHealthCheck=function(svc,msg,cb){
+			service.DeleteHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
@@ -377,9 +348,7 @@ module.exports = function(RED) {
 
 			svc.deleteHealthCheck(params,cb);
 		}
-
-		
-		service.DeleteHostedZone=function(svc,msg,cb){
+			service.DeleteHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -391,9 +360,7 @@ module.exports = function(RED) {
 
 			svc.deleteHostedZone(params,cb);
 		}
-
-		
-		service.DeleteKeySigningKey=function(svc,msg,cb){
+			service.DeleteKeySigningKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -408,9 +375,7 @@ module.exports = function(RED) {
 
 			svc.deleteKeySigningKey(params,cb);
 		}
-
-		
-		service.DeleteQueryLoggingConfig=function(svc,msg,cb){
+			service.DeleteQueryLoggingConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -422,9 +387,7 @@ module.exports = function(RED) {
 
 			svc.deleteQueryLoggingConfig(params,cb);
 		}
-
-		
-		service.DeleteReusableDelegationSet=function(svc,msg,cb){
+			service.DeleteReusableDelegationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -436,16 +399,14 @@ module.exports = function(RED) {
 
 			svc.deleteReusableDelegationSet(params,cb);
 		}
-
-		
-		service.DeleteTrafficPolicy=function(svc,msg,cb){
+			service.DeleteTrafficPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			
 			copyArgs(msg,"Id",params,undefined,false); 
 			copyArgs(msg,"Version",params,undefined,false); 
@@ -453,9 +414,7 @@ module.exports = function(RED) {
 
 			svc.deleteTrafficPolicy(params,cb);
 		}
-
-		
-		service.DeleteTrafficPolicyInstance=function(svc,msg,cb){
+			service.DeleteTrafficPolicyInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -467,9 +426,7 @@ module.exports = function(RED) {
 
 			svc.deleteTrafficPolicyInstance(params,cb);
 		}
-
-		
-		service.DeleteVPCAssociationAuthorization=function(svc,msg,cb){
+			service.DeleteVPCAssociationAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -484,9 +441,7 @@ module.exports = function(RED) {
 
 			svc.deleteVPCAssociationAuthorization(params,cb);
 		}
-
-		
-		service.DisableHostedZoneDNSSEC=function(svc,msg,cb){
+			service.DisableHostedZoneDNSSEC=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -498,9 +453,7 @@ module.exports = function(RED) {
 
 			svc.disableHostedZoneDNSSEC(params,cb);
 		}
-
-		
-		service.DisassociateVPCFromHostedZone=function(svc,msg,cb){
+			service.DisassociateVPCFromHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -517,9 +470,7 @@ module.exports = function(RED) {
 
 			svc.disassociateVPCFromHostedZone(params,cb);
 		}
-
-		
-		service.EnableHostedZoneDNSSEC=function(svc,msg,cb){
+			service.EnableHostedZoneDNSSEC=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -531,9 +482,7 @@ module.exports = function(RED) {
 
 			svc.enableHostedZoneDNSSEC(params,cb);
 		}
-
-		
-		service.GetAccountLimit=function(svc,msg,cb){
+			service.GetAccountLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -545,9 +494,7 @@ module.exports = function(RED) {
 
 			svc.getAccountLimit(params,cb);
 		}
-
-		
-		service.GetChange=function(svc,msg,cb){
+			service.GetChange=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -559,9 +506,7 @@ module.exports = function(RED) {
 
 			svc.getChange(params,cb);
 		}
-
-		
-		service.GetCheckerIpRanges=function(svc,msg,cb){
+			service.GetCheckerIpRanges=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -570,9 +515,7 @@ module.exports = function(RED) {
 
 			svc.getCheckerIpRanges(params,cb);
 		}
-
-		
-		service.GetDNSSEC=function(svc,msg,cb){
+			service.GetDNSSEC=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -584,9 +527,7 @@ module.exports = function(RED) {
 
 			svc.getDNSSEC(params,cb);
 		}
-
-		
-		service.GetGeoLocation=function(svc,msg,cb){
+			service.GetGeoLocation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -601,9 +542,7 @@ module.exports = function(RED) {
 
 			svc.getGeoLocation(params,cb);
 		}
-
-		
-		service.GetHealthCheck=function(svc,msg,cb){
+			service.GetHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
@@ -615,9 +554,7 @@ module.exports = function(RED) {
 
 			svc.getHealthCheck(params,cb);
 		}
-
-		
-		service.GetHealthCheckCount=function(svc,msg,cb){
+			service.GetHealthCheckCount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -626,9 +563,7 @@ module.exports = function(RED) {
 
 			svc.getHealthCheckCount(params,cb);
 		}
-
-		
-		service.GetHealthCheckLastFailureReason=function(svc,msg,cb){
+			service.GetHealthCheckLastFailureReason=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
@@ -640,9 +575,7 @@ module.exports = function(RED) {
 
 			svc.getHealthCheckLastFailureReason(params,cb);
 		}
-
-		
-		service.GetHealthCheckStatus=function(svc,msg,cb){
+			service.GetHealthCheckStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
@@ -654,9 +587,7 @@ module.exports = function(RED) {
 
 			svc.getHealthCheckStatus(params,cb);
 		}
-
-		
-		service.GetHostedZone=function(svc,msg,cb){
+			service.GetHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -668,9 +599,7 @@ module.exports = function(RED) {
 
 			svc.getHostedZone(params,cb);
 		}
-
-		
-		service.GetHostedZoneCount=function(svc,msg,cb){
+			service.GetHostedZoneCount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -679,9 +608,7 @@ module.exports = function(RED) {
 
 			svc.getHostedZoneCount(params,cb);
 		}
-
-		
-		service.GetHostedZoneLimit=function(svc,msg,cb){
+			service.GetHostedZoneLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -696,9 +623,7 @@ module.exports = function(RED) {
 
 			svc.getHostedZoneLimit(params,cb);
 		}
-
-		
-		service.GetQueryLoggingConfig=function(svc,msg,cb){
+			service.GetQueryLoggingConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -710,9 +635,7 @@ module.exports = function(RED) {
 
 			svc.getQueryLoggingConfig(params,cb);
 		}
-
-		
-		service.GetReusableDelegationSet=function(svc,msg,cb){
+			service.GetReusableDelegationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -724,9 +647,7 @@ module.exports = function(RED) {
 
 			svc.getReusableDelegationSet(params,cb);
 		}
-
-		
-		service.GetReusableDelegationSetLimit=function(svc,msg,cb){
+			service.GetReusableDelegationSetLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -741,16 +662,14 @@ module.exports = function(RED) {
 
 			svc.getReusableDelegationSetLimit(params,cb);
 		}
-
-		
-		service.GetTrafficPolicy=function(svc,msg,cb){
+			service.GetTrafficPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			
 			copyArgs(msg,"Id",params,undefined,false); 
 			copyArgs(msg,"Version",params,undefined,false); 
@@ -758,9 +677,7 @@ module.exports = function(RED) {
 
 			svc.getTrafficPolicy(params,cb);
 		}
-
-		
-		service.GetTrafficPolicyInstance=function(svc,msg,cb){
+			service.GetTrafficPolicyInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -772,9 +689,7 @@ module.exports = function(RED) {
 
 			svc.getTrafficPolicyInstance(params,cb);
 		}
-
-		
-		service.GetTrafficPolicyInstanceCount=function(svc,msg,cb){
+			service.GetTrafficPolicyInstanceCount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -783,9 +698,7 @@ module.exports = function(RED) {
 
 			svc.getTrafficPolicyInstanceCount(params,cb);
 		}
-
-		
-		service.ListGeoLocations=function(svc,msg,cb){
+			service.ListGeoLocations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -802,9 +715,7 @@ module.exports = function(RED) {
 
 			svc.listGeoLocations(params,cb);
 		}
-
-		
-		service.ListHealthChecks=function(svc,msg,cb){
+			service.ListHealthChecks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -817,9 +728,7 @@ module.exports = function(RED) {
 
 			svc.listHealthChecks(params,cb);
 		}
-
-		
-		service.ListHostedZones=function(svc,msg,cb){
+			service.ListHostedZones=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -834,9 +743,7 @@ module.exports = function(RED) {
 
 			svc.listHostedZones(params,cb);
 		}
-
-		
-		service.ListHostedZonesByName=function(svc,msg,cb){
+			service.ListHostedZonesByName=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -851,9 +758,7 @@ module.exports = function(RED) {
 
 			svc.listHostedZonesByName(params,cb);
 		}
-
-		
-		service.ListHostedZonesByVPC=function(svc,msg,cb){
+			service.ListHostedZonesByVPC=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VPCId",params,undefined,false); 
@@ -872,9 +777,7 @@ module.exports = function(RED) {
 
 			svc.listHostedZonesByVPC(params,cb);
 		}
-
-		
-		service.ListQueryLoggingConfigs=function(svc,msg,cb){
+			service.ListQueryLoggingConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -889,9 +792,7 @@ module.exports = function(RED) {
 
 			svc.listQueryLoggingConfigs(params,cb);
 		}
-
-		
-		service.ListResourceRecordSets=function(svc,msg,cb){
+			service.ListResourceRecordSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -911,9 +812,7 @@ module.exports = function(RED) {
 
 			svc.listResourceRecordSets(params,cb);
 		}
-
-		
-		service.ListReusableDelegationSets=function(svc,msg,cb){
+			service.ListReusableDelegationSets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -926,9 +825,7 @@ module.exports = function(RED) {
 
 			svc.listReusableDelegationSets(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -943,9 +840,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTagsForResources=function(svc,msg,cb){
+			service.ListTagsForResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -960,9 +855,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResources(params,cb);
 		}
-
-		
-		service.ListTrafficPolicies=function(svc,msg,cb){
+			service.ListTrafficPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -975,9 +868,7 @@ module.exports = function(RED) {
 
 			svc.listTrafficPolicies(params,cb);
 		}
-
-		
-		service.ListTrafficPolicyInstances=function(svc,msg,cb){
+			service.ListTrafficPolicyInstances=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -994,9 +885,7 @@ module.exports = function(RED) {
 
 			svc.listTrafficPolicyInstances(params,cb);
 		}
-
-		
-		service.ListTrafficPolicyInstancesByHostedZone=function(svc,msg,cb){
+			service.ListTrafficPolicyInstancesByHostedZone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -1014,16 +903,14 @@ module.exports = function(RED) {
 
 			svc.listTrafficPolicyInstancesByHostedZone(params,cb);
 		}
-
-		
-		service.ListTrafficPolicyInstancesByPolicy=function(svc,msg,cb){
+			service.ListTrafficPolicyInstancesByPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			copyArgs(n,"HostedZoneIdMarker",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyInstanceNameMarker",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyInstanceTypeMarker",params,undefined,false); 
@@ -1039,9 +926,7 @@ module.exports = function(RED) {
 
 			svc.listTrafficPolicyInstancesByPolicy(params,cb);
 		}
-
-		
-		service.ListTrafficPolicyVersions=function(svc,msg,cb){
+			service.ListTrafficPolicyVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1057,9 +942,7 @@ module.exports = function(RED) {
 
 			svc.listTrafficPolicyVersions(params,cb);
 		}
-
-		
-		service.ListVPCAssociationAuthorizations=function(svc,msg,cb){
+			service.ListVPCAssociationAuthorizations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -1075,9 +958,7 @@ module.exports = function(RED) {
 
 			svc.listVPCAssociationAuthorizations(params,cb);
 		}
-
-		
-		service.TestDNSAnswer=function(svc,msg,cb){
+			service.TestDNSAnswer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostedZoneId",params,undefined,false); 
@@ -1101,9 +982,7 @@ module.exports = function(RED) {
 
 			svc.testDNSAnswer(params,cb);
 		}
-
-		
-		service.UpdateHealthCheck=function(svc,msg,cb){
+			service.UpdateHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
@@ -1111,16 +990,16 @@ module.exports = function(RED) {
 			copyArgs(n,"HealthCheckId",params,undefined,false); 
 			copyArgs(n,"HealthCheckVersion",params,undefined,false); 
 			copyArgs(n,"IPAddress",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"ResourcePath",params,undefined,false); 
 			copyArgs(n,"FullyQualifiedDomainName",params,undefined,false); 
 			copyArgs(n,"SearchString",params,undefined,false); 
-			copyArgs(n,"FailureThreshold",params,undefined,false); 
-			copyArgs(n,"Inverted",params,undefined,false); 
-			copyArgs(n,"Disabled",params,undefined,false); 
-			copyArgs(n,"HealthThreshold",params,undefined,false); 
+			copyArgs(Number(n),"FailureThreshold",params,undefined,false); 
+			copyArgs(Boolean(n),"Inverted",params,undefined,false); 
+			copyArgs(Boolean(n),"Disabled",params,undefined,false); 
+			copyArgs(Number(n),"HealthThreshold",params,undefined,false); 
 			copyArgs(n,"ChildHealthChecks",params,undefined,true); 
-			copyArgs(n,"EnableSNI",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableSNI",params,undefined,false); 
 			copyArgs(n,"Regions",params,undefined,true); 
 			copyArgs(n,"AlarmIdentifier",params,undefined,true); 
 			copyArgs(n,"InsufficientDataHealthStatus",params,undefined,false); 
@@ -1147,9 +1026,7 @@ module.exports = function(RED) {
 
 			svc.updateHealthCheck(params,cb);
 		}
-
-		
-		service.UpdateHostedZoneComment=function(svc,msg,cb){
+			service.UpdateHostedZoneComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1163,17 +1040,15 @@ module.exports = function(RED) {
 
 			svc.updateHostedZoneComment(params,cb);
 		}
-
-		
-		service.UpdateTrafficPolicyComment=function(svc,msg,cb){
+			service.UpdateTrafficPolicyComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			copyArgs(n,"Comment",params,undefined,false); 
 			
 			copyArgs(n,"Id",params,undefined,false); 
-			copyArgs(n,"Version",params,undefined,false); 
+			copyArgs(Number(n),"Version",params,undefined,false); 
 			copyArgs(n,"Comment",params,undefined,false); 
 			
 			copyArgs(msg,"Id",params,undefined,false); 
@@ -1183,20 +1058,18 @@ module.exports = function(RED) {
 
 			svc.updateTrafficPolicyComment(params,cb);
 		}
-
-		
-		service.UpdateTrafficPolicyInstance=function(svc,msg,cb){
+			service.UpdateTrafficPolicyInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
 			copyArgs(n,"TTL",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			
 			copyArgs(n,"Id",params,undefined,false); 
 			copyArgs(n,"TTL",params,undefined,false); 
 			copyArgs(n,"TrafficPolicyId",params,undefined,false); 
-			copyArgs(n,"TrafficPolicyVersion",params,undefined,false); 
+			copyArgs(Number(n),"TrafficPolicyVersion",params,undefined,false); 
 			
 			copyArgs(msg,"Id",params,undefined,false); 
 			copyArgs(msg,"TTL",params,undefined,false); 
@@ -1206,9 +1079,7 @@ module.exports = function(RED) {
 
 			svc.updateTrafficPolicyInstance(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Route53", AmazonAPINode);
 

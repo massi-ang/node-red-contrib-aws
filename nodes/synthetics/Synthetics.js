@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateCanary=function(svc,msg,cb){
+			service.CreateCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -110,8 +109,8 @@ module.exports = function(RED) {
 			copyArgs(n,"ExecutionRoleArn",params,undefined,false); 
 			copyArgs(n,"Schedule",params,undefined,true); 
 			copyArgs(n,"RunConfig",params,undefined,true); 
-			copyArgs(n,"SuccessRetentionPeriodInDays",params,undefined,false); 
-			copyArgs(n,"FailureRetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"SuccessRetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"FailureRetentionPeriodInDays",params,undefined,false); 
 			copyArgs(n,"RuntimeVersion",params,undefined,false); 
 			copyArgs(n,"VpcConfig",params,undefined,true); 
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -131,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.createCanary(params,cb);
 		}
-
-		
-		service.DeleteCanary=function(svc,msg,cb){
+			service.DeleteCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -145,14 +142,12 @@ module.exports = function(RED) {
 
 			svc.deleteCanary(params,cb);
 		}
-
-		
-		service.DescribeCanaries=function(svc,msg,cb){
+			service.DescribeCanaries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -160,14 +155,12 @@ module.exports = function(RED) {
 
 			svc.describeCanaries(params,cb);
 		}
-
-		
-		service.DescribeCanariesLastRun=function(svc,msg,cb){
+			service.DescribeCanariesLastRun=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -175,14 +168,12 @@ module.exports = function(RED) {
 
 			svc.describeCanariesLastRun(params,cb);
 		}
-
-		
-		service.DescribeRuntimeVersions=function(svc,msg,cb){
+			service.DescribeRuntimeVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -190,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.describeRuntimeVersions(params,cb);
 		}
-
-		
-		service.GetCanary=function(svc,msg,cb){
+			service.GetCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -204,16 +193,14 @@ module.exports = function(RED) {
 
 			svc.getCanary(params,cb);
 		}
-
-		
-		service.GetCanaryRuns=function(svc,msg,cb){
+			service.GetCanaryRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -222,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.getCanaryRuns(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -236,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.StartCanary=function(svc,msg,cb){
+			service.StartCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -250,9 +233,7 @@ module.exports = function(RED) {
 
 			svc.startCanary(params,cb);
 		}
-
-		
-		service.StopCanary=function(svc,msg,cb){
+			service.StopCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -264,9 +245,7 @@ module.exports = function(RED) {
 
 			svc.stopCanary(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -281,9 +260,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -298,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateCanary=function(svc,msg,cb){
+			service.UpdateCanary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -311,8 +286,8 @@ module.exports = function(RED) {
 			copyArgs(n,"RuntimeVersion",params,undefined,false); 
 			copyArgs(n,"Schedule",params,undefined,true); 
 			copyArgs(n,"RunConfig",params,undefined,true); 
-			copyArgs(n,"SuccessRetentionPeriodInDays",params,undefined,false); 
-			copyArgs(n,"FailureRetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"SuccessRetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"FailureRetentionPeriodInDays",params,undefined,false); 
 			copyArgs(n,"VpcConfig",params,undefined,true); 
 			copyArgs(n,"VisualReference",params,undefined,false); 
 			
@@ -330,9 +305,7 @@ module.exports = function(RED) {
 
 			svc.updateCanary(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Synthetics", AmazonAPINode);
 

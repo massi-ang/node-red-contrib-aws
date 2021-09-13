@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateDeliveryStream=function(svc,msg,cb){
+			service.CreateDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -126,15 +125,13 @@ module.exports = function(RED) {
 
 			svc.createDeliveryStream(params,cb);
 		}
-
-		
-		service.DeleteDeliveryStream=function(svc,msg,cb){
+			service.DeleteDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
-			copyArgs(n,"AllowForceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowForceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"DeliveryStreamName",params,undefined,false); 
 			copyArgs(msg,"AllowForceDelete",params,undefined,false); 
@@ -142,15 +139,13 @@ module.exports = function(RED) {
 
 			svc.deleteDeliveryStream(params,cb);
 		}
-
-		
-		service.DescribeDeliveryStream=function(svc,msg,cb){
+			service.DescribeDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartDestinationId",params,undefined,false); 
 			
 			copyArgs(msg,"DeliveryStreamName",params,undefined,false); 
@@ -160,13 +155,11 @@ module.exports = function(RED) {
 
 			svc.describeDeliveryStream(params,cb);
 		}
-
-		
-		service.ListDeliveryStreams=function(svc,msg,cb){
+			service.ListDeliveryStreams=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"DeliveryStreamType",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartDeliveryStreamName",params,undefined,false); 
 			
@@ -177,16 +170,14 @@ module.exports = function(RED) {
 
 			svc.listDeliveryStreams(params,cb);
 		}
-
-		
-		service.ListTagsForDeliveryStream=function(svc,msg,cb){
+			service.ListTagsForDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartTagKey",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"DeliveryStreamName",params,undefined,false); 
 			copyArgs(msg,"ExclusiveStartTagKey",params,undefined,false); 
@@ -195,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForDeliveryStream(params,cb);
 		}
-
-		
-		service.PutRecord=function(svc,msg,cb){
+			service.PutRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -212,9 +201,7 @@ module.exports = function(RED) {
 
 			svc.putRecord(params,cb);
 		}
-
-		
-		service.PutRecordBatch=function(svc,msg,cb){
+			service.PutRecordBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -229,9 +216,7 @@ module.exports = function(RED) {
 
 			svc.putRecordBatch(params,cb);
 		}
-
-		
-		service.StartDeliveryStreamEncryption=function(svc,msg,cb){
+			service.StartDeliveryStreamEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -245,9 +230,7 @@ module.exports = function(RED) {
 
 			svc.startDeliveryStreamEncryption(params,cb);
 		}
-
-		
-		service.StopDeliveryStreamEncryption=function(svc,msg,cb){
+			service.StopDeliveryStreamEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -259,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.stopDeliveryStreamEncryption(params,cb);
 		}
-
-		
-		service.TagDeliveryStream=function(svc,msg,cb){
+			service.TagDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -276,9 +257,7 @@ module.exports = function(RED) {
 
 			svc.tagDeliveryStream(params,cb);
 		}
-
-		
-		service.UntagDeliveryStream=function(svc,msg,cb){
+			service.UntagDeliveryStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -293,9 +272,7 @@ module.exports = function(RED) {
 
 			svc.untagDeliveryStream(params,cb);
 		}
-
-		
-		service.UpdateDestination=function(svc,msg,cb){
+			service.UpdateDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryStreamName",params,undefined,false); 
@@ -325,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.updateDestination(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Firehose", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptResourceShareInvitation=function(svc,msg,cb){
+			service.AcceptResourceShareInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareInvitationArn",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.acceptResourceShareInvitation(params,cb);
 		}
-
-		
-		service.AssociateResourceShare=function(svc,msg,cb){
+			service.AssociateResourceShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -128,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.associateResourceShare(params,cb);
 		}
-
-		
-		service.AssociateResourceSharePermission=function(svc,msg,cb){
+			service.AssociateResourceSharePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -138,9 +133,9 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
 			copyArgs(n,"permissionArn",params,undefined,false); 
-			copyArgs(n,"replace",params,undefined,false); 
+			copyArgs(Boolean(n),"replace",params,undefined,false); 
 			copyArgs(n,"clientToken",params,undefined,false); 
-			copyArgs(n,"permissionVersion",params,undefined,false); 
+			copyArgs(Number(n),"permissionVersion",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareArn",params,undefined,false); 
 			copyArgs(msg,"permissionArn",params,undefined,false); 
@@ -151,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.associateResourceSharePermission(params,cb);
 		}
-
-		
-		service.CreateResourceShare=function(svc,msg,cb){
+			service.CreateResourceShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -162,7 +155,7 @@ module.exports = function(RED) {
 			copyArgs(n,"resourceArns",params,undefined,true); 
 			copyArgs(n,"principals",params,undefined,true); 
 			copyArgs(n,"tags",params,undefined,true); 
-			copyArgs(n,"allowExternalPrincipals",params,undefined,false); 
+			copyArgs(Boolean(n),"allowExternalPrincipals",params,undefined,false); 
 			copyArgs(n,"clientToken",params,undefined,false); 
 			copyArgs(n,"permissionArns",params,undefined,false); 
 			
@@ -177,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.createResourceShare(params,cb);
 		}
-
-		
-		service.DeleteResourceShare=function(svc,msg,cb){
+			service.DeleteResourceShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -193,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.deleteResourceShare(params,cb);
 		}
-
-		
-		service.DisassociateResourceShare=function(svc,msg,cb){
+			service.DisassociateResourceShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -213,9 +202,7 @@ module.exports = function(RED) {
 
 			svc.disassociateResourceShare(params,cb);
 		}
-
-		
-		service.DisassociateResourceSharePermission=function(svc,msg,cb){
+			service.DisassociateResourceSharePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -232,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.disassociateResourceSharePermission(params,cb);
 		}
-
-		
-		service.EnableSharingWithAwsOrganization=function(svc,msg,cb){
+			service.EnableSharingWithAwsOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -243,15 +228,13 @@ module.exports = function(RED) {
 
 			svc.enableSharingWithAwsOrganization(params,cb);
 		}
-
-		
-		service.GetPermission=function(svc,msg,cb){
+			service.GetPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"permissionArn",params,undefined,false); 
 			
 			copyArgs(n,"permissionArn",params,undefined,false); 
-			copyArgs(n,"permissionVersion",params,undefined,false); 
+			copyArgs(Number(n),"permissionVersion",params,undefined,false); 
 			
 			copyArgs(msg,"permissionArn",params,undefined,false); 
 			copyArgs(msg,"permissionVersion",params,undefined,false); 
@@ -259,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.getPermission(params,cb);
 		}
-
-		
-		service.GetResourcePolicies=function(svc,msg,cb){
+			service.GetResourcePolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArns",params,undefined,true); 
@@ -269,7 +250,7 @@ module.exports = function(RED) {
 			copyArgs(n,"resourceArns",params,undefined,true); 
 			copyArgs(n,"principal",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceArns",params,undefined,true); 
 			copyArgs(msg,"principal",params,undefined,false); 
@@ -279,9 +260,7 @@ module.exports = function(RED) {
 
 			svc.getResourcePolicies(params,cb);
 		}
-
-		
-		service.GetResourceShareAssociations=function(svc,msg,cb){
+			service.GetResourceShareAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"associationType",params,undefined,false); 
@@ -292,7 +271,7 @@ module.exports = function(RED) {
 			copyArgs(n,"principal",params,undefined,false); 
 			copyArgs(n,"associationStatus",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"associationType",params,undefined,false); 
 			copyArgs(msg,"resourceShareArns",params,undefined,true); 
@@ -305,16 +284,14 @@ module.exports = function(RED) {
 
 			svc.getResourceShareAssociations(params,cb);
 		}
-
-		
-		service.GetResourceShareInvitations=function(svc,msg,cb){
+			service.GetResourceShareInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"resourceShareInvitationArns",params,undefined,false); 
 			copyArgs(n,"resourceShareArns",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareInvitationArns",params,undefined,false); 
 			copyArgs(msg,"resourceShareArns",params,undefined,true); 
@@ -324,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.getResourceShareInvitations(params,cb);
 		}
-
-		
-		service.GetResourceShares=function(svc,msg,cb){
+			service.GetResourceShares=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceOwner",params,undefined,false); 
@@ -337,7 +312,7 @@ module.exports = function(RED) {
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"tagFilters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"permissionArn",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareArns",params,undefined,true); 
@@ -352,16 +327,14 @@ module.exports = function(RED) {
 
 			svc.getResourceShares(params,cb);
 		}
-
-		
-		service.ListPendingInvitationResources=function(svc,msg,cb){
+			service.ListPendingInvitationResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareInvitationArn",params,undefined,false); 
 			
 			copyArgs(n,"resourceShareInvitationArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareInvitationArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -370,15 +343,13 @@ module.exports = function(RED) {
 
 			svc.listPendingInvitationResources(params,cb);
 		}
-
-		
-		service.ListPermissions=function(svc,msg,cb){
+			service.ListPermissions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"resourceType",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceType",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -387,9 +358,7 @@ module.exports = function(RED) {
 
 			svc.listPermissions(params,cb);
 		}
-
-		
-		service.ListPrincipals=function(svc,msg,cb){
+			service.ListPrincipals=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceOwner",params,undefined,false); 
@@ -400,7 +369,7 @@ module.exports = function(RED) {
 			copyArgs(n,"resourceType",params,undefined,false); 
 			copyArgs(n,"resourceShareArns",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceOwner",params,undefined,false); 
 			copyArgs(msg,"resourceArn",params,undefined,false); 
@@ -413,16 +382,14 @@ module.exports = function(RED) {
 
 			svc.listPrincipals(params,cb);
 		}
-
-		
-		service.ListResourceSharePermissions=function(svc,msg,cb){
+			service.ListResourceSharePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -431,14 +398,12 @@ module.exports = function(RED) {
 
 			svc.listResourceSharePermissions(params,cb);
 		}
-
-		
-		service.ListResourceTypes=function(svc,msg,cb){
+			service.ListResourceTypes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -446,9 +411,7 @@ module.exports = function(RED) {
 
 			svc.listResourceTypes(params,cb);
 		}
-
-		
-		service.ListResources=function(svc,msg,cb){
+			service.ListResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceOwner",params,undefined,false); 
@@ -459,7 +422,7 @@ module.exports = function(RED) {
 			copyArgs(n,"resourceArns",params,undefined,true); 
 			copyArgs(n,"resourceShareArns",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceOwner",params,undefined,false); 
 			copyArgs(msg,"principal",params,undefined,false); 
@@ -472,9 +435,7 @@ module.exports = function(RED) {
 
 			svc.listResources(params,cb);
 		}
-
-		
-		service.PromoteResourceShareCreatedFromPolicy=function(svc,msg,cb){
+			service.PromoteResourceShareCreatedFromPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -486,9 +447,7 @@ module.exports = function(RED) {
 
 			svc.promoteResourceShareCreatedFromPolicy(params,cb);
 		}
-
-		
-		service.RejectResourceShareInvitation=function(svc,msg,cb){
+			service.RejectResourceShareInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareInvitationArn",params,undefined,false); 
@@ -502,9 +461,7 @@ module.exports = function(RED) {
 
 			svc.rejectResourceShareInvitation(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -519,9 +476,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
@@ -536,16 +491,14 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateResourceShare=function(svc,msg,cb){
+			service.UpdateResourceShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
 			
 			copyArgs(n,"resourceShareArn",params,undefined,false); 
 			copyArgs(n,"name",params,undefined,false); 
-			copyArgs(n,"allowExternalPrincipals",params,undefined,false); 
+			copyArgs(Boolean(n),"allowExternalPrincipals",params,undefined,false); 
 			copyArgs(n,"clientToken",params,undefined,false); 
 			
 			copyArgs(msg,"resourceShareArn",params,undefined,false); 
@@ -556,9 +509,7 @@ module.exports = function(RED) {
 
 			svc.updateResourceShare(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS RAM", AmazonAPINode);
 

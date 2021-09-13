@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelJob=function(svc,msg,cb){
+			service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -108,19 +107,17 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-
-		
-		service.CreateJob=function(svc,msg,cb){
+			service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobType",params,undefined,false); 
 			copyArgs(n,"Manifest",params,undefined,false); 
-			copyArgs(n,"ValidateOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"ValidateOnly",params,undefined,false); 
 			
 			copyArgs(n,"JobType",params,undefined,false); 
 			copyArgs(n,"Manifest",params,undefined,false); 
 			copyArgs(n,"ManifestAddendum",params,undefined,false); 
-			copyArgs(n,"ValidateOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"ValidateOnly",params,undefined,false); 
 			copyArgs(n,"APIVersion",params,undefined,false); 
 			
 			copyArgs(msg,"JobType",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-
-		
-		service.GetShippingLabel=function(svc,msg,cb){
+			service.GetShippingLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobIds",params,undefined,false); 
@@ -168,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.getShippingLabel(params,cb);
 		}
-
-		
-		service.GetStatus=function(svc,msg,cb){
+			service.GetStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -184,13 +177,11 @@ module.exports = function(RED) {
 
 			svc.getStatus(params,cb);
 		}
-
-		
-		service.ListJobs=function(svc,msg,cb){
+			service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxJobs",params,undefined,false); 
+			copyArgs(Number(n),"MaxJobs",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			copyArgs(n,"APIVersion",params,undefined,false); 
 			
@@ -201,20 +192,18 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-
-		
-		service.UpdateJob=function(svc,msg,cb){
+			service.UpdateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
 			copyArgs(n,"Manifest",params,undefined,false); 
 			copyArgs(n,"JobType",params,undefined,false); 
-			copyArgs(n,"ValidateOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"ValidateOnly",params,undefined,false); 
 			
 			copyArgs(n,"JobId",params,undefined,false); 
 			copyArgs(n,"Manifest",params,undefined,false); 
 			copyArgs(n,"JobType",params,undefined,false); 
-			copyArgs(n,"ValidateOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"ValidateOnly",params,undefined,false); 
 			copyArgs(n,"APIVersion",params,undefined,false); 
 			
 			copyArgs(msg,"JobId",params,undefined,false); 
@@ -226,9 +215,7 @@ module.exports = function(RED) {
 
 			svc.updateJob(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ImportExport", AmazonAPINode);
 

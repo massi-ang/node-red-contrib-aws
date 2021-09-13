@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateCreatedArtifact=function(svc,msg,cb){
+			service.AssociateCreatedArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -104,7 +103,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"CreatedArtifact",params,undefined,true); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -114,9 +113,7 @@ module.exports = function(RED) {
 
 			svc.associateCreatedArtifact(params,cb);
 		}
-
-		
-		service.AssociateDiscoveredResource=function(svc,msg,cb){
+			service.AssociateDiscoveredResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -126,7 +123,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"DiscoveredResource",params,undefined,true); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -136,15 +133,13 @@ module.exports = function(RED) {
 
 			svc.associateDiscoveredResource(params,cb);
 		}
-
-		
-		service.CreateProgressUpdateStream=function(svc,msg,cb){
+			service.CreateProgressUpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStreamName",params,undefined,false); 
 			copyArgs(msg,"DryRun",params,undefined,false); 
@@ -152,15 +147,13 @@ module.exports = function(RED) {
 
 			svc.createProgressUpdateStream(params,cb);
 		}
-
-		
-		service.DeleteProgressUpdateStream=function(svc,msg,cb){
+			service.DeleteProgressUpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStreamName",params,undefined,false); 
 			copyArgs(msg,"DryRun",params,undefined,false); 
@@ -168,9 +161,7 @@ module.exports = function(RED) {
 
 			svc.deleteProgressUpdateStream(params,cb);
 		}
-
-		
-		service.DescribeApplicationState=function(svc,msg,cb){
+			service.DescribeApplicationState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationId",params,undefined,false); 
@@ -182,9 +173,7 @@ module.exports = function(RED) {
 
 			svc.describeApplicationState(params,cb);
 		}
-
-		
-		service.DescribeMigrationTask=function(svc,msg,cb){
+			service.DescribeMigrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -199,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.describeMigrationTask(params,cb);
 		}
-
-		
-		service.DisassociateCreatedArtifact=function(svc,msg,cb){
+			service.DisassociateCreatedArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -211,7 +198,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"CreatedArtifactName",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -221,9 +208,7 @@ module.exports = function(RED) {
 
 			svc.disassociateCreatedArtifact(params,cb);
 		}
-
-		
-		service.DisassociateDiscoveredResource=function(svc,msg,cb){
+			service.DisassociateDiscoveredResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -233,7 +218,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"ConfigurationId",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -243,9 +228,7 @@ module.exports = function(RED) {
 
 			svc.disassociateDiscoveredResource(params,cb);
 		}
-
-		
-		service.ImportMigrationTask=function(svc,msg,cb){
+			service.ImportMigrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -253,7 +236,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -262,15 +245,13 @@ module.exports = function(RED) {
 
 			svc.importMigrationTask(params,cb);
 		}
-
-		
-		service.ListApplicationStates=function(svc,msg,cb){
+			service.ListApplicationStates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ApplicationIds",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationIds",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -279,9 +260,7 @@ module.exports = function(RED) {
 
 			svc.listApplicationStates(params,cb);
 		}
-
-		
-		service.ListCreatedArtifacts=function(svc,msg,cb){
+			service.ListCreatedArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -290,7 +269,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -300,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.listCreatedArtifacts(params,cb);
 		}
-
-		
-		service.ListDiscoveredResources=function(svc,msg,cb){
+			service.ListDiscoveredResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -311,7 +288,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -321,14 +298,12 @@ module.exports = function(RED) {
 
 			svc.listDiscoveredResources(params,cb);
 		}
-
-		
-		service.ListMigrationTasks=function(svc,msg,cb){
+			service.ListMigrationTasks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"ResourceName",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -338,14 +313,12 @@ module.exports = function(RED) {
 
 			svc.listMigrationTasks(params,cb);
 		}
-
-		
-		service.ListProgressUpdateStreams=function(svc,msg,cb){
+			service.ListProgressUpdateStreams=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -353,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.listProgressUpdateStreams(params,cb);
 		}
-
-		
-		service.NotifyApplicationState=function(svc,msg,cb){
+			service.NotifyApplicationState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationId",params,undefined,false); 
@@ -364,7 +335,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ApplicationId",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"UpdateDateTime",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationId",params,undefined,false); 
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -374,23 +345,21 @@ module.exports = function(RED) {
 
 			svc.notifyApplicationState(params,cb);
 		}
-
-		
-		service.NotifyMigrationTaskState=function(svc,msg,cb){
+			service.NotifyMigrationTaskState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"Task",params,undefined,true); 
 			copyArgs(n,"UpdateDateTime",params,undefined,false); 
-			copyArgs(n,"NextUpdateSeconds",params,undefined,false); 
+			copyArgs(Number(n),"NextUpdateSeconds",params,undefined,false); 
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"Task",params,undefined,true); 
 			copyArgs(n,"UpdateDateTime",params,undefined,false); 
-			copyArgs(n,"NextUpdateSeconds",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Number(n),"NextUpdateSeconds",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -402,9 +371,7 @@ module.exports = function(RED) {
 
 			svc.notifyMigrationTaskState(params,cb);
 		}
-
-		
-		service.PutResourceAttributes=function(svc,msg,cb){
+			service.PutResourceAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -414,7 +381,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(n,"MigrationTaskName",params,undefined,false); 
 			copyArgs(n,"ResourceAttributeList",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"ProgressUpdateStream",params,undefined,false); 
 			copyArgs(msg,"MigrationTaskName",params,undefined,false); 
@@ -424,9 +391,7 @@ module.exports = function(RED) {
 
 			svc.putResourceAttributes(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MigrationHub", AmazonAPINode);
 

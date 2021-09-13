@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddRoleToDBCluster=function(svc,msg,cb){
+			service.AddRoleToDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.addRoleToDBCluster(params,cb);
 		}
-
-		
-		service.AddSourceIdentifierToSubscription=function(svc,msg,cb){
+			service.AddSourceIdentifierToSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -128,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.addSourceIdentifierToSubscription(params,cb);
 		}
-
-		
-		service.AddTagsToResource=function(svc,msg,cb){
+			service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -145,9 +140,7 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-
-		
-		service.ApplyPendingMaintenanceAction=function(svc,msg,cb){
+			service.ApplyPendingMaintenanceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIdentifier",params,undefined,false); 
@@ -165,9 +158,7 @@ module.exports = function(RED) {
 
 			svc.applyPendingMaintenanceAction(params,cb);
 		}
-
-		
-		service.CopyDBClusterParameterGroup=function(svc,msg,cb){
+			service.CopyDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceDBClusterParameterGroupIdentifier",params,undefined,false); 
@@ -187,9 +178,7 @@ module.exports = function(RED) {
 
 			svc.copyDBClusterParameterGroup(params,cb);
 		}
-
-		
-		service.CopyDBClusterSnapshot=function(svc,msg,cb){
+			service.CopyDBClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceDBClusterSnapshotIdentifier",params,undefined,false); 
@@ -199,7 +188,7 @@ module.exports = function(RED) {
 			copyArgs(n,"TargetDBClusterSnapshotIdentifier",params,undefined,false); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
 			copyArgs(n,"PreSignedUrl",params,undefined,false); 
-			copyArgs(n,"CopyTags",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTags",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"SourceDBClusterSnapshotIdentifier",params,undefined,false); 
@@ -212,9 +201,7 @@ module.exports = function(RED) {
 
 			svc.copyDBClusterSnapshot(params,cb);
 		}
-
-		
-		service.CopyDBParameterGroup=function(svc,msg,cb){
+			service.CopyDBParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceDBParameterGroupIdentifier",params,undefined,false); 
@@ -234,18 +221,16 @@ module.exports = function(RED) {
 
 			svc.copyDBParameterGroup(params,cb);
 		}
-
-		
-		service.CreateDBCluster=function(svc,msg,cb){
+			service.CreateDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
 			
 			copyArgs(n,"AvailabilityZones",params,undefined,true); 
-			copyArgs(n,"BackupRetentionPeriod",params,undefined,false); 
+			copyArgs(Number(n),"BackupRetentionPeriod",params,undefined,false); 
 			copyArgs(n,"CharacterSetName",params,undefined,false); 
-			copyArgs(n,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTagsToSnapshot",params,undefined,false); 
 			copyArgs(n,"DatabaseName",params,undefined,false); 
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
@@ -253,7 +238,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"MasterUsername",params,undefined,false); 
 			copyArgs(n,"MasterUserPassword",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
@@ -261,12 +246,12 @@ module.exports = function(RED) {
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
 			copyArgs(n,"ReplicationSourceIdentifier",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"StorageEncrypted",params,undefined,false); 
+			copyArgs(Boolean(n),"StorageEncrypted",params,undefined,false); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
 			copyArgs(n,"PreSignedUrl",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
 			copyArgs(n,"EnableCloudwatchLogsExports",params,undefined,true); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			
 			copyArgs(msg,"AvailabilityZones",params,undefined,true); 
 			copyArgs(msg,"BackupRetentionPeriod",params,undefined,false); 
@@ -297,9 +282,7 @@ module.exports = function(RED) {
 
 			svc.createDBCluster(params,cb);
 		}
-
-		
-		service.CreateDBClusterEndpoint=function(svc,msg,cb){
+			service.CreateDBClusterEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -323,9 +306,7 @@ module.exports = function(RED) {
 
 			svc.createDBClusterEndpoint(params,cb);
 		}
-
-		
-		service.CreateDBClusterParameterGroup=function(svc,msg,cb){
+			service.CreateDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
@@ -345,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.createDBClusterParameterGroup(params,cb);
 		}
-
-		
-		service.CreateDBClusterSnapshot=function(svc,msg,cb){
+			service.CreateDBClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterSnapshotIdentifier",params,undefined,false); 
@@ -364,9 +343,7 @@ module.exports = function(RED) {
 
 			svc.createDBClusterSnapshot(params,cb);
 		}
-
-		
-		service.CreateDBInstance=function(svc,msg,cb){
+			service.CreateDBInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
@@ -375,7 +352,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"DBName",params,undefined,false); 
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
-			copyArgs(n,"AllocatedStorage",params,undefined,false); 
+			copyArgs(Number(n),"AllocatedStorage",params,undefined,false); 
 			copyArgs(n,"DBInstanceClass",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"MasterUsername",params,undefined,false); 
@@ -386,36 +363,36 @@ module.exports = function(RED) {
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
-			copyArgs(n,"BackupRetentionPeriod",params,undefined,false); 
+			copyArgs(Number(n),"BackupRetentionPeriod",params,undefined,false); 
 			copyArgs(n,"PreferredBackupWindow",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
-			copyArgs(n,"MultiAZ",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZ",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
 			copyArgs(n,"LicenseModel",params,undefined,false); 
-			copyArgs(n,"Iops",params,undefined,false); 
+			copyArgs(Number(n),"Iops",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
 			copyArgs(n,"CharacterSetName",params,undefined,false); 
-			copyArgs(n,"PubliclyAccessible",params,undefined,false); 
+			copyArgs(Boolean(n),"PubliclyAccessible",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"StorageType",params,undefined,false); 
 			copyArgs(n,"TdeCredentialArn",params,undefined,false); 
 			copyArgs(n,"TdeCredentialPassword",params,undefined,false); 
-			copyArgs(n,"StorageEncrypted",params,undefined,false); 
+			copyArgs(Boolean(n),"StorageEncrypted",params,undefined,false); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
 			copyArgs(n,"Domain",params,undefined,false); 
-			copyArgs(n,"CopyTagsToSnapshot",params,undefined,false); 
-			copyArgs(n,"MonitoringInterval",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTagsToSnapshot",params,undefined,false); 
+			copyArgs(Number(n),"MonitoringInterval",params,undefined,false); 
 			copyArgs(n,"MonitoringRoleArn",params,undefined,false); 
 			copyArgs(n,"DomainIAMRoleName",params,undefined,false); 
-			copyArgs(n,"PromotionTier",params,undefined,false); 
+			copyArgs(Number(n),"PromotionTier",params,undefined,false); 
 			copyArgs(n,"Timezone",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
-			copyArgs(n,"EnablePerformanceInsights",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnablePerformanceInsights",params,undefined,false); 
 			copyArgs(n,"PerformanceInsightsKMSKeyId",params,undefined,false); 
 			copyArgs(n,"EnableCloudwatchLogsExports",params,undefined,true); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			
 			copyArgs(msg,"DBName",params,undefined,false); 
 			copyArgs(msg,"DBInstanceIdentifier",params,undefined,false); 
@@ -464,9 +441,7 @@ module.exports = function(RED) {
 
 			svc.createDBInstance(params,cb);
 		}
-
-		
-		service.CreateDBParameterGroup=function(svc,msg,cb){
+			service.CreateDBParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
@@ -486,9 +461,7 @@ module.exports = function(RED) {
 
 			svc.createDBParameterGroup(params,cb);
 		}
-
-		
-		service.CreateDBSubnetGroup=function(svc,msg,cb){
+			service.CreateDBSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
@@ -508,9 +481,7 @@ module.exports = function(RED) {
 
 			svc.createDBSubnetGroup(params,cb);
 		}
-
-		
-		service.CreateEventSubscription=function(svc,msg,cb){
+			service.CreateEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -521,7 +492,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SourceType",params,undefined,false); 
 			copyArgs(n,"EventCategories",params,undefined,true); 
 			copyArgs(n,"SourceIds",params,undefined,true); 
-			copyArgs(n,"Enabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Enabled",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"SubscriptionName",params,undefined,false); 
@@ -535,15 +506,13 @@ module.exports = function(RED) {
 
 			svc.createEventSubscription(params,cb);
 		}
-
-		
-		service.DeleteDBCluster=function(svc,msg,cb){
+			service.DeleteDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
-			copyArgs(n,"SkipFinalSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"SkipFinalSnapshot",params,undefined,false); 
 			copyArgs(n,"FinalDBSnapshotIdentifier",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
@@ -553,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBCluster(params,cb);
 		}
-
-		
-		service.DeleteDBClusterEndpoint=function(svc,msg,cb){
+			service.DeleteDBClusterEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterEndpointIdentifier",params,undefined,false); 
@@ -567,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBClusterEndpoint(params,cb);
 		}
-
-		
-		service.DeleteDBClusterParameterGroup=function(svc,msg,cb){
+			service.DeleteDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
@@ -581,9 +546,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBClusterParameterGroup(params,cb);
 		}
-
-		
-		service.DeleteDBClusterSnapshot=function(svc,msg,cb){
+			service.DeleteDBClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterSnapshotIdentifier",params,undefined,false); 
@@ -595,15 +558,13 @@ module.exports = function(RED) {
 
 			svc.deleteDBClusterSnapshot(params,cb);
 		}
-
-		
-		service.DeleteDBInstance=function(svc,msg,cb){
+			service.DeleteDBInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
-			copyArgs(n,"SkipFinalSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"SkipFinalSnapshot",params,undefined,false); 
 			copyArgs(n,"FinalDBSnapshotIdentifier",params,undefined,false); 
 			
 			copyArgs(msg,"DBInstanceIdentifier",params,undefined,false); 
@@ -613,9 +574,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBInstance(params,cb);
 		}
-
-		
-		service.DeleteDBParameterGroup=function(svc,msg,cb){
+			service.DeleteDBParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
@@ -627,9 +586,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBParameterGroup(params,cb);
 		}
-
-		
-		service.DeleteDBSubnetGroup=function(svc,msg,cb){
+			service.DeleteDBSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
@@ -641,9 +598,7 @@ module.exports = function(RED) {
 
 			svc.deleteDBSubnetGroup(params,cb);
 		}
-
-		
-		service.DeleteEventSubscription=function(svc,msg,cb){
+			service.DeleteEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -655,16 +610,14 @@ module.exports = function(RED) {
 
 			svc.deleteEventSubscription(params,cb);
 		}
-
-		
-		service.DescribeDBClusterEndpoints=function(svc,msg,cb){
+			service.DescribeDBClusterEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"DBClusterEndpointIdentifier",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
@@ -676,15 +629,13 @@ module.exports = function(RED) {
 
 			svc.describeDBClusterEndpoints(params,cb);
 		}
-
-		
-		service.DescribeDBClusterParameterGroups=function(svc,msg,cb){
+			service.DescribeDBClusterParameterGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterParameterGroupName",params,undefined,false); 
@@ -695,9 +646,7 @@ module.exports = function(RED) {
 
 			svc.describeDBClusterParameterGroups(params,cb);
 		}
-
-		
-		service.DescribeDBClusterParameters=function(svc,msg,cb){
+			service.DescribeDBClusterParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
@@ -705,7 +654,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Source",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterParameterGroupName",params,undefined,false); 
@@ -717,9 +666,7 @@ module.exports = function(RED) {
 
 			svc.describeDBClusterParameters(params,cb);
 		}
-
-		
-		service.DescribeDBClusterSnapshotAttributes=function(svc,msg,cb){
+			service.DescribeDBClusterSnapshotAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterSnapshotIdentifier",params,undefined,false); 
@@ -731,9 +678,7 @@ module.exports = function(RED) {
 
 			svc.describeDBClusterSnapshotAttributes(params,cb);
 		}
-
-		
-		service.DescribeDBClusterSnapshots=function(svc,msg,cb){
+			service.DescribeDBClusterSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -741,10 +686,10 @@ module.exports = function(RED) {
 			copyArgs(n,"DBClusterSnapshotIdentifier",params,undefined,false); 
 			copyArgs(n,"SnapshotType",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"IncludeShared",params,undefined,false); 
-			copyArgs(n,"IncludePublic",params,undefined,false); 
+			copyArgs(Boolean(n),"IncludeShared",params,undefined,false); 
+			copyArgs(Boolean(n),"IncludePublic",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(msg,"DBClusterSnapshotIdentifier",params,undefined,false); 
@@ -758,15 +703,13 @@ module.exports = function(RED) {
 
 			svc.describeDBClusterSnapshots(params,cb);
 		}
-
-		
-		service.DescribeDBClusters=function(svc,msg,cb){
+			service.DescribeDBClusters=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
@@ -777,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.describeDBClusters(params,cb);
 		}
-
-		
-		service.DescribeDBEngineVersions=function(svc,msg,cb){
+			service.DescribeDBEngineVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -787,11 +728,11 @@ module.exports = function(RED) {
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"DBParameterGroupFamily",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"DefaultOnly",params,undefined,false); 
-			copyArgs(n,"ListSupportedCharacterSets",params,undefined,false); 
-			copyArgs(n,"ListSupportedTimezones",params,undefined,false); 
+			copyArgs(Boolean(n),"DefaultOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"ListSupportedCharacterSets",params,undefined,false); 
+			copyArgs(Boolean(n),"ListSupportedTimezones",params,undefined,false); 
 			
 			copyArgs(msg,"Engine",params,undefined,false); 
 			copyArgs(msg,"EngineVersion",params,undefined,false); 
@@ -806,15 +747,13 @@ module.exports = function(RED) {
 
 			svc.describeDBEngineVersions(params,cb);
 		}
-
-		
-		service.DescribeDBInstances=function(svc,msg,cb){
+			service.DescribeDBInstances=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBInstanceIdentifier",params,undefined,false); 
@@ -825,15 +764,13 @@ module.exports = function(RED) {
 
 			svc.describeDBInstances(params,cb);
 		}
-
-		
-		service.DescribeDBParameterGroups=function(svc,msg,cb){
+			service.DescribeDBParameterGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBParameterGroupName",params,undefined,false); 
@@ -844,9 +781,7 @@ module.exports = function(RED) {
 
 			svc.describeDBParameterGroups(params,cb);
 		}
-
-		
-		service.DescribeDBParameters=function(svc,msg,cb){
+			service.DescribeDBParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
@@ -854,7 +789,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Source",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBParameterGroupName",params,undefined,false); 
@@ -866,15 +801,13 @@ module.exports = function(RED) {
 
 			svc.describeDBParameters(params,cb);
 		}
-
-		
-		service.DescribeDBSubnetGroups=function(svc,msg,cb){
+			service.DescribeDBSubnetGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBSubnetGroupName",params,undefined,false); 
@@ -885,16 +818,14 @@ module.exports = function(RED) {
 
 			svc.describeDBSubnetGroups(params,cb);
 		}
-
-		
-		service.DescribeEngineDefaultClusterParameters=function(svc,msg,cb){
+			service.DescribeEngineDefaultClusterParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupFamily",params,undefined,false); 
 			
 			copyArgs(n,"DBParameterGroupFamily",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBParameterGroupFamily",params,undefined,false); 
@@ -905,16 +836,14 @@ module.exports = function(RED) {
 
 			svc.describeEngineDefaultClusterParameters(params,cb);
 		}
-
-		
-		service.DescribeEngineDefaultParameters=function(svc,msg,cb){
+			service.DescribeEngineDefaultParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupFamily",params,undefined,false); 
 			
 			copyArgs(n,"DBParameterGroupFamily",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"DBParameterGroupFamily",params,undefined,false); 
@@ -925,9 +854,7 @@ module.exports = function(RED) {
 
 			svc.describeEngineDefaultParameters(params,cb);
 		}
-
-		
-		service.DescribeEventCategories=function(svc,msg,cb){
+			service.DescribeEventCategories=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -940,15 +867,13 @@ module.exports = function(RED) {
 
 			svc.describeEventCategories(params,cb);
 		}
-
-		
-		service.DescribeEventSubscriptions=function(svc,msg,cb){
+			service.DescribeEventSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"SubscriptionName",params,undefined,false); 
@@ -959,9 +884,7 @@ module.exports = function(RED) {
 
 			svc.describeEventSubscriptions(params,cb);
 		}
-
-		
-		service.DescribeEvents=function(svc,msg,cb){
+			service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -969,10 +892,10 @@ module.exports = function(RED) {
 			copyArgs(n,"SourceType",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"Duration",params,undefined,false); 
+			copyArgs(Number(n),"Duration",params,undefined,false); 
 			copyArgs(n,"EventCategories",params,undefined,true); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"SourceIdentifier",params,undefined,false); 
@@ -988,9 +911,7 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-
-		
-		service.DescribeOrderableDBInstanceOptions=function(svc,msg,cb){
+			service.DescribeOrderableDBInstanceOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Engine",params,undefined,false); 
@@ -999,9 +920,9 @@ module.exports = function(RED) {
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"DBInstanceClass",params,undefined,false); 
 			copyArgs(n,"LicenseModel",params,undefined,false); 
-			copyArgs(n,"Vpc",params,undefined,false); 
+			copyArgs(Boolean(n),"Vpc",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"Engine",params,undefined,false); 
@@ -1016,16 +937,14 @@ module.exports = function(RED) {
 
 			svc.describeOrderableDBInstanceOptions(params,cb);
 		}
-
-		
-		service.DescribePendingMaintenanceActions=function(svc,msg,cb){
+			service.DescribePendingMaintenanceActions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ResourceIdentifier",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceIdentifier",params,undefined,false); 
 			copyArgs(msg,"Filters",params,undefined,true); 
@@ -1035,9 +954,7 @@ module.exports = function(RED) {
 
 			svc.describePendingMaintenanceActions(params,cb);
 		}
-
-		
-		service.DescribeValidDBInstanceModifications=function(svc,msg,cb){
+			service.DescribeValidDBInstanceModifications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
@@ -1049,9 +966,7 @@ module.exports = function(RED) {
 
 			svc.describeValidDBInstanceModifications(params,cb);
 		}
-
-		
-		service.FailoverDBCluster=function(svc,msg,cb){
+			service.FailoverDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1064,9 +979,7 @@ module.exports = function(RED) {
 
 			svc.failoverDBCluster(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -1080,29 +993,27 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ModifyDBCluster=function(svc,msg,cb){
+			service.ModifyDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"NewDBClusterIdentifier",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
-			copyArgs(n,"BackupRetentionPeriod",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
+			copyArgs(Number(n),"BackupRetentionPeriod",params,undefined,false); 
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
 			copyArgs(n,"VpcSecurityGroupIds",params,undefined,true); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"MasterUserPassword",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
 			copyArgs(n,"PreferredBackupWindow",params,undefined,false); 
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
 			copyArgs(n,"CloudwatchLogsExportConfiguration",params,undefined,true); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
-			copyArgs(n,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTagsToSnapshot",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(msg,"NewDBClusterIdentifier",params,undefined,false); 
@@ -1124,9 +1035,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBCluster(params,cb);
 		}
-
-		
-		service.ModifyDBClusterEndpoint=function(svc,msg,cb){
+			service.ModifyDBClusterEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterEndpointIdentifier",params,undefined,false); 
@@ -1144,9 +1053,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBClusterEndpoint(params,cb);
 		}
-
-		
-		service.ModifyDBClusterParameterGroup=function(svc,msg,cb){
+			service.ModifyDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
@@ -1161,9 +1068,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBClusterParameterGroup(params,cb);
 		}
-
-		
-		service.ModifyDBClusterSnapshotAttribute=function(svc,msg,cb){
+			service.ModifyDBClusterSnapshotAttribute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterSnapshotIdentifier",params,undefined,false); 
@@ -1182,31 +1087,29 @@ module.exports = function(RED) {
 
 			svc.modifyDBClusterSnapshotAttribute(params,cb);
 		}
-
-		
-		service.ModifyDBInstance=function(svc,msg,cb){
+			service.ModifyDBInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
-			copyArgs(n,"AllocatedStorage",params,undefined,false); 
+			copyArgs(Number(n),"AllocatedStorage",params,undefined,false); 
 			copyArgs(n,"DBInstanceClass",params,undefined,false); 
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"DBSecurityGroups",params,undefined,true); 
 			copyArgs(n,"VpcSecurityGroupIds",params,undefined,true); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			copyArgs(n,"MasterUserPassword",params,undefined,false); 
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
-			copyArgs(n,"BackupRetentionPeriod",params,undefined,false); 
+			copyArgs(Number(n),"BackupRetentionPeriod",params,undefined,false); 
 			copyArgs(n,"PreferredBackupWindow",params,undefined,false); 
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"MultiAZ",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZ",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"AllowMajorVersionUpgrade",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowMajorVersionUpgrade",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
 			copyArgs(n,"LicenseModel",params,undefined,false); 
-			copyArgs(n,"Iops",params,undefined,false); 
+			copyArgs(Number(n),"Iops",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
 			copyArgs(n,"NewDBInstanceIdentifier",params,undefined,false); 
 			copyArgs(n,"StorageType",params,undefined,false); 
@@ -1214,18 +1117,18 @@ module.exports = function(RED) {
 			copyArgs(n,"TdeCredentialPassword",params,undefined,false); 
 			copyArgs(n,"CACertificateIdentifier",params,undefined,false); 
 			copyArgs(n,"Domain",params,undefined,false); 
-			copyArgs(n,"CopyTagsToSnapshot",params,undefined,false); 
-			copyArgs(n,"MonitoringInterval",params,undefined,false); 
-			copyArgs(n,"DBPortNumber",params,undefined,false); 
-			copyArgs(n,"PubliclyAccessible",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTagsToSnapshot",params,undefined,false); 
+			copyArgs(Number(n),"MonitoringInterval",params,undefined,false); 
+			copyArgs(Number(n),"DBPortNumber",params,undefined,false); 
+			copyArgs(Boolean(n),"PubliclyAccessible",params,undefined,false); 
 			copyArgs(n,"MonitoringRoleArn",params,undefined,false); 
 			copyArgs(n,"DomainIAMRoleName",params,undefined,false); 
-			copyArgs(n,"PromotionTier",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
-			copyArgs(n,"EnablePerformanceInsights",params,undefined,false); 
+			copyArgs(Number(n),"PromotionTier",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnablePerformanceInsights",params,undefined,false); 
 			copyArgs(n,"PerformanceInsightsKMSKeyId",params,undefined,false); 
 			copyArgs(n,"CloudwatchLogsExportConfiguration",params,undefined,true); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			
 			copyArgs(msg,"DBInstanceIdentifier",params,undefined,false); 
 			copyArgs(msg,"AllocatedStorage",params,undefined,false); 
@@ -1268,9 +1171,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBInstance(params,cb);
 		}
-
-		
-		service.ModifyDBParameterGroup=function(svc,msg,cb){
+			service.ModifyDBParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
@@ -1285,9 +1186,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBParameterGroup(params,cb);
 		}
-
-		
-		service.ModifyDBSubnetGroup=function(svc,msg,cb){
+			service.ModifyDBSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
@@ -1304,9 +1203,7 @@ module.exports = function(RED) {
 
 			svc.modifyDBSubnetGroup(params,cb);
 		}
-
-		
-		service.ModifyEventSubscription=function(svc,msg,cb){
+			service.ModifyEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -1315,7 +1212,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SnsTopicArn",params,undefined,false); 
 			copyArgs(n,"SourceType",params,undefined,false); 
 			copyArgs(n,"EventCategories",params,undefined,true); 
-			copyArgs(n,"Enabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Enabled",params,undefined,false); 
 			
 			copyArgs(msg,"SubscriptionName",params,undefined,false); 
 			copyArgs(msg,"SnsTopicArn",params,undefined,false); 
@@ -1326,9 +1223,7 @@ module.exports = function(RED) {
 
 			svc.modifyEventSubscription(params,cb);
 		}
-
-		
-		service.PromoteReadReplicaDBCluster=function(svc,msg,cb){
+			service.PromoteReadReplicaDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1340,15 +1235,13 @@ module.exports = function(RED) {
 
 			svc.promoteReadReplicaDBCluster(params,cb);
 		}
-
-		
-		service.RebootDBInstance=function(svc,msg,cb){
+			service.RebootDBInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"DBInstanceIdentifier",params,undefined,false); 
-			copyArgs(n,"ForceFailover",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceFailover",params,undefined,false); 
 			
 			copyArgs(msg,"DBInstanceIdentifier",params,undefined,false); 
 			copyArgs(msg,"ForceFailover",params,undefined,false); 
@@ -1356,9 +1249,7 @@ module.exports = function(RED) {
 
 			svc.rebootDBInstance(params,cb);
 		}
-
-		
-		service.RemoveRoleFromDBCluster=function(svc,msg,cb){
+			service.RemoveRoleFromDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1375,9 +1266,7 @@ module.exports = function(RED) {
 
 			svc.removeRoleFromDBCluster(params,cb);
 		}
-
-		
-		service.RemoveSourceIdentifierFromSubscription=function(svc,msg,cb){
+			service.RemoveSourceIdentifierFromSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -1392,9 +1281,7 @@ module.exports = function(RED) {
 
 			svc.removeSourceIdentifierFromSubscription(params,cb);
 		}
-
-		
-		service.RemoveTagsFromResource=function(svc,msg,cb){
+			service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -1409,15 +1296,13 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
-
-		
-		service.ResetDBClusterParameterGroup=function(svc,msg,cb){
+			service.ResetDBClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
-			copyArgs(n,"ResetAllParameters",params,undefined,false); 
+			copyArgs(Boolean(n),"ResetAllParameters",params,undefined,false); 
 			copyArgs(n,"Parameters",params,undefined,true); 
 			
 			copyArgs(msg,"DBClusterParameterGroupName",params,undefined,false); 
@@ -1427,15 +1312,13 @@ module.exports = function(RED) {
 
 			svc.resetDBClusterParameterGroup(params,cb);
 		}
-
-		
-		service.ResetDBParameterGroup=function(svc,msg,cb){
+			service.ResetDBParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"DBParameterGroupName",params,undefined,false); 
-			copyArgs(n,"ResetAllParameters",params,undefined,false); 
+			copyArgs(Boolean(n),"ResetAllParameters",params,undefined,false); 
 			copyArgs(n,"Parameters",params,undefined,true); 
 			
 			copyArgs(msg,"DBParameterGroupName",params,undefined,false); 
@@ -1445,9 +1328,7 @@ module.exports = function(RED) {
 
 			svc.resetDBParameterGroup(params,cb);
 		}
-
-		
-		service.RestoreDBClusterFromSnapshot=function(svc,msg,cb){
+			service.RestoreDBClusterFromSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1459,18 +1340,18 @@ module.exports = function(RED) {
 			copyArgs(n,"SnapshotIdentifier",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"DatabaseName",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
 			copyArgs(n,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
 			copyArgs(n,"EnableCloudwatchLogsExports",params,undefined,true); 
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
-			copyArgs(n,"CopyTagsToSnapshot",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"CopyTagsToSnapshot",params,undefined,false); 
 			
 			copyArgs(msg,"AvailabilityZones",params,undefined,true); 
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
@@ -1493,9 +1374,7 @@ module.exports = function(RED) {
 
 			svc.restoreDBClusterFromSnapshot(params,cb);
 		}
-
-		
-		service.RestoreDBClusterToPointInTime=function(svc,msg,cb){
+			service.RestoreDBClusterToPointInTime=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1505,17 +1384,17 @@ module.exports = function(RED) {
 			copyArgs(n,"RestoreType",params,undefined,false); 
 			copyArgs(n,"SourceDBClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"RestoreToTime",params,undefined,false); 
-			copyArgs(n,"UseLatestRestorableTime",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Boolean(n),"UseLatestRestorableTime",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"DBSubnetGroupName",params,undefined,false); 
 			copyArgs(n,"OptionGroupName",params,undefined,false); 
 			copyArgs(n,"VpcSecurityGroupIds",params,undefined,true); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
-			copyArgs(n,"EnableIAMDatabaseAuthentication",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableIAMDatabaseAuthentication",params,undefined,false); 
 			copyArgs(n,"EnableCloudwatchLogsExports",params,undefined,true); 
 			copyArgs(n,"DBClusterParameterGroupName",params,undefined,false); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			
 			copyArgs(msg,"DBClusterIdentifier",params,undefined,false); 
 			copyArgs(msg,"RestoreType",params,undefined,false); 
@@ -1536,9 +1415,7 @@ module.exports = function(RED) {
 
 			svc.restoreDBClusterToPointInTime(params,cb);
 		}
-
-		
-		service.StartDBCluster=function(svc,msg,cb){
+			service.StartDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1550,9 +1427,7 @@ module.exports = function(RED) {
 
 			svc.startDBCluster(params,cb);
 		}
-
-		
-		service.StopDBCluster=function(svc,msg,cb){
+			service.StopDBCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DBClusterIdentifier",params,undefined,false); 
@@ -1564,9 +1439,7 @@ module.exports = function(RED) {
 
 			svc.stopDBCluster(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Neptune", AmazonAPINode);
 

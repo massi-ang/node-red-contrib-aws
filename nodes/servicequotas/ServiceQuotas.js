@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateServiceQuotaTemplate=function(svc,msg,cb){
+			service.AssociateServiceQuotaTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -103,9 +102,7 @@ module.exports = function(RED) {
 
 			svc.associateServiceQuotaTemplate(params,cb);
 		}
-
-		
-		service.DeleteServiceQuotaIncreaseRequestFromTemplate=function(svc,msg,cb){
+			service.DeleteServiceQuotaIncreaseRequestFromTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.deleteServiceQuotaIncreaseRequestFromTemplate(params,cb);
 		}
-
-		
-		service.DisassociateServiceQuotaTemplate=function(svc,msg,cb){
+			service.DisassociateServiceQuotaTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -134,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.disassociateServiceQuotaTemplate(params,cb);
 		}
-
-		
-		service.GetAWSDefaultServiceQuota=function(svc,msg,cb){
+			service.GetAWSDefaultServiceQuota=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -151,9 +144,7 @@ module.exports = function(RED) {
 
 			svc.getAWSDefaultServiceQuota(params,cb);
 		}
-
-		
-		service.GetAssociationForServiceQuotaTemplate=function(svc,msg,cb){
+			service.GetAssociationForServiceQuotaTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -162,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.getAssociationForServiceQuotaTemplate(params,cb);
 		}
-
-		
-		service.GetRequestedServiceQuotaChange=function(svc,msg,cb){
+			service.GetRequestedServiceQuotaChange=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequestId",params,undefined,false); 
@@ -176,9 +165,7 @@ module.exports = function(RED) {
 
 			svc.getRequestedServiceQuotaChange(params,cb);
 		}
-
-		
-		service.GetServiceQuota=function(svc,msg,cb){
+			service.GetServiceQuota=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -193,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.getServiceQuota(params,cb);
 		}
-
-		
-		service.GetServiceQuotaIncreaseRequestFromTemplate=function(svc,msg,cb){
+			service.GetServiceQuotaIncreaseRequestFromTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -213,16 +198,14 @@ module.exports = function(RED) {
 
 			svc.getServiceQuotaIncreaseRequestFromTemplate(params,cb);
 		}
-
-		
-		service.ListAWSDefaultServiceQuotas=function(svc,msg,cb){
+			service.ListAWSDefaultServiceQuotas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceCode",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -231,16 +214,14 @@ module.exports = function(RED) {
 
 			svc.listAWSDefaultServiceQuotas(params,cb);
 		}
-
-		
-		service.ListRequestedServiceQuotaChangeHistory=function(svc,msg,cb){
+			service.ListRequestedServiceQuotaChangeHistory=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceCode",params,undefined,false); 
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -250,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.listRequestedServiceQuotaChangeHistory(params,cb);
 		}
-
-		
-		service.ListRequestedServiceQuotaChangeHistoryByQuota=function(svc,msg,cb){
+			service.ListRequestedServiceQuotaChangeHistoryByQuota=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -262,7 +241,7 @@ module.exports = function(RED) {
 			copyArgs(n,"QuotaCode",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceCode",params,undefined,false); 
 			copyArgs(msg,"QuotaCode",params,undefined,false); 
@@ -273,16 +252,14 @@ module.exports = function(RED) {
 
 			svc.listRequestedServiceQuotaChangeHistoryByQuota(params,cb);
 		}
-
-		
-		service.ListServiceQuotaIncreaseRequestsInTemplate=function(svc,msg,cb){
+			service.ListServiceQuotaIncreaseRequestsInTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			copyArgs(n,"AwsRegion",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceCode",params,undefined,false); 
 			copyArgs(msg,"AwsRegion",params,undefined,false); 
@@ -292,16 +269,14 @@ module.exports = function(RED) {
 
 			svc.listServiceQuotaIncreaseRequestsInTemplate(params,cb);
 		}
-
-		
-		service.ListServiceQuotas=function(svc,msg,cb){
+			service.ListServiceQuotas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceCode",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -310,14 +285,12 @@ module.exports = function(RED) {
 
 			svc.listServiceQuotas(params,cb);
 		}
-
-		
-		service.ListServices=function(svc,msg,cb){
+			service.ListServices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -325,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.listServices(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -339,9 +310,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutServiceQuotaIncreaseRequestIntoTemplate=function(svc,msg,cb){
+			service.PutServiceQuotaIncreaseRequestIntoTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QuotaCode",params,undefined,false); 
@@ -362,9 +331,7 @@ module.exports = function(RED) {
 
 			svc.putServiceQuotaIncreaseRequestIntoTemplate(params,cb);
 		}
-
-		
-		service.RequestServiceQuotaIncrease=function(svc,msg,cb){
+			service.RequestServiceQuotaIncrease=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -382,9 +349,7 @@ module.exports = function(RED) {
 
 			svc.requestServiceQuotaIncrease(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -399,9 +364,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -416,9 +379,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ServiceQuotas", AmazonAPINode);
 

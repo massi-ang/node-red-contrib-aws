@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateExternalConnection=function(svc,msg,cb){
+			service.AssociateExternalConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -114,9 +113,7 @@ module.exports = function(RED) {
 
 			svc.associateExternalConnection(params,cb);
 		}
-
-		
-		service.CopyPackageVersions=function(svc,msg,cb){
+			service.CopyPackageVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -134,8 +131,8 @@ module.exports = function(RED) {
 			copyArgs(n,"package",params,undefined,false); 
 			copyArgs(n,"versions",params,undefined,true); 
 			copyArgs(n,"versionRevisions",params,undefined,true); 
-			copyArgs(n,"allowOverwrite",params,undefined,false); 
-			copyArgs(n,"includeFromUpstream",params,undefined,false); 
+			copyArgs(Boolean(n),"allowOverwrite",params,undefined,false); 
+			copyArgs(Boolean(n),"includeFromUpstream",params,undefined,false); 
 			
 			copyArgs(msg,"domain",params,undefined,false); 
 			copyArgs(msg,"domainOwner",params,undefined,false); 
@@ -152,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.copyPackageVersions(params,cb);
 		}
-
-		
-		service.CreateDomain=function(svc,msg,cb){
+			service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -170,9 +165,7 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-
-		
-		service.CreateRepository=function(svc,msg,cb){
+			service.CreateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -195,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.createRepository(params,cb);
 		}
-
-		
-		service.DeleteDomain=function(svc,msg,cb){
+			service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -211,9 +202,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-
-		
-		service.DeleteDomainPermissionsPolicy=function(svc,msg,cb){
+			service.DeleteDomainPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -229,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomainPermissionsPolicy(params,cb);
 		}
-
-		
-		service.DeletePackageVersions=function(svc,msg,cb){
+			service.DeletePackageVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -261,9 +248,7 @@ module.exports = function(RED) {
 
 			svc.deletePackageVersions(params,cb);
 		}
-
-		
-		service.DeleteRepository=function(svc,msg,cb){
+			service.DeleteRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -280,9 +265,7 @@ module.exports = function(RED) {
 
 			svc.deleteRepository(params,cb);
 		}
-
-		
-		service.DeleteRepositoryPermissionsPolicy=function(svc,msg,cb){
+			service.DeleteRepositoryPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -301,9 +284,7 @@ module.exports = function(RED) {
 
 			svc.deleteRepositoryPermissionsPolicy(params,cb);
 		}
-
-		
-		service.DescribeDomain=function(svc,msg,cb){
+			service.DescribeDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -317,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.describeDomain(params,cb);
 		}
-
-		
-		service.DescribePackageVersion=function(svc,msg,cb){
+			service.DescribePackageVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -347,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.describePackageVersion(params,cb);
 		}
-
-		
-		service.DescribeRepository=function(svc,msg,cb){
+			service.DescribeRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -366,9 +343,7 @@ module.exports = function(RED) {
 
 			svc.describeRepository(params,cb);
 		}
-
-		
-		service.DisassociateExternalConnection=function(svc,msg,cb){
+			service.DisassociateExternalConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -388,9 +363,7 @@ module.exports = function(RED) {
 
 			svc.disassociateExternalConnection(params,cb);
 		}
-
-		
-		service.DisposePackageVersions=function(svc,msg,cb){
+			service.DisposePackageVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -422,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.disposePackageVersions(params,cb);
 		}
-
-		
-		service.GetAuthorizationToken=function(svc,msg,cb){
+			service.GetAuthorizationToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -440,9 +411,7 @@ module.exports = function(RED) {
 
 			svc.getAuthorizationToken(params,cb);
 		}
-
-		
-		service.GetDomainPermissionsPolicy=function(svc,msg,cb){
+			service.GetDomainPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -456,9 +425,7 @@ module.exports = function(RED) {
 
 			svc.getDomainPermissionsPolicy(params,cb);
 		}
-
-		
-		service.GetPackageVersionAsset=function(svc,msg,cb){
+			service.GetPackageVersionAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -491,9 +458,7 @@ module.exports = function(RED) {
 
 			svc.getPackageVersionAsset(params,cb);
 		}
-
-		
-		service.GetPackageVersionReadme=function(svc,msg,cb){
+			service.GetPackageVersionReadme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -521,9 +486,7 @@ module.exports = function(RED) {
 
 			svc.getPackageVersionReadme(params,cb);
 		}
-
-		
-		service.GetRepositoryEndpoint=function(svc,msg,cb){
+			service.GetRepositoryEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -543,9 +506,7 @@ module.exports = function(RED) {
 
 			svc.getRepositoryEndpoint(params,cb);
 		}
-
-		
-		service.GetRepositoryPermissionsPolicy=function(svc,msg,cb){
+			service.GetRepositoryPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -562,13 +523,11 @@ module.exports = function(RED) {
 
 			svc.getRepositoryPermissionsPolicy(params,cb);
 		}
-
-		
-		service.ListDomains=function(svc,msg,cb){
+			service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -577,9 +536,7 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-
-		
-		service.ListPackageVersionAssets=function(svc,msg,cb){
+			service.ListPackageVersionAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -595,7 +552,7 @@ module.exports = function(RED) {
 			copyArgs(n,"namespace",params,undefined,false); 
 			copyArgs(n,"package",params,undefined,false); 
 			copyArgs(n,"packageVersion",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"domain",params,undefined,false); 
@@ -611,9 +568,7 @@ module.exports = function(RED) {
 
 			svc.listPackageVersionAssets(params,cb);
 		}
-
-		
-		service.ListPackageVersionDependencies=function(svc,msg,cb){
+			service.ListPackageVersionDependencies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -643,9 +598,7 @@ module.exports = function(RED) {
 
 			svc.listPackageVersionDependencies(params,cb);
 		}
-
-		
-		service.ListPackageVersions=function(svc,msg,cb){
+			service.ListPackageVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -661,7 +614,7 @@ module.exports = function(RED) {
 			copyArgs(n,"package",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"sortBy",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"domain",params,undefined,false); 
@@ -678,9 +631,7 @@ module.exports = function(RED) {
 
 			svc.listPackageVersions(params,cb);
 		}
-
-		
-		service.ListPackages=function(svc,msg,cb){
+			service.ListPackages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -692,7 +643,7 @@ module.exports = function(RED) {
 			copyArgs(n,"format",params,undefined,false); 
 			copyArgs(n,"namespace",params,undefined,false); 
 			copyArgs(n,"packagePrefix",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"domain",params,undefined,false); 
@@ -707,14 +658,12 @@ module.exports = function(RED) {
 
 			svc.listPackages(params,cb);
 		}
-
-		
-		service.ListRepositories=function(svc,msg,cb){
+			service.ListRepositories=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"repositoryPrefix",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"repositoryPrefix",params,undefined,false); 
@@ -724,9 +673,7 @@ module.exports = function(RED) {
 
 			svc.listRepositories(params,cb);
 		}
-
-		
-		service.ListRepositoriesInDomain=function(svc,msg,cb){
+			service.ListRepositoriesInDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -735,7 +682,7 @@ module.exports = function(RED) {
 			copyArgs(n,"domainOwner",params,undefined,false); 
 			copyArgs(n,"administratorAccount",params,undefined,false); 
 			copyArgs(n,"repositoryPrefix",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"domain",params,undefined,false); 
@@ -748,9 +695,7 @@ module.exports = function(RED) {
 
 			svc.listRepositoriesInDomain(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -762,9 +707,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutDomainPermissionsPolicy=function(svc,msg,cb){
+			service.PutDomainPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -783,9 +726,7 @@ module.exports = function(RED) {
 
 			svc.putDomainPermissionsPolicy(params,cb);
 		}
-
-		
-		service.PutRepositoryPermissionsPolicy=function(svc,msg,cb){
+			service.PutRepositoryPermissionsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -807,9 +748,7 @@ module.exports = function(RED) {
 
 			svc.putRepositoryPermissionsPolicy(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -824,9 +763,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -841,9 +778,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdatePackageVersionsStatus=function(svc,msg,cb){
+			service.UpdatePackageVersionsStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -878,9 +813,7 @@ module.exports = function(RED) {
 
 			svc.updatePackageVersionsStatus(params,cb);
 		}
-
-		
-		service.UpdateRepository=function(svc,msg,cb){
+			service.UpdateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -901,9 +834,7 @@ module.exports = function(RED) {
 
 			svc.updateRepository(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeArtifact", AmazonAPINode);
 

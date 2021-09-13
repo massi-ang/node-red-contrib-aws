@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchPutMessage=function(svc,msg,cb){
+			service.BatchPutMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.batchPutMessage(params,cb);
 		}
-
-		
-		service.CancelPipelineReprocessing=function(svc,msg,cb){
+			service.CancelPipelineReprocessing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.cancelPipelineReprocessing(params,cb);
 		}
-
-		
-		service.CreateChannel=function(svc,msg,cb){
+			service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
@@ -146,9 +141,7 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-
-		
-		service.CreateDataset=function(svc,msg,cb){
+			service.CreateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -175,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.createDataset(params,cb);
 		}
-
-		
-		service.CreateDatasetContent=function(svc,msg,cb){
+			service.CreateDatasetContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -191,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.createDatasetContent(params,cb);
 		}
-
-		
-		service.CreateDatastore=function(svc,msg,cb){
+			service.CreateDatastore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datastoreName",params,undefined,false); 
@@ -215,9 +204,7 @@ module.exports = function(RED) {
 
 			svc.createDatastore(params,cb);
 		}
-
-		
-		service.CreatePipeline=function(svc,msg,cb){
+			service.CreatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -234,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.createPipeline(params,cb);
 		}
-
-		
-		service.DeleteChannel=function(svc,msg,cb){
+			service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
@@ -248,9 +233,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-
-		
-		service.DeleteDataset=function(svc,msg,cb){
+			service.DeleteDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -262,9 +245,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataset(params,cb);
 		}
-
-		
-		service.DeleteDatasetContent=function(svc,msg,cb){
+			service.DeleteDatasetContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -278,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.deleteDatasetContent(params,cb);
 		}
-
-		
-		service.DeleteDatastore=function(svc,msg,cb){
+			service.DeleteDatastore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datastoreName",params,undefined,false); 
@@ -292,9 +271,7 @@ module.exports = function(RED) {
 
 			svc.deleteDatastore(params,cb);
 		}
-
-		
-		service.DeletePipeline=function(svc,msg,cb){
+			service.DeletePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -306,15 +283,13 @@ module.exports = function(RED) {
 
 			svc.deletePipeline(params,cb);
 		}
-
-		
-		service.DescribeChannel=function(svc,msg,cb){
+			service.DescribeChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
 			
 			copyArgs(n,"channelName",params,undefined,false); 
-			copyArgs(n,"includeStatistics",params,undefined,false); 
+			copyArgs(Boolean(n),"includeStatistics",params,undefined,false); 
 			
 			copyArgs(msg,"channelName",params,undefined,false); 
 			copyArgs(msg,"includeStatistics",params,undefined,false); 
@@ -322,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.describeChannel(params,cb);
 		}
-
-		
-		service.DescribeDataset=function(svc,msg,cb){
+			service.DescribeDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -336,15 +309,13 @@ module.exports = function(RED) {
 
 			svc.describeDataset(params,cb);
 		}
-
-		
-		service.DescribeDatastore=function(svc,msg,cb){
+			service.DescribeDatastore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datastoreName",params,undefined,false); 
 			
 			copyArgs(n,"datastoreName",params,undefined,false); 
-			copyArgs(n,"includeStatistics",params,undefined,false); 
+			copyArgs(Boolean(n),"includeStatistics",params,undefined,false); 
 			
 			copyArgs(msg,"datastoreName",params,undefined,false); 
 			copyArgs(msg,"includeStatistics",params,undefined,false); 
@@ -352,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.describeDatastore(params,cb);
 		}
-
-		
-		service.DescribeLoggingOptions=function(svc,msg,cb){
+			service.DescribeLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -363,9 +332,7 @@ module.exports = function(RED) {
 
 			svc.describeLoggingOptions(params,cb);
 		}
-
-		
-		service.DescribePipeline=function(svc,msg,cb){
+			service.DescribePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -377,9 +344,7 @@ module.exports = function(RED) {
 
 			svc.describePipeline(params,cb);
 		}
-
-		
-		service.GetDatasetContent=function(svc,msg,cb){
+			service.GetDatasetContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -393,14 +358,12 @@ module.exports = function(RED) {
 
 			svc.getDatasetContent(params,cb);
 		}
-
-		
-		service.ListChannels=function(svc,msg,cb){
+			service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -408,16 +371,14 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-
-		
-		service.ListDatasetContents=function(svc,msg,cb){
+			service.ListDatasetContents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"scheduledOnOrAfter",params,undefined,false); 
 			copyArgs(n,"scheduledBefore",params,undefined,false); 
 			
@@ -430,14 +391,12 @@ module.exports = function(RED) {
 
 			svc.listDatasetContents(params,cb);
 		}
-
-		
-		service.ListDatasets=function(svc,msg,cb){
+			service.ListDatasets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -445,14 +404,12 @@ module.exports = function(RED) {
 
 			svc.listDatasets(params,cb);
 		}
-
-		
-		service.ListDatastores=function(svc,msg,cb){
+			service.ListDatastores=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -460,14 +417,12 @@ module.exports = function(RED) {
 
 			svc.listDatastores(params,cb);
 		}
-
-		
-		service.ListPipelines=function(svc,msg,cb){
+			service.ListPipelines=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -475,9 +430,7 @@ module.exports = function(RED) {
 
 			svc.listPipelines(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -489,9 +442,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutLoggingOptions=function(svc,msg,cb){
+			service.PutLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loggingOptions",params,undefined,true); 
@@ -503,9 +454,7 @@ module.exports = function(RED) {
 
 			svc.putLoggingOptions(params,cb);
 		}
-
-		
-		service.RunPipelineActivity=function(svc,msg,cb){
+			service.RunPipelineActivity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineActivity",params,undefined,true); 
@@ -520,15 +469,13 @@ module.exports = function(RED) {
 
 			svc.runPipelineActivity(params,cb);
 		}
-
-		
-		service.SampleChannelData=function(svc,msg,cb){
+			service.SampleChannelData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
 			
 			copyArgs(n,"channelName",params,undefined,false); 
-			copyArgs(n,"maxMessages",params,undefined,false); 
+			copyArgs(Number(n),"maxMessages",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			
@@ -540,9 +487,7 @@ module.exports = function(RED) {
 
 			svc.sampleChannelData(params,cb);
 		}
-
-		
-		service.StartPipelineReprocessing=function(svc,msg,cb){
+			service.StartPipelineReprocessing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -560,9 +505,7 @@ module.exports = function(RED) {
 
 			svc.startPipelineReprocessing(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -577,9 +520,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -594,9 +535,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateChannel=function(svc,msg,cb){
+			service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelName",params,undefined,false); 
@@ -612,9 +551,7 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-
-		
-		service.UpdateDataset=function(svc,msg,cb){
+			service.UpdateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetName",params,undefined,false); 
@@ -639,9 +576,7 @@ module.exports = function(RED) {
 
 			svc.updateDataset(params,cb);
 		}
-
-		
-		service.UpdateDatastore=function(svc,msg,cb){
+			service.UpdateDatastore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datastoreName",params,undefined,false); 
@@ -659,9 +594,7 @@ module.exports = function(RED) {
 
 			svc.updateDatastore(params,cb);
 		}
-
-		
-		service.UpdatePipeline=function(svc,msg,cb){
+			service.UpdatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -676,9 +609,7 @@ module.exports = function(RED) {
 
 			svc.updatePipeline(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IoTAnalytics", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateAlarmModel=function(svc,msg,cb){
+			service.CreateAlarmModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
@@ -106,7 +105,7 @@ module.exports = function(RED) {
 			copyArgs(n,"roleArn",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"key",params,undefined,false); 
-			copyArgs(n,"severity",params,undefined,false); 
+			copyArgs(Number(n),"severity",params,undefined,false); 
 			copyArgs(n,"alarmRule",params,undefined,true); 
 			copyArgs(n,"alarmNotification",params,undefined,true); 
 			copyArgs(n,"alarmEventActions",params,undefined,true); 
@@ -126,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.createAlarmModel(params,cb);
 		}
-
-		
-		service.CreateDetectorModel=function(svc,msg,cb){
+			service.CreateDetectorModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
@@ -154,9 +151,7 @@ module.exports = function(RED) {
 
 			svc.createDetectorModel(params,cb);
 		}
-
-		
-		service.CreateInput=function(svc,msg,cb){
+			service.CreateInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inputName",params,undefined,false); 
@@ -175,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.createInput(params,cb);
 		}
-
-		
-		service.DeleteAlarmModel=function(svc,msg,cb){
+			service.DeleteAlarmModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
@@ -189,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.deleteAlarmModel(params,cb);
 		}
-
-		
-		service.DeleteDetectorModel=function(svc,msg,cb){
+			service.DeleteDetectorModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
@@ -203,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.deleteDetectorModel(params,cb);
 		}
-
-		
-		service.DeleteInput=function(svc,msg,cb){
+			service.DeleteInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inputName",params,undefined,false); 
@@ -217,9 +206,7 @@ module.exports = function(RED) {
 
 			svc.deleteInput(params,cb);
 		}
-
-		
-		service.DescribeAlarmModel=function(svc,msg,cb){
+			service.DescribeAlarmModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
@@ -233,9 +220,7 @@ module.exports = function(RED) {
 
 			svc.describeAlarmModel(params,cb);
 		}
-
-		
-		service.DescribeDetectorModel=function(svc,msg,cb){
+			service.DescribeDetectorModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
@@ -249,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.describeDetectorModel(params,cb);
 		}
-
-		
-		service.DescribeDetectorModelAnalysis=function(svc,msg,cb){
+			service.DescribeDetectorModelAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analysisId",params,undefined,false); 
@@ -263,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.describeDetectorModelAnalysis(params,cb);
 		}
-
-		
-		service.DescribeInput=function(svc,msg,cb){
+			service.DescribeInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inputName",params,undefined,false); 
@@ -277,9 +258,7 @@ module.exports = function(RED) {
 
 			svc.describeInput(params,cb);
 		}
-
-		
-		service.DescribeLoggingOptions=function(svc,msg,cb){
+			service.DescribeLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -288,16 +267,14 @@ module.exports = function(RED) {
 
 			svc.describeLoggingOptions(params,cb);
 		}
-
-		
-		service.GetDetectorModelAnalysisResults=function(svc,msg,cb){
+			service.GetDetectorModelAnalysisResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analysisId",params,undefined,false); 
 			
 			copyArgs(n,"analysisId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"analysisId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -306,16 +283,14 @@ module.exports = function(RED) {
 
 			svc.getDetectorModelAnalysisResults(params,cb);
 		}
-
-		
-		service.ListAlarmModelVersions=function(svc,msg,cb){
+			service.ListAlarmModelVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"alarmModelName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -324,14 +299,12 @@ module.exports = function(RED) {
 
 			svc.listAlarmModelVersions(params,cb);
 		}
-
-		
-		service.ListAlarmModels=function(svc,msg,cb){
+			service.ListAlarmModels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -339,16 +312,14 @@ module.exports = function(RED) {
 
 			svc.listAlarmModels(params,cb);
 		}
-
-		
-		service.ListDetectorModelVersions=function(svc,msg,cb){
+			service.ListDetectorModelVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"detectorModelName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -357,14 +328,12 @@ module.exports = function(RED) {
 
 			svc.listDetectorModelVersions(params,cb);
 		}
-
-		
-		service.ListDetectorModels=function(svc,msg,cb){
+			service.ListDetectorModels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -372,15 +341,13 @@ module.exports = function(RED) {
 
 			svc.listDetectorModels(params,cb);
 		}
-
-		
-		service.ListInputRoutings=function(svc,msg,cb){
+			service.ListInputRoutings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inputIdentifier",params,undefined,false); 
 			
 			copyArgs(n,"inputIdentifier",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"inputIdentifier",params,undefined,false); 
@@ -390,14 +357,12 @@ module.exports = function(RED) {
 
 			svc.listInputRoutings(params,cb);
 		}
-
-		
-		service.ListInputs=function(svc,msg,cb){
+			service.ListInputs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -405,9 +370,7 @@ module.exports = function(RED) {
 
 			svc.listInputs(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -419,9 +382,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutLoggingOptions=function(svc,msg,cb){
+			service.PutLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loggingOptions",params,undefined,true); 
@@ -433,9 +394,7 @@ module.exports = function(RED) {
 
 			svc.putLoggingOptions(params,cb);
 		}
-
-		
-		service.StartDetectorModelAnalysis=function(svc,msg,cb){
+			service.StartDetectorModelAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelDefinition",params,undefined,true); 
@@ -447,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.startDetectorModelAnalysis(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -464,9 +421,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -481,9 +436,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAlarmModel=function(svc,msg,cb){
+			service.UpdateAlarmModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"alarmModelName",params,undefined,false); 
@@ -493,7 +446,7 @@ module.exports = function(RED) {
 			copyArgs(n,"alarmModelName",params,undefined,false); 
 			copyArgs(n,"alarmModelDescription",params,undefined,false); 
 			copyArgs(n,"roleArn",params,undefined,false); 
-			copyArgs(n,"severity",params,undefined,false); 
+			copyArgs(Number(n),"severity",params,undefined,false); 
 			copyArgs(n,"alarmRule",params,undefined,true); 
 			copyArgs(n,"alarmNotification",params,undefined,true); 
 			copyArgs(n,"alarmEventActions",params,undefined,true); 
@@ -511,9 +464,7 @@ module.exports = function(RED) {
 
 			svc.updateAlarmModel(params,cb);
 		}
-
-		
-		service.UpdateDetectorModel=function(svc,msg,cb){
+			service.UpdateDetectorModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorModelName",params,undefined,false); 
@@ -535,9 +486,7 @@ module.exports = function(RED) {
 
 			svc.updateDetectorModel(params,cb);
 		}
-
-		
-		service.UpdateInput=function(svc,msg,cb){
+			service.UpdateInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inputName",params,undefined,false); 
@@ -554,9 +503,7 @@ module.exports = function(RED) {
 
 			svc.updateInput(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IoTEvents", AmazonAPINode);
 

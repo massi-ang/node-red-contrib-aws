@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateNotificationRule=function(svc,msg,cb){
+			service.CreateNotificationRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,true); 
@@ -124,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.createNotificationRule(params,cb);
 		}
-
-		
-		service.DeleteNotificationRule=function(svc,msg,cb){
+			service.DeleteNotificationRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -138,15 +135,13 @@ module.exports = function(RED) {
 
 			svc.deleteNotificationRule(params,cb);
 		}
-
-		
-		service.DeleteTarget=function(svc,msg,cb){
+			service.DeleteTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetAddress",params,undefined,true); 
 			
 			copyArgs(n,"TargetAddress",params,undefined,true); 
-			copyArgs(n,"ForceUnsubscribeAll",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceUnsubscribeAll",params,undefined,false); 
 			
 			copyArgs(msg,"TargetAddress",params,undefined,true); 
 			copyArgs(msg,"ForceUnsubscribeAll",params,undefined,false); 
@@ -154,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.deleteTarget(params,cb);
 		}
-
-		
-		service.DescribeNotificationRule=function(svc,msg,cb){
+			service.DescribeNotificationRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -168,15 +161,13 @@ module.exports = function(RED) {
 
 			svc.describeNotificationRule(params,cb);
 		}
-
-		
-		service.ListEventTypes=function(svc,msg,cb){
+			service.ListEventTypes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -185,15 +176,13 @@ module.exports = function(RED) {
 
 			svc.listEventTypes(params,cb);
 		}
-
-		
-		service.ListNotificationRules=function(svc,msg,cb){
+			service.ListNotificationRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -202,9 +191,7 @@ module.exports = function(RED) {
 
 			svc.listNotificationRules(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -216,15 +203,13 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTargets=function(svc,msg,cb){
+			service.ListTargets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -233,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.listTargets(params,cb);
 		}
-
-		
-		service.Subscribe=function(svc,msg,cb){
+			service.Subscribe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -252,9 +235,7 @@ module.exports = function(RED) {
 
 			svc.subscribe(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -269,9 +250,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.Unsubscribe=function(svc,msg,cb){
+			service.Unsubscribe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -286,9 +265,7 @@ module.exports = function(RED) {
 
 			svc.unsubscribe(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -303,9 +280,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateNotificationRule=function(svc,msg,cb){
+			service.UpdateNotificationRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -327,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.updateNotificationRule(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeStarNotifications", AmazonAPINode);
 

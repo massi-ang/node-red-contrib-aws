@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.ConfigureLogs=function(svc,msg,cb){
+			service.ConfigureLogs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -110,9 +109,7 @@ module.exports = function(RED) {
 
 			svc.configureLogs(params,cb);
 		}
-
-		
-		service.CreateChannel=function(svc,msg,cb){
+			service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -128,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-
-		
-		service.CreateHarvestJob=function(svc,msg,cb){
+			service.CreateHarvestJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"S3Destination",params,undefined,true); 
@@ -154,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.createHarvestJob(params,cb);
 		}
-
-		
-		service.CreateOriginEndpoint=function(svc,msg,cb){
+			service.CreateOriginEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -172,9 +165,9 @@ module.exports = function(RED) {
 			copyArgs(n,"ManifestName",params,undefined,false); 
 			copyArgs(n,"MssPackage",params,undefined,true); 
 			copyArgs(n,"Origination",params,undefined,false); 
-			copyArgs(n,"StartoverWindowSeconds",params,undefined,false); 
+			copyArgs(Number(n),"StartoverWindowSeconds",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"TimeDelaySeconds",params,undefined,false); 
+			copyArgs(Number(n),"TimeDelaySeconds",params,undefined,false); 
 			copyArgs(n,"Whitelist",params,undefined,true); 
 			
 			copyArgs(msg,"Authorization",params,undefined,true); 
@@ -195,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.createOriginEndpoint(params,cb);
 		}
-
-		
-		service.DeleteChannel=function(svc,msg,cb){
+			service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -209,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-
-		
-		service.DeleteOriginEndpoint=function(svc,msg,cb){
+			service.DeleteOriginEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -223,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.deleteOriginEndpoint(params,cb);
 		}
-
-		
-		service.DescribeChannel=function(svc,msg,cb){
+			service.DescribeChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -237,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.describeChannel(params,cb);
 		}
-
-		
-		service.DescribeHarvestJob=function(svc,msg,cb){
+			service.DescribeHarvestJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -251,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.describeHarvestJob(params,cb);
 		}
-
-		
-		service.DescribeOriginEndpoint=function(svc,msg,cb){
+			service.DescribeOriginEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -265,13 +248,11 @@ module.exports = function(RED) {
 
 			svc.describeOriginEndpoint(params,cb);
 		}
-
-		
-		service.ListChannels=function(svc,msg,cb){
+			service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -280,15 +261,13 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-
-		
-		service.ListHarvestJobs=function(svc,msg,cb){
+			service.ListHarvestJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"IncludeChannelId",params,undefined,false); 
 			copyArgs(n,"IncludeStatus",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"IncludeChannelId",params,undefined,false); 
@@ -299,14 +278,12 @@ module.exports = function(RED) {
 
 			svc.listHarvestJobs(params,cb);
 		}
-
-		
-		service.ListOriginEndpoints=function(svc,msg,cb){
+			service.ListOriginEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ChannelId",params,undefined,false); 
@@ -316,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.listOriginEndpoints(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -330,9 +305,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RotateChannelCredentials=function(svc,msg,cb){
+			service.RotateChannelCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -344,9 +317,7 @@ module.exports = function(RED) {
 
 			svc.rotateChannelCredentials(params,cb);
 		}
-
-		
-		service.RotateIngestEndpointCredentials=function(svc,msg,cb){
+			service.RotateIngestEndpointCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IngestEndpointId",params,undefined,false); 
@@ -361,9 +332,7 @@ module.exports = function(RED) {
 
 			svc.rotateIngestEndpointCredentials(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -378,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -395,9 +362,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateChannel=function(svc,msg,cb){
+			service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -411,9 +376,7 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-
-		
-		service.UpdateOriginEndpoint=function(svc,msg,cb){
+			service.UpdateOriginEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -427,8 +390,8 @@ module.exports = function(RED) {
 			copyArgs(n,"ManifestName",params,undefined,false); 
 			copyArgs(n,"MssPackage",params,undefined,true); 
 			copyArgs(n,"Origination",params,undefined,false); 
-			copyArgs(n,"StartoverWindowSeconds",params,undefined,false); 
-			copyArgs(n,"TimeDelaySeconds",params,undefined,false); 
+			copyArgs(Number(n),"StartoverWindowSeconds",params,undefined,false); 
+			copyArgs(Number(n),"TimeDelaySeconds",params,undefined,false); 
 			copyArgs(n,"Whitelist",params,undefined,true); 
 			
 			copyArgs(msg,"Authorization",params,undefined,true); 
@@ -447,9 +410,7 @@ module.exports = function(RED) {
 
 			svc.updateOriginEndpoint(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MediaPackage", AmazonAPINode);
 

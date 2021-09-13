@@ -92,16 +92,15 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CompleteSnapshot=function(svc,msg,cb){
+			service.CompleteSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"ChangedBlocksCount",params,undefined,false); 
+			copyArgs(Number(n),"ChangedBlocksCount",params,undefined,false); 
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"ChangedBlocksCount",params,undefined,false); 
+			copyArgs(Number(n),"ChangedBlocksCount",params,undefined,false); 
 			copyArgs(n,"Checksum",params,undefined,false); 
 			copyArgs(n,"ChecksumAlgorithm",params,undefined,false); 
 			copyArgs(n,"ChecksumAggregationMethod",params,undefined,false); 
@@ -115,17 +114,15 @@ module.exports = function(RED) {
 
 			svc.completeSnapshot(params,cb);
 		}
-
-		
-		service.GetSnapshotBlock=function(svc,msg,cb){
+			service.GetSnapshotBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"BlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"BlockIndex",params,undefined,false); 
 			copyArgs(n,"BlockToken",params,undefined,false); 
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"BlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"BlockIndex",params,undefined,false); 
 			copyArgs(n,"BlockToken",params,undefined,false); 
 			
 			copyArgs(msg,"SnapshotId",params,undefined,false); 
@@ -135,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.getSnapshotBlock(params,cb);
 		}
-
-		
-		service.ListChangedBlocks=function(svc,msg,cb){
+			service.ListChangedBlocks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecondSnapshotId",params,undefined,false); 
@@ -145,8 +140,8 @@ module.exports = function(RED) {
 			copyArgs(n,"FirstSnapshotId",params,undefined,false); 
 			copyArgs(n,"SecondSnapshotId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
-			copyArgs(n,"StartingBlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"StartingBlockIndex",params,undefined,false); 
 			
 			copyArgs(msg,"FirstSnapshotId",params,undefined,false); 
 			copyArgs(msg,"SecondSnapshotId",params,undefined,false); 
@@ -157,17 +152,15 @@ module.exports = function(RED) {
 
 			svc.listChangedBlocks(params,cb);
 		}
-
-		
-		service.ListSnapshotBlocks=function(svc,msg,cb){
+			service.ListSnapshotBlocks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
-			copyArgs(n,"StartingBlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"StartingBlockIndex",params,undefined,false); 
 			
 			copyArgs(msg,"SnapshotId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -177,23 +170,21 @@ module.exports = function(RED) {
 
 			svc.listSnapshotBlocks(params,cb);
 		}
-
-		
-		service.PutSnapshotBlock=function(svc,msg,cb){
+			service.PutSnapshotBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"BlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"BlockIndex",params,undefined,false); 
 			copyArgs(n,"BlockData",params,undefined,true); 
-			copyArgs(n,"DataLength",params,undefined,false); 
+			copyArgs(Number(n),"DataLength",params,undefined,false); 
 			copyArgs(n,"Checksum",params,undefined,false); 
 			copyArgs(n,"ChecksumAlgorithm",params,undefined,false); 
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
-			copyArgs(n,"BlockIndex",params,undefined,false); 
+			copyArgs(Number(n),"BlockIndex",params,undefined,false); 
 			copyArgs(n,"BlockData",params,undefined,true); 
-			copyArgs(n,"DataLength",params,undefined,false); 
-			copyArgs(n,"Progress",params,undefined,false); 
+			copyArgs(Number(n),"DataLength",params,undefined,false); 
+			copyArgs(Number(n),"Progress",params,undefined,false); 
 			copyArgs(n,"Checksum",params,undefined,false); 
 			copyArgs(n,"ChecksumAlgorithm",params,undefined,false); 
 			
@@ -208,9 +199,7 @@ module.exports = function(RED) {
 
 			svc.putSnapshotBlock(params,cb);
 		}
-
-		
-		service.StartSnapshot=function(svc,msg,cb){
+			service.StartSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeSize",params,undefined,false); 
@@ -220,9 +209,9 @@ module.exports = function(RED) {
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"ClientToken",params,undefined,false); 
-			copyArgs(n,"Encrypted",params,undefined,false); 
+			copyArgs(Boolean(n),"Encrypted",params,undefined,false); 
 			copyArgs(n,"KmsKeyArn",params,undefined,true); 
-			copyArgs(n,"Timeout",params,undefined,false); 
+			copyArgs(Number(n),"Timeout",params,undefined,false); 
 			
 			copyArgs(msg,"VolumeSize",params,undefined,false); 
 			copyArgs(msg,"ParentSnapshotId",params,undefined,false); 
@@ -236,9 +225,7 @@ module.exports = function(RED) {
 
 			svc.startSnapshot(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS EBS", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchDeleteRecipeVersion=function(svc,msg,cb){
+			service.BatchDeleteRecipeVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteRecipeVersion(params,cb);
 		}
-
-		
-		service.CreateDataset=function(svc,msg,cb){
+			service.CreateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -134,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.createDataset(params,cb);
 		}
-
-		
-		service.CreateProfileJob=function(svc,msg,cb){
+			service.CreateProfileJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -149,13 +144,13 @@ module.exports = function(RED) {
 			copyArgs(n,"EncryptionMode",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"LogSubscription",params,undefined,false); 
-			copyArgs(n,"MaxCapacity",params,undefined,false); 
-			copyArgs(n,"MaxRetries",params,undefined,false); 
+			copyArgs(Number(n),"MaxCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MaxRetries",params,undefined,false); 
 			copyArgs(n,"OutputLocation",params,undefined,true); 
 			copyArgs(n,"Configuration",params,undefined,true); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"Timeout",params,undefined,false); 
+			copyArgs(Number(n),"Timeout",params,undefined,false); 
 			copyArgs(n,"JobSample",params,undefined,true); 
 			
 			copyArgs(msg,"DatasetName",params,undefined,false); 
@@ -175,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.createProfileJob(params,cb);
 		}
-
-		
-		service.CreateProject=function(svc,msg,cb){
+			service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -202,9 +195,7 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-
-		
-		service.CreateRecipe=function(svc,msg,cb){
+			service.CreateRecipe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -223,9 +214,7 @@ module.exports = function(RED) {
 
 			svc.createRecipe(params,cb);
 		}
-
-		
-		service.CreateRecipeJob=function(svc,msg,cb){
+			service.CreateRecipeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -236,8 +225,8 @@ module.exports = function(RED) {
 			copyArgs(n,"EncryptionMode",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"LogSubscription",params,undefined,false); 
-			copyArgs(n,"MaxCapacity",params,undefined,false); 
-			copyArgs(n,"MaxRetries",params,undefined,false); 
+			copyArgs(Number(n),"MaxCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MaxRetries",params,undefined,false); 
 			copyArgs(n,"Outputs",params,undefined,true); 
 			copyArgs(n,"DataCatalogOutputs",params,undefined,true); 
 			copyArgs(n,"DatabaseOutputs",params,undefined,true); 
@@ -245,7 +234,7 @@ module.exports = function(RED) {
 			copyArgs(n,"RecipeReference",params,undefined,true); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"Timeout",params,undefined,false); 
+			copyArgs(Number(n),"Timeout",params,undefined,false); 
 			
 			copyArgs(msg,"DatasetName",params,undefined,false); 
 			copyArgs(msg,"EncryptionKeyArn",params,undefined,false); 
@@ -266,9 +255,7 @@ module.exports = function(RED) {
 
 			svc.createRecipeJob(params,cb);
 		}
-
-		
-		service.CreateSchedule=function(svc,msg,cb){
+			service.CreateSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CronExpression",params,undefined,false); 
@@ -287,9 +274,7 @@ module.exports = function(RED) {
 
 			svc.createSchedule(params,cb);
 		}
-
-		
-		service.DeleteDataset=function(svc,msg,cb){
+			service.DeleteDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -301,9 +286,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataset(params,cb);
 		}
-
-		
-		service.DeleteJob=function(svc,msg,cb){
+			service.DeleteJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -315,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.deleteJob(params,cb);
 		}
-
-		
-		service.DeleteProject=function(svc,msg,cb){
+			service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -329,9 +310,7 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-
-		
-		service.DeleteRecipeVersion=function(svc,msg,cb){
+			service.DeleteRecipeVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -346,9 +325,7 @@ module.exports = function(RED) {
 
 			svc.deleteRecipeVersion(params,cb);
 		}
-
-		
-		service.DeleteSchedule=function(svc,msg,cb){
+			service.DeleteSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -360,9 +337,7 @@ module.exports = function(RED) {
 
 			svc.deleteSchedule(params,cb);
 		}
-
-		
-		service.DescribeDataset=function(svc,msg,cb){
+			service.DescribeDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -374,9 +349,7 @@ module.exports = function(RED) {
 
 			svc.describeDataset(params,cb);
 		}
-
-		
-		service.DescribeJob=function(svc,msg,cb){
+			service.DescribeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -388,9 +361,7 @@ module.exports = function(RED) {
 
 			svc.describeJob(params,cb);
 		}
-
-		
-		service.DescribeJobRun=function(svc,msg,cb){
+			service.DescribeJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -405,9 +376,7 @@ module.exports = function(RED) {
 
 			svc.describeJobRun(params,cb);
 		}
-
-		
-		service.DescribeProject=function(svc,msg,cb){
+			service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -419,9 +388,7 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-
-		
-		service.DescribeRecipe=function(svc,msg,cb){
+			service.DescribeRecipe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -435,9 +402,7 @@ module.exports = function(RED) {
 
 			svc.describeRecipe(params,cb);
 		}
-
-		
-		service.DescribeSchedule=function(svc,msg,cb){
+			service.DescribeSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -449,13 +414,11 @@ module.exports = function(RED) {
 
 			svc.describeSchedule(params,cb);
 		}
-
-		
-		service.ListDatasets=function(svc,msg,cb){
+			service.ListDatasets=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -464,15 +427,13 @@ module.exports = function(RED) {
 
 			svc.listDatasets(params,cb);
 		}
-
-		
-		service.ListJobRuns=function(svc,msg,cb){
+			service.ListJobRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -482,14 +443,12 @@ module.exports = function(RED) {
 
 			svc.listJobRuns(params,cb);
 		}
-
-		
-		service.ListJobs=function(svc,msg,cb){
+			service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"ProjectName",params,undefined,false); 
 			
@@ -501,14 +460,12 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-
-		
-		service.ListProjects=function(svc,msg,cb){
+			service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -516,14 +473,12 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-
-		
-		service.ListRecipeVersions=function(svc,msg,cb){
+			service.ListRecipeVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
@@ -534,13 +489,11 @@ module.exports = function(RED) {
 
 			svc.listRecipeVersions(params,cb);
 		}
-
-		
-		service.ListRecipes=function(svc,msg,cb){
+			service.ListRecipes=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"RecipeVersion",params,undefined,false); 
 			
@@ -551,14 +504,12 @@ module.exports = function(RED) {
 
 			svc.listRecipes(params,cb);
 		}
-
-		
-		service.ListSchedules=function(svc,msg,cb){
+			service.ListSchedules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"JobName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"JobName",params,undefined,false); 
@@ -568,9 +519,7 @@ module.exports = function(RED) {
 
 			svc.listSchedules(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -582,9 +531,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PublishRecipe=function(svc,msg,cb){
+			service.PublishRecipe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -598,17 +545,15 @@ module.exports = function(RED) {
 
 			svc.publishRecipe(params,cb);
 		}
-
-		
-		service.SendProjectSessionAction=function(svc,msg,cb){
+			service.SendProjectSessionAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
-			copyArgs(n,"Preview",params,undefined,false); 
+			copyArgs(Boolean(n),"Preview",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"RecipeStep",params,undefined,true); 
-			copyArgs(n,"StepIndex",params,undefined,false); 
+			copyArgs(Number(n),"StepIndex",params,undefined,false); 
 			copyArgs(n,"ClientSessionId",params,undefined,false); 
 			copyArgs(n,"ViewFrame",params,undefined,false); 
 			
@@ -622,9 +567,7 @@ module.exports = function(RED) {
 
 			svc.sendProjectSessionAction(params,cb);
 		}
-
-		
-		service.StartJobRun=function(svc,msg,cb){
+			service.StartJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -636,15 +579,13 @@ module.exports = function(RED) {
 
 			svc.startJobRun(params,cb);
 		}
-
-		
-		service.StartProjectSession=function(svc,msg,cb){
+			service.StartProjectSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"AssumeControl",params,undefined,false); 
+			copyArgs(Boolean(n),"AssumeControl",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"AssumeControl",params,undefined,false); 
@@ -652,9 +593,7 @@ module.exports = function(RED) {
 
 			svc.startProjectSession(params,cb);
 		}
-
-		
-		service.StopJobRun=function(svc,msg,cb){
+			service.StopJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -669,9 +608,7 @@ module.exports = function(RED) {
 
 			svc.stopJobRun(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -686,9 +623,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -703,9 +638,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDataset=function(svc,msg,cb){
+			service.UpdateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -726,9 +659,7 @@ module.exports = function(RED) {
 
 			svc.updateDataset(params,cb);
 		}
-
-		
-		service.UpdateProfileJob=function(svc,msg,cb){
+			service.UpdateProfileJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -740,11 +671,11 @@ module.exports = function(RED) {
 			copyArgs(n,"EncryptionMode",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"LogSubscription",params,undefined,false); 
-			copyArgs(n,"MaxCapacity",params,undefined,false); 
-			copyArgs(n,"MaxRetries",params,undefined,false); 
+			copyArgs(Number(n),"MaxCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MaxRetries",params,undefined,false); 
 			copyArgs(n,"OutputLocation",params,undefined,true); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
-			copyArgs(n,"Timeout",params,undefined,false); 
+			copyArgs(Number(n),"Timeout",params,undefined,false); 
 			copyArgs(n,"JobSample",params,undefined,true); 
 			
 			copyArgs(msg,"Configuration",params,undefined,true); 
@@ -762,9 +693,7 @@ module.exports = function(RED) {
 
 			svc.updateProfileJob(params,cb);
 		}
-
-		
-		service.UpdateProject=function(svc,msg,cb){
+			service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -781,9 +710,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
-
-		
-		service.UpdateRecipe=function(svc,msg,cb){
+			service.UpdateRecipe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -799,9 +726,7 @@ module.exports = function(RED) {
 
 			svc.updateRecipe(params,cb);
 		}
-
-		
-		service.UpdateRecipeJob=function(svc,msg,cb){
+			service.UpdateRecipeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -811,13 +736,13 @@ module.exports = function(RED) {
 			copyArgs(n,"EncryptionMode",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"LogSubscription",params,undefined,false); 
-			copyArgs(n,"MaxCapacity",params,undefined,false); 
-			copyArgs(n,"MaxRetries",params,undefined,false); 
+			copyArgs(Number(n),"MaxCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MaxRetries",params,undefined,false); 
 			copyArgs(n,"Outputs",params,undefined,true); 
 			copyArgs(n,"DataCatalogOutputs",params,undefined,true); 
 			copyArgs(n,"DatabaseOutputs",params,undefined,true); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
-			copyArgs(n,"Timeout",params,undefined,false); 
+			copyArgs(Number(n),"Timeout",params,undefined,false); 
 			
 			copyArgs(msg,"EncryptionKeyArn",params,undefined,false); 
 			copyArgs(msg,"EncryptionMode",params,undefined,false); 
@@ -834,9 +759,7 @@ module.exports = function(RED) {
 
 			svc.updateRecipeJob(params,cb);
 		}
-
-		
-		service.UpdateSchedule=function(svc,msg,cb){
+			service.UpdateSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CronExpression",params,undefined,false); 
@@ -853,9 +776,7 @@ module.exports = function(RED) {
 
 			svc.updateSchedule(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS DataBrew", AmazonAPINode);
 

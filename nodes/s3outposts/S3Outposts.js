@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateEndpoint=function(svc,msg,cb){
+			service.CreateEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutpostId",params,undefined,false); 
@@ -116,9 +115,7 @@ module.exports = function(RED) {
 
 			svc.createEndpoint(params,cb);
 		}
-
-		
-		service.DeleteEndpoint=function(svc,msg,cb){
+			service.DeleteEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointId",params,undefined,false); 
@@ -133,14 +130,12 @@ module.exports = function(RED) {
 
 			svc.deleteEndpoint(params,cb);
 		}
-
-		
-		service.ListEndpoints=function(svc,msg,cb){
+			service.ListEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -148,9 +143,7 @@ module.exports = function(RED) {
 
 			svc.listEndpoints(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS S3Outposts", AmazonAPINode);
 

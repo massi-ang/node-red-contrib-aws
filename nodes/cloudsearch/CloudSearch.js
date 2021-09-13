@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BuildSuggesters=function(svc,msg,cb){
+			service.BuildSuggesters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.buildSuggesters(params,cb);
 		}
-
-		
-		service.CreateDomain=function(svc,msg,cb){
+			service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -120,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-
-		
-		service.DefineAnalysisScheme=function(svc,msg,cb){
+			service.DefineAnalysisScheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -137,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.defineAnalysisScheme(params,cb);
 		}
-
-		
-		service.DefineExpression=function(svc,msg,cb){
+			service.DefineExpression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -154,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.defineExpression(params,cb);
 		}
-
-		
-		service.DefineIndexField=function(svc,msg,cb){
+			service.DefineIndexField=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -171,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.defineIndexField(params,cb);
 		}
-
-		
-		service.DefineSuggester=function(svc,msg,cb){
+			service.DefineSuggester=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -188,9 +177,7 @@ module.exports = function(RED) {
 
 			svc.defineSuggester(params,cb);
 		}
-
-		
-		service.DeleteAnalysisScheme=function(svc,msg,cb){
+			service.DeleteAnalysisScheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -205,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.deleteAnalysisScheme(params,cb);
 		}
-
-		
-		service.DeleteDomain=function(svc,msg,cb){
+			service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -219,9 +204,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-
-		
-		service.DeleteExpression=function(svc,msg,cb){
+			service.DeleteExpression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -236,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.deleteExpression(params,cb);
 		}
-
-		
-		service.DeleteIndexField=function(svc,msg,cb){
+			service.DeleteIndexField=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -253,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.deleteIndexField(params,cb);
 		}
-
-		
-		service.DeleteSuggester=function(svc,msg,cb){
+			service.DeleteSuggester=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -270,16 +249,14 @@ module.exports = function(RED) {
 
 			svc.deleteSuggester(params,cb);
 		}
-
-		
-		service.DescribeAnalysisSchemes=function(svc,msg,cb){
+			service.DescribeAnalysisSchemes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"AnalysisSchemeNames",params,undefined,true); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"AnalysisSchemeNames",params,undefined,true); 
@@ -288,15 +265,13 @@ module.exports = function(RED) {
 
 			svc.describeAnalysisSchemes(params,cb);
 		}
-
-		
-		service.DescribeAvailabilityOptions=function(svc,msg,cb){
+			service.DescribeAvailabilityOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"Deployed",params,undefined,false); 
@@ -304,15 +279,13 @@ module.exports = function(RED) {
 
 			svc.describeAvailabilityOptions(params,cb);
 		}
-
-		
-		service.DescribeDomainEndpointOptions=function(svc,msg,cb){
+			service.DescribeDomainEndpointOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"Deployed",params,undefined,false); 
@@ -320,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.describeDomainEndpointOptions(params,cb);
 		}
-
-		
-		service.DescribeDomains=function(svc,msg,cb){
+			service.DescribeDomains=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -333,16 +304,14 @@ module.exports = function(RED) {
 
 			svc.describeDomains(params,cb);
 		}
-
-		
-		service.DescribeExpressions=function(svc,msg,cb){
+			service.DescribeExpressions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"ExpressionNames",params,undefined,true); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"ExpressionNames",params,undefined,true); 
@@ -351,16 +320,14 @@ module.exports = function(RED) {
 
 			svc.describeExpressions(params,cb);
 		}
-
-		
-		service.DescribeIndexFields=function(svc,msg,cb){
+			service.DescribeIndexFields=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"FieldNames",params,undefined,false); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"FieldNames",params,undefined,false); 
@@ -369,9 +336,7 @@ module.exports = function(RED) {
 
 			svc.describeIndexFields(params,cb);
 		}
-
-		
-		service.DescribeScalingParameters=function(svc,msg,cb){
+			service.DescribeScalingParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -383,15 +348,13 @@ module.exports = function(RED) {
 
 			svc.describeScalingParameters(params,cb);
 		}
-
-		
-		service.DescribeServiceAccessPolicies=function(svc,msg,cb){
+			service.DescribeServiceAccessPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"Deployed",params,undefined,false); 
@@ -399,16 +362,14 @@ module.exports = function(RED) {
 
 			svc.describeServiceAccessPolicies(params,cb);
 		}
-
-		
-		service.DescribeSuggesters=function(svc,msg,cb){
+			service.DescribeSuggesters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"SuggesterNames",params,undefined,true); 
-			copyArgs(n,"Deployed",params,undefined,false); 
+			copyArgs(Boolean(n),"Deployed",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"SuggesterNames",params,undefined,true); 
@@ -417,9 +378,7 @@ module.exports = function(RED) {
 
 			svc.describeSuggesters(params,cb);
 		}
-
-		
-		service.IndexDocuments=function(svc,msg,cb){
+			service.IndexDocuments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -431,9 +390,7 @@ module.exports = function(RED) {
 
 			svc.indexDocuments(params,cb);
 		}
-
-		
-		service.ListDomainNames=function(svc,msg,cb){
+			service.ListDomainNames=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -442,16 +399,14 @@ module.exports = function(RED) {
 
 			svc.listDomainNames(params,cb);
 		}
-
-		
-		service.UpdateAvailabilityOptions=function(svc,msg,cb){
+			service.UpdateAvailabilityOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"MultiAZ",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZ",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"MultiAZ",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZ",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"MultiAZ",params,undefined,false); 
@@ -459,9 +414,7 @@ module.exports = function(RED) {
 
 			svc.updateAvailabilityOptions(params,cb);
 		}
-
-		
-		service.UpdateDomainEndpointOptions=function(svc,msg,cb){
+			service.UpdateDomainEndpointOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -476,9 +429,7 @@ module.exports = function(RED) {
 
 			svc.updateDomainEndpointOptions(params,cb);
 		}
-
-		
-		service.UpdateScalingParameters=function(svc,msg,cb){
+			service.UpdateScalingParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -493,9 +444,7 @@ module.exports = function(RED) {
 
 			svc.updateScalingParameters(params,cb);
 		}
-
-		
-		service.UpdateServiceAccessPolicies=function(svc,msg,cb){
+			service.UpdateServiceAccessPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -510,9 +459,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceAccessPolicies(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CloudSearch", AmazonAPINode);
 

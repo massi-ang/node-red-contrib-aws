@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchCheckLayerAvailability=function(svc,msg,cb){
+			service.BatchCheckLayerAvailability=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.batchCheckLayerAvailability(params,cb);
 		}
-
-		
-		service.BatchDeleteImage=function(svc,msg,cb){
+			service.BatchDeleteImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -130,9 +127,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteImage(params,cb);
 		}
-
-		
-		service.CompleteLayerUpload=function(svc,msg,cb){
+			service.CompleteLayerUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.completeLayerUpload(params,cb);
 		}
-
-		
-		service.CreateRepository=function(svc,msg,cb){
+			service.CreateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -170,16 +163,14 @@ module.exports = function(RED) {
 
 			svc.createRepository(params,cb);
 		}
-
-		
-		service.DeleteRepository=function(svc,msg,cb){
+			service.DeleteRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryName",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 
@@ -188,9 +179,7 @@ module.exports = function(RED) {
 
 			svc.deleteRepository(params,cb);
 		}
-
-		
-		service.DeleteRepositoryPolicy=function(svc,msg,cb){
+			service.DeleteRepositoryPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -204,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.deleteRepositoryPolicy(params,cb);
 		}
-
-		
-		service.DescribeImageTags=function(svc,msg,cb){
+			service.DescribeImageTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -214,7 +201,7 @@ module.exports = function(RED) {
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 
@@ -224,9 +211,7 @@ module.exports = function(RED) {
 
 			svc.describeImageTags(params,cb);
 		}
-
-		
-		service.DescribeImages=function(svc,msg,cb){
+			service.DescribeImages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -235,7 +220,7 @@ module.exports = function(RED) {
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"imageIds",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 
@@ -246,14 +231,12 @@ module.exports = function(RED) {
 
 			svc.describeImages(params,cb);
 		}
-
-		
-		service.DescribeRegistries=function(svc,msg,cb){
+			service.DescribeRegistries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -261,16 +244,14 @@ module.exports = function(RED) {
 
 			svc.describeRegistries(params,cb);
 		}
-
-		
-		service.DescribeRepositories=function(svc,msg,cb){
+			service.DescribeRepositories=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryNames",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryNames",params,undefined,false); 
@@ -280,9 +261,7 @@ module.exports = function(RED) {
 
 			svc.describeRepositories(params,cb);
 		}
-
-		
-		service.GetAuthorizationToken=function(svc,msg,cb){
+			service.GetAuthorizationToken=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -291,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.getAuthorizationToken(params,cb);
 		}
-
-		
-		service.GetRegistryCatalogData=function(svc,msg,cb){
+			service.GetRegistryCatalogData=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -302,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.getRegistryCatalogData(params,cb);
 		}
-
-		
-		service.GetRepositoryCatalogData=function(svc,msg,cb){
+			service.GetRepositoryCatalogData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -318,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.getRepositoryCatalogData(params,cb);
 		}
-
-		
-		service.GetRepositoryPolicy=function(svc,msg,cb){
+			service.GetRepositoryPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -334,9 +307,7 @@ module.exports = function(RED) {
 
 			svc.getRepositoryPolicy(params,cb);
 		}
-
-		
-		service.InitiateLayerUpload=function(svc,msg,cb){
+			service.InitiateLayerUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -350,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.initiateLayerUpload(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -364,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutImage=function(svc,msg,cb){
+			service.PutImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -389,9 +356,7 @@ module.exports = function(RED) {
 
 			svc.putImage(params,cb);
 		}
-
-		
-		service.PutRegistryCatalogData=function(svc,msg,cb){
+			service.PutRegistryCatalogData=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -402,9 +367,7 @@ module.exports = function(RED) {
 
 			svc.putRegistryCatalogData(params,cb);
 		}
-
-		
-		service.PutRepositoryCatalogData=function(svc,msg,cb){
+			service.PutRepositoryCatalogData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -421,9 +384,7 @@ module.exports = function(RED) {
 
 			svc.putRepositoryCatalogData(params,cb);
 		}
-
-		
-		service.SetRepositoryPolicy=function(svc,msg,cb){
+			service.SetRepositoryPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -432,7 +393,7 @@ module.exports = function(RED) {
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"policyText",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 
@@ -442,9 +403,7 @@ module.exports = function(RED) {
 
 			svc.setRepositoryPolicy(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -459,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -476,23 +433,21 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UploadLayerPart=function(svc,msg,cb){
+			service.UploadLayerPart=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"uploadId",params,undefined,false); 
 			copyArgs(n,"partFirstByte",params,undefined,false); 
 			copyArgs(n,"partLastByte",params,undefined,false); 
-			copyArgs(n,"layerPartBlob",params,undefined,false); 
+			copyArgs(Buffer.from(n),"layerPartBlob",params,undefined,false); 
 			
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"uploadId",params,undefined,false); 
 			copyArgs(n,"partFirstByte",params,undefined,false); 
 			copyArgs(n,"partLastByte",params,undefined,false); 
-			copyArgs(n,"layerPartBlob",params,undefined,false); 
+			copyArgs(Buffer.from(n),"layerPartBlob",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 
@@ -504,9 +459,7 @@ module.exports = function(RED) {
 
 			svc.uploadLayerPart(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ECRPUBLIC", AmazonAPINode);
 

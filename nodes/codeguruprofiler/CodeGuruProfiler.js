@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddNotificationChannels=function(svc,msg,cb){
+			service.AddNotificationChannels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channels",params,undefined,true); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.addNotificationChannels(params,cb);
 		}
-
-		
-		service.BatchGetFrameMetricData=function(svc,msg,cb){
+			service.BatchGetFrameMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -133,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.batchGetFrameMetricData(params,cb);
 		}
-
-		
-		service.ConfigureAgent=function(svc,msg,cb){
+			service.ConfigureAgent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -151,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.configureAgent(params,cb);
 		}
-
-		
-		service.CreateProfilingGroup=function(svc,msg,cb){
+			service.CreateProfilingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientToken",params,undefined,false); 
@@ -174,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.createProfilingGroup(params,cb);
 		}
-
-		
-		service.DeleteProfilingGroup=function(svc,msg,cb){
+			service.DeleteProfilingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -188,9 +179,7 @@ module.exports = function(RED) {
 
 			svc.deleteProfilingGroup(params,cb);
 		}
-
-		
-		service.DescribeProfilingGroup=function(svc,msg,cb){
+			service.DescribeProfilingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -202,14 +191,12 @@ module.exports = function(RED) {
 
 			svc.describeProfilingGroup(params,cb);
 		}
-
-		
-		service.GetFindingsReportAccountSummary=function(svc,msg,cb){
+			service.GetFindingsReportAccountSummary=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"dailyReportsOnly",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"dailyReportsOnly",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"dailyReportsOnly",params,undefined,false); 
@@ -219,9 +206,7 @@ module.exports = function(RED) {
 
 			svc.getFindingsReportAccountSummary(params,cb);
 		}
-
-		
-		service.GetNotificationConfiguration=function(svc,msg,cb){
+			service.GetNotificationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -233,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.getNotificationConfiguration(params,cb);
 		}
-
-		
-		service.GetPolicy=function(svc,msg,cb){
+			service.GetPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -247,16 +230,14 @@ module.exports = function(RED) {
 
 			svc.getPolicy(params,cb);
 		}
-
-		
-		service.GetProfile=function(svc,msg,cb){
+			service.GetProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"accept",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,true); 
-			copyArgs(n,"maxDepth",params,undefined,false); 
+			copyArgs(Number(n),"maxDepth",params,undefined,false); 
 			copyArgs(n,"period",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,true); 
@@ -271,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.getProfile(params,cb);
 		}
-
-		
-		service.GetRecommendations=function(svc,msg,cb){
+			service.GetRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endTime",params,undefined,true); 
@@ -293,18 +272,16 @@ module.exports = function(RED) {
 
 			svc.getRecommendations(params,cb);
 		}
-
-		
-		service.ListFindingsReports=function(svc,msg,cb){
+			service.ListFindingsReports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endTime",params,undefined,true); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,true); 
 			
-			copyArgs(n,"dailyReportsOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"dailyReportsOnly",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,true); 
@@ -319,9 +296,7 @@ module.exports = function(RED) {
 
 			svc.listFindingsReports(params,cb);
 		}
-
-		
-		service.ListProfileTimes=function(svc,msg,cb){
+			service.ListProfileTimes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endTime",params,undefined,true); 
@@ -330,7 +305,7 @@ module.exports = function(RED) {
 			copyArgs(n,"startTime",params,undefined,true); 
 			
 			copyArgs(n,"endTime",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"orderBy",params,undefined,false); 
 			copyArgs(n,"period",params,undefined,false); 
@@ -348,14 +323,12 @@ module.exports = function(RED) {
 
 			svc.listProfileTimes(params,cb);
 		}
-
-		
-		service.ListProfilingGroups=function(svc,msg,cb){
+			service.ListProfilingGroups=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"includeDescription",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"includeDescription",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"includeDescription",params,undefined,false); 
@@ -365,9 +338,7 @@ module.exports = function(RED) {
 
 			svc.listProfilingGroups(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -379,16 +350,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PostAgentProfile=function(svc,msg,cb){
+			service.PostAgentProfile=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"agentProfile",params,undefined,false); 
+			copyArgs(Buffer.from(n),"agentProfile",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			
-			copyArgs(n,"agentProfile",params,undefined,false); 
+			copyArgs(Buffer.from(n),"agentProfile",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			copyArgs(n,"profileToken",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
@@ -401,9 +370,7 @@ module.exports = function(RED) {
 
 			svc.postAgentProfile(params,cb);
 		}
-
-		
-		service.PutPermission=function(svc,msg,cb){
+			service.PutPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionGroup",params,undefined,false); 
@@ -423,9 +390,7 @@ module.exports = function(RED) {
 
 			svc.putPermission(params,cb);
 		}
-
-		
-		service.RemoveNotificationChannel=function(svc,msg,cb){
+			service.RemoveNotificationChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelId",params,undefined,false); 
@@ -440,9 +405,7 @@ module.exports = function(RED) {
 
 			svc.removeNotificationChannel(params,cb);
 		}
-
-		
-		service.RemovePermission=function(svc,msg,cb){
+			service.RemovePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionGroup",params,undefined,false); 
@@ -460,9 +423,7 @@ module.exports = function(RED) {
 
 			svc.removePermission(params,cb);
 		}
-
-		
-		service.SubmitFeedback=function(svc,msg,cb){
+			service.SubmitFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"anomalyInstanceId",params,undefined,false); 
@@ -482,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.submitFeedback(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -499,9 +458,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -516,9 +473,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateProfilingGroup=function(svc,msg,cb){
+			service.UpdateProfilingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"agentOrchestrationConfig",params,undefined,true); 
@@ -533,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.updateProfilingGroup(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeGuruProfiler", AmazonAPINode);
 

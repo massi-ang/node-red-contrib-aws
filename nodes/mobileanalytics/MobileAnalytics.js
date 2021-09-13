@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.PutEvents=function(svc,msg,cb){
+			service.PutEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"events",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.putEvents(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MobileAnalytics", AmazonAPINode);
 

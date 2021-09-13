@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchCreateVariable=function(svc,msg,cb){
+			service.BatchCreateVariable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"variableEntries",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.batchCreateVariable(params,cb);
 		}
-
-		
-		service.BatchGetVariable=function(svc,msg,cb){
+			service.BatchGetVariable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"names",params,undefined,false); 
@@ -122,9 +119,7 @@ module.exports = function(RED) {
 
 			svc.batchGetVariable(params,cb);
 		}
-
-		
-		service.CancelBatchPredictionJob=function(svc,msg,cb){
+			service.CancelBatchPredictionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -136,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.cancelBatchPredictionJob(params,cb);
 		}
-
-		
-		service.CreateBatchPredictionJob=function(svc,msg,cb){
+			service.CreateBatchPredictionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -169,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.createBatchPredictionJob(params,cb);
 		}
-
-		
-		service.CreateDetectorVersion=function(svc,msg,cb){
+			service.CreateDetectorVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -196,9 +187,7 @@ module.exports = function(RED) {
 
 			svc.createDetectorVersion(params,cb);
 		}
-
-		
-		service.CreateModel=function(svc,msg,cb){
+			service.CreateModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -220,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.createModel(params,cb);
 		}
-
-		
-		service.CreateModelVersion=function(svc,msg,cb){
+			service.CreateModelVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -247,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.createModelVersion(params,cb);
 		}
-
-		
-		service.CreateRule=function(svc,msg,cb){
+			service.CreateRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleId",params,undefined,false); 
@@ -277,9 +262,7 @@ module.exports = function(RED) {
 
 			svc.createRule(params,cb);
 		}
-
-		
-		service.CreateVariable=function(svc,msg,cb){
+			service.CreateVariable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -306,9 +289,7 @@ module.exports = function(RED) {
 
 			svc.createVariable(params,cb);
 		}
-
-		
-		service.DeleteBatchPredictionJob=function(svc,msg,cb){
+			service.DeleteBatchPredictionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -320,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.deleteBatchPredictionJob(params,cb);
 		}
-
-		
-		service.DeleteDetector=function(svc,msg,cb){
+			service.DeleteDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -334,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.deleteDetector(params,cb);
 		}
-
-		
-		service.DeleteDetectorVersion=function(svc,msg,cb){
+			service.DeleteDetectorVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -351,9 +328,7 @@ module.exports = function(RED) {
 
 			svc.deleteDetectorVersion(params,cb);
 		}
-
-		
-		service.DeleteEntityType=function(svc,msg,cb){
+			service.DeleteEntityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -365,9 +340,7 @@ module.exports = function(RED) {
 
 			svc.deleteEntityType(params,cb);
 		}
-
-		
-		service.DeleteEvent=function(svc,msg,cb){
+			service.DeleteEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventId",params,undefined,false); 
@@ -382,9 +355,7 @@ module.exports = function(RED) {
 
 			svc.deleteEvent(params,cb);
 		}
-
-		
-		service.DeleteEventType=function(svc,msg,cb){
+			service.DeleteEventType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -396,9 +367,7 @@ module.exports = function(RED) {
 
 			svc.deleteEventType(params,cb);
 		}
-
-		
-		service.DeleteExternalModel=function(svc,msg,cb){
+			service.DeleteExternalModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelEndpoint",params,undefined,false); 
@@ -410,9 +379,7 @@ module.exports = function(RED) {
 
 			svc.deleteExternalModel(params,cb);
 		}
-
-		
-		service.DeleteLabel=function(svc,msg,cb){
+			service.DeleteLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -424,9 +391,7 @@ module.exports = function(RED) {
 
 			svc.deleteLabel(params,cb);
 		}
-
-		
-		service.DeleteModel=function(svc,msg,cb){
+			service.DeleteModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -441,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.deleteModel(params,cb);
 		}
-
-		
-		service.DeleteModelVersion=function(svc,msg,cb){
+			service.DeleteModelVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -461,9 +424,7 @@ module.exports = function(RED) {
 
 			svc.deleteModelVersion(params,cb);
 		}
-
-		
-		service.DeleteOutcome=function(svc,msg,cb){
+			service.DeleteOutcome=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -475,9 +436,7 @@ module.exports = function(RED) {
 
 			svc.deleteOutcome(params,cb);
 		}
-
-		
-		service.DeleteRule=function(svc,msg,cb){
+			service.DeleteRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"rule",params,undefined,true); 
@@ -489,9 +448,7 @@ module.exports = function(RED) {
 
 			svc.deleteRule(params,cb);
 		}
-
-		
-		service.DeleteVariable=function(svc,msg,cb){
+			service.DeleteVariable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -503,16 +460,14 @@ module.exports = function(RED) {
 
 			svc.deleteVariable(params,cb);
 		}
-
-		
-		service.DescribeDetector=function(svc,msg,cb){
+			service.DescribeDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"detectorId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -521,9 +476,7 @@ module.exports = function(RED) {
 
 			svc.describeDetector(params,cb);
 		}
-
-		
-		service.DescribeModelVersions=function(svc,msg,cb){
+			service.DescribeModelVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -531,7 +484,7 @@ module.exports = function(RED) {
 			copyArgs(n,"modelVersionNumber",params,undefined,false); 
 			copyArgs(n,"modelType",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"modelId",params,undefined,false); 
 			copyArgs(msg,"modelVersionNumber",params,undefined,false); 
@@ -542,14 +495,12 @@ module.exports = function(RED) {
 
 			svc.describeModelVersions(params,cb);
 		}
-
-		
-		service.GetBatchPredictionJobs=function(svc,msg,cb){
+			service.GetBatchPredictionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"jobId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"jobId",params,undefined,false); 
@@ -559,9 +510,7 @@ module.exports = function(RED) {
 
 			svc.getBatchPredictionJobs(params,cb);
 		}
-
-		
-		service.GetDetectorVersion=function(svc,msg,cb){
+			service.GetDetectorVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -576,15 +525,13 @@ module.exports = function(RED) {
 
 			svc.getDetectorVersion(params,cb);
 		}
-
-		
-		service.GetDetectors=function(svc,msg,cb){
+			service.GetDetectors=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"detectorId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -593,15 +540,13 @@ module.exports = function(RED) {
 
 			svc.getDetectors(params,cb);
 		}
-
-		
-		service.GetEntityTypes=function(svc,msg,cb){
+			service.GetEntityTypes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -610,9 +555,7 @@ module.exports = function(RED) {
 
 			svc.getEntityTypes(params,cb);
 		}
-
-		
-		service.GetEventPrediction=function(svc,msg,cb){
+			service.GetEventPrediction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -643,15 +586,13 @@ module.exports = function(RED) {
 
 			svc.getEventPrediction(params,cb);
 		}
-
-		
-		service.GetEventTypes=function(svc,msg,cb){
+			service.GetEventTypes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -660,15 +601,13 @@ module.exports = function(RED) {
 
 			svc.getEventTypes(params,cb);
 		}
-
-		
-		service.GetExternalModels=function(svc,msg,cb){
+			service.GetExternalModels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"modelEndpoint",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"modelEndpoint",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -677,9 +616,7 @@ module.exports = function(RED) {
 
 			svc.getExternalModels(params,cb);
 		}
-
-		
-		service.GetKMSEncryptionKey=function(svc,msg,cb){
+			service.GetKMSEncryptionKey=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -688,15 +625,13 @@ module.exports = function(RED) {
 
 			svc.getKMSEncryptionKey(params,cb);
 		}
-
-		
-		service.GetLabels=function(svc,msg,cb){
+			service.GetLabels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -705,9 +640,7 @@ module.exports = function(RED) {
 
 			svc.getLabels(params,cb);
 		}
-
-		
-		service.GetModelVersion=function(svc,msg,cb){
+			service.GetModelVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -725,16 +658,14 @@ module.exports = function(RED) {
 
 			svc.getModelVersion(params,cb);
 		}
-
-		
-		service.GetModels=function(svc,msg,cb){
+			service.GetModels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"modelId",params,undefined,false); 
 			copyArgs(n,"modelType",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"modelId",params,undefined,false); 
 			copyArgs(msg,"modelType",params,undefined,false); 
@@ -744,15 +675,13 @@ module.exports = function(RED) {
 
 			svc.getModels(params,cb);
 		}
-
-		
-		service.GetOutcomes=function(svc,msg,cb){
+			service.GetOutcomes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -761,9 +690,7 @@ module.exports = function(RED) {
 
 			svc.getOutcomes(params,cb);
 		}
-
-		
-		service.GetRules=function(svc,msg,cb){
+			service.GetRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -772,7 +699,7 @@ module.exports = function(RED) {
 			copyArgs(n,"detectorId",params,undefined,false); 
 			copyArgs(n,"ruleVersion",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ruleId",params,undefined,false); 
 			copyArgs(msg,"detectorId",params,undefined,false); 
@@ -783,15 +710,13 @@ module.exports = function(RED) {
 
 			svc.getRules(params,cb);
 		}
-
-		
-		service.GetVariables=function(svc,msg,cb){
+			service.GetVariables=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -800,16 +725,14 @@ module.exports = function(RED) {
 
 			svc.getVariables(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceARN",params,undefined,false); 
 			
 			copyArgs(n,"resourceARN",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceARN",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -818,9 +741,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutDetector=function(svc,msg,cb){
+			service.PutDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -839,9 +760,7 @@ module.exports = function(RED) {
 
 			svc.putDetector(params,cb);
 		}
-
-		
-		service.PutEntityType=function(svc,msg,cb){
+			service.PutEntityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -857,9 +776,7 @@ module.exports = function(RED) {
 
 			svc.putEntityType(params,cb);
 		}
-
-		
-		service.PutEventType=function(svc,msg,cb){
+			service.PutEventType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -883,9 +800,7 @@ module.exports = function(RED) {
 
 			svc.putEventType(params,cb);
 		}
-
-		
-		service.PutExternalModel=function(svc,msg,cb){
+			service.PutExternalModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelEndpoint",params,undefined,false); 
@@ -914,9 +829,7 @@ module.exports = function(RED) {
 
 			svc.putExternalModel(params,cb);
 		}
-
-		
-		service.PutKMSEncryptionKey=function(svc,msg,cb){
+			service.PutKMSEncryptionKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"kmsEncryptionKeyArn",params,undefined,false); 
@@ -928,9 +841,7 @@ module.exports = function(RED) {
 
 			svc.putKMSEncryptionKey(params,cb);
 		}
-
-		
-		service.PutLabel=function(svc,msg,cb){
+			service.PutLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -946,9 +857,7 @@ module.exports = function(RED) {
 
 			svc.putLabel(params,cb);
 		}
-
-		
-		service.PutOutcome=function(svc,msg,cb){
+			service.PutOutcome=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -964,9 +873,7 @@ module.exports = function(RED) {
 
 			svc.putOutcome(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceARN",params,undefined,false); 
@@ -981,9 +888,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceARN",params,undefined,false); 
@@ -998,9 +903,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDetectorVersion=function(svc,msg,cb){
+			service.UpdateDetectorVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -1027,9 +930,7 @@ module.exports = function(RED) {
 
 			svc.updateDetectorVersion(params,cb);
 		}
-
-		
-		service.UpdateDetectorVersionMetadata=function(svc,msg,cb){
+			service.UpdateDetectorVersionMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -1047,9 +948,7 @@ module.exports = function(RED) {
 
 			svc.updateDetectorVersionMetadata(params,cb);
 		}
-
-		
-		service.UpdateDetectorVersionStatus=function(svc,msg,cb){
+			service.UpdateDetectorVersionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"detectorId",params,undefined,false); 
@@ -1067,9 +966,7 @@ module.exports = function(RED) {
 
 			svc.updateDetectorVersionStatus(params,cb);
 		}
-
-		
-		service.UpdateModel=function(svc,msg,cb){
+			service.UpdateModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -1086,9 +983,7 @@ module.exports = function(RED) {
 
 			svc.updateModel(params,cb);
 		}
-
-		
-		service.UpdateModelVersion=function(svc,msg,cb){
+			service.UpdateModelVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -1110,9 +1005,7 @@ module.exports = function(RED) {
 
 			svc.updateModelVersion(params,cb);
 		}
-
-		
-		service.UpdateModelVersionStatus=function(svc,msg,cb){
+			service.UpdateModelVersionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"modelId",params,undefined,false); 
@@ -1133,9 +1026,7 @@ module.exports = function(RED) {
 
 			svc.updateModelVersionStatus(params,cb);
 		}
-
-		
-		service.UpdateRuleMetadata=function(svc,msg,cb){
+			service.UpdateRuleMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"rule",params,undefined,true); 
@@ -1150,9 +1041,7 @@ module.exports = function(RED) {
 
 			svc.updateRuleMetadata(params,cb);
 		}
-
-		
-		service.UpdateRuleVersion=function(svc,msg,cb){
+			service.UpdateRuleVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"rule",params,undefined,true); 
@@ -1177,9 +1066,7 @@ module.exports = function(RED) {
 
 			svc.updateRuleVersion(params,cb);
 		}
-
-		
-		service.UpdateVariable=function(svc,msg,cb){
+			service.UpdateVariable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -1197,9 +1084,7 @@ module.exports = function(RED) {
 
 			svc.updateVariable(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS FraudDetector", AmazonAPINode);
 

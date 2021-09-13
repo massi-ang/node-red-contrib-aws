@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateReplicationSet=function(svc,msg,cb){
+			service.CreateReplicationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"regions",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.createReplicationSet(params,cb);
 		}
-
-		
-		service.CreateResponsePlan=function(svc,msg,cb){
+			service.CreateResponsePlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"incidentTemplate",params,undefined,true); 
@@ -137,9 +134,7 @@ module.exports = function(RED) {
 
 			svc.createResponsePlan(params,cb);
 		}
-
-		
-		service.CreateTimelineEvent=function(svc,msg,cb){
+			service.CreateTimelineEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventData",params,undefined,false); 
@@ -162,9 +157,7 @@ module.exports = function(RED) {
 
 			svc.createTimelineEvent(params,cb);
 		}
-
-		
-		service.DeleteIncidentRecord=function(svc,msg,cb){
+			service.DeleteIncidentRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -176,9 +169,7 @@ module.exports = function(RED) {
 
 			svc.deleteIncidentRecord(params,cb);
 		}
-
-		
-		service.DeleteReplicationSet=function(svc,msg,cb){
+			service.DeleteReplicationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -190,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.deleteReplicationSet(params,cb);
 		}
-
-		
-		service.DeleteResourcePolicy=function(svc,msg,cb){
+			service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyId",params,undefined,false); 
@@ -207,9 +196,7 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-
-		
-		service.DeleteResponsePlan=function(svc,msg,cb){
+			service.DeleteResponsePlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -221,9 +208,7 @@ module.exports = function(RED) {
 
 			svc.deleteResponsePlan(params,cb);
 		}
-
-		
-		service.DeleteTimelineEvent=function(svc,msg,cb){
+			service.DeleteTimelineEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventId",params,undefined,false); 
@@ -238,9 +223,7 @@ module.exports = function(RED) {
 
 			svc.deleteTimelineEvent(params,cb);
 		}
-
-		
-		service.GetIncidentRecord=function(svc,msg,cb){
+			service.GetIncidentRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -252,9 +235,7 @@ module.exports = function(RED) {
 
 			svc.getIncidentRecord(params,cb);
 		}
-
-		
-		service.GetReplicationSet=function(svc,msg,cb){
+			service.GetReplicationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -266,14 +247,12 @@ module.exports = function(RED) {
 
 			svc.getReplicationSet(params,cb);
 		}
-
-		
-		service.GetResourcePolicies=function(svc,msg,cb){
+			service.GetResourcePolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
@@ -284,9 +263,7 @@ module.exports = function(RED) {
 
 			svc.getResourcePolicies(params,cb);
 		}
-
-		
-		service.GetResponsePlan=function(svc,msg,cb){
+			service.GetResponsePlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -298,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.getResponsePlan(params,cb);
 		}
-
-		
-		service.GetTimelineEvent=function(svc,msg,cb){
+			service.GetTimelineEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventId",params,undefined,false); 
@@ -315,14 +290,12 @@ module.exports = function(RED) {
 
 			svc.getTimelineEvent(params,cb);
 		}
-
-		
-		service.ListIncidentRecords=function(svc,msg,cb){
+			service.ListIncidentRecords=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filters",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,true); 
@@ -332,15 +305,13 @@ module.exports = function(RED) {
 
 			svc.listIncidentRecords(params,cb);
 		}
-
-		
-		service.ListRelatedItems=function(svc,msg,cb){
+			service.ListRelatedItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"incidentRecordArn",params,undefined,false); 
 			
 			copyArgs(n,"incidentRecordArn",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"incidentRecordArn",params,undefined,false); 
@@ -350,13 +321,11 @@ module.exports = function(RED) {
 
 			svc.listRelatedItems(params,cb);
 		}
-
-		
-		service.ListReplicationSets=function(svc,msg,cb){
+			service.ListReplicationSets=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -365,13 +334,11 @@ module.exports = function(RED) {
 
 			svc.listReplicationSets(params,cb);
 		}
-
-		
-		service.ListResponsePlans=function(svc,msg,cb){
+			service.ListResponsePlans=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -380,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.listResponsePlans(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -394,16 +359,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTimelineEvents=function(svc,msg,cb){
+			service.ListTimelineEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"incidentRecordArn",params,undefined,false); 
 			
 			copyArgs(n,"filters",params,undefined,true); 
 			copyArgs(n,"incidentRecordArn",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"sortBy",params,undefined,false); 
 			copyArgs(n,"sortOrder",params,undefined,false); 
@@ -418,9 +381,7 @@ module.exports = function(RED) {
 
 			svc.listTimelineEvents(params,cb);
 		}
-
-		
-		service.PutResourcePolicy=function(svc,msg,cb){
+			service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policy",params,undefined,false); 
@@ -435,15 +396,13 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-
-		
-		service.StartIncident=function(svc,msg,cb){
+			service.StartIncident=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"responsePlanArn",params,undefined,false); 
 			
 			copyArgs(n,"clientToken",params,undefined,false); 
-			copyArgs(n,"impact",params,undefined,false); 
+			copyArgs(Number(n),"impact",params,undefined,false); 
 			copyArgs(n,"relatedItems",params,undefined,true); 
 			copyArgs(n,"responsePlanArn",params,undefined,false); 
 			copyArgs(n,"title",params,undefined,false); 
@@ -459,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.startIncident(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -476,9 +433,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -493,17 +448,15 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDeletionProtection=function(svc,msg,cb){
+			service.UpdateDeletionProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
-			copyArgs(n,"deletionProtected",params,undefined,false); 
+			copyArgs(Boolean(n),"deletionProtected",params,undefined,false); 
 			
 			copyArgs(n,"arn",params,undefined,false); 
 			copyArgs(n,"clientToken",params,undefined,false); 
-			copyArgs(n,"deletionProtected",params,undefined,false); 
+			copyArgs(Boolean(n),"deletionProtected",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"clientToken",params,undefined,false); 
@@ -512,9 +465,7 @@ module.exports = function(RED) {
 
 			svc.updateDeletionProtection(params,cb);
 		}
-
-		
-		service.UpdateIncidentRecord=function(svc,msg,cb){
+			service.UpdateIncidentRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -522,7 +473,7 @@ module.exports = function(RED) {
 			copyArgs(n,"arn",params,undefined,false); 
 			copyArgs(n,"chatChannel",params,undefined,true); 
 			copyArgs(n,"clientToken",params,undefined,false); 
-			copyArgs(n,"impact",params,undefined,false); 
+			copyArgs(Number(n),"impact",params,undefined,false); 
 			copyArgs(n,"notificationTargets",params,undefined,true); 
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"summary",params,undefined,false); 
@@ -540,9 +491,7 @@ module.exports = function(RED) {
 
 			svc.updateIncidentRecord(params,cb);
 		}
-
-		
-		service.UpdateRelatedItems=function(svc,msg,cb){
+			service.UpdateRelatedItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"incidentRecordArn",params,undefined,false); 
@@ -559,9 +508,7 @@ module.exports = function(RED) {
 
 			svc.updateRelatedItems(params,cb);
 		}
-
-		
-		service.UpdateReplicationSet=function(svc,msg,cb){
+			service.UpdateReplicationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actions",params,undefined,false); 
@@ -578,9 +525,7 @@ module.exports = function(RED) {
 
 			svc.updateReplicationSet(params,cb);
 		}
-
-		
-		service.UpdateResponsePlan=function(svc,msg,cb){
+			service.UpdateResponsePlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -592,7 +537,7 @@ module.exports = function(RED) {
 			copyArgs(n,"displayName",params,undefined,false); 
 			copyArgs(n,"engagements",params,undefined,true); 
 			copyArgs(n,"incidentTemplateDedupeString",params,undefined,false); 
-			copyArgs(n,"incidentTemplateImpact",params,undefined,false); 
+			copyArgs(Number(n),"incidentTemplateImpact",params,undefined,false); 
 			copyArgs(n,"incidentTemplateNotificationTargets",params,undefined,true); 
 			copyArgs(n,"incidentTemplateSummary",params,undefined,false); 
 			copyArgs(n,"incidentTemplateTitle",params,undefined,false); 
@@ -612,9 +557,7 @@ module.exports = function(RED) {
 
 			svc.updateResponsePlan(params,cb);
 		}
-
-		
-		service.UpdateTimelineEvent=function(svc,msg,cb){
+			service.UpdateTimelineEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventId",params,undefined,false); 
@@ -637,9 +580,7 @@ module.exports = function(RED) {
 
 			svc.updateTimelineEvent(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SSMIncidents", AmazonAPINode);
 

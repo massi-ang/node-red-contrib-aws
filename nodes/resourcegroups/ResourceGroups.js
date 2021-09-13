@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateGroup=function(svc,msg,cb){
+			service.CreateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -114,9 +113,7 @@ module.exports = function(RED) {
 
 			svc.createGroup(params,cb);
 		}
-
-		
-		service.DeleteGroup=function(svc,msg,cb){
+			service.DeleteGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -129,9 +126,7 @@ module.exports = function(RED) {
 
 			svc.deleteGroup(params,cb);
 		}
-
-		
-		service.GetGroup=function(svc,msg,cb){
+			service.GetGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -144,9 +139,7 @@ module.exports = function(RED) {
 
 			svc.getGroup(params,cb);
 		}
-
-		
-		service.GetGroupConfiguration=function(svc,msg,cb){
+			service.GetGroupConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -157,9 +150,7 @@ module.exports = function(RED) {
 
 			svc.getGroupConfiguration(params,cb);
 		}
-
-		
-		service.GetGroupQuery=function(svc,msg,cb){
+			service.GetGroupQuery=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -172,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.getGroupQuery(params,cb);
 		}
-
-		
-		service.GetTags=function(svc,msg,cb){
+			service.GetTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -186,9 +175,7 @@ module.exports = function(RED) {
 
 			svc.getTags(params,cb);
 		}
-
-		
-		service.GroupResources=function(svc,msg,cb){
+			service.GroupResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Group",params,undefined,false); 
@@ -203,16 +190,14 @@ module.exports = function(RED) {
 
 			svc.groupResources(params,cb);
 		}
-
-		
-		service.ListGroupResources=function(svc,msg,cb){
+			service.ListGroupResources=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
 			copyArgs(n,"Group",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"GroupName",params,undefined,false); 
@@ -224,14 +209,12 @@ module.exports = function(RED) {
 
 			svc.listGroupResources(params,cb);
 		}
-
-		
-		service.ListGroups=function(svc,msg,cb){
+			service.ListGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -241,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.listGroups(params,cb);
 		}
-
-		
-		service.PutGroupConfiguration=function(svc,msg,cb){
+			service.PutGroupConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -256,15 +237,13 @@ module.exports = function(RED) {
 
 			svc.putGroupConfiguration(params,cb);
 		}
-
-		
-		service.SearchResources=function(svc,msg,cb){
+			service.SearchResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceQuery",params,undefined,true); 
 			
 			copyArgs(n,"ResourceQuery",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceQuery",params,undefined,true); 
@@ -274,9 +253,7 @@ module.exports = function(RED) {
 
 			svc.searchResources(params,cb);
 		}
-
-		
-		service.Tag=function(svc,msg,cb){
+			service.Tag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -291,9 +268,7 @@ module.exports = function(RED) {
 
 			svc.tag(params,cb);
 		}
-
-		
-		service.UngroupResources=function(svc,msg,cb){
+			service.UngroupResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Group",params,undefined,false); 
@@ -308,9 +283,7 @@ module.exports = function(RED) {
 
 			svc.ungroupResources(params,cb);
 		}
-
-		
-		service.Untag=function(svc,msg,cb){
+			service.Untag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -325,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.untag(params,cb);
 		}
-
-		
-		service.UpdateGroup=function(svc,msg,cb){
+			service.UpdateGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -342,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.updateGroup(params,cb);
 		}
-
-		
-		service.UpdateGroupQuery=function(svc,msg,cb){
+			service.UpdateGroupQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceQuery",params,undefined,true); 
@@ -360,9 +329,7 @@ module.exports = function(RED) {
 
 			svc.updateGroupQuery(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ResourceGroups", AmazonAPINode);
 

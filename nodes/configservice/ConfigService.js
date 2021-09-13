@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchGetAggregateResourceConfig=function(svc,msg,cb){
+			service.BatchGetAggregateResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.batchGetAggregateResourceConfig(params,cb);
 		}
-
-		
-		service.BatchGetResourceConfig=function(svc,msg,cb){
+			service.BatchGetResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceKeys",params,undefined,true); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.batchGetResourceConfig(params,cb);
 		}
-
-		
-		service.DeleteAggregationAuthorization=function(svc,msg,cb){
+			service.DeleteAggregationAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthorizedAccountId",params,undefined,false); 
@@ -140,9 +135,7 @@ module.exports = function(RED) {
 
 			svc.deleteAggregationAuthorization(params,cb);
 		}
-
-		
-		service.DeleteConfigRule=function(svc,msg,cb){
+			service.DeleteConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -154,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigRule(params,cb);
 		}
-
-		
-		service.DeleteConfigurationAggregator=function(svc,msg,cb){
+			service.DeleteConfigurationAggregator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -168,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigurationAggregator(params,cb);
 		}
-
-		
-		service.DeleteConfigurationRecorder=function(svc,msg,cb){
+			service.DeleteConfigurationRecorder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationRecorderName",params,undefined,false); 
@@ -182,9 +171,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigurationRecorder(params,cb);
 		}
-
-		
-		service.DeleteConformancePack=function(svc,msg,cb){
+			service.DeleteConformancePack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
@@ -196,9 +183,7 @@ module.exports = function(RED) {
 
 			svc.deleteConformancePack(params,cb);
 		}
-
-		
-		service.DeleteDeliveryChannel=function(svc,msg,cb){
+			service.DeleteDeliveryChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryChannelName",params,undefined,false); 
@@ -210,9 +195,7 @@ module.exports = function(RED) {
 
 			svc.deleteDeliveryChannel(params,cb);
 		}
-
-		
-		service.DeleteEvaluationResults=function(svc,msg,cb){
+			service.DeleteEvaluationResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -224,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.deleteEvaluationResults(params,cb);
 		}
-
-		
-		service.DeleteOrganizationConfigRule=function(svc,msg,cb){
+			service.DeleteOrganizationConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConfigRuleName",params,undefined,false); 
@@ -238,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.deleteOrganizationConfigRule(params,cb);
 		}
-
-		
-		service.DeleteOrganizationConformancePack=function(svc,msg,cb){
+			service.DeleteOrganizationConformancePack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConformancePackName",params,undefined,false); 
@@ -252,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.deleteOrganizationConformancePack(params,cb);
 		}
-
-		
-		service.DeletePendingAggregationRequest=function(svc,msg,cb){
+			service.DeletePendingAggregationRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequesterAccountId",params,undefined,false); 
@@ -269,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.deletePendingAggregationRequest(params,cb);
 		}
-
-		
-		service.DeleteRemediationConfiguration=function(svc,msg,cb){
+			service.DeleteRemediationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -285,9 +260,7 @@ module.exports = function(RED) {
 
 			svc.deleteRemediationConfiguration(params,cb);
 		}
-
-		
-		service.DeleteRemediationExceptions=function(svc,msg,cb){
+			service.DeleteRemediationExceptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -302,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.deleteRemediationExceptions(params,cb);
 		}
-
-		
-		service.DeleteResourceConfig=function(svc,msg,cb){
+			service.DeleteResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -319,9 +290,7 @@ module.exports = function(RED) {
 
 			svc.deleteResourceConfig(params,cb);
 		}
-
-		
-		service.DeleteRetentionConfiguration=function(svc,msg,cb){
+			service.DeleteRetentionConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RetentionConfigurationName",params,undefined,false); 
@@ -333,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.deleteRetentionConfiguration(params,cb);
 		}
-
-		
-		service.DeleteStoredQuery=function(svc,msg,cb){
+			service.DeleteStoredQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryName",params,undefined,false); 
@@ -347,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.deleteStoredQuery(params,cb);
 		}
-
-		
-		service.DeliverConfigSnapshot=function(svc,msg,cb){
+			service.DeliverConfigSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deliveryChannelName",params,undefined,false); 
@@ -361,16 +326,14 @@ module.exports = function(RED) {
 
 			svc.deliverConfigSnapshot(params,cb);
 		}
-
-		
-		service.DescribeAggregateComplianceByConfigRules=function(svc,msg,cb){
+			service.DescribeAggregateComplianceByConfigRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -381,16 +344,14 @@ module.exports = function(RED) {
 
 			svc.describeAggregateComplianceByConfigRules(params,cb);
 		}
-
-		
-		service.DescribeAggregateComplianceByConformancePacks=function(svc,msg,cb){
+			service.DescribeAggregateComplianceByConformancePacks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -401,13 +362,11 @@ module.exports = function(RED) {
 
 			svc.describeAggregateComplianceByConformancePacks(params,cb);
 		}
-
-		
-		service.DescribeAggregationAuthorizations=function(svc,msg,cb){
+			service.DescribeAggregationAuthorizations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -416,9 +375,7 @@ module.exports = function(RED) {
 
 			svc.describeAggregationAuthorizations(params,cb);
 		}
-
-		
-		service.DescribeComplianceByConfigRule=function(svc,msg,cb){
+			service.DescribeComplianceByConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -433,16 +390,14 @@ module.exports = function(RED) {
 
 			svc.describeComplianceByConfigRule(params,cb);
 		}
-
-		
-		service.DescribeComplianceByResource=function(svc,msg,cb){
+			service.DescribeComplianceByResource=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
 			copyArgs(n,"ResourceId",params,undefined,false); 
 			copyArgs(n,"ComplianceTypes",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceType",params,undefined,false); 
@@ -454,15 +409,13 @@ module.exports = function(RED) {
 
 			svc.describeComplianceByResource(params,cb);
 		}
-
-		
-		service.DescribeConfigRuleEvaluationStatus=function(svc,msg,cb){
+			service.DescribeConfigRuleEvaluationStatus=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ConfigRuleNames",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigRuleNames",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -471,9 +424,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigRuleEvaluationStatus(params,cb);
 		}
-
-		
-		service.DescribeConfigRules=function(svc,msg,cb){
+			service.DescribeConfigRules=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -486,9 +437,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigRules(params,cb);
 		}
-
-		
-		service.DescribeConfigurationAggregatorSourcesStatus=function(svc,msg,cb){
+			service.DescribeConfigurationAggregatorSourcesStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -496,7 +445,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"UpdateStatus",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(msg,"UpdateStatus",params,undefined,false); 
@@ -506,15 +455,13 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationAggregatorSourcesStatus(params,cb);
 		}
-
-		
-		service.DescribeConfigurationAggregators=function(svc,msg,cb){
+			service.DescribeConfigurationAggregators=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ConfigurationAggregatorNames",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorNames",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -523,9 +470,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationAggregators(params,cb);
 		}
-
-		
-		service.DescribeConfigurationRecorderStatus=function(svc,msg,cb){
+			service.DescribeConfigurationRecorderStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -536,9 +481,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationRecorderStatus(params,cb);
 		}
-
-		
-		service.DescribeConfigurationRecorders=function(svc,msg,cb){
+			service.DescribeConfigurationRecorders=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -549,16 +492,14 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationRecorders(params,cb);
 		}
-
-		
-		service.DescribeConformancePackCompliance=function(svc,msg,cb){
+			service.DescribeConformancePackCompliance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConformancePackName",params,undefined,false); 
@@ -569,14 +510,12 @@ module.exports = function(RED) {
 
 			svc.describeConformancePackCompliance(params,cb);
 		}
-
-		
-		service.DescribeConformancePackStatus=function(svc,msg,cb){
+			service.DescribeConformancePackStatus=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ConformancePackNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConformancePackNames",params,undefined,true); 
@@ -586,14 +525,12 @@ module.exports = function(RED) {
 
 			svc.describeConformancePackStatus(params,cb);
 		}
-
-		
-		service.DescribeConformancePacks=function(svc,msg,cb){
+			service.DescribeConformancePacks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ConformancePackNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConformancePackNames",params,undefined,true); 
@@ -603,9 +540,7 @@ module.exports = function(RED) {
 
 			svc.describeConformancePacks(params,cb);
 		}
-
-		
-		service.DescribeDeliveryChannelStatus=function(svc,msg,cb){
+			service.DescribeDeliveryChannelStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -616,9 +551,7 @@ module.exports = function(RED) {
 
 			svc.describeDeliveryChannelStatus(params,cb);
 		}
-
-		
-		service.DescribeDeliveryChannels=function(svc,msg,cb){
+			service.DescribeDeliveryChannels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -629,14 +562,12 @@ module.exports = function(RED) {
 
 			svc.describeDeliveryChannels(params,cb);
 		}
-
-		
-		service.DescribeOrganizationConfigRuleStatuses=function(svc,msg,cb){
+			service.DescribeOrganizationConfigRuleStatuses=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"OrganizationConfigRuleNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConfigRuleNames",params,undefined,true); 
@@ -646,14 +577,12 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConfigRuleStatuses(params,cb);
 		}
-
-		
-		service.DescribeOrganizationConfigRules=function(svc,msg,cb){
+			service.DescribeOrganizationConfigRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"OrganizationConfigRuleNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConfigRuleNames",params,undefined,true); 
@@ -663,14 +592,12 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConfigRules(params,cb);
 		}
-
-		
-		service.DescribeOrganizationConformancePackStatuses=function(svc,msg,cb){
+			service.DescribeOrganizationConformancePackStatuses=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"OrganizationConformancePackNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConformancePackNames",params,undefined,true); 
@@ -680,14 +607,12 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConformancePackStatuses(params,cb);
 		}
-
-		
-		service.DescribeOrganizationConformancePacks=function(svc,msg,cb){
+			service.DescribeOrganizationConformancePacks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"OrganizationConformancePackNames",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConformancePackNames",params,undefined,true); 
@@ -697,13 +622,11 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConformancePacks(params,cb);
 		}
-
-		
-		service.DescribePendingAggregationRequests=function(svc,msg,cb){
+			service.DescribePendingAggregationRequests=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -712,9 +635,7 @@ module.exports = function(RED) {
 
 			svc.describePendingAggregationRequests(params,cb);
 		}
-
-		
-		service.DescribeRemediationConfigurations=function(svc,msg,cb){
+			service.DescribeRemediationConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleNames",params,undefined,true); 
@@ -726,16 +647,14 @@ module.exports = function(RED) {
 
 			svc.describeRemediationConfigurations(params,cb);
 		}
-
-		
-		service.DescribeRemediationExceptions=function(svc,msg,cb){
+			service.DescribeRemediationExceptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			copyArgs(n,"ResourceKeys",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigRuleName",params,undefined,false); 
@@ -746,16 +665,14 @@ module.exports = function(RED) {
 
 			svc.describeRemediationExceptions(params,cb);
 		}
-
-		
-		service.DescribeRemediationExecutionStatus=function(svc,msg,cb){
+			service.DescribeRemediationExecutionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			copyArgs(n,"ResourceKeys",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigRuleName",params,undefined,false); 
@@ -766,9 +683,7 @@ module.exports = function(RED) {
 
 			svc.describeRemediationExecutionStatus(params,cb);
 		}
-
-		
-		service.DescribeRetentionConfigurations=function(svc,msg,cb){
+			service.DescribeRetentionConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -781,9 +696,7 @@ module.exports = function(RED) {
 
 			svc.describeRetentionConfigurations(params,cb);
 		}
-
-		
-		service.GetAggregateComplianceDetailsByConfigRule=function(svc,msg,cb){
+			service.GetAggregateComplianceDetailsByConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -796,7 +709,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"AwsRegion",params,undefined,false); 
 			copyArgs(n,"ComplianceType",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -810,9 +723,7 @@ module.exports = function(RED) {
 
 			svc.getAggregateComplianceDetailsByConfigRule(params,cb);
 		}
-
-		
-		service.GetAggregateConfigRuleComplianceSummary=function(svc,msg,cb){
+			service.GetAggregateConfigRuleComplianceSummary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -820,7 +731,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"GroupByKey",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -832,9 +743,7 @@ module.exports = function(RED) {
 
 			svc.getAggregateConfigRuleComplianceSummary(params,cb);
 		}
-
-		
-		service.GetAggregateConformancePackComplianceSummary=function(svc,msg,cb){
+			service.GetAggregateConformancePackComplianceSummary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -842,7 +751,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"GroupByKey",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -854,9 +763,7 @@ module.exports = function(RED) {
 
 			svc.getAggregateConformancePackComplianceSummary(params,cb);
 		}
-
-		
-		service.GetAggregateDiscoveredResourceCounts=function(svc,msg,cb){
+			service.GetAggregateDiscoveredResourceCounts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -864,7 +771,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"GroupByKey",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -876,9 +783,7 @@ module.exports = function(RED) {
 
 			svc.getAggregateDiscoveredResourceCounts(params,cb);
 		}
-
-		
-		service.GetAggregateResourceConfig=function(svc,msg,cb){
+			service.GetAggregateResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -893,16 +798,14 @@ module.exports = function(RED) {
 
 			svc.getAggregateResourceConfig(params,cb);
 		}
-
-		
-		service.GetComplianceDetailsByConfigRule=function(svc,msg,cb){
+			service.GetComplianceDetailsByConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
 			copyArgs(n,"ComplianceTypes",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigRuleName",params,undefined,false); 
@@ -913,9 +816,7 @@ module.exports = function(RED) {
 
 			svc.getComplianceDetailsByConfigRule(params,cb);
 		}
-
-		
-		service.GetComplianceDetailsByResource=function(svc,msg,cb){
+			service.GetComplianceDetailsByResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -934,9 +835,7 @@ module.exports = function(RED) {
 
 			svc.getComplianceDetailsByResource(params,cb);
 		}
-
-		
-		service.GetComplianceSummaryByConfigRule=function(svc,msg,cb){
+			service.GetComplianceSummaryByConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -945,9 +844,7 @@ module.exports = function(RED) {
 
 			svc.getComplianceSummaryByConfigRule(params,cb);
 		}
-
-		
-		service.GetComplianceSummaryByResourceType=function(svc,msg,cb){
+			service.GetComplianceSummaryByResourceType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -958,16 +855,14 @@ module.exports = function(RED) {
 
 			svc.getComplianceSummaryByResourceType(params,cb);
 		}
-
-		
-		service.GetConformancePackComplianceDetails=function(svc,msg,cb){
+			service.GetConformancePackComplianceDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConformancePackName",params,undefined,false); 
@@ -978,15 +873,13 @@ module.exports = function(RED) {
 
 			svc.getConformancePackComplianceDetails(params,cb);
 		}
-
-		
-		service.GetConformancePackComplianceSummary=function(svc,msg,cb){
+			service.GetConformancePackComplianceSummary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConformancePackNames",params,undefined,false); 
 			
 			copyArgs(n,"ConformancePackNames",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConformancePackNames",params,undefined,false); 
@@ -996,14 +889,12 @@ module.exports = function(RED) {
 
 			svc.getConformancePackComplianceSummary(params,cb);
 		}
-
-		
-		service.GetDiscoveredResourceCounts=function(svc,msg,cb){
+			service.GetDiscoveredResourceCounts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"resourceTypes",params,undefined,true); 
-			copyArgs(n,"limit",params,undefined,false); 
+			copyArgs(Number(n),"limit",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"resourceTypes",params,undefined,true); 
@@ -1013,16 +904,14 @@ module.exports = function(RED) {
 
 			svc.getDiscoveredResourceCounts(params,cb);
 		}
-
-		
-		service.GetOrganizationConfigRuleDetailedStatus=function(svc,msg,cb){
+			service.GetOrganizationConfigRuleDetailedStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConfigRuleName",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationConfigRuleName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConfigRuleName",params,undefined,false); 
@@ -1033,16 +922,14 @@ module.exports = function(RED) {
 
 			svc.getOrganizationConfigRuleDetailedStatus(params,cb);
 		}
-
-		
-		service.GetOrganizationConformancePackDetailedStatus=function(svc,msg,cb){
+			service.GetOrganizationConformancePackDetailedStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConformancePackName",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationConformancePackName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationConformancePackName",params,undefined,false); 
@@ -1053,9 +940,7 @@ module.exports = function(RED) {
 
 			svc.getOrganizationConformancePackDetailedStatus(params,cb);
 		}
-
-		
-		service.GetResourceConfigHistory=function(svc,msg,cb){
+			service.GetResourceConfigHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceType",params,undefined,false); 
@@ -1066,7 +951,7 @@ module.exports = function(RED) {
 			copyArgs(n,"laterTime",params,undefined,false); 
 			copyArgs(n,"earlierTime",params,undefined,false); 
 			copyArgs(n,"chronologicalOrder",params,undefined,false); 
-			copyArgs(n,"limit",params,undefined,false); 
+			copyArgs(Number(n),"limit",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"resourceType",params,undefined,false); 
@@ -1080,9 +965,7 @@ module.exports = function(RED) {
 
 			svc.getResourceConfigHistory(params,cb);
 		}
-
-		
-		service.GetStoredQuery=function(svc,msg,cb){
+			service.GetStoredQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryName",params,undefined,false); 
@@ -1094,9 +977,7 @@ module.exports = function(RED) {
 
 			svc.getStoredQuery(params,cb);
 		}
-
-		
-		service.ListAggregateDiscoveredResources=function(svc,msg,cb){
+			service.ListAggregateDiscoveredResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -1105,7 +986,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
 			copyArgs(n,"ResourceType",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationAggregatorName",params,undefined,false); 
@@ -1117,9 +998,7 @@ module.exports = function(RED) {
 
 			svc.listAggregateDiscoveredResources(params,cb);
 		}
-
-		
-		service.ListDiscoveredResources=function(svc,msg,cb){
+			service.ListDiscoveredResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceType",params,undefined,false); 
@@ -1127,8 +1006,8 @@ module.exports = function(RED) {
 			copyArgs(n,"resourceType",params,undefined,false); 
 			copyArgs(n,"resourceIds",params,undefined,false); 
 			copyArgs(n,"resourceName",params,undefined,false); 
-			copyArgs(n,"limit",params,undefined,false); 
-			copyArgs(n,"includeDeletedResources",params,undefined,false); 
+			copyArgs(Number(n),"limit",params,undefined,false); 
+			copyArgs(Boolean(n),"includeDeletedResources",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"resourceType",params,undefined,false); 
@@ -1141,14 +1020,12 @@ module.exports = function(RED) {
 
 			svc.listDiscoveredResources(params,cb);
 		}
-
-		
-		service.ListStoredQueries=function(svc,msg,cb){
+			service.ListStoredQueries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -1156,15 +1033,13 @@ module.exports = function(RED) {
 
 			svc.listStoredQueries(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceArn",params,undefined,false); 
@@ -1174,9 +1049,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutAggregationAuthorization=function(svc,msg,cb){
+			service.PutAggregationAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthorizedAccountId",params,undefined,false); 
@@ -1193,9 +1066,7 @@ module.exports = function(RED) {
 
 			svc.putAggregationAuthorization(params,cb);
 		}
-
-		
-		service.PutConfigRule=function(svc,msg,cb){
+			service.PutConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRule",params,undefined,true); 
@@ -1209,9 +1080,7 @@ module.exports = function(RED) {
 
 			svc.putConfigRule(params,cb);
 		}
-
-		
-		service.PutConfigurationAggregator=function(svc,msg,cb){
+			service.PutConfigurationAggregator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
@@ -1229,9 +1098,7 @@ module.exports = function(RED) {
 
 			svc.putConfigurationAggregator(params,cb);
 		}
-
-		
-		service.PutConfigurationRecorder=function(svc,msg,cb){
+			service.PutConfigurationRecorder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationRecorder",params,undefined,true); 
@@ -1243,9 +1110,7 @@ module.exports = function(RED) {
 
 			svc.putConfigurationRecorder(params,cb);
 		}
-
-		
-		service.PutConformancePack=function(svc,msg,cb){
+			service.PutConformancePack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConformancePackName",params,undefined,false); 
@@ -1267,9 +1132,7 @@ module.exports = function(RED) {
 
 			svc.putConformancePack(params,cb);
 		}
-
-		
-		service.PutDeliveryChannel=function(svc,msg,cb){
+			service.PutDeliveryChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeliveryChannel",params,undefined,true); 
@@ -1281,16 +1144,14 @@ module.exports = function(RED) {
 
 			svc.putDeliveryChannel(params,cb);
 		}
-
-		
-		service.PutEvaluations=function(svc,msg,cb){
+			service.PutEvaluations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResultToken",params,undefined,false); 
 			
 			copyArgs(n,"Evaluations",params,undefined,true); 
 			copyArgs(n,"ResultToken",params,undefined,false); 
-			copyArgs(n,"TestMode",params,undefined,false); 
+			copyArgs(Boolean(n),"TestMode",params,undefined,false); 
 			
 			copyArgs(msg,"Evaluations",params,undefined,true); 
 			copyArgs(msg,"ResultToken",params,undefined,false); 
@@ -1299,9 +1160,7 @@ module.exports = function(RED) {
 
 			svc.putEvaluations(params,cb);
 		}
-
-		
-		service.PutExternalEvaluation=function(svc,msg,cb){
+			service.PutExternalEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -1316,9 +1175,7 @@ module.exports = function(RED) {
 
 			svc.putExternalEvaluation(params,cb);
 		}
-
-		
-		service.PutOrganizationConfigRule=function(svc,msg,cb){
+			service.PutOrganizationConfigRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConfigRuleName",params,undefined,false); 
@@ -1336,9 +1193,7 @@ module.exports = function(RED) {
 
 			svc.putOrganizationConfigRule(params,cb);
 		}
-
-		
-		service.PutOrganizationConformancePack=function(svc,msg,cb){
+			service.PutOrganizationConformancePack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationConformancePackName",params,undefined,false); 
@@ -1362,9 +1217,7 @@ module.exports = function(RED) {
 
 			svc.putOrganizationConformancePack(params,cb);
 		}
-
-		
-		service.PutRemediationConfigurations=function(svc,msg,cb){
+			service.PutRemediationConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RemediationConfigurations",params,undefined,true); 
@@ -1376,9 +1229,7 @@ module.exports = function(RED) {
 
 			svc.putRemediationConfigurations(params,cb);
 		}
-
-		
-		service.PutRemediationExceptions=function(svc,msg,cb){
+			service.PutRemediationExceptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -1397,9 +1248,7 @@ module.exports = function(RED) {
 
 			svc.putRemediationExceptions(params,cb);
 		}
-
-		
-		service.PutResourceConfig=function(svc,msg,cb){
+			service.PutResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -1424,23 +1273,19 @@ module.exports = function(RED) {
 
 			svc.putResourceConfig(params,cb);
 		}
-
-		
-		service.PutRetentionConfiguration=function(svc,msg,cb){
+			service.PutRetentionConfiguration=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"RetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodInDays",params,undefined,false); 
 			
-			copyArgs(n,"RetentionPeriodInDays",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodInDays",params,undefined,false); 
 			
 			copyArgs(msg,"RetentionPeriodInDays",params,undefined,false); 
 			
 
 			svc.putRetentionConfiguration(params,cb);
 		}
-
-		
-		service.PutStoredQuery=function(svc,msg,cb){
+			service.PutStoredQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StoredQuery",params,undefined,true); 
@@ -1454,9 +1299,7 @@ module.exports = function(RED) {
 
 			svc.putStoredQuery(params,cb);
 		}
-
-		
-		service.SelectAggregateResourceConfig=function(svc,msg,cb){
+			service.SelectAggregateResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Expression",params,undefined,false); 
@@ -1464,8 +1307,8 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"Expression",params,undefined,false); 
 			copyArgs(n,"ConfigurationAggregatorName",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Expression",params,undefined,false); 
@@ -1477,15 +1320,13 @@ module.exports = function(RED) {
 
 			svc.selectAggregateResourceConfig(params,cb);
 		}
-
-		
-		service.SelectResourceConfig=function(svc,msg,cb){
+			service.SelectResourceConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Expression",params,undefined,false); 
 			
 			copyArgs(n,"Expression",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Expression",params,undefined,false); 
@@ -1495,9 +1336,7 @@ module.exports = function(RED) {
 
 			svc.selectResourceConfig(params,cb);
 		}
-
-		
-		service.StartConfigRulesEvaluation=function(svc,msg,cb){
+			service.StartConfigRulesEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1508,9 +1347,7 @@ module.exports = function(RED) {
 
 			svc.startConfigRulesEvaluation(params,cb);
 		}
-
-		
-		service.StartConfigurationRecorder=function(svc,msg,cb){
+			service.StartConfigurationRecorder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationRecorderName",params,undefined,false); 
@@ -1522,9 +1359,7 @@ module.exports = function(RED) {
 
 			svc.startConfigurationRecorder(params,cb);
 		}
-
-		
-		service.StartRemediationExecution=function(svc,msg,cb){
+			service.StartRemediationExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigRuleName",params,undefined,false); 
@@ -1539,9 +1374,7 @@ module.exports = function(RED) {
 
 			svc.startRemediationExecution(params,cb);
 		}
-
-		
-		service.StopConfigurationRecorder=function(svc,msg,cb){
+			service.StopConfigurationRecorder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationRecorderName",params,undefined,false); 
@@ -1553,9 +1386,7 @@ module.exports = function(RED) {
 
 			svc.stopConfigurationRecorder(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1570,9 +1401,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1587,9 +1416,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ConfigService", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateDatabase=function(svc,msg,cb){
+			service.CreateDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -110,9 +109,7 @@ module.exports = function(RED) {
 
 			svc.createDatabase(params,cb);
 		}
-
-		
-		service.CreateTable=function(svc,msg,cb){
+			service.CreateTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.createTable(params,cb);
 		}
-
-		
-		service.DeleteDatabase=function(svc,msg,cb){
+			service.DeleteDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -145,9 +140,7 @@ module.exports = function(RED) {
 
 			svc.deleteDatabase(params,cb);
 		}
-
-		
-		service.DeleteTable=function(svc,msg,cb){
+			service.DeleteTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -162,9 +155,7 @@ module.exports = function(RED) {
 
 			svc.deleteTable(params,cb);
 		}
-
-		
-		service.DescribeDatabase=function(svc,msg,cb){
+			service.DescribeDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -176,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.describeDatabase(params,cb);
 		}
-
-		
-		service.DescribeEndpoints=function(svc,msg,cb){
+			service.DescribeEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -187,9 +176,7 @@ module.exports = function(RED) {
 
 			svc.describeEndpoints(params,cb);
 		}
-
-		
-		service.DescribeTable=function(svc,msg,cb){
+			service.DescribeTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -204,14 +191,12 @@ module.exports = function(RED) {
 
 			svc.describeTable(params,cb);
 		}
-
-		
-		service.ListDatabases=function(svc,msg,cb){
+			service.ListDatabases=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -219,15 +204,13 @@ module.exports = function(RED) {
 
 			svc.listDatabases(params,cb);
 		}
-
-		
-		service.ListTables=function(svc,msg,cb){
+			service.ListTables=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"DatabaseName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -236,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.listTables(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -250,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -267,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -284,9 +261,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDatabase=function(svc,msg,cb){
+			service.UpdateDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -301,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.updateDatabase(params,cb);
 		}
-
-		
-		service.UpdateTable=function(svc,msg,cb){
+			service.UpdateTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -321,9 +294,7 @@ module.exports = function(RED) {
 
 			svc.updateTable(params,cb);
 		}
-
-		
-		service.WriteRecords=function(svc,msg,cb){
+			service.WriteRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatabaseName",params,undefined,false); 
@@ -343,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.writeRecords(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS TimestreamWrite", AmazonAPINode);
 

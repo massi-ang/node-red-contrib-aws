@@ -92,21 +92,20 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateFirewallRuleGroup=function(svc,msg,cb){
+			service.AssociateFirewallRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"VpcId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"VpcId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"MutationProtection",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -122,9 +121,7 @@ module.exports = function(RED) {
 
 			svc.associateFirewallRuleGroup(params,cb);
 		}
-
-		
-		service.AssociateResolverEndpointIpAddress=function(svc,msg,cb){
+			service.AssociateResolverEndpointIpAddress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
@@ -139,9 +136,7 @@ module.exports = function(RED) {
 
 			svc.associateResolverEndpointIpAddress(params,cb);
 		}
-
-		
-		service.AssociateResolverQueryLogConfig=function(svc,msg,cb){
+			service.AssociateResolverQueryLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverQueryLogConfigId",params,undefined,false); 
@@ -156,9 +151,7 @@ module.exports = function(RED) {
 
 			svc.associateResolverQueryLogConfig(params,cb);
 		}
-
-		
-		service.AssociateResolverRule=function(svc,msg,cb){
+			service.AssociateResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverRuleId",params,undefined,false); 
@@ -175,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.associateResolverRule(params,cb);
 		}
-
-		
-		service.CreateFirewallDomainList=function(svc,msg,cb){
+			service.CreateFirewallDomainList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
@@ -194,27 +185,25 @@ module.exports = function(RED) {
 
 			svc.createFirewallDomainList(params,cb);
 		}
-
-		
-		service.CreateFirewallRule=function(svc,msg,cb){
+			service.CreateFirewallRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,false); 
 			copyArgs(n,"BlockResponse",params,undefined,false); 
 			copyArgs(n,"BlockOverrideDomain",params,undefined,false); 
 			copyArgs(n,"BlockOverrideDnsType",params,undefined,false); 
-			copyArgs(n,"BlockOverrideTtl",params,undefined,false); 
+			copyArgs(Number(n),"BlockOverrideTtl",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(msg,"CreatorRequestId",params,undefined,false); 
@@ -231,9 +220,7 @@ module.exports = function(RED) {
 
 			svc.createFirewallRule(params,cb);
 		}
-
-		
-		service.CreateFirewallRuleGroup=function(svc,msg,cb){
+			service.CreateFirewallRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
@@ -250,9 +237,7 @@ module.exports = function(RED) {
 
 			svc.createFirewallRuleGroup(params,cb);
 		}
-
-		
-		service.CreateResolverEndpoint=function(svc,msg,cb){
+			service.CreateResolverEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
@@ -277,9 +262,7 @@ module.exports = function(RED) {
 
 			svc.createResolverEndpoint(params,cb);
 		}
-
-		
-		service.CreateResolverQueryLogConfig=function(svc,msg,cb){
+			service.CreateResolverQueryLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -299,9 +282,7 @@ module.exports = function(RED) {
 
 			svc.createResolverQueryLogConfig(params,cb);
 		}
-
-		
-		service.CreateResolverRule=function(svc,msg,cb){
+			service.CreateResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreatorRequestId",params,undefined,false); 
@@ -327,9 +308,7 @@ module.exports = function(RED) {
 
 			svc.createResolverRule(params,cb);
 		}
-
-		
-		service.DeleteFirewallDomainList=function(svc,msg,cb){
+			service.DeleteFirewallDomainList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
@@ -341,9 +320,7 @@ module.exports = function(RED) {
 
 			svc.deleteFirewallDomainList(params,cb);
 		}
-
-		
-		service.DeleteFirewallRule=function(svc,msg,cb){
+			service.DeleteFirewallRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
@@ -358,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.deleteFirewallRule(params,cb);
 		}
-
-		
-		service.DeleteFirewallRuleGroup=function(svc,msg,cb){
+			service.DeleteFirewallRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
@@ -372,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.deleteFirewallRuleGroup(params,cb);
 		}
-
-		
-		service.DeleteResolverEndpoint=function(svc,msg,cb){
+			service.DeleteResolverEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
@@ -386,9 +359,7 @@ module.exports = function(RED) {
 
 			svc.deleteResolverEndpoint(params,cb);
 		}
-
-		
-		service.DeleteResolverQueryLogConfig=function(svc,msg,cb){
+			service.DeleteResolverQueryLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverQueryLogConfigId",params,undefined,false); 
@@ -400,9 +371,7 @@ module.exports = function(RED) {
 
 			svc.deleteResolverQueryLogConfig(params,cb);
 		}
-
-		
-		service.DeleteResolverRule=function(svc,msg,cb){
+			service.DeleteResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverRuleId",params,undefined,false); 
@@ -414,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.deleteResolverRule(params,cb);
 		}
-
-		
-		service.DisassociateFirewallRuleGroup=function(svc,msg,cb){
+			service.DisassociateFirewallRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupAssociationId",params,undefined,false); 
@@ -428,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.disassociateFirewallRuleGroup(params,cb);
 		}
-
-		
-		service.DisassociateResolverEndpointIpAddress=function(svc,msg,cb){
+			service.DisassociateResolverEndpointIpAddress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
@@ -445,9 +410,7 @@ module.exports = function(RED) {
 
 			svc.disassociateResolverEndpointIpAddress(params,cb);
 		}
-
-		
-		service.DisassociateResolverQueryLogConfig=function(svc,msg,cb){
+			service.DisassociateResolverQueryLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverQueryLogConfigId",params,undefined,false); 
@@ -462,9 +425,7 @@ module.exports = function(RED) {
 
 			svc.disassociateResolverQueryLogConfig(params,cb);
 		}
-
-		
-		service.DisassociateResolverRule=function(svc,msg,cb){
+			service.DisassociateResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VPCId",params,undefined,false); 
@@ -479,9 +440,7 @@ module.exports = function(RED) {
 
 			svc.disassociateResolverRule(params,cb);
 		}
-
-		
-		service.GetFirewallConfig=function(svc,msg,cb){
+			service.GetFirewallConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -493,9 +452,7 @@ module.exports = function(RED) {
 
 			svc.getFirewallConfig(params,cb);
 		}
-
-		
-		service.GetFirewallDomainList=function(svc,msg,cb){
+			service.GetFirewallDomainList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
@@ -507,9 +464,7 @@ module.exports = function(RED) {
 
 			svc.getFirewallDomainList(params,cb);
 		}
-
-		
-		service.GetFirewallRuleGroup=function(svc,msg,cb){
+			service.GetFirewallRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
@@ -521,9 +476,7 @@ module.exports = function(RED) {
 
 			svc.getFirewallRuleGroup(params,cb);
 		}
-
-		
-		service.GetFirewallRuleGroupAssociation=function(svc,msg,cb){
+			service.GetFirewallRuleGroupAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupAssociationId",params,undefined,false); 
@@ -535,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.getFirewallRuleGroupAssociation(params,cb);
 		}
-
-		
-		service.GetFirewallRuleGroupPolicy=function(svc,msg,cb){
+			service.GetFirewallRuleGroupPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -549,9 +500,7 @@ module.exports = function(RED) {
 
 			svc.getFirewallRuleGroupPolicy(params,cb);
 		}
-
-		
-		service.GetResolverDnssecConfig=function(svc,msg,cb){
+			service.GetResolverDnssecConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -563,9 +512,7 @@ module.exports = function(RED) {
 
 			svc.getResolverDnssecConfig(params,cb);
 		}
-
-		
-		service.GetResolverEndpoint=function(svc,msg,cb){
+			service.GetResolverEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
@@ -577,9 +524,7 @@ module.exports = function(RED) {
 
 			svc.getResolverEndpoint(params,cb);
 		}
-
-		
-		service.GetResolverQueryLogConfig=function(svc,msg,cb){
+			service.GetResolverQueryLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverQueryLogConfigId",params,undefined,false); 
@@ -591,9 +536,7 @@ module.exports = function(RED) {
 
 			svc.getResolverQueryLogConfig(params,cb);
 		}
-
-		
-		service.GetResolverQueryLogConfigAssociation=function(svc,msg,cb){
+			service.GetResolverQueryLogConfigAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverQueryLogConfigAssociationId",params,undefined,false); 
@@ -605,9 +548,7 @@ module.exports = function(RED) {
 
 			svc.getResolverQueryLogConfigAssociation(params,cb);
 		}
-
-		
-		service.GetResolverQueryLogConfigPolicy=function(svc,msg,cb){
+			service.GetResolverQueryLogConfigPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -619,9 +560,7 @@ module.exports = function(RED) {
 
 			svc.getResolverQueryLogConfigPolicy(params,cb);
 		}
-
-		
-		service.GetResolverRule=function(svc,msg,cb){
+			service.GetResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverRuleId",params,undefined,false); 
@@ -633,9 +572,7 @@ module.exports = function(RED) {
 
 			svc.getResolverRule(params,cb);
 		}
-
-		
-		service.GetResolverRuleAssociation=function(svc,msg,cb){
+			service.GetResolverRuleAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverRuleAssociationId",params,undefined,false); 
@@ -647,9 +584,7 @@ module.exports = function(RED) {
 
 			svc.getResolverRuleAssociation(params,cb);
 		}
-
-		
-		service.GetResolverRulePolicy=function(svc,msg,cb){
+			service.GetResolverRulePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -661,9 +596,7 @@ module.exports = function(RED) {
 
 			svc.getResolverRulePolicy(params,cb);
 		}
-
-		
-		service.ImportFirewallDomains=function(svc,msg,cb){
+			service.ImportFirewallDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
@@ -681,13 +614,11 @@ module.exports = function(RED) {
 
 			svc.importFirewallDomains(params,cb);
 		}
-
-		
-		service.ListFirewallConfigs=function(svc,msg,cb){
+			service.ListFirewallConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -696,13 +627,11 @@ module.exports = function(RED) {
 
 			svc.listFirewallConfigs(params,cb);
 		}
-
-		
-		service.ListFirewallDomainLists=function(svc,msg,cb){
+			service.ListFirewallDomainLists=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -711,15 +640,13 @@ module.exports = function(RED) {
 
 			svc.listFirewallDomainLists(params,cb);
 		}
-
-		
-		service.ListFirewallDomains=function(svc,msg,cb){
+			service.ListFirewallDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FirewallDomainListId",params,undefined,false); 
@@ -729,17 +656,15 @@ module.exports = function(RED) {
 
 			svc.listFirewallDomains(params,cb);
 		}
-
-		
-		service.ListFirewallRuleGroupAssociations=function(svc,msg,cb){
+			service.ListFirewallRuleGroupAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"VpcId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FirewallRuleGroupId",params,undefined,false); 
@@ -752,13 +677,11 @@ module.exports = function(RED) {
 
 			svc.listFirewallRuleGroupAssociations(params,cb);
 		}
-
-		
-		service.ListFirewallRuleGroups=function(svc,msg,cb){
+			service.ListFirewallRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -767,17 +690,15 @@ module.exports = function(RED) {
 
 			svc.listFirewallRuleGroups(params,cb);
 		}
-
-		
-		service.ListFirewallRules=function(svc,msg,cb){
+			service.ListFirewallRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FirewallRuleGroupId",params,undefined,false); 
@@ -789,13 +710,11 @@ module.exports = function(RED) {
 
 			svc.listFirewallRules(params,cb);
 		}
-
-		
-		service.ListResolverDnssecConfigs=function(svc,msg,cb){
+			service.ListResolverDnssecConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			
@@ -806,15 +725,13 @@ module.exports = function(RED) {
 
 			svc.listResolverDnssecConfigs(params,cb);
 		}
-
-		
-		service.ListResolverEndpointIpAddresses=function(svc,msg,cb){
+			service.ListResolverEndpointIpAddresses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ResolverEndpointId",params,undefined,false); 
@@ -824,13 +741,11 @@ module.exports = function(RED) {
 
 			svc.listResolverEndpointIpAddresses(params,cb);
 		}
-
-		
-		service.ListResolverEndpoints=function(svc,msg,cb){
+			service.ListResolverEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			
@@ -841,13 +756,11 @@ module.exports = function(RED) {
 
 			svc.listResolverEndpoints(params,cb);
 		}
-
-		
-		service.ListResolverQueryLogConfigAssociations=function(svc,msg,cb){
+			service.ListResolverQueryLogConfigAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			copyArgs(n,"SortBy",params,undefined,false); 
@@ -862,13 +775,11 @@ module.exports = function(RED) {
 
 			svc.listResolverQueryLogConfigAssociations(params,cb);
 		}
-
-		
-		service.ListResolverQueryLogConfigs=function(svc,msg,cb){
+			service.ListResolverQueryLogConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			copyArgs(n,"SortBy",params,undefined,false); 
@@ -883,13 +794,11 @@ module.exports = function(RED) {
 
 			svc.listResolverQueryLogConfigs(params,cb);
 		}
-
-		
-		service.ListResolverRuleAssociations=function(svc,msg,cb){
+			service.ListResolverRuleAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			
@@ -900,13 +809,11 @@ module.exports = function(RED) {
 
 			svc.listResolverRuleAssociations(params,cb);
 		}
-
-		
-		service.ListResolverRules=function(svc,msg,cb){
+			service.ListResolverRules=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
 			
@@ -917,15 +824,13 @@ module.exports = function(RED) {
 
 			svc.listResolverRules(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceArn",params,undefined,false); 
@@ -935,9 +840,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutFirewallRuleGroupPolicy=function(svc,msg,cb){
+			service.PutFirewallRuleGroupPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -952,9 +855,7 @@ module.exports = function(RED) {
 
 			svc.putFirewallRuleGroupPolicy(params,cb);
 		}
-
-		
-		service.PutResolverQueryLogConfigPolicy=function(svc,msg,cb){
+			service.PutResolverQueryLogConfigPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -969,9 +870,7 @@ module.exports = function(RED) {
 
 			svc.putResolverQueryLogConfigPolicy(params,cb);
 		}
-
-		
-		service.PutResolverRulePolicy=function(svc,msg,cb){
+			service.PutResolverRulePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -986,9 +885,7 @@ module.exports = function(RED) {
 
 			svc.putResolverRulePolicy(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1003,9 +900,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1020,9 +915,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateFirewallConfig=function(svc,msg,cb){
+			service.UpdateFirewallConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -1037,9 +930,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallConfig(params,cb);
 		}
-
-		
-		service.UpdateFirewallDomains=function(svc,msg,cb){
+			service.UpdateFirewallDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
@@ -1057,9 +948,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallDomains(params,cb);
 		}
-
-		
-		service.UpdateFirewallRule=function(svc,msg,cb){
+			service.UpdateFirewallRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
@@ -1067,12 +956,12 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"FirewallRuleGroupId",params,undefined,false); 
 			copyArgs(n,"FirewallDomainListId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,false); 
 			copyArgs(n,"BlockResponse",params,undefined,false); 
 			copyArgs(n,"BlockOverrideDomain",params,undefined,false); 
 			copyArgs(n,"BlockOverrideDnsType",params,undefined,false); 
-			copyArgs(n,"BlockOverrideTtl",params,undefined,false); 
+			copyArgs(Number(n),"BlockOverrideTtl",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(msg,"FirewallRuleGroupId",params,undefined,false); 
@@ -1088,15 +977,13 @@ module.exports = function(RED) {
 
 			svc.updateFirewallRule(params,cb);
 		}
-
-		
-		service.UpdateFirewallRuleGroupAssociation=function(svc,msg,cb){
+			service.UpdateFirewallRuleGroupAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallRuleGroupAssociationId",params,undefined,false); 
 			
 			copyArgs(n,"FirewallRuleGroupAssociationId",params,undefined,false); 
-			copyArgs(n,"Priority",params,undefined,false); 
+			copyArgs(Number(n),"Priority",params,undefined,false); 
 			copyArgs(n,"MutationProtection",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
@@ -1108,9 +995,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallRuleGroupAssociation(params,cb);
 		}
-
-		
-		service.UpdateResolverDnssecConfig=function(svc,msg,cb){
+			service.UpdateResolverDnssecConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -1125,9 +1010,7 @@ module.exports = function(RED) {
 
 			svc.updateResolverDnssecConfig(params,cb);
 		}
-
-		
-		service.UpdateResolverEndpoint=function(svc,msg,cb){
+			service.UpdateResolverEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverEndpointId",params,undefined,false); 
@@ -1141,9 +1024,7 @@ module.exports = function(RED) {
 
 			svc.updateResolverEndpoint(params,cb);
 		}
-
-		
-		service.UpdateResolverRule=function(svc,msg,cb){
+			service.UpdateResolverRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResolverRuleId",params,undefined,false); 
@@ -1158,9 +1039,7 @@ module.exports = function(RED) {
 
 			svc.updateResolverRule(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Route53Resolver", AmazonAPINode);
 

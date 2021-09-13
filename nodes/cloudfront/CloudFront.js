@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateAlias=function(svc,msg,cb){
+			service.AssociateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetDistributionId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.associateAlias(params,cb);
 		}
-
-		
-		service.CreateCachePolicy=function(svc,msg,cb){
+			service.CreateCachePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CachePolicyConfig",params,undefined,true); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.createCachePolicy(params,cb);
 		}
-
-		
-		service.CreateCloudFrontOriginAccessIdentity=function(svc,msg,cb){
+			service.CreateCloudFrontOriginAccessIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CloudFrontOriginAccessIdentityConfig",params,undefined,true); 
@@ -137,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.createCloudFrontOriginAccessIdentity(params,cb);
 		}
-
-		
-		service.CreateDistribution=function(svc,msg,cb){
+			service.CreateDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionConfig",params,undefined,true); 
@@ -151,9 +144,7 @@ module.exports = function(RED) {
 
 			svc.createDistribution(params,cb);
 		}
-
-		
-		service.CreateDistributionWithTags=function(svc,msg,cb){
+			service.CreateDistributionWithTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionConfigWithTags",params,undefined,false); 
@@ -165,9 +156,7 @@ module.exports = function(RED) {
 
 			svc.createDistributionWithTags(params,cb);
 		}
-
-		
-		service.CreateFieldLevelEncryptionConfig=function(svc,msg,cb){
+			service.CreateFieldLevelEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FieldLevelEncryptionConfig",params,undefined,true); 
@@ -179,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.createFieldLevelEncryptionConfig(params,cb);
 		}
-
-		
-		service.CreateFieldLevelEncryptionProfile=function(svc,msg,cb){
+			service.CreateFieldLevelEncryptionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FieldLevelEncryptionProfileConfig",params,undefined,true); 
@@ -193,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.createFieldLevelEncryptionProfile(params,cb);
 		}
-
-		
-		service.CreateFunction=function(svc,msg,cb){
+			service.CreateFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -213,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.createFunction(params,cb);
 		}
-
-		
-		service.CreateInvalidation=function(svc,msg,cb){
+			service.CreateInvalidation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -230,9 +213,7 @@ module.exports = function(RED) {
 
 			svc.createInvalidation(params,cb);
 		}
-
-		
-		service.CreateKeyGroup=function(svc,msg,cb){
+			service.CreateKeyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyGroupConfig",params,undefined,true); 
@@ -244,9 +225,7 @@ module.exports = function(RED) {
 
 			svc.createKeyGroup(params,cb);
 		}
-
-		
-		service.CreateMonitoringSubscription=function(svc,msg,cb){
+			service.CreateMonitoringSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MonitoringSubscription",params,undefined,true); 
@@ -261,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createMonitoringSubscription(params,cb);
 		}
-
-		
-		service.CreateOriginRequestPolicy=function(svc,msg,cb){
+			service.CreateOriginRequestPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OriginRequestPolicyConfig",params,undefined,true); 
@@ -275,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.createOriginRequestPolicy(params,cb);
 		}
-
-		
-		service.CreatePublicKey=function(svc,msg,cb){
+			service.CreatePublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PublicKeyConfig",params,undefined,true); 
@@ -289,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.createPublicKey(params,cb);
 		}
-
-		
-		service.CreateRealtimeLogConfig=function(svc,msg,cb){
+			service.CreateRealtimeLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndPoints",params,undefined,true); 
@@ -312,9 +285,7 @@ module.exports = function(RED) {
 
 			svc.createRealtimeLogConfig(params,cb);
 		}
-
-		
-		service.CreateStreamingDistribution=function(svc,msg,cb){
+			service.CreateStreamingDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamingDistributionConfig",params,undefined,true); 
@@ -326,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.createStreamingDistribution(params,cb);
 		}
-
-		
-		service.CreateStreamingDistributionWithTags=function(svc,msg,cb){
+			service.CreateStreamingDistributionWithTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamingDistributionConfigWithTags",params,undefined,false); 
@@ -340,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.createStreamingDistributionWithTags(params,cb);
 		}
-
-		
-		service.DeleteCachePolicy=function(svc,msg,cb){
+			service.DeleteCachePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -356,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.deleteCachePolicy(params,cb);
 		}
-
-		
-		service.DeleteCloudFrontOriginAccessIdentity=function(svc,msg,cb){
+			service.DeleteCloudFrontOriginAccessIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -372,9 +337,7 @@ module.exports = function(RED) {
 
 			svc.deleteCloudFrontOriginAccessIdentity(params,cb);
 		}
-
-		
-		service.DeleteDistribution=function(svc,msg,cb){
+			service.DeleteDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -388,9 +351,7 @@ module.exports = function(RED) {
 
 			svc.deleteDistribution(params,cb);
 		}
-
-		
-		service.DeleteFieldLevelEncryptionConfig=function(svc,msg,cb){
+			service.DeleteFieldLevelEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -404,9 +365,7 @@ module.exports = function(RED) {
 
 			svc.deleteFieldLevelEncryptionConfig(params,cb);
 		}
-
-		
-		service.DeleteFieldLevelEncryptionProfile=function(svc,msg,cb){
+			service.DeleteFieldLevelEncryptionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -420,9 +379,7 @@ module.exports = function(RED) {
 
 			svc.deleteFieldLevelEncryptionProfile(params,cb);
 		}
-
-		
-		service.DeleteFunction=function(svc,msg,cb){
+			service.DeleteFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IfMatch",params,undefined,false); 
@@ -437,9 +394,7 @@ module.exports = function(RED) {
 
 			svc.deleteFunction(params,cb);
 		}
-
-		
-		service.DeleteKeyGroup=function(svc,msg,cb){
+			service.DeleteKeyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -453,9 +408,7 @@ module.exports = function(RED) {
 
 			svc.deleteKeyGroup(params,cb);
 		}
-
-		
-		service.DeleteMonitoringSubscription=function(svc,msg,cb){
+			service.DeleteMonitoringSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -467,9 +420,7 @@ module.exports = function(RED) {
 
 			svc.deleteMonitoringSubscription(params,cb);
 		}
-
-		
-		service.DeleteOriginRequestPolicy=function(svc,msg,cb){
+			service.DeleteOriginRequestPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -483,9 +434,7 @@ module.exports = function(RED) {
 
 			svc.deleteOriginRequestPolicy(params,cb);
 		}
-
-		
-		service.DeletePublicKey=function(svc,msg,cb){
+			service.DeletePublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -499,9 +448,7 @@ module.exports = function(RED) {
 
 			svc.deletePublicKey(params,cb);
 		}
-
-		
-		service.DeleteRealtimeLogConfig=function(svc,msg,cb){
+			service.DeleteRealtimeLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -514,9 +461,7 @@ module.exports = function(RED) {
 
 			svc.deleteRealtimeLogConfig(params,cb);
 		}
-
-		
-		service.DeleteStreamingDistribution=function(svc,msg,cb){
+			service.DeleteStreamingDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -530,9 +475,7 @@ module.exports = function(RED) {
 
 			svc.deleteStreamingDistribution(params,cb);
 		}
-
-		
-		service.DescribeFunction=function(svc,msg,cb){
+			service.DescribeFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -546,9 +489,7 @@ module.exports = function(RED) {
 
 			svc.describeFunction(params,cb);
 		}
-
-		
-		service.GetCachePolicy=function(svc,msg,cb){
+			service.GetCachePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -560,9 +501,7 @@ module.exports = function(RED) {
 
 			svc.getCachePolicy(params,cb);
 		}
-
-		
-		service.GetCachePolicyConfig=function(svc,msg,cb){
+			service.GetCachePolicyConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -574,9 +513,7 @@ module.exports = function(RED) {
 
 			svc.getCachePolicyConfig(params,cb);
 		}
-
-		
-		service.GetCloudFrontOriginAccessIdentity=function(svc,msg,cb){
+			service.GetCloudFrontOriginAccessIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -588,9 +525,7 @@ module.exports = function(RED) {
 
 			svc.getCloudFrontOriginAccessIdentity(params,cb);
 		}
-
-		
-		service.GetCloudFrontOriginAccessIdentityConfig=function(svc,msg,cb){
+			service.GetCloudFrontOriginAccessIdentityConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -602,9 +537,7 @@ module.exports = function(RED) {
 
 			svc.getCloudFrontOriginAccessIdentityConfig(params,cb);
 		}
-
-		
-		service.GetDistribution=function(svc,msg,cb){
+			service.GetDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -616,9 +549,7 @@ module.exports = function(RED) {
 
 			svc.getDistribution(params,cb);
 		}
-
-		
-		service.GetDistributionConfig=function(svc,msg,cb){
+			service.GetDistributionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -630,9 +561,7 @@ module.exports = function(RED) {
 
 			svc.getDistributionConfig(params,cb);
 		}
-
-		
-		service.GetFieldLevelEncryption=function(svc,msg,cb){
+			service.GetFieldLevelEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -644,9 +573,7 @@ module.exports = function(RED) {
 
 			svc.getFieldLevelEncryption(params,cb);
 		}
-
-		
-		service.GetFieldLevelEncryptionConfig=function(svc,msg,cb){
+			service.GetFieldLevelEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -658,9 +585,7 @@ module.exports = function(RED) {
 
 			svc.getFieldLevelEncryptionConfig(params,cb);
 		}
-
-		
-		service.GetFieldLevelEncryptionProfile=function(svc,msg,cb){
+			service.GetFieldLevelEncryptionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -672,9 +597,7 @@ module.exports = function(RED) {
 
 			svc.getFieldLevelEncryptionProfile(params,cb);
 		}
-
-		
-		service.GetFieldLevelEncryptionProfileConfig=function(svc,msg,cb){
+			service.GetFieldLevelEncryptionProfileConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -686,9 +609,7 @@ module.exports = function(RED) {
 
 			svc.getFieldLevelEncryptionProfileConfig(params,cb);
 		}
-
-		
-		service.GetFunction=function(svc,msg,cb){
+			service.GetFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -702,9 +623,7 @@ module.exports = function(RED) {
 
 			svc.getFunction(params,cb);
 		}
-
-		
-		service.GetInvalidation=function(svc,msg,cb){
+			service.GetInvalidation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -719,9 +638,7 @@ module.exports = function(RED) {
 
 			svc.getInvalidation(params,cb);
 		}
-
-		
-		service.GetKeyGroup=function(svc,msg,cb){
+			service.GetKeyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -733,9 +650,7 @@ module.exports = function(RED) {
 
 			svc.getKeyGroup(params,cb);
 		}
-
-		
-		service.GetKeyGroupConfig=function(svc,msg,cb){
+			service.GetKeyGroupConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -747,9 +662,7 @@ module.exports = function(RED) {
 
 			svc.getKeyGroupConfig(params,cb);
 		}
-
-		
-		service.GetMonitoringSubscription=function(svc,msg,cb){
+			service.GetMonitoringSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -761,9 +674,7 @@ module.exports = function(RED) {
 
 			svc.getMonitoringSubscription(params,cb);
 		}
-
-		
-		service.GetOriginRequestPolicy=function(svc,msg,cb){
+			service.GetOriginRequestPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -775,9 +686,7 @@ module.exports = function(RED) {
 
 			svc.getOriginRequestPolicy(params,cb);
 		}
-
-		
-		service.GetOriginRequestPolicyConfig=function(svc,msg,cb){
+			service.GetOriginRequestPolicyConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -789,9 +698,7 @@ module.exports = function(RED) {
 
 			svc.getOriginRequestPolicyConfig(params,cb);
 		}
-
-		
-		service.GetPublicKey=function(svc,msg,cb){
+			service.GetPublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -803,9 +710,7 @@ module.exports = function(RED) {
 
 			svc.getPublicKey(params,cb);
 		}
-
-		
-		service.GetPublicKeyConfig=function(svc,msg,cb){
+			service.GetPublicKeyConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -817,9 +722,7 @@ module.exports = function(RED) {
 
 			svc.getPublicKeyConfig(params,cb);
 		}
-
-		
-		service.GetRealtimeLogConfig=function(svc,msg,cb){
+			service.GetRealtimeLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -832,9 +735,7 @@ module.exports = function(RED) {
 
 			svc.getRealtimeLogConfig(params,cb);
 		}
-
-		
-		service.GetStreamingDistribution=function(svc,msg,cb){
+			service.GetStreamingDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -846,9 +747,7 @@ module.exports = function(RED) {
 
 			svc.getStreamingDistribution(params,cb);
 		}
-
-		
-		service.GetStreamingDistributionConfig=function(svc,msg,cb){
+			service.GetStreamingDistributionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -860,9 +759,7 @@ module.exports = function(RED) {
 
 			svc.getStreamingDistributionConfig(params,cb);
 		}
-
-		
-		service.ListCachePolicies=function(svc,msg,cb){
+			service.ListCachePolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -877,9 +774,7 @@ module.exports = function(RED) {
 
 			svc.listCachePolicies(params,cb);
 		}
-
-		
-		service.ListCloudFrontOriginAccessIdentities=function(svc,msg,cb){
+			service.ListCloudFrontOriginAccessIdentities=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -892,9 +787,7 @@ module.exports = function(RED) {
 
 			svc.listCloudFrontOriginAccessIdentities(params,cb);
 		}
-
-		
-		service.ListConflictingAliases=function(svc,msg,cb){
+			service.ListConflictingAliases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -903,7 +796,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DistributionId",params,undefined,false); 
 			copyArgs(n,"Alias",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"MaxItems",params,undefined,false); 
+			copyArgs(Number(n),"MaxItems",params,undefined,false); 
 			
 			copyArgs(msg,"DistributionId",params,undefined,false); 
 			copyArgs(msg,"Alias",params,undefined,false); 
@@ -913,9 +806,7 @@ module.exports = function(RED) {
 
 			svc.listConflictingAliases(params,cb);
 		}
-
-		
-		service.ListDistributions=function(svc,msg,cb){
+			service.ListDistributions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -928,9 +819,7 @@ module.exports = function(RED) {
 
 			svc.listDistributions(params,cb);
 		}
-
-		
-		service.ListDistributionsByCachePolicyId=function(svc,msg,cb){
+			service.ListDistributionsByCachePolicyId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CachePolicyId",params,undefined,false); 
@@ -946,9 +835,7 @@ module.exports = function(RED) {
 
 			svc.listDistributionsByCachePolicyId(params,cb);
 		}
-
-		
-		service.ListDistributionsByKeyGroup=function(svc,msg,cb){
+			service.ListDistributionsByKeyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyGroupId",params,undefined,false); 
@@ -964,9 +851,7 @@ module.exports = function(RED) {
 
 			svc.listDistributionsByKeyGroup(params,cb);
 		}
-
-		
-		service.ListDistributionsByOriginRequestPolicyId=function(svc,msg,cb){
+			service.ListDistributionsByOriginRequestPolicyId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OriginRequestPolicyId",params,undefined,false); 
@@ -982,9 +867,7 @@ module.exports = function(RED) {
 
 			svc.listDistributionsByOriginRequestPolicyId(params,cb);
 		}
-
-		
-		service.ListDistributionsByRealtimeLogConfig=function(svc,msg,cb){
+			service.ListDistributionsByRealtimeLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1001,9 +884,7 @@ module.exports = function(RED) {
 
 			svc.listDistributionsByRealtimeLogConfig(params,cb);
 		}
-
-		
-		service.ListDistributionsByWebACLId=function(svc,msg,cb){
+			service.ListDistributionsByWebACLId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
@@ -1019,9 +900,7 @@ module.exports = function(RED) {
 
 			svc.listDistributionsByWebACLId(params,cb);
 		}
-
-		
-		service.ListFieldLevelEncryptionConfigs=function(svc,msg,cb){
+			service.ListFieldLevelEncryptionConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1034,9 +913,7 @@ module.exports = function(RED) {
 
 			svc.listFieldLevelEncryptionConfigs(params,cb);
 		}
-
-		
-		service.ListFieldLevelEncryptionProfiles=function(svc,msg,cb){
+			service.ListFieldLevelEncryptionProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1049,9 +926,7 @@ module.exports = function(RED) {
 
 			svc.listFieldLevelEncryptionProfiles(params,cb);
 		}
-
-		
-		service.ListFunctions=function(svc,msg,cb){
+			service.ListFunctions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1066,9 +941,7 @@ module.exports = function(RED) {
 
 			svc.listFunctions(params,cb);
 		}
-
-		
-		service.ListInvalidations=function(svc,msg,cb){
+			service.ListInvalidations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionId",params,undefined,false); 
@@ -1084,9 +957,7 @@ module.exports = function(RED) {
 
 			svc.listInvalidations(params,cb);
 		}
-
-		
-		service.ListKeyGroups=function(svc,msg,cb){
+			service.ListKeyGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1099,9 +970,7 @@ module.exports = function(RED) {
 
 			svc.listKeyGroups(params,cb);
 		}
-
-		
-		service.ListOriginRequestPolicies=function(svc,msg,cb){
+			service.ListOriginRequestPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1116,9 +985,7 @@ module.exports = function(RED) {
 
 			svc.listOriginRequestPolicies(params,cb);
 		}
-
-		
-		service.ListPublicKeys=function(svc,msg,cb){
+			service.ListPublicKeys=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1131,9 +998,7 @@ module.exports = function(RED) {
 
 			svc.listPublicKeys(params,cb);
 		}
-
-		
-		service.ListRealtimeLogConfigs=function(svc,msg,cb){
+			service.ListRealtimeLogConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1146,9 +1011,7 @@ module.exports = function(RED) {
 
 			svc.listRealtimeLogConfigs(params,cb);
 		}
-
-		
-		service.ListStreamingDistributions=function(svc,msg,cb){
+			service.ListStreamingDistributions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1161,9 +1024,7 @@ module.exports = function(RED) {
 
 			svc.listStreamingDistributions(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -1175,9 +1036,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PublishFunction=function(svc,msg,cb){
+			service.PublishFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1192,9 +1051,7 @@ module.exports = function(RED) {
 
 			svc.publishFunction(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -1209,19 +1066,17 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.TestFunction=function(svc,msg,cb){
+			service.TestFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"IfMatch",params,undefined,false); 
-			copyArgs(n,"EventObject",params,undefined,false); 
+			copyArgs(Buffer.from(n),"EventObject",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"IfMatch",params,undefined,false); 
 			copyArgs(n,"Stage",params,undefined,false); 
-			copyArgs(n,"EventObject",params,undefined,false); 
+			copyArgs(Buffer.from(n),"EventObject",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"IfMatch",params,undefined,false); 
@@ -1231,9 +1086,7 @@ module.exports = function(RED) {
 
 			svc.testFunction(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -1248,9 +1101,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateCachePolicy=function(svc,msg,cb){
+			service.UpdateCachePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CachePolicyConfig",params,undefined,true); 
@@ -1267,9 +1118,7 @@ module.exports = function(RED) {
 
 			svc.updateCachePolicy(params,cb);
 		}
-
-		
-		service.UpdateCloudFrontOriginAccessIdentity=function(svc,msg,cb){
+			service.UpdateCloudFrontOriginAccessIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CloudFrontOriginAccessIdentityConfig",params,undefined,true); 
@@ -1286,9 +1135,7 @@ module.exports = function(RED) {
 
 			svc.updateCloudFrontOriginAccessIdentity(params,cb);
 		}
-
-		
-		service.UpdateDistribution=function(svc,msg,cb){
+			service.UpdateDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DistributionConfig",params,undefined,true); 
@@ -1305,9 +1152,7 @@ module.exports = function(RED) {
 
 			svc.updateDistribution(params,cb);
 		}
-
-		
-		service.UpdateFieldLevelEncryptionConfig=function(svc,msg,cb){
+			service.UpdateFieldLevelEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FieldLevelEncryptionConfig",params,undefined,true); 
@@ -1324,9 +1169,7 @@ module.exports = function(RED) {
 
 			svc.updateFieldLevelEncryptionConfig(params,cb);
 		}
-
-		
-		service.UpdateFieldLevelEncryptionProfile=function(svc,msg,cb){
+			service.UpdateFieldLevelEncryptionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FieldLevelEncryptionProfileConfig",params,undefined,true); 
@@ -1343,9 +1186,7 @@ module.exports = function(RED) {
 
 			svc.updateFieldLevelEncryptionProfile(params,cb);
 		}
-
-		
-		service.UpdateFunction=function(svc,msg,cb){
+			service.UpdateFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IfMatch",params,undefined,false); 
@@ -1366,9 +1207,7 @@ module.exports = function(RED) {
 
 			svc.updateFunction(params,cb);
 		}
-
-		
-		service.UpdateKeyGroup=function(svc,msg,cb){
+			service.UpdateKeyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyGroupConfig",params,undefined,true); 
@@ -1385,9 +1224,7 @@ module.exports = function(RED) {
 
 			svc.updateKeyGroup(params,cb);
 		}
-
-		
-		service.UpdateOriginRequestPolicy=function(svc,msg,cb){
+			service.UpdateOriginRequestPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OriginRequestPolicyConfig",params,undefined,true); 
@@ -1404,9 +1241,7 @@ module.exports = function(RED) {
 
 			svc.updateOriginRequestPolicy(params,cb);
 		}
-
-		
-		service.UpdatePublicKey=function(svc,msg,cb){
+			service.UpdatePublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PublicKeyConfig",params,undefined,true); 
@@ -1423,9 +1258,7 @@ module.exports = function(RED) {
 
 			svc.updatePublicKey(params,cb);
 		}
-
-		
-		service.UpdateRealtimeLogConfig=function(svc,msg,cb){
+			service.UpdateRealtimeLogConfig=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1444,9 +1277,7 @@ module.exports = function(RED) {
 
 			svc.updateRealtimeLogConfig(params,cb);
 		}
-
-		
-		service.UpdateStreamingDistribution=function(svc,msg,cb){
+			service.UpdateStreamingDistribution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamingDistributionConfig",params,undefined,true); 
@@ -1463,9 +1294,7 @@ module.exports = function(RED) {
 
 			svc.updateStreamingDistribution(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CloudFront", AmazonAPINode);
 

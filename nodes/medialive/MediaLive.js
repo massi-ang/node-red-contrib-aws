@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptInputDeviceTransfer=function(svc,msg,cb){
+			service.AcceptInputDeviceTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.acceptInputDeviceTransfer(params,cb);
 		}
-
-		
-		service.BatchDelete=function(svc,msg,cb){
+			service.BatchDelete=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -125,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.batchDelete(params,cb);
 		}
-
-		
-		service.BatchStart=function(svc,msg,cb){
+			service.BatchStart=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -140,9 +135,7 @@ module.exports = function(RED) {
 
 			svc.batchStart(params,cb);
 		}
-
-		
-		service.BatchStop=function(svc,msg,cb){
+			service.BatchStop=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -155,9 +148,7 @@ module.exports = function(RED) {
 
 			svc.batchStop(params,cb);
 		}
-
-		
-		service.BatchUpdateSchedule=function(svc,msg,cb){
+			service.BatchUpdateSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -173,9 +164,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdateSchedule(params,cb);
 		}
-
-		
-		service.CancelInputDeviceTransfer=function(svc,msg,cb){
+			service.CancelInputDeviceTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -187,9 +176,7 @@ module.exports = function(RED) {
 
 			svc.cancelInputDeviceTransfer(params,cb);
 		}
-
-		
-		service.CreateChannel=function(svc,msg,cb){
+			service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -224,9 +211,7 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-
-		
-		service.CreateInput=function(svc,msg,cb){
+			service.CreateInput=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -257,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.createInput(params,cb);
 		}
-
-		
-		service.CreateInputSecurityGroup=function(svc,msg,cb){
+			service.CreateInputSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -272,9 +255,7 @@ module.exports = function(RED) {
 
 			svc.createInputSecurityGroup(params,cb);
 		}
-
-		
-		service.CreateMultiplex=function(svc,msg,cb){
+			service.CreateMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequestId",params,undefined,false); 
@@ -297,9 +278,7 @@ module.exports = function(RED) {
 
 			svc.createMultiplex(params,cb);
 		}
-
-		
-		service.CreateMultiplexProgram=function(svc,msg,cb){
+			service.CreateMultiplexProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -320,9 +299,7 @@ module.exports = function(RED) {
 
 			svc.createMultiplexProgram(params,cb);
 		}
-
-		
-		service.CreatePartnerInput=function(svc,msg,cb){
+			service.CreatePartnerInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputId",params,undefined,false); 
@@ -338,9 +315,7 @@ module.exports = function(RED) {
 
 			svc.createPartnerInput(params,cb);
 		}
-
-		
-		service.CreateTags=function(svc,msg,cb){
+			service.CreateTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -354,9 +329,7 @@ module.exports = function(RED) {
 
 			svc.createTags(params,cb);
 		}
-
-		
-		service.DeleteChannel=function(svc,msg,cb){
+			service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -368,9 +341,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-
-		
-		service.DeleteInput=function(svc,msg,cb){
+			service.DeleteInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputId",params,undefined,false); 
@@ -382,9 +353,7 @@ module.exports = function(RED) {
 
 			svc.deleteInput(params,cb);
 		}
-
-		
-		service.DeleteInputSecurityGroup=function(svc,msg,cb){
+			service.DeleteInputSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputSecurityGroupId",params,undefined,false); 
@@ -396,9 +365,7 @@ module.exports = function(RED) {
 
 			svc.deleteInputSecurityGroup(params,cb);
 		}
-
-		
-		service.DeleteMultiplex=function(svc,msg,cb){
+			service.DeleteMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -410,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.deleteMultiplex(params,cb);
 		}
-
-		
-		service.DeleteMultiplexProgram=function(svc,msg,cb){
+			service.DeleteMultiplexProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -427,9 +392,7 @@ module.exports = function(RED) {
 
 			svc.deleteMultiplexProgram(params,cb);
 		}
-
-		
-		service.DeleteReservation=function(svc,msg,cb){
+			service.DeleteReservation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservationId",params,undefined,false); 
@@ -441,9 +404,7 @@ module.exports = function(RED) {
 
 			svc.deleteReservation(params,cb);
 		}
-
-		
-		service.DeleteSchedule=function(svc,msg,cb){
+			service.DeleteSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -455,9 +416,7 @@ module.exports = function(RED) {
 
 			svc.deleteSchedule(params,cb);
 		}
-
-		
-		service.DeleteTags=function(svc,msg,cb){
+			service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -472,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-
-		
-		service.DescribeChannel=function(svc,msg,cb){
+			service.DescribeChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -486,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.describeChannel(params,cb);
 		}
-
-		
-		service.DescribeInput=function(svc,msg,cb){
+			service.DescribeInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputId",params,undefined,false); 
@@ -500,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.describeInput(params,cb);
 		}
-
-		
-		service.DescribeInputDevice=function(svc,msg,cb){
+			service.DescribeInputDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -514,9 +467,7 @@ module.exports = function(RED) {
 
 			svc.describeInputDevice(params,cb);
 		}
-
-		
-		service.DescribeInputDeviceThumbnail=function(svc,msg,cb){
+			service.DescribeInputDeviceThumbnail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -531,9 +482,7 @@ module.exports = function(RED) {
 
 			svc.describeInputDeviceThumbnail(params,cb);
 		}
-
-		
-		service.DescribeInputSecurityGroup=function(svc,msg,cb){
+			service.DescribeInputSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputSecurityGroupId",params,undefined,false); 
@@ -545,9 +494,7 @@ module.exports = function(RED) {
 
 			svc.describeInputSecurityGroup(params,cb);
 		}
-
-		
-		service.DescribeMultiplex=function(svc,msg,cb){
+			service.DescribeMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -559,9 +506,7 @@ module.exports = function(RED) {
 
 			svc.describeMultiplex(params,cb);
 		}
-
-		
-		service.DescribeMultiplexProgram=function(svc,msg,cb){
+			service.DescribeMultiplexProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -576,9 +521,7 @@ module.exports = function(RED) {
 
 			svc.describeMultiplexProgram(params,cb);
 		}
-
-		
-		service.DescribeOffering=function(svc,msg,cb){
+			service.DescribeOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OfferingId",params,undefined,false); 
@@ -590,9 +533,7 @@ module.exports = function(RED) {
 
 			svc.describeOffering(params,cb);
 		}
-
-		
-		service.DescribeReservation=function(svc,msg,cb){
+			service.DescribeReservation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservationId",params,undefined,false); 
@@ -604,15 +545,13 @@ module.exports = function(RED) {
 
 			svc.describeReservation(params,cb);
 		}
-
-		
-		service.DescribeSchedule=function(svc,msg,cb){
+			service.DescribeSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ChannelId",params,undefined,false); 
@@ -622,13 +561,11 @@ module.exports = function(RED) {
 
 			svc.describeSchedule(params,cb);
 		}
-
-		
-		service.ListChannels=function(svc,msg,cb){
+			service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -637,14 +574,12 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-
-		
-		service.ListInputDeviceTransfers=function(svc,msg,cb){
+			service.ListInputDeviceTransfers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TransferType",params,undefined,false); 
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"TransferType",params,undefined,false); 
 			
@@ -655,13 +590,11 @@ module.exports = function(RED) {
 
 			svc.listInputDeviceTransfers(params,cb);
 		}
-
-		
-		service.ListInputDevices=function(svc,msg,cb){
+			service.ListInputDevices=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -670,13 +603,11 @@ module.exports = function(RED) {
 
 			svc.listInputDevices(params,cb);
 		}
-
-		
-		service.ListInputSecurityGroups=function(svc,msg,cb){
+			service.ListInputSecurityGroups=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -685,13 +616,11 @@ module.exports = function(RED) {
 
 			svc.listInputSecurityGroups(params,cb);
 		}
-
-		
-		service.ListInputs=function(svc,msg,cb){
+			service.ListInputs=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -700,14 +629,12 @@ module.exports = function(RED) {
 
 			svc.listInputs(params,cb);
 		}
-
-		
-		service.ListMultiplexPrograms=function(svc,msg,cb){
+			service.ListMultiplexPrograms=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"MultiplexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
@@ -718,13 +645,11 @@ module.exports = function(RED) {
 
 			svc.listMultiplexPrograms(params,cb);
 		}
-
-		
-		service.ListMultiplexes=function(svc,msg,cb){
+			service.ListMultiplexes=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -733,9 +658,7 @@ module.exports = function(RED) {
 
 			svc.listMultiplexes(params,cb);
 		}
-
-		
-		service.ListOfferings=function(svc,msg,cb){
+			service.ListOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -743,7 +666,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ChannelConfiguration",params,undefined,false); 
 			copyArgs(n,"Codec",params,undefined,false); 
 			copyArgs(n,"Duration",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"MaximumBitrate",params,undefined,false); 
 			copyArgs(n,"MaximumFramerate",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
@@ -768,15 +691,13 @@ module.exports = function(RED) {
 
 			svc.listOfferings(params,cb);
 		}
-
-		
-		service.ListReservations=function(svc,msg,cb){
+			service.ListReservations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ChannelClass",params,undefined,false); 
 			copyArgs(n,"Codec",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"MaximumBitrate",params,undefined,false); 
 			copyArgs(n,"MaximumFramerate",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
@@ -799,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.listReservations(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -813,15 +732,13 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PurchaseOffering=function(svc,msg,cb){
+			service.PurchaseOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OfferingId",params,undefined,false); 
-			copyArgs(n,"Count",params,undefined,false); 
+			copyArgs(Number(n),"Count",params,undefined,false); 
 			
-			copyArgs(n,"Count",params,undefined,false); 
+			copyArgs(Number(n),"Count",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"OfferingId",params,undefined,false); 
 			copyArgs(n,"RequestId",params,undefined,false); 
@@ -838,9 +755,7 @@ module.exports = function(RED) {
 
 			svc.purchaseOffering(params,cb);
 		}
-
-		
-		service.RejectInputDeviceTransfer=function(svc,msg,cb){
+			service.RejectInputDeviceTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -852,9 +767,7 @@ module.exports = function(RED) {
 
 			svc.rejectInputDeviceTransfer(params,cb);
 		}
-
-		
-		service.StartChannel=function(svc,msg,cb){
+			service.StartChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -866,9 +779,7 @@ module.exports = function(RED) {
 
 			svc.startChannel(params,cb);
 		}
-
-		
-		service.StartMultiplex=function(svc,msg,cb){
+			service.StartMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -880,9 +791,7 @@ module.exports = function(RED) {
 
 			svc.startMultiplex(params,cb);
 		}
-
-		
-		service.StopChannel=function(svc,msg,cb){
+			service.StopChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -894,9 +803,7 @@ module.exports = function(RED) {
 
 			svc.stopChannel(params,cb);
 		}
-
-		
-		service.StopMultiplex=function(svc,msg,cb){
+			service.StopMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -908,9 +815,7 @@ module.exports = function(RED) {
 
 			svc.stopMultiplex(params,cb);
 		}
-
-		
-		service.TransferInputDevice=function(svc,msg,cb){
+			service.TransferInputDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -928,9 +833,7 @@ module.exports = function(RED) {
 
 			svc.transferInputDevice(params,cb);
 		}
-
-		
-		service.UpdateChannel=function(svc,msg,cb){
+			service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -958,9 +861,7 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-
-		
-		service.UpdateChannelClass=function(svc,msg,cb){
+			service.UpdateChannelClass=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelId",params,undefined,false); 
@@ -977,9 +878,7 @@ module.exports = function(RED) {
 
 			svc.updateChannelClass(params,cb);
 		}
-
-		
-		service.UpdateInput=function(svc,msg,cb){
+			service.UpdateInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputId",params,undefined,false); 
@@ -1005,9 +904,7 @@ module.exports = function(RED) {
 
 			svc.updateInput(params,cb);
 		}
-
-		
-		service.UpdateInputDevice=function(svc,msg,cb){
+			service.UpdateInputDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDeviceId",params,undefined,false); 
@@ -1025,9 +922,7 @@ module.exports = function(RED) {
 
 			svc.updateInputDevice(params,cb);
 		}
-
-		
-		service.UpdateInputSecurityGroup=function(svc,msg,cb){
+			service.UpdateInputSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputSecurityGroupId",params,undefined,false); 
@@ -1043,9 +938,7 @@ module.exports = function(RED) {
 
 			svc.updateInputSecurityGroup(params,cb);
 		}
-
-		
-		service.UpdateMultiplex=function(svc,msg,cb){
+			service.UpdateMultiplex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -1061,9 +954,7 @@ module.exports = function(RED) {
 
 			svc.updateMultiplex(params,cb);
 		}
-
-		
-		service.UpdateMultiplexProgram=function(svc,msg,cb){
+			service.UpdateMultiplexProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MultiplexId",params,undefined,false); 
@@ -1080,9 +971,7 @@ module.exports = function(RED) {
 
 			svc.updateMultiplexProgram(params,cb);
 		}
-
-		
-		service.UpdateReservation=function(svc,msg,cb){
+			service.UpdateReservation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservationId",params,undefined,false); 
@@ -1096,9 +985,7 @@ module.exports = function(RED) {
 
 			svc.updateReservation(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MediaLive", AmazonAPINode);
 

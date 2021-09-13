@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.DescribeDimensionKeys=function(svc,msg,cb){
+			service.DescribeDimensionKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -109,11 +108,11 @@ module.exports = function(RED) {
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
 			copyArgs(n,"Metric",params,undefined,false); 
-			copyArgs(n,"PeriodInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"PeriodInSeconds",params,undefined,false); 
 			copyArgs(n,"GroupBy",params,undefined,true); 
 			copyArgs(n,"PartitionBy",params,undefined,true); 
 			copyArgs(n,"Filter",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceType",params,undefined,false); 
@@ -131,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.describeDimensionKeys(params,cb);
 		}
-
-		
-		service.GetDimensionKeyDetails=function(svc,msg,cb){
+			service.GetDimensionKeyDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -156,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.getDimensionKeyDetails(params,cb);
 		}
-
-		
-		service.GetResourceMetrics=function(svc,msg,cb){
+			service.GetResourceMetrics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -172,8 +167,8 @@ module.exports = function(RED) {
 			copyArgs(n,"MetricQueries",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"PeriodInSeconds",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"PeriodInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceType",params,undefined,false); 
@@ -188,9 +183,7 @@ module.exports = function(RED) {
 
 			svc.getResourceMetrics(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS PI", AmazonAPINode);
 

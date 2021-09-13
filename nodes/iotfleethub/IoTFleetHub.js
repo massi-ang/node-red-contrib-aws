@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateApplication=function(svc,msg,cb){
+			service.CreateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -115,9 +114,7 @@ module.exports = function(RED) {
 
 			svc.createApplication(params,cb);
 		}
-
-		
-		service.DeleteApplication=function(svc,msg,cb){
+			service.DeleteApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationId",params,undefined,false); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplication(params,cb);
 		}
-
-		
-		service.DescribeApplication=function(svc,msg,cb){
+			service.DescribeApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationId",params,undefined,false); 
@@ -145,9 +140,7 @@ module.exports = function(RED) {
 
 			svc.describeApplication(params,cb);
 		}
-
-		
-		service.ListApplications=function(svc,msg,cb){
+			service.ListApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -158,9 +151,7 @@ module.exports = function(RED) {
 
 			svc.listApplications(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -172,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -189,9 +178,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -206,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateApplication=function(svc,msg,cb){
+			service.UpdateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationId",params,undefined,false); 
@@ -226,9 +211,7 @@ module.exports = function(RED) {
 
 			svc.updateApplication(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IoTFleetHub", AmazonAPINode);
 

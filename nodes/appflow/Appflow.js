@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateConnectorProfile=function(svc,msg,cb){
+			service.CreateConnectorProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectorProfileName",params,undefined,false); 
@@ -117,9 +116,7 @@ module.exports = function(RED) {
 
 			svc.createConnectorProfile(params,cb);
 		}
-
-		
-		service.CreateFlow=function(svc,msg,cb){
+			service.CreateFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
@@ -149,15 +146,13 @@ module.exports = function(RED) {
 
 			svc.createFlow(params,cb);
 		}
-
-		
-		service.DeleteConnectorProfile=function(svc,msg,cb){
+			service.DeleteConnectorProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectorProfileName",params,undefined,false); 
 			
 			copyArgs(n,"connectorProfileName",params,undefined,false); 
-			copyArgs(n,"forceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"connectorProfileName",params,undefined,false); 
 			copyArgs(msg,"forceDelete",params,undefined,false); 
@@ -165,15 +160,13 @@ module.exports = function(RED) {
 
 			svc.deleteConnectorProfile(params,cb);
 		}
-
-		
-		service.DeleteFlow=function(svc,msg,cb){
+			service.DeleteFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
 			
 			copyArgs(n,"flowName",params,undefined,false); 
-			copyArgs(n,"forceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"flowName",params,undefined,false); 
 			copyArgs(msg,"forceDelete",params,undefined,false); 
@@ -181,9 +174,7 @@ module.exports = function(RED) {
 
 			svc.deleteFlow(params,cb);
 		}
-
-		
-		service.DescribeConnectorEntity=function(svc,msg,cb){
+			service.DescribeConnectorEntity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectorEntityName",params,undefined,false); 
@@ -199,15 +190,13 @@ module.exports = function(RED) {
 
 			svc.describeConnectorEntity(params,cb);
 		}
-
-		
-		service.DescribeConnectorProfiles=function(svc,msg,cb){
+			service.DescribeConnectorProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"connectorProfileNames",params,undefined,false); 
 			copyArgs(n,"connectorType",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"connectorProfileNames",params,undefined,false); 
@@ -218,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.describeConnectorProfiles(params,cb);
 		}
-
-		
-		service.DescribeConnectors=function(svc,msg,cb){
+			service.DescribeConnectors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -233,9 +220,7 @@ module.exports = function(RED) {
 
 			svc.describeConnectors(params,cb);
 		}
-
-		
-		service.DescribeFlow=function(svc,msg,cb){
+			service.DescribeFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
@@ -247,15 +232,13 @@ module.exports = function(RED) {
 
 			svc.describeFlow(params,cb);
 		}
-
-		
-		service.DescribeFlowExecutionRecords=function(svc,msg,cb){
+			service.DescribeFlowExecutionRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
 			
 			copyArgs(n,"flowName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"flowName",params,undefined,false); 
@@ -265,9 +248,7 @@ module.exports = function(RED) {
 
 			svc.describeFlowExecutionRecords(params,cb);
 		}
-
-		
-		service.ListConnectorEntities=function(svc,msg,cb){
+			service.ListConnectorEntities=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -282,13 +263,11 @@ module.exports = function(RED) {
 
 			svc.listConnectorEntities(params,cb);
 		}
-
-		
-		service.ListFlows=function(svc,msg,cb){
+			service.ListFlows=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -297,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.listFlows(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -311,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.StartFlow=function(svc,msg,cb){
+			service.StartFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
@@ -325,9 +300,7 @@ module.exports = function(RED) {
 
 			svc.startFlow(params,cb);
 		}
-
-		
-		service.StopFlow=function(svc,msg,cb){
+			service.StopFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
@@ -339,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.stopFlow(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -356,9 +327,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -373,9 +342,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateConnectorProfile=function(svc,msg,cb){
+			service.UpdateConnectorProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectorProfileName",params,undefined,false); 
@@ -393,9 +360,7 @@ module.exports = function(RED) {
 
 			svc.updateConnectorProfile(params,cb);
 		}
-
-		
-		service.UpdateFlow=function(svc,msg,cb){
+			service.UpdateFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowName",params,undefined,false); 
@@ -421,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.updateFlow(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Appflow", AmazonAPINode);
 

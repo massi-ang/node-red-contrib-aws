@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateApp=function(svc,msg,cb){
+			service.CreateApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -107,15 +106,15 @@ module.exports = function(RED) {
 			copyArgs(n,"oauthToken",params,undefined,true); 
 			copyArgs(n,"accessToken",params,undefined,true); 
 			copyArgs(n,"environmentVariables",params,undefined,true); 
-			copyArgs(n,"enableBranchAutoBuild",params,undefined,false); 
-			copyArgs(n,"enableBranchAutoDeletion",params,undefined,false); 
-			copyArgs(n,"enableBasicAuth",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBranchAutoBuild",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBranchAutoDeletion",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBasicAuth",params,undefined,false); 
 			copyArgs(n,"basicAuthCredentials",params,undefined,true); 
 			copyArgs(n,"customRules",params,undefined,true); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"buildSpec",params,undefined,false); 
 			copyArgs(n,"customHeaders",params,undefined,false); 
-			copyArgs(n,"enableAutoBranchCreation",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoBranchCreation",params,undefined,false); 
 			copyArgs(n,"autoBranchCreationPatterns",params,undefined,true); 
 			copyArgs(n,"autoBranchCreationConfig",params,undefined,true); 
 			
@@ -142,9 +141,7 @@ module.exports = function(RED) {
 
 			svc.createApp(params,cb);
 		}
-
-		
-		service.CreateBackendEnvironment=function(svc,msg,cb){
+			service.CreateBackendEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -163,9 +160,7 @@ module.exports = function(RED) {
 
 			svc.createBackendEnvironment(params,cb);
 		}
-
-		
-		service.CreateBranch=function(svc,msg,cb){
+			service.CreateBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -176,17 +171,17 @@ module.exports = function(RED) {
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"stage",params,undefined,false); 
 			copyArgs(n,"framework",params,undefined,false); 
-			copyArgs(n,"enableNotification",params,undefined,false); 
-			copyArgs(n,"enableAutoBuild",params,undefined,false); 
+			copyArgs(Boolean(n),"enableNotification",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoBuild",params,undefined,false); 
 			copyArgs(n,"environmentVariables",params,undefined,true); 
 			copyArgs(n,"basicAuthCredentials",params,undefined,true); 
-			copyArgs(n,"enableBasicAuth",params,undefined,false); 
-			copyArgs(n,"enablePerformanceMode",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBasicAuth",params,undefined,false); 
+			copyArgs(Boolean(n),"enablePerformanceMode",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"buildSpec",params,undefined,false); 
 			copyArgs(n,"ttl",params,undefined,false); 
 			copyArgs(n,"displayName",params,undefined,false); 
-			copyArgs(n,"enablePullRequestPreview",params,undefined,false); 
+			copyArgs(Boolean(n),"enablePullRequestPreview",params,undefined,false); 
 			copyArgs(n,"pullRequestEnvironmentName",params,undefined,false); 
 			copyArgs(n,"backendEnvironmentArn",params,undefined,false); 
 			
@@ -212,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.createBranch(params,cb);
 		}
-
-		
-		service.CreateDeployment=function(svc,msg,cb){
+			service.CreateDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -231,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.createDeployment(params,cb);
 		}
-
-		
-		service.CreateDomainAssociation=function(svc,msg,cb){
+			service.CreateDomainAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -242,7 +233,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"domainName",params,undefined,false); 
-			copyArgs(n,"enableAutoSubDomain",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoSubDomain",params,undefined,false); 
 			copyArgs(n,"subDomainSettings",params,undefined,true); 
 			copyArgs(n,"autoSubDomainCreationPatterns",params,undefined,true); 
 			copyArgs(n,"autoSubDomainIAMRole",params,undefined,false); 
@@ -257,9 +248,7 @@ module.exports = function(RED) {
 
 			svc.createDomainAssociation(params,cb);
 		}
-
-		
-		service.CreateWebhook=function(svc,msg,cb){
+			service.CreateWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -276,9 +265,7 @@ module.exports = function(RED) {
 
 			svc.createWebhook(params,cb);
 		}
-
-		
-		service.DeleteApp=function(svc,msg,cb){
+			service.DeleteApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -290,9 +277,7 @@ module.exports = function(RED) {
 
 			svc.deleteApp(params,cb);
 		}
-
-		
-		service.DeleteBackendEnvironment=function(svc,msg,cb){
+			service.DeleteBackendEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -307,9 +292,7 @@ module.exports = function(RED) {
 
 			svc.deleteBackendEnvironment(params,cb);
 		}
-
-		
-		service.DeleteBranch=function(svc,msg,cb){
+			service.DeleteBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -324,9 +307,7 @@ module.exports = function(RED) {
 
 			svc.deleteBranch(params,cb);
 		}
-
-		
-		service.DeleteDomainAssociation=function(svc,msg,cb){
+			service.DeleteDomainAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -341,9 +322,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomainAssociation(params,cb);
 		}
-
-		
-		service.DeleteJob=function(svc,msg,cb){
+			service.DeleteJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -361,9 +340,7 @@ module.exports = function(RED) {
 
 			svc.deleteJob(params,cb);
 		}
-
-		
-		service.DeleteWebhook=function(svc,msg,cb){
+			service.DeleteWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"webhookId",params,undefined,false); 
@@ -375,9 +352,7 @@ module.exports = function(RED) {
 
 			svc.deleteWebhook(params,cb);
 		}
-
-		
-		service.GenerateAccessLogs=function(svc,msg,cb){
+			service.GenerateAccessLogs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainName",params,undefined,false); 
@@ -396,9 +371,7 @@ module.exports = function(RED) {
 
 			svc.generateAccessLogs(params,cb);
 		}
-
-		
-		service.GetApp=function(svc,msg,cb){
+			service.GetApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -410,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.getApp(params,cb);
 		}
-
-		
-		service.GetArtifactUrl=function(svc,msg,cb){
+			service.GetArtifactUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"artifactId",params,undefined,false); 
@@ -424,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.getArtifactUrl(params,cb);
 		}
-
-		
-		service.GetBackendEnvironment=function(svc,msg,cb){
+			service.GetBackendEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -441,9 +410,7 @@ module.exports = function(RED) {
 
 			svc.getBackendEnvironment(params,cb);
 		}
-
-		
-		service.GetBranch=function(svc,msg,cb){
+			service.GetBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -458,9 +425,7 @@ module.exports = function(RED) {
 
 			svc.getBranch(params,cb);
 		}
-
-		
-		service.GetDomainAssociation=function(svc,msg,cb){
+			service.GetDomainAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -475,9 +440,7 @@ module.exports = function(RED) {
 
 			svc.getDomainAssociation(params,cb);
 		}
-
-		
-		service.GetJob=function(svc,msg,cb){
+			service.GetJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -495,9 +458,7 @@ module.exports = function(RED) {
 
 			svc.getJob(params,cb);
 		}
-
-		
-		service.GetWebhook=function(svc,msg,cb){
+			service.GetWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"webhookId",params,undefined,false); 
@@ -509,14 +470,12 @@ module.exports = function(RED) {
 
 			svc.getWebhook(params,cb);
 		}
-
-		
-		service.ListApps=function(svc,msg,cb){
+			service.ListApps=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -524,9 +483,7 @@ module.exports = function(RED) {
 
 			svc.listApps(params,cb);
 		}
-
-		
-		service.ListArtifacts=function(svc,msg,cb){
+			service.ListArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -537,7 +494,7 @@ module.exports = function(RED) {
 			copyArgs(n,"branchName",params,undefined,false); 
 			copyArgs(n,"jobId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"branchName",params,undefined,false); 
@@ -548,9 +505,7 @@ module.exports = function(RED) {
 
 			svc.listArtifacts(params,cb);
 		}
-
-		
-		service.ListBackendEnvironments=function(svc,msg,cb){
+			service.ListBackendEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -558,7 +513,7 @@ module.exports = function(RED) {
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"environmentName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"environmentName",params,undefined,false); 
@@ -568,16 +523,14 @@ module.exports = function(RED) {
 
 			svc.listBackendEnvironments(params,cb);
 		}
-
-		
-		service.ListBranches=function(svc,msg,cb){
+			service.ListBranches=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -586,16 +539,14 @@ module.exports = function(RED) {
 
 			svc.listBranches(params,cb);
 		}
-
-		
-		service.ListDomainAssociations=function(svc,msg,cb){
+			service.ListDomainAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -604,9 +555,7 @@ module.exports = function(RED) {
 
 			svc.listDomainAssociations(params,cb);
 		}
-
-		
-		service.ListJobs=function(svc,msg,cb){
+			service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -615,7 +564,7 @@ module.exports = function(RED) {
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"branchName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"branchName",params,undefined,false); 
@@ -625,9 +574,7 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -639,16 +586,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListWebhooks=function(svc,msg,cb){
+			service.ListWebhooks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"appId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -657,9 +602,7 @@ module.exports = function(RED) {
 
 			svc.listWebhooks(params,cb);
 		}
-
-		
-		service.StartDeployment=function(svc,msg,cb){
+			service.StartDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -678,9 +621,7 @@ module.exports = function(RED) {
 
 			svc.startDeployment(params,cb);
 		}
-
-		
-		service.StartJob=function(svc,msg,cb){
+			service.StartJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -708,9 +649,7 @@ module.exports = function(RED) {
 
 			svc.startJob(params,cb);
 		}
-
-		
-		service.StopJob=function(svc,msg,cb){
+			service.StopJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -728,9 +667,7 @@ module.exports = function(RED) {
 
 			svc.stopJob(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -745,9 +682,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -762,9 +697,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateApp=function(svc,msg,cb){
+			service.UpdateApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -775,14 +708,14 @@ module.exports = function(RED) {
 			copyArgs(n,"platform",params,undefined,false); 
 			copyArgs(n,"iamServiceRoleArn",params,undefined,false); 
 			copyArgs(n,"environmentVariables",params,undefined,true); 
-			copyArgs(n,"enableBranchAutoBuild",params,undefined,false); 
-			copyArgs(n,"enableBranchAutoDeletion",params,undefined,false); 
-			copyArgs(n,"enableBasicAuth",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBranchAutoBuild",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBranchAutoDeletion",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBasicAuth",params,undefined,false); 
 			copyArgs(n,"basicAuthCredentials",params,undefined,true); 
 			copyArgs(n,"customRules",params,undefined,true); 
 			copyArgs(n,"buildSpec",params,undefined,false); 
 			copyArgs(n,"customHeaders",params,undefined,false); 
-			copyArgs(n,"enableAutoBranchCreation",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoBranchCreation",params,undefined,false); 
 			copyArgs(n,"autoBranchCreationPatterns",params,undefined,true); 
 			copyArgs(n,"autoBranchCreationConfig",params,undefined,true); 
 			copyArgs(n,"repository",params,undefined,false); 
@@ -812,9 +745,7 @@ module.exports = function(RED) {
 
 			svc.updateApp(params,cb);
 		}
-
-		
-		service.UpdateBranch=function(svc,msg,cb){
+			service.UpdateBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -825,16 +756,16 @@ module.exports = function(RED) {
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"framework",params,undefined,false); 
 			copyArgs(n,"stage",params,undefined,false); 
-			copyArgs(n,"enableNotification",params,undefined,false); 
-			copyArgs(n,"enableAutoBuild",params,undefined,false); 
+			copyArgs(Boolean(n),"enableNotification",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoBuild",params,undefined,false); 
 			copyArgs(n,"environmentVariables",params,undefined,true); 
 			copyArgs(n,"basicAuthCredentials",params,undefined,true); 
-			copyArgs(n,"enableBasicAuth",params,undefined,false); 
-			copyArgs(n,"enablePerformanceMode",params,undefined,false); 
+			copyArgs(Boolean(n),"enableBasicAuth",params,undefined,false); 
+			copyArgs(Boolean(n),"enablePerformanceMode",params,undefined,false); 
 			copyArgs(n,"buildSpec",params,undefined,false); 
 			copyArgs(n,"ttl",params,undefined,false); 
 			copyArgs(n,"displayName",params,undefined,false); 
-			copyArgs(n,"enablePullRequestPreview",params,undefined,false); 
+			copyArgs(Boolean(n),"enablePullRequestPreview",params,undefined,false); 
 			copyArgs(n,"pullRequestEnvironmentName",params,undefined,false); 
 			copyArgs(n,"backendEnvironmentArn",params,undefined,false); 
 			
@@ -859,9 +790,7 @@ module.exports = function(RED) {
 
 			svc.updateBranch(params,cb);
 		}
-
-		
-		service.UpdateDomainAssociation=function(svc,msg,cb){
+			service.UpdateDomainAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -870,7 +799,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"domainName",params,undefined,false); 
-			copyArgs(n,"enableAutoSubDomain",params,undefined,false); 
+			copyArgs(Boolean(n),"enableAutoSubDomain",params,undefined,false); 
 			copyArgs(n,"subDomainSettings",params,undefined,true); 
 			copyArgs(n,"autoSubDomainCreationPatterns",params,undefined,true); 
 			copyArgs(n,"autoSubDomainIAMRole",params,undefined,false); 
@@ -885,9 +814,7 @@ module.exports = function(RED) {
 
 			svc.updateDomainAssociation(params,cb);
 		}
-
-		
-		service.UpdateWebhook=function(svc,msg,cb){
+			service.UpdateWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"webhookId",params,undefined,false); 
@@ -903,9 +830,7 @@ module.exports = function(RED) {
 
 			svc.updateWebhook(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Amplify", AmazonAPINode);
 

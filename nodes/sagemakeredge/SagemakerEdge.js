@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.GetDeviceRegistration=function(svc,msg,cb){
+			service.GetDeviceRegistration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.getDeviceRegistration(params,cb);
 		}
-
-		
-		service.SendHeartbeat=function(svc,msg,cb){
+			service.SendHeartbeat=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AgentVersion",params,undefined,false); 
@@ -133,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.sendHeartbeat(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SagemakerEdge", AmazonAPINode);
 

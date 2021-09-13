@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateDelegateToResource=function(svc,msg,cb){
+			service.AssociateDelegateToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.associateDelegateToResource(params,cb);
 		}
-
-		
-		service.AssociateMemberToGroup=function(svc,msg,cb){
+			service.AssociateMemberToGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.associateMemberToGroup(params,cb);
 		}
-
-		
-		service.CancelMailboxExportJob=function(svc,msg,cb){
+			service.CancelMailboxExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.cancelMailboxExportJob(params,cb);
 		}
-
-		
-		service.CreateAlias=function(svc,msg,cb){
+			service.CreateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -172,9 +165,7 @@ module.exports = function(RED) {
 
 			svc.createAlias(params,cb);
 		}
-
-		
-		service.CreateGroup=function(svc,msg,cb){
+			service.CreateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -189,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.createGroup(params,cb);
 		}
-
-		
-		service.CreateMobileDeviceAccessRule=function(svc,msg,cb){
+			service.CreateMobileDeviceAccessRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -229,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.createMobileDeviceAccessRule(params,cb);
 		}
-
-		
-		service.CreateOrganization=function(svc,msg,cb){
+			service.CreateOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Alias",params,undefined,false); 
@@ -241,7 +228,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ClientToken",params,undefined,false); 
 			copyArgs(n,"Domains",params,undefined,false); 
 			copyArgs(n,"KmsKeyArn",params,undefined,false); 
-			copyArgs(n,"EnableInteroperability",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableInteroperability",params,undefined,false); 
 			
 			copyArgs(msg,"DirectoryId",params,undefined,false); 
 			copyArgs(msg,"Alias",params,undefined,false); 
@@ -253,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createOrganization(params,cb);
 		}
-
-		
-		service.CreateResource=function(svc,msg,cb){
+			service.CreateResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -273,9 +258,7 @@ module.exports = function(RED) {
 
 			svc.createResource(params,cb);
 		}
-
-		
-		service.CreateUser=function(svc,msg,cb){
+			service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -296,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-
-		
-		service.DeleteAccessControlRule=function(svc,msg,cb){
+			service.DeleteAccessControlRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -313,9 +294,7 @@ module.exports = function(RED) {
 
 			svc.deleteAccessControlRule(params,cb);
 		}
-
-		
-		service.DeleteAlias=function(svc,msg,cb){
+			service.DeleteAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -333,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.deleteAlias(params,cb);
 		}
-
-		
-		service.DeleteGroup=function(svc,msg,cb){
+			service.DeleteGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -350,9 +327,7 @@ module.exports = function(RED) {
 
 			svc.deleteGroup(params,cb);
 		}
-
-		
-		service.DeleteMailboxPermissions=function(svc,msg,cb){
+			service.DeleteMailboxPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -370,9 +345,7 @@ module.exports = function(RED) {
 
 			svc.deleteMailboxPermissions(params,cb);
 		}
-
-		
-		service.DeleteMobileDeviceAccessRule=function(svc,msg,cb){
+			service.DeleteMobileDeviceAccessRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -387,17 +360,15 @@ module.exports = function(RED) {
 
 			svc.deleteMobileDeviceAccessRule(params,cb);
 		}
-
-		
-		service.DeleteOrganization=function(svc,msg,cb){
+			service.DeleteOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
-			copyArgs(n,"DeleteDirectory",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteDirectory",params,undefined,false); 
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
 			copyArgs(n,"OrganizationId",params,undefined,false); 
-			copyArgs(n,"DeleteDirectory",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteDirectory",params,undefined,false); 
 			
 			copyArgs(msg,"ClientToken",params,undefined,false); 
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
@@ -406,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.deleteOrganization(params,cb);
 		}
-
-		
-		service.DeleteResource=function(svc,msg,cb){
+			service.DeleteResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -423,9 +392,7 @@ module.exports = function(RED) {
 
 			svc.deleteResource(params,cb);
 		}
-
-		
-		service.DeleteRetentionPolicy=function(svc,msg,cb){
+			service.DeleteRetentionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -440,9 +407,7 @@ module.exports = function(RED) {
 
 			svc.deleteRetentionPolicy(params,cb);
 		}
-
-		
-		service.DeleteUser=function(svc,msg,cb){
+			service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -457,9 +422,7 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-
-		
-		service.DeregisterFromWorkMail=function(svc,msg,cb){
+			service.DeregisterFromWorkMail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -474,9 +437,7 @@ module.exports = function(RED) {
 
 			svc.deregisterFromWorkMail(params,cb);
 		}
-
-		
-		service.DescribeGroup=function(svc,msg,cb){
+			service.DescribeGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -491,9 +452,7 @@ module.exports = function(RED) {
 
 			svc.describeGroup(params,cb);
 		}
-
-		
-		service.DescribeMailboxExportJob=function(svc,msg,cb){
+			service.DescribeMailboxExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -508,9 +467,7 @@ module.exports = function(RED) {
 
 			svc.describeMailboxExportJob(params,cb);
 		}
-
-		
-		service.DescribeOrganization=function(svc,msg,cb){
+			service.DescribeOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -522,9 +479,7 @@ module.exports = function(RED) {
 
 			svc.describeOrganization(params,cb);
 		}
-
-		
-		service.DescribeResource=function(svc,msg,cb){
+			service.DescribeResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -539,9 +494,7 @@ module.exports = function(RED) {
 
 			svc.describeResource(params,cb);
 		}
-
-		
-		service.DescribeUser=function(svc,msg,cb){
+			service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -556,9 +509,7 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-
-		
-		service.DisassociateDelegateFromResource=function(svc,msg,cb){
+			service.DisassociateDelegateFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -576,9 +527,7 @@ module.exports = function(RED) {
 
 			svc.disassociateDelegateFromResource(params,cb);
 		}
-
-		
-		service.DisassociateMemberFromGroup=function(svc,msg,cb){
+			service.DisassociateMemberFromGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -596,9 +545,7 @@ module.exports = function(RED) {
 
 			svc.disassociateMemberFromGroup(params,cb);
 		}
-
-		
-		service.GetAccessControlEffect=function(svc,msg,cb){
+			service.GetAccessControlEffect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -619,9 +566,7 @@ module.exports = function(RED) {
 
 			svc.getAccessControlEffect(params,cb);
 		}
-
-		
-		service.GetDefaultRetentionPolicy=function(svc,msg,cb){
+			service.GetDefaultRetentionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -633,9 +578,7 @@ module.exports = function(RED) {
 
 			svc.getDefaultRetentionPolicy(params,cb);
 		}
-
-		
-		service.GetMailboxDetails=function(svc,msg,cb){
+			service.GetMailboxDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -650,9 +593,7 @@ module.exports = function(RED) {
 
 			svc.getMailboxDetails(params,cb);
 		}
-
-		
-		service.GetMobileDeviceAccessEffect=function(svc,msg,cb){
+			service.GetMobileDeviceAccessEffect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -672,9 +613,7 @@ module.exports = function(RED) {
 
 			svc.getMobileDeviceAccessEffect(params,cb);
 		}
-
-		
-		service.ListAccessControlRules=function(svc,msg,cb){
+			service.ListAccessControlRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -686,9 +625,7 @@ module.exports = function(RED) {
 
 			svc.listAccessControlRules(params,cb);
 		}
-
-		
-		service.ListAliases=function(svc,msg,cb){
+			service.ListAliases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -697,7 +634,7 @@ module.exports = function(RED) {
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"EntityId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"EntityId",params,undefined,false); 
@@ -707,9 +644,7 @@ module.exports = function(RED) {
 
 			svc.listAliases(params,cb);
 		}
-
-		
-		service.ListGroupMembers=function(svc,msg,cb){
+			service.ListGroupMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -718,7 +653,7 @@ module.exports = function(RED) {
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"GroupId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"GroupId",params,undefined,false); 
@@ -728,16 +663,14 @@ module.exports = function(RED) {
 
 			svc.listGroupMembers(params,cb);
 		}
-
-		
-		service.ListGroups=function(svc,msg,cb){
+			service.ListGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -746,16 +679,14 @@ module.exports = function(RED) {
 
 			svc.listGroups(params,cb);
 		}
-
-		
-		service.ListMailboxExportJobs=function(svc,msg,cb){
+			service.ListMailboxExportJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -764,9 +695,7 @@ module.exports = function(RED) {
 
 			svc.listMailboxExportJobs(params,cb);
 		}
-
-		
-		service.ListMailboxPermissions=function(svc,msg,cb){
+			service.ListMailboxPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -775,7 +704,7 @@ module.exports = function(RED) {
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"EntityId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"EntityId",params,undefined,false); 
@@ -785,9 +714,7 @@ module.exports = function(RED) {
 
 			svc.listMailboxPermissions(params,cb);
 		}
-
-		
-		service.ListMobileDeviceAccessRules=function(svc,msg,cb){
+			service.ListMobileDeviceAccessRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -799,14 +726,12 @@ module.exports = function(RED) {
 
 			svc.listMobileDeviceAccessRules(params,cb);
 		}
-
-		
-		service.ListOrganizations=function(svc,msg,cb){
+			service.ListOrganizations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -814,9 +739,7 @@ module.exports = function(RED) {
 
 			svc.listOrganizations(params,cb);
 		}
-
-		
-		service.ListResourceDelegates=function(svc,msg,cb){
+			service.ListResourceDelegates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -825,7 +748,7 @@ module.exports = function(RED) {
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"ResourceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"ResourceId",params,undefined,false); 
@@ -835,16 +758,14 @@ module.exports = function(RED) {
 
 			svc.listResourceDelegates(params,cb);
 		}
-
-		
-		service.ListResources=function(svc,msg,cb){
+			service.ListResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -853,9 +774,7 @@ module.exports = function(RED) {
 
 			svc.listResources(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -867,16 +786,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListUsers=function(svc,msg,cb){
+			service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -885,9 +802,7 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-
-		
-		service.PutAccessControlRule=function(svc,msg,cb){
+			service.PutAccessControlRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -920,9 +835,7 @@ module.exports = function(RED) {
 
 			svc.putAccessControlRule(params,cb);
 		}
-
-		
-		service.PutMailboxPermissions=function(svc,msg,cb){
+			service.PutMailboxPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -943,9 +856,7 @@ module.exports = function(RED) {
 
 			svc.putMailboxPermissions(params,cb);
 		}
-
-		
-		service.PutRetentionPolicy=function(svc,msg,cb){
+			service.PutRetentionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -967,9 +878,7 @@ module.exports = function(RED) {
 
 			svc.putRetentionPolicy(params,cb);
 		}
-
-		
-		service.RegisterToWorkMail=function(svc,msg,cb){
+			service.RegisterToWorkMail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -987,9 +896,7 @@ module.exports = function(RED) {
 
 			svc.registerToWorkMail(params,cb);
 		}
-
-		
-		service.ResetPassword=function(svc,msg,cb){
+			service.ResetPassword=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -1007,9 +914,7 @@ module.exports = function(RED) {
 
 			svc.resetPassword(params,cb);
 		}
-
-		
-		service.StartMailboxExportJob=function(svc,msg,cb){
+			service.StartMailboxExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -1041,9 +946,7 @@ module.exports = function(RED) {
 
 			svc.startMailboxExportJob(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1058,9 +961,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1075,18 +976,16 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateMailboxQuota=function(svc,msg,cb){
+			service.UpdateMailboxQuota=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"UserId",params,undefined,false); 
-			copyArgs(n,"MailboxQuota",params,undefined,false); 
+			copyArgs(Number(n),"MailboxQuota",params,undefined,false); 
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
 			copyArgs(n,"UserId",params,undefined,false); 
-			copyArgs(n,"MailboxQuota",params,undefined,false); 
+			copyArgs(Number(n),"MailboxQuota",params,undefined,false); 
 			
 			copyArgs(msg,"OrganizationId",params,undefined,false); 
 			copyArgs(msg,"UserId",params,undefined,false); 
@@ -1095,9 +994,7 @@ module.exports = function(RED) {
 
 			svc.updateMailboxQuota(params,cb);
 		}
-
-		
-		service.UpdateMobileDeviceAccessRule=function(svc,msg,cb){
+			service.UpdateMobileDeviceAccessRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -1136,9 +1033,7 @@ module.exports = function(RED) {
 
 			svc.updateMobileDeviceAccessRule(params,cb);
 		}
-
-		
-		service.UpdatePrimaryEmailAddress=function(svc,msg,cb){
+			service.UpdatePrimaryEmailAddress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -1156,9 +1051,7 @@ module.exports = function(RED) {
 
 			svc.updatePrimaryEmailAddress(params,cb);
 		}
-
-		
-		service.UpdateResource=function(svc,msg,cb){
+			service.UpdateResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -1177,9 +1070,7 @@ module.exports = function(RED) {
 
 			svc.updateResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS WorkMail", AmazonAPINode);
 

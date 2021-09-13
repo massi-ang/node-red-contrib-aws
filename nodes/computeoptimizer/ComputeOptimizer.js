@@ -92,16 +92,15 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.DescribeRecommendationExportJobs=function(svc,msg,cb){
+			service.DescribeRecommendationExportJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"jobIds",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"jobIds",params,undefined,false); 
 			copyArgs(msg,"filters",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.describeRecommendationExportJobs(params,cb);
 		}
-
-		
-		service.ExportAutoScalingGroupRecommendations=function(svc,msg,cb){
+			service.ExportAutoScalingGroupRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
@@ -123,7 +120,7 @@ module.exports = function(RED) {
 			copyArgs(n,"fieldsToExport",params,undefined,false); 
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
 			copyArgs(n,"fileFormat",params,undefined,false); 
-			copyArgs(n,"includeMemberAccounts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeMemberAccounts",params,undefined,false); 
 			copyArgs(n,"recommendationPreferences",params,undefined,true); 
 			
 			copyArgs(msg,"accountIds",params,undefined,true); 
@@ -137,9 +134,7 @@ module.exports = function(RED) {
 
 			svc.exportAutoScalingGroupRecommendations(params,cb);
 		}
-
-		
-		service.ExportEBSVolumeRecommendations=function(svc,msg,cb){
+			service.ExportEBSVolumeRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
@@ -149,7 +144,7 @@ module.exports = function(RED) {
 			copyArgs(n,"fieldsToExport",params,undefined,false); 
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
 			copyArgs(n,"fileFormat",params,undefined,false); 
-			copyArgs(n,"includeMemberAccounts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeMemberAccounts",params,undefined,false); 
 			
 			copyArgs(msg,"accountIds",params,undefined,true); 
 			copyArgs(msg,"filters",params,undefined,true); 
@@ -161,9 +156,7 @@ module.exports = function(RED) {
 
 			svc.exportEBSVolumeRecommendations(params,cb);
 		}
-
-		
-		service.ExportEC2InstanceRecommendations=function(svc,msg,cb){
+			service.ExportEC2InstanceRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
@@ -173,7 +166,7 @@ module.exports = function(RED) {
 			copyArgs(n,"fieldsToExport",params,undefined,false); 
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
 			copyArgs(n,"fileFormat",params,undefined,false); 
-			copyArgs(n,"includeMemberAccounts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeMemberAccounts",params,undefined,false); 
 			copyArgs(n,"recommendationPreferences",params,undefined,true); 
 			
 			copyArgs(msg,"accountIds",params,undefined,true); 
@@ -187,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.exportEC2InstanceRecommendations(params,cb);
 		}
-
-		
-		service.ExportLambdaFunctionRecommendations=function(svc,msg,cb){
+			service.ExportLambdaFunctionRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
@@ -199,7 +190,7 @@ module.exports = function(RED) {
 			copyArgs(n,"fieldsToExport",params,undefined,false); 
 			copyArgs(n,"s3DestinationConfig",params,undefined,true); 
 			copyArgs(n,"fileFormat",params,undefined,false); 
-			copyArgs(n,"includeMemberAccounts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeMemberAccounts",params,undefined,false); 
 			
 			copyArgs(msg,"accountIds",params,undefined,true); 
 			copyArgs(msg,"filters",params,undefined,true); 
@@ -211,16 +202,14 @@ module.exports = function(RED) {
 
 			svc.exportLambdaFunctionRecommendations(params,cb);
 		}
-
-		
-		service.GetAutoScalingGroupRecommendations=function(svc,msg,cb){
+			service.GetAutoScalingGroupRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"accountIds",params,undefined,true); 
 			copyArgs(n,"autoScalingGroupArns",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,true); 
 			copyArgs(n,"recommendationPreferences",params,undefined,true); 
 			
@@ -234,15 +223,13 @@ module.exports = function(RED) {
 
 			svc.getAutoScalingGroupRecommendations(params,cb);
 		}
-
-		
-		service.GetEBSVolumeRecommendations=function(svc,msg,cb){
+			service.GetEBSVolumeRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"volumeArns",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,true); 
 			copyArgs(n,"accountIds",params,undefined,true); 
 			
@@ -255,15 +242,13 @@ module.exports = function(RED) {
 
 			svc.getEBSVolumeRecommendations(params,cb);
 		}
-
-		
-		service.GetEC2InstanceRecommendations=function(svc,msg,cb){
+			service.GetEC2InstanceRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"instanceArns",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,true); 
 			copyArgs(n,"accountIds",params,undefined,true); 
 			copyArgs(n,"recommendationPreferences",params,undefined,true); 
@@ -278,20 +263,18 @@ module.exports = function(RED) {
 
 			svc.getEC2InstanceRecommendations(params,cb);
 		}
-
-		
-		service.GetEC2RecommendationProjectedMetrics=function(svc,msg,cb){
+			service.GetEC2RecommendationProjectedMetrics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceArn",params,undefined,false); 
 			copyArgs(n,"stat",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			
 			copyArgs(n,"instanceArn",params,undefined,false); 
 			copyArgs(n,"stat",params,undefined,false); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"recommendationPreferences",params,undefined,true); 
@@ -306,9 +289,7 @@ module.exports = function(RED) {
 
 			svc.getEC2RecommendationProjectedMetrics(params,cb);
 		}
-
-		
-		service.GetEnrollmentStatus=function(svc,msg,cb){
+			service.GetEnrollmentStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -317,15 +298,13 @@ module.exports = function(RED) {
 
 			svc.getEnrollmentStatus(params,cb);
 		}
-
-		
-		service.GetEnrollmentStatusesForOrganization=function(svc,msg,cb){
+			service.GetEnrollmentStatusesForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -334,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.getEnrollmentStatusesForOrganization(params,cb);
 		}
-
-		
-		service.GetLambdaFunctionRecommendations=function(svc,msg,cb){
+			service.GetLambdaFunctionRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -344,7 +321,7 @@ module.exports = function(RED) {
 			copyArgs(n,"accountIds",params,undefined,true); 
 			copyArgs(n,"filters",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"functionArns",params,undefined,false); 
 			copyArgs(msg,"accountIds",params,undefined,true); 
@@ -355,15 +332,13 @@ module.exports = function(RED) {
 
 			svc.getLambdaFunctionRecommendations(params,cb);
 		}
-
-		
-		service.GetRecommendationSummaries=function(svc,msg,cb){
+			service.GetRecommendationSummaries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"accountIds",params,undefined,true); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"accountIds",params,undefined,true); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -372,15 +347,13 @@ module.exports = function(RED) {
 
 			svc.getRecommendationSummaries(params,cb);
 		}
-
-		
-		service.UpdateEnrollmentStatus=function(svc,msg,cb){
+			service.UpdateEnrollmentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"status",params,undefined,false); 
 			
 			copyArgs(n,"status",params,undefined,false); 
-			copyArgs(n,"includeMemberAccounts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeMemberAccounts",params,undefined,false); 
 			
 			copyArgs(msg,"status",params,undefined,false); 
 			copyArgs(msg,"includeMemberAccounts",params,undefined,false); 
@@ -388,9 +361,7 @@ module.exports = function(RED) {
 
 			svc.updateEnrollmentStatus(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ComputeOptimizer", AmazonAPINode);
 

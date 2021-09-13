@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcknowledgeJob=function(svc,msg,cb){
+			service.AcknowledgeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.acknowledgeJob(params,cb);
 		}
-
-		
-		service.AcknowledgeThirdPartyJob=function(svc,msg,cb){
+			service.AcknowledgeThirdPartyJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -129,9 +126,7 @@ module.exports = function(RED) {
 
 			svc.acknowledgeThirdPartyJob(params,cb);
 		}
-
-		
-		service.CreateCustomActionType=function(svc,msg,cb){
+			service.CreateCustomActionType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"category",params,undefined,false); 
@@ -161,9 +156,7 @@ module.exports = function(RED) {
 
 			svc.createCustomActionType(params,cb);
 		}
-
-		
-		service.CreatePipeline=function(svc,msg,cb){
+			service.CreatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipeline",params,undefined,true); 
@@ -177,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.createPipeline(params,cb);
 		}
-
-		
-		service.DeleteCustomActionType=function(svc,msg,cb){
+			service.DeleteCustomActionType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"category",params,undefined,false); 
@@ -197,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.deleteCustomActionType(params,cb);
 		}
-
-		
-		service.DeletePipeline=function(svc,msg,cb){
+			service.DeletePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -211,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.deletePipeline(params,cb);
 		}
-
-		
-		service.DeleteWebhook=function(svc,msg,cb){
+			service.DeleteWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.deleteWebhook(params,cb);
 		}
-
-		
-		service.DeregisterWebhookWithThirdParty=function(svc,msg,cb){
+			service.DeregisterWebhookWithThirdParty=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -238,9 +223,7 @@ module.exports = function(RED) {
 
 			svc.deregisterWebhookWithThirdParty(params,cb);
 		}
-
-		
-		service.DisableStageTransition=function(svc,msg,cb){
+			service.DisableStageTransition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -261,9 +244,7 @@ module.exports = function(RED) {
 
 			svc.disableStageTransition(params,cb);
 		}
-
-		
-		service.EnableStageTransition=function(svc,msg,cb){
+			service.EnableStageTransition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -281,9 +262,7 @@ module.exports = function(RED) {
 
 			svc.enableStageTransition(params,cb);
 		}
-
-		
-		service.GetActionType=function(svc,msg,cb){
+			service.GetActionType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"category",params,undefined,false); 
@@ -304,9 +283,7 @@ module.exports = function(RED) {
 
 			svc.getActionType(params,cb);
 		}
-
-		
-		service.GetJobDetails=function(svc,msg,cb){
+			service.GetJobDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -318,15 +295,13 @@ module.exports = function(RED) {
 
 			svc.getJobDetails(params,cb);
 		}
-
-		
-		service.GetPipeline=function(svc,msg,cb){
+			service.GetPipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
 			
 			copyArgs(n,"name",params,undefined,false); 
-			copyArgs(n,"version",params,undefined,false); 
+			copyArgs(Number(n),"version",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"version",params,undefined,false); 
@@ -334,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.getPipeline(params,cb);
 		}
-
-		
-		service.GetPipelineExecution=function(svc,msg,cb){
+			service.GetPipelineExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -351,9 +324,7 @@ module.exports = function(RED) {
 
 			svc.getPipelineExecution(params,cb);
 		}
-
-		
-		service.GetPipelineState=function(svc,msg,cb){
+			service.GetPipelineState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -365,9 +336,7 @@ module.exports = function(RED) {
 
 			svc.getPipelineState(params,cb);
 		}
-
-		
-		service.GetThirdPartyJobDetails=function(svc,msg,cb){
+			service.GetThirdPartyJobDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -382,16 +351,14 @@ module.exports = function(RED) {
 
 			svc.getThirdPartyJobDetails(params,cb);
 		}
-
-		
-		service.ListActionExecutions=function(svc,msg,cb){
+			service.ListActionExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
 			copyArgs(n,"filter",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"pipelineName",params,undefined,false); 
@@ -402,9 +369,7 @@ module.exports = function(RED) {
 
 			svc.listActionExecutions(params,cb);
 		}
-
-		
-		service.ListActionTypes=function(svc,msg,cb){
+			service.ListActionTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -419,15 +384,13 @@ module.exports = function(RED) {
 
 			svc.listActionTypes(params,cb);
 		}
-
-		
-		service.ListPipelineExecutions=function(svc,msg,cb){
+			service.ListPipelineExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"pipelineName",params,undefined,false); 
@@ -437,14 +400,12 @@ module.exports = function(RED) {
 
 			svc.listPipelineExecutions(params,cb);
 		}
-
-		
-		service.ListPipelines=function(svc,msg,cb){
+			service.ListPipelines=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -452,16 +413,14 @@ module.exports = function(RED) {
 
 			svc.listPipelines(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -470,14 +429,12 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListWebhooks=function(svc,msg,cb){
+			service.ListWebhooks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -485,15 +442,13 @@ module.exports = function(RED) {
 
 			svc.listWebhooks(params,cb);
 		}
-
-		
-		service.PollForJobs=function(svc,msg,cb){
+			service.PollForJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionTypeId",params,undefined,true); 
 			
 			copyArgs(n,"actionTypeId",params,undefined,true); 
-			copyArgs(n,"maxBatchSize",params,undefined,false); 
+			copyArgs(Number(n),"maxBatchSize",params,undefined,false); 
 			copyArgs(n,"queryParam",params,undefined,false); 
 			
 			copyArgs(msg,"actionTypeId",params,undefined,true); 
@@ -503,15 +458,13 @@ module.exports = function(RED) {
 
 			svc.pollForJobs(params,cb);
 		}
-
-		
-		service.PollForThirdPartyJobs=function(svc,msg,cb){
+			service.PollForThirdPartyJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionTypeId",params,undefined,true); 
 			
 			copyArgs(n,"actionTypeId",params,undefined,true); 
-			copyArgs(n,"maxBatchSize",params,undefined,false); 
+			copyArgs(Number(n),"maxBatchSize",params,undefined,false); 
 			
 			copyArgs(msg,"actionTypeId",params,undefined,true); 
 			copyArgs(msg,"maxBatchSize",params,undefined,false); 
@@ -519,9 +472,7 @@ module.exports = function(RED) {
 
 			svc.pollForThirdPartyJobs(params,cb);
 		}
-
-		
-		service.PutActionRevision=function(svc,msg,cb){
+			service.PutActionRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -542,9 +493,7 @@ module.exports = function(RED) {
 
 			svc.putActionRevision(params,cb);
 		}
-
-		
-		service.PutApprovalResult=function(svc,msg,cb){
+			service.PutApprovalResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -568,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.putApprovalResult(params,cb);
 		}
-
-		
-		service.PutJobFailureResult=function(svc,msg,cb){
+			service.PutJobFailureResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -585,9 +532,7 @@ module.exports = function(RED) {
 
 			svc.putJobFailureResult(params,cb);
 		}
-
-		
-		service.PutJobSuccessResult=function(svc,msg,cb){
+			service.PutJobSuccessResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -607,9 +552,7 @@ module.exports = function(RED) {
 
 			svc.putJobSuccessResult(params,cb);
 		}
-
-		
-		service.PutThirdPartyJobFailureResult=function(svc,msg,cb){
+			service.PutThirdPartyJobFailureResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -627,9 +570,7 @@ module.exports = function(RED) {
 
 			svc.putThirdPartyJobFailureResult(params,cb);
 		}
-
-		
-		service.PutThirdPartyJobSuccessResult=function(svc,msg,cb){
+			service.PutThirdPartyJobSuccessResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -650,9 +591,7 @@ module.exports = function(RED) {
 
 			svc.putThirdPartyJobSuccessResult(params,cb);
 		}
-
-		
-		service.PutWebhook=function(svc,msg,cb){
+			service.PutWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"webhook",params,undefined,true); 
@@ -666,9 +605,7 @@ module.exports = function(RED) {
 
 			svc.putWebhook(params,cb);
 		}
-
-		
-		service.RegisterWebhookWithThirdParty=function(svc,msg,cb){
+			service.RegisterWebhookWithThirdParty=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -679,9 +616,7 @@ module.exports = function(RED) {
 
 			svc.registerWebhookWithThirdParty(params,cb);
 		}
-
-		
-		service.RetryStageExecution=function(svc,msg,cb){
+			service.RetryStageExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -702,9 +637,7 @@ module.exports = function(RED) {
 
 			svc.retryStageExecution(params,cb);
 		}
-
-		
-		service.StartPipelineExecution=function(svc,msg,cb){
+			service.StartPipelineExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -718,9 +651,7 @@ module.exports = function(RED) {
 
 			svc.startPipelineExecution(params,cb);
 		}
-
-		
-		service.StopPipelineExecution=function(svc,msg,cb){
+			service.StopPipelineExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
@@ -728,7 +659,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"pipelineName",params,undefined,false); 
 			copyArgs(n,"pipelineExecutionId",params,undefined,false); 
-			copyArgs(n,"abandon",params,undefined,false); 
+			copyArgs(Boolean(n),"abandon",params,undefined,false); 
 			copyArgs(n,"reason",params,undefined,false); 
 			
 			copyArgs(msg,"pipelineName",params,undefined,false); 
@@ -739,9 +670,7 @@ module.exports = function(RED) {
 
 			svc.stopPipelineExecution(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -756,9 +685,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -773,9 +700,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateActionType=function(svc,msg,cb){
+			service.UpdateActionType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionType",params,undefined,true); 
@@ -787,9 +712,7 @@ module.exports = function(RED) {
 
 			svc.updateActionType(params,cb);
 		}
-
-		
-		service.UpdatePipeline=function(svc,msg,cb){
+			service.UpdatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipeline",params,undefined,true); 
@@ -801,9 +724,7 @@ module.exports = function(RED) {
 
 			svc.updatePipeline(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodePipeline", AmazonAPINode);
 

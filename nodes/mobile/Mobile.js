@@ -92,15 +92,14 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateProject=function(svc,msg,cb){
+			service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"region",params,undefined,false); 
-			copyArgs(n,"contents",params,undefined,false); 
+			copyArgs(Buffer.from(n),"contents",params,undefined,false); 
 			copyArgs(n,"snapshotId",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-
-		
-		service.DeleteProject=function(svc,msg,cb){
+			service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -125,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-
-		
-		service.DescribeBundle=function(svc,msg,cb){
+			service.DescribeBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bundleId",params,undefined,false); 
@@ -139,15 +134,13 @@ module.exports = function(RED) {
 
 			svc.describeBundle(params,cb);
 		}
-
-		
-		service.DescribeProject=function(svc,msg,cb){
+			service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			
 			copyArgs(n,"projectId",params,undefined,false); 
-			copyArgs(n,"syncFromResources",params,undefined,false); 
+			copyArgs(Boolean(n),"syncFromResources",params,undefined,false); 
 			
 			copyArgs(msg,"projectId",params,undefined,false); 
 			copyArgs(msg,"syncFromResources",params,undefined,false); 
@@ -155,9 +148,7 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-
-		
-		service.ExportBundle=function(svc,msg,cb){
+			service.ExportBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bundleId",params,undefined,false); 
@@ -173,9 +164,7 @@ module.exports = function(RED) {
 
 			svc.exportBundle(params,cb);
 		}
-
-		
-		service.ExportProject=function(svc,msg,cb){
+			service.ExportProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -187,13 +176,11 @@ module.exports = function(RED) {
 
 			svc.exportProject(params,cb);
 		}
-
-		
-		service.ListBundles=function(svc,msg,cb){
+			service.ListBundles=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -202,13 +189,11 @@ module.exports = function(RED) {
 
 			svc.listBundles(params,cb);
 		}
-
-		
-		service.ListProjects=function(svc,msg,cb){
+			service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -217,14 +202,12 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-
-		
-		service.UpdateProject=function(svc,msg,cb){
+			service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			
-			copyArgs(n,"contents",params,undefined,false); 
+			copyArgs(Buffer.from(n),"contents",params,undefined,false); 
 			copyArgs(n,"projectId",params,undefined,false); 
 			
 			copyArgs(msg,"contents",params,undefined,false); 
@@ -233,9 +216,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Mobile", AmazonAPINode);
 

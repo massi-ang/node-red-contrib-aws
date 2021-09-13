@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddAttributesToFindings=function(svc,msg,cb){
+			service.AddAttributesToFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"findingArns",params,undefined,true); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.addAttributesToFindings(params,cb);
 		}
-
-		
-		service.CreateAssessmentTarget=function(svc,msg,cb){
+			service.CreateAssessmentTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTargetName",params,undefined,false); 
@@ -125,19 +122,17 @@ module.exports = function(RED) {
 
 			svc.createAssessmentTarget(params,cb);
 		}
-
-		
-		service.CreateAssessmentTemplate=function(svc,msg,cb){
+			service.CreateAssessmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTargetArn",params,undefined,false); 
 			copyArgs(n,"assessmentTemplateName",params,undefined,false); 
-			copyArgs(n,"durationInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"durationInSeconds",params,undefined,false); 
 			copyArgs(n,"rulesPackageArns",params,undefined,true); 
 			
 			copyArgs(n,"assessmentTargetArn",params,undefined,false); 
 			copyArgs(n,"assessmentTemplateName",params,undefined,false); 
-			copyArgs(n,"durationInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"durationInSeconds",params,undefined,false); 
 			copyArgs(n,"rulesPackageArns",params,undefined,true); 
 			copyArgs(n,"userAttributesForFindings",params,undefined,true); 
 			
@@ -150,9 +145,7 @@ module.exports = function(RED) {
 
 			svc.createAssessmentTemplate(params,cb);
 		}
-
-		
-		service.CreateExclusionsPreview=function(svc,msg,cb){
+			service.CreateExclusionsPreview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTemplateArn",params,undefined,false); 
@@ -164,9 +157,7 @@ module.exports = function(RED) {
 
 			svc.createExclusionsPreview(params,cb);
 		}
-
-		
-		service.CreateResourceGroup=function(svc,msg,cb){
+			service.CreateResourceGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceGroupTags",params,undefined,true); 
@@ -178,9 +169,7 @@ module.exports = function(RED) {
 
 			svc.createResourceGroup(params,cb);
 		}
-
-		
-		service.DeleteAssessmentRun=function(svc,msg,cb){
+			service.DeleteAssessmentRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
@@ -192,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.deleteAssessmentRun(params,cb);
 		}
-
-		
-		service.DeleteAssessmentTarget=function(svc,msg,cb){
+			service.DeleteAssessmentTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTargetArn",params,undefined,false); 
@@ -206,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.deleteAssessmentTarget(params,cb);
 		}
-
-		
-		service.DeleteAssessmentTemplate=function(svc,msg,cb){
+			service.DeleteAssessmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTemplateArn",params,undefined,false); 
@@ -220,9 +205,7 @@ module.exports = function(RED) {
 
 			svc.deleteAssessmentTemplate(params,cb);
 		}
-
-		
-		service.DescribeAssessmentRuns=function(svc,msg,cb){
+			service.DescribeAssessmentRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArns",params,undefined,true); 
@@ -234,9 +217,7 @@ module.exports = function(RED) {
 
 			svc.describeAssessmentRuns(params,cb);
 		}
-
-		
-		service.DescribeAssessmentTargets=function(svc,msg,cb){
+			service.DescribeAssessmentTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTargetArns",params,undefined,true); 
@@ -248,9 +229,7 @@ module.exports = function(RED) {
 
 			svc.describeAssessmentTargets(params,cb);
 		}
-
-		
-		service.DescribeAssessmentTemplates=function(svc,msg,cb){
+			service.DescribeAssessmentTemplates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTemplateArns",params,undefined,true); 
@@ -262,9 +241,7 @@ module.exports = function(RED) {
 
 			svc.describeAssessmentTemplates(params,cb);
 		}
-
-		
-		service.DescribeCrossAccountAccessRole=function(svc,msg,cb){
+			service.DescribeCrossAccountAccessRole=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -273,9 +250,7 @@ module.exports = function(RED) {
 
 			svc.describeCrossAccountAccessRole(params,cb);
 		}
-
-		
-		service.DescribeExclusions=function(svc,msg,cb){
+			service.DescribeExclusions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"exclusionArns",params,undefined,false); 
@@ -289,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.describeExclusions(params,cb);
 		}
-
-		
-		service.DescribeFindings=function(svc,msg,cb){
+			service.DescribeFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"findingArns",params,undefined,true); 
@@ -305,9 +278,7 @@ module.exports = function(RED) {
 
 			svc.describeFindings(params,cb);
 		}
-
-		
-		service.DescribeResourceGroups=function(svc,msg,cb){
+			service.DescribeResourceGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceGroupArns",params,undefined,true); 
@@ -319,9 +290,7 @@ module.exports = function(RED) {
 
 			svc.describeResourceGroups(params,cb);
 		}
-
-		
-		service.DescribeRulesPackages=function(svc,msg,cb){
+			service.DescribeRulesPackages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"rulesPackageArns",params,undefined,true); 
@@ -335,9 +304,7 @@ module.exports = function(RED) {
 
 			svc.describeRulesPackages(params,cb);
 		}
-
-		
-		service.GetAssessmentReport=function(svc,msg,cb){
+			service.GetAssessmentReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
@@ -355,9 +322,7 @@ module.exports = function(RED) {
 
 			svc.getAssessmentReport(params,cb);
 		}
-
-		
-		service.GetExclusionsPreview=function(svc,msg,cb){
+			service.GetExclusionsPreview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTemplateArn",params,undefined,false); 
@@ -366,7 +331,7 @@ module.exports = function(RED) {
 			copyArgs(n,"assessmentTemplateArn",params,undefined,false); 
 			copyArgs(n,"previewToken",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"locale",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentTemplateArn",params,undefined,false); 
@@ -378,9 +343,7 @@ module.exports = function(RED) {
 
 			svc.getExclusionsPreview(params,cb);
 		}
-
-		
-		service.GetTelemetryMetadata=function(svc,msg,cb){
+			service.GetTelemetryMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
@@ -392,9 +355,7 @@ module.exports = function(RED) {
 
 			svc.getTelemetryMetadata(params,cb);
 		}
-
-		
-		service.ListAssessmentRunAgents=function(svc,msg,cb){
+			service.ListAssessmentRunAgents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
@@ -402,7 +363,7 @@ module.exports = function(RED) {
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
 			copyArgs(n,"filter",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentRunArn",params,undefined,false); 
 			copyArgs(msg,"filter",params,undefined,false); 
@@ -412,16 +373,14 @@ module.exports = function(RED) {
 
 			svc.listAssessmentRunAgents(params,cb);
 		}
-
-		
-		service.ListAssessmentRuns=function(svc,msg,cb){
+			service.ListAssessmentRuns=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"assessmentTemplateArns",params,undefined,true); 
 			copyArgs(n,"filter",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentTemplateArns",params,undefined,true); 
 			copyArgs(msg,"filter",params,undefined,false); 
@@ -431,15 +390,13 @@ module.exports = function(RED) {
 
 			svc.listAssessmentRuns(params,cb);
 		}
-
-		
-		service.ListAssessmentTargets=function(svc,msg,cb){
+			service.ListAssessmentTargets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filter",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filter",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -448,16 +405,14 @@ module.exports = function(RED) {
 
 			svc.listAssessmentTargets(params,cb);
 		}
-
-		
-		service.ListAssessmentTemplates=function(svc,msg,cb){
+			service.ListAssessmentTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"assessmentTargetArns",params,undefined,true); 
 			copyArgs(n,"filter",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentTargetArns",params,undefined,true); 
 			copyArgs(msg,"filter",params,undefined,false); 
@@ -467,15 +422,13 @@ module.exports = function(RED) {
 
 			svc.listAssessmentTemplates(params,cb);
 		}
-
-		
-		service.ListEventSubscriptions=function(svc,msg,cb){
+			service.ListEventSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -484,16 +437,14 @@ module.exports = function(RED) {
 
 			svc.listEventSubscriptions(params,cb);
 		}
-
-		
-		service.ListExclusions=function(svc,msg,cb){
+			service.ListExclusions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentRunArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -502,16 +453,14 @@ module.exports = function(RED) {
 
 			svc.listExclusions(params,cb);
 		}
-
-		
-		service.ListFindings=function(svc,msg,cb){
+			service.ListFindings=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"assessmentRunArns",params,undefined,true); 
 			copyArgs(n,"filter",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"assessmentRunArns",params,undefined,true); 
 			copyArgs(msg,"filter",params,undefined,false); 
@@ -521,14 +470,12 @@ module.exports = function(RED) {
 
 			svc.listFindings(params,cb);
 		}
-
-		
-		service.ListRulesPackages=function(svc,msg,cb){
+			service.ListRulesPackages=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -536,9 +483,7 @@ module.exports = function(RED) {
 
 			svc.listRulesPackages(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -550,16 +495,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PreviewAgents=function(svc,msg,cb){
+			service.PreviewAgents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"previewAgentsArn",params,undefined,false); 
 			
 			copyArgs(n,"previewAgentsArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"previewAgentsArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -568,9 +511,7 @@ module.exports = function(RED) {
 
 			svc.previewAgents(params,cb);
 		}
-
-		
-		service.RegisterCrossAccountAccessRole=function(svc,msg,cb){
+			service.RegisterCrossAccountAccessRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleArn",params,undefined,false); 
@@ -582,9 +523,7 @@ module.exports = function(RED) {
 
 			svc.registerCrossAccountAccessRole(params,cb);
 		}
-
-		
-		service.RemoveAttributesFromFindings=function(svc,msg,cb){
+			service.RemoveAttributesFromFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"findingArns",params,undefined,true); 
@@ -599,9 +538,7 @@ module.exports = function(RED) {
 
 			svc.removeAttributesFromFindings(params,cb);
 		}
-
-		
-		service.SetTagsForResource=function(svc,msg,cb){
+			service.SetTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -615,9 +552,7 @@ module.exports = function(RED) {
 
 			svc.setTagsForResource(params,cb);
 		}
-
-		
-		service.StartAssessmentRun=function(svc,msg,cb){
+			service.StartAssessmentRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTemplateArn",params,undefined,false); 
@@ -631,9 +566,7 @@ module.exports = function(RED) {
 
 			svc.startAssessmentRun(params,cb);
 		}
-
-		
-		service.StopAssessmentRun=function(svc,msg,cb){
+			service.StopAssessmentRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentRunArn",params,undefined,false); 
@@ -647,9 +580,7 @@ module.exports = function(RED) {
 
 			svc.stopAssessmentRun(params,cb);
 		}
-
-		
-		service.SubscribeToEvent=function(svc,msg,cb){
+			service.SubscribeToEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -667,9 +598,7 @@ module.exports = function(RED) {
 
 			svc.subscribeToEvent(params,cb);
 		}
-
-		
-		service.UnsubscribeFromEvent=function(svc,msg,cb){
+			service.UnsubscribeFromEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -687,9 +616,7 @@ module.exports = function(RED) {
 
 			svc.unsubscribeFromEvent(params,cb);
 		}
-
-		
-		service.UpdateAssessmentTarget=function(svc,msg,cb){
+			service.UpdateAssessmentTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentTargetArn",params,undefined,false); 
@@ -706,9 +633,7 @@ module.exports = function(RED) {
 
 			svc.updateAssessmentTarget(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Inspector", AmazonAPINode);
 

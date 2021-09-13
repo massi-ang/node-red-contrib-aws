@@ -28,7 +28,7 @@ module.exports = {
 				} else {
 					return [];
 				}
-			}).forEach(reqA => { reqA.forEach(req => { reqs[req] = 1 }) });
+			}).forEach(reqA => { reqA.forEach(req => { reqs[req] = serviceDef.operations[op].input.members[req].type || 'str'; }) });
 			//console.log(JSON.stringify(reqs));
 			return (Object.keys(reqs));
 		}
@@ -59,6 +59,48 @@ module.exports = {
 			})
 			//console.log(JSON.stringify(reqs));
 			return (reqs);
+		}
+
+		function getAttribute(op, input) {
+			switch (op[input].type) {
+				case 'integer':
+					return 'Number(n)';
+				case 'boolean':
+					return 'Boolean(n)';
+				case 'blob':
+					return 'Buffer.from(n)';
+				case 'str':
+					return 'n';
+				default:
+					return 'n';
+			}
+		}
+
+		function genSingleOperation(operations, name) {
+			const operation = operations[name];
+			const operationCode =  `
+			service.${name}=function(svc,msg,cb){
+			var params={};
+			${(operation.input && operation.input.required) ? mapKeys(operation.input.required, input => `
+			copyArgs(${getAttribute(operation.input.members, operation.input.required[input])},"${operation.input.required[input]==='type'?'_type':operation.input.required[input]}",params,${operation.input.required[input]==='type'?'"type"':'undefined'},${typeof operation.input.members[operation.input.required[input]].shape !== "undefined"}); `) : ''}
+			${(operation.input && operation.input.members) ? mapKeys(operation.input.members, input => `
+			copyArgs(${getAttribute(operation.input.members, input)},"${input}",params,undefined,${typeof operation.input.members[input].shape !== "undefined"}); `) : ''}
+			${(operation.input && operation.input.members) ? mapKeys(operation.input.members, input => `
+			copyArgs(msg,"${input}",params,undefined,${typeof operation.input.members[input].shape !== "undefined"}); `) : ''}
+			${(operation.input && operation.input.shape) ? mapKeys(serviceDef.shapes[operation.input.shape].members, input => `
+			copyArgs(msg,"${input}",params,undefined,true); `) : ''}
+
+			svc.${firstLetterLowercase(name)}(params,cb);
+		}`
+		return operationCode;
+		}
+
+		function genAllOperations(operations) {
+			const allOps = mapKeys(operations, op => {
+				return genSingleOperation(operations, op)
+			});
+
+			return allOps;
 		}
 
 		function generateOnEditPrepareStatements(serviceDef) {
@@ -304,24 +346,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
-		${mapKeys(serviceDef.operations, op => `
-		service.${op}=function(svc,msg,cb){
-			var params={};
-			${(serviceDef.operations[op].input && serviceDef.operations[op].input.required) ? mapKeys(serviceDef.operations[op].input.required, input => `
-			copyArgs(n,"${serviceDef.operations[op].input.required[input]==='type'?'_type':serviceDef.operations[op].input.required[input]}",params,${serviceDef.operations[op].input.required[input]==='type'?'"type"':'undefined'},${typeof serviceDef.operations[op].input.members[serviceDef.operations[op].input.required[input]].shape !== "undefined"}); `) : ''}
-			${(serviceDef.operations[op].input && serviceDef.operations[op].input.members) ? mapKeys(serviceDef.operations[op].input.members, input => `
-			copyArgs(n,"${input}",params,undefined,${typeof serviceDef.operations[op].input.members[input].shape !== "undefined"}); `) : ''}
-			${(serviceDef.operations[op].input && serviceDef.operations[op].input.members) ? mapKeys(serviceDef.operations[op].input.members, input => `
-			copyArgs(msg,"${input}",params,undefined,${typeof serviceDef.operations[op].input.members[input].shape !== "undefined"}); `) : ''}
-			${(serviceDef.operations[op].input && serviceDef.operations[op].input.shape) ? mapKeys(serviceDef.shapes[serviceDef.operations[op].input.shape].members, input => `
-			copyArgs(msg,"${input}",params,undefined,true); `) : ''}
-
-			svc.${firstLetterLowercase(op)}(params,cb);
-		}
-
-		`)} 
-
+		${genAllOperations(serviceDef.operations)}
+	
 	}
 	RED.nodes.registerType("AWS ${serviceDef.metadata.serviceName}", AmazonAPINode);
 

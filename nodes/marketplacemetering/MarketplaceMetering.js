@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchMeterUsage=function(svc,msg,cb){
+			service.BatchMeterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UsageRecords",params,undefined,true); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.batchMeterUsage(params,cb);
 		}
-
-		
-		service.MeterUsage=function(svc,msg,cb){
+			service.MeterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductCode",params,undefined,false); 
@@ -121,8 +118,8 @@ module.exports = function(RED) {
 			copyArgs(n,"ProductCode",params,undefined,false); 
 			copyArgs(n,"Timestamp",params,undefined,false); 
 			copyArgs(n,"UsageDimension",params,undefined,false); 
-			copyArgs(n,"UsageQuantity",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Number(n),"UsageQuantity",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			copyArgs(n,"UsageAllocations",params,undefined,true); 
 			
 			copyArgs(msg,"ProductCode",params,undefined,false); 
@@ -135,16 +132,14 @@ module.exports = function(RED) {
 
 			svc.meterUsage(params,cb);
 		}
-
-		
-		service.RegisterUsage=function(svc,msg,cb){
+			service.RegisterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductCode",params,undefined,false); 
-			copyArgs(n,"PublicKeyVersion",params,undefined,false); 
+			copyArgs(Number(n),"PublicKeyVersion",params,undefined,false); 
 			
 			copyArgs(n,"ProductCode",params,undefined,false); 
-			copyArgs(n,"PublicKeyVersion",params,undefined,false); 
+			copyArgs(Number(n),"PublicKeyVersion",params,undefined,false); 
 			copyArgs(n,"Nonce",params,undefined,false); 
 			
 			copyArgs(msg,"ProductCode",params,undefined,false); 
@@ -154,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.registerUsage(params,cb);
 		}
-
-		
-		service.ResolveCustomer=function(svc,msg,cb){
+			service.ResolveCustomer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistrationToken",params,undefined,false); 
@@ -168,9 +161,7 @@ module.exports = function(RED) {
 
 			svc.resolveCustomer(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MarketplaceMetering", AmazonAPINode);
 

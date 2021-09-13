@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptPortfolioShare=function(svc,msg,cb){
+			service.AcceptPortfolioShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -110,9 +109,7 @@ module.exports = function(RED) {
 
 			svc.acceptPortfolioShare(params,cb);
 		}
-
-		
-		service.AssociateBudgetWithResource=function(svc,msg,cb){
+			service.AssociateBudgetWithResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BudgetName",params,undefined,false); 
@@ -127,9 +124,7 @@ module.exports = function(RED) {
 
 			svc.associateBudgetWithResource(params,cb);
 		}
-
-		
-		service.AssociatePrincipalWithPortfolio=function(svc,msg,cb){
+			service.AssociatePrincipalWithPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -149,9 +144,7 @@ module.exports = function(RED) {
 
 			svc.associatePrincipalWithPortfolio(params,cb);
 		}
-
-		
-		service.AssociateProductWithPortfolio=function(svc,msg,cb){
+			service.AssociateProductWithPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -170,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.associateProductWithPortfolio(params,cb);
 		}
-
-		
-		service.AssociateServiceActionWithProvisioningArtifact=function(svc,msg,cb){
+			service.AssociateServiceActionWithProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -192,9 +183,7 @@ module.exports = function(RED) {
 
 			svc.associateServiceActionWithProvisioningArtifact(params,cb);
 		}
-
-		
-		service.AssociateTagOptionWithResource=function(svc,msg,cb){
+			service.AssociateTagOptionWithResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -209,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.associateTagOptionWithResource(params,cb);
 		}
-
-		
-		service.BatchAssociateServiceActionWithProvisioningArtifact=function(svc,msg,cb){
+			service.BatchAssociateServiceActionWithProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceActionAssociations",params,undefined,true); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.batchAssociateServiceActionWithProvisioningArtifact(params,cb);
 		}
-
-		
-		service.BatchDisassociateServiceActionFromProvisioningArtifact=function(svc,msg,cb){
+			service.BatchDisassociateServiceActionFromProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceActionAssociations",params,undefined,true); 
@@ -241,9 +226,7 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateServiceActionFromProvisioningArtifact(params,cb);
 		}
-
-		
-		service.CopyProduct=function(svc,msg,cb){
+			service.CopyProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceProductArn",params,undefined,false); 
@@ -268,9 +251,7 @@ module.exports = function(RED) {
 
 			svc.copyProduct(params,cb);
 		}
-
-		
-		service.CreateConstraint=function(svc,msg,cb){
+			service.CreateConstraint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -298,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.createConstraint(params,cb);
 		}
-
-		
-		service.CreatePortfolio=function(svc,msg,cb){
+			service.CreatePortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DisplayName",params,undefined,false); 
@@ -324,9 +303,7 @@ module.exports = function(RED) {
 
 			svc.createPortfolio(params,cb);
 		}
-
-		
-		service.CreatePortfolioShare=function(svc,msg,cb){
+			service.CreatePortfolioShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -335,7 +312,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"OrganizationNode",params,undefined,true); 
-			copyArgs(n,"ShareTagOptions",params,undefined,false); 
+			copyArgs(Boolean(n),"ShareTagOptions",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PortfolioId",params,undefined,false); 
@@ -346,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.createPortfolioShare(params,cb);
 		}
-
-		
-		service.CreateProduct=function(svc,msg,cb){
+			service.CreateProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -386,9 +361,7 @@ module.exports = function(RED) {
 
 			svc.createProduct(params,cb);
 		}
-
-		
-		service.CreateProvisionedProductPlan=function(svc,msg,cb){
+			service.CreateProvisionedProductPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlanName",params,undefined,false); 
@@ -425,9 +398,7 @@ module.exports = function(RED) {
 
 			svc.createProvisionedProductPlan(params,cb);
 		}
-
-		
-		service.CreateProvisioningArtifact=function(svc,msg,cb){
+			service.CreateProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -447,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.createProvisioningArtifact(params,cb);
 		}
-
-		
-		service.CreateServiceAction=function(svc,msg,cb){
+			service.CreateServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -474,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.createServiceAction(params,cb);
 		}
-
-		
-		service.CreateTagOption=function(svc,msg,cb){
+			service.CreateTagOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Key",params,undefined,false); 
@@ -491,9 +458,7 @@ module.exports = function(RED) {
 
 			svc.createTagOption(params,cb);
 		}
-
-		
-		service.DeleteConstraint=function(svc,msg,cb){
+			service.DeleteConstraint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -507,9 +472,7 @@ module.exports = function(RED) {
 
 			svc.deleteConstraint(params,cb);
 		}
-
-		
-		service.DeletePortfolio=function(svc,msg,cb){
+			service.DeletePortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -523,9 +486,7 @@ module.exports = function(RED) {
 
 			svc.deletePortfolio(params,cb);
 		}
-
-		
-		service.DeletePortfolioShare=function(svc,msg,cb){
+			service.DeletePortfolioShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -543,9 +504,7 @@ module.exports = function(RED) {
 
 			svc.deletePortfolioShare(params,cb);
 		}
-
-		
-		service.DeleteProduct=function(svc,msg,cb){
+			service.DeleteProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -559,16 +518,14 @@ module.exports = function(RED) {
 
 			svc.deleteProduct(params,cb);
 		}
-
-		
-		service.DeleteProvisionedProductPlan=function(svc,msg,cb){
+			service.DeleteProvisionedProductPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlanId",params,undefined,false); 
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PlanId",params,undefined,false); 
-			copyArgs(n,"IgnoreErrors",params,undefined,false); 
+			copyArgs(Boolean(n),"IgnoreErrors",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PlanId",params,undefined,false); 
@@ -577,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.deleteProvisionedProductPlan(params,cb);
 		}
-
-		
-		service.DeleteProvisioningArtifact=function(svc,msg,cb){
+			service.DeleteProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -596,9 +551,7 @@ module.exports = function(RED) {
 
 			svc.deleteProvisioningArtifact(params,cb);
 		}
-
-		
-		service.DeleteServiceAction=function(svc,msg,cb){
+			service.DeleteServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -612,9 +565,7 @@ module.exports = function(RED) {
 
 			svc.deleteServiceAction(params,cb);
 		}
-
-		
-		service.DeleteTagOption=function(svc,msg,cb){
+			service.DeleteTagOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -626,9 +577,7 @@ module.exports = function(RED) {
 
 			svc.deleteTagOption(params,cb);
 		}
-
-		
-		service.DescribeConstraint=function(svc,msg,cb){
+			service.DescribeConstraint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -642,9 +591,7 @@ module.exports = function(RED) {
 
 			svc.describeConstraint(params,cb);
 		}
-
-		
-		service.DescribeCopyProductStatus=function(svc,msg,cb){
+			service.DescribeCopyProductStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CopyProductToken",params,undefined,false); 
@@ -658,9 +605,7 @@ module.exports = function(RED) {
 
 			svc.describeCopyProductStatus(params,cb);
 		}
-
-		
-		service.DescribePortfolio=function(svc,msg,cb){
+			service.DescribePortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -674,9 +619,7 @@ module.exports = function(RED) {
 
 			svc.describePortfolio(params,cb);
 		}
-
-		
-		service.DescribePortfolioShareStatus=function(svc,msg,cb){
+			service.DescribePortfolioShareStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioShareToken",params,undefined,false); 
@@ -688,9 +631,7 @@ module.exports = function(RED) {
 
 			svc.describePortfolioShareStatus(params,cb);
 		}
-
-		
-		service.DescribePortfolioShares=function(svc,msg,cb){
+			service.DescribePortfolioShares=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -699,7 +640,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"PortfolioId",params,undefined,false); 
 			copyArgs(msg,"Type",params,undefined,false); 
@@ -709,9 +650,7 @@ module.exports = function(RED) {
 
 			svc.describePortfolioShares(params,cb);
 		}
-
-		
-		service.DescribeProduct=function(svc,msg,cb){
+			service.DescribeProduct=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -726,9 +665,7 @@ module.exports = function(RED) {
 
 			svc.describeProduct(params,cb);
 		}
-
-		
-		service.DescribeProductAsAdmin=function(svc,msg,cb){
+			service.DescribeProductAsAdmin=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -745,9 +682,7 @@ module.exports = function(RED) {
 
 			svc.describeProductAsAdmin(params,cb);
 		}
-
-		
-		service.DescribeProductView=function(svc,msg,cb){
+			service.DescribeProductView=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -761,9 +696,7 @@ module.exports = function(RED) {
 
 			svc.describeProductView(params,cb);
 		}
-
-		
-		service.DescribeProvisionedProduct=function(svc,msg,cb){
+			service.DescribeProvisionedProduct=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -778,16 +711,14 @@ module.exports = function(RED) {
 
 			svc.describeProvisionedProduct(params,cb);
 		}
-
-		
-		service.DescribeProvisionedProductPlan=function(svc,msg,cb){
+			service.DescribeProvisionedProductPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlanId",params,undefined,false); 
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PlanId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -798,9 +729,7 @@ module.exports = function(RED) {
 
 			svc.describeProvisionedProductPlan(params,cb);
 		}
-
-		
-		service.DescribeProvisioningArtifact=function(svc,msg,cb){
+			service.DescribeProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -809,7 +738,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProductId",params,undefined,false); 
 			copyArgs(n,"ProvisioningArtifactName",params,undefined,false); 
 			copyArgs(n,"ProductName",params,undefined,false); 
-			copyArgs(n,"Verbose",params,undefined,false); 
+			copyArgs(Boolean(n),"Verbose",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"ProvisioningArtifactId",params,undefined,false); 
@@ -821,9 +750,7 @@ module.exports = function(RED) {
 
 			svc.describeProvisioningArtifact(params,cb);
 		}
-
-		
-		service.DescribeProvisioningParameters=function(svc,msg,cb){
+			service.DescribeProvisioningParameters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -846,9 +773,7 @@ module.exports = function(RED) {
 
 			svc.describeProvisioningParameters(params,cb);
 		}
-
-		
-		service.DescribeRecord=function(svc,msg,cb){
+			service.DescribeRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -856,7 +781,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"Id",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"Id",params,undefined,false); 
@@ -866,9 +791,7 @@ module.exports = function(RED) {
 
 			svc.describeRecord(params,cb);
 		}
-
-		
-		service.DescribeServiceAction=function(svc,msg,cb){
+			service.DescribeServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -882,9 +805,7 @@ module.exports = function(RED) {
 
 			svc.describeServiceAction(params,cb);
 		}
-
-		
-		service.DescribeServiceActionExecutionParameters=function(svc,msg,cb){
+			service.DescribeServiceActionExecutionParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
@@ -901,9 +822,7 @@ module.exports = function(RED) {
 
 			svc.describeServiceActionExecutionParameters(params,cb);
 		}
-
-		
-		service.DescribeTagOption=function(svc,msg,cb){
+			service.DescribeTagOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -915,9 +834,7 @@ module.exports = function(RED) {
 
 			svc.describeTagOption(params,cb);
 		}
-
-		
-		service.DisableAWSOrganizationsAccess=function(svc,msg,cb){
+			service.DisableAWSOrganizationsAccess=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -926,9 +843,7 @@ module.exports = function(RED) {
 
 			svc.disableAWSOrganizationsAccess(params,cb);
 		}
-
-		
-		service.DisassociateBudgetFromResource=function(svc,msg,cb){
+			service.DisassociateBudgetFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BudgetName",params,undefined,false); 
@@ -943,9 +858,7 @@ module.exports = function(RED) {
 
 			svc.disassociateBudgetFromResource(params,cb);
 		}
-
-		
-		service.DisassociatePrincipalFromPortfolio=function(svc,msg,cb){
+			service.DisassociatePrincipalFromPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -962,9 +875,7 @@ module.exports = function(RED) {
 
 			svc.disassociatePrincipalFromPortfolio(params,cb);
 		}
-
-		
-		service.DisassociateProductFromPortfolio=function(svc,msg,cb){
+			service.DisassociateProductFromPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -981,9 +892,7 @@ module.exports = function(RED) {
 
 			svc.disassociateProductFromPortfolio(params,cb);
 		}
-
-		
-		service.DisassociateServiceActionFromProvisioningArtifact=function(svc,msg,cb){
+			service.DisassociateServiceActionFromProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1003,9 +912,7 @@ module.exports = function(RED) {
 
 			svc.disassociateServiceActionFromProvisioningArtifact(params,cb);
 		}
-
-		
-		service.DisassociateTagOptionFromResource=function(svc,msg,cb){
+			service.DisassociateTagOptionFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -1020,9 +927,7 @@ module.exports = function(RED) {
 
 			svc.disassociateTagOptionFromResource(params,cb);
 		}
-
-		
-		service.EnableAWSOrganizationsAccess=function(svc,msg,cb){
+			service.EnableAWSOrganizationsAccess=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1031,9 +936,7 @@ module.exports = function(RED) {
 
 			svc.enableAWSOrganizationsAccess(params,cb);
 		}
-
-		
-		service.ExecuteProvisionedProductPlan=function(svc,msg,cb){
+			service.ExecuteProvisionedProductPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlanId",params,undefined,false); 
@@ -1050,9 +953,7 @@ module.exports = function(RED) {
 
 			svc.executeProvisionedProductPlan(params,cb);
 		}
-
-		
-		service.ExecuteProvisionedProductServiceAction=function(svc,msg,cb){
+			service.ExecuteProvisionedProductServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
@@ -1074,9 +975,7 @@ module.exports = function(RED) {
 
 			svc.executeProvisionedProductServiceAction(params,cb);
 		}
-
-		
-		service.GetAWSOrganizationsAccessStatus=function(svc,msg,cb){
+			service.GetAWSOrganizationsAccessStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1085,9 +984,7 @@ module.exports = function(RED) {
 
 			svc.getAWSOrganizationsAccessStatus(params,cb);
 		}
-
-		
-		service.GetProvisionedProductOutputs=function(svc,msg,cb){
+			service.GetProvisionedProductOutputs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1095,7 +992,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
 			copyArgs(n,"ProvisionedProductName",params,undefined,false); 
 			copyArgs(n,"OutputKeys",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1108,9 +1005,7 @@ module.exports = function(RED) {
 
 			svc.getProvisionedProductOutputs(params,cb);
 		}
-
-		
-		service.ImportAsProvisionedProduct=function(svc,msg,cb){
+			service.ImportAsProvisionedProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1136,15 +1031,13 @@ module.exports = function(RED) {
 
 			svc.importAsProvisionedProduct(params,cb);
 		}
-
-		
-		service.ListAcceptedPortfolioShares=function(svc,msg,cb){
+			service.ListAcceptedPortfolioShares=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PortfolioShareType",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1155,16 +1048,14 @@ module.exports = function(RED) {
 
 			svc.listAcceptedPortfolioShares(params,cb);
 		}
-
-		
-		service.ListBudgetsForResource=function(svc,msg,cb){
+			service.ListBudgetsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"ResourceId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1175,9 +1066,7 @@ module.exports = function(RED) {
 
 			svc.listBudgetsForResource(params,cb);
 		}
-
-		
-		service.ListConstraintsForPortfolio=function(svc,msg,cb){
+			service.ListConstraintsForPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -1185,7 +1074,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"ProductId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1197,16 +1086,14 @@ module.exports = function(RED) {
 
 			svc.listConstraintsForPortfolio(params,cb);
 		}
-
-		
-		service.ListLaunchPaths=function(svc,msg,cb){
+			service.ListLaunchPaths=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"ProductId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1217,9 +1104,7 @@ module.exports = function(RED) {
 
 			svc.listLaunchPaths(params,cb);
 		}
-
-		
-		service.ListOrganizationPortfolioAccess=function(svc,msg,cb){
+			service.ListOrganizationPortfolioAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -1229,7 +1114,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"OrganizationNodeType",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PortfolioId",params,undefined,false); 
@@ -1240,9 +1125,7 @@ module.exports = function(RED) {
 
 			svc.listOrganizationPortfolioAccess(params,cb);
 		}
-
-		
-		service.ListPortfolioAccess=function(svc,msg,cb){
+			service.ListPortfolioAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -1251,7 +1134,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"OrganizationParentId",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PortfolioId",params,undefined,false); 
@@ -1262,15 +1145,13 @@ module.exports = function(RED) {
 
 			svc.listPortfolioAccess(params,cb);
 		}
-
-		
-		service.ListPortfolios=function(svc,msg,cb){
+			service.ListPortfolios=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PageToken",params,undefined,false); 
@@ -1279,9 +1160,7 @@ module.exports = function(RED) {
 
 			svc.listPortfolios(params,cb);
 		}
-
-		
-		service.ListPortfoliosForProduct=function(svc,msg,cb){
+			service.ListPortfoliosForProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1289,7 +1168,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"ProductId",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"ProductId",params,undefined,false); 
@@ -1299,16 +1178,14 @@ module.exports = function(RED) {
 
 			svc.listPortfoliosForProduct(params,cb);
 		}
-
-		
-		service.ListPrincipalsForPortfolio=function(svc,msg,cb){
+			service.ListPrincipalsForPortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"PortfolioId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1319,15 +1196,13 @@ module.exports = function(RED) {
 
 			svc.listPrincipalsForPortfolio(params,cb);
 		}
-
-		
-		service.ListProvisionedProductPlans=function(svc,msg,cb){
+			service.ListProvisionedProductPlans=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"ProvisionProductId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			copyArgs(n,"AccessLevelFilter",params,undefined,true); 
 			
@@ -1340,9 +1215,7 @@ module.exports = function(RED) {
 
 			svc.listProvisionedProductPlans(params,cb);
 		}
-
-		
-		service.ListProvisioningArtifacts=function(svc,msg,cb){
+			service.ListProvisioningArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1356,15 +1229,13 @@ module.exports = function(RED) {
 
 			svc.listProvisioningArtifacts(params,cb);
 		}
-
-		
-		service.ListProvisioningArtifactsForServiceAction=function(svc,msg,cb){
+			service.ListProvisioningArtifactsForServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceActionId",params,undefined,false); 
 			
 			copyArgs(n,"ServiceActionId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			
@@ -1376,16 +1247,14 @@ module.exports = function(RED) {
 
 			svc.listProvisioningArtifactsForServiceAction(params,cb);
 		}
-
-		
-		service.ListRecordHistory=function(svc,msg,cb){
+			service.ListRecordHistory=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"AccessLevelFilter",params,undefined,true); 
 			copyArgs(n,"SearchFilter",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1397,16 +1266,14 @@ module.exports = function(RED) {
 
 			svc.listRecordHistory(params,cb);
 		}
-
-		
-		service.ListResourcesForTagOption=function(svc,msg,cb){
+			service.ListResourcesForTagOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagOptionId",params,undefined,false); 
 			
 			copyArgs(n,"TagOptionId",params,undefined,false); 
 			copyArgs(n,"ResourceType",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"TagOptionId",params,undefined,false); 
@@ -1417,14 +1284,12 @@ module.exports = function(RED) {
 
 			svc.listResourcesForTagOption(params,cb);
 		}
-
-		
-		service.ListServiceActions=function(svc,msg,cb){
+			service.ListServiceActions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1434,9 +1299,7 @@ module.exports = function(RED) {
 
 			svc.listServiceActions(params,cb);
 		}
-
-		
-		service.ListServiceActionsForProvisioningArtifact=function(svc,msg,cb){
+			service.ListServiceActionsForProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1444,7 +1307,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
 			copyArgs(n,"ProvisioningArtifactId",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			
@@ -1457,9 +1320,7 @@ module.exports = function(RED) {
 
 			svc.listServiceActionsForProvisioningArtifact(params,cb);
 		}
-
-		
-		service.ListStackInstancesForProvisionedProduct=function(svc,msg,cb){
+			service.ListStackInstancesForProvisionedProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
@@ -1467,7 +1328,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"ProvisionedProductId",params,undefined,false); 
@@ -1477,14 +1338,12 @@ module.exports = function(RED) {
 
 			svc.listStackInstancesForProvisionedProduct(params,cb);
 		}
-
-		
-		service.ListTagOptions=function(svc,msg,cb){
+			service.ListTagOptions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -1494,9 +1353,7 @@ module.exports = function(RED) {
 
 			svc.listTagOptions(params,cb);
 		}
-
-		
-		service.ProvisionProduct=function(svc,msg,cb){
+			service.ProvisionProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProvisionedProductName",params,undefined,false); 
@@ -1533,9 +1390,7 @@ module.exports = function(RED) {
 
 			svc.provisionProduct(params,cb);
 		}
-
-		
-		service.RejectPortfolioShare=function(svc,msg,cb){
+			service.RejectPortfolioShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -1551,15 +1406,13 @@ module.exports = function(RED) {
 
 			svc.rejectPortfolioShare(params,cb);
 		}
-
-		
-		service.ScanProvisionedProducts=function(svc,msg,cb){
+			service.ScanProvisionedProducts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"AccessLevelFilter",params,undefined,true); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1570,15 +1423,13 @@ module.exports = function(RED) {
 
 			svc.scanProvisionedProducts(params,cb);
 		}
-
-		
-		service.SearchProducts=function(svc,msg,cb){
+			service.SearchProducts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,true); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"SortBy",params,undefined,false); 
 			copyArgs(n,"SortOrder",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
@@ -1593,9 +1444,7 @@ module.exports = function(RED) {
 
 			svc.searchProducts(params,cb);
 		}
-
-		
-		service.SearchProductsAsAdmin=function(svc,msg,cb){
+			service.SearchProductsAsAdmin=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1605,7 +1454,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SortBy",params,undefined,false); 
 			copyArgs(n,"SortOrder",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"ProductSource",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1620,9 +1469,7 @@ module.exports = function(RED) {
 
 			svc.searchProductsAsAdmin(params,cb);
 		}
-
-		
-		service.SearchProvisionedProducts=function(svc,msg,cb){
+			service.SearchProvisionedProducts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1631,7 +1478,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"SortBy",params,undefined,false); 
 			copyArgs(n,"SortOrder",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"PageToken",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1645,9 +1492,7 @@ module.exports = function(RED) {
 
 			svc.searchProvisionedProducts(params,cb);
 		}
-
-		
-		service.TerminateProvisionedProduct=function(svc,msg,cb){
+			service.TerminateProvisionedProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TerminateToken",params,undefined,false); 
@@ -1655,9 +1500,9 @@ module.exports = function(RED) {
 			copyArgs(n,"ProvisionedProductName",params,undefined,false); 
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
 			copyArgs(n,"TerminateToken",params,undefined,false); 
-			copyArgs(n,"IgnoreErrors",params,undefined,false); 
+			copyArgs(Boolean(n),"IgnoreErrors",params,undefined,false); 
 			copyArgs(n,"AcceptLanguage",params,undefined,false); 
-			copyArgs(n,"RetainPhysicalResources",params,undefined,false); 
+			copyArgs(Boolean(n),"RetainPhysicalResources",params,undefined,false); 
 			
 			copyArgs(msg,"ProvisionedProductName",params,undefined,false); 
 			copyArgs(msg,"ProvisionedProductId",params,undefined,false); 
@@ -1669,9 +1514,7 @@ module.exports = function(RED) {
 
 			svc.terminateProvisionedProduct(params,cb);
 		}
-
-		
-		service.UpdateConstraint=function(svc,msg,cb){
+			service.UpdateConstraint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1689,9 +1532,7 @@ module.exports = function(RED) {
 
 			svc.updateConstraint(params,cb);
 		}
-
-		
-		service.UpdatePortfolio=function(svc,msg,cb){
+			service.UpdatePortfolio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1715,9 +1556,7 @@ module.exports = function(RED) {
 
 			svc.updatePortfolio(params,cb);
 		}
-
-		
-		service.UpdatePortfolioShare=function(svc,msg,cb){
+			service.UpdatePortfolioShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PortfolioId",params,undefined,false); 
@@ -1726,7 +1565,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PortfolioId",params,undefined,false); 
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"OrganizationNode",params,undefined,true); 
-			copyArgs(n,"ShareTagOptions",params,undefined,false); 
+			copyArgs(Boolean(n),"ShareTagOptions",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
 			copyArgs(msg,"PortfolioId",params,undefined,false); 
@@ -1737,9 +1576,7 @@ module.exports = function(RED) {
 
 			svc.updatePortfolioShare(params,cb);
 		}
-
-		
-		service.UpdateProduct=function(svc,msg,cb){
+			service.UpdateProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1771,9 +1608,7 @@ module.exports = function(RED) {
 
 			svc.updateProduct(params,cb);
 		}
-
-		
-		service.UpdateProvisionedProduct=function(svc,msg,cb){
+			service.UpdateProvisionedProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
@@ -1809,9 +1644,7 @@ module.exports = function(RED) {
 
 			svc.updateProvisionedProduct(params,cb);
 		}
-
-		
-		service.UpdateProvisionedProductProperties=function(svc,msg,cb){
+			service.UpdateProvisionedProductProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProvisionedProductId",params,undefined,false); 
@@ -1831,9 +1664,7 @@ module.exports = function(RED) {
 
 			svc.updateProvisionedProductProperties(params,cb);
 		}
-
-		
-		service.UpdateProvisioningArtifact=function(svc,msg,cb){
+			service.UpdateProvisioningArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductId",params,undefined,false); 
@@ -1844,7 +1675,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProvisioningArtifactId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"Active",params,undefined,false); 
+			copyArgs(Boolean(n),"Active",params,undefined,false); 
 			copyArgs(n,"Guidance",params,undefined,false); 
 			
 			copyArgs(msg,"AcceptLanguage",params,undefined,false); 
@@ -1858,9 +1689,7 @@ module.exports = function(RED) {
 
 			svc.updateProvisioningArtifact(params,cb);
 		}
-
-		
-		service.UpdateServiceAction=function(svc,msg,cb){
+			service.UpdateServiceAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -1880,16 +1709,14 @@ module.exports = function(RED) {
 
 			svc.updateServiceAction(params,cb);
 		}
-
-		
-		service.UpdateTagOption=function(svc,msg,cb){
+			service.UpdateTagOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
 			
 			copyArgs(n,"Id",params,undefined,false); 
 			copyArgs(n,"Value",params,undefined,false); 
-			copyArgs(n,"Active",params,undefined,false); 
+			copyArgs(Boolean(n),"Active",params,undefined,false); 
 			
 			copyArgs(msg,"Id",params,undefined,false); 
 			copyArgs(msg,"Value",params,undefined,false); 
@@ -1898,9 +1725,7 @@ module.exports = function(RED) {
 
 			svc.updateTagOption(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ServiceCatalog", AmazonAPINode);
 

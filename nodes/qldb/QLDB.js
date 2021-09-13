@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelJournalKinesisStream=function(svc,msg,cb){
+			service.CancelJournalKinesisStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LedgerName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.cancelJournalKinesisStream(params,cb);
 		}
-
-		
-		service.CreateLedger=function(svc,msg,cb){
+			service.CreateLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -120,7 +117,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"PermissionsMode",params,undefined,false); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			copyArgs(n,"KmsKey",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.createLedger(params,cb);
 		}
-
-		
-		service.DeleteLedger=function(svc,msg,cb){
+			service.DeleteLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -146,9 +141,7 @@ module.exports = function(RED) {
 
 			svc.deleteLedger(params,cb);
 		}
-
-		
-		service.DescribeJournalKinesisStream=function(svc,msg,cb){
+			service.DescribeJournalKinesisStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LedgerName",params,undefined,false); 
@@ -163,9 +156,7 @@ module.exports = function(RED) {
 
 			svc.describeJournalKinesisStream(params,cb);
 		}
-
-		
-		service.DescribeJournalS3Export=function(svc,msg,cb){
+			service.DescribeJournalS3Export=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -180,9 +171,7 @@ module.exports = function(RED) {
 
 			svc.describeJournalS3Export(params,cb);
 		}
-
-		
-		service.DescribeLedger=function(svc,msg,cb){
+			service.DescribeLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -194,9 +183,7 @@ module.exports = function(RED) {
 
 			svc.describeLedger(params,cb);
 		}
-
-		
-		service.ExportJournalToS3=function(svc,msg,cb){
+			service.ExportJournalToS3=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.exportJournalToS3(params,cb);
 		}
-
-		
-		service.GetBlock=function(svc,msg,cb){
+			service.GetBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.getBlock(params,cb);
 		}
-
-		
-		service.GetDigest=function(svc,msg,cb){
+			service.GetDigest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -253,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.getDigest(params,cb);
 		}
-
-		
-		service.GetRevision=function(svc,msg,cb){
+			service.GetRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -275,15 +256,13 @@ module.exports = function(RED) {
 
 			svc.getRevision(params,cb);
 		}
-
-		
-		service.ListJournalKinesisStreamsForLedger=function(svc,msg,cb){
+			service.ListJournalKinesisStreamsForLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LedgerName",params,undefined,false); 
 			
 			copyArgs(n,"LedgerName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"LedgerName",params,undefined,false); 
@@ -293,13 +272,11 @@ module.exports = function(RED) {
 
 			svc.listJournalKinesisStreamsForLedger(params,cb);
 		}
-
-		
-		service.ListJournalS3Exports=function(svc,msg,cb){
+			service.ListJournalS3Exports=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -308,15 +285,13 @@ module.exports = function(RED) {
 
 			svc.listJournalS3Exports(params,cb);
 		}
-
-		
-		service.ListJournalS3ExportsForLedger=function(svc,msg,cb){
+			service.ListJournalS3ExportsForLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -326,13 +301,11 @@ module.exports = function(RED) {
 
 			svc.listJournalS3ExportsForLedger(params,cb);
 		}
-
-		
-		service.ListLedgers=function(svc,msg,cb){
+			service.ListLedgers=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -341,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.listLedgers(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -355,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.StreamJournalToKinesis=function(svc,msg,cb){
+			service.StreamJournalToKinesis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LedgerName",params,undefined,false); 
@@ -385,9 +354,7 @@ module.exports = function(RED) {
 
 			svc.streamJournalToKinesis(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -402,9 +369,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -419,15 +384,13 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateLedger=function(svc,msg,cb){
+			service.UpdateLedger=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"DeletionProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeletionProtection",params,undefined,false); 
 			copyArgs(n,"KmsKey",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -437,9 +400,7 @@ module.exports = function(RED) {
 
 			svc.updateLedger(params,cb);
 		}
-
-		
-		service.UpdateLedgerPermissionsMode=function(svc,msg,cb){
+			service.UpdateLedgerPermissionsMode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -454,9 +415,7 @@ module.exports = function(RED) {
 
 			svc.updateLedgerPermissionsMode(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS QLDB", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateHttpNamespace=function(svc,msg,cb){
+			service.CreateHttpNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.createHttpNamespace(params,cb);
 		}
-
-		
-		service.CreatePrivateDnsNamespace=function(svc,msg,cb){
+			service.CreatePrivateDnsNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -137,9 +134,7 @@ module.exports = function(RED) {
 
 			svc.createPrivateDnsNamespace(params,cb);
 		}
-
-		
-		service.CreatePublicDnsNamespace=function(svc,msg,cb){
+			service.CreatePublicDnsNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -159,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.createPublicDnsNamespace(params,cb);
 		}
-
-		
-		service.CreateService=function(svc,msg,cb){
+			service.CreateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -189,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.createService(params,cb);
 		}
-
-		
-		service.DeleteNamespace=function(svc,msg,cb){
+			service.DeleteNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -203,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.deleteNamespace(params,cb);
 		}
-
-		
-		service.DeleteService=function(svc,msg,cb){
+			service.DeleteService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -217,9 +206,7 @@ module.exports = function(RED) {
 
 			svc.deleteService(params,cb);
 		}
-
-		
-		service.DeregisterInstance=function(svc,msg,cb){
+			service.DeregisterInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
@@ -234,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.deregisterInstance(params,cb);
 		}
-
-		
-		service.DiscoverInstances=function(svc,msg,cb){
+			service.DiscoverInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NamespaceName",params,undefined,false); 
@@ -244,7 +229,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"NamespaceName",params,undefined,false); 
 			copyArgs(n,"ServiceName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"QueryParameters",params,undefined,true); 
 			copyArgs(n,"OptionalParameters",params,undefined,true); 
 			copyArgs(n,"HealthStatus",params,undefined,false); 
@@ -259,9 +244,7 @@ module.exports = function(RED) {
 
 			svc.discoverInstances(params,cb);
 		}
-
-		
-		service.GetInstance=function(svc,msg,cb){
+			service.GetInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
@@ -276,16 +259,14 @@ module.exports = function(RED) {
 
 			svc.getInstance(params,cb);
 		}
-
-		
-		service.GetInstancesHealthStatus=function(svc,msg,cb){
+			service.GetInstancesHealthStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
 			copyArgs(n,"Instances",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceId",params,undefined,false); 
@@ -296,9 +277,7 @@ module.exports = function(RED) {
 
 			svc.getInstancesHealthStatus(params,cb);
 		}
-
-		
-		service.GetNamespace=function(svc,msg,cb){
+			service.GetNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -310,9 +289,7 @@ module.exports = function(RED) {
 
 			svc.getNamespace(params,cb);
 		}
-
-		
-		service.GetOperation=function(svc,msg,cb){
+			service.GetOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OperationId",params,undefined,false); 
@@ -324,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.getOperation(params,cb);
 		}
-
-		
-		service.GetService=function(svc,msg,cb){
+			service.GetService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -338,16 +313,14 @@ module.exports = function(RED) {
 
 			svc.getService(params,cb);
 		}
-
-		
-		service.ListInstances=function(svc,msg,cb){
+			service.ListInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -356,14 +329,12 @@ module.exports = function(RED) {
 
 			svc.listInstances(params,cb);
 		}
-
-		
-		service.ListNamespaces=function(svc,msg,cb){
+			service.ListNamespaces=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -373,14 +344,12 @@ module.exports = function(RED) {
 
 			svc.listNamespaces(params,cb);
 		}
-
-		
-		service.ListOperations=function(svc,msg,cb){
+			service.ListOperations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -390,14 +359,12 @@ module.exports = function(RED) {
 
 			svc.listOperations(params,cb);
 		}
-
-		
-		service.ListServices=function(svc,msg,cb){
+			service.ListServices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -407,9 +374,7 @@ module.exports = function(RED) {
 
 			svc.listServices(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -421,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RegisterInstance=function(svc,msg,cb){
+			service.RegisterInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
@@ -443,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.registerInstance(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -460,9 +421,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -477,9 +436,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateHttpNamespace=function(svc,msg,cb){
+			service.UpdateHttpNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -496,9 +453,7 @@ module.exports = function(RED) {
 
 			svc.updateHttpNamespace(params,cb);
 		}
-
-		
-		service.UpdateInstanceCustomHealthStatus=function(svc,msg,cb){
+			service.UpdateInstanceCustomHealthStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceId",params,undefined,false); 
@@ -516,9 +471,7 @@ module.exports = function(RED) {
 
 			svc.updateInstanceCustomHealthStatus(params,cb);
 		}
-
-		
-		service.UpdatePrivateDnsNamespace=function(svc,msg,cb){
+			service.UpdatePrivateDnsNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -535,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.updatePrivateDnsNamespace(params,cb);
 		}
-
-		
-		service.UpdatePublicDnsNamespace=function(svc,msg,cb){
+			service.UpdatePublicDnsNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -554,9 +505,7 @@ module.exports = function(RED) {
 
 			svc.updatePublicDnsNamespace(params,cb);
 		}
-
-		
-		service.UpdateService=function(svc,msg,cb){
+			service.UpdateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -571,9 +520,7 @@ module.exports = function(RED) {
 
 			svc.updateService(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ServiceDiscovery", AmazonAPINode);
 

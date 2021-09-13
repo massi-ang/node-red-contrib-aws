@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.InvokeEndpoint=function(svc,msg,cb){
+			service.InvokeEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -123,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.invokeEndpoint(params,cb);
 		}
-
-		
-		service.InvokeEndpointAsync=function(svc,msg,cb){
+			service.InvokeEndpointAsync=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -137,7 +134,7 @@ module.exports = function(RED) {
 			copyArgs(n,"CustomAttributes",params,undefined,true); 
 			copyArgs(n,"InferenceId",params,undefined,false); 
 			copyArgs(n,"InputLocation",params,undefined,false); 
-			copyArgs(n,"RequestTTLSeconds",params,undefined,false); 
+			copyArgs(Number(n),"RequestTTLSeconds",params,undefined,false); 
 			
 			copyArgs(msg,"EndpointName",params,undefined,false); 
 			copyArgs(msg,"ContentType",params,undefined,false); 
@@ -150,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.invokeEndpointAsync(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SageMakerRuntime", AmazonAPINode);
 

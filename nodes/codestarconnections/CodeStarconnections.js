@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateConnection=function(svc,msg,cb){
+			service.CreateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionName",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.createConnection(params,cb);
 		}
-
-		
-		service.CreateHost=function(svc,msg,cb){
+			service.CreateHost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -136,9 +133,7 @@ module.exports = function(RED) {
 
 			svc.createHost(params,cb);
 		}
-
-		
-		service.DeleteConnection=function(svc,msg,cb){
+			service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionArn",params,undefined,false); 
@@ -150,9 +145,7 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-
-		
-		service.DeleteHost=function(svc,msg,cb){
+			service.DeleteHost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostArn",params,undefined,false); 
@@ -164,9 +157,7 @@ module.exports = function(RED) {
 
 			svc.deleteHost(params,cb);
 		}
-
-		
-		service.GetConnection=function(svc,msg,cb){
+			service.GetConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionArn",params,undefined,false); 
@@ -178,9 +169,7 @@ module.exports = function(RED) {
 
 			svc.getConnection(params,cb);
 		}
-
-		
-		service.GetHost=function(svc,msg,cb){
+			service.GetHost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostArn",params,undefined,false); 
@@ -192,15 +181,13 @@ module.exports = function(RED) {
 
 			svc.getHost(params,cb);
 		}
-
-		
-		service.ListConnections=function(svc,msg,cb){
+			service.ListConnections=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ProviderTypeFilter",params,undefined,false); 
 			copyArgs(n,"HostArnFilter",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ProviderTypeFilter",params,undefined,false); 
@@ -211,13 +198,11 @@ module.exports = function(RED) {
 
 			svc.listConnections(params,cb);
 		}
-
-		
-		service.ListHosts=function(svc,msg,cb){
+			service.ListHosts=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -226,9 +211,7 @@ module.exports = function(RED) {
 
 			svc.listHosts(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -240,9 +223,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -257,9 +238,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -274,9 +253,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateHost=function(svc,msg,cb){
+			service.UpdateHost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HostArn",params,undefined,false); 
@@ -292,9 +269,7 @@ module.exports = function(RED) {
 
 			svc.updateHost(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeStarconnections", AmazonAPINode);
 

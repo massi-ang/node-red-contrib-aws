@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddTagsToStream=function(svc,msg,cb){
+			service.AddTagsToStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -109,16 +108,14 @@ module.exports = function(RED) {
 
 			svc.addTagsToStream(params,cb);
 		}
-
-		
-		service.CreateStream=function(svc,msg,cb){
+			service.CreateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"ShardCount",params,undefined,false); 
+			copyArgs(Number(n),"ShardCount",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"ShardCount",params,undefined,false); 
+			copyArgs(Number(n),"ShardCount",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
 			copyArgs(msg,"ShardCount",params,undefined,false); 
@@ -126,16 +123,14 @@ module.exports = function(RED) {
 
 			svc.createStream(params,cb);
 		}
-
-		
-		service.DecreaseStreamRetentionPeriod=function(svc,msg,cb){
+			service.DecreaseStreamRetentionPeriod=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"RetentionPeriodHours",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodHours",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"RetentionPeriodHours",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodHours",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
 			copyArgs(msg,"RetentionPeriodHours",params,undefined,false); 
@@ -143,15 +138,13 @@ module.exports = function(RED) {
 
 			svc.decreaseStreamRetentionPeriod(params,cb);
 		}
-
-		
-		service.DeleteStream=function(svc,msg,cb){
+			service.DeleteStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"EnforceConsumerDeletion",params,undefined,false); 
+			copyArgs(Boolean(n),"EnforceConsumerDeletion",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
 			copyArgs(msg,"EnforceConsumerDeletion",params,undefined,false); 
@@ -159,9 +152,7 @@ module.exports = function(RED) {
 
 			svc.deleteStream(params,cb);
 		}
-
-		
-		service.DeregisterStreamConsumer=function(svc,msg,cb){
+			service.DeregisterStreamConsumer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -176,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.deregisterStreamConsumer(params,cb);
 		}
-
-		
-		service.DescribeLimits=function(svc,msg,cb){
+			service.DescribeLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -187,15 +176,13 @@ module.exports = function(RED) {
 
 			svc.describeLimits(params,cb);
 		}
-
-		
-		service.DescribeStream=function(svc,msg,cb){
+			service.DescribeStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartShardId",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
@@ -205,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.describeStream(params,cb);
 		}
-
-		
-		service.DescribeStreamConsumer=function(svc,msg,cb){
+			service.DescribeStreamConsumer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -222,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.describeStreamConsumer(params,cb);
 		}
-
-		
-		service.DescribeStreamSummary=function(svc,msg,cb){
+			service.DescribeStreamSummary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -236,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.describeStreamSummary(params,cb);
 		}
-
-		
-		service.DisableEnhancedMonitoring=function(svc,msg,cb){
+			service.DisableEnhancedMonitoring=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -253,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.disableEnhancedMonitoring(params,cb);
 		}
-
-		
-		service.EnableEnhancedMonitoring=function(svc,msg,cb){
+			service.EnableEnhancedMonitoring=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -270,15 +249,13 @@ module.exports = function(RED) {
 
 			svc.enableEnhancedMonitoring(params,cb);
 		}
-
-		
-		service.GetRecords=function(svc,msg,cb){
+			service.GetRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ShardIterator",params,undefined,false); 
 			
 			copyArgs(n,"ShardIterator",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"ShardIterator",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -286,9 +263,7 @@ module.exports = function(RED) {
 
 			svc.getRecords(params,cb);
 		}
-
-		
-		service.GetShardIterator=function(svc,msg,cb){
+			service.GetShardIterator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -310,16 +285,14 @@ module.exports = function(RED) {
 
 			svc.getShardIterator(params,cb);
 		}
-
-		
-		service.IncreaseStreamRetentionPeriod=function(svc,msg,cb){
+			service.IncreaseStreamRetentionPeriod=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"RetentionPeriodHours",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodHours",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"RetentionPeriodHours",params,undefined,false); 
+			copyArgs(Number(n),"RetentionPeriodHours",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
 			copyArgs(msg,"RetentionPeriodHours",params,undefined,false); 
@@ -327,16 +300,14 @@ module.exports = function(RED) {
 
 			svc.increaseStreamRetentionPeriod(params,cb);
 		}
-
-		
-		service.ListShards=function(svc,msg,cb){
+			service.ListShards=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartShardId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"StreamCreationTimestamp",params,undefined,false); 
 			copyArgs(n,"ShardFilter",params,undefined,false); 
 			
@@ -350,16 +321,14 @@ module.exports = function(RED) {
 
 			svc.listShards(params,cb);
 		}
-
-		
-		service.ListStreamConsumers=function(svc,msg,cb){
+			service.ListStreamConsumers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamARN",params,undefined,false); 
 			
 			copyArgs(n,"StreamARN",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"StreamCreationTimestamp",params,undefined,false); 
 			
 			copyArgs(msg,"StreamARN",params,undefined,false); 
@@ -370,13 +339,11 @@ module.exports = function(RED) {
 
 			svc.listStreamConsumers(params,cb);
 		}
-
-		
-		service.ListStreams=function(svc,msg,cb){
+			service.ListStreams=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartStreamName",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -385,16 +352,14 @@ module.exports = function(RED) {
 
 			svc.listStreams(params,cb);
 		}
-
-		
-		service.ListTagsForStream=function(svc,msg,cb){
+			service.ListTagsForStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartTagKey",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
 			copyArgs(msg,"ExclusiveStartTagKey",params,undefined,false); 
@@ -403,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForStream(params,cb);
 		}
-
-		
-		service.MergeShards=function(svc,msg,cb){
+			service.MergeShards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -423,17 +386,15 @@ module.exports = function(RED) {
 
 			svc.mergeShards(params,cb);
 		}
-
-		
-		service.PutRecord=function(svc,msg,cb){
+			service.PutRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"Data",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
 			copyArgs(n,"PartitionKey",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"Data",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
 			copyArgs(n,"PartitionKey",params,undefined,false); 
 			copyArgs(n,"ExplicitHashKey",params,undefined,false); 
 			copyArgs(n,"SequenceNumberForOrdering",params,undefined,false); 
@@ -447,9 +408,7 @@ module.exports = function(RED) {
 
 			svc.putRecord(params,cb);
 		}
-
-		
-		service.PutRecords=function(svc,msg,cb){
+			service.PutRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Records",params,undefined,false); 
@@ -464,9 +423,7 @@ module.exports = function(RED) {
 
 			svc.putRecords(params,cb);
 		}
-
-		
-		service.RegisterStreamConsumer=function(svc,msg,cb){
+			service.RegisterStreamConsumer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamARN",params,undefined,false); 
@@ -481,9 +438,7 @@ module.exports = function(RED) {
 
 			svc.registerStreamConsumer(params,cb);
 		}
-
-		
-		service.RemoveTagsFromStream=function(svc,msg,cb){
+			service.RemoveTagsFromStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -498,9 +453,7 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromStream(params,cb);
 		}
-
-		
-		service.SplitShard=function(svc,msg,cb){
+			service.SplitShard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -518,9 +471,7 @@ module.exports = function(RED) {
 
 			svc.splitShard(params,cb);
 		}
-
-		
-		service.StartStreamEncryption=function(svc,msg,cb){
+			service.StartStreamEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -538,9 +489,7 @@ module.exports = function(RED) {
 
 			svc.startStreamEncryption(params,cb);
 		}
-
-		
-		service.StopStreamEncryption=function(svc,msg,cb){
+			service.StopStreamEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -558,17 +507,15 @@ module.exports = function(RED) {
 
 			svc.stopStreamEncryption(params,cb);
 		}
-
-		
-		service.UpdateShardCount=function(svc,msg,cb){
+			service.UpdateShardCount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"TargetShardCount",params,undefined,false); 
+			copyArgs(Number(n),"TargetShardCount",params,undefined,false); 
 			copyArgs(n,"ScalingType",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(n,"TargetShardCount",params,undefined,false); 
+			copyArgs(Number(n),"TargetShardCount",params,undefined,false); 
 			copyArgs(n,"ScalingType",params,undefined,false); 
 			
 			copyArgs(msg,"StreamName",params,undefined,false); 
@@ -578,9 +525,7 @@ module.exports = function(RED) {
 
 			svc.updateShardCount(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Kinesis", AmazonAPINode);
 

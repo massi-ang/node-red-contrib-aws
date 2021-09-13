@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateByteMatchSet=function(svc,msg,cb){
+			service.CreateByteMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.createByteMatchSet(params,cb);
 		}
-
-		
-		service.CreateGeoMatchSet=function(svc,msg,cb){
+			service.CreateGeoMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.createGeoMatchSet(params,cb);
 		}
-
-		
-		service.CreateIPSet=function(svc,msg,cb){
+			service.CreateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.createIPSet(params,cb);
 		}
-
-		
-		service.CreateRateBasedRule=function(svc,msg,cb){
+			service.CreateRateBasedRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -171,9 +164,7 @@ module.exports = function(RED) {
 
 			svc.createRateBasedRule(params,cb);
 		}
-
-		
-		service.CreateRegexMatchSet=function(svc,msg,cb){
+			service.CreateRegexMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -188,9 +179,7 @@ module.exports = function(RED) {
 
 			svc.createRegexMatchSet(params,cb);
 		}
-
-		
-		service.CreateRegexPatternSet=function(svc,msg,cb){
+			service.CreateRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -205,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.createRegexPatternSet(params,cb);
 		}
-
-		
-		service.CreateRule=function(svc,msg,cb){
+			service.CreateRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -227,9 +214,7 @@ module.exports = function(RED) {
 
 			svc.createRule(params,cb);
 		}
-
-		
-		service.CreateRuleGroup=function(svc,msg,cb){
+			service.CreateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -249,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.createRuleGroup(params,cb);
 		}
-
-		
-		service.CreateSizeConstraintSet=function(svc,msg,cb){
+			service.CreateSizeConstraintSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -266,9 +249,7 @@ module.exports = function(RED) {
 
 			svc.createSizeConstraintSet(params,cb);
 		}
-
-		
-		service.CreateSqlInjectionMatchSet=function(svc,msg,cb){
+			service.CreateSqlInjectionMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -283,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.createSqlInjectionMatchSet(params,cb);
 		}
-
-		
-		service.CreateWebACL=function(svc,msg,cb){
+			service.CreateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -308,18 +287,16 @@ module.exports = function(RED) {
 
 			svc.createWebACL(params,cb);
 		}
-
-		
-		service.CreateWebACLMigrationStack=function(svc,msg,cb){
+			service.CreateWebACLMigrationStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
 			copyArgs(n,"S3BucketName",params,undefined,false); 
-			copyArgs(n,"IgnoreUnsupportedType",params,undefined,false); 
+			copyArgs(Boolean(n),"IgnoreUnsupportedType",params,undefined,false); 
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
 			copyArgs(n,"S3BucketName",params,undefined,false); 
-			copyArgs(n,"IgnoreUnsupportedType",params,undefined,false); 
+			copyArgs(Boolean(n),"IgnoreUnsupportedType",params,undefined,false); 
 			
 			copyArgs(msg,"WebACLId",params,undefined,false); 
 			copyArgs(msg,"S3BucketName",params,undefined,false); 
@@ -328,9 +305,7 @@ module.exports = function(RED) {
 
 			svc.createWebACLMigrationStack(params,cb);
 		}
-
-		
-		service.CreateXssMatchSet=function(svc,msg,cb){
+			service.CreateXssMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -345,9 +320,7 @@ module.exports = function(RED) {
 
 			svc.createXssMatchSet(params,cb);
 		}
-
-		
-		service.DeleteByteMatchSet=function(svc,msg,cb){
+			service.DeleteByteMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ByteMatchSetId",params,undefined,false); 
@@ -362,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.deleteByteMatchSet(params,cb);
 		}
-
-		
-		service.DeleteGeoMatchSet=function(svc,msg,cb){
+			service.DeleteGeoMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GeoMatchSetId",params,undefined,false); 
@@ -379,9 +350,7 @@ module.exports = function(RED) {
 
 			svc.deleteGeoMatchSet(params,cb);
 		}
-
-		
-		service.DeleteIPSet=function(svc,msg,cb){
+			service.DeleteIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IPSetId",params,undefined,false); 
@@ -396,9 +365,7 @@ module.exports = function(RED) {
 
 			svc.deleteIPSet(params,cb);
 		}
-
-		
-		service.DeleteLoggingConfiguration=function(svc,msg,cb){
+			service.DeleteLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -410,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.deleteLoggingConfiguration(params,cb);
 		}
-
-		
-		service.DeletePermissionPolicy=function(svc,msg,cb){
+			service.DeletePermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -424,9 +389,7 @@ module.exports = function(RED) {
 
 			svc.deletePermissionPolicy(params,cb);
 		}
-
-		
-		service.DeleteRateBasedRule=function(svc,msg,cb){
+			service.DeleteRateBasedRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -441,9 +404,7 @@ module.exports = function(RED) {
 
 			svc.deleteRateBasedRule(params,cb);
 		}
-
-		
-		service.DeleteRegexMatchSet=function(svc,msg,cb){
+			service.DeleteRegexMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexMatchSetId",params,undefined,false); 
@@ -458,9 +419,7 @@ module.exports = function(RED) {
 
 			svc.deleteRegexMatchSet(params,cb);
 		}
-
-		
-		service.DeleteRegexPatternSet=function(svc,msg,cb){
+			service.DeleteRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexPatternSetId",params,undefined,false); 
@@ -475,9 +434,7 @@ module.exports = function(RED) {
 
 			svc.deleteRegexPatternSet(params,cb);
 		}
-
-		
-		service.DeleteRule=function(svc,msg,cb){
+			service.DeleteRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -492,9 +449,7 @@ module.exports = function(RED) {
 
 			svc.deleteRule(params,cb);
 		}
-
-		
-		service.DeleteRuleGroup=function(svc,msg,cb){
+			service.DeleteRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleGroupId",params,undefined,false); 
@@ -509,9 +464,7 @@ module.exports = function(RED) {
 
 			svc.deleteRuleGroup(params,cb);
 		}
-
-		
-		service.DeleteSizeConstraintSet=function(svc,msg,cb){
+			service.DeleteSizeConstraintSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SizeConstraintSetId",params,undefined,false); 
@@ -526,9 +479,7 @@ module.exports = function(RED) {
 
 			svc.deleteSizeConstraintSet(params,cb);
 		}
-
-		
-		service.DeleteSqlInjectionMatchSet=function(svc,msg,cb){
+			service.DeleteSqlInjectionMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SqlInjectionMatchSetId",params,undefined,false); 
@@ -543,9 +494,7 @@ module.exports = function(RED) {
 
 			svc.deleteSqlInjectionMatchSet(params,cb);
 		}
-
-		
-		service.DeleteWebACL=function(svc,msg,cb){
+			service.DeleteWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
@@ -560,9 +509,7 @@ module.exports = function(RED) {
 
 			svc.deleteWebACL(params,cb);
 		}
-
-		
-		service.DeleteXssMatchSet=function(svc,msg,cb){
+			service.DeleteXssMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"XssMatchSetId",params,undefined,false); 
@@ -577,9 +524,7 @@ module.exports = function(RED) {
 
 			svc.deleteXssMatchSet(params,cb);
 		}
-
-		
-		service.GetByteMatchSet=function(svc,msg,cb){
+			service.GetByteMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ByteMatchSetId",params,undefined,false); 
@@ -591,9 +536,7 @@ module.exports = function(RED) {
 
 			svc.getByteMatchSet(params,cb);
 		}
-
-		
-		service.GetChangeToken=function(svc,msg,cb){
+			service.GetChangeToken=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -602,9 +545,7 @@ module.exports = function(RED) {
 
 			svc.getChangeToken(params,cb);
 		}
-
-		
-		service.GetChangeTokenStatus=function(svc,msg,cb){
+			service.GetChangeTokenStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChangeToken",params,undefined,false); 
@@ -616,9 +557,7 @@ module.exports = function(RED) {
 
 			svc.getChangeTokenStatus(params,cb);
 		}
-
-		
-		service.GetGeoMatchSet=function(svc,msg,cb){
+			service.GetGeoMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GeoMatchSetId",params,undefined,false); 
@@ -630,9 +569,7 @@ module.exports = function(RED) {
 
 			svc.getGeoMatchSet(params,cb);
 		}
-
-		
-		service.GetIPSet=function(svc,msg,cb){
+			service.GetIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IPSetId",params,undefined,false); 
@@ -644,9 +581,7 @@ module.exports = function(RED) {
 
 			svc.getIPSet(params,cb);
 		}
-
-		
-		service.GetLoggingConfiguration=function(svc,msg,cb){
+			service.GetLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -658,9 +593,7 @@ module.exports = function(RED) {
 
 			svc.getLoggingConfiguration(params,cb);
 		}
-
-		
-		service.GetPermissionPolicy=function(svc,msg,cb){
+			service.GetPermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -672,9 +605,7 @@ module.exports = function(RED) {
 
 			svc.getPermissionPolicy(params,cb);
 		}
-
-		
-		service.GetRateBasedRule=function(svc,msg,cb){
+			service.GetRateBasedRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -686,9 +617,7 @@ module.exports = function(RED) {
 
 			svc.getRateBasedRule(params,cb);
 		}
-
-		
-		service.GetRateBasedRuleManagedKeys=function(svc,msg,cb){
+			service.GetRateBasedRuleManagedKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -702,9 +631,7 @@ module.exports = function(RED) {
 
 			svc.getRateBasedRuleManagedKeys(params,cb);
 		}
-
-		
-		service.GetRegexMatchSet=function(svc,msg,cb){
+			service.GetRegexMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexMatchSetId",params,undefined,false); 
@@ -716,9 +643,7 @@ module.exports = function(RED) {
 
 			svc.getRegexMatchSet(params,cb);
 		}
-
-		
-		service.GetRegexPatternSet=function(svc,msg,cb){
+			service.GetRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexPatternSetId",params,undefined,false); 
@@ -730,9 +655,7 @@ module.exports = function(RED) {
 
 			svc.getRegexPatternSet(params,cb);
 		}
-
-		
-		service.GetRule=function(svc,msg,cb){
+			service.GetRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -744,9 +667,7 @@ module.exports = function(RED) {
 
 			svc.getRule(params,cb);
 		}
-
-		
-		service.GetRuleGroup=function(svc,msg,cb){
+			service.GetRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleGroupId",params,undefined,false); 
@@ -758,9 +679,7 @@ module.exports = function(RED) {
 
 			svc.getRuleGroup(params,cb);
 		}
-
-		
-		service.GetSampledRequests=function(svc,msg,cb){
+			service.GetSampledRequests=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebAclId",params,undefined,false); 
@@ -781,9 +700,7 @@ module.exports = function(RED) {
 
 			svc.getSampledRequests(params,cb);
 		}
-
-		
-		service.GetSizeConstraintSet=function(svc,msg,cb){
+			service.GetSizeConstraintSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SizeConstraintSetId",params,undefined,false); 
@@ -795,9 +712,7 @@ module.exports = function(RED) {
 
 			svc.getSizeConstraintSet(params,cb);
 		}
-
-		
-		service.GetSqlInjectionMatchSet=function(svc,msg,cb){
+			service.GetSqlInjectionMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SqlInjectionMatchSetId",params,undefined,false); 
@@ -809,9 +724,7 @@ module.exports = function(RED) {
 
 			svc.getSqlInjectionMatchSet(params,cb);
 		}
-
-		
-		service.GetWebACL=function(svc,msg,cb){
+			service.GetWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
@@ -823,9 +736,7 @@ module.exports = function(RED) {
 
 			svc.getWebACL(params,cb);
 		}
-
-		
-		service.GetXssMatchSet=function(svc,msg,cb){
+			service.GetXssMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"XssMatchSetId",params,undefined,false); 
@@ -837,15 +748,13 @@ module.exports = function(RED) {
 
 			svc.getXssMatchSet(params,cb);
 		}
-
-		
-		service.ListActivatedRulesInRuleGroup=function(svc,msg,cb){
+			service.ListActivatedRulesInRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"RuleGroupId",params,undefined,false); 
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"RuleGroupId",params,undefined,false); 
 			copyArgs(msg,"NextMarker",params,undefined,false); 
@@ -854,14 +763,12 @@ module.exports = function(RED) {
 
 			svc.listActivatedRulesInRuleGroup(params,cb);
 		}
-
-		
-		service.ListByteMatchSets=function(svc,msg,cb){
+			service.ListByteMatchSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -869,14 +776,12 @@ module.exports = function(RED) {
 
 			svc.listByteMatchSets(params,cb);
 		}
-
-		
-		service.ListGeoMatchSets=function(svc,msg,cb){
+			service.ListGeoMatchSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -884,14 +789,12 @@ module.exports = function(RED) {
 
 			svc.listGeoMatchSets(params,cb);
 		}
-
-		
-		service.ListIPSets=function(svc,msg,cb){
+			service.ListIPSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -899,14 +802,12 @@ module.exports = function(RED) {
 
 			svc.listIPSets(params,cb);
 		}
-
-		
-		service.ListLoggingConfigurations=function(svc,msg,cb){
+			service.ListLoggingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -914,14 +815,12 @@ module.exports = function(RED) {
 
 			svc.listLoggingConfigurations(params,cb);
 		}
-
-		
-		service.ListRateBasedRules=function(svc,msg,cb){
+			service.ListRateBasedRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -929,14 +828,12 @@ module.exports = function(RED) {
 
 			svc.listRateBasedRules(params,cb);
 		}
-
-		
-		service.ListRegexMatchSets=function(svc,msg,cb){
+			service.ListRegexMatchSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -944,14 +841,12 @@ module.exports = function(RED) {
 
 			svc.listRegexMatchSets(params,cb);
 		}
-
-		
-		service.ListRegexPatternSets=function(svc,msg,cb){
+			service.ListRegexPatternSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -959,14 +854,12 @@ module.exports = function(RED) {
 
 			svc.listRegexPatternSets(params,cb);
 		}
-
-		
-		service.ListRuleGroups=function(svc,msg,cb){
+			service.ListRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -974,14 +867,12 @@ module.exports = function(RED) {
 
 			svc.listRuleGroups(params,cb);
 		}
-
-		
-		service.ListRules=function(svc,msg,cb){
+			service.ListRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -989,14 +880,12 @@ module.exports = function(RED) {
 
 			svc.listRules(params,cb);
 		}
-
-		
-		service.ListSizeConstraintSets=function(svc,msg,cb){
+			service.ListSizeConstraintSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1004,14 +893,12 @@ module.exports = function(RED) {
 
 			svc.listSizeConstraintSets(params,cb);
 		}
-
-		
-		service.ListSqlInjectionMatchSets=function(svc,msg,cb){
+			service.ListSqlInjectionMatchSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1019,14 +906,12 @@ module.exports = function(RED) {
 
 			svc.listSqlInjectionMatchSets(params,cb);
 		}
-
-		
-		service.ListSubscribedRuleGroups=function(svc,msg,cb){
+			service.ListSubscribedRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1034,15 +919,13 @@ module.exports = function(RED) {
 
 			svc.listSubscribedRuleGroups(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"ResourceARN",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
@@ -1052,14 +935,12 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListWebACLs=function(svc,msg,cb){
+			service.ListWebACLs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1067,14 +948,12 @@ module.exports = function(RED) {
 
 			svc.listWebACLs(params,cb);
 		}
-
-		
-		service.ListXssMatchSets=function(svc,msg,cb){
+			service.ListXssMatchSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextMarker",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			
 			copyArgs(msg,"NextMarker",params,undefined,false); 
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1082,9 +961,7 @@ module.exports = function(RED) {
 
 			svc.listXssMatchSets(params,cb);
 		}
-
-		
-		service.PutLoggingConfiguration=function(svc,msg,cb){
+			service.PutLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggingConfiguration",params,undefined,true); 
@@ -1096,9 +973,7 @@ module.exports = function(RED) {
 
 			svc.putLoggingConfiguration(params,cb);
 		}
-
-		
-		service.PutPermissionPolicy=function(svc,msg,cb){
+			service.PutPermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1113,9 +988,7 @@ module.exports = function(RED) {
 
 			svc.putPermissionPolicy(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1130,9 +1003,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1147,9 +1018,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateByteMatchSet=function(svc,msg,cb){
+			service.UpdateByteMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ByteMatchSetId",params,undefined,false); 
@@ -1167,9 +1036,7 @@ module.exports = function(RED) {
 
 			svc.updateByteMatchSet(params,cb);
 		}
-
-		
-		service.UpdateGeoMatchSet=function(svc,msg,cb){
+			service.UpdateGeoMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GeoMatchSetId",params,undefined,false); 
@@ -1187,9 +1054,7 @@ module.exports = function(RED) {
 
 			svc.updateGeoMatchSet(params,cb);
 		}
-
-		
-		service.UpdateIPSet=function(svc,msg,cb){
+			service.UpdateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IPSetId",params,undefined,false); 
@@ -1207,9 +1072,7 @@ module.exports = function(RED) {
 
 			svc.updateIPSet(params,cb);
 		}
-
-		
-		service.UpdateRateBasedRule=function(svc,msg,cb){
+			service.UpdateRateBasedRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -1230,9 +1093,7 @@ module.exports = function(RED) {
 
 			svc.updateRateBasedRule(params,cb);
 		}
-
-		
-		service.UpdateRegexMatchSet=function(svc,msg,cb){
+			service.UpdateRegexMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexMatchSetId",params,undefined,false); 
@@ -1250,9 +1111,7 @@ module.exports = function(RED) {
 
 			svc.updateRegexMatchSet(params,cb);
 		}
-
-		
-		service.UpdateRegexPatternSet=function(svc,msg,cb){
+			service.UpdateRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegexPatternSetId",params,undefined,false); 
@@ -1270,9 +1129,7 @@ module.exports = function(RED) {
 
 			svc.updateRegexPatternSet(params,cb);
 		}
-
-		
-		service.UpdateRule=function(svc,msg,cb){
+			service.UpdateRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleId",params,undefined,false); 
@@ -1290,9 +1147,7 @@ module.exports = function(RED) {
 
 			svc.updateRule(params,cb);
 		}
-
-		
-		service.UpdateRuleGroup=function(svc,msg,cb){
+			service.UpdateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleGroupId",params,undefined,false); 
@@ -1310,9 +1165,7 @@ module.exports = function(RED) {
 
 			svc.updateRuleGroup(params,cb);
 		}
-
-		
-		service.UpdateSizeConstraintSet=function(svc,msg,cb){
+			service.UpdateSizeConstraintSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SizeConstraintSetId",params,undefined,false); 
@@ -1330,9 +1183,7 @@ module.exports = function(RED) {
 
 			svc.updateSizeConstraintSet(params,cb);
 		}
-
-		
-		service.UpdateSqlInjectionMatchSet=function(svc,msg,cb){
+			service.UpdateSqlInjectionMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SqlInjectionMatchSetId",params,undefined,false); 
@@ -1350,9 +1201,7 @@ module.exports = function(RED) {
 
 			svc.updateSqlInjectionMatchSet(params,cb);
 		}
-
-		
-		service.UpdateWebACL=function(svc,msg,cb){
+			service.UpdateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLId",params,undefined,false); 
@@ -1371,9 +1220,7 @@ module.exports = function(RED) {
 
 			svc.updateWebACL(params,cb);
 		}
-
-		
-		service.UpdateXssMatchSet=function(svc,msg,cb){
+			service.UpdateXssMatchSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"XssMatchSetId",params,undefined,false); 
@@ -1391,9 +1238,7 @@ module.exports = function(RED) {
 
 			svc.updateXssMatchSet(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS WAF", AmazonAPINode);
 

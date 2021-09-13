@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateEntityToThing=function(svc,msg,cb){
+			service.AssociateEntityToThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.associateEntityToThing(params,cb);
 		}
-
-		
-		service.CreateFlowTemplate=function(svc,msg,cb){
+			service.CreateFlowTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"definition",params,undefined,true); 
@@ -127,9 +124,7 @@ module.exports = function(RED) {
 
 			svc.createFlowTemplate(params,cb);
 		}
-
-		
-		service.CreateSystemInstance=function(svc,msg,cb){
+			service.CreateSystemInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"definition",params,undefined,true); 
@@ -154,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.createSystemInstance(params,cb);
 		}
-
-		
-		service.CreateSystemTemplate=function(svc,msg,cb){
+			service.CreateSystemTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"definition",params,undefined,true); 
@@ -170,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.createSystemTemplate(params,cb);
 		}
-
-		
-		service.DeleteFlowTemplate=function(svc,msg,cb){
+			service.DeleteFlowTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -184,9 +175,7 @@ module.exports = function(RED) {
 
 			svc.deleteFlowTemplate(params,cb);
 		}
-
-		
-		service.DeleteNamespace=function(svc,msg,cb){
+			service.DeleteNamespace=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -195,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.deleteNamespace(params,cb);
 		}
-
-		
-		service.DeleteSystemInstance=function(svc,msg,cb){
+			service.DeleteSystemInstance=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -208,9 +195,7 @@ module.exports = function(RED) {
 
 			svc.deleteSystemInstance(params,cb);
 		}
-
-		
-		service.DeleteSystemTemplate=function(svc,msg,cb){
+			service.DeleteSystemTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -222,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.deleteSystemTemplate(params,cb);
 		}
-
-		
-		service.DeploySystemInstance=function(svc,msg,cb){
+			service.DeploySystemInstance=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -235,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.deploySystemInstance(params,cb);
 		}
-
-		
-		service.DeprecateFlowTemplate=function(svc,msg,cb){
+			service.DeprecateFlowTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -249,9 +230,7 @@ module.exports = function(RED) {
 
 			svc.deprecateFlowTemplate(params,cb);
 		}
-
-		
-		service.DeprecateSystemTemplate=function(svc,msg,cb){
+			service.DeprecateSystemTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -263,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.deprecateSystemTemplate(params,cb);
 		}
-
-		
-		service.DescribeNamespace=function(svc,msg,cb){
+			service.DescribeNamespace=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -276,9 +253,7 @@ module.exports = function(RED) {
 
 			svc.describeNamespace(params,cb);
 		}
-
-		
-		service.DissociateEntityFromThing=function(svc,msg,cb){
+			service.DissociateEntityFromThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -293,9 +268,7 @@ module.exports = function(RED) {
 
 			svc.dissociateEntityFromThing(params,cb);
 		}
-
-		
-		service.GetEntities=function(svc,msg,cb){
+			service.GetEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ids",params,undefined,false); 
@@ -309,9 +282,7 @@ module.exports = function(RED) {
 
 			svc.getEntities(params,cb);
 		}
-
-		
-		service.GetFlowTemplate=function(svc,msg,cb){
+			service.GetFlowTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -325,16 +296,14 @@ module.exports = function(RED) {
 
 			svc.getFlowTemplate(params,cb);
 		}
-
-		
-		service.GetFlowTemplateRevisions=function(svc,msg,cb){
+			service.GetFlowTemplateRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
 			
 			copyArgs(n,"id",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"id",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -343,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.getFlowTemplateRevisions(params,cb);
 		}
-
-		
-		service.GetNamespaceDeletionStatus=function(svc,msg,cb){
+			service.GetNamespaceDeletionStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -354,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.getNamespaceDeletionStatus(params,cb);
 		}
-
-		
-		service.GetSystemInstance=function(svc,msg,cb){
+			service.GetSystemInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -368,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.getSystemInstance(params,cb);
 		}
-
-		
-		service.GetSystemTemplate=function(svc,msg,cb){
+			service.GetSystemTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -384,16 +347,14 @@ module.exports = function(RED) {
 
 			svc.getSystemTemplate(params,cb);
 		}
-
-		
-		service.GetSystemTemplateRevisions=function(svc,msg,cb){
+			service.GetSystemTemplateRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
 			
 			copyArgs(n,"id",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"id",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -402,9 +363,7 @@ module.exports = function(RED) {
 
 			svc.getSystemTemplateRevisions(params,cb);
 		}
-
-		
-		service.GetUploadStatus=function(svc,msg,cb){
+			service.GetUploadStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"uploadId",params,undefined,false); 
@@ -416,16 +375,14 @@ module.exports = function(RED) {
 
 			svc.getUploadStatus(params,cb);
 		}
-
-		
-		service.ListFlowExecutionMessages=function(svc,msg,cb){
+			service.ListFlowExecutionMessages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"flowExecutionId",params,undefined,false); 
 			
 			copyArgs(n,"flowExecutionId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"flowExecutionId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -434,14 +391,12 @@ module.exports = function(RED) {
 
 			svc.listFlowExecutionMessages(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
@@ -452,9 +407,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.SearchEntities=function(svc,msg,cb){
+			service.SearchEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"entityTypes",params,undefined,false); 
@@ -462,7 +415,7 @@ module.exports = function(RED) {
 			copyArgs(n,"entityTypes",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"namespaceVersion",params,undefined,false); 
 			
 			copyArgs(msg,"entityTypes",params,undefined,false); 
@@ -474,9 +427,7 @@ module.exports = function(RED) {
 
 			svc.searchEntities(params,cb);
 		}
-
-		
-		service.SearchFlowExecutions=function(svc,msg,cb){
+			service.SearchFlowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"systemInstanceId",params,undefined,false); 
@@ -486,7 +437,7 @@ module.exports = function(RED) {
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"systemInstanceId",params,undefined,false); 
 			copyArgs(msg,"flowExecutionId",params,undefined,false); 
@@ -498,15 +449,13 @@ module.exports = function(RED) {
 
 			svc.searchFlowExecutions(params,cb);
 		}
-
-		
-		service.SearchFlowTemplates=function(svc,msg,cb){
+			service.SearchFlowTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -515,15 +464,13 @@ module.exports = function(RED) {
 
 			svc.searchFlowTemplates(params,cb);
 		}
-
-		
-		service.SearchSystemInstances=function(svc,msg,cb){
+			service.SearchSystemInstances=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -532,15 +479,13 @@ module.exports = function(RED) {
 
 			svc.searchSystemInstances(params,cb);
 		}
-
-		
-		service.SearchSystemTemplates=function(svc,msg,cb){
+			service.SearchSystemTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -549,16 +494,14 @@ module.exports = function(RED) {
 
 			svc.searchSystemTemplates(params,cb);
 		}
-
-		
-		service.SearchThings=function(svc,msg,cb){
+			service.SearchThings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"entityId",params,undefined,false); 
 			
 			copyArgs(n,"entityId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"namespaceVersion",params,undefined,false); 
 			
 			copyArgs(msg,"entityId",params,undefined,false); 
@@ -569,9 +512,7 @@ module.exports = function(RED) {
 
 			svc.searchThings(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -586,9 +527,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UndeploySystemInstance=function(svc,msg,cb){
+			service.UndeploySystemInstance=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -599,9 +538,7 @@ module.exports = function(RED) {
 
 			svc.undeploySystemInstance(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -616,9 +553,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateFlowTemplate=function(svc,msg,cb){
+			service.UpdateFlowTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -635,9 +570,7 @@ module.exports = function(RED) {
 
 			svc.updateFlowTemplate(params,cb);
 		}
-
-		
-		service.UpdateSystemTemplate=function(svc,msg,cb){
+			service.UpdateSystemTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -654,15 +587,13 @@ module.exports = function(RED) {
 
 			svc.updateSystemTemplate(params,cb);
 		}
-
-		
-		service.UploadEntityDefinitions=function(svc,msg,cb){
+			service.UploadEntityDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"document",params,undefined,true); 
-			copyArgs(n,"syncWithPublicNamespace",params,undefined,false); 
-			copyArgs(n,"deprecateExistingEntities",params,undefined,false); 
+			copyArgs(Boolean(n),"syncWithPublicNamespace",params,undefined,false); 
+			copyArgs(Boolean(n),"deprecateExistingEntities",params,undefined,false); 
 			
 			copyArgs(msg,"document",params,undefined,true); 
 			copyArgs(msg,"syncWithPublicNamespace",params,undefined,false); 
@@ -671,9 +602,7 @@ module.exports = function(RED) {
 
 			svc.uploadEntityDefinitions(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IoTThingsGraph", AmazonAPINode);
 

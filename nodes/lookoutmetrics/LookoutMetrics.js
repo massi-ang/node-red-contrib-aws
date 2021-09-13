@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.ActivateAnomalyDetector=function(svc,msg,cb){
+			service.ActivateAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.activateAnomalyDetector(params,cb);
 		}
-
-		
-		service.BackTestAnomalyDetector=function(svc,msg,cb){
+			service.BackTestAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -120,18 +117,16 @@ module.exports = function(RED) {
 
 			svc.backTestAnomalyDetector(params,cb);
 		}
-
-		
-		service.CreateAlert=function(svc,msg,cb){
+			service.CreateAlert=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlertName",params,undefined,false); 
-			copyArgs(n,"AlertSensitivityThreshold",params,undefined,false); 
+			copyArgs(Number(n),"AlertSensitivityThreshold",params,undefined,false); 
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,true); 
 			
 			copyArgs(n,"AlertName",params,undefined,false); 
-			copyArgs(n,"AlertSensitivityThreshold",params,undefined,false); 
+			copyArgs(Number(n),"AlertSensitivityThreshold",params,undefined,false); 
 			copyArgs(n,"AlertDescription",params,undefined,false); 
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"Action",params,undefined,true); 
@@ -147,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.createAlert(params,cb);
 		}
-
-		
-		service.CreateAnomalyDetector=function(svc,msg,cb){
+			service.CreateAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorName",params,undefined,false); 
@@ -170,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.createAnomalyDetector(params,cb);
 		}
-
-		
-		service.CreateMetricSet=function(svc,msg,cb){
+			service.CreateMetricSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -184,7 +175,7 @@ module.exports = function(RED) {
 			copyArgs(n,"MetricSetName",params,undefined,false); 
 			copyArgs(n,"MetricSetDescription",params,undefined,false); 
 			copyArgs(n,"MetricList",params,undefined,true); 
-			copyArgs(n,"Offset",params,undefined,false); 
+			copyArgs(Number(n),"Offset",params,undefined,false); 
 			copyArgs(n,"TimestampColumn",params,undefined,true); 
 			copyArgs(n,"DimensionList",params,undefined,true); 
 			copyArgs(n,"MetricSetFrequency",params,undefined,false); 
@@ -207,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.createMetricSet(params,cb);
 		}
-
-		
-		service.DeleteAlert=function(svc,msg,cb){
+			service.DeleteAlert=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlertArn",params,undefined,false); 
@@ -221,9 +210,7 @@ module.exports = function(RED) {
 
 			svc.deleteAlert(params,cb);
 		}
-
-		
-		service.DeleteAnomalyDetector=function(svc,msg,cb){
+			service.DeleteAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -235,9 +222,7 @@ module.exports = function(RED) {
 
 			svc.deleteAnomalyDetector(params,cb);
 		}
-
-		
-		service.DescribeAlert=function(svc,msg,cb){
+			service.DescribeAlert=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlertArn",params,undefined,false); 
@@ -249,16 +234,14 @@ module.exports = function(RED) {
 
 			svc.describeAlert(params,cb);
 		}
-
-		
-		service.DescribeAnomalyDetectionExecutions=function(svc,msg,cb){
+			service.DescribeAnomalyDetectionExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"Timestamp",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
@@ -269,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.describeAnomalyDetectionExecutions(params,cb);
 		}
-
-		
-		service.DescribeAnomalyDetector=function(svc,msg,cb){
+			service.DescribeAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -283,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.describeAnomalyDetector(params,cb);
 		}
-
-		
-		service.DescribeMetricSet=function(svc,msg,cb){
+			service.DescribeMetricSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MetricSetArn",params,undefined,false); 
@@ -297,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.describeMetricSet(params,cb);
 		}
-
-		
-		service.GetAnomalyGroup=function(svc,msg,cb){
+			service.GetAnomalyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyGroupId",params,undefined,false); 
@@ -314,9 +291,7 @@ module.exports = function(RED) {
 
 			svc.getAnomalyGroup(params,cb);
 		}
-
-		
-		service.GetFeedback=function(svc,msg,cb){
+			service.GetFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -324,7 +299,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"AnomalyGroupTimeSeriesFeedback",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
@@ -335,9 +310,7 @@ module.exports = function(RED) {
 
 			svc.getFeedback(params,cb);
 		}
-
-		
-		service.GetSampleData=function(svc,msg,cb){
+			service.GetSampleData=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -348,15 +321,13 @@ module.exports = function(RED) {
 
 			svc.getSampleData(params,cb);
 		}
-
-		
-		service.ListAlerts=function(svc,msg,cb){
+			service.ListAlerts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -365,13 +336,11 @@ module.exports = function(RED) {
 
 			svc.listAlerts(params,cb);
 		}
-
-		
-		service.ListAnomalyDetectors=function(svc,msg,cb){
+			service.ListAnomalyDetectors=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -380,17 +349,15 @@ module.exports = function(RED) {
 
 			svc.listAnomalyDetectors(params,cb);
 		}
-
-		
-		service.ListAnomalyGroupSummaries=function(svc,msg,cb){
+			service.ListAnomalyGroupSummaries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
-			copyArgs(n,"SensitivityThreshold",params,undefined,false); 
+			copyArgs(Number(n),"SensitivityThreshold",params,undefined,false); 
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
-			copyArgs(n,"SensitivityThreshold",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"SensitivityThreshold",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
@@ -401,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.listAnomalyGroupSummaries(params,cb);
 		}
-
-		
-		service.ListAnomalyGroupTimeSeries=function(svc,msg,cb){
+			service.ListAnomalyGroupTimeSeries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -413,7 +378,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
 			copyArgs(n,"AnomalyGroupId",params,undefined,false); 
 			copyArgs(n,"MetricName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
@@ -425,14 +390,12 @@ module.exports = function(RED) {
 
 			svc.listAnomalyGroupTimeSeries(params,cb);
 		}
-
-		
-		service.ListMetricSets=function(svc,msg,cb){
+			service.ListMetricSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AnomalyDetectorArn",params,undefined,false); 
@@ -442,9 +405,7 @@ module.exports = function(RED) {
 
 			svc.listMetricSets(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -456,9 +417,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutFeedback=function(svc,msg,cb){
+			service.PutFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -473,9 +432,7 @@ module.exports = function(RED) {
 
 			svc.putFeedback(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -490,9 +447,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -507,9 +462,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAnomalyDetector=function(svc,msg,cb){
+			service.UpdateAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyDetectorArn",params,undefined,false); 
@@ -527,9 +480,7 @@ module.exports = function(RED) {
 
 			svc.updateAnomalyDetector(params,cb);
 		}
-
-		
-		service.UpdateMetricSet=function(svc,msg,cb){
+			service.UpdateMetricSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MetricSetArn",params,undefined,false); 
@@ -537,7 +488,7 @@ module.exports = function(RED) {
 			copyArgs(n,"MetricSetArn",params,undefined,false); 
 			copyArgs(n,"MetricSetDescription",params,undefined,false); 
 			copyArgs(n,"MetricList",params,undefined,true); 
-			copyArgs(n,"Offset",params,undefined,false); 
+			copyArgs(Number(n),"Offset",params,undefined,false); 
 			copyArgs(n,"TimestampColumn",params,undefined,true); 
 			copyArgs(n,"DimensionList",params,undefined,true); 
 			copyArgs(n,"MetricSetFrequency",params,undefined,false); 
@@ -555,9 +506,7 @@ module.exports = function(RED) {
 
 			svc.updateMetricSet(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS LookoutMetrics", AmazonAPINode);
 

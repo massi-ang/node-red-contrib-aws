@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateMember=function(svc,msg,cb){
+			service.CreateMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,false); 
@@ -115,9 +114,7 @@ module.exports = function(RED) {
 
 			svc.createMember(params,cb);
 		}
-
-		
-		service.CreateNetwork=function(svc,msg,cb){
+			service.CreateNetwork=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,false); 
@@ -150,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.createNetwork(params,cb);
 		}
-
-		
-		service.CreateNode=function(svc,msg,cb){
+			service.CreateNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,false); 
@@ -174,9 +169,7 @@ module.exports = function(RED) {
 
 			svc.createNode(params,cb);
 		}
-
-		
-		service.CreateProposal=function(svc,msg,cb){
+			service.CreateProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,false); 
@@ -201,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.createProposal(params,cb);
 		}
-
-		
-		service.DeleteMember=function(svc,msg,cb){
+			service.DeleteMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -218,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.deleteMember(params,cb);
 		}
-
-		
-		service.DeleteNode=function(svc,msg,cb){
+			service.DeleteNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -237,9 +226,7 @@ module.exports = function(RED) {
 
 			svc.deleteNode(params,cb);
 		}
-
-		
-		service.GetMember=function(svc,msg,cb){
+			service.GetMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -254,9 +241,7 @@ module.exports = function(RED) {
 
 			svc.getMember(params,cb);
 		}
-
-		
-		service.GetNetwork=function(svc,msg,cb){
+			service.GetNetwork=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -268,9 +253,7 @@ module.exports = function(RED) {
 
 			svc.getNetwork(params,cb);
 		}
-
-		
-		service.GetNode=function(svc,msg,cb){
+			service.GetNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -287,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.getNode(params,cb);
 		}
-
-		
-		service.GetProposal=function(svc,msg,cb){
+			service.GetProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -304,13 +285,11 @@ module.exports = function(RED) {
 
 			svc.getProposal(params,cb);
 		}
-
-		
-		service.ListInvitations=function(svc,msg,cb){
+			service.ListInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -319,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.listInvitations(params,cb);
 		}
-
-		
-		service.ListMembers=function(svc,msg,cb){
+			service.ListMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -329,8 +306,8 @@ module.exports = function(RED) {
 			copyArgs(n,"NetworkId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"IsOwned",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"IsOwned",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"NetworkId",params,undefined,false); 
@@ -343,16 +320,14 @@ module.exports = function(RED) {
 
 			svc.listMembers(params,cb);
 		}
-
-		
-		service.ListNetworks=function(svc,msg,cb){
+			service.ListNetworks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Framework",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -364,9 +339,7 @@ module.exports = function(RED) {
 
 			svc.listNetworks(params,cb);
 		}
-
-		
-		service.ListNodes=function(svc,msg,cb){
+			service.ListNodes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -374,7 +347,7 @@ module.exports = function(RED) {
 			copyArgs(n,"NetworkId",params,undefined,false); 
 			copyArgs(n,"MemberId",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"NetworkId",params,undefined,false); 
@@ -386,9 +359,7 @@ module.exports = function(RED) {
 
 			svc.listNodes(params,cb);
 		}
-
-		
-		service.ListProposalVotes=function(svc,msg,cb){
+			service.ListProposalVotes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -396,7 +367,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
 			copyArgs(n,"ProposalId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"NetworkId",params,undefined,false); 
@@ -407,15 +378,13 @@ module.exports = function(RED) {
 
 			svc.listProposalVotes(params,cb);
 		}
-
-		
-		service.ListProposals=function(svc,msg,cb){
+			service.ListProposals=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"NetworkId",params,undefined,false); 
@@ -425,9 +394,7 @@ module.exports = function(RED) {
 
 			svc.listProposals(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -439,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RejectInvitation=function(svc,msg,cb){
+			service.RejectInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InvitationId",params,undefined,false); 
@@ -453,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.rejectInvitation(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -470,9 +433,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -487,9 +448,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateMember=function(svc,msg,cb){
+			service.UpdateMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -506,9 +465,7 @@ module.exports = function(RED) {
 
 			svc.updateMember(params,cb);
 		}
-
-		
-		service.UpdateNode=function(svc,msg,cb){
+			service.UpdateNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -527,9 +484,7 @@ module.exports = function(RED) {
 
 			svc.updateNode(params,cb);
 		}
-
-		
-		service.VoteOnProposal=function(svc,msg,cb){
+			service.VoteOnProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NetworkId",params,undefined,false); 
@@ -550,9 +505,7 @@ module.exports = function(RED) {
 
 			svc.voteOnProposal(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ManagedBlockchain", AmazonAPINode);
 

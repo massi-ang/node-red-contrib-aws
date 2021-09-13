@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AbortEnvironmentUpdate=function(svc,msg,cb){
+			service.AbortEnvironmentUpdate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -107,9 +106,7 @@ module.exports = function(RED) {
 
 			svc.abortEnvironmentUpdate(params,cb);
 		}
-
-		
-		service.ApplyEnvironmentManagedAction=function(svc,msg,cb){
+			service.ApplyEnvironmentManagedAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActionId",params,undefined,false); 
@@ -125,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.applyEnvironmentManagedAction(params,cb);
 		}
-
-		
-		service.AssociateEnvironmentOperationsRole=function(svc,msg,cb){
+			service.AssociateEnvironmentOperationsRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EnvironmentName",params,undefined,false); 
@@ -142,9 +137,7 @@ module.exports = function(RED) {
 
 			svc.associateEnvironmentOperationsRole(params,cb);
 		}
-
-		
-		service.CheckDNSAvailability=function(svc,msg,cb){
+			service.CheckDNSAvailability=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CNAMEPrefix",params,undefined,false); 
@@ -156,9 +149,7 @@ module.exports = function(RED) {
 
 			svc.checkDNSAvailability(params,cb);
 		}
-
-		
-		service.ComposeEnvironments=function(svc,msg,cb){
+			service.ComposeEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -173,9 +164,7 @@ module.exports = function(RED) {
 
 			svc.composeEnvironments(params,cb);
 		}
-
-		
-		service.CreateApplication=function(svc,msg,cb){
+			service.CreateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -193,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.createApplication(params,cb);
 		}
-
-		
-		service.CreateApplicationVersion=function(svc,msg,cb){
+			service.CreateApplicationVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -207,8 +194,8 @@ module.exports = function(RED) {
 			copyArgs(n,"SourceBuildInformation",params,undefined,true); 
 			copyArgs(n,"SourceBundle",params,undefined,true); 
 			copyArgs(n,"BuildConfiguration",params,undefined,false); 
-			copyArgs(n,"AutoCreateApplication",params,undefined,false); 
-			copyArgs(n,"Process",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoCreateApplication",params,undefined,false); 
+			copyArgs(Boolean(n),"Process",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
@@ -224,9 +211,7 @@ module.exports = function(RED) {
 
 			svc.createApplicationVersion(params,cb);
 		}
-
-		
-		service.CreateConfigurationTemplate=function(svc,msg,cb){
+			service.CreateConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -255,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createConfigurationTemplate(params,cb);
 		}
-
-		
-		service.CreateEnvironment=function(svc,msg,cb){
+			service.CreateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -295,9 +278,7 @@ module.exports = function(RED) {
 
 			svc.createEnvironment(params,cb);
 		}
-
-		
-		service.CreatePlatformVersion=function(svc,msg,cb){
+			service.CreatePlatformVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformName",params,undefined,false); 
@@ -321,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.createPlatformVersion(params,cb);
 		}
-
-		
-		service.CreateStorageLocation=function(svc,msg,cb){
+			service.CreateStorageLocation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -332,15 +311,13 @@ module.exports = function(RED) {
 
 			svc.createStorageLocation(params,cb);
 		}
-
-		
-		service.DeleteApplication=function(svc,msg,cb){
+			service.DeleteApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
-			copyArgs(n,"TerminateEnvByForce",params,undefined,false); 
+			copyArgs(Boolean(n),"TerminateEnvByForce",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
 			copyArgs(msg,"TerminateEnvByForce",params,undefined,false); 
@@ -348,9 +325,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplication(params,cb);
 		}
-
-		
-		service.DeleteApplicationVersion=function(svc,msg,cb){
+			service.DeleteApplicationVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -358,7 +333,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
 			copyArgs(n,"VersionLabel",params,undefined,false); 
-			copyArgs(n,"DeleteSourceBundle",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteSourceBundle",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
 			copyArgs(msg,"VersionLabel",params,undefined,false); 
@@ -367,9 +342,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplicationVersion(params,cb);
 		}
-
-		
-		service.DeleteConfigurationTemplate=function(svc,msg,cb){
+			service.DeleteConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -384,9 +357,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigurationTemplate(params,cb);
 		}
-
-		
-		service.DeleteEnvironmentConfiguration=function(svc,msg,cb){
+			service.DeleteEnvironmentConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -401,9 +372,7 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironmentConfiguration(params,cb);
 		}
-
-		
-		service.DeletePlatformVersion=function(svc,msg,cb){
+			service.DeletePlatformVersion=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -414,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.deletePlatformVersion(params,cb);
 		}
-
-		
-		service.DescribeAccountAttributes=function(svc,msg,cb){
+			service.DescribeAccountAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -425,15 +392,13 @@ module.exports = function(RED) {
 
 			svc.describeAccountAttributes(params,cb);
 		}
-
-		
-		service.DescribeApplicationVersions=function(svc,msg,cb){
+			service.DescribeApplicationVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
 			copyArgs(n,"VersionLabels",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
@@ -444,9 +409,7 @@ module.exports = function(RED) {
 
 			svc.describeApplicationVersions(params,cb);
 		}
-
-		
-		service.DescribeApplications=function(svc,msg,cb){
+			service.DescribeApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -457,9 +420,7 @@ module.exports = function(RED) {
 
 			svc.describeApplications(params,cb);
 		}
-
-		
-		service.DescribeConfigurationOptions=function(svc,msg,cb){
+			service.DescribeConfigurationOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -480,9 +441,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationOptions(params,cb);
 		}
-
-		
-		service.DescribeConfigurationSettings=function(svc,msg,cb){
+			service.DescribeConfigurationSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -498,9 +457,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationSettings(params,cb);
 		}
-
-		
-		service.DescribeEnvironmentHealth=function(svc,msg,cb){
+			service.DescribeEnvironmentHealth=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -515,16 +472,14 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentHealth(params,cb);
 		}
-
-		
-		service.DescribeEnvironmentManagedActionHistory=function(svc,msg,cb){
+			service.DescribeEnvironmentManagedActionHistory=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"EnvironmentId",params,undefined,false); 
 			copyArgs(n,"EnvironmentName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxItems",params,undefined,false); 
+			copyArgs(Number(n),"MaxItems",params,undefined,false); 
 			
 			copyArgs(msg,"EnvironmentId",params,undefined,false); 
 			copyArgs(msg,"EnvironmentName",params,undefined,false); 
@@ -534,9 +489,7 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentManagedActionHistory(params,cb);
 		}
-
-		
-		service.DescribeEnvironmentManagedActions=function(svc,msg,cb){
+			service.DescribeEnvironmentManagedActions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -551,9 +504,7 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentManagedActions(params,cb);
 		}
-
-		
-		service.DescribeEnvironmentResources=function(svc,msg,cb){
+			service.DescribeEnvironmentResources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -566,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentResources(params,cb);
 		}
-
-		
-		service.DescribeEnvironments=function(svc,msg,cb){
+			service.DescribeEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -576,9 +525,9 @@ module.exports = function(RED) {
 			copyArgs(n,"VersionLabel",params,undefined,false); 
 			copyArgs(n,"EnvironmentIds",params,undefined,false); 
 			copyArgs(n,"EnvironmentNames",params,undefined,false); 
-			copyArgs(n,"IncludeDeleted",params,undefined,false); 
+			copyArgs(Boolean(n),"IncludeDeleted",params,undefined,false); 
 			copyArgs(n,"IncludedDeletedBackTo",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
@@ -593,9 +542,7 @@ module.exports = function(RED) {
 
 			svc.describeEnvironments(params,cb);
 		}
-
-		
-		service.DescribeEvents=function(svc,msg,cb){
+			service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -609,7 +556,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Severity",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ApplicationName",params,undefined,false); 
@@ -628,9 +575,7 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-
-		
-		service.DescribeInstancesHealth=function(svc,msg,cb){
+			service.DescribeInstancesHealth=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -647,9 +592,7 @@ module.exports = function(RED) {
 
 			svc.describeInstancesHealth(params,cb);
 		}
-
-		
-		service.DescribePlatformVersion=function(svc,msg,cb){
+			service.DescribePlatformVersion=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -660,9 +603,7 @@ module.exports = function(RED) {
 
 			svc.describePlatformVersion(params,cb);
 		}
-
-		
-		service.DisassociateEnvironmentOperationsRole=function(svc,msg,cb){
+			service.DisassociateEnvironmentOperationsRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EnvironmentName",params,undefined,false); 
@@ -674,9 +615,7 @@ module.exports = function(RED) {
 
 			svc.disassociateEnvironmentOperationsRole(params,cb);
 		}
-
-		
-		service.ListAvailableSolutionStacks=function(svc,msg,cb){
+			service.ListAvailableSolutionStacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -685,14 +624,12 @@ module.exports = function(RED) {
 
 			svc.listAvailableSolutionStacks(params,cb);
 		}
-
-		
-		service.ListPlatformBranches=function(svc,msg,cb){
+			service.ListPlatformBranches=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -702,14 +639,12 @@ module.exports = function(RED) {
 
 			svc.listPlatformBranches(params,cb);
 		}
-
-		
-		service.ListPlatformVersions=function(svc,msg,cb){
+			service.ListPlatformVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -719,9 +654,7 @@ module.exports = function(RED) {
 
 			svc.listPlatformVersions(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -733,9 +666,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RebuildEnvironment=function(svc,msg,cb){
+			service.RebuildEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -748,9 +679,7 @@ module.exports = function(RED) {
 
 			svc.rebuildEnvironment(params,cb);
 		}
-
-		
-		service.RequestEnvironmentInfo=function(svc,msg,cb){
+			service.RequestEnvironmentInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InfoType",params,undefined,false); 
@@ -766,9 +695,7 @@ module.exports = function(RED) {
 
 			svc.requestEnvironmentInfo(params,cb);
 		}
-
-		
-		service.RestartAppServer=function(svc,msg,cb){
+			service.RestartAppServer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -781,9 +708,7 @@ module.exports = function(RED) {
 
 			svc.restartAppServer(params,cb);
 		}
-
-		
-		service.RetrieveEnvironmentInfo=function(svc,msg,cb){
+			service.RetrieveEnvironmentInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InfoType",params,undefined,false); 
@@ -799,9 +724,7 @@ module.exports = function(RED) {
 
 			svc.retrieveEnvironmentInfo(params,cb);
 		}
-
-		
-		service.SwapEnvironmentCNAMEs=function(svc,msg,cb){
+			service.SwapEnvironmentCNAMEs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -818,16 +741,14 @@ module.exports = function(RED) {
 
 			svc.swapEnvironmentCNAMEs(params,cb);
 		}
-
-		
-		service.TerminateEnvironment=function(svc,msg,cb){
+			service.TerminateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"EnvironmentId",params,undefined,false); 
 			copyArgs(n,"EnvironmentName",params,undefined,false); 
-			copyArgs(n,"TerminateResources",params,undefined,false); 
-			copyArgs(n,"ForceTerminate",params,undefined,false); 
+			copyArgs(Boolean(n),"TerminateResources",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceTerminate",params,undefined,false); 
 			
 			copyArgs(msg,"EnvironmentId",params,undefined,false); 
 			copyArgs(msg,"EnvironmentName",params,undefined,false); 
@@ -837,9 +758,7 @@ module.exports = function(RED) {
 
 			svc.terminateEnvironment(params,cb);
 		}
-
-		
-		service.UpdateApplication=function(svc,msg,cb){
+			service.UpdateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -853,9 +772,7 @@ module.exports = function(RED) {
 
 			svc.updateApplication(params,cb);
 		}
-
-		
-		service.UpdateApplicationResourceLifecycle=function(svc,msg,cb){
+			service.UpdateApplicationResourceLifecycle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -870,9 +787,7 @@ module.exports = function(RED) {
 
 			svc.updateApplicationResourceLifecycle(params,cb);
 		}
-
-		
-		service.UpdateApplicationVersion=function(svc,msg,cb){
+			service.UpdateApplicationVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -889,9 +804,7 @@ module.exports = function(RED) {
 
 			svc.updateApplicationVersion(params,cb);
 		}
-
-		
-		service.UpdateConfigurationTemplate=function(svc,msg,cb){
+			service.UpdateConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -912,9 +825,7 @@ module.exports = function(RED) {
 
 			svc.updateConfigurationTemplate(params,cb);
 		}
-
-		
-		service.UpdateEnvironment=function(svc,msg,cb){
+			service.UpdateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -947,9 +858,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironment(params,cb);
 		}
-
-		
-		service.UpdateTagsForResource=function(svc,msg,cb){
+			service.UpdateTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -965,9 +874,7 @@ module.exports = function(RED) {
 
 			svc.updateTagsForResource(params,cb);
 		}
-
-		
-		service.ValidateConfigurationSettings=function(svc,msg,cb){
+			service.ValidateConfigurationSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -986,9 +893,7 @@ module.exports = function(RED) {
 
 			svc.validateConfigurationSettings(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ElasticBeanstalk", AmazonAPINode);
 

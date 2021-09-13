@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchExecuteStatement=function(svc,msg,cb){
+			service.BatchExecuteStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -107,7 +106,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SecretArn",params,undefined,false); 
 			copyArgs(n,"Sqls",params,undefined,false); 
 			copyArgs(n,"StatementName",params,undefined,false); 
-			copyArgs(n,"WithEvent",params,undefined,false); 
+			copyArgs(Boolean(n),"WithEvent",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterIdentifier",params,undefined,false); 
 			copyArgs(msg,"Database",params,undefined,false); 
@@ -120,9 +119,7 @@ module.exports = function(RED) {
 
 			svc.batchExecuteStatement(params,cb);
 		}
-
-		
-		service.CancelStatement=function(svc,msg,cb){
+			service.CancelStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -134,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.cancelStatement(params,cb);
 		}
-
-		
-		service.DescribeStatement=function(svc,msg,cb){
+			service.DescribeStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -148,9 +143,7 @@ module.exports = function(RED) {
 
 			svc.describeStatement(params,cb);
 		}
-
-		
-		service.DescribeTable=function(svc,msg,cb){
+			service.DescribeTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -160,7 +153,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConnectedDatabase",params,undefined,false); 
 			copyArgs(n,"Database",params,undefined,false); 
 			copyArgs(n,"DbUser",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Schema",params,undefined,false); 
 			copyArgs(n,"SecretArn",params,undefined,false); 
@@ -179,9 +172,7 @@ module.exports = function(RED) {
 
 			svc.describeTable(params,cb);
 		}
-
-		
-		service.ExecuteStatement=function(svc,msg,cb){
+			service.ExecuteStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -195,7 +186,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SecretArn",params,undefined,false); 
 			copyArgs(n,"Sql",params,undefined,false); 
 			copyArgs(n,"StatementName",params,undefined,false); 
-			copyArgs(n,"WithEvent",params,undefined,false); 
+			copyArgs(Boolean(n),"WithEvent",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterIdentifier",params,undefined,false); 
 			copyArgs(msg,"Database",params,undefined,false); 
@@ -209,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.executeStatement(params,cb);
 		}
-
-		
-		service.GetStatementResult=function(svc,msg,cb){
+			service.GetStatementResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -225,9 +214,7 @@ module.exports = function(RED) {
 
 			svc.getStatementResult(params,cb);
 		}
-
-		
-		service.ListDatabases=function(svc,msg,cb){
+			service.ListDatabases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -236,7 +223,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
 			copyArgs(n,"Database",params,undefined,false); 
 			copyArgs(n,"DbUser",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"SecretArn",params,undefined,false); 
 			
@@ -250,9 +237,7 @@ module.exports = function(RED) {
 
 			svc.listDatabases(params,cb);
 		}
-
-		
-		service.ListSchemas=function(svc,msg,cb){
+			service.ListSchemas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -262,7 +247,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConnectedDatabase",params,undefined,false); 
 			copyArgs(n,"Database",params,undefined,false); 
 			copyArgs(n,"DbUser",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"SchemaPattern",params,undefined,false); 
 			copyArgs(n,"SecretArn",params,undefined,false); 
@@ -279,15 +264,13 @@ module.exports = function(RED) {
 
 			svc.listSchemas(params,cb);
 		}
-
-		
-		service.ListStatements=function(svc,msg,cb){
+			service.ListStatements=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"RoleLevel",params,undefined,false); 
+			copyArgs(Boolean(n),"RoleLevel",params,undefined,false); 
 			copyArgs(n,"StatementName",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			
@@ -300,9 +283,7 @@ module.exports = function(RED) {
 
 			svc.listStatements(params,cb);
 		}
-
-		
-		service.ListTables=function(svc,msg,cb){
+			service.ListTables=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -312,7 +293,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ConnectedDatabase",params,undefined,false); 
 			copyArgs(n,"Database",params,undefined,false); 
 			copyArgs(n,"DbUser",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"SchemaPattern",params,undefined,false); 
 			copyArgs(n,"SecretArn",params,undefined,false); 
@@ -331,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.listTables(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS RedshiftData", AmazonAPINode);
 

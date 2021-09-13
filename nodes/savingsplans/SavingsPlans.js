@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateSavingsPlan=function(svc,msg,cb){
+			service.CreateSavingsPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"savingsPlanOfferingId",params,undefined,false); 
@@ -117,9 +116,7 @@ module.exports = function(RED) {
 
 			svc.createSavingsPlan(params,cb);
 		}
-
-		
-		service.DeleteQueuedSavingsPlan=function(svc,msg,cb){
+			service.DeleteQueuedSavingsPlan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"savingsPlanId",params,undefined,false); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.deleteQueuedSavingsPlan(params,cb);
 		}
-
-		
-		service.DescribeSavingsPlanRates=function(svc,msg,cb){
+			service.DescribeSavingsPlanRates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"savingsPlanId",params,undefined,false); 
@@ -141,7 +136,7 @@ module.exports = function(RED) {
 			copyArgs(n,"savingsPlanId",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"savingsPlanId",params,undefined,false); 
 			copyArgs(msg,"filters",params,undefined,false); 
@@ -151,16 +146,14 @@ module.exports = function(RED) {
 
 			svc.describeSavingsPlanRates(params,cb);
 		}
-
-		
-		service.DescribeSavingsPlans=function(svc,msg,cb){
+			service.DescribeSavingsPlans=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"savingsPlanArns",params,undefined,false); 
 			copyArgs(n,"savingsPlanIds",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"states",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			
@@ -174,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.describeSavingsPlans(params,cb);
 		}
-
-		
-		service.DescribeSavingsPlansOfferingRates=function(svc,msg,cb){
+			service.DescribeSavingsPlansOfferingRates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -189,7 +180,7 @@ module.exports = function(RED) {
 			copyArgs(n,"operations",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"savingsPlanOfferingIds",params,undefined,true); 
 			copyArgs(msg,"savingsPlanPaymentOptions",params,undefined,true); 
@@ -205,9 +196,7 @@ module.exports = function(RED) {
 
 			svc.describeSavingsPlansOfferingRates(params,cb);
 		}
-
-		
-		service.DescribeSavingsPlansOfferings=function(svc,msg,cb){
+			service.DescribeSavingsPlansOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -223,7 +212,7 @@ module.exports = function(RED) {
 			copyArgs(n,"operations",params,undefined,false); 
 			copyArgs(n,"filters",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"offeringIds",params,undefined,true); 
 			copyArgs(msg,"paymentOptions",params,undefined,true); 
@@ -242,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.describeSavingsPlansOfferings(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -256,9 +243,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -273,9 +258,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -290,9 +273,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SavingsPlans", AmazonAPINode);
 

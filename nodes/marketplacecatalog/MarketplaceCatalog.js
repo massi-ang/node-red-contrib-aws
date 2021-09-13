@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelChangeSet=function(svc,msg,cb){
+			service.CancelChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.cancelChangeSet(params,cb);
 		}
-
-		
-		service.DescribeChangeSet=function(svc,msg,cb){
+			service.DescribeChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.describeChangeSet(params,cb);
 		}
-
-		
-		service.DescribeEntity=function(svc,msg,cb){
+			service.DescribeEntity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.describeEntity(params,cb);
 		}
-
-		
-		service.ListChangeSets=function(svc,msg,cb){
+			service.ListChangeSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -153,7 +146,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Catalog",params,undefined,false); 
 			copyArgs(n,"FilterList",params,undefined,true); 
 			copyArgs(n,"Sort",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Catalog",params,undefined,false); 
@@ -165,9 +158,7 @@ module.exports = function(RED) {
 
 			svc.listChangeSets(params,cb);
 		}
-
-		
-		service.ListEntities=function(svc,msg,cb){
+			service.ListEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -178,7 +169,7 @@ module.exports = function(RED) {
 			copyArgs(n,"FilterList",params,undefined,true); 
 			copyArgs(n,"Sort",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Catalog",params,undefined,false); 
 			copyArgs(msg,"EntityType",params,undefined,false); 
@@ -190,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.listEntities(params,cb);
 		}
-
-		
-		service.StartChangeSet=function(svc,msg,cb){
+			service.StartChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Catalog",params,undefined,false); 
@@ -211,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.startChangeSet(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MarketplaceCatalog", AmazonAPINode);
 

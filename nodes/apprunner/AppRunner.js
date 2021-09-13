@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateCustomDomain=function(svc,msg,cb){
+			service.AssociateCustomDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -102,7 +101,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"EnableWWWSubdomain",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableWWWSubdomain",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceArn",params,undefined,false); 
 			copyArgs(msg,"DomainName",params,undefined,false); 
@@ -111,17 +110,15 @@ module.exports = function(RED) {
 
 			svc.associateCustomDomain(params,cb);
 		}
-
-		
-		service.CreateAutoScalingConfiguration=function(svc,msg,cb){
+			service.CreateAutoScalingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingConfigurationName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingConfigurationName",params,undefined,false); 
-			copyArgs(n,"MaxConcurrency",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxConcurrency",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"AutoScalingConfigurationName",params,undefined,false); 
@@ -133,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.createAutoScalingConfiguration(params,cb);
 		}
-
-		
-		service.CreateConnection=function(svc,msg,cb){
+			service.CreateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionName",params,undefined,false); 
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.createConnection(params,cb);
 		}
-
-		
-		service.CreateService=function(svc,msg,cb){
+			service.CreateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceName",params,undefined,false); 
@@ -179,9 +172,7 @@ module.exports = function(RED) {
 
 			svc.createService(params,cb);
 		}
-
-		
-		service.DeleteAutoScalingConfiguration=function(svc,msg,cb){
+			service.DeleteAutoScalingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingConfigurationArn",params,undefined,false); 
@@ -193,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.deleteAutoScalingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteConnection=function(svc,msg,cb){
+			service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionArn",params,undefined,false); 
@@ -207,9 +196,7 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-
-		
-		service.DeleteService=function(svc,msg,cb){
+			service.DeleteService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -221,9 +208,7 @@ module.exports = function(RED) {
 
 			svc.deleteService(params,cb);
 		}
-
-		
-		service.DescribeAutoScalingConfiguration=function(svc,msg,cb){
+			service.DescribeAutoScalingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingConfigurationArn",params,undefined,false); 
@@ -235,16 +220,14 @@ module.exports = function(RED) {
 
 			svc.describeAutoScalingConfiguration(params,cb);
 		}
-
-		
-		service.DescribeCustomDomains=function(svc,msg,cb){
+			service.DescribeCustomDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -253,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.describeCustomDomains(params,cb);
 		}
-
-		
-		service.DescribeService=function(svc,msg,cb){
+			service.DescribeService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -267,9 +248,7 @@ module.exports = function(RED) {
 
 			svc.describeService(params,cb);
 		}
-
-		
-		service.DisassociateCustomDomain=function(svc,msg,cb){
+			service.DisassociateCustomDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -284,15 +263,13 @@ module.exports = function(RED) {
 
 			svc.disassociateCustomDomain(params,cb);
 		}
-
-		
-		service.ListAutoScalingConfigurations=function(svc,msg,cb){
+			service.ListAutoScalingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AutoScalingConfigurationName",params,undefined,false); 
-			copyArgs(n,"LatestOnly",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"LatestOnly",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingConfigurationName",params,undefined,false); 
@@ -303,14 +280,12 @@ module.exports = function(RED) {
 
 			svc.listAutoScalingConfigurations(params,cb);
 		}
-
-		
-		service.ListConnections=function(svc,msg,cb){
+			service.ListConnections=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ConnectionName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ConnectionName",params,undefined,false); 
@@ -320,16 +295,14 @@ module.exports = function(RED) {
 
 			svc.listConnections(params,cb);
 		}
-
-		
-		service.ListOperations=function(svc,msg,cb){
+			service.ListOperations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -338,14 +311,12 @@ module.exports = function(RED) {
 
 			svc.listOperations(params,cb);
 		}
-
-		
-		service.ListServices=function(svc,msg,cb){
+			service.ListServices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -353,9 +324,7 @@ module.exports = function(RED) {
 
 			svc.listServices(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -367,9 +336,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PauseService=function(svc,msg,cb){
+			service.PauseService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -381,9 +348,7 @@ module.exports = function(RED) {
 
 			svc.pauseService(params,cb);
 		}
-
-		
-		service.ResumeService=function(svc,msg,cb){
+			service.ResumeService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -395,9 +360,7 @@ module.exports = function(RED) {
 
 			svc.resumeService(params,cb);
 		}
-
-		
-		service.StartDeployment=function(svc,msg,cb){
+			service.StartDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -409,9 +372,7 @@ module.exports = function(RED) {
 
 			svc.startDeployment(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -426,9 +387,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -443,9 +402,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateService=function(svc,msg,cb){
+			service.UpdateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceArn",params,undefined,false); 
@@ -465,9 +422,7 @@ module.exports = function(RED) {
 
 			svc.updateService(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS AppRunner", AmazonAPINode);
 

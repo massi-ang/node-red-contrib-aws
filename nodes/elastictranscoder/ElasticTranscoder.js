@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelJob=function(svc,msg,cb){
+			service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-
-		
-		service.CreateJob=function(svc,msg,cb){
+			service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PipelineId",params,undefined,false); 
@@ -134,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-
-		
-		service.CreatePipeline=function(svc,msg,cb){
+			service.CreatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -164,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.createPipeline(params,cb);
 		}
-
-		
-		service.CreatePreset=function(svc,msg,cb){
+			service.CreatePreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -189,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.createPreset(params,cb);
 		}
-
-		
-		service.DeletePipeline=function(svc,msg,cb){
+			service.DeletePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -203,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.deletePipeline(params,cb);
 		}
-
-		
-		service.DeletePreset=function(svc,msg,cb){
+			service.DeletePreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -217,9 +206,7 @@ module.exports = function(RED) {
 
 			svc.deletePreset(params,cb);
 		}
-
-		
-		service.ListJobsByPipeline=function(svc,msg,cb){
+			service.ListJobsByPipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PipelineId",params,undefined,false); 
@@ -235,9 +222,7 @@ module.exports = function(RED) {
 
 			svc.listJobsByPipeline(params,cb);
 		}
-
-		
-		service.ListJobsByStatus=function(svc,msg,cb){
+			service.ListJobsByStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Status",params,undefined,false); 
@@ -253,9 +238,7 @@ module.exports = function(RED) {
 
 			svc.listJobsByStatus(params,cb);
 		}
-
-		
-		service.ListPipelines=function(svc,msg,cb){
+			service.ListPipelines=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -268,9 +251,7 @@ module.exports = function(RED) {
 
 			svc.listPipelines(params,cb);
 		}
-
-		
-		service.ListPresets=function(svc,msg,cb){
+			service.ListPresets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -283,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.listPresets(params,cb);
 		}
-
-		
-		service.ReadJob=function(svc,msg,cb){
+			service.ReadJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -297,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.readJob(params,cb);
 		}
-
-		
-		service.ReadPipeline=function(svc,msg,cb){
+			service.ReadPipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -311,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.readPipeline(params,cb);
 		}
-
-		
-		service.ReadPreset=function(svc,msg,cb){
+			service.ReadPreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -325,9 +300,7 @@ module.exports = function(RED) {
 
 			svc.readPreset(params,cb);
 		}
-
-		
-		service.TestRole=function(svc,msg,cb){
+			service.TestRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Role",params,undefined,false); 
@@ -348,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.testRole(params,cb);
 		}
-
-		
-		service.UpdatePipeline=function(svc,msg,cb){
+			service.UpdatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -376,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.updatePipeline(params,cb);
 		}
-
-		
-		service.UpdatePipelineNotifications=function(svc,msg,cb){
+			service.UpdatePipelineNotifications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -393,9 +362,7 @@ module.exports = function(RED) {
 
 			svc.updatePipelineNotifications(params,cb);
 		}
-
-		
-		service.UpdatePipelineStatus=function(svc,msg,cb){
+			service.UpdatePipelineStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -410,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.updatePipelineStatus(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ElasticTranscoder", AmazonAPINode);
 

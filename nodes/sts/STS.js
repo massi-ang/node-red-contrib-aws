@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssumeRole=function(svc,msg,cb){
+			service.AssumeRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -104,7 +103,7 @@ module.exports = function(RED) {
 			copyArgs(n,"RoleSessionName",params,undefined,false); 
 			copyArgs(n,"PolicyArns",params,undefined,true); 
 			copyArgs(n,"Policy",params,undefined,false); 
-			copyArgs(n,"DurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"DurationSeconds",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"TransitiveTagKeys",params,undefined,false); 
 			copyArgs(n,"ExternalId",params,undefined,false); 
@@ -127,9 +126,7 @@ module.exports = function(RED) {
 
 			svc.assumeRole(params,cb);
 		}
-
-		
-		service.AssumeRoleWithSAML=function(svc,msg,cb){
+			service.AssumeRoleWithSAML=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -141,7 +138,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SAMLAssertion",params,undefined,false); 
 			copyArgs(n,"PolicyArns",params,undefined,true); 
 			copyArgs(n,"Policy",params,undefined,false); 
-			copyArgs(n,"DurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"DurationSeconds",params,undefined,false); 
 			
 			copyArgs(msg,"RoleArn",params,undefined,false); 
 			copyArgs(msg,"PrincipalArn",params,undefined,false); 
@@ -153,9 +150,7 @@ module.exports = function(RED) {
 
 			svc.assumeRoleWithSAML(params,cb);
 		}
-
-		
-		service.AssumeRoleWithWebIdentity=function(svc,msg,cb){
+			service.AssumeRoleWithWebIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -168,7 +163,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProviderId",params,undefined,false); 
 			copyArgs(n,"PolicyArns",params,undefined,true); 
 			copyArgs(n,"Policy",params,undefined,false); 
-			copyArgs(n,"DurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"DurationSeconds",params,undefined,false); 
 			
 			copyArgs(msg,"RoleArn",params,undefined,false); 
 			copyArgs(msg,"RoleSessionName",params,undefined,false); 
@@ -181,9 +176,7 @@ module.exports = function(RED) {
 
 			svc.assumeRoleWithWebIdentity(params,cb);
 		}
-
-		
-		service.DecodeAuthorizationMessage=function(svc,msg,cb){
+			service.DecodeAuthorizationMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EncodedMessage",params,undefined,false); 
@@ -195,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.decodeAuthorizationMessage(params,cb);
 		}
-
-		
-		service.GetAccessKeyInfo=function(svc,msg,cb){
+			service.GetAccessKeyInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccessKeyId",params,undefined,false); 
@@ -209,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.getAccessKeyInfo(params,cb);
 		}
-
-		
-		service.GetCallerIdentity=function(svc,msg,cb){
+			service.GetCallerIdentity=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -220,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.getCallerIdentity(params,cb);
 		}
-
-		
-		service.GetFederationToken=function(svc,msg,cb){
+			service.GetFederationToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -230,7 +217,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Policy",params,undefined,false); 
 			copyArgs(n,"PolicyArns",params,undefined,true); 
-			copyArgs(n,"DurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"DurationSeconds",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -242,13 +229,11 @@ module.exports = function(RED) {
 
 			svc.getFederationToken(params,cb);
 		}
-
-		
-		service.GetSessionToken=function(svc,msg,cb){
+			service.GetSessionToken=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"DurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"DurationSeconds",params,undefined,false); 
 			copyArgs(n,"SerialNumber",params,undefined,false); 
 			copyArgs(n,"TokenCode",params,undefined,false); 
 			
@@ -259,9 +244,7 @@ module.exports = function(RED) {
 
 			svc.getSessionToken(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS STS", AmazonAPINode);
 

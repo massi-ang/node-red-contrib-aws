@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddTagsToResource=function(svc,msg,cb){
+			service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-
-		
-		service.AuthorizeCacheSecurityGroupIngress=function(svc,msg,cb){
+			service.AuthorizeCacheSecurityGroupIngress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSecurityGroupName",params,undefined,false); 
@@ -129,9 +126,7 @@ module.exports = function(RED) {
 
 			svc.authorizeCacheSecurityGroupIngress(params,cb);
 		}
-
-		
-		service.BatchApplyUpdateAction=function(svc,msg,cb){
+			service.BatchApplyUpdateAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceUpdateName",params,undefined,false); 
@@ -147,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.batchApplyUpdateAction(params,cb);
 		}
-
-		
-		service.BatchStopUpdateAction=function(svc,msg,cb){
+			service.BatchStopUpdateAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceUpdateName",params,undefined,false); 
@@ -165,15 +158,13 @@ module.exports = function(RED) {
 
 			svc.batchStopUpdateAction(params,cb);
 		}
-
-		
-		service.CompleteMigration=function(svc,msg,cb){
+			service.CompleteMigration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"Force",params,undefined,false); 
+			copyArgs(Boolean(n),"Force",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"Force",params,undefined,false); 
@@ -181,9 +172,7 @@ module.exports = function(RED) {
 
 			svc.completeMigration(params,cb);
 		}
-
-		
-		service.CopySnapshot=function(svc,msg,cb){
+			service.CopySnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceSnapshotName",params,undefined,false); 
@@ -204,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.copySnapshot(params,cb);
 		}
-
-		
-		service.CreateCacheCluster=function(svc,msg,cb){
+			service.CreateCacheCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
@@ -216,7 +203,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AZMode",params,undefined,false); 
 			copyArgs(n,"PreferredAvailabilityZone",params,undefined,false); 
 			copyArgs(n,"PreferredAvailabilityZones",params,undefined,true); 
-			copyArgs(n,"NumCacheNodes",params,undefined,false); 
+			copyArgs(Number(n),"NumCacheNodes",params,undefined,false); 
 			copyArgs(n,"CacheNodeType",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
@@ -228,10 +215,10 @@ module.exports = function(RED) {
 			copyArgs(n,"SnapshotArns",params,undefined,true); 
 			copyArgs(n,"SnapshotName",params,undefined,false); 
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"NotificationTopicArn",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
 			copyArgs(n,"AuthToken",params,undefined,false); 
 			copyArgs(n,"OutpostMode",params,undefined,false); 
@@ -270,9 +257,7 @@ module.exports = function(RED) {
 
 			svc.createCacheCluster(params,cb);
 		}
-
-		
-		service.CreateCacheParameterGroup=function(svc,msg,cb){
+			service.CreateCacheParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
@@ -292,9 +277,7 @@ module.exports = function(RED) {
 
 			svc.createCacheParameterGroup(params,cb);
 		}
-
-		
-		service.CreateCacheSecurityGroup=function(svc,msg,cb){
+			service.CreateCacheSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSecurityGroupName",params,undefined,false); 
@@ -311,9 +294,7 @@ module.exports = function(RED) {
 
 			svc.createCacheSecurityGroup(params,cb);
 		}
-
-		
-		service.CreateCacheSubnetGroup=function(svc,msg,cb){
+			service.CreateCacheSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSubnetGroupName",params,undefined,false); 
@@ -333,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.createCacheSubnetGroup(params,cb);
 		}
-
-		
-		service.CreateGlobalReplicationGroup=function(svc,msg,cb){
+			service.CreateGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupIdSuffix",params,undefined,false); 
@@ -352,9 +331,7 @@ module.exports = function(RED) {
 
 			svc.createGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.CreateReplicationGroup=function(svc,msg,cb){
+			service.CreateReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
@@ -364,12 +341,12 @@ module.exports = function(RED) {
 			copyArgs(n,"ReplicationGroupDescription",params,undefined,false); 
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(n,"PrimaryClusterId",params,undefined,false); 
-			copyArgs(n,"AutomaticFailoverEnabled",params,undefined,false); 
-			copyArgs(n,"MultiAZEnabled",params,undefined,false); 
-			copyArgs(n,"NumCacheClusters",params,undefined,false); 
+			copyArgs(Boolean(n),"AutomaticFailoverEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZEnabled",params,undefined,false); 
+			copyArgs(Number(n),"NumCacheClusters",params,undefined,false); 
 			copyArgs(n,"PreferredCacheClusterAZs",params,undefined,true); 
-			copyArgs(n,"NumNodeGroups",params,undefined,false); 
-			copyArgs(n,"ReplicasPerNodeGroup",params,undefined,false); 
+			copyArgs(Number(n),"NumNodeGroups",params,undefined,false); 
+			copyArgs(Number(n),"ReplicasPerNodeGroup",params,undefined,false); 
 			copyArgs(n,"NodeGroupConfiguration",params,undefined,false); 
 			copyArgs(n,"CacheNodeType",params,undefined,false); 
 			copyArgs(n,"Engine",params,undefined,false); 
@@ -382,14 +359,14 @@ module.exports = function(RED) {
 			copyArgs(n,"SnapshotArns",params,undefined,true); 
 			copyArgs(n,"SnapshotName",params,undefined,false); 
 			copyArgs(n,"PreferredMaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"NotificationTopicArn",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
 			copyArgs(n,"AuthToken",params,undefined,false); 
-			copyArgs(n,"TransitEncryptionEnabled",params,undefined,false); 
-			copyArgs(n,"AtRestEncryptionEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"TransitEncryptionEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"AtRestEncryptionEnabled",params,undefined,false); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
 			copyArgs(n,"UserGroupIds",params,undefined,false); 
 			copyArgs(n,"LogDeliveryConfigurations",params,undefined,true); 
@@ -431,9 +408,7 @@ module.exports = function(RED) {
 
 			svc.createReplicationGroup(params,cb);
 		}
-
-		
-		service.CreateSnapshot=function(svc,msg,cb){
+			service.CreateSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotName",params,undefined,false); 
@@ -453,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.createSnapshot(params,cb);
 		}
-
-		
-		service.CreateUser=function(svc,msg,cb){
+			service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -468,7 +441,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"Passwords",params,undefined,true); 
 			copyArgs(n,"AccessString",params,undefined,false); 
-			copyArgs(n,"NoPasswordRequired",params,undefined,false); 
+			copyArgs(Boolean(n),"NoPasswordRequired",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"UserId",params,undefined,false); 
@@ -482,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-
-		
-		service.CreateUserGroup=function(svc,msg,cb){
+			service.CreateUserGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserGroupId",params,undefined,false); 
@@ -503,20 +474,18 @@ module.exports = function(RED) {
 
 			svc.createUserGroup(params,cb);
 		}
-
-		
-		service.DecreaseNodeGroupsInGlobalReplicationGroup=function(svc,msg,cb){
+			service.DecreaseNodeGroupsInGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
 			copyArgs(n,"GlobalNodeGroupsToRemove",params,undefined,true); 
 			copyArgs(n,"GlobalNodeGroupsToRetain",params,undefined,true); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"NodeGroupCount",params,undefined,false); 
@@ -527,19 +496,17 @@ module.exports = function(RED) {
 
 			svc.decreaseNodeGroupsInGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.DecreaseReplicaCount=function(svc,msg,cb){
+			service.DecreaseReplicaCount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NewReplicaCount",params,undefined,false); 
+			copyArgs(Number(n),"NewReplicaCount",params,undefined,false); 
 			copyArgs(n,"ReplicaConfiguration",params,undefined,true); 
 			copyArgs(n,"ReplicasToRemove",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"NewReplicaCount",params,undefined,false); 
@@ -550,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.decreaseReplicaCount(params,cb);
 		}
-
-		
-		service.DeleteCacheCluster=function(svc,msg,cb){
+			service.DeleteCacheCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
@@ -566,9 +531,7 @@ module.exports = function(RED) {
 
 			svc.deleteCacheCluster(params,cb);
 		}
-
-		
-		service.DeleteCacheParameterGroup=function(svc,msg,cb){
+			service.DeleteCacheParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
@@ -580,9 +543,7 @@ module.exports = function(RED) {
 
 			svc.deleteCacheParameterGroup(params,cb);
 		}
-
-		
-		service.DeleteCacheSecurityGroup=function(svc,msg,cb){
+			service.DeleteCacheSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSecurityGroupName",params,undefined,false); 
@@ -594,9 +555,7 @@ module.exports = function(RED) {
 
 			svc.deleteCacheSecurityGroup(params,cb);
 		}
-
-		
-		service.DeleteCacheSubnetGroup=function(svc,msg,cb){
+			service.DeleteCacheSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSubnetGroupName",params,undefined,false); 
@@ -608,16 +567,14 @@ module.exports = function(RED) {
 
 			svc.deleteCacheSubnetGroup(params,cb);
 		}
-
-		
-		service.DeleteGlobalReplicationGroup=function(svc,msg,cb){
+			service.DeleteGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"RetainPrimaryReplicationGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"RetainPrimaryReplicationGroup",params,undefined,false); 
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"RetainPrimaryReplicationGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"RetainPrimaryReplicationGroup",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"RetainPrimaryReplicationGroup",params,undefined,false); 
@@ -625,15 +582,13 @@ module.exports = function(RED) {
 
 			svc.deleteGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.DeleteReplicationGroup=function(svc,msg,cb){
+			service.DeleteReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"RetainPrimaryCluster",params,undefined,false); 
+			copyArgs(Boolean(n),"RetainPrimaryCluster",params,undefined,false); 
 			copyArgs(n,"FinalSnapshotIdentifier",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
@@ -643,9 +598,7 @@ module.exports = function(RED) {
 
 			svc.deleteReplicationGroup(params,cb);
 		}
-
-		
-		service.DeleteSnapshot=function(svc,msg,cb){
+			service.DeleteSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotName",params,undefined,false); 
@@ -657,9 +610,7 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshot(params,cb);
 		}
-
-		
-		service.DeleteUser=function(svc,msg,cb){
+			service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -671,9 +622,7 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-
-		
-		service.DeleteUserGroup=function(svc,msg,cb){
+			service.DeleteUserGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserGroupId",params,undefined,false); 
@@ -685,17 +634,15 @@ module.exports = function(RED) {
 
 			svc.deleteUserGroup(params,cb);
 		}
-
-		
-		service.DescribeCacheClusters=function(svc,msg,cb){
+			service.DescribeCacheClusters=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"ShowCacheNodeInfo",params,undefined,false); 
-			copyArgs(n,"ShowCacheClustersNotInReplicationGroups",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowCacheNodeInfo",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowCacheClustersNotInReplicationGroups",params,undefined,false); 
 			
 			copyArgs(msg,"CacheClusterId",params,undefined,false); 
 			copyArgs(msg,"MaxRecords",params,undefined,false); 
@@ -706,18 +653,16 @@ module.exports = function(RED) {
 
 			svc.describeCacheClusters(params,cb);
 		}
-
-		
-		service.DescribeCacheEngineVersions=function(svc,msg,cb){
+			service.DescribeCacheEngineVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"CacheParameterGroupFamily",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"DefaultOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"DefaultOnly",params,undefined,false); 
 			
 			copyArgs(msg,"Engine",params,undefined,false); 
 			copyArgs(msg,"EngineVersion",params,undefined,false); 
@@ -729,14 +674,12 @@ module.exports = function(RED) {
 
 			svc.describeCacheEngineVersions(params,cb);
 		}
-
-		
-		service.DescribeCacheParameterGroups=function(svc,msg,cb){
+			service.DescribeCacheParameterGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"CacheParameterGroupName",params,undefined,false); 
@@ -746,16 +689,14 @@ module.exports = function(RED) {
 
 			svc.describeCacheParameterGroups(params,cb);
 		}
-
-		
-		service.DescribeCacheParameters=function(svc,msg,cb){
+			service.DescribeCacheParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Source",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"CacheParameterGroupName",params,undefined,false); 
@@ -766,14 +707,12 @@ module.exports = function(RED) {
 
 			svc.describeCacheParameters(params,cb);
 		}
-
-		
-		service.DescribeCacheSecurityGroups=function(svc,msg,cb){
+			service.DescribeCacheSecurityGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"CacheSecurityGroupName",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"CacheSecurityGroupName",params,undefined,false); 
@@ -783,14 +722,12 @@ module.exports = function(RED) {
 
 			svc.describeCacheSecurityGroups(params,cb);
 		}
-
-		
-		service.DescribeCacheSubnetGroups=function(svc,msg,cb){
+			service.DescribeCacheSubnetGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"CacheSubnetGroupName",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"CacheSubnetGroupName",params,undefined,false); 
@@ -800,15 +737,13 @@ module.exports = function(RED) {
 
 			svc.describeCacheSubnetGroups(params,cb);
 		}
-
-		
-		service.DescribeEngineDefaultParameters=function(svc,msg,cb){
+			service.DescribeEngineDefaultParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupFamily",params,undefined,false); 
 			
 			copyArgs(n,"CacheParameterGroupFamily",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"CacheParameterGroupFamily",params,undefined,false); 
@@ -818,9 +753,7 @@ module.exports = function(RED) {
 
 			svc.describeEngineDefaultParameters(params,cb);
 		}
-
-		
-		service.DescribeEvents=function(svc,msg,cb){
+			service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -828,8 +761,8 @@ module.exports = function(RED) {
 			copyArgs(n,"SourceType",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"Duration",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"Duration",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"SourceIdentifier",params,undefined,false); 
@@ -843,16 +776,14 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-
-		
-		service.DescribeGlobalReplicationGroups=function(svc,msg,cb){
+			service.DescribeGlobalReplicationGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"ShowMemberInfo",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowMemberInfo",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"MaxRecords",params,undefined,false); 
@@ -862,14 +793,12 @@ module.exports = function(RED) {
 
 			svc.describeGlobalReplicationGroups(params,cb);
 		}
-
-		
-		service.DescribeReplicationGroups=function(svc,msg,cb){
+			service.DescribeReplicationGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
@@ -879,9 +808,7 @@ module.exports = function(RED) {
 
 			svc.describeReplicationGroups(params,cb);
 		}
-
-		
-		service.DescribeReservedCacheNodes=function(svc,msg,cb){
+			service.DescribeReservedCacheNodes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -891,7 +818,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Duration",params,undefined,false); 
 			copyArgs(n,"ProductDescription",params,undefined,false); 
 			copyArgs(n,"OfferingType",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"ReservedCacheNodeId",params,undefined,false); 
@@ -906,9 +833,7 @@ module.exports = function(RED) {
 
 			svc.describeReservedCacheNodes(params,cb);
 		}
-
-		
-		service.DescribeReservedCacheNodesOfferings=function(svc,msg,cb){
+			service.DescribeReservedCacheNodesOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -917,7 +842,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Duration",params,undefined,false); 
 			copyArgs(n,"ProductDescription",params,undefined,false); 
 			copyArgs(n,"OfferingType",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"ReservedCacheNodesOfferingId",params,undefined,false); 
@@ -931,15 +856,13 @@ module.exports = function(RED) {
 
 			svc.describeReservedCacheNodesOfferings(params,cb);
 		}
-
-		
-		service.DescribeServiceUpdates=function(svc,msg,cb){
+			service.DescribeServiceUpdates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ServiceUpdateName",params,undefined,false); 
 			copyArgs(n,"ServiceUpdateStatus",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceUpdateName",params,undefined,false); 
@@ -950,9 +873,7 @@ module.exports = function(RED) {
 
 			svc.describeServiceUpdates(params,cb);
 		}
-
-		
-		service.DescribeSnapshots=function(svc,msg,cb){
+			service.DescribeSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -961,8 +882,8 @@ module.exports = function(RED) {
 			copyArgs(n,"SnapshotName",params,undefined,false); 
 			copyArgs(n,"SnapshotSource",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
-			copyArgs(n,"ShowNodeGroupConfig",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowNodeGroupConfig",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"CacheClusterId",params,undefined,false); 
@@ -975,9 +896,7 @@ module.exports = function(RED) {
 
 			svc.describeSnapshots(params,cb);
 		}
-
-		
-		service.DescribeUpdateActions=function(svc,msg,cb){
+			service.DescribeUpdateActions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -988,8 +907,8 @@ module.exports = function(RED) {
 			copyArgs(n,"ServiceUpdateStatus",params,undefined,true); 
 			copyArgs(n,"ServiceUpdateTimeRange",params,undefined,false); 
 			copyArgs(n,"UpdateActionStatus",params,undefined,false); 
-			copyArgs(n,"ShowNodeLevelUpdateStatus",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowNodeLevelUpdateStatus",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceUpdateName",params,undefined,false); 
@@ -1006,14 +925,12 @@ module.exports = function(RED) {
 
 			svc.describeUpdateActions(params,cb);
 		}
-
-		
-		service.DescribeUserGroups=function(svc,msg,cb){
+			service.DescribeUserGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"UserGroupId",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"UserGroupId",params,undefined,false); 
@@ -1023,16 +940,14 @@ module.exports = function(RED) {
 
 			svc.describeUserGroups(params,cb);
 		}
-
-		
-		service.DescribeUsers=function(svc,msg,cb){
+			service.DescribeUsers=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Engine",params,undefined,false); 
 			copyArgs(n,"UserId",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
 			
 			copyArgs(msg,"Engine",params,undefined,false); 
@@ -1044,9 +959,7 @@ module.exports = function(RED) {
 
 			svc.describeUsers(params,cb);
 		}
-
-		
-		service.DisassociateGlobalReplicationGroup=function(svc,msg,cb){
+			service.DisassociateGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
@@ -1064,9 +977,7 @@ module.exports = function(RED) {
 
 			svc.disassociateGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.FailoverGlobalReplicationGroup=function(svc,msg,cb){
+			service.FailoverGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
@@ -1084,19 +995,17 @@ module.exports = function(RED) {
 
 			svc.failoverGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.IncreaseNodeGroupsInGlobalReplicationGroup=function(svc,msg,cb){
+			service.IncreaseNodeGroupsInGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
 			copyArgs(n,"RegionalConfigurations",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"NodeGroupCount",params,undefined,false); 
@@ -1106,18 +1015,16 @@ module.exports = function(RED) {
 
 			svc.increaseNodeGroupsInGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.IncreaseReplicaCount=function(svc,msg,cb){
+			service.IncreaseReplicaCount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NewReplicaCount",params,undefined,false); 
+			copyArgs(Number(n),"NewReplicaCount",params,undefined,false); 
 			copyArgs(n,"ReplicaConfiguration",params,undefined,true); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"NewReplicaCount",params,undefined,false); 
@@ -1127,9 +1034,7 @@ module.exports = function(RED) {
 
 			svc.increaseReplicaCount(params,cb);
 		}
-
-		
-		service.ListAllowedNodeTypeModifications=function(svc,msg,cb){
+			service.ListAllowedNodeTypeModifications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1142,9 +1047,7 @@ module.exports = function(RED) {
 
 			svc.listAllowedNodeTypeModifications(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -1156,15 +1059,13 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ModifyCacheCluster=function(svc,msg,cb){
+			service.ModifyCacheCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
-			copyArgs(n,"NumCacheNodes",params,undefined,false); 
+			copyArgs(Number(n),"NumCacheNodes",params,undefined,false); 
 			copyArgs(n,"CacheNodeIdsToRemove",params,undefined,true); 
 			copyArgs(n,"AZMode",params,undefined,false); 
 			copyArgs(n,"NewAvailabilityZones",params,undefined,true); 
@@ -1174,10 +1075,10 @@ module.exports = function(RED) {
 			copyArgs(n,"NotificationTopicArn",params,undefined,false); 
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			copyArgs(n,"NotificationTopicStatus",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
 			copyArgs(n,"CacheNodeType",params,undefined,false); 
 			copyArgs(n,"AuthToken",params,undefined,false); 
@@ -1208,9 +1109,7 @@ module.exports = function(RED) {
 
 			svc.modifyCacheCluster(params,cb);
 		}
-
-		
-		service.ModifyCacheParameterGroup=function(svc,msg,cb){
+			service.ModifyCacheParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
@@ -1225,9 +1124,7 @@ module.exports = function(RED) {
 
 			svc.modifyCacheParameterGroup(params,cb);
 		}
-
-		
-		service.ModifyCacheSubnetGroup=function(svc,msg,cb){
+			service.ModifyCacheSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSubnetGroupName",params,undefined,false); 
@@ -1243,21 +1140,19 @@ module.exports = function(RED) {
 
 			svc.modifyCacheSubnetGroup(params,cb);
 		}
-
-		
-		service.ModifyGlobalReplicationGroup=function(svc,msg,cb){
+			service.ModifyGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			copyArgs(n,"CacheNodeType",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			copyArgs(n,"GlobalReplicationGroupDescription",params,undefined,false); 
-			copyArgs(n,"AutomaticFailoverEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"AutomaticFailoverEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"ApplyImmediately",params,undefined,false); 
@@ -1270,9 +1165,7 @@ module.exports = function(RED) {
 
 			svc.modifyGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.ModifyReplicationGroup=function(svc,msg,cb){
+			service.ModifyReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
@@ -1281,8 +1174,8 @@ module.exports = function(RED) {
 			copyArgs(n,"ReplicationGroupDescription",params,undefined,false); 
 			copyArgs(n,"PrimaryClusterId",params,undefined,false); 
 			copyArgs(n,"SnapshottingClusterId",params,undefined,false); 
-			copyArgs(n,"AutomaticFailoverEnabled",params,undefined,false); 
-			copyArgs(n,"MultiAZEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"AutomaticFailoverEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"MultiAZEnabled",params,undefined,false); 
 			copyArgs(n,"NodeGroupId",params,undefined,false); 
 			copyArgs(n,"CacheSecurityGroupNames",params,undefined,true); 
 			copyArgs(n,"SecurityGroupIds",params,undefined,true); 
@@ -1290,17 +1183,17 @@ module.exports = function(RED) {
 			copyArgs(n,"NotificationTopicArn",params,undefined,false); 
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			copyArgs(n,"NotificationTopicStatus",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
 			copyArgs(n,"CacheNodeType",params,undefined,false); 
 			copyArgs(n,"AuthToken",params,undefined,false); 
 			copyArgs(n,"AuthTokenUpdateStrategy",params,undefined,false); 
 			copyArgs(n,"UserGroupIdsToAdd",params,undefined,true); 
 			copyArgs(n,"UserGroupIdsToRemove",params,undefined,true); 
-			copyArgs(n,"RemoveUserGroups",params,undefined,false); 
+			copyArgs(Boolean(n),"RemoveUserGroups",params,undefined,false); 
 			copyArgs(n,"LogDeliveryConfigurations",params,undefined,true); 
 			
 			copyArgs(msg,"ReplicationGroupId",params,undefined,false); 
@@ -1332,18 +1225,16 @@ module.exports = function(RED) {
 
 			svc.modifyReplicationGroup(params,cb);
 		}
-
-		
-		service.ModifyReplicationGroupShardConfiguration=function(svc,msg,cb){
+			service.ModifyReplicationGroupShardConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"NodeGroupCount",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Number(n),"NodeGroupCount",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			copyArgs(n,"ReshardingConfiguration",params,undefined,true); 
 			copyArgs(n,"NodeGroupsToRemove",params,undefined,false); 
 			copyArgs(n,"NodeGroupsToRetain",params,undefined,false); 
@@ -1358,9 +1249,7 @@ module.exports = function(RED) {
 
 			svc.modifyReplicationGroupShardConfiguration(params,cb);
 		}
-
-		
-		service.ModifyUser=function(svc,msg,cb){
+			service.ModifyUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -1369,7 +1258,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AccessString",params,undefined,false); 
 			copyArgs(n,"AppendAccessString",params,undefined,false); 
 			copyArgs(n,"Passwords",params,undefined,true); 
-			copyArgs(n,"NoPasswordRequired",params,undefined,false); 
+			copyArgs(Boolean(n),"NoPasswordRequired",params,undefined,false); 
 			
 			copyArgs(msg,"UserId",params,undefined,false); 
 			copyArgs(msg,"AccessString",params,undefined,false); 
@@ -1380,9 +1269,7 @@ module.exports = function(RED) {
 
 			svc.modifyUser(params,cb);
 		}
-
-		
-		service.ModifyUserGroup=function(svc,msg,cb){
+			service.ModifyUserGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserGroupId",params,undefined,false); 
@@ -1398,16 +1285,14 @@ module.exports = function(RED) {
 
 			svc.modifyUserGroup(params,cb);
 		}
-
-		
-		service.PurchaseReservedCacheNodesOffering=function(svc,msg,cb){
+			service.PurchaseReservedCacheNodesOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservedCacheNodesOfferingId",params,undefined,false); 
 			
 			copyArgs(n,"ReservedCacheNodesOfferingId",params,undefined,false); 
 			copyArgs(n,"ReservedCacheNodeId",params,undefined,false); 
-			copyArgs(n,"CacheNodeCount",params,undefined,false); 
+			copyArgs(Number(n),"CacheNodeCount",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"ReservedCacheNodesOfferingId",params,undefined,false); 
@@ -1418,16 +1303,14 @@ module.exports = function(RED) {
 
 			svc.purchaseReservedCacheNodesOffering(params,cb);
 		}
-
-		
-		service.RebalanceSlotsInGlobalReplicationGroup=function(svc,msg,cb){
+			service.RebalanceSlotsInGlobalReplicationGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(n,"GlobalReplicationGroupId",params,undefined,false); 
-			copyArgs(n,"ApplyImmediately",params,undefined,false); 
+			copyArgs(Boolean(n),"ApplyImmediately",params,undefined,false); 
 			
 			copyArgs(msg,"GlobalReplicationGroupId",params,undefined,false); 
 			copyArgs(msg,"ApplyImmediately",params,undefined,false); 
@@ -1435,9 +1318,7 @@ module.exports = function(RED) {
 
 			svc.rebalanceSlotsInGlobalReplicationGroup(params,cb);
 		}
-
-		
-		service.RebootCacheCluster=function(svc,msg,cb){
+			service.RebootCacheCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheClusterId",params,undefined,false); 
@@ -1452,9 +1333,7 @@ module.exports = function(RED) {
 
 			svc.rebootCacheCluster(params,cb);
 		}
-
-		
-		service.RemoveTagsFromResource=function(svc,msg,cb){
+			service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -1469,15 +1348,13 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
-
-		
-		service.ResetCacheParameterGroup=function(svc,msg,cb){
+			service.ResetCacheParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"CacheParameterGroupName",params,undefined,false); 
-			copyArgs(n,"ResetAllParameters",params,undefined,false); 
+			copyArgs(Boolean(n),"ResetAllParameters",params,undefined,false); 
 			copyArgs(n,"ParameterNameValues",params,undefined,true); 
 			
 			copyArgs(msg,"CacheParameterGroupName",params,undefined,false); 
@@ -1487,9 +1364,7 @@ module.exports = function(RED) {
 
 			svc.resetCacheParameterGroup(params,cb);
 		}
-
-		
-		service.RevokeCacheSecurityGroupIngress=function(svc,msg,cb){
+			service.RevokeCacheSecurityGroupIngress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CacheSecurityGroupName",params,undefined,false); 
@@ -1507,9 +1382,7 @@ module.exports = function(RED) {
 
 			svc.revokeCacheSecurityGroupIngress(params,cb);
 		}
-
-		
-		service.StartMigration=function(svc,msg,cb){
+			service.StartMigration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
@@ -1524,9 +1397,7 @@ module.exports = function(RED) {
 
 			svc.startMigration(params,cb);
 		}
-
-		
-		service.TestFailover=function(svc,msg,cb){
+			service.TestFailover=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplicationGroupId",params,undefined,false); 
@@ -1541,9 +1412,7 @@ module.exports = function(RED) {
 
 			svc.testFailover(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ElastiCache", AmazonAPINode);
 

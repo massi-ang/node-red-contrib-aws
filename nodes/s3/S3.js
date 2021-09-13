@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AbortMultipartUpload=function(svc,msg,cb){
+			service.AbortMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -116,9 +115,7 @@ module.exports = function(RED) {
 
 			svc.abortMultipartUpload(params,cb);
 		}
-
-		
-		service.CompleteMultipartUpload=function(svc,msg,cb){
+			service.CompleteMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -142,9 +139,7 @@ module.exports = function(RED) {
 
 			svc.completeMultipartUpload(params,cb);
 		}
-
-		
-		service.CopyObject=function(svc,msg,cb){
+			service.CopyObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -180,7 +175,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"SSEKMSKeyId",params,undefined,true); 
 			copyArgs(n,"SSEKMSEncryptionContext",params,undefined,true); 
-			copyArgs(n,"BucketKeyEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"BucketKeyEnabled",params,undefined,false); 
 			copyArgs(n,"CopySourceSSECustomerAlgorithm",params,undefined,false); 
 			copyArgs(n,"CopySourceSSECustomerKey",params,undefined,true); 
 			copyArgs(n,"CopySourceSSECustomerKeyMD5",params,undefined,false); 
@@ -236,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.copyObject(params,cb);
 		}
-
-		
-		service.CreateBucket=function(svc,msg,cb){
+			service.CreateBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -251,7 +244,7 @@ module.exports = function(RED) {
 			copyArgs(n,"GrantReadACP",params,undefined,false); 
 			copyArgs(n,"GrantWrite",params,undefined,false); 
 			copyArgs(n,"GrantWriteACP",params,undefined,false); 
-			copyArgs(n,"ObjectLockEnabledForBucket",params,undefined,false); 
+			copyArgs(Boolean(n),"ObjectLockEnabledForBucket",params,undefined,false); 
 			
 			copyArgs(msg,"ACL",params,undefined,false); 
 			copyArgs(msg,"Bucket",params,undefined,false); 
@@ -266,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.createBucket(params,cb);
 		}
-
-		
-		service.CreateMultipartUpload=function(svc,msg,cb){
+			service.CreateMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -296,7 +287,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"SSEKMSKeyId",params,undefined,true); 
 			copyArgs(n,"SSEKMSEncryptionContext",params,undefined,true); 
-			copyArgs(n,"BucketKeyEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"BucketKeyEnabled",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"Tagging",params,undefined,false); 
 			copyArgs(n,"ObjectLockMode",params,undefined,false); 
@@ -337,9 +328,7 @@ module.exports = function(RED) {
 
 			svc.createMultipartUpload(params,cb);
 		}
-
-		
-		service.DeleteBucket=function(svc,msg,cb){
+			service.DeleteBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -353,9 +342,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucket(params,cb);
 		}
-
-		
-		service.DeleteBucketAnalyticsConfiguration=function(svc,msg,cb){
+			service.DeleteBucketAnalyticsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -372,9 +359,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketAnalyticsConfiguration(params,cb);
 		}
-
-		
-		service.DeleteBucketCors=function(svc,msg,cb){
+			service.DeleteBucketCors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -388,9 +373,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketCors(params,cb);
 		}
-
-		
-		service.DeleteBucketEncryption=function(svc,msg,cb){
+			service.DeleteBucketEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -404,9 +387,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketEncryption(params,cb);
 		}
-
-		
-		service.DeleteBucketIntelligentTieringConfiguration=function(svc,msg,cb){
+			service.DeleteBucketIntelligentTieringConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -421,9 +402,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketIntelligentTieringConfiguration(params,cb);
 		}
-
-		
-		service.DeleteBucketInventoryConfiguration=function(svc,msg,cb){
+			service.DeleteBucketInventoryConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -440,9 +419,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketInventoryConfiguration(params,cb);
 		}
-
-		
-		service.DeleteBucketLifecycle=function(svc,msg,cb){
+			service.DeleteBucketLifecycle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -456,9 +433,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketLifecycle(params,cb);
 		}
-
-		
-		service.DeleteBucketMetricsConfiguration=function(svc,msg,cb){
+			service.DeleteBucketMetricsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -475,9 +450,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketMetricsConfiguration(params,cb);
 		}
-
-		
-		service.DeleteBucketOwnershipControls=function(svc,msg,cb){
+			service.DeleteBucketOwnershipControls=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -491,9 +464,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketOwnershipControls(params,cb);
 		}
-
-		
-		service.DeleteBucketPolicy=function(svc,msg,cb){
+			service.DeleteBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -507,9 +478,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketPolicy(params,cb);
 		}
-
-		
-		service.DeleteBucketReplication=function(svc,msg,cb){
+			service.DeleteBucketReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -523,9 +492,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketReplication(params,cb);
 		}
-
-		
-		service.DeleteBucketTagging=function(svc,msg,cb){
+			service.DeleteBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -539,9 +506,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketTagging(params,cb);
 		}
-
-		
-		service.DeleteBucketWebsite=function(svc,msg,cb){
+			service.DeleteBucketWebsite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -555,9 +520,7 @@ module.exports = function(RED) {
 
 			svc.deleteBucketWebsite(params,cb);
 		}
-
-		
-		service.DeleteObject=function(svc,msg,cb){
+			service.DeleteObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -568,7 +531,7 @@ module.exports = function(RED) {
 			copyArgs(n,"MFA",params,undefined,false); 
 			copyArgs(n,"VersionId",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
-			copyArgs(n,"BypassGovernanceRetention",params,undefined,false); 
+			copyArgs(Boolean(n),"BypassGovernanceRetention",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
 			copyArgs(msg,"Bucket",params,undefined,false); 
@@ -582,9 +545,7 @@ module.exports = function(RED) {
 
 			svc.deleteObject(params,cb);
 		}
-
-		
-		service.DeleteObjectTagging=function(svc,msg,cb){
+			service.DeleteObjectTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -603,9 +564,7 @@ module.exports = function(RED) {
 
 			svc.deleteObjectTagging(params,cb);
 		}
-
-		
-		service.DeleteObjects=function(svc,msg,cb){
+			service.DeleteObjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -615,7 +574,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Delete",params,undefined,false); 
 			copyArgs(n,"MFA",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
-			copyArgs(n,"BypassGovernanceRetention",params,undefined,false); 
+			copyArgs(Boolean(n),"BypassGovernanceRetention",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
 			copyArgs(msg,"Bucket",params,undefined,false); 
@@ -628,9 +587,7 @@ module.exports = function(RED) {
 
 			svc.deleteObjects(params,cb);
 		}
-
-		
-		service.DeletePublicAccessBlock=function(svc,msg,cb){
+			service.DeletePublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -644,9 +601,7 @@ module.exports = function(RED) {
 
 			svc.deletePublicAccessBlock(params,cb);
 		}
-
-		
-		service.GetBucketAccelerateConfiguration=function(svc,msg,cb){
+			service.GetBucketAccelerateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -660,9 +615,7 @@ module.exports = function(RED) {
 
 			svc.getBucketAccelerateConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketAcl=function(svc,msg,cb){
+			service.GetBucketAcl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -676,9 +629,7 @@ module.exports = function(RED) {
 
 			svc.getBucketAcl(params,cb);
 		}
-
-		
-		service.GetBucketAnalyticsConfiguration=function(svc,msg,cb){
+			service.GetBucketAnalyticsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -695,9 +646,7 @@ module.exports = function(RED) {
 
 			svc.getBucketAnalyticsConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketCors=function(svc,msg,cb){
+			service.GetBucketCors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -711,9 +660,7 @@ module.exports = function(RED) {
 
 			svc.getBucketCors(params,cb);
 		}
-
-		
-		service.GetBucketEncryption=function(svc,msg,cb){
+			service.GetBucketEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -727,9 +674,7 @@ module.exports = function(RED) {
 
 			svc.getBucketEncryption(params,cb);
 		}
-
-		
-		service.GetBucketIntelligentTieringConfiguration=function(svc,msg,cb){
+			service.GetBucketIntelligentTieringConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -744,9 +689,7 @@ module.exports = function(RED) {
 
 			svc.getBucketIntelligentTieringConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketInventoryConfiguration=function(svc,msg,cb){
+			service.GetBucketInventoryConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -763,9 +706,7 @@ module.exports = function(RED) {
 
 			svc.getBucketInventoryConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketLifecycle=function(svc,msg,cb){
+			service.GetBucketLifecycle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -779,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.getBucketLifecycle(params,cb);
 		}
-
-		
-		service.GetBucketLifecycleConfiguration=function(svc,msg,cb){
+			service.GetBucketLifecycleConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -795,9 +734,7 @@ module.exports = function(RED) {
 
 			svc.getBucketLifecycleConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketLocation=function(svc,msg,cb){
+			service.GetBucketLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -811,9 +748,7 @@ module.exports = function(RED) {
 
 			svc.getBucketLocation(params,cb);
 		}
-
-		
-		service.GetBucketLogging=function(svc,msg,cb){
+			service.GetBucketLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -827,9 +762,7 @@ module.exports = function(RED) {
 
 			svc.getBucketLogging(params,cb);
 		}
-
-		
-		service.GetBucketMetricsConfiguration=function(svc,msg,cb){
+			service.GetBucketMetricsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -846,9 +779,7 @@ module.exports = function(RED) {
 
 			svc.getBucketMetricsConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketNotification=function(svc,msg,cb){
+			service.GetBucketNotification=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -859,9 +790,7 @@ module.exports = function(RED) {
 
 			svc.getBucketNotification(params,cb);
 		}
-
-		
-		service.GetBucketNotificationConfiguration=function(svc,msg,cb){
+			service.GetBucketNotificationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -872,9 +801,7 @@ module.exports = function(RED) {
 
 			svc.getBucketNotificationConfiguration(params,cb);
 		}
-
-		
-		service.GetBucketOwnershipControls=function(svc,msg,cb){
+			service.GetBucketOwnershipControls=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -888,9 +815,7 @@ module.exports = function(RED) {
 
 			svc.getBucketOwnershipControls(params,cb);
 		}
-
-		
-		service.GetBucketPolicy=function(svc,msg,cb){
+			service.GetBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -904,9 +829,7 @@ module.exports = function(RED) {
 
 			svc.getBucketPolicy(params,cb);
 		}
-
-		
-		service.GetBucketPolicyStatus=function(svc,msg,cb){
+			service.GetBucketPolicyStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -920,9 +843,7 @@ module.exports = function(RED) {
 
 			svc.getBucketPolicyStatus(params,cb);
 		}
-
-		
-		service.GetBucketReplication=function(svc,msg,cb){
+			service.GetBucketReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -936,9 +857,7 @@ module.exports = function(RED) {
 
 			svc.getBucketReplication(params,cb);
 		}
-
-		
-		service.GetBucketRequestPayment=function(svc,msg,cb){
+			service.GetBucketRequestPayment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -952,9 +871,7 @@ module.exports = function(RED) {
 
 			svc.getBucketRequestPayment(params,cb);
 		}
-
-		
-		service.GetBucketTagging=function(svc,msg,cb){
+			service.GetBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -968,9 +885,7 @@ module.exports = function(RED) {
 
 			svc.getBucketTagging(params,cb);
 		}
-
-		
-		service.GetBucketVersioning=function(svc,msg,cb){
+			service.GetBucketVersioning=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -984,9 +899,7 @@ module.exports = function(RED) {
 
 			svc.getBucketVersioning(params,cb);
 		}
-
-		
-		service.GetBucketWebsite=function(svc,msg,cb){
+			service.GetBucketWebsite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1000,9 +913,7 @@ module.exports = function(RED) {
 
 			svc.getBucketWebsite(params,cb);
 		}
-
-		
-		service.GetObject=function(svc,msg,cb){
+			service.GetObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1026,7 +937,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SSECustomerKey",params,undefined,true); 
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
 			copyArgs(msg,"Bucket",params,undefined,false); 
@@ -1053,9 +964,7 @@ module.exports = function(RED) {
 
 			svc.getObject(params,cb);
 		}
-
-		
-		service.GetObjectAcl=function(svc,msg,cb){
+			service.GetObjectAcl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1076,9 +985,7 @@ module.exports = function(RED) {
 
 			svc.getObjectAcl(params,cb);
 		}
-
-		
-		service.GetObjectLegalHold=function(svc,msg,cb){
+			service.GetObjectLegalHold=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1099,9 +1006,7 @@ module.exports = function(RED) {
 
 			svc.getObjectLegalHold(params,cb);
 		}
-
-		
-		service.GetObjectLockConfiguration=function(svc,msg,cb){
+			service.GetObjectLockConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1115,9 +1020,7 @@ module.exports = function(RED) {
 
 			svc.getObjectLockConfiguration(params,cb);
 		}
-
-		
-		service.GetObjectRetention=function(svc,msg,cb){
+			service.GetObjectRetention=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1138,9 +1041,7 @@ module.exports = function(RED) {
 
 			svc.getObjectRetention(params,cb);
 		}
-
-		
-		service.GetObjectTagging=function(svc,msg,cb){
+			service.GetObjectTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1161,9 +1062,7 @@ module.exports = function(RED) {
 
 			svc.getObjectTagging(params,cb);
 		}
-
-		
-		service.GetObjectTorrent=function(svc,msg,cb){
+			service.GetObjectTorrent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1182,9 +1081,7 @@ module.exports = function(RED) {
 
 			svc.getObjectTorrent(params,cb);
 		}
-
-		
-		service.GetPublicAccessBlock=function(svc,msg,cb){
+			service.GetPublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1198,9 +1095,7 @@ module.exports = function(RED) {
 
 			svc.getPublicAccessBlock(params,cb);
 		}
-
-		
-		service.HeadBucket=function(svc,msg,cb){
+			service.HeadBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1214,9 +1109,7 @@ module.exports = function(RED) {
 
 			svc.headBucket(params,cb);
 		}
-
-		
-		service.HeadObject=function(svc,msg,cb){
+			service.HeadObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1234,7 +1127,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SSECustomerKey",params,undefined,true); 
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
 			copyArgs(msg,"Bucket",params,undefined,false); 
@@ -1255,9 +1148,7 @@ module.exports = function(RED) {
 
 			svc.headObject(params,cb);
 		}
-
-		
-		service.ListBucketAnalyticsConfigurations=function(svc,msg,cb){
+			service.ListBucketAnalyticsConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1273,9 +1164,7 @@ module.exports = function(RED) {
 
 			svc.listBucketAnalyticsConfigurations(params,cb);
 		}
-
-		
-		service.ListBucketIntelligentTieringConfigurations=function(svc,msg,cb){
+			service.ListBucketIntelligentTieringConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1289,9 +1178,7 @@ module.exports = function(RED) {
 
 			svc.listBucketIntelligentTieringConfigurations(params,cb);
 		}
-
-		
-		service.ListBucketInventoryConfigurations=function(svc,msg,cb){
+			service.ListBucketInventoryConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1307,9 +1194,7 @@ module.exports = function(RED) {
 
 			svc.listBucketInventoryConfigurations(params,cb);
 		}
-
-		
-		service.ListBucketMetricsConfigurations=function(svc,msg,cb){
+			service.ListBucketMetricsConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1325,9 +1210,7 @@ module.exports = function(RED) {
 
 			svc.listBucketMetricsConfigurations(params,cb);
 		}
-
-		
-		service.ListBuckets=function(svc,msg,cb){
+			service.ListBuckets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1336,9 +1219,7 @@ module.exports = function(RED) {
 
 			svc.listBuckets(params,cb);
 		}
-
-		
-		service.ListMultipartUploads=function(svc,msg,cb){
+			service.ListMultipartUploads=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1347,7 +1228,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Delimiter",params,undefined,false); 
 			copyArgs(n,"EncodingType",params,undefined,false); 
 			copyArgs(n,"KeyMarker",params,undefined,false); 
-			copyArgs(n,"MaxUploads",params,undefined,false); 
+			copyArgs(Number(n),"MaxUploads",params,undefined,false); 
 			copyArgs(n,"Prefix",params,undefined,false); 
 			copyArgs(n,"UploadIdMarker",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
@@ -1364,9 +1245,7 @@ module.exports = function(RED) {
 
 			svc.listMultipartUploads(params,cb);
 		}
-
-		
-		service.ListObjectVersions=function(svc,msg,cb){
+			service.ListObjectVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1375,7 +1254,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Delimiter",params,undefined,false); 
 			copyArgs(n,"EncodingType",params,undefined,false); 
 			copyArgs(n,"KeyMarker",params,undefined,false); 
-			copyArgs(n,"MaxKeys",params,undefined,false); 
+			copyArgs(Number(n),"MaxKeys",params,undefined,false); 
 			copyArgs(n,"Prefix",params,undefined,false); 
 			copyArgs(n,"VersionIdMarker",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
@@ -1392,9 +1271,7 @@ module.exports = function(RED) {
 
 			svc.listObjectVersions(params,cb);
 		}
-
-		
-		service.ListObjects=function(svc,msg,cb){
+			service.ListObjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1403,7 +1280,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Delimiter",params,undefined,false); 
 			copyArgs(n,"EncodingType",params,undefined,false); 
 			copyArgs(n,"Marker",params,undefined,false); 
-			copyArgs(n,"MaxKeys",params,undefined,false); 
+			copyArgs(Number(n),"MaxKeys",params,undefined,false); 
 			copyArgs(n,"Prefix",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
@@ -1420,9 +1297,7 @@ module.exports = function(RED) {
 
 			svc.listObjects(params,cb);
 		}
-
-		
-		service.ListObjectsV2=function(svc,msg,cb){
+			service.ListObjectsV2=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1430,10 +1305,10 @@ module.exports = function(RED) {
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"Delimiter",params,undefined,false); 
 			copyArgs(n,"EncodingType",params,undefined,false); 
-			copyArgs(n,"MaxKeys",params,undefined,false); 
+			copyArgs(Number(n),"MaxKeys",params,undefined,false); 
 			copyArgs(n,"Prefix",params,undefined,false); 
 			copyArgs(n,"ContinuationToken",params,undefined,false); 
-			copyArgs(n,"FetchOwner",params,undefined,false); 
+			copyArgs(Boolean(n),"FetchOwner",params,undefined,false); 
 			copyArgs(n,"StartAfter",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
@@ -1452,9 +1327,7 @@ module.exports = function(RED) {
 
 			svc.listObjectsV2(params,cb);
 		}
-
-		
-		service.ListParts=function(svc,msg,cb){
+			service.ListParts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1463,8 +1336,8 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
-			copyArgs(n,"MaxParts",params,undefined,false); 
-			copyArgs(n,"PartNumberMarker",params,undefined,false); 
+			copyArgs(Number(n),"MaxParts",params,undefined,false); 
+			copyArgs(Number(n),"PartNumberMarker",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
@@ -1480,9 +1353,7 @@ module.exports = function(RED) {
 
 			svc.listParts(params,cb);
 		}
-
-		
-		service.PutBucketAccelerateConfiguration=function(svc,msg,cb){
+			service.PutBucketAccelerateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1499,9 +1370,7 @@ module.exports = function(RED) {
 
 			svc.putBucketAccelerateConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketAcl=function(svc,msg,cb){
+			service.PutBucketAcl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1531,9 +1400,7 @@ module.exports = function(RED) {
 
 			svc.putBucketAcl(params,cb);
 		}
-
-		
-		service.PutBucketAnalyticsConfiguration=function(svc,msg,cb){
+			service.PutBucketAnalyticsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1553,9 +1420,7 @@ module.exports = function(RED) {
 
 			svc.putBucketAnalyticsConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketCors=function(svc,msg,cb){
+			service.PutBucketCors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1574,9 +1439,7 @@ module.exports = function(RED) {
 
 			svc.putBucketCors(params,cb);
 		}
-
-		
-		service.PutBucketEncryption=function(svc,msg,cb){
+			service.PutBucketEncryption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1595,9 +1458,7 @@ module.exports = function(RED) {
 
 			svc.putBucketEncryption(params,cb);
 		}
-
-		
-		service.PutBucketIntelligentTieringConfiguration=function(svc,msg,cb){
+			service.PutBucketIntelligentTieringConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1615,9 +1476,7 @@ module.exports = function(RED) {
 
 			svc.putBucketIntelligentTieringConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketInventoryConfiguration=function(svc,msg,cb){
+			service.PutBucketInventoryConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1637,9 +1496,7 @@ module.exports = function(RED) {
 
 			svc.putBucketInventoryConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketLifecycle=function(svc,msg,cb){
+			service.PutBucketLifecycle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1657,9 +1514,7 @@ module.exports = function(RED) {
 
 			svc.putBucketLifecycle(params,cb);
 		}
-
-		
-		service.PutBucketLifecycleConfiguration=function(svc,msg,cb){
+			service.PutBucketLifecycleConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1675,9 +1530,7 @@ module.exports = function(RED) {
 
 			svc.putBucketLifecycleConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketLogging=function(svc,msg,cb){
+			service.PutBucketLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1696,9 +1549,7 @@ module.exports = function(RED) {
 
 			svc.putBucketLogging(params,cb);
 		}
-
-		
-		service.PutBucketMetricsConfiguration=function(svc,msg,cb){
+			service.PutBucketMetricsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1718,9 +1569,7 @@ module.exports = function(RED) {
 
 			svc.putBucketMetricsConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketNotification=function(svc,msg,cb){
+			service.PutBucketNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1739,9 +1588,7 @@ module.exports = function(RED) {
 
 			svc.putBucketNotification(params,cb);
 		}
-
-		
-		service.PutBucketNotificationConfiguration=function(svc,msg,cb){
+			service.PutBucketNotificationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1758,9 +1605,7 @@ module.exports = function(RED) {
 
 			svc.putBucketNotificationConfiguration(params,cb);
 		}
-
-		
-		service.PutBucketOwnershipControls=function(svc,msg,cb){
+			service.PutBucketOwnershipControls=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1779,9 +1624,7 @@ module.exports = function(RED) {
 
 			svc.putBucketOwnershipControls(params,cb);
 		}
-
-		
-		service.PutBucketPolicy=function(svc,msg,cb){
+			service.PutBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1789,7 +1632,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"ContentMD5",params,undefined,false); 
-			copyArgs(n,"ConfirmRemoveSelfBucketAccess",params,undefined,false); 
+			copyArgs(Boolean(n),"ConfirmRemoveSelfBucketAccess",params,undefined,false); 
 			copyArgs(n,"Policy",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
@@ -1802,9 +1645,7 @@ module.exports = function(RED) {
 
 			svc.putBucketPolicy(params,cb);
 		}
-
-		
-		service.PutBucketReplication=function(svc,msg,cb){
+			service.PutBucketReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1825,9 +1666,7 @@ module.exports = function(RED) {
 
 			svc.putBucketReplication(params,cb);
 		}
-
-		
-		service.PutBucketRequestPayment=function(svc,msg,cb){
+			service.PutBucketRequestPayment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1846,9 +1685,7 @@ module.exports = function(RED) {
 
 			svc.putBucketRequestPayment(params,cb);
 		}
-
-		
-		service.PutBucketTagging=function(svc,msg,cb){
+			service.PutBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1867,9 +1704,7 @@ module.exports = function(RED) {
 
 			svc.putBucketTagging(params,cb);
 		}
-
-		
-		service.PutBucketVersioning=function(svc,msg,cb){
+			service.PutBucketVersioning=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1890,9 +1725,7 @@ module.exports = function(RED) {
 
 			svc.putBucketVersioning(params,cb);
 		}
-
-		
-		service.PutBucketWebsite=function(svc,msg,cb){
+			service.PutBucketWebsite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -1911,16 +1744,14 @@ module.exports = function(RED) {
 
 			svc.putBucketWebsite(params,cb);
 		}
-
-		
-		service.PutObject=function(svc,msg,cb){
+			service.PutObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
 			
 			copyArgs(n,"ACL",params,undefined,false); 
-			copyArgs(n,"Body",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"CacheControl",params,undefined,false); 
 			copyArgs(n,"ContentDisposition",params,undefined,false); 
@@ -1944,7 +1775,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"SSEKMSKeyId",params,undefined,true); 
 			copyArgs(n,"SSEKMSEncryptionContext",params,undefined,true); 
-			copyArgs(n,"BucketKeyEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"BucketKeyEnabled",params,undefined,false); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"Tagging",params,undefined,false); 
 			copyArgs(n,"ObjectLockMode",params,undefined,false); 
@@ -1988,9 +1819,7 @@ module.exports = function(RED) {
 
 			svc.putObject(params,cb);
 		}
-
-		
-		service.PutObjectAcl=function(svc,msg,cb){
+			service.PutObjectAcl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2027,9 +1856,7 @@ module.exports = function(RED) {
 
 			svc.putObjectAcl(params,cb);
 		}
-
-		
-		service.PutObjectLegalHold=function(svc,msg,cb){
+			service.PutObjectLegalHold=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2054,9 +1881,7 @@ module.exports = function(RED) {
 
 			svc.putObjectLegalHold(params,cb);
 		}
-
-		
-		service.PutObjectLockConfiguration=function(svc,msg,cb){
+			service.PutObjectLockConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2078,9 +1903,7 @@ module.exports = function(RED) {
 
 			svc.putObjectLockConfiguration(params,cb);
 		}
-
-		
-		service.PutObjectRetention=function(svc,msg,cb){
+			service.PutObjectRetention=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2091,7 +1914,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Retention",params,undefined,true); 
 			copyArgs(n,"RequestPayer",params,undefined,false); 
 			copyArgs(n,"VersionId",params,undefined,false); 
-			copyArgs(n,"BypassGovernanceRetention",params,undefined,false); 
+			copyArgs(Boolean(n),"BypassGovernanceRetention",params,undefined,false); 
 			copyArgs(n,"ContentMD5",params,undefined,false); 
 			copyArgs(n,"ExpectedBucketOwner",params,undefined,false); 
 			
@@ -2107,9 +1930,7 @@ module.exports = function(RED) {
 
 			svc.putObjectRetention(params,cb);
 		}
-
-		
-		service.PutObjectTagging=function(svc,msg,cb){
+			service.PutObjectTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2135,9 +1956,7 @@ module.exports = function(RED) {
 
 			svc.putObjectTagging(params,cb);
 		}
-
-		
-		service.PutPublicAccessBlock=function(svc,msg,cb){
+			service.PutPublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2156,9 +1975,7 @@ module.exports = function(RED) {
 
 			svc.putPublicAccessBlock(params,cb);
 		}
-
-		
-		service.RestoreObject=function(svc,msg,cb){
+			service.RestoreObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2181,9 +1998,7 @@ module.exports = function(RED) {
 
 			svc.restoreObject(params,cb);
 		}
-
-		
-		service.SelectObjectContent=function(svc,msg,cb){
+			service.SelectObjectContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2222,22 +2037,20 @@ module.exports = function(RED) {
 
 			svc.selectObjectContent(params,cb);
 		}
-
-		
-		service.UploadPart=function(svc,msg,cb){
+			service.UploadPart=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			
-			copyArgs(n,"Body",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"ContentLength",params,undefined,false); 
 			copyArgs(n,"ContentMD5",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			copyArgs(n,"SSECustomerAlgorithm",params,undefined,false); 
 			copyArgs(n,"SSECustomerKey",params,undefined,true); 
@@ -2261,15 +2074,13 @@ module.exports = function(RED) {
 
 			svc.uploadPart(params,cb);
 		}
-
-		
-		service.UploadPartCopy=function(svc,msg,cb){
+			service.UploadPartCopy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"CopySource",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -2280,7 +2091,7 @@ module.exports = function(RED) {
 			copyArgs(n,"CopySourceIfUnmodifiedSince",params,undefined,false); 
 			copyArgs(n,"CopySourceRange",params,undefined,false); 
 			copyArgs(n,"Key",params,undefined,false); 
-			copyArgs(n,"PartNumber",params,undefined,false); 
+			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			copyArgs(n,"SSECustomerAlgorithm",params,undefined,false); 
 			copyArgs(n,"SSECustomerKey",params,undefined,true); 
@@ -2315,9 +2126,7 @@ module.exports = function(RED) {
 
 			svc.uploadPartCopy(params,cb);
 		}
-
-		
-		service.WriteGetObjectResponse=function(svc,msg,cb){
+			service.WriteGetObjectResponse=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequestRoute",params,undefined,false); 
@@ -2325,8 +2134,8 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"RequestRoute",params,undefined,false); 
 			copyArgs(n,"RequestToken",params,undefined,false); 
-			copyArgs(n,"Body",params,undefined,false); 
-			copyArgs(n,"StatusCode",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(Number(n),"StatusCode",params,undefined,false); 
 			copyArgs(n,"ErrorCode",params,undefined,false); 
 			copyArgs(n,"ErrorMessage",params,undefined,false); 
 			copyArgs(n,"AcceptRanges",params,undefined,false); 
@@ -2337,17 +2146,17 @@ module.exports = function(RED) {
 			copyArgs(n,"ContentLength",params,undefined,false); 
 			copyArgs(n,"ContentRange",params,undefined,false); 
 			copyArgs(n,"ContentType",params,undefined,false); 
-			copyArgs(n,"DeleteMarker",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteMarker",params,undefined,false); 
 			copyArgs(n,"ETag",params,undefined,false); 
 			copyArgs(n,"Expires",params,undefined,false); 
 			copyArgs(n,"Expiration",params,undefined,false); 
 			copyArgs(n,"LastModified",params,undefined,false); 
-			copyArgs(n,"MissingMeta",params,undefined,false); 
+			copyArgs(Number(n),"MissingMeta",params,undefined,false); 
 			copyArgs(n,"Metadata",params,undefined,true); 
 			copyArgs(n,"ObjectLockMode",params,undefined,false); 
 			copyArgs(n,"ObjectLockLegalHoldStatus",params,undefined,false); 
 			copyArgs(n,"ObjectLockRetainUntilDate",params,undefined,true); 
-			copyArgs(n,"PartsCount",params,undefined,false); 
+			copyArgs(Number(n),"PartsCount",params,undefined,false); 
 			copyArgs(n,"ReplicationStatus",params,undefined,false); 
 			copyArgs(n,"RequestCharged",params,undefined,false); 
 			copyArgs(n,"Restore",params,undefined,false); 
@@ -2356,9 +2165,9 @@ module.exports = function(RED) {
 			copyArgs(n,"SSEKMSKeyId",params,undefined,true); 
 			copyArgs(n,"SSECustomerKeyMD5",params,undefined,false); 
 			copyArgs(n,"StorageClass",params,undefined,false); 
-			copyArgs(n,"TagCount",params,undefined,false); 
+			copyArgs(Number(n),"TagCount",params,undefined,false); 
 			copyArgs(n,"VersionId",params,undefined,false); 
-			copyArgs(n,"BucketKeyEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"BucketKeyEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"RequestRoute",params,undefined,false); 
 			copyArgs(msg,"RequestToken",params,undefined,false); 
@@ -2400,9 +2209,7 @@ module.exports = function(RED) {
 
 			svc.writeGetObjectResponse(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS S3", AmazonAPINode);
 

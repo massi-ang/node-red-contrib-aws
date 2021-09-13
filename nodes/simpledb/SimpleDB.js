@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchDeleteAttributes=function(svc,msg,cb){
+			service.BatchDeleteAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteAttributes(params,cb);
 		}
-
-		
-		service.BatchPutAttributes=function(svc,msg,cb){
+			service.BatchPutAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.batchPutAttributes(params,cb);
 		}
-
-		
-		service.CreateDomain=function(svc,msg,cb){
+			service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -140,9 +135,7 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-
-		
-		service.DeleteAttributes=function(svc,msg,cb){
+			service.DeleteAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -161,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.deleteAttributes(params,cb);
 		}
-
-		
-		service.DeleteDomain=function(svc,msg,cb){
+			service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -175,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-
-		
-		service.DomainMetadata=function(svc,msg,cb){
+			service.DomainMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -189,9 +178,7 @@ module.exports = function(RED) {
 
 			svc.domainMetadata(params,cb);
 		}
-
-		
-		service.GetAttributes=function(svc,msg,cb){
+			service.GetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -200,7 +187,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"ItemName",params,undefined,false); 
 			copyArgs(n,"AttributeNames",params,undefined,false); 
-			copyArgs(n,"ConsistentRead",params,undefined,false); 
+			copyArgs(Boolean(n),"ConsistentRead",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"ItemName",params,undefined,false); 
@@ -210,13 +197,11 @@ module.exports = function(RED) {
 
 			svc.getAttributes(params,cb);
 		}
-
-		
-		service.ListDomains=function(svc,msg,cb){
+			service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxNumberOfDomains",params,undefined,false); 
+			copyArgs(Number(n),"MaxNumberOfDomains",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxNumberOfDomains",params,undefined,false); 
@@ -225,9 +210,7 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-
-		
-		service.PutAttributes=function(svc,msg,cb){
+			service.PutAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -247,16 +230,14 @@ module.exports = function(RED) {
 
 			svc.putAttributes(params,cb);
 		}
-
-		
-		service.Select=function(svc,msg,cb){
+			service.Select=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SelectExpression",params,undefined,false); 
 			
 			copyArgs(n,"SelectExpression",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"ConsistentRead",params,undefined,false); 
+			copyArgs(Boolean(n),"ConsistentRead",params,undefined,false); 
 			
 			copyArgs(msg,"SelectExpression",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -265,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.select(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SimpleDB", AmazonAPINode);
 

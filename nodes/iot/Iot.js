@@ -92,15 +92,14 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptCertificateTransfer=function(svc,msg,cb){
+			service.AcceptCertificateTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
-			copyArgs(n,"setAsActive",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsActive",params,undefined,false); 
 			
 			copyArgs(msg,"certificateId",params,undefined,false); 
 			copyArgs(msg,"setAsActive",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.acceptCertificateTransfer(params,cb);
 		}
-
-		
-		service.AddThingToBillingGroup=function(svc,msg,cb){
+			service.AddThingToBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -127,9 +124,7 @@ module.exports = function(RED) {
 
 			svc.addThingToBillingGroup(params,cb);
 		}
-
-		
-		service.AddThingToThingGroup=function(svc,msg,cb){
+			service.AddThingToThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -137,7 +132,7 @@ module.exports = function(RED) {
 			copyArgs(n,"thingGroupArn",params,undefined,false); 
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"thingArn",params,undefined,false); 
-			copyArgs(n,"overrideDynamicGroups",params,undefined,false); 
+			copyArgs(Boolean(n),"overrideDynamicGroups",params,undefined,false); 
 			
 			copyArgs(msg,"thingGroupName",params,undefined,false); 
 			copyArgs(msg,"thingGroupArn",params,undefined,false); 
@@ -148,9 +143,7 @@ module.exports = function(RED) {
 
 			svc.addThingToThingGroup(params,cb);
 		}
-
-		
-		service.AssociateTargetsWithJob=function(svc,msg,cb){
+			service.AssociateTargetsWithJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"targets",params,undefined,true); 
@@ -169,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.associateTargetsWithJob(params,cb);
 		}
-
-		
-		service.AttachPolicy=function(svc,msg,cb){
+			service.AttachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -186,9 +177,7 @@ module.exports = function(RED) {
 
 			svc.attachPolicy(params,cb);
 		}
-
-		
-		service.AttachPrincipalPolicy=function(svc,msg,cb){
+			service.AttachPrincipalPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -203,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.attachPrincipalPolicy(params,cb);
 		}
-
-		
-		service.AttachSecurityProfile=function(svc,msg,cb){
+			service.AttachSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.attachSecurityProfile(params,cb);
 		}
-
-		
-		service.AttachThingPrincipal=function(svc,msg,cb){
+			service.AttachThingPrincipal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -237,9 +222,7 @@ module.exports = function(RED) {
 
 			svc.attachThingPrincipal(params,cb);
 		}
-
-		
-		service.CancelAuditMitigationActionsTask=function(svc,msg,cb){
+			service.CancelAuditMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -251,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.cancelAuditMitigationActionsTask(params,cb);
 		}
-
-		
-		service.CancelAuditTask=function(svc,msg,cb){
+			service.CancelAuditTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -265,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.cancelAuditTask(params,cb);
 		}
-
-		
-		service.CancelCertificateTransfer=function(svc,msg,cb){
+			service.CancelCertificateTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -279,9 +258,7 @@ module.exports = function(RED) {
 
 			svc.cancelCertificateTransfer(params,cb);
 		}
-
-		
-		service.CancelDetectMitigationActionsTask=function(svc,msg,cb){
+			service.CancelDetectMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -293,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.cancelDetectMitigationActionsTask(params,cb);
 		}
-
-		
-		service.CancelJob=function(svc,msg,cb){
+			service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -303,7 +278,7 @@ module.exports = function(RED) {
 			copyArgs(n,"jobId",params,undefined,false); 
 			copyArgs(n,"reasonCode",params,undefined,false); 
 			copyArgs(n,"comment",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			
 			copyArgs(msg,"jobId",params,undefined,false); 
 			copyArgs(msg,"reasonCode",params,undefined,false); 
@@ -313,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-
-		
-		service.CancelJobExecution=function(svc,msg,cb){
+			service.CancelJobExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -323,7 +296,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"jobId",params,undefined,false); 
 			copyArgs(n,"thingName",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			copyArgs(n,"expectedVersion",params,undefined,false); 
 			copyArgs(n,"statusDetails",params,undefined,true); 
 			
@@ -336,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.cancelJobExecution(params,cb);
 		}
-
-		
-		service.ClearDefaultAuthorizer=function(svc,msg,cb){
+			service.ClearDefaultAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -347,9 +318,7 @@ module.exports = function(RED) {
 
 			svc.clearDefaultAuthorizer(params,cb);
 		}
-
-		
-		service.ConfirmTopicRuleDestination=function(svc,msg,cb){
+			service.ConfirmTopicRuleDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"confirmationToken",params,undefined,false); 
@@ -361,9 +330,7 @@ module.exports = function(RED) {
 
 			svc.confirmTopicRuleDestination(params,cb);
 		}
-
-		
-		service.CreateAuditSuppression=function(svc,msg,cb){
+			service.CreateAuditSuppression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkName",params,undefined,false); 
@@ -373,7 +340,7 @@ module.exports = function(RED) {
 			copyArgs(n,"checkName",params,undefined,false); 
 			copyArgs(n,"resourceIdentifier",params,undefined,true); 
 			copyArgs(n,"expirationDate",params,undefined,false); 
-			copyArgs(n,"suppressIndefinitely",params,undefined,false); 
+			copyArgs(Boolean(n),"suppressIndefinitely",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
 			
@@ -387,9 +354,7 @@ module.exports = function(RED) {
 
 			svc.createAuditSuppression(params,cb);
 		}
-
-		
-		service.CreateAuthorizer=function(svc,msg,cb){
+			service.CreateAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -401,7 +366,7 @@ module.exports = function(RED) {
 			copyArgs(n,"tokenSigningPublicKeys",params,undefined,true); 
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
-			copyArgs(n,"signingDisabled",params,undefined,false); 
+			copyArgs(Boolean(n),"signingDisabled",params,undefined,false); 
 			
 			copyArgs(msg,"authorizerName",params,undefined,false); 
 			copyArgs(msg,"authorizerFunctionArn",params,undefined,false); 
@@ -414,9 +379,7 @@ module.exports = function(RED) {
 
 			svc.createAuthorizer(params,cb);
 		}
-
-		
-		service.CreateBillingGroup=function(svc,msg,cb){
+			service.CreateBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
@@ -432,15 +395,13 @@ module.exports = function(RED) {
 
 			svc.createBillingGroup(params,cb);
 		}
-
-		
-		service.CreateCertificateFromCsr=function(svc,msg,cb){
+			service.CreateCertificateFromCsr=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateSigningRequest",params,undefined,false); 
 			
 			copyArgs(n,"certificateSigningRequest",params,undefined,false); 
-			copyArgs(n,"setAsActive",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsActive",params,undefined,false); 
 			
 			copyArgs(msg,"certificateSigningRequest",params,undefined,false); 
 			copyArgs(msg,"setAsActive",params,undefined,false); 
@@ -448,9 +409,7 @@ module.exports = function(RED) {
 
 			svc.createCertificateFromCsr(params,cb);
 		}
-
-		
-		service.CreateCustomMetric=function(svc,msg,cb){
+			service.CreateCustomMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -472,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.createCustomMetric(params,cb);
 		}
-
-		
-		service.CreateDimension=function(svc,msg,cb){
+			service.CreateDimension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -497,9 +454,7 @@ module.exports = function(RED) {
 
 			svc.createDimension(params,cb);
 		}
-
-		
-		service.CreateDomainConfiguration=function(svc,msg,cb){
+			service.CreateDomainConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainConfigurationName",params,undefined,false); 
@@ -523,9 +478,7 @@ module.exports = function(RED) {
 
 			svc.createDomainConfiguration(params,cb);
 		}
-
-		
-		service.CreateDynamicThingGroup=function(svc,msg,cb){
+			service.CreateDynamicThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -548,21 +501,19 @@ module.exports = function(RED) {
 
 			svc.createDynamicThingGroup(params,cb);
 		}
-
-		
-		service.CreateFleetMetric=function(svc,msg,cb){
+			service.CreateFleetMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"queryString",params,undefined,false); 
 			copyArgs(n,"aggregationType",params,undefined,true); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"aggregationField",params,undefined,false); 
 			
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"queryString",params,undefined,false); 
 			copyArgs(n,"aggregationType",params,undefined,true); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"aggregationField",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"queryVersion",params,undefined,false); 
@@ -584,9 +535,7 @@ module.exports = function(RED) {
 
 			svc.createFleetMetric(params,cb);
 		}
-
-		
-		service.CreateJob=function(svc,msg,cb){
+			service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -623,9 +572,7 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-
-		
-		service.CreateJobTemplate=function(svc,msg,cb){
+			service.CreateJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobTemplateId",params,undefined,false); 
@@ -656,22 +603,18 @@ module.exports = function(RED) {
 
 			svc.createJobTemplate(params,cb);
 		}
-
-		
-		service.CreateKeysAndCertificate=function(svc,msg,cb){
+			service.CreateKeysAndCertificate=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"setAsActive",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsActive",params,undefined,false); 
 			
 			copyArgs(msg,"setAsActive",params,undefined,false); 
 			
 
 			svc.createKeysAndCertificate(params,cb);
 		}
-
-		
-		service.CreateMitigationAction=function(svc,msg,cb){
+			service.CreateMitigationAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionName",params,undefined,false); 
@@ -691,9 +634,7 @@ module.exports = function(RED) {
 
 			svc.createMitigationAction(params,cb);
 		}
-
-		
-		service.CreateOTAUpdate=function(svc,msg,cb){
+			service.CreateOTAUpdate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"otaUpdateId",params,undefined,false); 
@@ -732,9 +673,7 @@ module.exports = function(RED) {
 
 			svc.createOTAUpdate(params,cb);
 		}
-
-		
-		service.CreatePolicy=function(svc,msg,cb){
+			service.CreatePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -751,9 +690,7 @@ module.exports = function(RED) {
 
 			svc.createPolicy(params,cb);
 		}
-
-		
-		service.CreatePolicyVersion=function(svc,msg,cb){
+			service.CreatePolicyVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -761,7 +698,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"policyName",params,undefined,false); 
 			copyArgs(n,"policyDocument",params,undefined,false); 
-			copyArgs(n,"setAsDefault",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsDefault",params,undefined,false); 
 			
 			copyArgs(msg,"policyName",params,undefined,false); 
 			copyArgs(msg,"policyDocument",params,undefined,false); 
@@ -770,9 +707,7 @@ module.exports = function(RED) {
 
 			svc.createPolicyVersion(params,cb);
 		}
-
-		
-		service.CreateProvisioningClaim=function(svc,msg,cb){
+			service.CreateProvisioningClaim=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
@@ -784,9 +719,7 @@ module.exports = function(RED) {
 
 			svc.createProvisioningClaim(params,cb);
 		}
-
-		
-		service.CreateProvisioningTemplate=function(svc,msg,cb){
+			service.CreateProvisioningTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
@@ -796,7 +729,7 @@ module.exports = function(RED) {
 			copyArgs(n,"templateName",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"templateBody",params,undefined,false); 
-			copyArgs(n,"enabled",params,undefined,false); 
+			copyArgs(Boolean(n),"enabled",params,undefined,false); 
 			copyArgs(n,"provisioningRoleArn",params,undefined,false); 
 			copyArgs(n,"preProvisioningHook",params,undefined,true); 
 			copyArgs(n,"tags",params,undefined,true); 
@@ -812,9 +745,7 @@ module.exports = function(RED) {
 
 			svc.createProvisioningTemplate(params,cb);
 		}
-
-		
-		service.CreateProvisioningTemplateVersion=function(svc,msg,cb){
+			service.CreateProvisioningTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
@@ -822,7 +753,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			copyArgs(n,"templateBody",params,undefined,false); 
-			copyArgs(n,"setAsDefault",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsDefault",params,undefined,false); 
 			
 			copyArgs(msg,"templateName",params,undefined,false); 
 			copyArgs(msg,"templateBody",params,undefined,false); 
@@ -831,9 +762,7 @@ module.exports = function(RED) {
 
 			svc.createProvisioningTemplateVersion(params,cb);
 		}
-
-		
-		service.CreateRoleAlias=function(svc,msg,cb){
+			service.CreateRoleAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
@@ -841,7 +770,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
 			copyArgs(n,"roleArn",params,undefined,false); 
-			copyArgs(n,"credentialDurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"credentialDurationSeconds",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
 			copyArgs(msg,"roleAlias",params,undefined,false); 
@@ -852,9 +781,7 @@ module.exports = function(RED) {
 
 			svc.createRoleAlias(params,cb);
 		}
-
-		
-		service.CreateScheduledAudit=function(svc,msg,cb){
+			service.CreateScheduledAudit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"frequency",params,undefined,false); 
@@ -878,9 +805,7 @@ module.exports = function(RED) {
 
 			svc.createScheduledAudit(params,cb);
 		}
-
-		
-		service.CreateSecurityProfile=function(svc,msg,cb){
+			service.CreateSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -904,9 +829,7 @@ module.exports = function(RED) {
 
 			svc.createSecurityProfile(params,cb);
 		}
-
-		
-		service.CreateStream=function(svc,msg,cb){
+			service.CreateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"streamId",params,undefined,false); 
@@ -928,9 +851,7 @@ module.exports = function(RED) {
 
 			svc.createStream(params,cb);
 		}
-
-		
-		service.CreateThing=function(svc,msg,cb){
+			service.CreateThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -948,9 +869,7 @@ module.exports = function(RED) {
 
 			svc.createThing(params,cb);
 		}
-
-		
-		service.CreateThingGroup=function(svc,msg,cb){
+			service.CreateThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -968,9 +887,7 @@ module.exports = function(RED) {
 
 			svc.createThingGroup(params,cb);
 		}
-
-		
-		service.CreateThingType=function(svc,msg,cb){
+			service.CreateThingType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingTypeName",params,undefined,false); 
@@ -986,9 +903,7 @@ module.exports = function(RED) {
 
 			svc.createThingType(params,cb);
 		}
-
-		
-		service.CreateTopicRule=function(svc,msg,cb){
+			service.CreateTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -1005,9 +920,7 @@ module.exports = function(RED) {
 
 			svc.createTopicRule(params,cb);
 		}
-
-		
-		service.CreateTopicRuleDestination=function(svc,msg,cb){
+			service.CreateTopicRuleDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"destinationConfiguration",params,undefined,false); 
@@ -1019,22 +932,18 @@ module.exports = function(RED) {
 
 			svc.createTopicRuleDestination(params,cb);
 		}
-
-		
-		service.DeleteAccountAuditConfiguration=function(svc,msg,cb){
+			service.DeleteAccountAuditConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"deleteScheduledAudits",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteScheduledAudits",params,undefined,false); 
 			
 			copyArgs(msg,"deleteScheduledAudits",params,undefined,false); 
 			
 
 			svc.deleteAccountAuditConfiguration(params,cb);
 		}
-
-		
-		service.DeleteAuditSuppression=function(svc,msg,cb){
+			service.DeleteAuditSuppression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkName",params,undefined,false); 
@@ -1049,9 +958,7 @@ module.exports = function(RED) {
 
 			svc.deleteAuditSuppression(params,cb);
 		}
-
-		
-		service.DeleteAuthorizer=function(svc,msg,cb){
+			service.DeleteAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -1063,9 +970,7 @@ module.exports = function(RED) {
 
 			svc.deleteAuthorizer(params,cb);
 		}
-
-		
-		service.DeleteBillingGroup=function(svc,msg,cb){
+			service.DeleteBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
@@ -1079,9 +984,7 @@ module.exports = function(RED) {
 
 			svc.deleteBillingGroup(params,cb);
 		}
-
-		
-		service.DeleteCACertificate=function(svc,msg,cb){
+			service.DeleteCACertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -1093,15 +996,13 @@ module.exports = function(RED) {
 
 			svc.deleteCACertificate(params,cb);
 		}
-
-		
-		service.DeleteCertificate=function(svc,msg,cb){
+			service.DeleteCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
-			copyArgs(n,"forceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"certificateId",params,undefined,false); 
 			copyArgs(msg,"forceDelete",params,undefined,false); 
@@ -1109,9 +1010,7 @@ module.exports = function(RED) {
 
 			svc.deleteCertificate(params,cb);
 		}
-
-		
-		service.DeleteCustomMetric=function(svc,msg,cb){
+			service.DeleteCustomMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -1123,9 +1022,7 @@ module.exports = function(RED) {
 
 			svc.deleteCustomMetric(params,cb);
 		}
-
-		
-		service.DeleteDimension=function(svc,msg,cb){
+			service.DeleteDimension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -1137,9 +1034,7 @@ module.exports = function(RED) {
 
 			svc.deleteDimension(params,cb);
 		}
-
-		
-		service.DeleteDomainConfiguration=function(svc,msg,cb){
+			service.DeleteDomainConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainConfigurationName",params,undefined,false); 
@@ -1151,9 +1046,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomainConfiguration(params,cb);
 		}
-
-		
-		service.DeleteDynamicThingGroup=function(svc,msg,cb){
+			service.DeleteDynamicThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -1167,9 +1060,7 @@ module.exports = function(RED) {
 
 			svc.deleteDynamicThingGroup(params,cb);
 		}
-
-		
-		service.DeleteFleetMetric=function(svc,msg,cb){
+			service.DeleteFleetMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -1183,15 +1074,13 @@ module.exports = function(RED) {
 
 			svc.deleteFleetMetric(params,cb);
 		}
-
-		
-		service.DeleteJob=function(svc,msg,cb){
+			service.DeleteJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
 			
 			copyArgs(n,"jobId",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			copyArgs(n,"namespaceId",params,undefined,false); 
 			
 			copyArgs(msg,"jobId",params,undefined,false); 
@@ -1201,9 +1090,7 @@ module.exports = function(RED) {
 
 			svc.deleteJob(params,cb);
 		}
-
-		
-		service.DeleteJobExecution=function(svc,msg,cb){
+			service.DeleteJobExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -1213,7 +1100,7 @@ module.exports = function(RED) {
 			copyArgs(n,"jobId",params,undefined,false); 
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"executionNumber",params,undefined,false); 
-			copyArgs(n,"force",params,undefined,false); 
+			copyArgs(Boolean(n),"force",params,undefined,false); 
 			copyArgs(n,"namespaceId",params,undefined,false); 
 			
 			copyArgs(msg,"jobId",params,undefined,false); 
@@ -1225,9 +1112,7 @@ module.exports = function(RED) {
 
 			svc.deleteJobExecution(params,cb);
 		}
-
-		
-		service.DeleteJobTemplate=function(svc,msg,cb){
+			service.DeleteJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobTemplateId",params,undefined,false); 
@@ -1239,9 +1124,7 @@ module.exports = function(RED) {
 
 			svc.deleteJobTemplate(params,cb);
 		}
-
-		
-		service.DeleteMitigationAction=function(svc,msg,cb){
+			service.DeleteMitigationAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionName",params,undefined,false); 
@@ -1253,16 +1136,14 @@ module.exports = function(RED) {
 
 			svc.deleteMitigationAction(params,cb);
 		}
-
-		
-		service.DeleteOTAUpdate=function(svc,msg,cb){
+			service.DeleteOTAUpdate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"otaUpdateId",params,undefined,false); 
 			
 			copyArgs(n,"otaUpdateId",params,undefined,false); 
-			copyArgs(n,"deleteStream",params,undefined,false); 
-			copyArgs(n,"forceDeleteAWSJob",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteStream",params,undefined,false); 
+			copyArgs(Boolean(n),"forceDeleteAWSJob",params,undefined,false); 
 			
 			copyArgs(msg,"otaUpdateId",params,undefined,false); 
 			copyArgs(msg,"deleteStream",params,undefined,false); 
@@ -1271,9 +1152,7 @@ module.exports = function(RED) {
 
 			svc.deleteOTAUpdate(params,cb);
 		}
-
-		
-		service.DeletePolicy=function(svc,msg,cb){
+			service.DeletePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -1285,9 +1164,7 @@ module.exports = function(RED) {
 
 			svc.deletePolicy(params,cb);
 		}
-
-		
-		service.DeletePolicyVersion=function(svc,msg,cb){
+			service.DeletePolicyVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -1302,9 +1179,7 @@ module.exports = function(RED) {
 
 			svc.deletePolicyVersion(params,cb);
 		}
-
-		
-		service.DeleteProvisioningTemplate=function(svc,msg,cb){
+			service.DeleteProvisioningTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
@@ -1316,16 +1191,14 @@ module.exports = function(RED) {
 
 			svc.deleteProvisioningTemplate(params,cb);
 		}
-
-		
-		service.DeleteProvisioningTemplateVersion=function(svc,msg,cb){
+			service.DeleteProvisioningTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
-			copyArgs(n,"versionId",params,undefined,false); 
+			copyArgs(Number(n),"versionId",params,undefined,false); 
 			
 			copyArgs(n,"templateName",params,undefined,false); 
-			copyArgs(n,"versionId",params,undefined,false); 
+			copyArgs(Number(n),"versionId",params,undefined,false); 
 			
 			copyArgs(msg,"templateName",params,undefined,false); 
 			copyArgs(msg,"versionId",params,undefined,false); 
@@ -1333,9 +1206,7 @@ module.exports = function(RED) {
 
 			svc.deleteProvisioningTemplateVersion(params,cb);
 		}
-
-		
-		service.DeleteRegistrationCode=function(svc,msg,cb){
+			service.DeleteRegistrationCode=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1344,9 +1215,7 @@ module.exports = function(RED) {
 
 			svc.deleteRegistrationCode(params,cb);
 		}
-
-		
-		service.DeleteRoleAlias=function(svc,msg,cb){
+			service.DeleteRoleAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
@@ -1358,9 +1227,7 @@ module.exports = function(RED) {
 
 			svc.deleteRoleAlias(params,cb);
 		}
-
-		
-		service.DeleteScheduledAudit=function(svc,msg,cb){
+			service.DeleteScheduledAudit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"scheduledAuditName",params,undefined,false); 
@@ -1372,9 +1239,7 @@ module.exports = function(RED) {
 
 			svc.deleteScheduledAudit(params,cb);
 		}
-
-		
-		service.DeleteSecurityProfile=function(svc,msg,cb){
+			service.DeleteSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -1388,9 +1253,7 @@ module.exports = function(RED) {
 
 			svc.deleteSecurityProfile(params,cb);
 		}
-
-		
-		service.DeleteStream=function(svc,msg,cb){
+			service.DeleteStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"streamId",params,undefined,false); 
@@ -1402,9 +1265,7 @@ module.exports = function(RED) {
 
 			svc.deleteStream(params,cb);
 		}
-
-		
-		service.DeleteThing=function(svc,msg,cb){
+			service.DeleteThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -1418,9 +1279,7 @@ module.exports = function(RED) {
 
 			svc.deleteThing(params,cb);
 		}
-
-		
-		service.DeleteThingGroup=function(svc,msg,cb){
+			service.DeleteThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -1434,9 +1293,7 @@ module.exports = function(RED) {
 
 			svc.deleteThingGroup(params,cb);
 		}
-
-		
-		service.DeleteThingType=function(svc,msg,cb){
+			service.DeleteThingType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingTypeName",params,undefined,false); 
@@ -1448,9 +1305,7 @@ module.exports = function(RED) {
 
 			svc.deleteThingType(params,cb);
 		}
-
-		
-		service.DeleteTopicRule=function(svc,msg,cb){
+			service.DeleteTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -1462,9 +1317,7 @@ module.exports = function(RED) {
 
 			svc.deleteTopicRule(params,cb);
 		}
-
-		
-		service.DeleteTopicRuleDestination=function(svc,msg,cb){
+			service.DeleteTopicRuleDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1476,9 +1329,7 @@ module.exports = function(RED) {
 
 			svc.deleteTopicRuleDestination(params,cb);
 		}
-
-		
-		service.DeleteV2LoggingLevel=function(svc,msg,cb){
+			service.DeleteV2LoggingLevel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"targetType",params,undefined,false); 
@@ -1493,15 +1344,13 @@ module.exports = function(RED) {
 
 			svc.deleteV2LoggingLevel(params,cb);
 		}
-
-		
-		service.DeprecateThingType=function(svc,msg,cb){
+			service.DeprecateThingType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingTypeName",params,undefined,false); 
 			
 			copyArgs(n,"thingTypeName",params,undefined,false); 
-			copyArgs(n,"undoDeprecate",params,undefined,false); 
+			copyArgs(Boolean(n),"undoDeprecate",params,undefined,false); 
 			
 			copyArgs(msg,"thingTypeName",params,undefined,false); 
 			copyArgs(msg,"undoDeprecate",params,undefined,false); 
@@ -1509,9 +1358,7 @@ module.exports = function(RED) {
 
 			svc.deprecateThingType(params,cb);
 		}
-
-		
-		service.DescribeAccountAuditConfiguration=function(svc,msg,cb){
+			service.DescribeAccountAuditConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1520,9 +1367,7 @@ module.exports = function(RED) {
 
 			svc.describeAccountAuditConfiguration(params,cb);
 		}
-
-		
-		service.DescribeAuditFinding=function(svc,msg,cb){
+			service.DescribeAuditFinding=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"findingId",params,undefined,false); 
@@ -1534,9 +1379,7 @@ module.exports = function(RED) {
 
 			svc.describeAuditFinding(params,cb);
 		}
-
-		
-		service.DescribeAuditMitigationActionsTask=function(svc,msg,cb){
+			service.DescribeAuditMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -1548,9 +1391,7 @@ module.exports = function(RED) {
 
 			svc.describeAuditMitigationActionsTask(params,cb);
 		}
-
-		
-		service.DescribeAuditSuppression=function(svc,msg,cb){
+			service.DescribeAuditSuppression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkName",params,undefined,false); 
@@ -1565,9 +1406,7 @@ module.exports = function(RED) {
 
 			svc.describeAuditSuppression(params,cb);
 		}
-
-		
-		service.DescribeAuditTask=function(svc,msg,cb){
+			service.DescribeAuditTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -1579,9 +1418,7 @@ module.exports = function(RED) {
 
 			svc.describeAuditTask(params,cb);
 		}
-
-		
-		service.DescribeAuthorizer=function(svc,msg,cb){
+			service.DescribeAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -1593,9 +1430,7 @@ module.exports = function(RED) {
 
 			svc.describeAuthorizer(params,cb);
 		}
-
-		
-		service.DescribeBillingGroup=function(svc,msg,cb){
+			service.DescribeBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
@@ -1607,9 +1442,7 @@ module.exports = function(RED) {
 
 			svc.describeBillingGroup(params,cb);
 		}
-
-		
-		service.DescribeCACertificate=function(svc,msg,cb){
+			service.DescribeCACertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -1621,9 +1454,7 @@ module.exports = function(RED) {
 
 			svc.describeCACertificate(params,cb);
 		}
-
-		
-		service.DescribeCertificate=function(svc,msg,cb){
+			service.DescribeCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -1635,9 +1466,7 @@ module.exports = function(RED) {
 
 			svc.describeCertificate(params,cb);
 		}
-
-		
-		service.DescribeCustomMetric=function(svc,msg,cb){
+			service.DescribeCustomMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -1649,9 +1478,7 @@ module.exports = function(RED) {
 
 			svc.describeCustomMetric(params,cb);
 		}
-
-		
-		service.DescribeDefaultAuthorizer=function(svc,msg,cb){
+			service.DescribeDefaultAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1660,9 +1487,7 @@ module.exports = function(RED) {
 
 			svc.describeDefaultAuthorizer(params,cb);
 		}
-
-		
-		service.DescribeDetectMitigationActionsTask=function(svc,msg,cb){
+			service.DescribeDetectMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -1674,9 +1499,7 @@ module.exports = function(RED) {
 
 			svc.describeDetectMitigationActionsTask(params,cb);
 		}
-
-		
-		service.DescribeDimension=function(svc,msg,cb){
+			service.DescribeDimension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -1688,9 +1511,7 @@ module.exports = function(RED) {
 
 			svc.describeDimension(params,cb);
 		}
-
-		
-		service.DescribeDomainConfiguration=function(svc,msg,cb){
+			service.DescribeDomainConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainConfigurationName",params,undefined,false); 
@@ -1702,9 +1523,7 @@ module.exports = function(RED) {
 
 			svc.describeDomainConfiguration(params,cb);
 		}
-
-		
-		service.DescribeEndpoint=function(svc,msg,cb){
+			service.DescribeEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1715,9 +1534,7 @@ module.exports = function(RED) {
 
 			svc.describeEndpoint(params,cb);
 		}
-
-		
-		service.DescribeEventConfigurations=function(svc,msg,cb){
+			service.DescribeEventConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1726,9 +1543,7 @@ module.exports = function(RED) {
 
 			svc.describeEventConfigurations(params,cb);
 		}
-
-		
-		service.DescribeFleetMetric=function(svc,msg,cb){
+			service.DescribeFleetMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -1740,9 +1555,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetMetric(params,cb);
 		}
-
-		
-		service.DescribeIndex=function(svc,msg,cb){
+			service.DescribeIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"indexName",params,undefined,false); 
@@ -1754,9 +1567,7 @@ module.exports = function(RED) {
 
 			svc.describeIndex(params,cb);
 		}
-
-		
-		service.DescribeJob=function(svc,msg,cb){
+			service.DescribeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -1768,9 +1579,7 @@ module.exports = function(RED) {
 
 			svc.describeJob(params,cb);
 		}
-
-		
-		service.DescribeJobExecution=function(svc,msg,cb){
+			service.DescribeJobExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -1787,9 +1596,7 @@ module.exports = function(RED) {
 
 			svc.describeJobExecution(params,cb);
 		}
-
-		
-		service.DescribeJobTemplate=function(svc,msg,cb){
+			service.DescribeJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobTemplateId",params,undefined,false); 
@@ -1801,9 +1608,7 @@ module.exports = function(RED) {
 
 			svc.describeJobTemplate(params,cb);
 		}
-
-		
-		service.DescribeMitigationAction=function(svc,msg,cb){
+			service.DescribeMitigationAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionName",params,undefined,false); 
@@ -1815,9 +1620,7 @@ module.exports = function(RED) {
 
 			svc.describeMitigationAction(params,cb);
 		}
-
-		
-		service.DescribeProvisioningTemplate=function(svc,msg,cb){
+			service.DescribeProvisioningTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
@@ -1829,16 +1632,14 @@ module.exports = function(RED) {
 
 			svc.describeProvisioningTemplate(params,cb);
 		}
-
-		
-		service.DescribeProvisioningTemplateVersion=function(svc,msg,cb){
+			service.DescribeProvisioningTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
-			copyArgs(n,"versionId",params,undefined,false); 
+			copyArgs(Number(n),"versionId",params,undefined,false); 
 			
 			copyArgs(n,"templateName",params,undefined,false); 
-			copyArgs(n,"versionId",params,undefined,false); 
+			copyArgs(Number(n),"versionId",params,undefined,false); 
 			
 			copyArgs(msg,"templateName",params,undefined,false); 
 			copyArgs(msg,"versionId",params,undefined,false); 
@@ -1846,9 +1647,7 @@ module.exports = function(RED) {
 
 			svc.describeProvisioningTemplateVersion(params,cb);
 		}
-
-		
-		service.DescribeRoleAlias=function(svc,msg,cb){
+			service.DescribeRoleAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
@@ -1860,9 +1659,7 @@ module.exports = function(RED) {
 
 			svc.describeRoleAlias(params,cb);
 		}
-
-		
-		service.DescribeScheduledAudit=function(svc,msg,cb){
+			service.DescribeScheduledAudit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"scheduledAuditName",params,undefined,false); 
@@ -1874,9 +1671,7 @@ module.exports = function(RED) {
 
 			svc.describeScheduledAudit(params,cb);
 		}
-
-		
-		service.DescribeSecurityProfile=function(svc,msg,cb){
+			service.DescribeSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -1888,9 +1683,7 @@ module.exports = function(RED) {
 
 			svc.describeSecurityProfile(params,cb);
 		}
-
-		
-		service.DescribeStream=function(svc,msg,cb){
+			service.DescribeStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"streamId",params,undefined,false); 
@@ -1902,9 +1695,7 @@ module.exports = function(RED) {
 
 			svc.describeStream(params,cb);
 		}
-
-		
-		service.DescribeThing=function(svc,msg,cb){
+			service.DescribeThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -1916,9 +1707,7 @@ module.exports = function(RED) {
 
 			svc.describeThing(params,cb);
 		}
-
-		
-		service.DescribeThingGroup=function(svc,msg,cb){
+			service.DescribeThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -1930,9 +1719,7 @@ module.exports = function(RED) {
 
 			svc.describeThingGroup(params,cb);
 		}
-
-		
-		service.DescribeThingRegistrationTask=function(svc,msg,cb){
+			service.DescribeThingRegistrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -1944,9 +1731,7 @@ module.exports = function(RED) {
 
 			svc.describeThingRegistrationTask(params,cb);
 		}
-
-		
-		service.DescribeThingType=function(svc,msg,cb){
+			service.DescribeThingType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingTypeName",params,undefined,false); 
@@ -1958,9 +1743,7 @@ module.exports = function(RED) {
 
 			svc.describeThingType(params,cb);
 		}
-
-		
-		service.DetachPolicy=function(svc,msg,cb){
+			service.DetachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -1975,9 +1758,7 @@ module.exports = function(RED) {
 
 			svc.detachPolicy(params,cb);
 		}
-
-		
-		service.DetachPrincipalPolicy=function(svc,msg,cb){
+			service.DetachPrincipalPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -1992,9 +1773,7 @@ module.exports = function(RED) {
 
 			svc.detachPrincipalPolicy(params,cb);
 		}
-
-		
-		service.DetachSecurityProfile=function(svc,msg,cb){
+			service.DetachSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -2009,9 +1788,7 @@ module.exports = function(RED) {
 
 			svc.detachSecurityProfile(params,cb);
 		}
-
-		
-		service.DetachThingPrincipal=function(svc,msg,cb){
+			service.DetachThingPrincipal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -2026,9 +1803,7 @@ module.exports = function(RED) {
 
 			svc.detachThingPrincipal(params,cb);
 		}
-
-		
-		service.DisableTopicRule=function(svc,msg,cb){
+			service.DisableTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -2040,9 +1815,7 @@ module.exports = function(RED) {
 
 			svc.disableTopicRule(params,cb);
 		}
-
-		
-		service.EnableTopicRule=function(svc,msg,cb){
+			service.EnableTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -2054,14 +1827,12 @@ module.exports = function(RED) {
 
 			svc.enableTopicRule(params,cb);
 		}
-
-		
-		service.GetBehaviorModelTrainingSummaries=function(svc,msg,cb){
+			service.GetBehaviorModelTrainingSummaries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"securityProfileName",params,undefined,false); 
@@ -2071,9 +1842,7 @@ module.exports = function(RED) {
 
 			svc.getBehaviorModelTrainingSummaries(params,cb);
 		}
-
-		
-		service.GetBucketsAggregation=function(svc,msg,cb){
+			service.GetBucketsAggregation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryString",params,undefined,false); 
@@ -2095,9 +1864,7 @@ module.exports = function(RED) {
 
 			svc.getBucketsAggregation(params,cb);
 		}
-
-		
-		service.GetCardinality=function(svc,msg,cb){
+			service.GetCardinality=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryString",params,undefined,false); 
@@ -2115,9 +1882,7 @@ module.exports = function(RED) {
 
 			svc.getCardinality(params,cb);
 		}
-
-		
-		service.GetEffectivePolicies=function(svc,msg,cb){
+			service.GetEffectivePolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2132,9 +1897,7 @@ module.exports = function(RED) {
 
 			svc.getEffectivePolicies(params,cb);
 		}
-
-		
-		service.GetIndexingConfiguration=function(svc,msg,cb){
+			service.GetIndexingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2143,9 +1906,7 @@ module.exports = function(RED) {
 
 			svc.getIndexingConfiguration(params,cb);
 		}
-
-		
-		service.GetJobDocument=function(svc,msg,cb){
+			service.GetJobDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -2157,9 +1918,7 @@ module.exports = function(RED) {
 
 			svc.getJobDocument(params,cb);
 		}
-
-		
-		service.GetLoggingOptions=function(svc,msg,cb){
+			service.GetLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2168,9 +1927,7 @@ module.exports = function(RED) {
 
 			svc.getLoggingOptions(params,cb);
 		}
-
-		
-		service.GetOTAUpdate=function(svc,msg,cb){
+			service.GetOTAUpdate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"otaUpdateId",params,undefined,false); 
@@ -2182,9 +1939,7 @@ module.exports = function(RED) {
 
 			svc.getOTAUpdate(params,cb);
 		}
-
-		
-		service.GetPercentiles=function(svc,msg,cb){
+			service.GetPercentiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryString",params,undefined,false); 
@@ -2204,9 +1959,7 @@ module.exports = function(RED) {
 
 			svc.getPercentiles(params,cb);
 		}
-
-		
-		service.GetPolicy=function(svc,msg,cb){
+			service.GetPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -2218,9 +1971,7 @@ module.exports = function(RED) {
 
 			svc.getPolicy(params,cb);
 		}
-
-		
-		service.GetPolicyVersion=function(svc,msg,cb){
+			service.GetPolicyVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -2235,9 +1986,7 @@ module.exports = function(RED) {
 
 			svc.getPolicyVersion(params,cb);
 		}
-
-		
-		service.GetRegistrationCode=function(svc,msg,cb){
+			service.GetRegistrationCode=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2246,9 +1995,7 @@ module.exports = function(RED) {
 
 			svc.getRegistrationCode(params,cb);
 		}
-
-		
-		service.GetStatistics=function(svc,msg,cb){
+			service.GetStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryString",params,undefined,false); 
@@ -2266,9 +2013,7 @@ module.exports = function(RED) {
 
 			svc.getStatistics(params,cb);
 		}
-
-		
-		service.GetTopicRule=function(svc,msg,cb){
+			service.GetTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -2280,9 +2025,7 @@ module.exports = function(RED) {
 
 			svc.getTopicRule(params,cb);
 		}
-
-		
-		service.GetTopicRuleDestination=function(svc,msg,cb){
+			service.GetTopicRuleDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -2294,9 +2037,7 @@ module.exports = function(RED) {
 
 			svc.getTopicRuleDestination(params,cb);
 		}
-
-		
-		service.GetV2LoggingOptions=function(svc,msg,cb){
+			service.GetV2LoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2305,18 +2046,16 @@ module.exports = function(RED) {
 
 			svc.getV2LoggingOptions(params,cb);
 		}
-
-		
-		service.ListActiveViolations=function(svc,msg,cb){
+			service.ListActiveViolations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"securityProfileName",params,undefined,false); 
 			copyArgs(n,"behaviorCriteriaType",params,undefined,false); 
-			copyArgs(n,"listSuppressedAlerts",params,undefined,false); 
+			copyArgs(Boolean(n),"listSuppressedAlerts",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"securityProfileName",params,undefined,false); 
@@ -2328,17 +2067,15 @@ module.exports = function(RED) {
 
 			svc.listActiveViolations(params,cb);
 		}
-
-		
-		service.ListAttachedPolicies=function(svc,msg,cb){
+			service.ListAttachedPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"target",params,undefined,false); 
 			
 			copyArgs(n,"target",params,undefined,false); 
-			copyArgs(n,"recursive",params,undefined,false); 
+			copyArgs(Boolean(n),"recursive",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			
 			copyArgs(msg,"target",params,undefined,false); 
 			copyArgs(msg,"recursive",params,undefined,false); 
@@ -2348,20 +2085,18 @@ module.exports = function(RED) {
 
 			svc.listAttachedPolicies(params,cb);
 		}
-
-		
-		service.ListAuditFindings=function(svc,msg,cb){
+			service.ListAuditFindings=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"taskId",params,undefined,false); 
 			copyArgs(n,"checkName",params,undefined,false); 
 			copyArgs(n,"resourceIdentifier",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"listSuppressedFindings",params,undefined,false); 
+			copyArgs(Boolean(n),"listSuppressedFindings",params,undefined,false); 
 			
 			copyArgs(msg,"taskId",params,undefined,false); 
 			copyArgs(msg,"checkName",params,undefined,false); 
@@ -2375,9 +2110,7 @@ module.exports = function(RED) {
 
 			svc.listAuditFindings(params,cb);
 		}
-
-		
-		service.ListAuditMitigationActionsExecutions=function(svc,msg,cb){
+			service.ListAuditMitigationActionsExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -2386,7 +2119,7 @@ module.exports = function(RED) {
 			copyArgs(n,"taskId",params,undefined,false); 
 			copyArgs(n,"actionStatus",params,undefined,false); 
 			copyArgs(n,"findingId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"taskId",params,undefined,false); 
@@ -2398,9 +2131,7 @@ module.exports = function(RED) {
 
 			svc.listAuditMitigationActionsExecutions(params,cb);
 		}
-
-		
-		service.ListAuditMitigationActionsTasks=function(svc,msg,cb){
+			service.ListAuditMitigationActionsTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTime",params,undefined,false); 
@@ -2409,7 +2140,7 @@ module.exports = function(RED) {
 			copyArgs(n,"auditTaskId",params,undefined,false); 
 			copyArgs(n,"findingId",params,undefined,false); 
 			copyArgs(n,"taskStatus",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
@@ -2425,17 +2156,15 @@ module.exports = function(RED) {
 
 			svc.listAuditMitigationActionsTasks(params,cb);
 		}
-
-		
-		service.ListAuditSuppressions=function(svc,msg,cb){
+			service.ListAuditSuppressions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"checkName",params,undefined,false); 
 			copyArgs(n,"resourceIdentifier",params,undefined,true); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"checkName",params,undefined,false); 
 			copyArgs(msg,"resourceIdentifier",params,undefined,true); 
@@ -2446,9 +2175,7 @@ module.exports = function(RED) {
 
 			svc.listAuditSuppressions(params,cb);
 		}
-
-		
-		service.ListAuditTasks=function(svc,msg,cb){
+			service.ListAuditTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTime",params,undefined,false); 
@@ -2459,7 +2186,7 @@ module.exports = function(RED) {
 			copyArgs(n,"taskType",params,undefined,false); 
 			copyArgs(n,"taskStatus",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"startTime",params,undefined,false); 
 			copyArgs(msg,"endTime",params,undefined,false); 
@@ -2471,15 +2198,13 @@ module.exports = function(RED) {
 
 			svc.listAuditTasks(params,cb);
 		}
-
-		
-		service.ListAuthorizers=function(svc,msg,cb){
+			service.ListAuthorizers=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
 			
 			copyArgs(msg,"pageSize",params,undefined,false); 
@@ -2490,14 +2215,12 @@ module.exports = function(RED) {
 
 			svc.listAuthorizers(params,cb);
 		}
-
-		
-		service.ListBillingGroups=function(svc,msg,cb){
+			service.ListBillingGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"namePrefixFilter",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -2507,15 +2230,13 @@ module.exports = function(RED) {
 
 			svc.listBillingGroups(params,cb);
 		}
-
-		
-		service.ListCACertificates=function(svc,msg,cb){
+			service.ListCACertificates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"pageSize",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2524,15 +2245,13 @@ module.exports = function(RED) {
 
 			svc.listCACertificates(params,cb);
 		}
-
-		
-		service.ListCertificates=function(svc,msg,cb){
+			service.ListCertificates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"pageSize",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2541,17 +2260,15 @@ module.exports = function(RED) {
 
 			svc.listCertificates(params,cb);
 		}
-
-		
-		service.ListCertificatesByCA=function(svc,msg,cb){
+			service.ListCertificatesByCA=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"caCertificateId",params,undefined,false); 
 			
 			copyArgs(n,"caCertificateId",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"caCertificateId",params,undefined,false); 
 			copyArgs(msg,"pageSize",params,undefined,false); 
@@ -2561,14 +2278,12 @@ module.exports = function(RED) {
 
 			svc.listCertificatesByCA(params,cb);
 		}
-
-		
-		service.ListCustomMetrics=function(svc,msg,cb){
+			service.ListCustomMetrics=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2576,9 +2291,7 @@ module.exports = function(RED) {
 
 			svc.listCustomMetrics(params,cb);
 		}
-
-		
-		service.ListDetectMitigationActionsExecutions=function(svc,msg,cb){
+			service.ListDetectMitigationActionsExecutions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2587,7 +2300,7 @@ module.exports = function(RED) {
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"taskId",params,undefined,false); 
@@ -2601,15 +2314,13 @@ module.exports = function(RED) {
 
 			svc.listDetectMitigationActionsExecutions(params,cb);
 		}
-
-		
-		service.ListDetectMitigationActionsTasks=function(svc,msg,cb){
+			service.ListDetectMitigationActionsTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"startTime",params,undefined,false); 
 			copyArgs(n,"endTime",params,undefined,false); 
@@ -2622,14 +2333,12 @@ module.exports = function(RED) {
 
 			svc.listDetectMitigationActionsTasks(params,cb);
 		}
-
-		
-		service.ListDimensions=function(svc,msg,cb){
+			service.ListDimensions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2637,14 +2346,12 @@ module.exports = function(RED) {
 
 			svc.listDimensions(params,cb);
 		}
-
-		
-		service.ListDomainConfigurations=function(svc,msg,cb){
+			service.ListDomainConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"serviceType",params,undefined,false); 
 			
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2654,14 +2361,12 @@ module.exports = function(RED) {
 
 			svc.listDomainConfigurations(params,cb);
 		}
-
-		
-		service.ListFleetMetrics=function(svc,msg,cb){
+			service.ListFleetMetrics=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2669,14 +2374,12 @@ module.exports = function(RED) {
 
 			svc.listFleetMetrics(params,cb);
 		}
-
-		
-		service.ListIndices=function(svc,msg,cb){
+			service.ListIndices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2684,16 +2387,14 @@ module.exports = function(RED) {
 
 			svc.listIndices(params,cb);
 		}
-
-		
-		service.ListJobExecutionsForJob=function(svc,msg,cb){
+			service.ListJobExecutionsForJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
 			
 			copyArgs(n,"jobId",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"jobId",params,undefined,false); 
@@ -2704,9 +2405,7 @@ module.exports = function(RED) {
 
 			svc.listJobExecutionsForJob(params,cb);
 		}
-
-		
-		service.ListJobExecutionsForThing=function(svc,msg,cb){
+			service.ListJobExecutionsForThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -2714,7 +2413,7 @@ module.exports = function(RED) {
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"namespaceId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
@@ -2726,13 +2425,11 @@ module.exports = function(RED) {
 
 			svc.listJobExecutionsForThing(params,cb);
 		}
-
-		
-		service.ListJobTemplates=function(svc,msg,cb){
+			service.ListJobTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2741,15 +2438,13 @@ module.exports = function(RED) {
 
 			svc.listJobTemplates(params,cb);
 		}
-
-		
-		service.ListJobs=function(svc,msg,cb){
+			service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"status",params,undefined,false); 
 			copyArgs(n,"targetSelection",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"thingGroupName",params,undefined,false); 
 			copyArgs(n,"thingGroupId",params,undefined,false); 
@@ -2766,14 +2461,12 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-
-		
-		service.ListMitigationActions=function(svc,msg,cb){
+			service.ListMitigationActions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"actionType",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"actionType",params,undefined,false); 
@@ -2783,13 +2476,11 @@ module.exports = function(RED) {
 
 			svc.listMitigationActions(params,cb);
 		}
-
-		
-		service.ListOTAUpdates=function(svc,msg,cb){
+			service.ListOTAUpdates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"otaUpdateStatus",params,undefined,false); 
 			
@@ -2800,15 +2491,13 @@ module.exports = function(RED) {
 
 			svc.listOTAUpdates(params,cb);
 		}
-
-		
-		service.ListOutgoingCertificates=function(svc,msg,cb){
+			service.ListOutgoingCertificates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"pageSize",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2817,15 +2506,13 @@ module.exports = function(RED) {
 
 			svc.listOutgoingCertificates(params,cb);
 		}
-
-		
-		service.ListPolicies=function(svc,msg,cb){
+			service.ListPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"marker",params,undefined,false); 
 			copyArgs(msg,"pageSize",params,undefined,false); 
@@ -2834,17 +2521,15 @@ module.exports = function(RED) {
 
 			svc.listPolicies(params,cb);
 		}
-
-		
-		service.ListPolicyPrincipals=function(svc,msg,cb){
+			service.ListPolicyPrincipals=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
 			
 			copyArgs(n,"policyName",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"policyName",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2854,9 +2539,7 @@ module.exports = function(RED) {
 
 			svc.listPolicyPrincipals(params,cb);
 		}
-
-		
-		service.ListPolicyVersions=function(svc,msg,cb){
+			service.ListPolicyVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -2868,17 +2551,15 @@ module.exports = function(RED) {
 
 			svc.listPolicyVersions(params,cb);
 		}
-
-		
-		service.ListPrincipalPolicies=function(svc,msg,cb){
+			service.ListPrincipalPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"principal",params,undefined,false); 
 			
 			copyArgs(n,"principal",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"principal",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2888,15 +2569,13 @@ module.exports = function(RED) {
 
 			svc.listPrincipalPolicies(params,cb);
 		}
-
-		
-		service.ListPrincipalThings=function(svc,msg,cb){
+			service.ListPrincipalThings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"principal",params,undefined,false); 
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"principal",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -2906,15 +2585,13 @@ module.exports = function(RED) {
 
 			svc.listPrincipalThings(params,cb);
 		}
-
-		
-		service.ListProvisioningTemplateVersions=function(svc,msg,cb){
+			service.ListProvisioningTemplateVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			
 			copyArgs(n,"templateName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"templateName",params,undefined,false); 
@@ -2924,13 +2601,11 @@ module.exports = function(RED) {
 
 			svc.listProvisioningTemplateVersions(params,cb);
 		}
-
-		
-		service.ListProvisioningTemplates=function(svc,msg,cb){
+			service.ListProvisioningTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2939,15 +2614,13 @@ module.exports = function(RED) {
 
 			svc.listProvisioningTemplates(params,cb);
 		}
-
-		
-		service.ListRoleAliases=function(svc,msg,cb){
+			service.ListRoleAliases=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"pageSize",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -2956,14 +2629,12 @@ module.exports = function(RED) {
 
 			svc.listRoleAliases(params,cb);
 		}
-
-		
-		service.ListScheduledAudits=function(svc,msg,cb){
+			service.ListScheduledAudits=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -2971,14 +2642,12 @@ module.exports = function(RED) {
 
 			svc.listScheduledAudits(params,cb);
 		}
-
-		
-		service.ListSecurityProfiles=function(svc,msg,cb){
+			service.ListSecurityProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"dimensionName",params,undefined,false); 
 			copyArgs(n,"metricName",params,undefined,false); 
 			
@@ -2990,16 +2659,14 @@ module.exports = function(RED) {
 
 			svc.listSecurityProfiles(params,cb);
 		}
-
-		
-		service.ListSecurityProfilesForTarget=function(svc,msg,cb){
+			service.ListSecurityProfilesForTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileTargetArn",params,undefined,false); 
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
-			copyArgs(n,"recursive",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"recursive",params,undefined,false); 
 			copyArgs(n,"securityProfileTargetArn",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3010,15 +2677,13 @@ module.exports = function(RED) {
 
 			svc.listSecurityProfilesForTarget(params,cb);
 		}
-
-		
-		service.ListStreams=function(svc,msg,cb){
+			service.ListStreams=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"ascendingOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ascendingOrder",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3027,9 +2692,7 @@ module.exports = function(RED) {
 
 			svc.listStreams(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -3043,16 +2706,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTargetsForPolicy=function(svc,msg,cb){
+			service.ListTargetsForPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
 			
 			copyArgs(n,"policyName",params,undefined,false); 
 			copyArgs(n,"marker",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			
 			copyArgs(msg,"policyName",params,undefined,false); 
 			copyArgs(msg,"marker",params,undefined,false); 
@@ -3061,16 +2722,14 @@ module.exports = function(RED) {
 
 			svc.listTargetsForPolicy(params,cb);
 		}
-
-		
-		service.ListTargetsForSecurityProfile=function(svc,msg,cb){
+			service.ListTargetsForSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"securityProfileName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3079,17 +2738,15 @@ module.exports = function(RED) {
 
 			svc.listTargetsForSecurityProfile(params,cb);
 		}
-
-		
-		service.ListThingGroups=function(svc,msg,cb){
+			service.ListThingGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"parentGroup",params,undefined,false); 
 			copyArgs(n,"namePrefixFilter",params,undefined,false); 
-			copyArgs(n,"recursive",params,undefined,false); 
+			copyArgs(Boolean(n),"recursive",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -3100,16 +2757,14 @@ module.exports = function(RED) {
 
 			svc.listThingGroups(params,cb);
 		}
-
-		
-		service.ListThingGroupsForThing=function(svc,msg,cb){
+			service.ListThingGroupsForThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3118,15 +2773,13 @@ module.exports = function(RED) {
 
 			svc.listThingGroupsForThing(params,cb);
 		}
-
-		
-		service.ListThingPrincipals=function(svc,msg,cb){
+			service.ListThingPrincipals=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"thingName",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3136,9 +2789,7 @@ module.exports = function(RED) {
 
 			svc.listThingPrincipals(params,cb);
 		}
-
-		
-		service.ListThingRegistrationTaskReports=function(svc,msg,cb){
+			service.ListThingRegistrationTaskReports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -3147,7 +2798,7 @@ module.exports = function(RED) {
 			copyArgs(n,"taskId",params,undefined,false); 
 			copyArgs(n,"reportType",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"taskId",params,undefined,false); 
 			copyArgs(msg,"reportType",params,undefined,false); 
@@ -3157,14 +2808,12 @@ module.exports = function(RED) {
 
 			svc.listThingRegistrationTaskReports(params,cb);
 		}
-
-		
-		service.ListThingRegistrationTasks=function(svc,msg,cb){
+			service.ListThingRegistrationTasks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3174,14 +2823,12 @@ module.exports = function(RED) {
 
 			svc.listThingRegistrationTasks(params,cb);
 		}
-
-		
-		service.ListThingTypes=function(svc,msg,cb){
+			service.ListThingTypes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"thingTypeName",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3191,18 +2838,16 @@ module.exports = function(RED) {
 
 			svc.listThingTypes(params,cb);
 		}
-
-		
-		service.ListThings=function(svc,msg,cb){
+			service.ListThings=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"attributeName",params,undefined,false); 
 			copyArgs(n,"attributeValue",params,undefined,false); 
 			copyArgs(n,"thingTypeName",params,undefined,false); 
-			copyArgs(n,"usePrefixAttributeValue",params,undefined,false); 
+			copyArgs(Boolean(n),"usePrefixAttributeValue",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -3214,16 +2859,14 @@ module.exports = function(RED) {
 
 			svc.listThings(params,cb);
 		}
-
-		
-		service.ListThingsInBillingGroup=function(svc,msg,cb){
+			service.ListThingsInBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"billingGroupName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3232,17 +2875,15 @@ module.exports = function(RED) {
 
 			svc.listThingsInBillingGroup(params,cb);
 		}
-
-		
-		service.ListThingsInThingGroup=function(svc,msg,cb){
+			service.ListThingsInThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
-			copyArgs(n,"recursive",params,undefined,false); 
+			copyArgs(Boolean(n),"recursive",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"thingGroupName",params,undefined,false); 
 			copyArgs(msg,"recursive",params,undefined,false); 
@@ -3252,13 +2893,11 @@ module.exports = function(RED) {
 
 			svc.listThingsInThingGroup(params,cb);
 		}
-
-		
-		service.ListTopicRuleDestinations=function(svc,msg,cb){
+			service.ListTopicRuleDestinations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -3267,16 +2906,14 @@ module.exports = function(RED) {
 
 			svc.listTopicRuleDestinations(params,cb);
 		}
-
-		
-		service.ListTopicRules=function(svc,msg,cb){
+			service.ListTopicRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"topic",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"ruleDisabled",params,undefined,false); 
+			copyArgs(Boolean(n),"ruleDisabled",params,undefined,false); 
 			
 			copyArgs(msg,"topic",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -3286,15 +2923,13 @@ module.exports = function(RED) {
 
 			svc.listTopicRules(params,cb);
 		}
-
-		
-		service.ListV2LoggingLevels=function(svc,msg,cb){
+			service.ListV2LoggingLevels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"targetType",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"targetType",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -3303,9 +2938,7 @@ module.exports = function(RED) {
 
 			svc.listV2LoggingLevels(params,cb);
 		}
-
-		
-		service.ListViolationEvents=function(svc,msg,cb){
+			service.ListViolationEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTime",params,undefined,false); 
@@ -3316,9 +2949,9 @@ module.exports = function(RED) {
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"securityProfileName",params,undefined,false); 
 			copyArgs(n,"behaviorCriteriaType",params,undefined,false); 
-			copyArgs(n,"listSuppressedAlerts",params,undefined,false); 
+			copyArgs(Boolean(n),"listSuppressedAlerts",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"startTime",params,undefined,false); 
 			copyArgs(msg,"endTime",params,undefined,false); 
@@ -3332,9 +2965,7 @@ module.exports = function(RED) {
 
 			svc.listViolationEvents(params,cb);
 		}
-
-		
-		service.RegisterCACertificate=function(svc,msg,cb){
+			service.RegisterCACertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"caCertificate",params,undefined,false); 
@@ -3342,8 +2973,8 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"caCertificate",params,undefined,false); 
 			copyArgs(n,"verificationCertificate",params,undefined,false); 
-			copyArgs(n,"setAsActive",params,undefined,false); 
-			copyArgs(n,"allowAutoRegistration",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsActive",params,undefined,false); 
+			copyArgs(Boolean(n),"allowAutoRegistration",params,undefined,false); 
 			copyArgs(n,"registrationConfig",params,undefined,true); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
@@ -3357,16 +2988,14 @@ module.exports = function(RED) {
 
 			svc.registerCACertificate(params,cb);
 		}
-
-		
-		service.RegisterCertificate=function(svc,msg,cb){
+			service.RegisterCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificatePem",params,undefined,false); 
 			
 			copyArgs(n,"certificatePem",params,undefined,false); 
 			copyArgs(n,"caCertificatePem",params,undefined,false); 
-			copyArgs(n,"setAsActive",params,undefined,false); 
+			copyArgs(Boolean(n),"setAsActive",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
 			
 			copyArgs(msg,"certificatePem",params,undefined,false); 
@@ -3377,9 +3006,7 @@ module.exports = function(RED) {
 
 			svc.registerCertificate(params,cb);
 		}
-
-		
-		service.RegisterCertificateWithoutCA=function(svc,msg,cb){
+			service.RegisterCertificateWithoutCA=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificatePem",params,undefined,false); 
@@ -3393,9 +3020,7 @@ module.exports = function(RED) {
 
 			svc.registerCertificateWithoutCA(params,cb);
 		}
-
-		
-		service.RegisterThing=function(svc,msg,cb){
+			service.RegisterThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateBody",params,undefined,false); 
@@ -3409,9 +3034,7 @@ module.exports = function(RED) {
 
 			svc.registerThing(params,cb);
 		}
-
-		
-		service.RejectCertificateTransfer=function(svc,msg,cb){
+			service.RejectCertificateTransfer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -3425,9 +3048,7 @@ module.exports = function(RED) {
 
 			svc.rejectCertificateTransfer(params,cb);
 		}
-
-		
-		service.RemoveThingFromBillingGroup=function(svc,msg,cb){
+			service.RemoveThingFromBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -3444,9 +3065,7 @@ module.exports = function(RED) {
 
 			svc.removeThingFromBillingGroup(params,cb);
 		}
-
-		
-		service.RemoveThingFromThingGroup=function(svc,msg,cb){
+			service.RemoveThingFromThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -3463,9 +3082,7 @@ module.exports = function(RED) {
 
 			svc.removeThingFromThingGroup(params,cb);
 		}
-
-		
-		service.ReplaceTopicRule=function(svc,msg,cb){
+			service.ReplaceTopicRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ruleName",params,undefined,false); 
@@ -3480,9 +3097,7 @@ module.exports = function(RED) {
 
 			svc.replaceTopicRule(params,cb);
 		}
-
-		
-		service.SearchIndex=function(svc,msg,cb){
+			service.SearchIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryString",params,undefined,false); 
@@ -3490,7 +3105,7 @@ module.exports = function(RED) {
 			copyArgs(n,"indexName",params,undefined,false); 
 			copyArgs(n,"queryString",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"queryVersion",params,undefined,false); 
 			
 			copyArgs(msg,"indexName",params,undefined,false); 
@@ -3502,9 +3117,7 @@ module.exports = function(RED) {
 
 			svc.searchIndex(params,cb);
 		}
-
-		
-		service.SetDefaultAuthorizer=function(svc,msg,cb){
+			service.SetDefaultAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -3516,9 +3129,7 @@ module.exports = function(RED) {
 
 			svc.setDefaultAuthorizer(params,cb);
 		}
-
-		
-		service.SetDefaultPolicyVersion=function(svc,msg,cb){
+			service.SetDefaultPolicyVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyName",params,undefined,false); 
@@ -3533,9 +3144,7 @@ module.exports = function(RED) {
 
 			svc.setDefaultPolicyVersion(params,cb);
 		}
-
-		
-		service.SetLoggingOptions=function(svc,msg,cb){
+			service.SetLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loggingOptionsPayload",params,undefined,false); 
@@ -3547,9 +3156,7 @@ module.exports = function(RED) {
 
 			svc.setLoggingOptions(params,cb);
 		}
-
-		
-		service.SetV2LoggingLevel=function(svc,msg,cb){
+			service.SetV2LoggingLevel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logTarget",params,undefined,true); 
@@ -3564,15 +3171,13 @@ module.exports = function(RED) {
 
 			svc.setV2LoggingLevel(params,cb);
 		}
-
-		
-		service.SetV2LoggingOptions=function(svc,msg,cb){
+			service.SetV2LoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"roleArn",params,undefined,false); 
 			copyArgs(n,"defaultLogLevel",params,undefined,false); 
-			copyArgs(n,"disableAllLogs",params,undefined,false); 
+			copyArgs(Boolean(n),"disableAllLogs",params,undefined,false); 
 			
 			copyArgs(msg,"roleArn",params,undefined,false); 
 			copyArgs(msg,"defaultLogLevel",params,undefined,false); 
@@ -3581,9 +3186,7 @@ module.exports = function(RED) {
 
 			svc.setV2LoggingOptions(params,cb);
 		}
-
-		
-		service.StartAuditMitigationActionsTask=function(svc,msg,cb){
+			service.StartAuditMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -3604,9 +3207,7 @@ module.exports = function(RED) {
 
 			svc.startAuditMitigationActionsTask(params,cb);
 		}
-
-		
-		service.StartDetectMitigationActionsTask=function(svc,msg,cb){
+			service.StartDetectMitigationActionsTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -3618,8 +3219,8 @@ module.exports = function(RED) {
 			copyArgs(n,"target",params,undefined,true); 
 			copyArgs(n,"actions",params,undefined,false); 
 			copyArgs(n,"violationEventOccurrenceRange",params,undefined,true); 
-			copyArgs(n,"includeOnlyActiveViolations",params,undefined,false); 
-			copyArgs(n,"includeSuppressedAlerts",params,undefined,false); 
+			copyArgs(Boolean(n),"includeOnlyActiveViolations",params,undefined,false); 
+			copyArgs(Boolean(n),"includeSuppressedAlerts",params,undefined,false); 
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
 			
 			copyArgs(msg,"taskId",params,undefined,false); 
@@ -3633,9 +3234,7 @@ module.exports = function(RED) {
 
 			svc.startDetectMitigationActionsTask(params,cb);
 		}
-
-		
-		service.StartOnDemandAuditTask=function(svc,msg,cb){
+			service.StartOnDemandAuditTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"targetCheckNames",params,undefined,true); 
@@ -3647,9 +3246,7 @@ module.exports = function(RED) {
 
 			svc.startOnDemandAuditTask(params,cb);
 		}
-
-		
-		service.StartThingRegistrationTask=function(svc,msg,cb){
+			service.StartThingRegistrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateBody",params,undefined,false); 
@@ -3670,9 +3267,7 @@ module.exports = function(RED) {
 
 			svc.startThingRegistrationTask(params,cb);
 		}
-
-		
-		service.StopThingRegistrationTask=function(svc,msg,cb){
+			service.StopThingRegistrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -3684,9 +3279,7 @@ module.exports = function(RED) {
 
 			svc.stopThingRegistrationTask(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -3701,9 +3294,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.TestAuthorization=function(svc,msg,cb){
+			service.TestAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authInfos",params,undefined,false); 
@@ -3725,9 +3316,7 @@ module.exports = function(RED) {
 
 			svc.testAuthorization(params,cb);
 		}
-
-		
-		service.TestInvokeAuthorizer=function(svc,msg,cb){
+			service.TestInvokeAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -3749,9 +3338,7 @@ module.exports = function(RED) {
 
 			svc.testInvokeAuthorizer(params,cb);
 		}
-
-		
-		service.TransferCertificate=function(svc,msg,cb){
+			service.TransferCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -3768,9 +3355,7 @@ module.exports = function(RED) {
 
 			svc.transferCertificate(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -3785,9 +3370,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAccountAuditConfiguration=function(svc,msg,cb){
+			service.UpdateAccountAuditConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -3802,9 +3385,7 @@ module.exports = function(RED) {
 
 			svc.updateAccountAuditConfiguration(params,cb);
 		}
-
-		
-		service.UpdateAuditSuppression=function(svc,msg,cb){
+			service.UpdateAuditSuppression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkName",params,undefined,false); 
@@ -3813,7 +3394,7 @@ module.exports = function(RED) {
 			copyArgs(n,"checkName",params,undefined,false); 
 			copyArgs(n,"resourceIdentifier",params,undefined,true); 
 			copyArgs(n,"expirationDate",params,undefined,false); 
-			copyArgs(n,"suppressIndefinitely",params,undefined,false); 
+			copyArgs(Boolean(n),"suppressIndefinitely",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			
 			copyArgs(msg,"checkName",params,undefined,false); 
@@ -3825,9 +3406,7 @@ module.exports = function(RED) {
 
 			svc.updateAuditSuppression(params,cb);
 		}
-
-		
-		service.UpdateAuthorizer=function(svc,msg,cb){
+			service.UpdateAuthorizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"authorizerName",params,undefined,false); 
@@ -3847,9 +3426,7 @@ module.exports = function(RED) {
 
 			svc.updateAuthorizer(params,cb);
 		}
-
-		
-		service.UpdateBillingGroup=function(svc,msg,cb){
+			service.UpdateBillingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"billingGroupName",params,undefined,false); 
@@ -3866,9 +3443,7 @@ module.exports = function(RED) {
 
 			svc.updateBillingGroup(params,cb);
 		}
-
-		
-		service.UpdateCACertificate=function(svc,msg,cb){
+			service.UpdateCACertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -3877,7 +3452,7 @@ module.exports = function(RED) {
 			copyArgs(n,"newStatus",params,undefined,false); 
 			copyArgs(n,"newAutoRegistrationStatus",params,undefined,false); 
 			copyArgs(n,"registrationConfig",params,undefined,true); 
-			copyArgs(n,"removeAutoRegistration",params,undefined,false); 
+			copyArgs(Boolean(n),"removeAutoRegistration",params,undefined,false); 
 			
 			copyArgs(msg,"certificateId",params,undefined,false); 
 			copyArgs(msg,"newStatus",params,undefined,false); 
@@ -3888,9 +3463,7 @@ module.exports = function(RED) {
 
 			svc.updateCACertificate(params,cb);
 		}
-
-		
-		service.UpdateCertificate=function(svc,msg,cb){
+			service.UpdateCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"certificateId",params,undefined,false); 
@@ -3905,9 +3478,7 @@ module.exports = function(RED) {
 
 			svc.updateCertificate(params,cb);
 		}
-
-		
-		service.UpdateCustomMetric=function(svc,msg,cb){
+			service.UpdateCustomMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -3922,9 +3493,7 @@ module.exports = function(RED) {
 
 			svc.updateCustomMetric(params,cb);
 		}
-
-		
-		service.UpdateDimension=function(svc,msg,cb){
+			service.UpdateDimension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -3939,9 +3508,7 @@ module.exports = function(RED) {
 
 			svc.updateDimension(params,cb);
 		}
-
-		
-		service.UpdateDomainConfiguration=function(svc,msg,cb){
+			service.UpdateDomainConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domainConfigurationName",params,undefined,false); 
@@ -3949,7 +3516,7 @@ module.exports = function(RED) {
 			copyArgs(n,"domainConfigurationName",params,undefined,false); 
 			copyArgs(n,"authorizerConfig",params,undefined,true); 
 			copyArgs(n,"domainConfigurationStatus",params,undefined,false); 
-			copyArgs(n,"removeAuthorizerConfig",params,undefined,false); 
+			copyArgs(Boolean(n),"removeAuthorizerConfig",params,undefined,false); 
 			
 			copyArgs(msg,"domainConfigurationName",params,undefined,false); 
 			copyArgs(msg,"authorizerConfig",params,undefined,true); 
@@ -3959,9 +3526,7 @@ module.exports = function(RED) {
 
 			svc.updateDomainConfiguration(params,cb);
 		}
-
-		
-		service.UpdateDynamicThingGroup=function(svc,msg,cb){
+			service.UpdateDynamicThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -3984,9 +3549,7 @@ module.exports = function(RED) {
 
 			svc.updateDynamicThingGroup(params,cb);
 		}
-
-		
-		service.UpdateEventConfigurations=function(svc,msg,cb){
+			service.UpdateEventConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -3997,9 +3560,7 @@ module.exports = function(RED) {
 
 			svc.updateEventConfigurations(params,cb);
 		}
-
-		
-		service.UpdateFleetMetric=function(svc,msg,cb){
+			service.UpdateFleetMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"metricName",params,undefined,false); 
@@ -4008,7 +3569,7 @@ module.exports = function(RED) {
 			copyArgs(n,"metricName",params,undefined,false); 
 			copyArgs(n,"queryString",params,undefined,false); 
 			copyArgs(n,"aggregationType",params,undefined,true); 
-			copyArgs(n,"period",params,undefined,false); 
+			copyArgs(Number(n),"period",params,undefined,false); 
 			copyArgs(n,"aggregationField",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"queryVersion",params,undefined,false); 
@@ -4030,9 +3591,7 @@ module.exports = function(RED) {
 
 			svc.updateFleetMetric(params,cb);
 		}
-
-		
-		service.UpdateIndexingConfiguration=function(svc,msg,cb){
+			service.UpdateIndexingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -4045,9 +3604,7 @@ module.exports = function(RED) {
 
 			svc.updateIndexingConfiguration(params,cb);
 		}
-
-		
-		service.UpdateJob=function(svc,msg,cb){
+			service.UpdateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -4071,9 +3628,7 @@ module.exports = function(RED) {
 
 			svc.updateJob(params,cb);
 		}
-
-		
-		service.UpdateMitigationAction=function(svc,msg,cb){
+			service.UpdateMitigationAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"actionName",params,undefined,false); 
@@ -4089,20 +3644,18 @@ module.exports = function(RED) {
 
 			svc.updateMitigationAction(params,cb);
 		}
-
-		
-		service.UpdateProvisioningTemplate=function(svc,msg,cb){
+			service.UpdateProvisioningTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
-			copyArgs(n,"enabled",params,undefined,false); 
-			copyArgs(n,"defaultVersionId",params,undefined,false); 
+			copyArgs(Boolean(n),"enabled",params,undefined,false); 
+			copyArgs(Number(n),"defaultVersionId",params,undefined,false); 
 			copyArgs(n,"provisioningRoleArn",params,undefined,false); 
 			copyArgs(n,"preProvisioningHook",params,undefined,true); 
-			copyArgs(n,"removePreProvisioningHook",params,undefined,false); 
+			copyArgs(Boolean(n),"removePreProvisioningHook",params,undefined,false); 
 			
 			copyArgs(msg,"templateName",params,undefined,false); 
 			copyArgs(msg,"description",params,undefined,false); 
@@ -4115,16 +3668,14 @@ module.exports = function(RED) {
 
 			svc.updateProvisioningTemplate(params,cb);
 		}
-
-		
-		service.UpdateRoleAlias=function(svc,msg,cb){
+			service.UpdateRoleAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
 			
 			copyArgs(n,"roleAlias",params,undefined,false); 
 			copyArgs(n,"roleArn",params,undefined,false); 
-			copyArgs(n,"credentialDurationSeconds",params,undefined,false); 
+			copyArgs(Number(n),"credentialDurationSeconds",params,undefined,false); 
 			
 			copyArgs(msg,"roleAlias",params,undefined,false); 
 			copyArgs(msg,"roleArn",params,undefined,false); 
@@ -4133,9 +3684,7 @@ module.exports = function(RED) {
 
 			svc.updateRoleAlias(params,cb);
 		}
-
-		
-		service.UpdateScheduledAudit=function(svc,msg,cb){
+			service.UpdateScheduledAudit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"scheduledAuditName",params,undefined,false); 
@@ -4155,9 +3704,7 @@ module.exports = function(RED) {
 
 			svc.updateScheduledAudit(params,cb);
 		}
-
-		
-		service.UpdateSecurityProfile=function(svc,msg,cb){
+			service.UpdateSecurityProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"securityProfileName",params,undefined,false); 
@@ -4168,9 +3715,9 @@ module.exports = function(RED) {
 			copyArgs(n,"alertTargets",params,undefined,true); 
 			copyArgs(n,"additionalMetricsToRetain",params,undefined,true); 
 			copyArgs(n,"additionalMetricsToRetainV2",params,undefined,true); 
-			copyArgs(n,"deleteBehaviors",params,undefined,false); 
-			copyArgs(n,"deleteAlertTargets",params,undefined,false); 
-			copyArgs(n,"deleteAdditionalMetricsToRetain",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteBehaviors",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteAlertTargets",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteAdditionalMetricsToRetain",params,undefined,false); 
 			copyArgs(n,"expectedVersion",params,undefined,false); 
 			
 			copyArgs(msg,"securityProfileName",params,undefined,false); 
@@ -4187,9 +3734,7 @@ module.exports = function(RED) {
 
 			svc.updateSecurityProfile(params,cb);
 		}
-
-		
-		service.UpdateStream=function(svc,msg,cb){
+			service.UpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"streamId",params,undefined,false); 
@@ -4207,9 +3752,7 @@ module.exports = function(RED) {
 
 			svc.updateStream(params,cb);
 		}
-
-		
-		service.UpdateThing=function(svc,msg,cb){
+			service.UpdateThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -4218,7 +3761,7 @@ module.exports = function(RED) {
 			copyArgs(n,"thingTypeName",params,undefined,false); 
 			copyArgs(n,"attributePayload",params,undefined,true); 
 			copyArgs(n,"expectedVersion",params,undefined,false); 
-			copyArgs(n,"removeThingType",params,undefined,false); 
+			copyArgs(Boolean(n),"removeThingType",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"thingTypeName",params,undefined,false); 
@@ -4229,9 +3772,7 @@ module.exports = function(RED) {
 
 			svc.updateThing(params,cb);
 		}
-
-		
-		service.UpdateThingGroup=function(svc,msg,cb){
+			service.UpdateThingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingGroupName",params,undefined,false); 
@@ -4248,16 +3789,14 @@ module.exports = function(RED) {
 
 			svc.updateThingGroup(params,cb);
 		}
-
-		
-		service.UpdateThingGroupsForThing=function(svc,msg,cb){
+			service.UpdateThingGroupsForThing=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"thingGroupsToAdd",params,undefined,true); 
 			copyArgs(n,"thingGroupsToRemove",params,undefined,true); 
-			copyArgs(n,"overrideDynamicGroups",params,undefined,false); 
+			copyArgs(Boolean(n),"overrideDynamicGroups",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"thingGroupsToAdd",params,undefined,true); 
@@ -4267,9 +3806,7 @@ module.exports = function(RED) {
 
 			svc.updateThingGroupsForThing(params,cb);
 		}
-
-		
-		service.UpdateTopicRuleDestination=function(svc,msg,cb){
+			service.UpdateTopicRuleDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -4284,9 +3821,7 @@ module.exports = function(RED) {
 
 			svc.updateTopicRuleDestination(params,cb);
 		}
-
-		
-		service.ValidateSecurityProfileBehaviors=function(svc,msg,cb){
+			service.ValidateSecurityProfileBehaviors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"behaviors",params,undefined,true); 
@@ -4298,9 +3833,7 @@ module.exports = function(RED) {
 
 			svc.validateSecurityProfileBehaviors(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Iot", AmazonAPINode);
 

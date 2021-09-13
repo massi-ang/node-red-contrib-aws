@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateTeamMember=function(svc,msg,cb){
+			service.AssociateTeamMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -105,7 +104,7 @@ module.exports = function(RED) {
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
 			copyArgs(n,"userArn",params,undefined,false); 
 			copyArgs(n,"projectRole",params,undefined,false); 
-			copyArgs(n,"remoteAccessAllowed",params,undefined,false); 
+			copyArgs(Boolean(n),"remoteAccessAllowed",params,undefined,false); 
 			
 			copyArgs(msg,"projectId",params,undefined,false); 
 			copyArgs(msg,"clientRequestToken",params,undefined,false); 
@@ -116,9 +115,7 @@ module.exports = function(RED) {
 
 			svc.associateTeamMember(params,cb);
 		}
-
-		
-		service.CreateProject=function(svc,msg,cb){
+			service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,true); 
@@ -143,9 +140,7 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-
-		
-		service.CreateUserProfile=function(svc,msg,cb){
+			service.CreateUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"userArn",params,undefined,false); 
@@ -165,16 +160,14 @@ module.exports = function(RED) {
 
 			svc.createUserProfile(params,cb);
 		}
-
-		
-		service.DeleteProject=function(svc,msg,cb){
+			service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
 			
 			copyArgs(n,"id",params,undefined,false); 
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
-			copyArgs(n,"deleteStack",params,undefined,false); 
+			copyArgs(Boolean(n),"deleteStack",params,undefined,false); 
 			
 			copyArgs(msg,"id",params,undefined,false); 
 			copyArgs(msg,"clientRequestToken",params,undefined,false); 
@@ -183,9 +176,7 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-
-		
-		service.DeleteUserProfile=function(svc,msg,cb){
+			service.DeleteUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"userArn",params,undefined,false); 
@@ -197,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.deleteUserProfile(params,cb);
 		}
-
-		
-		service.DescribeProject=function(svc,msg,cb){
+			service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -211,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-
-		
-		service.DescribeUserProfile=function(svc,msg,cb){
+			service.DescribeUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"userArn",params,undefined,false); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.describeUserProfile(params,cb);
 		}
-
-		
-		service.DisassociateTeamMember=function(svc,msg,cb){
+			service.DisassociateTeamMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -242,14 +227,12 @@ module.exports = function(RED) {
 
 			svc.disassociateTeamMember(params,cb);
 		}
-
-		
-		service.ListProjects=function(svc,msg,cb){
+			service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -257,16 +240,14 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-
-		
-		service.ListResources=function(svc,msg,cb){
+			service.ListResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"projectId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -275,16 +256,14 @@ module.exports = function(RED) {
 
 			svc.listResources(params,cb);
 		}
-
-		
-		service.ListTagsForProject=function(svc,msg,cb){
+			service.ListTagsForProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
 			
 			copyArgs(n,"id",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"id",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -293,16 +272,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForProject(params,cb);
 		}
-
-		
-		service.ListTeamMembers=function(svc,msg,cb){
+			service.ListTeamMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"projectId",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -311,14 +288,12 @@ module.exports = function(RED) {
 
 			svc.listTeamMembers(params,cb);
 		}
-
-		
-		service.ListUserProfiles=function(svc,msg,cb){
+			service.ListUserProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -326,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.listUserProfiles(params,cb);
 		}
-
-		
-		service.TagProject=function(svc,msg,cb){
+			service.TagProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -343,9 +316,7 @@ module.exports = function(RED) {
 
 			svc.tagProject(params,cb);
 		}
-
-		
-		service.UntagProject=function(svc,msg,cb){
+			service.UntagProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -360,9 +331,7 @@ module.exports = function(RED) {
 
 			svc.untagProject(params,cb);
 		}
-
-		
-		service.UpdateProject=function(svc,msg,cb){
+			service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -378,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
-
-		
-		service.UpdateTeamMember=function(svc,msg,cb){
+			service.UpdateTeamMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -389,7 +356,7 @@ module.exports = function(RED) {
 			copyArgs(n,"projectId",params,undefined,false); 
 			copyArgs(n,"userArn",params,undefined,false); 
 			copyArgs(n,"projectRole",params,undefined,false); 
-			copyArgs(n,"remoteAccessAllowed",params,undefined,false); 
+			copyArgs(Boolean(n),"remoteAccessAllowed",params,undefined,false); 
 			
 			copyArgs(msg,"projectId",params,undefined,false); 
 			copyArgs(msg,"userArn",params,undefined,false); 
@@ -399,9 +366,7 @@ module.exports = function(RED) {
 
 			svc.updateTeamMember(params,cb);
 		}
-
-		
-		service.UpdateUserProfile=function(svc,msg,cb){
+			service.UpdateUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"userArn",params,undefined,false); 
@@ -419,9 +384,7 @@ module.exports = function(RED) {
 
 			svc.updateUserProfile(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeStar", AmazonAPINode);
 

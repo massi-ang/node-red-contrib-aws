@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateApprovedOrigin=function(svc,msg,cb){
+			service.AssociateApprovedOrigin=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.associateApprovedOrigin(params,cb);
 		}
-
-		
-		service.AssociateBot=function(svc,msg,cb){
+			service.AssociateBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -127,9 +124,7 @@ module.exports = function(RED) {
 
 			svc.associateBot(params,cb);
 		}
-
-		
-		service.AssociateInstanceStorageConfig=function(svc,msg,cb){
+			service.AssociateInstanceStorageConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -147,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.associateInstanceStorageConfig(params,cb);
 		}
-
-		
-		service.AssociateLambdaFunction=function(svc,msg,cb){
+			service.AssociateLambdaFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -164,9 +157,7 @@ module.exports = function(RED) {
 
 			svc.associateLambdaFunction(params,cb);
 		}
-
-		
-		service.AssociateLexBot=function(svc,msg,cb){
+			service.AssociateLexBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -181,9 +172,7 @@ module.exports = function(RED) {
 
 			svc.associateLexBot(params,cb);
 		}
-
-		
-		service.AssociateQueueQuickConnects=function(svc,msg,cb){
+			service.AssociateQueueQuickConnects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -201,9 +190,7 @@ module.exports = function(RED) {
 
 			svc.associateQueueQuickConnects(params,cb);
 		}
-
-		
-		service.AssociateRoutingProfileQueues=function(svc,msg,cb){
+			service.AssociateRoutingProfileQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -221,9 +208,7 @@ module.exports = function(RED) {
 
 			svc.associateRoutingProfileQueues(params,cb);
 		}
-
-		
-		service.AssociateSecurityKey=function(svc,msg,cb){
+			service.AssociateSecurityKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -238,9 +223,7 @@ module.exports = function(RED) {
 
 			svc.associateSecurityKey(params,cb);
 		}
-
-		
-		service.CreateAgentStatus=function(svc,msg,cb){
+			service.CreateAgentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -251,7 +234,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"State",params,undefined,false); 
-			copyArgs(n,"DisplayOrder",params,undefined,false); 
+			copyArgs(Number(n),"DisplayOrder",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
@@ -264,9 +247,7 @@ module.exports = function(RED) {
 
 			svc.createAgentStatus(params,cb);
 		}
-
-		
-		service.CreateContactFlow=function(svc,msg,cb){
+			service.CreateContactFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -291,9 +272,7 @@ module.exports = function(RED) {
 
 			svc.createContactFlow(params,cb);
 		}
-
-		
-		service.CreateHoursOfOperation=function(svc,msg,cb){
+			service.CreateHoursOfOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -318,21 +297,19 @@ module.exports = function(RED) {
 
 			svc.createHoursOfOperation(params,cb);
 		}
-
-		
-		service.CreateInstance=function(svc,msg,cb){
+			service.CreateInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityManagementType",params,undefined,false); 
-			copyArgs(n,"InboundCallsEnabled",params,undefined,false); 
-			copyArgs(n,"OutboundCallsEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"InboundCallsEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"OutboundCallsEnabled",params,undefined,false); 
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
 			copyArgs(n,"IdentityManagementType",params,undefined,false); 
 			copyArgs(n,"InstanceAlias",params,undefined,true); 
 			copyArgs(n,"DirectoryId",params,undefined,false); 
-			copyArgs(n,"InboundCallsEnabled",params,undefined,false); 
-			copyArgs(n,"OutboundCallsEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"InboundCallsEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"OutboundCallsEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"ClientToken",params,undefined,false); 
 			copyArgs(msg,"IdentityManagementType",params,undefined,false); 
@@ -344,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.createInstance(params,cb);
 		}
-
-		
-		service.CreateIntegrationAssociation=function(svc,msg,cb){
+			service.CreateIntegrationAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -375,9 +350,7 @@ module.exports = function(RED) {
 
 			svc.createIntegrationAssociation(params,cb);
 		}
-
-		
-		service.CreateQueue=function(svc,msg,cb){
+			service.CreateQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -389,7 +362,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"OutboundCallerConfig",params,undefined,true); 
 			copyArgs(n,"HoursOfOperationId",params,undefined,false); 
-			copyArgs(n,"MaxContacts",params,undefined,false); 
+			copyArgs(Number(n),"MaxContacts",params,undefined,false); 
 			copyArgs(n,"QuickConnectIds",params,undefined,true); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
@@ -405,9 +378,7 @@ module.exports = function(RED) {
 
 			svc.createQueue(params,cb);
 		}
-
-		
-		service.CreateQuickConnect=function(svc,msg,cb){
+			service.CreateQuickConnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -429,9 +400,7 @@ module.exports = function(RED) {
 
 			svc.createQuickConnect(params,cb);
 		}
-
-		
-		service.CreateRoutingProfile=function(svc,msg,cb){
+			service.CreateRoutingProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -459,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.createRoutingProfile(params,cb);
 		}
-
-		
-		service.CreateUseCase=function(svc,msg,cb){
+			service.CreateUseCase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -481,9 +448,7 @@ module.exports = function(RED) {
 
 			svc.createUseCase(params,cb);
 		}
-
-		
-		service.CreateUser=function(svc,msg,cb){
+			service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -517,9 +482,7 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-
-		
-		service.CreateUserHierarchyGroup=function(svc,msg,cb){
+			service.CreateUserHierarchyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -536,9 +499,7 @@ module.exports = function(RED) {
 
 			svc.createUserHierarchyGroup(params,cb);
 		}
-
-		
-		service.DeleteHoursOfOperation=function(svc,msg,cb){
+			service.DeleteHoursOfOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -553,9 +514,7 @@ module.exports = function(RED) {
 
 			svc.deleteHoursOfOperation(params,cb);
 		}
-
-		
-		service.DeleteInstance=function(svc,msg,cb){
+			service.DeleteInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -567,9 +526,7 @@ module.exports = function(RED) {
 
 			svc.deleteInstance(params,cb);
 		}
-
-		
-		service.DeleteIntegrationAssociation=function(svc,msg,cb){
+			service.DeleteIntegrationAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -584,9 +541,7 @@ module.exports = function(RED) {
 
 			svc.deleteIntegrationAssociation(params,cb);
 		}
-
-		
-		service.DeleteQuickConnect=function(svc,msg,cb){
+			service.DeleteQuickConnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -601,9 +556,7 @@ module.exports = function(RED) {
 
 			svc.deleteQuickConnect(params,cb);
 		}
-
-		
-		service.DeleteUseCase=function(svc,msg,cb){
+			service.DeleteUseCase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -621,9 +574,7 @@ module.exports = function(RED) {
 
 			svc.deleteUseCase(params,cb);
 		}
-
-		
-		service.DeleteUser=function(svc,msg,cb){
+			service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -638,9 +589,7 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-
-		
-		service.DeleteUserHierarchyGroup=function(svc,msg,cb){
+			service.DeleteUserHierarchyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HierarchyGroupId",params,undefined,false); 
@@ -655,9 +604,7 @@ module.exports = function(RED) {
 
 			svc.deleteUserHierarchyGroup(params,cb);
 		}
-
-		
-		service.DescribeAgentStatus=function(svc,msg,cb){
+			service.DescribeAgentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -672,9 +619,7 @@ module.exports = function(RED) {
 
 			svc.describeAgentStatus(params,cb);
 		}
-
-		
-		service.DescribeContactFlow=function(svc,msg,cb){
+			service.DescribeContactFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -689,9 +634,7 @@ module.exports = function(RED) {
 
 			svc.describeContactFlow(params,cb);
 		}
-
-		
-		service.DescribeHoursOfOperation=function(svc,msg,cb){
+			service.DescribeHoursOfOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -706,9 +649,7 @@ module.exports = function(RED) {
 
 			svc.describeHoursOfOperation(params,cb);
 		}
-
-		
-		service.DescribeInstance=function(svc,msg,cb){
+			service.DescribeInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -720,9 +661,7 @@ module.exports = function(RED) {
 
 			svc.describeInstance(params,cb);
 		}
-
-		
-		service.DescribeInstanceAttribute=function(svc,msg,cb){
+			service.DescribeInstanceAttribute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -737,9 +676,7 @@ module.exports = function(RED) {
 
 			svc.describeInstanceAttribute(params,cb);
 		}
-
-		
-		service.DescribeInstanceStorageConfig=function(svc,msg,cb){
+			service.DescribeInstanceStorageConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -757,9 +694,7 @@ module.exports = function(RED) {
 
 			svc.describeInstanceStorageConfig(params,cb);
 		}
-
-		
-		service.DescribeQueue=function(svc,msg,cb){
+			service.DescribeQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -774,9 +709,7 @@ module.exports = function(RED) {
 
 			svc.describeQueue(params,cb);
 		}
-
-		
-		service.DescribeQuickConnect=function(svc,msg,cb){
+			service.DescribeQuickConnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -791,9 +724,7 @@ module.exports = function(RED) {
 
 			svc.describeQuickConnect(params,cb);
 		}
-
-		
-		service.DescribeRoutingProfile=function(svc,msg,cb){
+			service.DescribeRoutingProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -808,9 +739,7 @@ module.exports = function(RED) {
 
 			svc.describeRoutingProfile(params,cb);
 		}
-
-		
-		service.DescribeUser=function(svc,msg,cb){
+			service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -825,9 +754,7 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-
-		
-		service.DescribeUserHierarchyGroup=function(svc,msg,cb){
+			service.DescribeUserHierarchyGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HierarchyGroupId",params,undefined,false); 
@@ -842,9 +769,7 @@ module.exports = function(RED) {
 
 			svc.describeUserHierarchyGroup(params,cb);
 		}
-
-		
-		service.DescribeUserHierarchyStructure=function(svc,msg,cb){
+			service.DescribeUserHierarchyStructure=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -856,9 +781,7 @@ module.exports = function(RED) {
 
 			svc.describeUserHierarchyStructure(params,cb);
 		}
-
-		
-		service.DisassociateApprovedOrigin=function(svc,msg,cb){
+			service.DisassociateApprovedOrigin=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -873,9 +796,7 @@ module.exports = function(RED) {
 
 			svc.disassociateApprovedOrigin(params,cb);
 		}
-
-		
-		service.DisassociateBot=function(svc,msg,cb){
+			service.DisassociateBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -891,9 +812,7 @@ module.exports = function(RED) {
 
 			svc.disassociateBot(params,cb);
 		}
-
-		
-		service.DisassociateInstanceStorageConfig=function(svc,msg,cb){
+			service.DisassociateInstanceStorageConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -911,9 +830,7 @@ module.exports = function(RED) {
 
 			svc.disassociateInstanceStorageConfig(params,cb);
 		}
-
-		
-		service.DisassociateLambdaFunction=function(svc,msg,cb){
+			service.DisassociateLambdaFunction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -928,9 +845,7 @@ module.exports = function(RED) {
 
 			svc.disassociateLambdaFunction(params,cb);
 		}
-
-		
-		service.DisassociateLexBot=function(svc,msg,cb){
+			service.DisassociateLexBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -948,9 +863,7 @@ module.exports = function(RED) {
 
 			svc.disassociateLexBot(params,cb);
 		}
-
-		
-		service.DisassociateQueueQuickConnects=function(svc,msg,cb){
+			service.DisassociateQueueQuickConnects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -968,9 +881,7 @@ module.exports = function(RED) {
 
 			svc.disassociateQueueQuickConnects(params,cb);
 		}
-
-		
-		service.DisassociateRoutingProfileQueues=function(svc,msg,cb){
+			service.DisassociateRoutingProfileQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -988,9 +899,7 @@ module.exports = function(RED) {
 
 			svc.disassociateRoutingProfileQueues(params,cb);
 		}
-
-		
-		service.DisassociateSecurityKey=function(svc,msg,cb){
+			service.DisassociateSecurityKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1005,9 +914,7 @@ module.exports = function(RED) {
 
 			svc.disassociateSecurityKey(params,cb);
 		}
-
-		
-		service.GetContactAttributes=function(svc,msg,cb){
+			service.GetContactAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1022,9 +929,7 @@ module.exports = function(RED) {
 
 			svc.getContactAttributes(params,cb);
 		}
-
-		
-		service.GetCurrentMetricData=function(svc,msg,cb){
+			service.GetCurrentMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1036,7 +941,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Groupings",params,undefined,true); 
 			copyArgs(n,"CurrentMetrics",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"Filters",params,undefined,true); 
@@ -1048,9 +953,7 @@ module.exports = function(RED) {
 
 			svc.getCurrentMetricData(params,cb);
 		}
-
-		
-		service.GetFederationToken=function(svc,msg,cb){
+			service.GetFederationToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1062,9 +965,7 @@ module.exports = function(RED) {
 
 			svc.getFederationToken(params,cb);
 		}
-
-		
-		service.GetMetricData=function(svc,msg,cb){
+			service.GetMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1080,7 +981,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Groupings",params,undefined,true); 
 			copyArgs(n,"HistoricalMetrics",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"StartTime",params,undefined,false); 
@@ -1094,16 +995,14 @@ module.exports = function(RED) {
 
 			svc.getMetricData(params,cb);
 		}
-
-		
-		service.ListAgentStatuses=function(svc,msg,cb){
+			service.ListAgentStatuses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"AgentStatusTypes",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
@@ -1114,16 +1013,14 @@ module.exports = function(RED) {
 
 			svc.listAgentStatuses(params,cb);
 		}
-
-		
-		service.ListApprovedOrigins=function(svc,msg,cb){
+			service.ListApprovedOrigins=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1132,9 +1029,7 @@ module.exports = function(RED) {
 
 			svc.listApprovedOrigins(params,cb);
 		}
-
-		
-		service.ListBots=function(svc,msg,cb){
+			service.ListBots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1142,7 +1037,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"LexVersion",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
@@ -1153,9 +1048,7 @@ module.exports = function(RED) {
 
 			svc.listBots(params,cb);
 		}
-
-		
-		service.ListContactFlows=function(svc,msg,cb){
+			service.ListContactFlows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1163,7 +1056,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"ContactFlowTypes",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"ContactFlowTypes",params,undefined,false); 
@@ -1173,16 +1066,14 @@ module.exports = function(RED) {
 
 			svc.listContactFlows(params,cb);
 		}
-
-		
-		service.ListHoursOfOperations=function(svc,msg,cb){
+			service.ListHoursOfOperations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1191,16 +1082,14 @@ module.exports = function(RED) {
 
 			svc.listHoursOfOperations(params,cb);
 		}
-
-		
-		service.ListInstanceAttributes=function(svc,msg,cb){
+			service.ListInstanceAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1209,9 +1098,7 @@ module.exports = function(RED) {
 
 			svc.listInstanceAttributes(params,cb);
 		}
-
-		
-		service.ListInstanceStorageConfigs=function(svc,msg,cb){
+			service.ListInstanceStorageConfigs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1220,7 +1107,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"ResourceType",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"ResourceType",params,undefined,false); 
@@ -1230,14 +1117,12 @@ module.exports = function(RED) {
 
 			svc.listInstanceStorageConfigs(params,cb);
 		}
-
-		
-		service.ListInstances=function(svc,msg,cb){
+			service.ListInstances=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -1245,16 +1130,14 @@ module.exports = function(RED) {
 
 			svc.listInstances(params,cb);
 		}
-
-		
-		service.ListIntegrationAssociations=function(svc,msg,cb){
+			service.ListIntegrationAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1263,16 +1146,14 @@ module.exports = function(RED) {
 
 			svc.listIntegrationAssociations(params,cb);
 		}
-
-		
-		service.ListLambdaFunctions=function(svc,msg,cb){
+			service.ListLambdaFunctions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1281,16 +1162,14 @@ module.exports = function(RED) {
 
 			svc.listLambdaFunctions(params,cb);
 		}
-
-		
-		service.ListLexBots=function(svc,msg,cb){
+			service.ListLexBots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1299,9 +1178,7 @@ module.exports = function(RED) {
 
 			svc.listLexBots(params,cb);
 		}
-
-		
-		service.ListPhoneNumbers=function(svc,msg,cb){
+			service.ListPhoneNumbers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1310,7 +1187,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PhoneNumberTypes",params,undefined,false); 
 			copyArgs(n,"PhoneNumberCountryCodes",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"PhoneNumberTypes",params,undefined,false); 
@@ -1321,16 +1198,14 @@ module.exports = function(RED) {
 
 			svc.listPhoneNumbers(params,cb);
 		}
-
-		
-		service.ListPrompts=function(svc,msg,cb){
+			service.ListPrompts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1339,9 +1214,7 @@ module.exports = function(RED) {
 
 			svc.listPrompts(params,cb);
 		}
-
-		
-		service.ListQueueQuickConnects=function(svc,msg,cb){
+			service.ListQueueQuickConnects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1350,7 +1223,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"QueueId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"QueueId",params,undefined,false); 
@@ -1360,9 +1233,7 @@ module.exports = function(RED) {
 
 			svc.listQueueQuickConnects(params,cb);
 		}
-
-		
-		service.ListQueues=function(svc,msg,cb){
+			service.ListQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1370,7 +1241,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"QueueTypes",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"QueueTypes",params,undefined,false); 
@@ -1380,16 +1251,14 @@ module.exports = function(RED) {
 
 			svc.listQueues(params,cb);
 		}
-
-		
-		service.ListQuickConnects=function(svc,msg,cb){
+			service.ListQuickConnects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"QuickConnectTypes",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
@@ -1400,9 +1269,7 @@ module.exports = function(RED) {
 
 			svc.listQuickConnects(params,cb);
 		}
-
-		
-		service.ListRoutingProfileQueues=function(svc,msg,cb){
+			service.ListRoutingProfileQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1411,7 +1278,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"RoutingProfileId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"RoutingProfileId",params,undefined,false); 
@@ -1421,16 +1288,14 @@ module.exports = function(RED) {
 
 			svc.listRoutingProfileQueues(params,cb);
 		}
-
-		
-		service.ListRoutingProfiles=function(svc,msg,cb){
+			service.ListRoutingProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1439,16 +1304,14 @@ module.exports = function(RED) {
 
 			svc.listRoutingProfiles(params,cb);
 		}
-
-		
-		service.ListSecurityKeys=function(svc,msg,cb){
+			service.ListSecurityKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1457,16 +1320,14 @@ module.exports = function(RED) {
 
 			svc.listSecurityKeys(params,cb);
 		}
-
-		
-		service.ListSecurityProfiles=function(svc,msg,cb){
+			service.ListSecurityProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1475,9 +1336,7 @@ module.exports = function(RED) {
 
 			svc.listSecurityProfiles(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1489,9 +1348,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListUseCases=function(svc,msg,cb){
+			service.ListUseCases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1500,7 +1357,7 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"IntegrationAssociationId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"IntegrationAssociationId",params,undefined,false); 
@@ -1510,16 +1367,14 @@ module.exports = function(RED) {
 
 			svc.listUseCases(params,cb);
 		}
-
-		
-		service.ListUserHierarchyGroups=function(svc,msg,cb){
+			service.ListUserHierarchyGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1528,16 +1383,14 @@ module.exports = function(RED) {
 
 			svc.listUserHierarchyGroups(params,cb);
 		}
-
-		
-		service.ListUsers=function(svc,msg,cb){
+			service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1546,9 +1399,7 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-
-		
-		service.ResumeContactRecording=function(svc,msg,cb){
+			service.ResumeContactRecording=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1566,9 +1417,7 @@ module.exports = function(RED) {
 
 			svc.resumeContactRecording(params,cb);
 		}
-
-		
-		service.StartChatContact=function(svc,msg,cb){
+			service.StartChatContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1592,9 +1441,7 @@ module.exports = function(RED) {
 
 			svc.startChatContact(params,cb);
 		}
-
-		
-		service.StartContactRecording=function(svc,msg,cb){
+			service.StartContactRecording=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1615,9 +1462,7 @@ module.exports = function(RED) {
 
 			svc.startContactRecording(params,cb);
 		}
-
-		
-		service.StartOutboundVoiceContact=function(svc,msg,cb){
+			service.StartOutboundVoiceContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DestinationPhoneNumber",params,undefined,false); 
@@ -1643,9 +1488,7 @@ module.exports = function(RED) {
 
 			svc.startOutboundVoiceContact(params,cb);
 		}
-
-		
-		service.StartTaskContact=function(svc,msg,cb){
+			service.StartTaskContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1673,9 +1516,7 @@ module.exports = function(RED) {
 
 			svc.startTaskContact(params,cb);
 		}
-
-		
-		service.StopContact=function(svc,msg,cb){
+			service.StopContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -1690,9 +1531,7 @@ module.exports = function(RED) {
 
 			svc.stopContact(params,cb);
 		}
-
-		
-		service.StopContactRecording=function(svc,msg,cb){
+			service.StopContactRecording=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1710,9 +1549,7 @@ module.exports = function(RED) {
 
 			svc.stopContactRecording(params,cb);
 		}
-
-		
-		service.SuspendContactRecording=function(svc,msg,cb){
+			service.SuspendContactRecording=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1730,9 +1567,7 @@ module.exports = function(RED) {
 
 			svc.suspendContactRecording(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1747,9 +1582,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1764,9 +1597,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAgentStatus=function(svc,msg,cb){
+			service.UpdateAgentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1777,8 +1608,8 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"State",params,undefined,false); 
-			copyArgs(n,"DisplayOrder",params,undefined,false); 
-			copyArgs(n,"ResetOrderNumber",params,undefined,false); 
+			copyArgs(Number(n),"DisplayOrder",params,undefined,false); 
+			copyArgs(Boolean(n),"ResetOrderNumber",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"AgentStatusId",params,undefined,false); 
@@ -1791,9 +1622,7 @@ module.exports = function(RED) {
 
 			svc.updateAgentStatus(params,cb);
 		}
-
-		
-		service.UpdateContactAttributes=function(svc,msg,cb){
+			service.UpdateContactAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InitialContactId",params,undefined,false); 
@@ -1811,9 +1640,7 @@ module.exports = function(RED) {
 
 			svc.updateContactAttributes(params,cb);
 		}
-
-		
-		service.UpdateContactFlowContent=function(svc,msg,cb){
+			service.UpdateContactFlowContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1831,9 +1658,7 @@ module.exports = function(RED) {
 
 			svc.updateContactFlowContent(params,cb);
 		}
-
-		
-		service.UpdateContactFlowName=function(svc,msg,cb){
+			service.UpdateContactFlowName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1852,9 +1677,7 @@ module.exports = function(RED) {
 
 			svc.updateContactFlowName(params,cb);
 		}
-
-		
-		service.UpdateHoursOfOperation=function(svc,msg,cb){
+			service.UpdateHoursOfOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1877,9 +1700,7 @@ module.exports = function(RED) {
 
 			svc.updateHoursOfOperation(params,cb);
 		}
-
-		
-		service.UpdateInstanceAttribute=function(svc,msg,cb){
+			service.UpdateInstanceAttribute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1897,9 +1718,7 @@ module.exports = function(RED) {
 
 			svc.updateInstanceAttribute(params,cb);
 		}
-
-		
-		service.UpdateInstanceStorageConfig=function(svc,msg,cb){
+			service.UpdateInstanceStorageConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1920,9 +1739,7 @@ module.exports = function(RED) {
 
 			svc.updateInstanceStorageConfig(params,cb);
 		}
-
-		
-		service.UpdateQueueHoursOfOperation=function(svc,msg,cb){
+			service.UpdateQueueHoursOfOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1940,9 +1757,7 @@ module.exports = function(RED) {
 
 			svc.updateQueueHoursOfOperation(params,cb);
 		}
-
-		
-		service.UpdateQueueMaxContacts=function(svc,msg,cb){
+			service.UpdateQueueMaxContacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1950,7 +1765,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"QueueId",params,undefined,false); 
-			copyArgs(n,"MaxContacts",params,undefined,false); 
+			copyArgs(Number(n),"MaxContacts",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"QueueId",params,undefined,false); 
@@ -1959,9 +1774,7 @@ module.exports = function(RED) {
 
 			svc.updateQueueMaxContacts(params,cb);
 		}
-
-		
-		service.UpdateQueueName=function(svc,msg,cb){
+			service.UpdateQueueName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1980,9 +1793,7 @@ module.exports = function(RED) {
 
 			svc.updateQueueName(params,cb);
 		}
-
-		
-		service.UpdateQueueOutboundCallerConfig=function(svc,msg,cb){
+			service.UpdateQueueOutboundCallerConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2000,9 +1811,7 @@ module.exports = function(RED) {
 
 			svc.updateQueueOutboundCallerConfig(params,cb);
 		}
-
-		
-		service.UpdateQueueStatus=function(svc,msg,cb){
+			service.UpdateQueueStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2020,9 +1829,7 @@ module.exports = function(RED) {
 
 			svc.updateQueueStatus(params,cb);
 		}
-
-		
-		service.UpdateQuickConnectConfig=function(svc,msg,cb){
+			service.UpdateQuickConnectConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2040,9 +1847,7 @@ module.exports = function(RED) {
 
 			svc.updateQuickConnectConfig(params,cb);
 		}
-
-		
-		service.UpdateQuickConnectName=function(svc,msg,cb){
+			service.UpdateQuickConnectName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2061,9 +1866,7 @@ module.exports = function(RED) {
 
 			svc.updateQuickConnectName(params,cb);
 		}
-
-		
-		service.UpdateRoutingProfileConcurrency=function(svc,msg,cb){
+			service.UpdateRoutingProfileConcurrency=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2081,9 +1884,7 @@ module.exports = function(RED) {
 
 			svc.updateRoutingProfileConcurrency(params,cb);
 		}
-
-		
-		service.UpdateRoutingProfileDefaultOutboundQueue=function(svc,msg,cb){
+			service.UpdateRoutingProfileDefaultOutboundQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2101,9 +1902,7 @@ module.exports = function(RED) {
 
 			svc.updateRoutingProfileDefaultOutboundQueue(params,cb);
 		}
-
-		
-		service.UpdateRoutingProfileName=function(svc,msg,cb){
+			service.UpdateRoutingProfileName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2122,9 +1921,7 @@ module.exports = function(RED) {
 
 			svc.updateRoutingProfileName(params,cb);
 		}
-
-		
-		service.UpdateRoutingProfileQueues=function(svc,msg,cb){
+			service.UpdateRoutingProfileQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2142,9 +1939,7 @@ module.exports = function(RED) {
 
 			svc.updateRoutingProfileQueues(params,cb);
 		}
-
-		
-		service.UpdateUserHierarchy=function(svc,msg,cb){
+			service.UpdateUserHierarchy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -2161,9 +1956,7 @@ module.exports = function(RED) {
 
 			svc.updateUserHierarchy(params,cb);
 		}
-
-		
-		service.UpdateUserHierarchyGroupName=function(svc,msg,cb){
+			service.UpdateUserHierarchyGroupName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -2181,9 +1974,7 @@ module.exports = function(RED) {
 
 			svc.updateUserHierarchyGroupName(params,cb);
 		}
-
-		
-		service.UpdateUserHierarchyStructure=function(svc,msg,cb){
+			service.UpdateUserHierarchyStructure=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HierarchyStructure",params,undefined,false); 
@@ -2198,9 +1989,7 @@ module.exports = function(RED) {
 
 			svc.updateUserHierarchyStructure(params,cb);
 		}
-
-		
-		service.UpdateUserIdentityInfo=function(svc,msg,cb){
+			service.UpdateUserIdentityInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityInfo",params,undefined,true); 
@@ -2218,9 +2007,7 @@ module.exports = function(RED) {
 
 			svc.updateUserIdentityInfo(params,cb);
 		}
-
-		
-		service.UpdateUserPhoneConfig=function(svc,msg,cb){
+			service.UpdateUserPhoneConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneConfig",params,undefined,true); 
@@ -2238,9 +2025,7 @@ module.exports = function(RED) {
 
 			svc.updateUserPhoneConfig(params,cb);
 		}
-
-		
-		service.UpdateUserRoutingProfile=function(svc,msg,cb){
+			service.UpdateUserRoutingProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoutingProfileId",params,undefined,false); 
@@ -2258,9 +2043,7 @@ module.exports = function(RED) {
 
 			svc.updateUserRoutingProfile(params,cb);
 		}
-
-		
-		service.UpdateUserSecurityProfiles=function(svc,msg,cb){
+			service.UpdateUserSecurityProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecurityProfileIds",params,undefined,true); 
@@ -2278,9 +2061,7 @@ module.exports = function(RED) {
 
 			svc.updateUserSecurityProfiles(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Connect", AmazonAPINode);
 

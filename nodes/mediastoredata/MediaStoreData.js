@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.DeleteObject=function(svc,msg,cb){
+			service.DeleteObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Path",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.deleteObject(params,cb);
 		}
-
-		
-		service.DescribeObject=function(svc,msg,cb){
+			service.DescribeObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Path",params,undefined,false); 
@@ -120,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.describeObject(params,cb);
 		}
-
-		
-		service.GetObject=function(svc,msg,cb){
+			service.GetObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Path",params,undefined,false); 
@@ -136,14 +131,12 @@ module.exports = function(RED) {
 
 			svc.getObject(params,cb);
 		}
-
-		
-		service.ListItems=function(svc,msg,cb){
+			service.ListItems=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Path",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Path",params,undefined,false); 
@@ -153,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.listItems(params,cb);
 		}
-
-		
-		service.PutObject=function(svc,msg,cb){
+			service.PutObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Body",params,undefined,true); 
@@ -178,9 +169,7 @@ module.exports = function(RED) {
 
 			svc.putObject(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MediaStoreData", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateLifecyclePolicy=function(svc,msg,cb){
+			service.CreateLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExecutionRoleArn",params,undefined,false); 
@@ -117,9 +116,7 @@ module.exports = function(RED) {
 
 			svc.createLifecyclePolicy(params,cb);
 		}
-
-		
-		service.DeleteLifecyclePolicy=function(svc,msg,cb){
+			service.DeleteLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.deleteLifecyclePolicy(params,cb);
 		}
-
-		
-		service.GetLifecyclePolicies=function(svc,msg,cb){
+			service.GetLifecyclePolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.getLifecyclePolicies(params,cb);
 		}
-
-		
-		service.GetLifecyclePolicy=function(svc,msg,cb){
+			service.GetLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -166,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.getLifecyclePolicy(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -180,9 +171,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -197,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -214,9 +201,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateLifecyclePolicy=function(svc,msg,cb){
+			service.UpdateLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -236,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.updateLifecyclePolicy(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS DLM", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateWorkspace=function(svc,msg,cb){
+			service.CreateWorkspace=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -107,9 +106,7 @@ module.exports = function(RED) {
 
 			svc.createWorkspace(params,cb);
 		}
-
-		
-		service.DeleteWorkspace=function(svc,msg,cb){
+			service.DeleteWorkspace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workspaceId",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.deleteWorkspace(params,cb);
 		}
-
-		
-		service.DescribeWorkspace=function(svc,msg,cb){
+			service.DescribeWorkspace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workspaceId",params,undefined,false); 
@@ -137,14 +132,12 @@ module.exports = function(RED) {
 
 			svc.describeWorkspace(params,cb);
 		}
-
-		
-		service.ListWorkspaces=function(svc,msg,cb){
+			service.ListWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"alias",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"alias",params,undefined,false); 
@@ -154,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.listWorkspaces(params,cb);
 		}
-
-		
-		service.UpdateWorkspaceAlias=function(svc,msg,cb){
+			service.UpdateWorkspaceAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workspaceId",params,undefined,false); 
@@ -172,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.updateWorkspaceAlias(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Amp", AmazonAPINode);
 

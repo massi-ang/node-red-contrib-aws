@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddPermission=function(svc,msg,cb){
+			service.AddPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -115,18 +114,16 @@ module.exports = function(RED) {
 
 			svc.addPermission(params,cb);
 		}
-
-		
-		service.ChangeMessageVisibility=function(svc,msg,cb){
+			service.ChangeMessageVisibility=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			copyArgs(n,"ReceiptHandle",params,undefined,false); 
-			copyArgs(n,"VisibilityTimeout",params,undefined,false); 
+			copyArgs(Number(n),"VisibilityTimeout",params,undefined,false); 
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			copyArgs(n,"ReceiptHandle",params,undefined,false); 
-			copyArgs(n,"VisibilityTimeout",params,undefined,false); 
+			copyArgs(Number(n),"VisibilityTimeout",params,undefined,false); 
 			
 			copyArgs(msg,"QueueUrl",params,undefined,false); 
 			copyArgs(msg,"ReceiptHandle",params,undefined,false); 
@@ -135,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.changeMessageVisibility(params,cb);
 		}
-
-		
-		service.ChangeMessageVisibilityBatch=function(svc,msg,cb){
+			service.ChangeMessageVisibilityBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.changeMessageVisibilityBatch(params,cb);
 		}
-
-		
-		service.CreateQueue=function(svc,msg,cb){
+			service.CreateQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueName",params,undefined,false); 
@@ -170,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.createQueue(params,cb);
 		}
-
-		
-		service.DeleteMessage=function(svc,msg,cb){
+			service.DeleteMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -187,9 +178,7 @@ module.exports = function(RED) {
 
 			svc.deleteMessage(params,cb);
 		}
-
-		
-		service.DeleteMessageBatch=function(svc,msg,cb){
+			service.DeleteMessageBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -204,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.deleteMessageBatch(params,cb);
 		}
-
-		
-		service.DeleteQueue=function(svc,msg,cb){
+			service.DeleteQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -218,9 +205,7 @@ module.exports = function(RED) {
 
 			svc.deleteQueue(params,cb);
 		}
-
-		
-		service.GetQueueAttributes=function(svc,msg,cb){
+			service.GetQueueAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -234,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.getQueueAttributes(params,cb);
 		}
-
-		
-		service.GetQueueUrl=function(svc,msg,cb){
+			service.GetQueueUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueName",params,undefined,false); 
@@ -250,16 +233,14 @@ module.exports = function(RED) {
 
 			svc.getQueueUrl(params,cb);
 		}
-
-		
-		service.ListDeadLetterSourceQueues=function(svc,msg,cb){
+			service.ListDeadLetterSourceQueues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QueueUrl",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -268,9 +249,7 @@ module.exports = function(RED) {
 
 			svc.listDeadLetterSourceQueues(params,cb);
 		}
-
-		
-		service.ListQueueTags=function(svc,msg,cb){
+			service.ListQueueTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -282,15 +261,13 @@ module.exports = function(RED) {
 
 			svc.listQueueTags(params,cb);
 		}
-
-		
-		service.ListQueues=function(svc,msg,cb){
+			service.ListQueues=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"QueueNamePrefix",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QueueNamePrefix",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -299,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.listQueues(params,cb);
 		}
-
-		
-		service.PurgeQueue=function(svc,msg,cb){
+			service.PurgeQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -313,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.purgeQueue(params,cb);
 		}
-
-		
-		service.ReceiveMessage=function(svc,msg,cb){
+			service.ReceiveMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -323,9 +296,9 @@ module.exports = function(RED) {
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			copyArgs(n,"AttributeNames",params,undefined,true); 
 			copyArgs(n,"MessageAttributeNames",params,undefined,false); 
-			copyArgs(n,"MaxNumberOfMessages",params,undefined,false); 
-			copyArgs(n,"VisibilityTimeout",params,undefined,false); 
-			copyArgs(n,"WaitTimeSeconds",params,undefined,false); 
+			copyArgs(Number(n),"MaxNumberOfMessages",params,undefined,false); 
+			copyArgs(Number(n),"VisibilityTimeout",params,undefined,false); 
+			copyArgs(Number(n),"WaitTimeSeconds",params,undefined,false); 
 			copyArgs(n,"ReceiveRequestAttemptId",params,undefined,false); 
 			
 			copyArgs(msg,"QueueUrl",params,undefined,false); 
@@ -339,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.receiveMessage(params,cb);
 		}
-
-		
-		service.RemovePermission=function(svc,msg,cb){
+			service.RemovePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -356,9 +327,7 @@ module.exports = function(RED) {
 
 			svc.removePermission(params,cb);
 		}
-
-		
-		service.SendMessage=function(svc,msg,cb){
+			service.SendMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -366,7 +335,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
 			copyArgs(n,"MessageBody",params,undefined,false); 
-			copyArgs(n,"DelaySeconds",params,undefined,false); 
+			copyArgs(Number(n),"DelaySeconds",params,undefined,false); 
 			copyArgs(n,"MessageAttributes",params,undefined,true); 
 			copyArgs(n,"MessageSystemAttributes",params,undefined,true); 
 			copyArgs(n,"MessageDeduplicationId",params,undefined,false); 
@@ -383,9 +352,7 @@ module.exports = function(RED) {
 
 			svc.sendMessage(params,cb);
 		}
-
-		
-		service.SendMessageBatch=function(svc,msg,cb){
+			service.SendMessageBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -400,9 +367,7 @@ module.exports = function(RED) {
 
 			svc.sendMessageBatch(params,cb);
 		}
-
-		
-		service.SetQueueAttributes=function(svc,msg,cb){
+			service.SetQueueAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -417,9 +382,7 @@ module.exports = function(RED) {
 
 			svc.setQueueAttributes(params,cb);
 		}
-
-		
-		service.TagQueue=function(svc,msg,cb){
+			service.TagQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -434,9 +397,7 @@ module.exports = function(RED) {
 
 			svc.tagQueue(params,cb);
 		}
-
-		
-		service.UntagQueue=function(svc,msg,cb){
+			service.UntagQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueueUrl",params,undefined,false); 
@@ -451,9 +412,7 @@ module.exports = function(RED) {
 
 			svc.untagQueue(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SQS", AmazonAPINode);
 

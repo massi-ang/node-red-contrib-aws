@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BulkPublish=function(svc,msg,cb){
+			service.BulkPublish=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.bulkPublish(params,cb);
 		}
-
-		
-		service.DeleteDataset=function(svc,msg,cb){
+			service.DeleteDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataset(params,cb);
 		}
-
-		
-		service.DescribeDataset=function(svc,msg,cb){
+			service.DescribeDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -146,9 +141,7 @@ module.exports = function(RED) {
 
 			svc.describeDataset(params,cb);
 		}
-
-		
-		service.DescribeIdentityPoolUsage=function(svc,msg,cb){
+			service.DescribeIdentityPoolUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -160,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.describeIdentityPoolUsage(params,cb);
 		}
-
-		
-		service.DescribeIdentityUsage=function(svc,msg,cb){
+			service.DescribeIdentityUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -177,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.describeIdentityUsage(params,cb);
 		}
-
-		
-		service.GetBulkPublishDetails=function(svc,msg,cb){
+			service.GetBulkPublishDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -191,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.getBulkPublishDetails(params,cb);
 		}
-
-		
-		service.GetCognitoEvents=function(svc,msg,cb){
+			service.GetCognitoEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -205,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.getCognitoEvents(params,cb);
 		}
-
-		
-		service.GetIdentityPoolConfiguration=function(svc,msg,cb){
+			service.GetIdentityPoolConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -219,9 +204,7 @@ module.exports = function(RED) {
 
 			svc.getIdentityPoolConfiguration(params,cb);
 		}
-
-		
-		service.ListDatasets=function(svc,msg,cb){
+			service.ListDatasets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -230,7 +213,7 @@ module.exports = function(RED) {
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
 			copyArgs(n,"IdentityId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IdentityPoolId",params,undefined,false); 
 			copyArgs(msg,"IdentityId",params,undefined,false); 
@@ -240,14 +223,12 @@ module.exports = function(RED) {
 
 			svc.listDatasets(params,cb);
 		}
-
-		
-		service.ListIdentityPoolUsage=function(svc,msg,cb){
+			service.ListIdentityPoolUsage=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -255,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.listIdentityPoolUsage(params,cb);
 		}
-
-		
-		service.ListRecords=function(svc,msg,cb){
+			service.ListRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -269,7 +248,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DatasetName",params,undefined,false); 
 			copyArgs(n,"LastSyncCount",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"SyncSessionToken",params,undefined,false); 
 			
 			copyArgs(msg,"IdentityPoolId",params,undefined,false); 
@@ -283,9 +262,7 @@ module.exports = function(RED) {
 
 			svc.listRecords(params,cb);
 		}
-
-		
-		service.RegisterDevice=function(svc,msg,cb){
+			service.RegisterDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -306,9 +283,7 @@ module.exports = function(RED) {
 
 			svc.registerDevice(params,cb);
 		}
-
-		
-		service.SetCognitoEvents=function(svc,msg,cb){
+			service.SetCognitoEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -323,9 +298,7 @@ module.exports = function(RED) {
 
 			svc.setCognitoEvents(params,cb);
 		}
-
-		
-		service.SetIdentityPoolConfiguration=function(svc,msg,cb){
+			service.SetIdentityPoolConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -341,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.setIdentityPoolConfiguration(params,cb);
 		}
-
-		
-		service.SubscribeToDataset=function(svc,msg,cb){
+			service.SubscribeToDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -364,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.subscribeToDataset(params,cb);
 		}
-
-		
-		service.UnsubscribeFromDataset=function(svc,msg,cb){
+			service.UnsubscribeFromDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -387,9 +356,7 @@ module.exports = function(RED) {
 
 			svc.unsubscribeFromDataset(params,cb);
 		}
-
-		
-		service.UpdateRecords=function(svc,msg,cb){
+			service.UpdateRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -416,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.updateRecords(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CognitoSync", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchAssociateClientDeviceWithCoreDevice=function(svc,msg,cb){
+			service.BatchAssociateClientDeviceWithCoreDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.batchAssociateClientDeviceWithCoreDevice(params,cb);
 		}
-
-		
-		service.BatchDisassociateClientDeviceFromCoreDevice=function(svc,msg,cb){
+			service.BatchDisassociateClientDeviceFromCoreDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
@@ -124,9 +121,7 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateClientDeviceFromCoreDevice(params,cb);
 		}
-
-		
-		service.CancelDeployment=function(svc,msg,cb){
+			service.CancelDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -138,13 +133,11 @@ module.exports = function(RED) {
 
 			svc.cancelDeployment(params,cb);
 		}
-
-		
-		service.CreateComponentVersion=function(svc,msg,cb){
+			service.CreateComponentVersion=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"inlineRecipe",params,undefined,false); 
+			copyArgs(Buffer.from(n),"inlineRecipe",params,undefined,false); 
 			copyArgs(n,"lambdaFunction",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"clientToken",params,undefined,false); 
@@ -157,9 +150,7 @@ module.exports = function(RED) {
 
 			svc.createComponentVersion(params,cb);
 		}
-
-		
-		service.CreateDeployment=function(svc,msg,cb){
+			service.CreateDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"targetArn",params,undefined,false); 
@@ -183,9 +174,7 @@ module.exports = function(RED) {
 
 			svc.createDeployment(params,cb);
 		}
-
-		
-		service.DeleteComponent=function(svc,msg,cb){
+			service.DeleteComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -197,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.deleteComponent(params,cb);
 		}
-
-		
-		service.DeleteCoreDevice=function(svc,msg,cb){
+			service.DeleteCoreDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
@@ -211,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.deleteCoreDevice(params,cb);
 		}
-
-		
-		service.DescribeComponent=function(svc,msg,cb){
+			service.DescribeComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -225,9 +210,7 @@ module.exports = function(RED) {
 
 			svc.describeComponent(params,cb);
 		}
-
-		
-		service.GetComponent=function(svc,msg,cb){
+			service.GetComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -241,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.getComponent(params,cb);
 		}
-
-		
-		service.GetComponentVersionArtifact=function(svc,msg,cb){
+			service.GetComponentVersionArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -258,9 +239,7 @@ module.exports = function(RED) {
 
 			svc.getComponentVersionArtifact(params,cb);
 		}
-
-		
-		service.GetCoreDevice=function(svc,msg,cb){
+			service.GetCoreDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
@@ -272,9 +251,7 @@ module.exports = function(RED) {
 
 			svc.getCoreDevice(params,cb);
 		}
-
-		
-		service.GetDeployment=function(svc,msg,cb){
+			service.GetDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -286,15 +263,13 @@ module.exports = function(RED) {
 
 			svc.getDeployment(params,cb);
 		}
-
-		
-		service.ListClientDevicesAssociatedWithCoreDevice=function(svc,msg,cb){
+			service.ListClientDevicesAssociatedWithCoreDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"coreDeviceThingName",params,undefined,false); 
@@ -304,15 +279,13 @@ module.exports = function(RED) {
 
 			svc.listClientDevicesAssociatedWithCoreDevice(params,cb);
 		}
-
-		
-		service.ListComponentVersions=function(svc,msg,cb){
+			service.ListComponentVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
 			
 			copyArgs(n,"arn",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
@@ -322,14 +295,12 @@ module.exports = function(RED) {
 
 			svc.listComponentVersions(params,cb);
 		}
-
-		
-		service.ListComponents=function(svc,msg,cb){
+			service.ListComponents=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"scope",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"scope",params,undefined,false); 
@@ -339,15 +310,13 @@ module.exports = function(RED) {
 
 			svc.listComponents(params,cb);
 		}
-
-		
-		service.ListCoreDevices=function(svc,msg,cb){
+			service.ListCoreDevices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"thingGroupArn",params,undefined,false); 
 			copyArgs(n,"status",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"thingGroupArn",params,undefined,false); 
@@ -358,15 +327,13 @@ module.exports = function(RED) {
 
 			svc.listCoreDevices(params,cb);
 		}
-
-		
-		service.ListDeployments=function(svc,msg,cb){
+			service.ListDeployments=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"targetArn",params,undefined,false); 
 			copyArgs(n,"historyFilter",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"targetArn",params,undefined,false); 
@@ -377,15 +344,13 @@ module.exports = function(RED) {
 
 			svc.listDeployments(params,cb);
 		}
-
-		
-		service.ListEffectiveDeployments=function(svc,msg,cb){
+			service.ListEffectiveDeployments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"coreDeviceThingName",params,undefined,false); 
@@ -395,15 +360,13 @@ module.exports = function(RED) {
 
 			svc.listEffectiveDeployments(params,cb);
 		}
-
-		
-		service.ListInstalledComponents=function(svc,msg,cb){
+			service.ListInstalledComponents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
 			
 			copyArgs(n,"coreDeviceThingName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"coreDeviceThingName",params,undefined,false); 
@@ -413,9 +376,7 @@ module.exports = function(RED) {
 
 			svc.listInstalledComponents(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -427,9 +388,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ResolveComponentCandidates=function(svc,msg,cb){
+			service.ResolveComponentCandidates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"platform",params,undefined,true); 
@@ -444,9 +403,7 @@ module.exports = function(RED) {
 
 			svc.resolveComponentCandidates(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -461,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -478,9 +433,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS GreengrassV2", AmazonAPINode);
 

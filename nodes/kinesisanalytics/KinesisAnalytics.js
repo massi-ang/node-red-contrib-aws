@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddApplicationCloudWatchLoggingOption=function(svc,msg,cb){
+			service.AddApplicationCloudWatchLoggingOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.addApplicationCloudWatchLoggingOption(params,cb);
 		}
-
-		
-		service.AddApplicationInput=function(svc,msg,cb){
+			service.AddApplicationInput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.addApplicationInput(params,cb);
 		}
-
-		
-		service.AddApplicationInputProcessingConfiguration=function(svc,msg,cb){
+			service.AddApplicationInputProcessingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -155,9 +150,7 @@ module.exports = function(RED) {
 
 			svc.addApplicationInputProcessingConfiguration(params,cb);
 		}
-
-		
-		service.AddApplicationOutput=function(svc,msg,cb){
+			service.AddApplicationOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -175,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.addApplicationOutput(params,cb);
 		}
-
-		
-		service.AddApplicationReferenceDataSource=function(svc,msg,cb){
+			service.AddApplicationReferenceDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -195,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.addApplicationReferenceDataSource(params,cb);
 		}
-
-		
-		service.CreateApplication=function(svc,msg,cb){
+			service.CreateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -221,9 +210,7 @@ module.exports = function(RED) {
 
 			svc.createApplication(params,cb);
 		}
-
-		
-		service.DeleteApplication=function(svc,msg,cb){
+			service.DeleteApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -238,9 +225,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplication(params,cb);
 		}
-
-		
-		service.DeleteApplicationCloudWatchLoggingOption=function(svc,msg,cb){
+			service.DeleteApplicationCloudWatchLoggingOption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -258,9 +243,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplicationCloudWatchLoggingOption(params,cb);
 		}
-
-		
-		service.DeleteApplicationInputProcessingConfiguration=function(svc,msg,cb){
+			service.DeleteApplicationInputProcessingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -278,9 +261,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplicationInputProcessingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteApplicationOutput=function(svc,msg,cb){
+			service.DeleteApplicationOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -298,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplicationOutput(params,cb);
 		}
-
-		
-		service.DeleteApplicationReferenceDataSource=function(svc,msg,cb){
+			service.DeleteApplicationReferenceDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -318,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.deleteApplicationReferenceDataSource(params,cb);
 		}
-
-		
-		service.DescribeApplication=function(svc,msg,cb){
+			service.DescribeApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -332,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.describeApplication(params,cb);
 		}
-
-		
-		service.DiscoverInputSchema=function(svc,msg,cb){
+			service.DiscoverInputSchema=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -353,13 +328,11 @@ module.exports = function(RED) {
 
 			svc.discoverInputSchema(params,cb);
 		}
-
-		
-		service.ListApplications=function(svc,msg,cb){
+			service.ListApplications=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"ExclusiveStartApplicationName",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -368,9 +341,7 @@ module.exports = function(RED) {
 
 			svc.listApplications(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -382,9 +353,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.StartApplication=function(svc,msg,cb){
+			service.StartApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -399,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.startApplication(params,cb);
 		}
-
-		
-		service.StopApplication=function(svc,msg,cb){
+			service.StopApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -413,9 +380,7 @@ module.exports = function(RED) {
 
 			svc.stopApplication(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -430,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -447,9 +410,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateApplication=function(svc,msg,cb){
+			service.UpdateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationName",params,undefined,false); 
@@ -467,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.updateApplication(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS KinesisAnalytics", AmazonAPINode);
 

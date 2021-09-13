@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelJobRun=function(svc,msg,cb){
+			service.CancelJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.cancelJobRun(params,cb);
 		}
-
-		
-		service.CreateManagedEndpoint=function(svc,msg,cb){
+			service.CreateManagedEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -145,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.createManagedEndpoint(params,cb);
 		}
-
-		
-		service.CreateVirtualCluster=function(svc,msg,cb){
+			service.CreateVirtualCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -167,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.createVirtualCluster(params,cb);
 		}
-
-		
-		service.DeleteManagedEndpoint=function(svc,msg,cb){
+			service.DeleteManagedEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -184,9 +177,7 @@ module.exports = function(RED) {
 
 			svc.deleteManagedEndpoint(params,cb);
 		}
-
-		
-		service.DeleteVirtualCluster=function(svc,msg,cb){
+			service.DeleteVirtualCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -198,9 +189,7 @@ module.exports = function(RED) {
 
 			svc.deleteVirtualCluster(params,cb);
 		}
-
-		
-		service.DescribeJobRun=function(svc,msg,cb){
+			service.DescribeJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -215,9 +204,7 @@ module.exports = function(RED) {
 
 			svc.describeJobRun(params,cb);
 		}
-
-		
-		service.DescribeManagedEndpoint=function(svc,msg,cb){
+			service.DescribeManagedEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -232,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.describeManagedEndpoint(params,cb);
 		}
-
-		
-		service.DescribeVirtualCluster=function(svc,msg,cb){
+			service.DescribeVirtualCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -246,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.describeVirtualCluster(params,cb);
 		}
-
-		
-		service.ListJobRuns=function(svc,msg,cb){
+			service.ListJobRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualClusterId",params,undefined,false); 
@@ -258,7 +241,7 @@ module.exports = function(RED) {
 			copyArgs(n,"createdAfter",params,undefined,true); 
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"states",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"virtualClusterId",params,undefined,false); 
@@ -272,9 +255,7 @@ module.exports = function(RED) {
 
 			svc.listJobRuns(params,cb);
 		}
-
-		
-		service.ListManagedEndpoints=function(svc,msg,cb){
+			service.ListManagedEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualClusterId",params,undefined,false); 
@@ -284,7 +265,7 @@ module.exports = function(RED) {
 			copyArgs(n,"createdAfter",params,undefined,true); 
 			copyArgs(n,"types",params,undefined,false); 
 			copyArgs(n,"states",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"virtualClusterId",params,undefined,false); 
@@ -298,9 +279,7 @@ module.exports = function(RED) {
 
 			svc.listManagedEndpoints(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -312,9 +291,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListVirtualClusters=function(svc,msg,cb){
+			service.ListVirtualClusters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -323,7 +300,7 @@ module.exports = function(RED) {
 			copyArgs(n,"createdAfter",params,undefined,true); 
 			copyArgs(n,"createdBefore",params,undefined,true); 
 			copyArgs(n,"states",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"containerProviderId",params,undefined,false); 
@@ -337,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.listVirtualClusters(params,cb);
 		}
-
-		
-		service.StartJobRun=function(svc,msg,cb){
+			service.StartJobRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualClusterId",params,undefined,false); 
@@ -369,9 +344,7 @@ module.exports = function(RED) {
 
 			svc.startJobRun(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -386,9 +359,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -403,9 +374,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS EMRcontainers", AmazonAPINode);
 

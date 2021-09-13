@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchUpdateCluster=function(svc,msg,cb){
+			service.BatchUpdateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterNames",params,undefined,true); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdateCluster(params,cb);
 		}
-
-		
-		service.CopySnapshot=function(svc,msg,cb){
+			service.CopySnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceSnapshotName",params,undefined,false); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.copySnapshot(params,cb);
 		}
-
-		
-		service.CreateACL=function(svc,msg,cb){
+			service.CreateACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ACLName",params,undefined,false); 
@@ -149,9 +144,7 @@ module.exports = function(RED) {
 
 			svc.createACL(params,cb);
 		}
-
-		
-		service.CreateCluster=function(svc,msg,cb){
+			service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -162,23 +155,23 @@ module.exports = function(RED) {
 			copyArgs(n,"NodeType",params,undefined,false); 
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"NumShards",params,undefined,false); 
-			copyArgs(n,"NumReplicasPerShard",params,undefined,false); 
+			copyArgs(Number(n),"NumShards",params,undefined,false); 
+			copyArgs(Number(n),"NumReplicasPerShard",params,undefined,false); 
 			copyArgs(n,"SubnetGroupName",params,undefined,false); 
 			copyArgs(n,"SecurityGroupIds",params,undefined,true); 
 			copyArgs(n,"MaintenanceWindow",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"SnsTopicArn",params,undefined,false); 
-			copyArgs(n,"TLSEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"TLSEnabled",params,undefined,false); 
 			copyArgs(n,"KmsKeyId",params,undefined,false); 
 			copyArgs(n,"SnapshotArns",params,undefined,false); 
 			copyArgs(n,"SnapshotName",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
 			copyArgs(n,"ACLName",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
-			copyArgs(n,"AutoMinorVersionUpgrade",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoMinorVersionUpgrade",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterName",params,undefined,false); 
 			copyArgs(msg,"NodeType",params,undefined,false); 
@@ -205,9 +198,7 @@ module.exports = function(RED) {
 
 			svc.createCluster(params,cb);
 		}
-
-		
-		service.CreateParameterGroup=function(svc,msg,cb){
+			service.CreateParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -226,9 +217,7 @@ module.exports = function(RED) {
 
 			svc.createParameterGroup(params,cb);
 		}
-
-		
-		service.CreateSnapshot=function(svc,msg,cb){
+			service.CreateSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -247,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.createSnapshot(params,cb);
 		}
-
-		
-		service.CreateSubnetGroup=function(svc,msg,cb){
+			service.CreateSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetGroupName",params,undefined,false); 
@@ -268,9 +255,7 @@ module.exports = function(RED) {
 
 			svc.createSubnetGroup(params,cb);
 		}
-
-		
-		service.CreateUser=function(svc,msg,cb){
+			service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -290,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-
-		
-		service.DeleteACL=function(svc,msg,cb){
+			service.DeleteACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ACLName",params,undefined,false); 
@@ -304,9 +287,7 @@ module.exports = function(RED) {
 
 			svc.deleteACL(params,cb);
 		}
-
-		
-		service.DeleteCluster=function(svc,msg,cb){
+			service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -320,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.deleteCluster(params,cb);
 		}
-
-		
-		service.DeleteParameterGroup=function(svc,msg,cb){
+			service.DeleteParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -334,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.deleteParameterGroup(params,cb);
 		}
-
-		
-		service.DeleteSnapshot=function(svc,msg,cb){
+			service.DeleteSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotName",params,undefined,false); 
@@ -348,9 +325,7 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshot(params,cb);
 		}
-
-		
-		service.DeleteSubnetGroup=function(svc,msg,cb){
+			service.DeleteSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetGroupName",params,undefined,false); 
@@ -362,9 +337,7 @@ module.exports = function(RED) {
 
 			svc.deleteSubnetGroup(params,cb);
 		}
-
-		
-		service.DeleteUser=function(svc,msg,cb){
+			service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -376,14 +349,12 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-
-		
-		service.DescribeACLs=function(svc,msg,cb){
+			service.DescribeACLs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ACLName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ACLName",params,undefined,false); 
@@ -393,16 +364,14 @@ module.exports = function(RED) {
 
 			svc.describeACLs(params,cb);
 		}
-
-		
-		service.DescribeClusters=function(svc,msg,cb){
+			service.DescribeClusters=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"ShowShardDetails",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowShardDetails",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterName",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -412,17 +381,15 @@ module.exports = function(RED) {
 
 			svc.describeClusters(params,cb);
 		}
-
-		
-		service.DescribeEngineVersions=function(svc,msg,cb){
+			service.DescribeEngineVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"ParameterGroupFamily",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"DefaultOnly",params,undefined,false); 
+			copyArgs(Boolean(n),"DefaultOnly",params,undefined,false); 
 			
 			copyArgs(msg,"EngineVersion",params,undefined,false); 
 			copyArgs(msg,"ParameterGroupFamily",params,undefined,false); 
@@ -433,9 +400,7 @@ module.exports = function(RED) {
 
 			svc.describeEngineVersions(params,cb);
 		}
-
-		
-		service.DescribeEvents=function(svc,msg,cb){
+			service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -443,8 +408,8 @@ module.exports = function(RED) {
 			copyArgs(n,"SourceType",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"Duration",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"Duration",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"SourceName",params,undefined,false); 
@@ -458,14 +423,12 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-
-		
-		service.DescribeParameterGroups=function(svc,msg,cb){
+			service.DescribeParameterGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ParameterGroupName",params,undefined,false); 
@@ -475,15 +438,13 @@ module.exports = function(RED) {
 
 			svc.describeParameterGroups(params,cb);
 		}
-
-		
-		service.DescribeParameters=function(svc,msg,cb){
+			service.DescribeParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ParameterGroupName",params,undefined,false); 
@@ -493,16 +454,14 @@ module.exports = function(RED) {
 
 			svc.describeParameters(params,cb);
 		}
-
-		
-		service.DescribeServiceUpdates=function(svc,msg,cb){
+			service.DescribeServiceUpdates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ServiceUpdateName",params,undefined,false); 
 			copyArgs(n,"ClusterNames",params,undefined,true); 
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ServiceUpdateName",params,undefined,false); 
@@ -514,9 +473,7 @@ module.exports = function(RED) {
 
 			svc.describeServiceUpdates(params,cb);
 		}
-
-		
-		service.DescribeSnapshots=function(svc,msg,cb){
+			service.DescribeSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -524,8 +481,8 @@ module.exports = function(RED) {
 			copyArgs(n,"SnapshotName",params,undefined,false); 
 			copyArgs(n,"Source",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
-			copyArgs(n,"ShowDetail",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"ShowDetail",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterName",params,undefined,false); 
 			copyArgs(msg,"SnapshotName",params,undefined,false); 
@@ -537,14 +494,12 @@ module.exports = function(RED) {
 
 			svc.describeSnapshots(params,cb);
 		}
-
-		
-		service.DescribeSubnetGroups=function(svc,msg,cb){
+			service.DescribeSubnetGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"SubnetGroupName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"SubnetGroupName",params,undefined,false); 
@@ -554,15 +509,13 @@ module.exports = function(RED) {
 
 			svc.describeSubnetGroups(params,cb);
 		}
-
-		
-		service.DescribeUsers=function(svc,msg,cb){
+			service.DescribeUsers=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"UserName",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"UserName",params,undefined,false); 
@@ -573,9 +526,7 @@ module.exports = function(RED) {
 
 			svc.describeUsers(params,cb);
 		}
-
-		
-		service.FailoverShard=function(svc,msg,cb){
+			service.FailoverShard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -590,9 +541,7 @@ module.exports = function(RED) {
 
 			svc.failoverShard(params,cb);
 		}
-
-		
-		service.ListAllowedNodeTypeUpdates=function(svc,msg,cb){
+			service.ListAllowedNodeTypeUpdates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -604,9 +553,7 @@ module.exports = function(RED) {
 
 			svc.listAllowedNodeTypeUpdates(params,cb);
 		}
-
-		
-		service.ListTags=function(svc,msg,cb){
+			service.ListTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -618,15 +565,13 @@ module.exports = function(RED) {
 
 			svc.listTags(params,cb);
 		}
-
-		
-		service.ResetParameterGroup=function(svc,msg,cb){
+			service.ResetParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
-			copyArgs(n,"AllParameters",params,undefined,false); 
+			copyArgs(Boolean(n),"AllParameters",params,undefined,false); 
 			copyArgs(n,"ParameterNames",params,undefined,false); 
 			
 			copyArgs(msg,"ParameterGroupName",params,undefined,false); 
@@ -636,9 +581,7 @@ module.exports = function(RED) {
 
 			svc.resetParameterGroup(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -653,9 +596,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -670,9 +611,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateACL=function(svc,msg,cb){
+			service.UpdateACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ACLName",params,undefined,false); 
@@ -688,9 +627,7 @@ module.exports = function(RED) {
 
 			svc.updateACL(params,cb);
 		}
-
-		
-		service.UpdateCluster=function(svc,msg,cb){
+			service.UpdateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterName",params,undefined,false); 
@@ -703,7 +640,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SnsTopicStatus",params,undefined,false); 
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
 			copyArgs(n,"SnapshotWindow",params,undefined,false); 
-			copyArgs(n,"SnapshotRetentionLimit",params,undefined,false); 
+			copyArgs(Number(n),"SnapshotRetentionLimit",params,undefined,false); 
 			copyArgs(n,"NodeType",params,undefined,false); 
 			copyArgs(n,"EngineVersion",params,undefined,false); 
 			copyArgs(n,"ReplicaConfiguration",params,undefined,false); 
@@ -728,9 +665,7 @@ module.exports = function(RED) {
 
 			svc.updateCluster(params,cb);
 		}
-
-		
-		service.UpdateParameterGroup=function(svc,msg,cb){
+			service.UpdateParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -745,9 +680,7 @@ module.exports = function(RED) {
 
 			svc.updateParameterGroup(params,cb);
 		}
-
-		
-		service.UpdateSubnetGroup=function(svc,msg,cb){
+			service.UpdateSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetGroupName",params,undefined,false); 
@@ -763,9 +696,7 @@ module.exports = function(RED) {
 
 			svc.updateSubnetGroup(params,cb);
 		}
-
-		
-		service.UpdateUser=function(svc,msg,cb){
+			service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -781,9 +712,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MemoryDB", AmazonAPINode);
 

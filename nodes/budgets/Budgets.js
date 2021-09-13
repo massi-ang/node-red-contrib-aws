@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateBudget=function(svc,msg,cb){
+			service.CreateBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.createBudget(params,cb);
 		}
-
-		
-		service.CreateBudgetAction=function(svc,msg,cb){
+			service.CreateBudgetAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -149,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.createBudgetAction(params,cb);
 		}
-
-		
-		service.CreateNotification=function(svc,msg,cb){
+			service.CreateNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -172,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.createNotification(params,cb);
 		}
-
-		
-		service.CreateSubscriber=function(svc,msg,cb){
+			service.CreateSubscriber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -195,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.createSubscriber(params,cb);
 		}
-
-		
-		service.DeleteBudget=function(svc,msg,cb){
+			service.DeleteBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -212,9 +203,7 @@ module.exports = function(RED) {
 
 			svc.deleteBudget(params,cb);
 		}
-
-		
-		service.DeleteBudgetAction=function(svc,msg,cb){
+			service.DeleteBudgetAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -232,9 +221,7 @@ module.exports = function(RED) {
 
 			svc.deleteBudgetAction(params,cb);
 		}
-
-		
-		service.DeleteNotification=function(svc,msg,cb){
+			service.DeleteNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -252,9 +239,7 @@ module.exports = function(RED) {
 
 			svc.deleteNotification(params,cb);
 		}
-
-		
-		service.DeleteSubscriber=function(svc,msg,cb){
+			service.DeleteSubscriber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -275,9 +260,7 @@ module.exports = function(RED) {
 
 			svc.deleteSubscriber(params,cb);
 		}
-
-		
-		service.DescribeBudget=function(svc,msg,cb){
+			service.DescribeBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -292,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.describeBudget(params,cb);
 		}
-
-		
-		service.DescribeBudgetAction=function(svc,msg,cb){
+			service.DescribeBudgetAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -312,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.describeBudgetAction(params,cb);
 		}
-
-		
-		service.DescribeBudgetActionHistories=function(svc,msg,cb){
+			service.DescribeBudgetActionHistories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -325,7 +304,7 @@ module.exports = function(RED) {
 			copyArgs(n,"BudgetName",params,undefined,false); 
 			copyArgs(n,"ActionId",params,undefined,false); 
 			copyArgs(n,"TimePeriod",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -338,15 +317,13 @@ module.exports = function(RED) {
 
 			svc.describeBudgetActionHistories(params,cb);
 		}
-
-		
-		service.DescribeBudgetActionsForAccount=function(svc,msg,cb){
+			service.DescribeBudgetActionsForAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -356,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.describeBudgetActionsForAccount(params,cb);
 		}
-
-		
-		service.DescribeBudgetActionsForBudget=function(svc,msg,cb){
+			service.DescribeBudgetActionsForBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -366,7 +341,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"BudgetName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -377,9 +352,7 @@ module.exports = function(RED) {
 
 			svc.describeBudgetActionsForBudget(params,cb);
 		}
-
-		
-		service.DescribeBudgetPerformanceHistory=function(svc,msg,cb){
+			service.DescribeBudgetPerformanceHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -388,7 +361,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"BudgetName",params,undefined,false); 
 			copyArgs(n,"TimePeriod",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -400,15 +373,13 @@ module.exports = function(RED) {
 
 			svc.describeBudgetPerformanceHistory(params,cb);
 		}
-
-		
-		service.DescribeBudgets=function(svc,msg,cb){
+			service.DescribeBudgets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -418,9 +389,7 @@ module.exports = function(RED) {
 
 			svc.describeBudgets(params,cb);
 		}
-
-		
-		service.DescribeNotificationsForBudget=function(svc,msg,cb){
+			service.DescribeNotificationsForBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -428,7 +397,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"BudgetName",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -439,9 +408,7 @@ module.exports = function(RED) {
 
 			svc.describeNotificationsForBudget(params,cb);
 		}
-
-		
-		service.DescribeSubscribersForNotification=function(svc,msg,cb){
+			service.DescribeSubscribersForNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -451,7 +418,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"BudgetName",params,undefined,false); 
 			copyArgs(n,"Notification",params,undefined,true); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -463,9 +430,7 @@ module.exports = function(RED) {
 
 			svc.describeSubscribersForNotification(params,cb);
 		}
-
-		
-		service.ExecuteBudgetAction=function(svc,msg,cb){
+			service.ExecuteBudgetAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -486,9 +451,7 @@ module.exports = function(RED) {
 
 			svc.executeBudgetAction(params,cb);
 		}
-
-		
-		service.UpdateBudget=function(svc,msg,cb){
+			service.UpdateBudget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -503,9 +466,7 @@ module.exports = function(RED) {
 
 			svc.updateBudget(params,cb);
 		}
-
-		
-		service.UpdateBudgetAction=function(svc,msg,cb){
+			service.UpdateBudgetAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -535,9 +496,7 @@ module.exports = function(RED) {
 
 			svc.updateBudgetAction(params,cb);
 		}
-
-		
-		service.UpdateNotification=function(svc,msg,cb){
+			service.UpdateNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -558,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.updateNotification(params,cb);
 		}
-
-		
-		service.UpdateSubscriber=function(svc,msg,cb){
+			service.UpdateSubscriber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -584,9 +541,7 @@ module.exports = function(RED) {
 
 			svc.updateSubscriber(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Budgets", AmazonAPINode);
 

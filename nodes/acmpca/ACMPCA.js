@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateCertificateAuthority=function(svc,msg,cb){
+			service.CreateCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityConfiguration",params,undefined,true); 
@@ -117,9 +116,7 @@ module.exports = function(RED) {
 
 			svc.createCertificateAuthority(params,cb);
 		}
-
-		
-		service.CreateCertificateAuthorityAuditReport=function(svc,msg,cb){
+			service.CreateCertificateAuthorityAuditReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -137,9 +134,7 @@ module.exports = function(RED) {
 
 			svc.createCertificateAuthorityAuditReport(params,cb);
 		}
-
-		
-		service.CreatePermission=function(svc,msg,cb){
+			service.CreatePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -159,15 +154,13 @@ module.exports = function(RED) {
 
 			svc.createPermission(params,cb);
 		}
-
-		
-		service.DeleteCertificateAuthority=function(svc,msg,cb){
+			service.DeleteCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(n,"PermanentDeletionTimeInDays",params,undefined,false); 
+			copyArgs(Number(n),"PermanentDeletionTimeInDays",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(msg,"PermanentDeletionTimeInDays",params,undefined,false); 
@@ -175,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.deleteCertificateAuthority(params,cb);
 		}
-
-		
-		service.DeletePermission=function(svc,msg,cb){
+			service.DeletePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -194,9 +185,7 @@ module.exports = function(RED) {
 
 			svc.deletePermission(params,cb);
 		}
-
-		
-		service.DeletePolicy=function(svc,msg,cb){
+			service.DeletePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -208,9 +197,7 @@ module.exports = function(RED) {
 
 			svc.deletePolicy(params,cb);
 		}
-
-		
-		service.DescribeCertificateAuthority=function(svc,msg,cb){
+			service.DescribeCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -222,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.describeCertificateAuthority(params,cb);
 		}
-
-		
-		service.DescribeCertificateAuthorityAuditReport=function(svc,msg,cb){
+			service.DescribeCertificateAuthorityAuditReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.describeCertificateAuthorityAuditReport(params,cb);
 		}
-
-		
-		service.GetCertificate=function(svc,msg,cb){
+			service.GetCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -256,9 +239,7 @@ module.exports = function(RED) {
 
 			svc.getCertificate(params,cb);
 		}
-
-		
-		service.GetCertificateAuthorityCertificate=function(svc,msg,cb){
+			service.GetCertificateAuthorityCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -270,9 +251,7 @@ module.exports = function(RED) {
 
 			svc.getCertificateAuthorityCertificate(params,cb);
 		}
-
-		
-		service.GetCertificateAuthorityCsr=function(svc,msg,cb){
+			service.GetCertificateAuthorityCsr=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -284,9 +263,7 @@ module.exports = function(RED) {
 
 			svc.getCertificateAuthorityCsr(params,cb);
 		}
-
-		
-		service.GetPolicy=function(svc,msg,cb){
+			service.GetPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -298,17 +275,15 @@ module.exports = function(RED) {
 
 			svc.getPolicy(params,cb);
 		}
-
-		
-		service.ImportCertificateAuthorityCertificate=function(svc,msg,cb){
+			service.ImportCertificateAuthorityCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(n,"Certificate",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(n,"Certificate",params,undefined,false); 
-			copyArgs(n,"CertificateChain",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
+			copyArgs(Buffer.from(n),"CertificateChain",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(msg,"Certificate",params,undefined,false); 
@@ -317,19 +292,17 @@ module.exports = function(RED) {
 
 			svc.importCertificateAuthorityCertificate(params,cb);
 		}
-
-		
-		service.IssueCertificate=function(svc,msg,cb){
+			service.IssueCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(n,"Csr",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Csr",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			copyArgs(n,"Validity",params,undefined,true); 
 			
 			copyArgs(n,"ApiPassthrough",params,undefined,false); 
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(n,"Csr",params,undefined,false); 
+			copyArgs(Buffer.from(n),"Csr",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			copyArgs(n,"TemplateArn",params,undefined,false); 
 			copyArgs(n,"Validity",params,undefined,true); 
@@ -348,14 +321,12 @@ module.exports = function(RED) {
 
 			svc.issueCertificate(params,cb);
 		}
-
-		
-		service.ListCertificateAuthorities=function(svc,msg,cb){
+			service.ListCertificateAuthorities=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"ResourceOwner",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -365,16 +336,14 @@ module.exports = function(RED) {
 
 			svc.listCertificateAuthorities(params,cb);
 		}
-
-		
-		service.ListPermissions=function(svc,msg,cb){
+			service.ListPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -383,16 +352,14 @@ module.exports = function(RED) {
 
 			svc.listPermissions(params,cb);
 		}
-
-		
-		service.ListTags=function(svc,msg,cb){
+			service.ListTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -401,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.listTags(params,cb);
 		}
-
-		
-		service.PutPolicy=function(svc,msg,cb){
+			service.PutPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -418,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.putPolicy(params,cb);
 		}
-
-		
-		service.RestoreCertificateAuthority=function(svc,msg,cb){
+			service.RestoreCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -432,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.restoreCertificateAuthority(params,cb);
 		}
-
-		
-		service.RevokeCertificate=function(svc,msg,cb){
+			service.RevokeCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -452,9 +413,7 @@ module.exports = function(RED) {
 
 			svc.revokeCertificate(params,cb);
 		}
-
-		
-		service.TagCertificateAuthority=function(svc,msg,cb){
+			service.TagCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -469,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.tagCertificateAuthority(params,cb);
 		}
-
-		
-		service.UntagCertificateAuthority=function(svc,msg,cb){
+			service.UntagCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -486,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.untagCertificateAuthority(params,cb);
 		}
-
-		
-		service.UpdateCertificateAuthority=function(svc,msg,cb){
+			service.UpdateCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
@@ -504,9 +459,7 @@ module.exports = function(RED) {
 
 			svc.updateCertificateAuthority(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ACMPCA", AmazonAPINode);
 

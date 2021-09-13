@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.DeleteThingShadow=function(svc,msg,cb){
+			service.DeleteThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.deleteThingShadow(params,cb);
 		}
-
-		
-		service.GetRetainedMessage=function(svc,msg,cb){
+			service.GetRetainedMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"topic",params,undefined,false); 
@@ -122,9 +119,7 @@ module.exports = function(RED) {
 
 			svc.getRetainedMessage(params,cb);
 		}
-
-		
-		service.GetThingShadow=function(svc,msg,cb){
+			service.GetThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -138,16 +133,14 @@ module.exports = function(RED) {
 
 			svc.getThingShadow(params,cb);
 		}
-
-		
-		service.ListNamedShadowsForThing=function(svc,msg,cb){
+			service.ListNamedShadowsForThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"pageSize",params,undefined,false); 
+			copyArgs(Number(n),"pageSize",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -156,14 +149,12 @@ module.exports = function(RED) {
 
 			svc.listNamedShadowsForThing(params,cb);
 		}
-
-		
-		service.ListRetainedMessages=function(svc,msg,cb){
+			service.ListRetainedMessages=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -171,17 +162,15 @@ module.exports = function(RED) {
 
 			svc.listRetainedMessages(params,cb);
 		}
-
-		
-		service.Publish=function(svc,msg,cb){
+			service.Publish=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"topic",params,undefined,false); 
 			
 			copyArgs(n,"topic",params,undefined,false); 
-			copyArgs(n,"qos",params,undefined,false); 
-			copyArgs(n,"retain",params,undefined,false); 
-			copyArgs(n,"payload",params,undefined,false); 
+			copyArgs(Number(n),"qos",params,undefined,false); 
+			copyArgs(Boolean(n),"retain",params,undefined,false); 
+			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
 			
 			copyArgs(msg,"topic",params,undefined,false); 
 			copyArgs(msg,"qos",params,undefined,false); 
@@ -191,17 +180,15 @@ module.exports = function(RED) {
 
 			svc.publish(params,cb);
 		}
-
-		
-		service.UpdateThingShadow=function(svc,msg,cb){
+			service.UpdateThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
-			copyArgs(n,"payload",params,undefined,false); 
+			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"shadowName",params,undefined,false); 
-			copyArgs(n,"payload",params,undefined,false); 
+			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"shadowName",params,undefined,false); 
@@ -210,9 +197,7 @@ module.exports = function(RED) {
 
 			svc.updateThingShadow(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IotData", AmazonAPINode);
 

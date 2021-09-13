@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.DeleteReportDefinition=function(svc,msg,cb){
+			service.DeleteReportDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportId",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.deleteReportDefinition(params,cb);
 		}
-
-		
-		service.GetReportDefinition=function(svc,msg,cb){
+			service.GetReportDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportId",params,undefined,false); 
@@ -120,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.getReportDefinition(params,cb);
 		}
-
-		
-		service.ImportApplicationUsage=function(svc,msg,cb){
+			service.ImportApplicationUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceS3Location",params,undefined,false); 
@@ -134,14 +129,12 @@ module.exports = function(RED) {
 
 			svc.importApplicationUsage(params,cb);
 		}
-
-		
-		service.ListReportDefinitions=function(svc,msg,cb){
+			service.ListReportDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -149,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.listReportDefinitions(params,cb);
 		}
-
-		
-		service.PutReportDefinition=function(svc,msg,cb){
+			service.PutReportDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportId",params,undefined,false); 
@@ -175,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.putReportDefinition(params,cb);
 		}
-
-		
-		service.UpdateReportDefinition=function(svc,msg,cb){
+			service.UpdateReportDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportId",params,undefined,false); 
@@ -201,9 +190,7 @@ module.exports = function(RED) {
 
 			svc.updateReportDefinition(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS ApplicationCostProfiler", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptAdministratorInvitation=function(svc,msg,cb){
+			service.AcceptAdministratorInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdministratorId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.acceptAdministratorInvitation(params,cb);
 		}
-
-		
-		service.AcceptInvitation=function(svc,msg,cb){
+			service.AcceptInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MasterId",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.acceptInvitation(params,cb);
 		}
-
-		
-		service.BatchDisableStandards=function(svc,msg,cb){
+			service.BatchDisableStandards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StandardsSubscriptionArns",params,undefined,true); 
@@ -140,9 +135,7 @@ module.exports = function(RED) {
 
 			svc.batchDisableStandards(params,cb);
 		}
-
-		
-		service.BatchEnableStandards=function(svc,msg,cb){
+			service.BatchEnableStandards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StandardsSubscriptionRequests",params,undefined,false); 
@@ -154,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.batchEnableStandards(params,cb);
 		}
-
-		
-		service.BatchImportFindings=function(svc,msg,cb){
+			service.BatchImportFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Findings",params,undefined,false); 
@@ -168,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.batchImportFindings(params,cb);
 		}
-
-		
-		service.BatchUpdateFindings=function(svc,msg,cb){
+			service.BatchUpdateFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FindingIdentifiers",params,undefined,true); 
@@ -179,8 +168,8 @@ module.exports = function(RED) {
 			copyArgs(n,"Note",params,undefined,true); 
 			copyArgs(n,"Severity",params,undefined,false); 
 			copyArgs(n,"VerificationState",params,undefined,false); 
-			copyArgs(n,"Confidence",params,undefined,false); 
-			copyArgs(n,"Criticality",params,undefined,false); 
+			copyArgs(Number(n),"Confidence",params,undefined,false); 
+			copyArgs(Number(n),"Criticality",params,undefined,false); 
 			copyArgs(n,"Types",params,undefined,true); 
 			copyArgs(n,"UserDefinedFields",params,undefined,true); 
 			copyArgs(n,"Workflow",params,undefined,false); 
@@ -200,9 +189,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdateFindings(params,cb);
 		}
-
-		
-		service.CreateActionTarget=function(svc,msg,cb){
+			service.CreateActionTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.createActionTarget(params,cb);
 		}
-
-		
-		service.CreateInsight=function(svc,msg,cb){
+			service.CreateInsight=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -240,9 +225,7 @@ module.exports = function(RED) {
 
 			svc.createInsight(params,cb);
 		}
-
-		
-		service.CreateMembers=function(svc,msg,cb){
+			service.CreateMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountDetails",params,undefined,false); 
@@ -254,9 +237,7 @@ module.exports = function(RED) {
 
 			svc.createMembers(params,cb);
 		}
-
-		
-		service.DeclineInvitations=function(svc,msg,cb){
+			service.DeclineInvitations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -268,9 +249,7 @@ module.exports = function(RED) {
 
 			svc.declineInvitations(params,cb);
 		}
-
-		
-		service.DeleteActionTarget=function(svc,msg,cb){
+			service.DeleteActionTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActionTargetArn",params,undefined,false); 
@@ -282,9 +261,7 @@ module.exports = function(RED) {
 
 			svc.deleteActionTarget(params,cb);
 		}
-
-		
-		service.DeleteInsight=function(svc,msg,cb){
+			service.DeleteInsight=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightArn",params,undefined,false); 
@@ -296,9 +273,7 @@ module.exports = function(RED) {
 
 			svc.deleteInsight(params,cb);
 		}
-
-		
-		service.DeleteInvitations=function(svc,msg,cb){
+			service.DeleteInvitations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -310,9 +285,7 @@ module.exports = function(RED) {
 
 			svc.deleteInvitations(params,cb);
 		}
-
-		
-		service.DeleteMembers=function(svc,msg,cb){
+			service.DeleteMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -324,15 +297,13 @@ module.exports = function(RED) {
 
 			svc.deleteMembers(params,cb);
 		}
-
-		
-		service.DescribeActionTargets=function(svc,msg,cb){
+			service.DescribeActionTargets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ActionTargetArns",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ActionTargetArns",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -341,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.describeActionTargets(params,cb);
 		}
-
-		
-		service.DescribeHub=function(svc,msg,cb){
+			service.DescribeHub=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -354,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.describeHub(params,cb);
 		}
-
-		
-		service.DescribeOrganizationConfiguration=function(svc,msg,cb){
+			service.DescribeOrganizationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -365,14 +332,12 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConfiguration(params,cb);
 		}
-
-		
-		service.DescribeProducts=function(svc,msg,cb){
+			service.DescribeProducts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"ProductArn",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -382,14 +347,12 @@ module.exports = function(RED) {
 
 			svc.describeProducts(params,cb);
 		}
-
-		
-		service.DescribeStandards=function(svc,msg,cb){
+			service.DescribeStandards=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -397,16 +360,14 @@ module.exports = function(RED) {
 
 			svc.describeStandards(params,cb);
 		}
-
-		
-		service.DescribeStandardsControls=function(svc,msg,cb){
+			service.DescribeStandardsControls=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StandardsSubscriptionArn",params,undefined,false); 
 			
 			copyArgs(n,"StandardsSubscriptionArn",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"StandardsSubscriptionArn",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -415,9 +376,7 @@ module.exports = function(RED) {
 
 			svc.describeStandardsControls(params,cb);
 		}
-
-		
-		service.DisableImportFindingsForProduct=function(svc,msg,cb){
+			service.DisableImportFindingsForProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductSubscriptionArn",params,undefined,false); 
@@ -429,9 +388,7 @@ module.exports = function(RED) {
 
 			svc.disableImportFindingsForProduct(params,cb);
 		}
-
-		
-		service.DisableOrganizationAdminAccount=function(svc,msg,cb){
+			service.DisableOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdminAccountId",params,undefined,false); 
@@ -443,9 +400,7 @@ module.exports = function(RED) {
 
 			svc.disableOrganizationAdminAccount(params,cb);
 		}
-
-		
-		service.DisableSecurityHub=function(svc,msg,cb){
+			service.DisableSecurityHub=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -454,9 +409,7 @@ module.exports = function(RED) {
 
 			svc.disableSecurityHub(params,cb);
 		}
-
-		
-		service.DisassociateFromAdministratorAccount=function(svc,msg,cb){
+			service.DisassociateFromAdministratorAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -465,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.disassociateFromAdministratorAccount(params,cb);
 		}
-
-		
-		service.DisassociateFromMasterAccount=function(svc,msg,cb){
+			service.DisassociateFromMasterAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -476,9 +427,7 @@ module.exports = function(RED) {
 
 			svc.disassociateFromMasterAccount(params,cb);
 		}
-
-		
-		service.DisassociateMembers=function(svc,msg,cb){
+			service.DisassociateMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -490,9 +439,7 @@ module.exports = function(RED) {
 
 			svc.disassociateMembers(params,cb);
 		}
-
-		
-		service.EnableImportFindingsForProduct=function(svc,msg,cb){
+			service.EnableImportFindingsForProduct=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductArn",params,undefined,false); 
@@ -504,9 +451,7 @@ module.exports = function(RED) {
 
 			svc.enableImportFindingsForProduct(params,cb);
 		}
-
-		
-		service.EnableOrganizationAdminAccount=function(svc,msg,cb){
+			service.EnableOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdminAccountId",params,undefined,false); 
@@ -518,14 +463,12 @@ module.exports = function(RED) {
 
 			svc.enableOrganizationAdminAccount(params,cb);
 		}
-
-		
-		service.EnableSecurityHub=function(svc,msg,cb){
+			service.EnableSecurityHub=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"EnableDefaultStandards",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableDefaultStandards",params,undefined,false); 
 			
 			copyArgs(msg,"Tags",params,undefined,true); 
 			copyArgs(msg,"EnableDefaultStandards",params,undefined,false); 
@@ -533,9 +476,7 @@ module.exports = function(RED) {
 
 			svc.enableSecurityHub(params,cb);
 		}
-
-		
-		service.GetAdministratorAccount=function(svc,msg,cb){
+			service.GetAdministratorAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -544,15 +485,13 @@ module.exports = function(RED) {
 
 			svc.getAdministratorAccount(params,cb);
 		}
-
-		
-		service.GetEnabledStandards=function(svc,msg,cb){
+			service.GetEnabledStandards=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"StandardsSubscriptionArns",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"StandardsSubscriptionArns",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -561,16 +500,14 @@ module.exports = function(RED) {
 
 			svc.getEnabledStandards(params,cb);
 		}
-
-		
-		service.GetFindings=function(svc,msg,cb){
+			service.GetFindings=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,true); 
 			copyArgs(n,"SortCriteria",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,true); 
 			copyArgs(msg,"SortCriteria",params,undefined,false); 
@@ -580,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.getFindings(params,cb);
 		}
-
-		
-		service.GetInsightResults=function(svc,msg,cb){
+			service.GetInsightResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightArn",params,undefined,false); 
@@ -594,15 +529,13 @@ module.exports = function(RED) {
 
 			svc.getInsightResults(params,cb);
 		}
-
-		
-		service.GetInsights=function(svc,msg,cb){
+			service.GetInsights=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"InsightArns",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"InsightArns",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -611,9 +544,7 @@ module.exports = function(RED) {
 
 			svc.getInsights(params,cb);
 		}
-
-		
-		service.GetInvitationsCount=function(svc,msg,cb){
+			service.GetInvitationsCount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -622,9 +553,7 @@ module.exports = function(RED) {
 
 			svc.getInvitationsCount(params,cb);
 		}
-
-		
-		service.GetMasterAccount=function(svc,msg,cb){
+			service.GetMasterAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -633,9 +562,7 @@ module.exports = function(RED) {
 
 			svc.getMasterAccount(params,cb);
 		}
-
-		
-		service.GetMembers=function(svc,msg,cb){
+			service.GetMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -647,9 +574,7 @@ module.exports = function(RED) {
 
 			svc.getMembers(params,cb);
 		}
-
-		
-		service.InviteMembers=function(svc,msg,cb){
+			service.InviteMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -661,14 +586,12 @@ module.exports = function(RED) {
 
 			svc.inviteMembers(params,cb);
 		}
-
-		
-		service.ListEnabledProductsForImport=function(svc,msg,cb){
+			service.ListEnabledProductsForImport=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -676,13 +599,11 @@ module.exports = function(RED) {
 
 			svc.listEnabledProductsForImport(params,cb);
 		}
-
-		
-		service.ListInvitations=function(svc,msg,cb){
+			service.ListInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -691,14 +612,12 @@ module.exports = function(RED) {
 
 			svc.listInvitations(params,cb);
 		}
-
-		
-		service.ListMembers=function(svc,msg,cb){
+			service.ListMembers=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"OnlyAssociated",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Boolean(n),"OnlyAssociated",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"OnlyAssociated",params,undefined,false); 
@@ -708,13 +627,11 @@ module.exports = function(RED) {
 
 			svc.listMembers(params,cb);
 		}
-
-		
-		service.ListOrganizationAdminAccounts=function(svc,msg,cb){
+			service.ListOrganizationAdminAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -723,9 +640,7 @@ module.exports = function(RED) {
 
 			svc.listOrganizationAdminAccounts(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -737,9 +652,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -754,9 +667,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -771,9 +682,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateActionTarget=function(svc,msg,cb){
+			service.UpdateActionTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActionTargetArn",params,undefined,false); 
@@ -789,9 +698,7 @@ module.exports = function(RED) {
 
 			svc.updateActionTarget(params,cb);
 		}
-
-		
-		service.UpdateFindings=function(svc,msg,cb){
+			service.UpdateFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Filters",params,undefined,true); 
@@ -807,9 +714,7 @@ module.exports = function(RED) {
 
 			svc.updateFindings(params,cb);
 		}
-
-		
-		service.UpdateInsight=function(svc,msg,cb){
+			service.UpdateInsight=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightArn",params,undefined,false); 
@@ -827,36 +732,30 @@ module.exports = function(RED) {
 
 			svc.updateInsight(params,cb);
 		}
-
-		
-		service.UpdateOrganizationConfiguration=function(svc,msg,cb){
+			service.UpdateOrganizationConfiguration=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"AutoEnable",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoEnable",params,undefined,false); 
 			
-			copyArgs(n,"AutoEnable",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoEnable",params,undefined,false); 
 			
 			copyArgs(msg,"AutoEnable",params,undefined,false); 
 			
 
 			svc.updateOrganizationConfiguration(params,cb);
 		}
-
-		
-		service.UpdateSecurityHubConfiguration=function(svc,msg,cb){
+			service.UpdateSecurityHubConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"AutoEnableControls",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoEnableControls",params,undefined,false); 
 			
 			copyArgs(msg,"AutoEnableControls",params,undefined,false); 
 			
 
 			svc.updateSecurityHubConfiguration(params,cb);
 		}
-
-		
-		service.UpdateStandardsControl=function(svc,msg,cb){
+			service.UpdateStandardsControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StandardsControlArn",params,undefined,false); 
@@ -872,9 +771,7 @@ module.exports = function(RED) {
 
 			svc.updateStandardsControl(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SecurityHub", AmazonAPINode);
 

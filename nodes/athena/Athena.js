@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchGetNamedQuery=function(svc,msg,cb){
+			service.BatchGetNamedQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NamedQueryIds",params,undefined,true); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.batchGetNamedQuery(params,cb);
 		}
-
-		
-		service.BatchGetQueryExecution=function(svc,msg,cb){
+			service.BatchGetQueryExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryExecutionIds",params,undefined,true); 
@@ -120,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.batchGetQueryExecution(params,cb);
 		}
-
-		
-		service.CreateDataCatalog=function(svc,msg,cb){
+			service.CreateDataCatalog=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.createDataCatalog(params,cb);
 		}
-
-		
-		service.CreateNamedQuery=function(svc,msg,cb){
+			service.CreateNamedQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -169,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.createNamedQuery(params,cb);
 		}
-
-		
-		service.CreatePreparedStatement=function(svc,msg,cb){
+			service.CreatePreparedStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StatementName",params,undefined,false); 
@@ -191,9 +182,7 @@ module.exports = function(RED) {
 
 			svc.createPreparedStatement(params,cb);
 		}
-
-		
-		service.CreateWorkGroup=function(svc,msg,cb){
+			service.CreateWorkGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -211,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.createWorkGroup(params,cb);
 		}
-
-		
-		service.DeleteDataCatalog=function(svc,msg,cb){
+			service.DeleteDataCatalog=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataCatalog(params,cb);
 		}
-
-		
-		service.DeleteNamedQuery=function(svc,msg,cb){
+			service.DeleteNamedQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NamedQueryId",params,undefined,false); 
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.deleteNamedQuery(params,cb);
 		}
-
-		
-		service.DeletePreparedStatement=function(svc,msg,cb){
+			service.DeletePreparedStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StatementName",params,undefined,false); 
@@ -256,15 +239,13 @@ module.exports = function(RED) {
 
 			svc.deletePreparedStatement(params,cb);
 		}
-
-		
-		service.DeleteWorkGroup=function(svc,msg,cb){
+			service.DeleteWorkGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
-			copyArgs(n,"RecursiveDeleteOption",params,undefined,false); 
+			copyArgs(Boolean(n),"RecursiveDeleteOption",params,undefined,false); 
 			
 			copyArgs(msg,"WorkGroup",params,undefined,false); 
 			copyArgs(msg,"RecursiveDeleteOption",params,undefined,false); 
@@ -272,9 +253,7 @@ module.exports = function(RED) {
 
 			svc.deleteWorkGroup(params,cb);
 		}
-
-		
-		service.GetDataCatalog=function(svc,msg,cb){
+			service.GetDataCatalog=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -286,9 +265,7 @@ module.exports = function(RED) {
 
 			svc.getDataCatalog(params,cb);
 		}
-
-		
-		service.GetDatabase=function(svc,msg,cb){
+			service.GetDatabase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CatalogName",params,undefined,false); 
@@ -303,9 +280,7 @@ module.exports = function(RED) {
 
 			svc.getDatabase(params,cb);
 		}
-
-		
-		service.GetNamedQuery=function(svc,msg,cb){
+			service.GetNamedQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NamedQueryId",params,undefined,false); 
@@ -317,9 +292,7 @@ module.exports = function(RED) {
 
 			svc.getNamedQuery(params,cb);
 		}
-
-		
-		service.GetPreparedStatement=function(svc,msg,cb){
+			service.GetPreparedStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StatementName",params,undefined,false); 
@@ -334,9 +307,7 @@ module.exports = function(RED) {
 
 			svc.getPreparedStatement(params,cb);
 		}
-
-		
-		service.GetQueryExecution=function(svc,msg,cb){
+			service.GetQueryExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryExecutionId",params,undefined,false); 
@@ -348,16 +319,14 @@ module.exports = function(RED) {
 
 			svc.getQueryExecution(params,cb);
 		}
-
-		
-		service.GetQueryResults=function(svc,msg,cb){
+			service.GetQueryResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryExecutionId",params,undefined,false); 
 			
 			copyArgs(n,"QueryExecutionId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QueryExecutionId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -366,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.getQueryResults(params,cb);
 		}
-
-		
-		service.GetTableMetadata=function(svc,msg,cb){
+			service.GetTableMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CatalogName",params,undefined,false); 
@@ -386,9 +353,7 @@ module.exports = function(RED) {
 
 			svc.getTableMetadata(params,cb);
 		}
-
-		
-		service.GetWorkGroup=function(svc,msg,cb){
+			service.GetWorkGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
@@ -400,14 +365,12 @@ module.exports = function(RED) {
 
 			svc.getWorkGroup(params,cb);
 		}
-
-		
-		service.ListDataCatalogs=function(svc,msg,cb){
+			service.ListDataCatalogs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -415,16 +378,14 @@ module.exports = function(RED) {
 
 			svc.listDataCatalogs(params,cb);
 		}
-
-		
-		service.ListDatabases=function(svc,msg,cb){
+			service.ListDatabases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CatalogName",params,undefined,false); 
 			
 			copyArgs(n,"CatalogName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"CatalogName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -433,14 +394,12 @@ module.exports = function(RED) {
 
 			svc.listDatabases(params,cb);
 		}
-
-		
-		service.ListEngineVersions=function(svc,msg,cb){
+			service.ListEngineVersions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -448,14 +407,12 @@ module.exports = function(RED) {
 
 			svc.listEngineVersions(params,cb);
 		}
-
-		
-		service.ListNamedQueries=function(svc,msg,cb){
+			service.ListNamedQueries=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"WorkGroup",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -465,16 +422,14 @@ module.exports = function(RED) {
 
 			svc.listNamedQueries(params,cb);
 		}
-
-		
-		service.ListPreparedStatements=function(svc,msg,cb){
+			service.ListPreparedStatements=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"WorkGroup",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -483,14 +438,12 @@ module.exports = function(RED) {
 
 			svc.listPreparedStatements(params,cb);
 		}
-
-		
-		service.ListQueryExecutions=function(svc,msg,cb){
+			service.ListQueryExecutions=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"WorkGroup",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -500,9 +453,7 @@ module.exports = function(RED) {
 
 			svc.listQueryExecutions(params,cb);
 		}
-
-		
-		service.ListTableMetadata=function(svc,msg,cb){
+			service.ListTableMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CatalogName",params,undefined,false); 
@@ -512,7 +463,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DatabaseName",params,undefined,false); 
 			copyArgs(n,"Expression",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"CatalogName",params,undefined,false); 
 			copyArgs(msg,"DatabaseName",params,undefined,false); 
@@ -523,16 +474,14 @@ module.exports = function(RED) {
 
 			svc.listTableMetadata(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ResourceARN",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -541,14 +490,12 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListWorkGroups=function(svc,msg,cb){
+			service.ListWorkGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -556,9 +503,7 @@ module.exports = function(RED) {
 
 			svc.listWorkGroups(params,cb);
 		}
-
-		
-		service.StartQueryExecution=function(svc,msg,cb){
+			service.StartQueryExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryString",params,undefined,false); 
@@ -578,9 +523,7 @@ module.exports = function(RED) {
 
 			svc.startQueryExecution(params,cb);
 		}
-
-		
-		service.StopQueryExecution=function(svc,msg,cb){
+			service.StopQueryExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryExecutionId",params,undefined,false); 
@@ -592,9 +535,7 @@ module.exports = function(RED) {
 
 			svc.stopQueryExecution(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -609,9 +550,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -626,9 +565,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDataCatalog=function(svc,msg,cb){
+			service.UpdateDataCatalog=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -647,9 +584,7 @@ module.exports = function(RED) {
 
 			svc.updateDataCatalog(params,cb);
 		}
-
-		
-		service.UpdatePreparedStatement=function(svc,msg,cb){
+			service.UpdatePreparedStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StatementName",params,undefined,false); 
@@ -669,9 +604,7 @@ module.exports = function(RED) {
 
 			svc.updatePreparedStatement(params,cb);
 		}
-
-		
-		service.UpdateWorkGroup=function(svc,msg,cb){
+			service.UpdateWorkGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkGroup",params,undefined,false); 
@@ -689,9 +622,7 @@ module.exports = function(RED) {
 
 			svc.updateWorkGroup(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Athena", AmazonAPINode);
 

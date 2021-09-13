@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchAssociateScramSecret=function(svc,msg,cb){
+			service.BatchAssociateScramSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -109,14 +108,12 @@ module.exports = function(RED) {
 
 			svc.batchAssociateScramSecret(params,cb);
 		}
-
-		
-		service.CreateCluster=function(svc,msg,cb){
+			service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerNodeGroupInfo",params,undefined,true); 
 			copyArgs(n,"KafkaVersion",params,undefined,false); 
-			copyArgs(n,"NumberOfBrokerNodes",params,undefined,false); 
+			copyArgs(Number(n),"NumberOfBrokerNodes",params,undefined,false); 
 			copyArgs(n,"ClusterName",params,undefined,false); 
 			
 			copyArgs(n,"BrokerNodeGroupInfo",params,undefined,true); 
@@ -128,7 +125,7 @@ module.exports = function(RED) {
 			copyArgs(n,"OpenMonitoring",params,undefined,true); 
 			copyArgs(n,"KafkaVersion",params,undefined,false); 
 			copyArgs(n,"LoggingInfo",params,undefined,true); 
-			copyArgs(n,"NumberOfBrokerNodes",params,undefined,false); 
+			copyArgs(Number(n),"NumberOfBrokerNodes",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"BrokerNodeGroupInfo",params,undefined,true); 
@@ -146,18 +143,16 @@ module.exports = function(RED) {
 
 			svc.createCluster(params,cb);
 		}
-
-		
-		service.CreateConfiguration=function(svc,msg,cb){
+			service.CreateConfiguration=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"ServerProperties",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"KafkaVersions",params,undefined,true); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"ServerProperties",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
 			
 			copyArgs(msg,"Description",params,undefined,false); 
 			copyArgs(msg,"KafkaVersions",params,undefined,true); 
@@ -167,9 +162,7 @@ module.exports = function(RED) {
 
 			svc.createConfiguration(params,cb);
 		}
-
-		
-		service.DeleteCluster=function(svc,msg,cb){
+			service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -183,9 +176,7 @@ module.exports = function(RED) {
 
 			svc.deleteCluster(params,cb);
 		}
-
-		
-		service.DeleteConfiguration=function(svc,msg,cb){
+			service.DeleteConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -197,9 +188,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfiguration(params,cb);
 		}
-
-		
-		service.DescribeCluster=function(svc,msg,cb){
+			service.DescribeCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -211,9 +200,7 @@ module.exports = function(RED) {
 
 			svc.describeCluster(params,cb);
 		}
-
-		
-		service.DescribeClusterOperation=function(svc,msg,cb){
+			service.DescribeClusterOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterOperationArn",params,undefined,false); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.describeClusterOperation(params,cb);
 		}
-
-		
-		service.DescribeConfiguration=function(svc,msg,cb){
+			service.DescribeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.describeConfiguration(params,cb);
 		}
-
-		
-		service.DescribeConfigurationRevision=function(svc,msg,cb){
+			service.DescribeConfigurationRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Revision",params,undefined,false); 
@@ -256,9 +239,7 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationRevision(params,cb);
 		}
-
-		
-		service.BatchDisassociateScramSecret=function(svc,msg,cb){
+			service.BatchDisassociateScramSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -273,9 +254,7 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateScramSecret(params,cb);
 		}
-
-		
-		service.GetBootstrapBrokers=function(svc,msg,cb){
+			service.GetBootstrapBrokers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -287,9 +266,7 @@ module.exports = function(RED) {
 
 			svc.getBootstrapBrokers(params,cb);
 		}
-
-		
-		service.GetCompatibleKafkaVersions=function(svc,msg,cb){
+			service.GetCompatibleKafkaVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -300,15 +277,13 @@ module.exports = function(RED) {
 
 			svc.getCompatibleKafkaVersions(params,cb);
 		}
-
-		
-		service.ListClusterOperations=function(svc,msg,cb){
+			service.ListClusterOperations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterArn",params,undefined,false); 
@@ -318,14 +293,12 @@ module.exports = function(RED) {
 
 			svc.listClusterOperations(params,cb);
 		}
-
-		
-		service.ListClusters=function(svc,msg,cb){
+			service.ListClusters=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ClusterNameFilter",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterNameFilter",params,undefined,false); 
@@ -335,15 +308,13 @@ module.exports = function(RED) {
 
 			svc.listClusters(params,cb);
 		}
-
-		
-		service.ListConfigurationRevisions=function(svc,msg,cb){
+			service.ListConfigurationRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
 			
 			copyArgs(n,"Arn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Arn",params,undefined,false); 
@@ -353,13 +324,11 @@ module.exports = function(RED) {
 
 			svc.listConfigurationRevisions(params,cb);
 		}
-
-		
-		service.ListConfigurations=function(svc,msg,cb){
+			service.ListConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -368,13 +337,11 @@ module.exports = function(RED) {
 
 			svc.listConfigurations(params,cb);
 		}
-
-		
-		service.ListKafkaVersions=function(svc,msg,cb){
+			service.ListKafkaVersions=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -383,15 +350,13 @@ module.exports = function(RED) {
 
 			svc.listKafkaVersions(params,cb);
 		}
-
-		
-		service.ListNodes=function(svc,msg,cb){
+			service.ListNodes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterArn",params,undefined,false); 
@@ -401,15 +366,13 @@ module.exports = function(RED) {
 
 			svc.listNodes(params,cb);
 		}
-
-		
-		service.ListScramSecrets=function(svc,msg,cb){
+			service.ListScramSecrets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterArn",params,undefined,false); 
@@ -419,9 +382,7 @@ module.exports = function(RED) {
 
 			svc.listScramSecrets(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -433,9 +394,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RebootBroker=function(svc,msg,cb){
+			service.RebootBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -450,9 +409,7 @@ module.exports = function(RED) {
 
 			svc.rebootBroker(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -467,9 +424,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -484,18 +439,16 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateBrokerCount=function(svc,msg,cb){
+			service.UpdateBrokerCount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
 			copyArgs(n,"CurrentVersion",params,undefined,false); 
-			copyArgs(n,"TargetNumberOfBrokerNodes",params,undefined,false); 
+			copyArgs(Number(n),"TargetNumberOfBrokerNodes",params,undefined,false); 
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
 			copyArgs(n,"CurrentVersion",params,undefined,false); 
-			copyArgs(n,"TargetNumberOfBrokerNodes",params,undefined,false); 
+			copyArgs(Number(n),"TargetNumberOfBrokerNodes",params,undefined,false); 
 			
 			copyArgs(msg,"ClusterArn",params,undefined,false); 
 			copyArgs(msg,"CurrentVersion",params,undefined,false); 
@@ -504,9 +457,7 @@ module.exports = function(RED) {
 
 			svc.updateBrokerCount(params,cb);
 		}
-
-		
-		service.UpdateBrokerType=function(svc,msg,cb){
+			service.UpdateBrokerType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -524,9 +475,7 @@ module.exports = function(RED) {
 
 			svc.updateBrokerType(params,cb);
 		}
-
-		
-		service.UpdateBrokerStorage=function(svc,msg,cb){
+			service.UpdateBrokerStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -544,17 +493,15 @@ module.exports = function(RED) {
 
 			svc.updateBrokerStorage(params,cb);
 		}
-
-		
-		service.UpdateConfiguration=function(svc,msg,cb){
+			service.UpdateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
-			copyArgs(n,"ServerProperties",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
 			
 			copyArgs(n,"Arn",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"ServerProperties",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
 			
 			copyArgs(msg,"Arn",params,undefined,false); 
 			copyArgs(msg,"Description",params,undefined,false); 
@@ -563,9 +510,7 @@ module.exports = function(RED) {
 
 			svc.updateConfiguration(params,cb);
 		}
-
-		
-		service.UpdateClusterConfiguration=function(svc,msg,cb){
+			service.UpdateClusterConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -583,9 +528,7 @@ module.exports = function(RED) {
 
 			svc.updateClusterConfiguration(params,cb);
 		}
-
-		
-		service.UpdateClusterKafkaVersion=function(svc,msg,cb){
+			service.UpdateClusterKafkaVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -605,9 +548,7 @@ module.exports = function(RED) {
 
 			svc.updateClusterKafkaVersion(params,cb);
 		}
-
-		
-		service.UpdateMonitoring=function(svc,msg,cb){
+			service.UpdateMonitoring=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterArn",params,undefined,false); 
@@ -628,9 +569,7 @@ module.exports = function(RED) {
 
 			svc.updateMonitoring(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Kafka", AmazonAPINode);
 

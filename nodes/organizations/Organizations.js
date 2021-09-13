@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptHandshake=function(svc,msg,cb){
+			service.AcceptHandshake=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HandshakeId",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.acceptHandshake(params,cb);
 		}
-
-		
-		service.AttachPolicy=function(svc,msg,cb){
+			service.AttachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.attachPolicy(params,cb);
 		}
-
-		
-		service.CancelHandshake=function(svc,msg,cb){
+			service.CancelHandshake=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HandshakeId",params,undefined,false); 
@@ -137,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.cancelHandshake(params,cb);
 		}
-
-		
-		service.CreateAccount=function(svc,msg,cb){
+			service.CreateAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Email",params,undefined,true); 
@@ -160,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.createAccount(params,cb);
 		}
-
-		
-		service.CreateGovCloudAccount=function(svc,msg,cb){
+			service.CreateGovCloudAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Email",params,undefined,true); 
@@ -183,9 +174,7 @@ module.exports = function(RED) {
 
 			svc.createGovCloudAccount(params,cb);
 		}
-
-		
-		service.CreateOrganization=function(svc,msg,cb){
+			service.CreateOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -196,9 +185,7 @@ module.exports = function(RED) {
 
 			svc.createOrganization(params,cb);
 		}
-
-		
-		service.CreateOrganizationalUnit=function(svc,msg,cb){
+			service.CreateOrganizationalUnit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
@@ -215,9 +202,7 @@ module.exports = function(RED) {
 
 			svc.createOrganizationalUnit(params,cb);
 		}
-
-		
-		service.CreatePolicy=function(svc,msg,cb){
+			service.CreatePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Content",params,undefined,false); 
@@ -240,9 +225,7 @@ module.exports = function(RED) {
 
 			svc.createPolicy(params,cb);
 		}
-
-		
-		service.DeclineHandshake=function(svc,msg,cb){
+			service.DeclineHandshake=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HandshakeId",params,undefined,false); 
@@ -254,9 +237,7 @@ module.exports = function(RED) {
 
 			svc.declineHandshake(params,cb);
 		}
-
-		
-		service.DeleteOrganization=function(svc,msg,cb){
+			service.DeleteOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -265,9 +246,7 @@ module.exports = function(RED) {
 
 			svc.deleteOrganization(params,cb);
 		}
-
-		
-		service.DeleteOrganizationalUnit=function(svc,msg,cb){
+			service.DeleteOrganizationalUnit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationalUnitId",params,undefined,false); 
@@ -279,9 +258,7 @@ module.exports = function(RED) {
 
 			svc.deleteOrganizationalUnit(params,cb);
 		}
-
-		
-		service.DeletePolicy=function(svc,msg,cb){
+			service.DeletePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -293,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.deletePolicy(params,cb);
 		}
-
-		
-		service.DeregisterDelegatedAdministrator=function(svc,msg,cb){
+			service.DeregisterDelegatedAdministrator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -310,9 +285,7 @@ module.exports = function(RED) {
 
 			svc.deregisterDelegatedAdministrator(params,cb);
 		}
-
-		
-		service.DescribeAccount=function(svc,msg,cb){
+			service.DescribeAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -324,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.describeAccount(params,cb);
 		}
-
-		
-		service.DescribeCreateAccountStatus=function(svc,msg,cb){
+			service.DescribeCreateAccountStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CreateAccountRequestId",params,undefined,false); 
@@ -338,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.describeCreateAccountStatus(params,cb);
 		}
-
-		
-		service.DescribeEffectivePolicy=function(svc,msg,cb){
+			service.DescribeEffectivePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyType",params,undefined,false); 
@@ -354,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.describeEffectivePolicy(params,cb);
 		}
-
-		
-		service.DescribeHandshake=function(svc,msg,cb){
+			service.DescribeHandshake=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HandshakeId",params,undefined,false); 
@@ -368,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.describeHandshake(params,cb);
 		}
-
-		
-		service.DescribeOrganization=function(svc,msg,cb){
+			service.DescribeOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -379,9 +344,7 @@ module.exports = function(RED) {
 
 			svc.describeOrganization(params,cb);
 		}
-
-		
-		service.DescribeOrganizationalUnit=function(svc,msg,cb){
+			service.DescribeOrganizationalUnit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationalUnitId",params,undefined,false); 
@@ -393,9 +356,7 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationalUnit(params,cb);
 		}
-
-		
-		service.DescribePolicy=function(svc,msg,cb){
+			service.DescribePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -407,9 +368,7 @@ module.exports = function(RED) {
 
 			svc.describePolicy(params,cb);
 		}
-
-		
-		service.DetachPolicy=function(svc,msg,cb){
+			service.DetachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -424,9 +383,7 @@ module.exports = function(RED) {
 
 			svc.detachPolicy(params,cb);
 		}
-
-		
-		service.DisableAWSServiceAccess=function(svc,msg,cb){
+			service.DisableAWSServiceAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServicePrincipal",params,undefined,false); 
@@ -438,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.disableAWSServiceAccess(params,cb);
 		}
-
-		
-		service.DisablePolicyType=function(svc,msg,cb){
+			service.DisablePolicyType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RootId",params,undefined,false); 
@@ -455,9 +410,7 @@ module.exports = function(RED) {
 
 			svc.disablePolicyType(params,cb);
 		}
-
-		
-		service.EnableAWSServiceAccess=function(svc,msg,cb){
+			service.EnableAWSServiceAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServicePrincipal",params,undefined,false); 
@@ -469,9 +422,7 @@ module.exports = function(RED) {
 
 			svc.enableAWSServiceAccess(params,cb);
 		}
-
-		
-		service.EnableAllFeatures=function(svc,msg,cb){
+			service.EnableAllFeatures=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -480,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.enableAllFeatures(params,cb);
 		}
-
-		
-		service.EnablePolicyType=function(svc,msg,cb){
+			service.EnablePolicyType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RootId",params,undefined,false); 
@@ -497,9 +446,7 @@ module.exports = function(RED) {
 
 			svc.enablePolicyType(params,cb);
 		}
-
-		
-		service.InviteAccountToOrganization=function(svc,msg,cb){
+			service.InviteAccountToOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Target",params,undefined,true); 
@@ -515,9 +462,7 @@ module.exports = function(RED) {
 
 			svc.inviteAccountToOrganization(params,cb);
 		}
-
-		
-		service.LeaveOrganization=function(svc,msg,cb){
+			service.LeaveOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -526,14 +471,12 @@ module.exports = function(RED) {
 
 			svc.leaveOrganization(params,cb);
 		}
-
-		
-		service.ListAWSServiceAccessForOrganization=function(svc,msg,cb){
+			service.ListAWSServiceAccessForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -541,14 +484,12 @@ module.exports = function(RED) {
 
 			svc.listAWSServiceAccessForOrganization(params,cb);
 		}
-
-		
-		service.ListAccounts=function(svc,msg,cb){
+			service.ListAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -556,16 +497,14 @@ module.exports = function(RED) {
 
 			svc.listAccounts(params,cb);
 		}
-
-		
-		service.ListAccountsForParent=function(svc,msg,cb){
+			service.ListAccountsForParent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ParentId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -574,9 +513,7 @@ module.exports = function(RED) {
 
 			svc.listAccountsForParent(params,cb);
 		}
-
-		
-		service.ListChildren=function(svc,msg,cb){
+			service.ListChildren=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
@@ -585,7 +522,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ParentId",params,undefined,false); 
 			copyArgs(n,"ChildType",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ParentId",params,undefined,false); 
 			copyArgs(msg,"ChildType",params,undefined,false); 
@@ -595,15 +532,13 @@ module.exports = function(RED) {
 
 			svc.listChildren(params,cb);
 		}
-
-		
-		service.ListCreateAccountStatus=function(svc,msg,cb){
+			service.ListCreateAccountStatus=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"States",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"States",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -612,15 +547,13 @@ module.exports = function(RED) {
 
 			svc.listCreateAccountStatus(params,cb);
 		}
-
-		
-		service.ListDelegatedAdministrators=function(svc,msg,cb){
+			service.ListDelegatedAdministrators=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ServicePrincipal",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ServicePrincipal",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -629,16 +562,14 @@ module.exports = function(RED) {
 
 			svc.listDelegatedAdministrators(params,cb);
 		}
-
-		
-		service.ListDelegatedServicesForAccount=function(svc,msg,cb){
+			service.ListDelegatedServicesForAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -647,15 +578,13 @@ module.exports = function(RED) {
 
 			svc.listDelegatedServicesForAccount(params,cb);
 		}
-
-		
-		service.ListHandshakesForAccount=function(svc,msg,cb){
+			service.ListHandshakesForAccount=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filter",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filter",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -664,15 +593,13 @@ module.exports = function(RED) {
 
 			svc.listHandshakesForAccount(params,cb);
 		}
-
-		
-		service.ListHandshakesForOrganization=function(svc,msg,cb){
+			service.ListHandshakesForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filter",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filter",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -681,16 +608,14 @@ module.exports = function(RED) {
 
 			svc.listHandshakesForOrganization(params,cb);
 		}
-
-		
-		service.ListOrganizationalUnitsForParent=function(svc,msg,cb){
+			service.ListOrganizationalUnitsForParent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
 			
 			copyArgs(n,"ParentId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ParentId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -699,16 +624,14 @@ module.exports = function(RED) {
 
 			svc.listOrganizationalUnitsForParent(params,cb);
 		}
-
-		
-		service.ListParents=function(svc,msg,cb){
+			service.ListParents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChildId",params,undefined,false); 
 			
 			copyArgs(n,"ChildId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ChildId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -717,16 +640,14 @@ module.exports = function(RED) {
 
 			svc.listParents(params,cb);
 		}
-
-		
-		service.ListPolicies=function(svc,msg,cb){
+			service.ListPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Filter",params,undefined,false); 
 			
 			copyArgs(n,"Filter",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Filter",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -735,9 +656,7 @@ module.exports = function(RED) {
 
 			svc.listPolicies(params,cb);
 		}
-
-		
-		service.ListPoliciesForTarget=function(svc,msg,cb){
+			service.ListPoliciesForTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetId",params,undefined,false); 
@@ -746,7 +665,7 @@ module.exports = function(RED) {
 			copyArgs(n,"TargetId",params,undefined,false); 
 			copyArgs(n,"Filter",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"TargetId",params,undefined,false); 
 			copyArgs(msg,"Filter",params,undefined,false); 
@@ -756,14 +675,12 @@ module.exports = function(RED) {
 
 			svc.listPoliciesForTarget(params,cb);
 		}
-
-		
-		service.ListRoots=function(svc,msg,cb){
+			service.ListRoots=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -771,9 +688,7 @@ module.exports = function(RED) {
 
 			svc.listRoots(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -787,16 +702,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTargetsForPolicy=function(svc,msg,cb){
+			service.ListTargetsForPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"PolicyId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -805,9 +718,7 @@ module.exports = function(RED) {
 
 			svc.listTargetsForPolicy(params,cb);
 		}
-
-		
-		service.MoveAccount=function(svc,msg,cb){
+			service.MoveAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -825,9 +736,7 @@ module.exports = function(RED) {
 
 			svc.moveAccount(params,cb);
 		}
-
-		
-		service.RegisterDelegatedAdministrator=function(svc,msg,cb){
+			service.RegisterDelegatedAdministrator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -842,9 +751,7 @@ module.exports = function(RED) {
 
 			svc.registerDelegatedAdministrator(params,cb);
 		}
-
-		
-		service.RemoveAccountFromOrganization=function(svc,msg,cb){
+			service.RemoveAccountFromOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -856,9 +763,7 @@ module.exports = function(RED) {
 
 			svc.removeAccountFromOrganization(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -873,9 +778,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -890,9 +793,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateOrganizationalUnit=function(svc,msg,cb){
+			service.UpdateOrganizationalUnit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationalUnitId",params,undefined,false); 
@@ -906,9 +807,7 @@ module.exports = function(RED) {
 
 			svc.updateOrganizationalUnit(params,cb);
 		}
-
-		
-		service.UpdatePolicy=function(svc,msg,cb){
+			service.UpdatePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -926,9 +825,7 @@ module.exports = function(RED) {
 
 			svc.updatePolicy(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Organizations", AmazonAPINode);
 

@@ -92,15 +92,14 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptQualificationRequest=function(svc,msg,cb){
+			service.AcceptQualificationRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationRequestId",params,undefined,false); 
 			
 			copyArgs(n,"QualificationRequestId",params,undefined,false); 
-			copyArgs(n,"IntegerValue",params,undefined,false); 
+			copyArgs(Number(n),"IntegerValue",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationRequestId",params,undefined,false); 
 			copyArgs(msg,"IntegerValue",params,undefined,false); 
@@ -108,16 +107,14 @@ module.exports = function(RED) {
 
 			svc.acceptQualificationRequest(params,cb);
 		}
-
-		
-		service.ApproveAssignment=function(svc,msg,cb){
+			service.ApproveAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssignmentId",params,undefined,false); 
 			
 			copyArgs(n,"AssignmentId",params,undefined,false); 
 			copyArgs(n,"RequesterFeedback",params,undefined,false); 
-			copyArgs(n,"OverrideRejection",params,undefined,false); 
+			copyArgs(Boolean(n),"OverrideRejection",params,undefined,false); 
 			
 			copyArgs(msg,"AssignmentId",params,undefined,false); 
 			copyArgs(msg,"RequesterFeedback",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.approveAssignment(params,cb);
 		}
-
-		
-		service.AssociateQualificationWithWorker=function(svc,msg,cb){
+			service.AssociateQualificationWithWorker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -136,8 +131,8 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
 			copyArgs(n,"WorkerId",params,undefined,false); 
-			copyArgs(n,"IntegerValue",params,undefined,false); 
-			copyArgs(n,"SendNotification",params,undefined,false); 
+			copyArgs(Number(n),"IntegerValue",params,undefined,false); 
+			copyArgs(Boolean(n),"SendNotification",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationTypeId",params,undefined,false); 
 			copyArgs(msg,"WorkerId",params,undefined,false); 
@@ -147,16 +142,14 @@ module.exports = function(RED) {
 
 			svc.associateQualificationWithWorker(params,cb);
 		}
-
-		
-		service.CreateAdditionalAssignmentsForHIT=function(svc,msg,cb){
+			service.CreateAdditionalAssignmentsForHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
-			copyArgs(n,"NumberOfAdditionalAssignments",params,undefined,false); 
+			copyArgs(Number(n),"NumberOfAdditionalAssignments",params,undefined,false); 
 			
 			copyArgs(n,"HITId",params,undefined,false); 
-			copyArgs(n,"NumberOfAdditionalAssignments",params,undefined,false); 
+			copyArgs(Number(n),"NumberOfAdditionalAssignments",params,undefined,false); 
 			copyArgs(n,"UniqueRequestToken",params,undefined,false); 
 			
 			copyArgs(msg,"HITId",params,undefined,false); 
@@ -166,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.createAdditionalAssignmentsForHIT(params,cb);
 		}
-
-		
-		service.CreateHIT=function(svc,msg,cb){
+			service.CreateHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LifetimeInSeconds",params,undefined,false); 
@@ -177,7 +168,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Title",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			
-			copyArgs(n,"MaxAssignments",params,undefined,false); 
+			copyArgs(Number(n),"MaxAssignments",params,undefined,false); 
 			copyArgs(n,"AutoApprovalDelayInSeconds",params,undefined,false); 
 			copyArgs(n,"LifetimeInSeconds",params,undefined,false); 
 			copyArgs(n,"AssignmentDurationInSeconds",params,undefined,false); 
@@ -214,9 +205,7 @@ module.exports = function(RED) {
 
 			svc.createHIT(params,cb);
 		}
-
-		
-		service.CreateHITType=function(svc,msg,cb){
+			service.CreateHITType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssignmentDurationInSeconds",params,undefined,false); 
@@ -243,16 +232,14 @@ module.exports = function(RED) {
 
 			svc.createHITType(params,cb);
 		}
-
-		
-		service.CreateHITWithHITType=function(svc,msg,cb){
+			service.CreateHITWithHITType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITTypeId",params,undefined,false); 
 			copyArgs(n,"LifetimeInSeconds",params,undefined,false); 
 			
 			copyArgs(n,"HITTypeId",params,undefined,false); 
-			copyArgs(n,"MaxAssignments",params,undefined,false); 
+			copyArgs(Number(n),"MaxAssignments",params,undefined,false); 
 			copyArgs(n,"LifetimeInSeconds",params,undefined,false); 
 			copyArgs(n,"Question",params,undefined,false); 
 			copyArgs(n,"RequesterAnnotation",params,undefined,false); 
@@ -276,9 +263,7 @@ module.exports = function(RED) {
 
 			svc.createHITWithHITType(params,cb);
 		}
-
-		
-		service.CreateQualificationType=function(svc,msg,cb){
+			service.CreateQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -293,8 +278,8 @@ module.exports = function(RED) {
 			copyArgs(n,"Test",params,undefined,false); 
 			copyArgs(n,"AnswerKey",params,undefined,false); 
 			copyArgs(n,"TestDurationInSeconds",params,undefined,false); 
-			copyArgs(n,"AutoGranted",params,undefined,false); 
-			copyArgs(n,"AutoGrantedValue",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoGranted",params,undefined,false); 
+			copyArgs(Number(n),"AutoGrantedValue",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"Keywords",params,undefined,false); 
@@ -310,9 +295,7 @@ module.exports = function(RED) {
 
 			svc.createQualificationType(params,cb);
 		}
-
-		
-		service.CreateWorkerBlock=function(svc,msg,cb){
+			service.CreateWorkerBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkerId",params,undefined,false); 
@@ -327,9 +310,7 @@ module.exports = function(RED) {
 
 			svc.createWorkerBlock(params,cb);
 		}
-
-		
-		service.DeleteHIT=function(svc,msg,cb){
+			service.DeleteHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
@@ -341,9 +322,7 @@ module.exports = function(RED) {
 
 			svc.deleteHIT(params,cb);
 		}
-
-		
-		service.DeleteQualificationType=function(svc,msg,cb){
+			service.DeleteQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -355,9 +334,7 @@ module.exports = function(RED) {
 
 			svc.deleteQualificationType(params,cb);
 		}
-
-		
-		service.DeleteWorkerBlock=function(svc,msg,cb){
+			service.DeleteWorkerBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkerId",params,undefined,false); 
@@ -371,9 +348,7 @@ module.exports = function(RED) {
 
 			svc.deleteWorkerBlock(params,cb);
 		}
-
-		
-		service.DisassociateQualificationFromWorker=function(svc,msg,cb){
+			service.DisassociateQualificationFromWorker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkerId",params,undefined,false); 
@@ -390,9 +365,7 @@ module.exports = function(RED) {
 
 			svc.disassociateQualificationFromWorker(params,cb);
 		}
-
-		
-		service.GetAccountBalance=function(svc,msg,cb){
+			service.GetAccountBalance=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -401,9 +374,7 @@ module.exports = function(RED) {
 
 			svc.getAccountBalance(params,cb);
 		}
-
-		
-		service.GetAssignment=function(svc,msg,cb){
+			service.GetAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssignmentId",params,undefined,false); 
@@ -415,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.getAssignment(params,cb);
 		}
-
-		
-		service.GetFileUploadURL=function(svc,msg,cb){
+			service.GetFileUploadURL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssignmentId",params,undefined,false); 
@@ -432,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.getFileUploadURL(params,cb);
 		}
-
-		
-		service.GetHIT=function(svc,msg,cb){
+			service.GetHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
@@ -446,9 +413,7 @@ module.exports = function(RED) {
 
 			svc.getHIT(params,cb);
 		}
-
-		
-		service.GetQualificationScore=function(svc,msg,cb){
+			service.GetQualificationScore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -463,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.getQualificationScore(params,cb);
 		}
-
-		
-		service.GetQualificationType=function(svc,msg,cb){
+			service.GetQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -477,16 +440,14 @@ module.exports = function(RED) {
 
 			svc.getQualificationType(params,cb);
 		}
-
-		
-		service.ListAssignmentsForHIT=function(svc,msg,cb){
+			service.ListAssignmentsForHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"AssignmentStatuses",params,undefined,false); 
 			
 			copyArgs(msg,"HITId",params,undefined,false); 
@@ -497,16 +458,14 @@ module.exports = function(RED) {
 
 			svc.listAssignmentsForHIT(params,cb);
 		}
-
-		
-		service.ListBonusPayments=function(svc,msg,cb){
+			service.ListBonusPayments=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			copyArgs(n,"AssignmentId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"HITId",params,undefined,false); 
 			copyArgs(msg,"AssignmentId",params,undefined,false); 
@@ -516,14 +475,12 @@ module.exports = function(RED) {
 
 			svc.listBonusPayments(params,cb);
 		}
-
-		
-		service.ListHITs=function(svc,msg,cb){
+			service.ListHITs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -531,16 +488,14 @@ module.exports = function(RED) {
 
 			svc.listHITs(params,cb);
 		}
-
-		
-		service.ListHITsForQualificationType=function(svc,msg,cb){
+			service.ListHITsForQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationTypeId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -549,15 +504,13 @@ module.exports = function(RED) {
 
 			svc.listHITsForQualificationType(params,cb);
 		}
-
-		
-		service.ListQualificationRequests=function(svc,msg,cb){
+			service.ListQualificationRequests=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationTypeId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -566,18 +519,16 @@ module.exports = function(RED) {
 
 			svc.listQualificationRequests(params,cb);
 		}
-
-		
-		service.ListQualificationTypes=function(svc,msg,cb){
+			service.ListQualificationTypes=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"MustBeRequestable",params,undefined,false); 
+			copyArgs(Boolean(n),"MustBeRequestable",params,undefined,false); 
 			
 			copyArgs(n,"Query",params,undefined,false); 
-			copyArgs(n,"MustBeRequestable",params,undefined,false); 
-			copyArgs(n,"MustBeOwnedByCaller",params,undefined,false); 
+			copyArgs(Boolean(n),"MustBeRequestable",params,undefined,false); 
+			copyArgs(Boolean(n),"MustBeOwnedByCaller",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Query",params,undefined,false); 
 			copyArgs(msg,"MustBeRequestable",params,undefined,false); 
@@ -588,19 +539,17 @@ module.exports = function(RED) {
 
 			svc.listQualificationTypes(params,cb);
 		}
-
-		
-		service.ListReviewPolicyResultsForHIT=function(svc,msg,cb){
+			service.ListReviewPolicyResultsForHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			copyArgs(n,"PolicyLevels",params,undefined,false); 
-			copyArgs(n,"RetrieveActions",params,undefined,false); 
-			copyArgs(n,"RetrieveResults",params,undefined,false); 
+			copyArgs(Boolean(n),"RetrieveActions",params,undefined,false); 
+			copyArgs(Boolean(n),"RetrieveResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"HITId",params,undefined,false); 
 			copyArgs(msg,"PolicyLevels",params,undefined,false); 
@@ -612,16 +561,14 @@ module.exports = function(RED) {
 
 			svc.listReviewPolicyResultsForHIT(params,cb);
 		}
-
-		
-		service.ListReviewableHITs=function(svc,msg,cb){
+			service.ListReviewableHITs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"HITTypeId",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"HITTypeId",params,undefined,false); 
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -631,14 +578,12 @@ module.exports = function(RED) {
 
 			svc.listReviewableHITs(params,cb);
 		}
-
-		
-		service.ListWorkerBlocks=function(svc,msg,cb){
+			service.ListWorkerBlocks=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -646,9 +591,7 @@ module.exports = function(RED) {
 
 			svc.listWorkerBlocks(params,cb);
 		}
-
-		
-		service.ListWorkersWithQualificationType=function(svc,msg,cb){
+			service.ListWorkersWithQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -656,7 +599,7 @@ module.exports = function(RED) {
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationTypeId",params,undefined,false); 
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -666,9 +609,7 @@ module.exports = function(RED) {
 
 			svc.listWorkersWithQualificationType(params,cb);
 		}
-
-		
-		service.NotifyWorkers=function(svc,msg,cb){
+			service.NotifyWorkers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Subject",params,undefined,false); 
@@ -686,9 +627,7 @@ module.exports = function(RED) {
 
 			svc.notifyWorkers(params,cb);
 		}
-
-		
-		service.RejectAssignment=function(svc,msg,cb){
+			service.RejectAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssignmentId",params,undefined,false); 
@@ -703,9 +642,7 @@ module.exports = function(RED) {
 
 			svc.rejectAssignment(params,cb);
 		}
-
-		
-		service.RejectQualificationRequest=function(svc,msg,cb){
+			service.RejectQualificationRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationRequestId",params,undefined,false); 
@@ -719,9 +656,7 @@ module.exports = function(RED) {
 
 			svc.rejectQualificationRequest(params,cb);
 		}
-
-		
-		service.SendBonus=function(svc,msg,cb){
+			service.SendBonus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkerId",params,undefined,false); 
@@ -744,9 +679,7 @@ module.exports = function(RED) {
 
 			svc.sendBonus(params,cb);
 		}
-
-		
-		service.SendTestEventNotification=function(svc,msg,cb){
+			service.SendTestEventNotification=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Notification",params,undefined,true); 
@@ -761,9 +694,7 @@ module.exports = function(RED) {
 
 			svc.sendTestEventNotification(params,cb);
 		}
-
-		
-		service.UpdateExpirationForHIT=function(svc,msg,cb){
+			service.UpdateExpirationForHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
@@ -778,15 +709,13 @@ module.exports = function(RED) {
 
 			svc.updateExpirationForHIT(params,cb);
 		}
-
-		
-		service.UpdateHITReviewStatus=function(svc,msg,cb){
+			service.UpdateHITReviewStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
 			
 			copyArgs(n,"HITId",params,undefined,false); 
-			copyArgs(n,"Revert",params,undefined,false); 
+			copyArgs(Boolean(n),"Revert",params,undefined,false); 
 			
 			copyArgs(msg,"HITId",params,undefined,false); 
 			copyArgs(msg,"Revert",params,undefined,false); 
@@ -794,9 +723,7 @@ module.exports = function(RED) {
 
 			svc.updateHITReviewStatus(params,cb);
 		}
-
-		
-		service.UpdateHITTypeOfHIT=function(svc,msg,cb){
+			service.UpdateHITTypeOfHIT=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITId",params,undefined,false); 
@@ -811,16 +738,14 @@ module.exports = function(RED) {
 
 			svc.updateHITTypeOfHIT(params,cb);
 		}
-
-		
-		service.UpdateNotificationSettings=function(svc,msg,cb){
+			service.UpdateNotificationSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HITTypeId",params,undefined,false); 
 			
 			copyArgs(n,"HITTypeId",params,undefined,false); 
 			copyArgs(n,"Notification",params,undefined,true); 
-			copyArgs(n,"Active",params,undefined,false); 
+			copyArgs(Boolean(n),"Active",params,undefined,false); 
 			
 			copyArgs(msg,"HITTypeId",params,undefined,false); 
 			copyArgs(msg,"Notification",params,undefined,true); 
@@ -829,9 +754,7 @@ module.exports = function(RED) {
 
 			svc.updateNotificationSettings(params,cb);
 		}
-
-		
-		service.UpdateQualificationType=function(svc,msg,cb){
+			service.UpdateQualificationType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QualificationTypeId",params,undefined,false); 
@@ -843,8 +766,8 @@ module.exports = function(RED) {
 			copyArgs(n,"AnswerKey",params,undefined,false); 
 			copyArgs(n,"TestDurationInSeconds",params,undefined,false); 
 			copyArgs(n,"RetryDelayInSeconds",params,undefined,false); 
-			copyArgs(n,"AutoGranted",params,undefined,false); 
-			copyArgs(n,"AutoGrantedValue",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoGranted",params,undefined,false); 
+			copyArgs(Number(n),"AutoGrantedValue",params,undefined,false); 
 			
 			copyArgs(msg,"QualificationTypeId",params,undefined,false); 
 			copyArgs(msg,"Description",params,undefined,false); 
@@ -859,9 +782,7 @@ module.exports = function(RED) {
 
 			svc.updateQualificationType(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MTurk", AmazonAPINode);
 

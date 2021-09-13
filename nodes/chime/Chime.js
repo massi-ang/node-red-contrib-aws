@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociatePhoneNumberWithUser=function(svc,msg,cb){
+			service.AssociatePhoneNumberWithUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.associatePhoneNumberWithUser(params,cb);
 		}
-
-		
-		service.AssociatePhoneNumbersWithVoiceConnector=function(svc,msg,cb){
+			service.AssociatePhoneNumbersWithVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -122,7 +119,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"E164PhoneNumbers",params,undefined,true); 
-			copyArgs(n,"ForceAssociate",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceAssociate",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(msg,"E164PhoneNumbers",params,undefined,true); 
@@ -131,9 +128,7 @@ module.exports = function(RED) {
 
 			svc.associatePhoneNumbersWithVoiceConnector(params,cb);
 		}
-
-		
-		service.AssociatePhoneNumbersWithVoiceConnectorGroup=function(svc,msg,cb){
+			service.AssociatePhoneNumbersWithVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
@@ -141,7 +136,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
 			copyArgs(n,"E164PhoneNumbers",params,undefined,true); 
-			copyArgs(n,"ForceAssociate",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceAssociate",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorGroupId",params,undefined,false); 
 			copyArgs(msg,"E164PhoneNumbers",params,undefined,true); 
@@ -150,9 +145,7 @@ module.exports = function(RED) {
 
 			svc.associatePhoneNumbersWithVoiceConnectorGroup(params,cb);
 		}
-
-		
-		service.AssociateSigninDelegateGroupsWithAccount=function(svc,msg,cb){
+			service.AssociateSigninDelegateGroupsWithAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -167,9 +160,7 @@ module.exports = function(RED) {
 
 			svc.associateSigninDelegateGroupsWithAccount(params,cb);
 		}
-
-		
-		service.BatchCreateAttendee=function(svc,msg,cb){
+			service.BatchCreateAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -184,9 +175,7 @@ module.exports = function(RED) {
 
 			svc.batchCreateAttendee(params,cb);
 		}
-
-		
-		service.BatchCreateChannelMembership=function(svc,msg,cb){
+			service.BatchCreateChannelMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -205,9 +194,7 @@ module.exports = function(RED) {
 
 			svc.batchCreateChannelMembership(params,cb);
 		}
-
-		
-		service.BatchCreateRoomMembership=function(svc,msg,cb){
+			service.BatchCreateRoomMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -225,9 +212,7 @@ module.exports = function(RED) {
 
 			svc.batchCreateRoomMembership(params,cb);
 		}
-
-		
-		service.BatchDeletePhoneNumber=function(svc,msg,cb){
+			service.BatchDeletePhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberIds",params,undefined,true); 
@@ -239,9 +224,7 @@ module.exports = function(RED) {
 
 			svc.batchDeletePhoneNumber(params,cb);
 		}
-
-		
-		service.BatchSuspendUser=function(svc,msg,cb){
+			service.BatchSuspendUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -256,9 +239,7 @@ module.exports = function(RED) {
 
 			svc.batchSuspendUser(params,cb);
 		}
-
-		
-		service.BatchUnsuspendUser=function(svc,msg,cb){
+			service.BatchUnsuspendUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -273,9 +254,7 @@ module.exports = function(RED) {
 
 			svc.batchUnsuspendUser(params,cb);
 		}
-
-		
-		service.BatchUpdatePhoneNumber=function(svc,msg,cb){
+			service.BatchUpdatePhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UpdatePhoneNumberRequestItems",params,undefined,false); 
@@ -287,9 +266,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdatePhoneNumber(params,cb);
 		}
-
-		
-		service.BatchUpdateUser=function(svc,msg,cb){
+			service.BatchUpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -304,9 +281,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdateUser(params,cb);
 		}
-
-		
-		service.CreateAccount=function(svc,msg,cb){
+			service.CreateAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -318,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.createAccount(params,cb);
 		}
-
-		
-		service.CreateAppInstance=function(svc,msg,cb){
+			service.CreateAppInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,true); 
@@ -339,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.createAppInstance(params,cb);
 		}
-
-		
-		service.CreateAppInstanceAdmin=function(svc,msg,cb){
+			service.CreateAppInstanceAdmin=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceAdminArn",params,undefined,false); 
@@ -356,9 +327,7 @@ module.exports = function(RED) {
 
 			svc.createAppInstanceAdmin(params,cb);
 		}
-
-		
-		service.CreateAppInstanceUser=function(svc,msg,cb){
+			service.CreateAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -383,9 +352,7 @@ module.exports = function(RED) {
 
 			svc.createAppInstanceUser(params,cb);
 		}
-
-		
-		service.CreateAttendee=function(svc,msg,cb){
+			service.CreateAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -402,9 +369,7 @@ module.exports = function(RED) {
 
 			svc.createAttendee(params,cb);
 		}
-
-		
-		service.CreateBot=function(svc,msg,cb){
+			service.CreateBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DisplayName",params,undefined,true); 
@@ -421,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.createBot(params,cb);
 		}
-
-		
-		service.CreateChannel=function(svc,msg,cb){
+			service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -451,9 +414,7 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-
-		
-		service.CreateChannelBan=function(svc,msg,cb){
+			service.CreateChannelBan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -470,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.createChannelBan(params,cb);
 		}
-
-		
-		service.CreateChannelMembership=function(svc,msg,cb){
+			service.CreateChannelMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -492,9 +451,7 @@ module.exports = function(RED) {
 
 			svc.createChannelMembership(params,cb);
 		}
-
-		
-		service.CreateChannelModerator=function(svc,msg,cb){
+			service.CreateChannelModerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -511,9 +468,7 @@ module.exports = function(RED) {
 
 			svc.createChannelModerator(params,cb);
 		}
-
-		
-		service.CreateMediaCapturePipeline=function(svc,msg,cb){
+			service.CreateMediaCapturePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceType",params,undefined,false); 
@@ -536,9 +491,7 @@ module.exports = function(RED) {
 
 			svc.createMediaCapturePipeline(params,cb);
 		}
-
-		
-		service.CreateMeeting=function(svc,msg,cb){
+			service.CreateMeeting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,true); 
@@ -560,9 +513,7 @@ module.exports = function(RED) {
 
 			svc.createMeeting(params,cb);
 		}
-
-		
-		service.CreateMeetingDialOut=function(svc,msg,cb){
+			service.CreateMeetingDialOut=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -583,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.createMeetingDialOut(params,cb);
 		}
-
-		
-		service.CreateMeetingWithAttendees=function(svc,msg,cb){
+			service.CreateMeetingWithAttendees=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientRequestToken",params,undefined,true); 
@@ -609,9 +558,7 @@ module.exports = function(RED) {
 
 			svc.createMeetingWithAttendees(params,cb);
 		}
-
-		
-		service.CreatePhoneNumberOrder=function(svc,msg,cb){
+			service.CreatePhoneNumberOrder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductType",params,undefined,false); 
@@ -626,9 +573,7 @@ module.exports = function(RED) {
 
 			svc.createPhoneNumberOrder(params,cb);
 		}
-
-		
-		service.CreateProxySession=function(svc,msg,cb){
+			service.CreateProxySession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParticipantPhoneNumbers",params,undefined,false); 
@@ -638,7 +583,7 @@ module.exports = function(RED) {
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"ParticipantPhoneNumbers",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"ExpiryMinutes",params,undefined,false); 
+			copyArgs(Number(n),"ExpiryMinutes",params,undefined,false); 
 			copyArgs(n,"Capabilities",params,undefined,true); 
 			copyArgs(n,"NumberSelectionBehavior",params,undefined,false); 
 			copyArgs(n,"GeoMatchLevel",params,undefined,false); 
@@ -656,9 +601,7 @@ module.exports = function(RED) {
 
 			svc.createProxySession(params,cb);
 		}
-
-		
-		service.CreateRoom=function(svc,msg,cb){
+			service.CreateRoom=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -675,9 +618,7 @@ module.exports = function(RED) {
 
 			svc.createRoom(params,cb);
 		}
-
-		
-		service.CreateRoomMembership=function(svc,msg,cb){
+			service.CreateRoomMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -697,9 +638,7 @@ module.exports = function(RED) {
 
 			svc.createRoomMembership(params,cb);
 		}
-
-		
-		service.CreateSipMediaApplication=function(svc,msg,cb){
+			service.CreateSipMediaApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsRegion",params,undefined,false); 
@@ -717,9 +656,7 @@ module.exports = function(RED) {
 
 			svc.createSipMediaApplication(params,cb);
 		}
-
-		
-		service.CreateSipMediaApplicationCall=function(svc,msg,cb){
+			service.CreateSipMediaApplicationCall=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FromPhoneNumber",params,undefined,true); 
@@ -737,9 +674,7 @@ module.exports = function(RED) {
 
 			svc.createSipMediaApplicationCall(params,cb);
 		}
-
-		
-		service.CreateSipRule=function(svc,msg,cb){
+			service.CreateSipRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -750,7 +685,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"TriggerType",params,undefined,false); 
 			copyArgs(n,"TriggerValue",params,undefined,false); 
-			copyArgs(n,"Disabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Disabled",params,undefined,false); 
 			copyArgs(n,"TargetApplications",params,undefined,true); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -762,9 +697,7 @@ module.exports = function(RED) {
 
 			svc.createSipRule(params,cb);
 		}
-
-		
-		service.CreateUser=function(svc,msg,cb){
+			service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -782,17 +715,15 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-
-		
-		service.CreateVoiceConnector=function(svc,msg,cb){
+			service.CreateVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"RequireEncryption",params,undefined,false); 
+			copyArgs(Boolean(n),"RequireEncryption",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"AwsRegion",params,undefined,false); 
-			copyArgs(n,"RequireEncryption",params,undefined,false); 
+			copyArgs(Boolean(n),"RequireEncryption",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"AwsRegion",params,undefined,false); 
@@ -801,9 +732,7 @@ module.exports = function(RED) {
 
 			svc.createVoiceConnector(params,cb);
 		}
-
-		
-		service.CreateVoiceConnectorGroup=function(svc,msg,cb){
+			service.CreateVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -817,9 +746,7 @@ module.exports = function(RED) {
 
 			svc.createVoiceConnectorGroup(params,cb);
 		}
-
-		
-		service.DeleteAccount=function(svc,msg,cb){
+			service.DeleteAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -831,9 +758,7 @@ module.exports = function(RED) {
 
 			svc.deleteAccount(params,cb);
 		}
-
-		
-		service.DeleteAppInstance=function(svc,msg,cb){
+			service.DeleteAppInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -845,9 +770,7 @@ module.exports = function(RED) {
 
 			svc.deleteAppInstance(params,cb);
 		}
-
-		
-		service.DeleteAppInstanceAdmin=function(svc,msg,cb){
+			service.DeleteAppInstanceAdmin=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceAdminArn",params,undefined,false); 
@@ -862,9 +785,7 @@ module.exports = function(RED) {
 
 			svc.deleteAppInstanceAdmin(params,cb);
 		}
-
-		
-		service.DeleteAppInstanceStreamingConfigurations=function(svc,msg,cb){
+			service.DeleteAppInstanceStreamingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -876,9 +797,7 @@ module.exports = function(RED) {
 
 			svc.deleteAppInstanceStreamingConfigurations(params,cb);
 		}
-
-		
-		service.DeleteAppInstanceUser=function(svc,msg,cb){
+			service.DeleteAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceUserArn",params,undefined,false); 
@@ -890,9 +809,7 @@ module.exports = function(RED) {
 
 			svc.deleteAppInstanceUser(params,cb);
 		}
-
-		
-		service.DeleteAttendee=function(svc,msg,cb){
+			service.DeleteAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -907,9 +824,7 @@ module.exports = function(RED) {
 
 			svc.deleteAttendee(params,cb);
 		}
-
-		
-		service.DeleteChannel=function(svc,msg,cb){
+			service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -923,9 +838,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-
-		
-		service.DeleteChannelBan=function(svc,msg,cb){
+			service.DeleteChannelBan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -942,9 +855,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannelBan(params,cb);
 		}
-
-		
-		service.DeleteChannelMembership=function(svc,msg,cb){
+			service.DeleteChannelMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -961,9 +872,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannelMembership(params,cb);
 		}
-
-		
-		service.DeleteChannelMessage=function(svc,msg,cb){
+			service.DeleteChannelMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -980,9 +889,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannelMessage(params,cb);
 		}
-
-		
-		service.DeleteChannelModerator=function(svc,msg,cb){
+			service.DeleteChannelModerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -999,9 +906,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannelModerator(params,cb);
 		}
-
-		
-		service.DeleteEventsConfiguration=function(svc,msg,cb){
+			service.DeleteEventsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1016,9 +921,7 @@ module.exports = function(RED) {
 
 			svc.deleteEventsConfiguration(params,cb);
 		}
-
-		
-		service.DeleteMediaCapturePipeline=function(svc,msg,cb){
+			service.DeleteMediaCapturePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MediaPipelineId",params,undefined,false); 
@@ -1030,9 +933,7 @@ module.exports = function(RED) {
 
 			svc.deleteMediaCapturePipeline(params,cb);
 		}
-
-		
-		service.DeleteMeeting=function(svc,msg,cb){
+			service.DeleteMeeting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -1044,9 +945,7 @@ module.exports = function(RED) {
 
 			svc.deleteMeeting(params,cb);
 		}
-
-		
-		service.DeletePhoneNumber=function(svc,msg,cb){
+			service.DeletePhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberId",params,undefined,false); 
@@ -1058,9 +957,7 @@ module.exports = function(RED) {
 
 			svc.deletePhoneNumber(params,cb);
 		}
-
-		
-		service.DeleteProxySession=function(svc,msg,cb){
+			service.DeleteProxySession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1075,9 +972,7 @@ module.exports = function(RED) {
 
 			svc.deleteProxySession(params,cb);
 		}
-
-		
-		service.DeleteRoom=function(svc,msg,cb){
+			service.DeleteRoom=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1092,9 +987,7 @@ module.exports = function(RED) {
 
 			svc.deleteRoom(params,cb);
 		}
-
-		
-		service.DeleteRoomMembership=function(svc,msg,cb){
+			service.DeleteRoomMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1112,9 +1005,7 @@ module.exports = function(RED) {
 
 			svc.deleteRoomMembership(params,cb);
 		}
-
-		
-		service.DeleteSipMediaApplication=function(svc,msg,cb){
+			service.DeleteSipMediaApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -1126,9 +1017,7 @@ module.exports = function(RED) {
 
 			svc.deleteSipMediaApplication(params,cb);
 		}
-
-		
-		service.DeleteSipRule=function(svc,msg,cb){
+			service.DeleteSipRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipRuleId",params,undefined,false); 
@@ -1140,9 +1029,7 @@ module.exports = function(RED) {
 
 			svc.deleteSipRule(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnector=function(svc,msg,cb){
+			service.DeleteVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1154,9 +1041,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnector(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
+			service.DeleteVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1168,9 +1053,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorEmergencyCallingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorGroup=function(svc,msg,cb){
+			service.DeleteVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
@@ -1182,9 +1065,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorGroup(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorOrigination=function(svc,msg,cb){
+			service.DeleteVoiceConnectorOrigination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1196,9 +1077,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorOrigination(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorProxy=function(svc,msg,cb){
+			service.DeleteVoiceConnectorProxy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1210,9 +1089,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorProxy(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
+			service.DeleteVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1224,9 +1101,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorStreamingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorTermination=function(svc,msg,cb){
+			service.DeleteVoiceConnectorTermination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1238,9 +1113,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorTermination(params,cb);
 		}
-
-		
-		service.DeleteVoiceConnectorTerminationCredentials=function(svc,msg,cb){
+			service.DeleteVoiceConnectorTerminationCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Usernames",params,undefined,true); 
@@ -1255,9 +1128,7 @@ module.exports = function(RED) {
 
 			svc.deleteVoiceConnectorTerminationCredentials(params,cb);
 		}
-
-		
-		service.DescribeAppInstance=function(svc,msg,cb){
+			service.DescribeAppInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -1269,9 +1140,7 @@ module.exports = function(RED) {
 
 			svc.describeAppInstance(params,cb);
 		}
-
-		
-		service.DescribeAppInstanceAdmin=function(svc,msg,cb){
+			service.DescribeAppInstanceAdmin=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceAdminArn",params,undefined,false); 
@@ -1286,9 +1155,7 @@ module.exports = function(RED) {
 
 			svc.describeAppInstanceAdmin(params,cb);
 		}
-
-		
-		service.DescribeAppInstanceUser=function(svc,msg,cb){
+			service.DescribeAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceUserArn",params,undefined,false); 
@@ -1300,9 +1167,7 @@ module.exports = function(RED) {
 
 			svc.describeAppInstanceUser(params,cb);
 		}
-
-		
-		service.DescribeChannel=function(svc,msg,cb){
+			service.DescribeChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1316,9 +1181,7 @@ module.exports = function(RED) {
 
 			svc.describeChannel(params,cb);
 		}
-
-		
-		service.DescribeChannelBan=function(svc,msg,cb){
+			service.DescribeChannelBan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1335,9 +1198,7 @@ module.exports = function(RED) {
 
 			svc.describeChannelBan(params,cb);
 		}
-
-		
-		service.DescribeChannelMembership=function(svc,msg,cb){
+			service.DescribeChannelMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1354,9 +1215,7 @@ module.exports = function(RED) {
 
 			svc.describeChannelMembership(params,cb);
 		}
-
-		
-		service.DescribeChannelMembershipForAppInstanceUser=function(svc,msg,cb){
+			service.DescribeChannelMembershipForAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1373,9 +1232,7 @@ module.exports = function(RED) {
 
 			svc.describeChannelMembershipForAppInstanceUser(params,cb);
 		}
-
-		
-		service.DescribeChannelModeratedByAppInstanceUser=function(svc,msg,cb){
+			service.DescribeChannelModeratedByAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1392,9 +1249,7 @@ module.exports = function(RED) {
 
 			svc.describeChannelModeratedByAppInstanceUser(params,cb);
 		}
-
-		
-		service.DescribeChannelModerator=function(svc,msg,cb){
+			service.DescribeChannelModerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1411,9 +1266,7 @@ module.exports = function(RED) {
 
 			svc.describeChannelModerator(params,cb);
 		}
-
-		
-		service.DisassociatePhoneNumberFromUser=function(svc,msg,cb){
+			service.DisassociatePhoneNumberFromUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1428,9 +1281,7 @@ module.exports = function(RED) {
 
 			svc.disassociatePhoneNumberFromUser(params,cb);
 		}
-
-		
-		service.DisassociatePhoneNumbersFromVoiceConnector=function(svc,msg,cb){
+			service.DisassociatePhoneNumbersFromVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1445,9 +1296,7 @@ module.exports = function(RED) {
 
 			svc.disassociatePhoneNumbersFromVoiceConnector(params,cb);
 		}
-
-		
-		service.DisassociatePhoneNumbersFromVoiceConnectorGroup=function(svc,msg,cb){
+			service.DisassociatePhoneNumbersFromVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
@@ -1462,9 +1311,7 @@ module.exports = function(RED) {
 
 			svc.disassociatePhoneNumbersFromVoiceConnectorGroup(params,cb);
 		}
-
-		
-		service.DisassociateSigninDelegateGroupsFromAccount=function(svc,msg,cb){
+			service.DisassociateSigninDelegateGroupsFromAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1479,9 +1326,7 @@ module.exports = function(RED) {
 
 			svc.disassociateSigninDelegateGroupsFromAccount(params,cb);
 		}
-
-		
-		service.GetAccount=function(svc,msg,cb){
+			service.GetAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1493,9 +1338,7 @@ module.exports = function(RED) {
 
 			svc.getAccount(params,cb);
 		}
-
-		
-		service.GetAccountSettings=function(svc,msg,cb){
+			service.GetAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1507,9 +1350,7 @@ module.exports = function(RED) {
 
 			svc.getAccountSettings(params,cb);
 		}
-
-		
-		service.GetAppInstanceRetentionSettings=function(svc,msg,cb){
+			service.GetAppInstanceRetentionSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -1521,9 +1362,7 @@ module.exports = function(RED) {
 
 			svc.getAppInstanceRetentionSettings(params,cb);
 		}
-
-		
-		service.GetAppInstanceStreamingConfigurations=function(svc,msg,cb){
+			service.GetAppInstanceStreamingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -1535,9 +1374,7 @@ module.exports = function(RED) {
 
 			svc.getAppInstanceStreamingConfigurations(params,cb);
 		}
-
-		
-		service.GetAttendee=function(svc,msg,cb){
+			service.GetAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -1552,9 +1389,7 @@ module.exports = function(RED) {
 
 			svc.getAttendee(params,cb);
 		}
-
-		
-		service.GetBot=function(svc,msg,cb){
+			service.GetBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1569,9 +1404,7 @@ module.exports = function(RED) {
 
 			svc.getBot(params,cb);
 		}
-
-		
-		service.GetChannelMessage=function(svc,msg,cb){
+			service.GetChannelMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -1588,9 +1421,7 @@ module.exports = function(RED) {
 
 			svc.getChannelMessage(params,cb);
 		}
-
-		
-		service.GetEventsConfiguration=function(svc,msg,cb){
+			service.GetEventsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1605,9 +1436,7 @@ module.exports = function(RED) {
 
 			svc.getEventsConfiguration(params,cb);
 		}
-
-		
-		service.GetGlobalSettings=function(svc,msg,cb){
+			service.GetGlobalSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1616,9 +1445,7 @@ module.exports = function(RED) {
 
 			svc.getGlobalSettings(params,cb);
 		}
-
-		
-		service.GetMediaCapturePipeline=function(svc,msg,cb){
+			service.GetMediaCapturePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MediaPipelineId",params,undefined,false); 
@@ -1630,9 +1457,7 @@ module.exports = function(RED) {
 
 			svc.getMediaCapturePipeline(params,cb);
 		}
-
-		
-		service.GetMeeting=function(svc,msg,cb){
+			service.GetMeeting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -1644,9 +1469,7 @@ module.exports = function(RED) {
 
 			svc.getMeeting(params,cb);
 		}
-
-		
-		service.GetMessagingSessionEndpoint=function(svc,msg,cb){
+			service.GetMessagingSessionEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1655,9 +1478,7 @@ module.exports = function(RED) {
 
 			svc.getMessagingSessionEndpoint(params,cb);
 		}
-
-		
-		service.GetPhoneNumber=function(svc,msg,cb){
+			service.GetPhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberId",params,undefined,false); 
@@ -1669,9 +1490,7 @@ module.exports = function(RED) {
 
 			svc.getPhoneNumber(params,cb);
 		}
-
-		
-		service.GetPhoneNumberOrder=function(svc,msg,cb){
+			service.GetPhoneNumberOrder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberOrderId",params,undefined,false); 
@@ -1683,9 +1502,7 @@ module.exports = function(RED) {
 
 			svc.getPhoneNumberOrder(params,cb);
 		}
-
-		
-		service.GetPhoneNumberSettings=function(svc,msg,cb){
+			service.GetPhoneNumberSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1694,9 +1511,7 @@ module.exports = function(RED) {
 
 			svc.getPhoneNumberSettings(params,cb);
 		}
-
-		
-		service.GetProxySession=function(svc,msg,cb){
+			service.GetProxySession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1711,9 +1526,7 @@ module.exports = function(RED) {
 
 			svc.getProxySession(params,cb);
 		}
-
-		
-		service.GetRetentionSettings=function(svc,msg,cb){
+			service.GetRetentionSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1725,9 +1538,7 @@ module.exports = function(RED) {
 
 			svc.getRetentionSettings(params,cb);
 		}
-
-		
-		service.GetRoom=function(svc,msg,cb){
+			service.GetRoom=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1742,9 +1553,7 @@ module.exports = function(RED) {
 
 			svc.getRoom(params,cb);
 		}
-
-		
-		service.GetSipMediaApplication=function(svc,msg,cb){
+			service.GetSipMediaApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -1756,9 +1565,7 @@ module.exports = function(RED) {
 
 			svc.getSipMediaApplication(params,cb);
 		}
-
-		
-		service.GetSipMediaApplicationLoggingConfiguration=function(svc,msg,cb){
+			service.GetSipMediaApplicationLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -1770,9 +1577,7 @@ module.exports = function(RED) {
 
 			svc.getSipMediaApplicationLoggingConfiguration(params,cb);
 		}
-
-		
-		service.GetSipRule=function(svc,msg,cb){
+			service.GetSipRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipRuleId",params,undefined,false); 
@@ -1784,9 +1589,7 @@ module.exports = function(RED) {
 
 			svc.getSipRule(params,cb);
 		}
-
-		
-		service.GetUser=function(svc,msg,cb){
+			service.GetUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1801,9 +1604,7 @@ module.exports = function(RED) {
 
 			svc.getUser(params,cb);
 		}
-
-		
-		service.GetUserSettings=function(svc,msg,cb){
+			service.GetUserSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1818,9 +1619,7 @@ module.exports = function(RED) {
 
 			svc.getUserSettings(params,cb);
 		}
-
-		
-		service.GetVoiceConnector=function(svc,msg,cb){
+			service.GetVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1832,9 +1631,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnector(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
+			service.GetVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1846,9 +1643,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorEmergencyCallingConfiguration(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorGroup=function(svc,msg,cb){
+			service.GetVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
@@ -1860,9 +1655,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorGroup(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorLoggingConfiguration=function(svc,msg,cb){
+			service.GetVoiceConnectorLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1874,9 +1667,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorLoggingConfiguration(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorOrigination=function(svc,msg,cb){
+			service.GetVoiceConnectorOrigination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1888,9 +1679,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorOrigination(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorProxy=function(svc,msg,cb){
+			service.GetVoiceConnectorProxy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1902,9 +1691,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorProxy(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
+			service.GetVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1916,9 +1703,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorStreamingConfiguration(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorTermination=function(svc,msg,cb){
+			service.GetVoiceConnectorTermination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1930,9 +1715,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorTermination(params,cb);
 		}
-
-		
-		service.GetVoiceConnectorTerminationHealth=function(svc,msg,cb){
+			service.GetVoiceConnectorTerminationHealth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -1944,9 +1727,7 @@ module.exports = function(RED) {
 
 			svc.getVoiceConnectorTerminationHealth(params,cb);
 		}
-
-		
-		service.InviteUsers=function(svc,msg,cb){
+			service.InviteUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1963,16 +1744,14 @@ module.exports = function(RED) {
 
 			svc.inviteUsers(params,cb);
 		}
-
-		
-		service.ListAccounts=function(svc,msg,cb){
+			service.ListAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"UserEmail",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"UserEmail",params,undefined,true); 
@@ -1982,15 +1761,13 @@ module.exports = function(RED) {
 
 			svc.listAccounts(params,cb);
 		}
-
-		
-		service.ListAppInstanceAdmins=function(svc,msg,cb){
+			service.ListAppInstanceAdmins=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			
 			copyArgs(msg,"AppInstanceArn",params,undefined,false); 
@@ -2000,15 +1777,13 @@ module.exports = function(RED) {
 
 			svc.listAppInstanceAdmins(params,cb);
 		}
-
-		
-		service.ListAppInstanceUsers=function(svc,msg,cb){
+			service.ListAppInstanceUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			
 			copyArgs(msg,"AppInstanceArn",params,undefined,false); 
@@ -2018,13 +1793,11 @@ module.exports = function(RED) {
 
 			svc.listAppInstanceUsers(params,cb);
 		}
-
-		
-		service.ListAppInstances=function(svc,msg,cb){
+			service.ListAppInstances=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2033,9 +1806,7 @@ module.exports = function(RED) {
 
 			svc.listAppInstances(params,cb);
 		}
-
-		
-		service.ListAttendeeTags=function(svc,msg,cb){
+			service.ListAttendeeTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2050,16 +1821,14 @@ module.exports = function(RED) {
 
 			svc.listAttendeeTags(params,cb);
 		}
-
-		
-		service.ListAttendees=function(svc,msg,cb){
+			service.ListAttendees=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"MeetingId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -2068,15 +1837,13 @@ module.exports = function(RED) {
 
 			svc.listAttendees(params,cb);
 		}
-
-		
-		service.ListBots=function(svc,msg,cb){
+			service.ListBots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -2086,15 +1853,13 @@ module.exports = function(RED) {
 
 			svc.listBots(params,cb);
 		}
-
-		
-		service.ListChannelBans=function(svc,msg,cb){
+			service.ListChannelBans=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2106,16 +1871,14 @@ module.exports = function(RED) {
 
 			svc.listChannelBans(params,cb);
 		}
-
-		
-		service.ListChannelMemberships=function(svc,msg,cb){
+			service.ListChannelMemberships=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2128,14 +1891,12 @@ module.exports = function(RED) {
 
 			svc.listChannelMemberships(params,cb);
 		}
-
-		
-		service.ListChannelMembershipsForAppInstanceUser=function(svc,msg,cb){
+			service.ListChannelMembershipsForAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AppInstanceUserArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2147,9 +1908,7 @@ module.exports = function(RED) {
 
 			svc.listChannelMembershipsForAppInstanceUser(params,cb);
 		}
-
-		
-		service.ListChannelMessages=function(svc,msg,cb){
+			service.ListChannelMessages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -2158,7 +1917,7 @@ module.exports = function(RED) {
 			copyArgs(n,"SortOrder",params,undefined,false); 
 			copyArgs(n,"NotBefore",params,undefined,false); 
 			copyArgs(n,"NotAfter",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2173,15 +1932,13 @@ module.exports = function(RED) {
 
 			svc.listChannelMessages(params,cb);
 		}
-
-		
-		service.ListChannelModerators=function(svc,msg,cb){
+			service.ListChannelModerators=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2193,16 +1950,14 @@ module.exports = function(RED) {
 
 			svc.listChannelModerators(params,cb);
 		}
-
-		
-		service.ListChannels=function(svc,msg,cb){
+			service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
 			copyArgs(n,"Privacy",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2215,14 +1970,12 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-
-		
-		service.ListChannelsModeratedByAppInstanceUser=function(svc,msg,cb){
+			service.ListChannelsModeratedByAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AppInstanceUserArn",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,true); 
 			copyArgs(n,"ChimeBearer",params,undefined,false); 
 			
@@ -2234,14 +1987,12 @@ module.exports = function(RED) {
 
 			svc.listChannelsModeratedByAppInstanceUser(params,cb);
 		}
-
-		
-		service.ListMediaCapturePipelines=function(svc,msg,cb){
+			service.ListMediaCapturePipelines=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2249,9 +2000,7 @@ module.exports = function(RED) {
 
 			svc.listMediaCapturePipelines(params,cb);
 		}
-
-		
-		service.ListMeetingTags=function(svc,msg,cb){
+			service.ListMeetingTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2263,14 +2012,12 @@ module.exports = function(RED) {
 
 			svc.listMeetingTags(params,cb);
 		}
-
-		
-		service.ListMeetings=function(svc,msg,cb){
+			service.ListMeetings=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2278,14 +2025,12 @@ module.exports = function(RED) {
 
 			svc.listMeetings(params,cb);
 		}
-
-		
-		service.ListPhoneNumberOrders=function(svc,msg,cb){
+			service.ListPhoneNumberOrders=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2293,9 +2038,7 @@ module.exports = function(RED) {
 
 			svc.listPhoneNumberOrders(params,cb);
 		}
-
-		
-		service.ListPhoneNumbers=function(svc,msg,cb){
+			service.ListPhoneNumbers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2303,7 +2046,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProductType",params,undefined,false); 
 			copyArgs(n,"FilterName",params,undefined,false); 
 			copyArgs(n,"FilterValue",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -2316,9 +2059,7 @@ module.exports = function(RED) {
 
 			svc.listPhoneNumbers(params,cb);
 		}
-
-		
-		service.ListProxySessions=function(svc,msg,cb){
+			service.ListProxySessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2326,7 +2067,7 @@ module.exports = function(RED) {
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -2336,9 +2077,7 @@ module.exports = function(RED) {
 
 			svc.listProxySessions(params,cb);
 		}
-
-		
-		service.ListRoomMemberships=function(svc,msg,cb){
+			service.ListRoomMemberships=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2346,7 +2085,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"RoomId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -2357,16 +2096,14 @@ module.exports = function(RED) {
 
 			svc.listRoomMemberships(params,cb);
 		}
-
-		
-		service.ListRooms=function(svc,msg,cb){
+			service.ListRooms=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"MemberId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -2377,13 +2114,11 @@ module.exports = function(RED) {
 
 			svc.listRooms(params,cb);
 		}
-
-		
-		service.ListSipMediaApplications=function(svc,msg,cb){
+			service.ListSipMediaApplications=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2392,14 +2127,12 @@ module.exports = function(RED) {
 
 			svc.listSipMediaApplications(params,cb);
 		}
-
-		
-		service.ListSipRules=function(svc,msg,cb){
+			service.ListSipRules=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"SipMediaApplicationId",params,undefined,false); 
@@ -2409,9 +2142,7 @@ module.exports = function(RED) {
 
 			svc.listSipRules(params,cb);
 		}
-
-		
-		service.ListSupportedPhoneNumberCountries=function(svc,msg,cb){
+			service.ListSupportedPhoneNumberCountries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductType",params,undefined,false); 
@@ -2423,9 +2154,7 @@ module.exports = function(RED) {
 
 			svc.listSupportedPhoneNumberCountries(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,true); 
@@ -2437,9 +2166,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListUsers=function(svc,msg,cb){
+			service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2447,7 +2174,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"UserEmail",params,undefined,true); 
 			copyArgs(n,"UserType",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
@@ -2459,14 +2186,12 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-
-		
-		service.ListVoiceConnectorGroups=function(svc,msg,cb){
+			service.ListVoiceConnectorGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2474,9 +2199,7 @@ module.exports = function(RED) {
 
 			svc.listVoiceConnectorGroups(params,cb);
 		}
-
-		
-		service.ListVoiceConnectorTerminationCredentials=function(svc,msg,cb){
+			service.ListVoiceConnectorTerminationCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2488,14 +2211,12 @@ module.exports = function(RED) {
 
 			svc.listVoiceConnectorTerminationCredentials(params,cb);
 		}
-
-		
-		service.ListVoiceConnectors=function(svc,msg,cb){
+			service.ListVoiceConnectors=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -2503,9 +2224,7 @@ module.exports = function(RED) {
 
 			svc.listVoiceConnectors(params,cb);
 		}
-
-		
-		service.LogoutUser=function(svc,msg,cb){
+			service.LogoutUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2520,9 +2239,7 @@ module.exports = function(RED) {
 
 			svc.logoutUser(params,cb);
 		}
-
-		
-		service.PutAppInstanceRetentionSettings=function(svc,msg,cb){
+			service.PutAppInstanceRetentionSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -2537,9 +2254,7 @@ module.exports = function(RED) {
 
 			svc.putAppInstanceRetentionSettings(params,cb);
 		}
-
-		
-		service.PutAppInstanceStreamingConfigurations=function(svc,msg,cb){
+			service.PutAppInstanceStreamingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -2554,9 +2269,7 @@ module.exports = function(RED) {
 
 			svc.putAppInstanceStreamingConfigurations(params,cb);
 		}
-
-		
-		service.PutEventsConfiguration=function(svc,msg,cb){
+			service.PutEventsConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2575,9 +2288,7 @@ module.exports = function(RED) {
 
 			svc.putEventsConfiguration(params,cb);
 		}
-
-		
-		service.PutRetentionSettings=function(svc,msg,cb){
+			service.PutRetentionSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2592,9 +2303,7 @@ module.exports = function(RED) {
 
 			svc.putRetentionSettings(params,cb);
 		}
-
-		
-		service.PutSipMediaApplicationLoggingConfiguration=function(svc,msg,cb){
+			service.PutSipMediaApplicationLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -2608,9 +2317,7 @@ module.exports = function(RED) {
 
 			svc.putSipMediaApplicationLoggingConfiguration(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
+			service.PutVoiceConnectorEmergencyCallingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2625,9 +2332,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorEmergencyCallingConfiguration(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorLoggingConfiguration=function(svc,msg,cb){
+			service.PutVoiceConnectorLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2642,9 +2347,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorLoggingConfiguration(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorOrigination=function(svc,msg,cb){
+			service.PutVoiceConnectorOrigination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2659,20 +2362,18 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorOrigination(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorProxy=function(svc,msg,cb){
+			service.PutVoiceConnectorProxy=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"DefaultSessionExpiryMinutes",params,undefined,false); 
+			copyArgs(Number(n),"DefaultSessionExpiryMinutes",params,undefined,false); 
 			copyArgs(n,"PhoneNumberPoolCountries",params,undefined,false); 
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
-			copyArgs(n,"DefaultSessionExpiryMinutes",params,undefined,false); 
+			copyArgs(Number(n),"DefaultSessionExpiryMinutes",params,undefined,false); 
 			copyArgs(n,"PhoneNumberPoolCountries",params,undefined,false); 
 			copyArgs(n,"FallBackPhoneNumber",params,undefined,true); 
-			copyArgs(n,"Disabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Disabled",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(msg,"DefaultSessionExpiryMinutes",params,undefined,false); 
@@ -2683,9 +2384,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorProxy(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
+			service.PutVoiceConnectorStreamingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2700,9 +2399,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorStreamingConfiguration(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorTermination=function(svc,msg,cb){
+			service.PutVoiceConnectorTermination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2717,9 +2414,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorTermination(params,cb);
 		}
-
-		
-		service.PutVoiceConnectorTerminationCredentials=function(svc,msg,cb){
+			service.PutVoiceConnectorTerminationCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
@@ -2733,9 +2428,7 @@ module.exports = function(RED) {
 
 			svc.putVoiceConnectorTerminationCredentials(params,cb);
 		}
-
-		
-		service.RedactChannelMessage=function(svc,msg,cb){
+			service.RedactChannelMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -2752,9 +2445,7 @@ module.exports = function(RED) {
 
 			svc.redactChannelMessage(params,cb);
 		}
-
-		
-		service.RedactConversationMessage=function(svc,msg,cb){
+			service.RedactConversationMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2772,9 +2463,7 @@ module.exports = function(RED) {
 
 			svc.redactConversationMessage(params,cb);
 		}
-
-		
-		service.RedactRoomMessage=function(svc,msg,cb){
+			service.RedactRoomMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2792,9 +2481,7 @@ module.exports = function(RED) {
 
 			svc.redactRoomMessage(params,cb);
 		}
-
-		
-		service.RegenerateSecurityToken=function(svc,msg,cb){
+			service.RegenerateSecurityToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2809,9 +2496,7 @@ module.exports = function(RED) {
 
 			svc.regenerateSecurityToken(params,cb);
 		}
-
-		
-		service.ResetPersonalPIN=function(svc,msg,cb){
+			service.ResetPersonalPIN=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2826,9 +2511,7 @@ module.exports = function(RED) {
 
 			svc.resetPersonalPIN(params,cb);
 		}
-
-		
-		service.RestorePhoneNumber=function(svc,msg,cb){
+			service.RestorePhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberId",params,undefined,false); 
@@ -2840,9 +2523,7 @@ module.exports = function(RED) {
 
 			svc.restorePhoneNumber(params,cb);
 		}
-
-		
-		service.SearchAvailablePhoneNumbers=function(svc,msg,cb){
+			service.SearchAvailablePhoneNumbers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2852,7 +2533,7 @@ module.exports = function(RED) {
 			copyArgs(n,"State",params,undefined,false); 
 			copyArgs(n,"TollFreePrefix",params,undefined,false); 
 			copyArgs(n,"PhoneNumberType",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AreaCode",params,undefined,false); 
@@ -2867,9 +2548,7 @@ module.exports = function(RED) {
 
 			svc.searchAvailablePhoneNumbers(params,cb);
 		}
-
-		
-		service.SendChannelMessage=function(svc,msg,cb){
+			service.SendChannelMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -2897,9 +2576,7 @@ module.exports = function(RED) {
 
 			svc.sendChannelMessage(params,cb);
 		}
-
-		
-		service.StartMeetingTranscription=function(svc,msg,cb){
+			service.StartMeetingTranscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2914,9 +2591,7 @@ module.exports = function(RED) {
 
 			svc.startMeetingTranscription(params,cb);
 		}
-
-		
-		service.StopMeetingTranscription=function(svc,msg,cb){
+			service.StopMeetingTranscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2928,9 +2603,7 @@ module.exports = function(RED) {
 
 			svc.stopMeetingTranscription(params,cb);
 		}
-
-		
-		service.TagAttendee=function(svc,msg,cb){
+			service.TagAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2948,9 +2621,7 @@ module.exports = function(RED) {
 
 			svc.tagAttendee(params,cb);
 		}
-
-		
-		service.TagMeeting=function(svc,msg,cb){
+			service.TagMeeting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -2965,9 +2636,7 @@ module.exports = function(RED) {
 
 			svc.tagMeeting(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,true); 
@@ -2982,9 +2651,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagAttendee=function(svc,msg,cb){
+			service.UntagAttendee=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -3002,9 +2669,7 @@ module.exports = function(RED) {
 
 			svc.untagAttendee(params,cb);
 		}
-
-		
-		service.UntagMeeting=function(svc,msg,cb){
+			service.UntagMeeting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MeetingId",params,undefined,false); 
@@ -3019,9 +2684,7 @@ module.exports = function(RED) {
 
 			svc.untagMeeting(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,true); 
@@ -3036,9 +2699,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAccount=function(svc,msg,cb){
+			service.UpdateAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3054,9 +2715,7 @@ module.exports = function(RED) {
 
 			svc.updateAccount(params,cb);
 		}
-
-		
-		service.UpdateAccountSettings=function(svc,msg,cb){
+			service.UpdateAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3071,9 +2730,7 @@ module.exports = function(RED) {
 
 			svc.updateAccountSettings(params,cb);
 		}
-
-		
-		service.UpdateAppInstance=function(svc,msg,cb){
+			service.UpdateAppInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceArn",params,undefined,false); 
@@ -3090,9 +2747,7 @@ module.exports = function(RED) {
 
 			svc.updateAppInstance(params,cb);
 		}
-
-		
-		service.UpdateAppInstanceUser=function(svc,msg,cb){
+			service.UpdateAppInstanceUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppInstanceUserArn",params,undefined,false); 
@@ -3109,9 +2764,7 @@ module.exports = function(RED) {
 
 			svc.updateAppInstanceUser(params,cb);
 		}
-
-		
-		service.UpdateBot=function(svc,msg,cb){
+			service.UpdateBot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3119,7 +2772,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
 			copyArgs(n,"BotId",params,undefined,false); 
-			copyArgs(n,"Disabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Disabled",params,undefined,false); 
 			
 			copyArgs(msg,"AccountId",params,undefined,false); 
 			copyArgs(msg,"BotId",params,undefined,false); 
@@ -3128,9 +2781,7 @@ module.exports = function(RED) {
 
 			svc.updateBot(params,cb);
 		}
-
-		
-		service.UpdateChannel=function(svc,msg,cb){
+			service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -3152,9 +2803,7 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-
-		
-		service.UpdateChannelMessage=function(svc,msg,cb){
+			service.UpdateChannelMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -3175,9 +2824,7 @@ module.exports = function(RED) {
 
 			svc.updateChannelMessage(params,cb);
 		}
-
-		
-		service.UpdateChannelReadMarker=function(svc,msg,cb){
+			service.UpdateChannelReadMarker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelArn",params,undefined,false); 
@@ -3191,9 +2838,7 @@ module.exports = function(RED) {
 
 			svc.updateChannelReadMarker(params,cb);
 		}
-
-		
-		service.UpdateGlobalSettings=function(svc,msg,cb){
+			service.UpdateGlobalSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BusinessCalling",params,undefined,true); 
@@ -3208,9 +2853,7 @@ module.exports = function(RED) {
 
 			svc.updateGlobalSettings(params,cb);
 		}
-
-		
-		service.UpdatePhoneNumber=function(svc,msg,cb){
+			service.UpdatePhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumberId",params,undefined,false); 
@@ -3226,9 +2869,7 @@ module.exports = function(RED) {
 
 			svc.updatePhoneNumber(params,cb);
 		}
-
-		
-		service.UpdatePhoneNumberSettings=function(svc,msg,cb){
+			service.UpdatePhoneNumberSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CallingName",params,undefined,true); 
@@ -3240,9 +2881,7 @@ module.exports = function(RED) {
 
 			svc.updatePhoneNumberSettings(params,cb);
 		}
-
-		
-		service.UpdateProxySession=function(svc,msg,cb){
+			service.UpdateProxySession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Capabilities",params,undefined,true); 
@@ -3252,7 +2891,7 @@ module.exports = function(RED) {
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"ProxySessionId",params,undefined,false); 
 			copyArgs(n,"Capabilities",params,undefined,true); 
-			copyArgs(n,"ExpiryMinutes",params,undefined,false); 
+			copyArgs(Number(n),"ExpiryMinutes",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(msg,"ProxySessionId",params,undefined,false); 
@@ -3262,9 +2901,7 @@ module.exports = function(RED) {
 
 			svc.updateProxySession(params,cb);
 		}
-
-		
-		service.UpdateRoom=function(svc,msg,cb){
+			service.UpdateRoom=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3281,9 +2918,7 @@ module.exports = function(RED) {
 
 			svc.updateRoom(params,cb);
 		}
-
-		
-		service.UpdateRoomMembership=function(svc,msg,cb){
+			service.UpdateRoomMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3303,9 +2938,7 @@ module.exports = function(RED) {
 
 			svc.updateRoomMembership(params,cb);
 		}
-
-		
-		service.UpdateSipMediaApplication=function(svc,msg,cb){
+			service.UpdateSipMediaApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -3321,9 +2954,7 @@ module.exports = function(RED) {
 
 			svc.updateSipMediaApplication(params,cb);
 		}
-
-		
-		service.UpdateSipMediaApplicationCall=function(svc,msg,cb){
+			service.UpdateSipMediaApplicationCall=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipMediaApplicationId",params,undefined,false); 
@@ -3341,9 +2972,7 @@ module.exports = function(RED) {
 
 			svc.updateSipMediaApplicationCall(params,cb);
 		}
-
-		
-		service.UpdateSipRule=function(svc,msg,cb){
+			service.UpdateSipRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SipRuleId",params,undefined,false); 
@@ -3351,7 +2980,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"SipRuleId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"Disabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Disabled",params,undefined,false); 
 			copyArgs(n,"TargetApplications",params,undefined,true); 
 			
 			copyArgs(msg,"SipRuleId",params,undefined,false); 
@@ -3362,9 +2991,7 @@ module.exports = function(RED) {
 
 			svc.updateSipRule(params,cb);
 		}
-
-		
-		service.UpdateUser=function(svc,msg,cb){
+			service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3385,9 +3012,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
-
-		
-		service.UpdateUserSettings=function(svc,msg,cb){
+			service.UpdateUserSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -3405,18 +3030,16 @@ module.exports = function(RED) {
 
 			svc.updateUserSettings(params,cb);
 		}
-
-		
-		service.UpdateVoiceConnector=function(svc,msg,cb){
+			service.UpdateVoiceConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"RequireEncryption",params,undefined,false); 
+			copyArgs(Boolean(n),"RequireEncryption",params,undefined,false); 
 			
 			copyArgs(n,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"RequireEncryption",params,undefined,false); 
+			copyArgs(Boolean(n),"RequireEncryption",params,undefined,false); 
 			
 			copyArgs(msg,"VoiceConnectorId",params,undefined,false); 
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -3425,9 +3048,7 @@ module.exports = function(RED) {
 
 			svc.updateVoiceConnector(params,cb);
 		}
-
-		
-		service.UpdateVoiceConnectorGroup=function(svc,msg,cb){
+			service.UpdateVoiceConnectorGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VoiceConnectorGroupId",params,undefined,false); 
@@ -3445,9 +3066,7 @@ module.exports = function(RED) {
 
 			svc.updateVoiceConnectorGroup(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Chime", AmazonAPINode);
 

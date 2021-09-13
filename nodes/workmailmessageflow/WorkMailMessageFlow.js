@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.GetRawMessageContent=function(svc,msg,cb){
+			service.GetRawMessageContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"messageId",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.getRawMessageContent(params,cb);
 		}
-
-		
-		service.PutRawMessageContent=function(svc,msg,cb){
+			service.PutRawMessageContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"messageId",params,undefined,false); 
@@ -123,9 +120,7 @@ module.exports = function(RED) {
 
 			svc.putRawMessageContent(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS WorkMailMessageFlow", AmazonAPINode);
 

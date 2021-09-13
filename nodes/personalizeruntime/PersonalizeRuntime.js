@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.GetPersonalizedRanking=function(svc,msg,cb){
+			service.GetPersonalizedRanking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"campaignArn",params,undefined,false); 
@@ -118,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.getPersonalizedRanking(params,cb);
 		}
-
-		
-		service.GetRecommendations=function(svc,msg,cb){
+			service.GetRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"campaignArn",params,undefined,false); 
@@ -128,7 +125,7 @@ module.exports = function(RED) {
 			copyArgs(n,"campaignArn",params,undefined,false); 
 			copyArgs(n,"itemId",params,undefined,false); 
 			copyArgs(n,"userId",params,undefined,false); 
-			copyArgs(n,"numResults",params,undefined,false); 
+			copyArgs(Number(n),"numResults",params,undefined,false); 
 			copyArgs(n,"context",params,undefined,true); 
 			copyArgs(n,"filterArn",params,undefined,false); 
 			copyArgs(n,"filterValues",params,undefined,true); 
@@ -144,9 +141,7 @@ module.exports = function(RED) {
 
 			svc.getRecommendations(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS PersonalizeRuntime", AmazonAPINode);
 

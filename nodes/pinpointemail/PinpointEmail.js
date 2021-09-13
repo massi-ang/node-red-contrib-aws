@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateConfigurationSet=function(svc,msg,cb){
+			service.CreateConfigurationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -116,9 +115,7 @@ module.exports = function(RED) {
 
 			svc.createConfigurationSet(params,cb);
 		}
-
-		
-		service.CreateConfigurationSetEventDestination=function(svc,msg,cb){
+			service.CreateConfigurationSetEventDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -136,9 +133,7 @@ module.exports = function(RED) {
 
 			svc.createConfigurationSetEventDestination(params,cb);
 		}
-
-		
-		service.CreateDedicatedIpPool=function(svc,msg,cb){
+			service.CreateDedicatedIpPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PoolName",params,undefined,false); 
@@ -152,9 +147,7 @@ module.exports = function(RED) {
 
 			svc.createDedicatedIpPool(params,cb);
 		}
-
-		
-		service.CreateDeliverabilityTestReport=function(svc,msg,cb){
+			service.CreateDeliverabilityTestReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FromEmailAddress",params,undefined,false); 
@@ -173,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.createDeliverabilityTestReport(params,cb);
 		}
-
-		
-		service.CreateEmailIdentity=function(svc,msg,cb){
+			service.CreateEmailIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
@@ -189,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.createEmailIdentity(params,cb);
 		}
-
-		
-		service.DeleteConfigurationSet=function(svc,msg,cb){
+			service.DeleteConfigurationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -203,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigurationSet(params,cb);
 		}
-
-		
-		service.DeleteConfigurationSetEventDestination=function(svc,msg,cb){
+			service.DeleteConfigurationSetEventDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.deleteConfigurationSetEventDestination(params,cb);
 		}
-
-		
-		service.DeleteDedicatedIpPool=function(svc,msg,cb){
+			service.DeleteDedicatedIpPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PoolName",params,undefined,false); 
@@ -234,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.deleteDedicatedIpPool(params,cb);
 		}
-
-		
-		service.DeleteEmailIdentity=function(svc,msg,cb){
+			service.DeleteEmailIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
@@ -248,9 +231,7 @@ module.exports = function(RED) {
 
 			svc.deleteEmailIdentity(params,cb);
 		}
-
-		
-		service.GetAccount=function(svc,msg,cb){
+			service.GetAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -259,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.getAccount(params,cb);
 		}
-
-		
-		service.GetBlacklistReports=function(svc,msg,cb){
+			service.GetBlacklistReports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BlacklistItemNames",params,undefined,false); 
@@ -273,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.getBlacklistReports(params,cb);
 		}
-
-		
-		service.GetConfigurationSet=function(svc,msg,cb){
+			service.GetConfigurationSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -287,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.getConfigurationSet(params,cb);
 		}
-
-		
-		service.GetConfigurationSetEventDestinations=function(svc,msg,cb){
+			service.GetConfigurationSetEventDestinations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -301,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.getConfigurationSetEventDestinations(params,cb);
 		}
-
-		
-		service.GetDedicatedIp=function(svc,msg,cb){
+			service.GetDedicatedIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Ip",params,undefined,false); 
@@ -315,15 +288,13 @@ module.exports = function(RED) {
 
 			svc.getDedicatedIp(params,cb);
 		}
-
-		
-		service.GetDedicatedIps=function(svc,msg,cb){
+			service.GetDedicatedIps=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"PoolName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"PoolName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -332,9 +303,7 @@ module.exports = function(RED) {
 
 			svc.getDedicatedIps(params,cb);
 		}
-
-		
-		service.GetDeliverabilityDashboardOptions=function(svc,msg,cb){
+			service.GetDeliverabilityDashboardOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -343,9 +312,7 @@ module.exports = function(RED) {
 
 			svc.getDeliverabilityDashboardOptions(params,cb);
 		}
-
-		
-		service.GetDeliverabilityTestReport=function(svc,msg,cb){
+			service.GetDeliverabilityTestReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReportId",params,undefined,false); 
@@ -357,9 +324,7 @@ module.exports = function(RED) {
 
 			svc.getDeliverabilityTestReport(params,cb);
 		}
-
-		
-		service.GetDomainDeliverabilityCampaign=function(svc,msg,cb){
+			service.GetDomainDeliverabilityCampaign=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CampaignId",params,undefined,false); 
@@ -371,9 +336,7 @@ module.exports = function(RED) {
 
 			svc.getDomainDeliverabilityCampaign(params,cb);
 		}
-
-		
-		service.GetDomainStatisticsReport=function(svc,msg,cb){
+			service.GetDomainStatisticsReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Domain",params,undefined,false); 
@@ -391,9 +354,7 @@ module.exports = function(RED) {
 
 			svc.getDomainStatisticsReport(params,cb);
 		}
-
-		
-		service.GetEmailIdentity=function(svc,msg,cb){
+			service.GetEmailIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
@@ -405,14 +366,12 @@ module.exports = function(RED) {
 
 			svc.getEmailIdentity(params,cb);
 		}
-
-		
-		service.ListConfigurationSets=function(svc,msg,cb){
+			service.ListConfigurationSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"PageSize",params,undefined,false); 
@@ -420,14 +379,12 @@ module.exports = function(RED) {
 
 			svc.listConfigurationSets(params,cb);
 		}
-
-		
-		service.ListDedicatedIpPools=function(svc,msg,cb){
+			service.ListDedicatedIpPools=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"PageSize",params,undefined,false); 
@@ -435,14 +392,12 @@ module.exports = function(RED) {
 
 			svc.listDedicatedIpPools(params,cb);
 		}
-
-		
-		service.ListDeliverabilityTestReports=function(svc,msg,cb){
+			service.ListDeliverabilityTestReports=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"PageSize",params,undefined,false); 
@@ -450,9 +405,7 @@ module.exports = function(RED) {
 
 			svc.listDeliverabilityTestReports(params,cb);
 		}
-
-		
-		service.ListDomainDeliverabilityCampaigns=function(svc,msg,cb){
+			service.ListDomainDeliverabilityCampaigns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartDate",params,undefined,false); 
@@ -463,7 +416,7 @@ module.exports = function(RED) {
 			copyArgs(n,"EndDate",params,undefined,false); 
 			copyArgs(n,"SubscribedDomain",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"StartDate",params,undefined,false); 
 			copyArgs(msg,"EndDate",params,undefined,false); 
@@ -474,14 +427,12 @@ module.exports = function(RED) {
 
 			svc.listDomainDeliverabilityCampaigns(params,cb);
 		}
-
-		
-		service.ListEmailIdentities=function(svc,msg,cb){
+			service.ListEmailIdentities=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"PageSize",params,undefined,false); 
@@ -489,9 +440,7 @@ module.exports = function(RED) {
 
 			svc.listEmailIdentities(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -503,35 +452,29 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutAccountDedicatedIpWarmupAttributes=function(svc,msg,cb){
+			service.PutAccountDedicatedIpWarmupAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"AutoWarmupEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"AutoWarmupEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"AutoWarmupEnabled",params,undefined,false); 
 			
 
 			svc.putAccountDedicatedIpWarmupAttributes(params,cb);
 		}
-
-		
-		service.PutAccountSendingAttributes=function(svc,msg,cb){
+			service.PutAccountSendingAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"SendingEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"SendingEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"SendingEnabled",params,undefined,false); 
 			
 
 			svc.putAccountSendingAttributes(params,cb);
 		}
-
-		
-		service.PutConfigurationSetDeliveryOptions=function(svc,msg,cb){
+			service.PutConfigurationSetDeliveryOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -547,15 +490,13 @@ module.exports = function(RED) {
 
 			svc.putConfigurationSetDeliveryOptions(params,cb);
 		}
-
-		
-		service.PutConfigurationSetReputationOptions=function(svc,msg,cb){
+			service.PutConfigurationSetReputationOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
-			copyArgs(n,"ReputationMetricsEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"ReputationMetricsEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationSetName",params,undefined,false); 
 			copyArgs(msg,"ReputationMetricsEnabled",params,undefined,false); 
@@ -563,15 +504,13 @@ module.exports = function(RED) {
 
 			svc.putConfigurationSetReputationOptions(params,cb);
 		}
-
-		
-		service.PutConfigurationSetSendingOptions=function(svc,msg,cb){
+			service.PutConfigurationSetSendingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
-			copyArgs(n,"SendingEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"SendingEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"ConfigurationSetName",params,undefined,false); 
 			copyArgs(msg,"SendingEnabled",params,undefined,false); 
@@ -579,9 +518,7 @@ module.exports = function(RED) {
 
 			svc.putConfigurationSetSendingOptions(params,cb);
 		}
-
-		
-		service.PutConfigurationSetTrackingOptions=function(svc,msg,cb){
+			service.PutConfigurationSetTrackingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -595,9 +532,7 @@ module.exports = function(RED) {
 
 			svc.putConfigurationSetTrackingOptions(params,cb);
 		}
-
-		
-		service.PutDedicatedIpInPool=function(svc,msg,cb){
+			service.PutDedicatedIpInPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Ip",params,undefined,false); 
@@ -612,16 +547,14 @@ module.exports = function(RED) {
 
 			svc.putDedicatedIpInPool(params,cb);
 		}
-
-		
-		service.PutDedicatedIpWarmupAttributes=function(svc,msg,cb){
+			service.PutDedicatedIpWarmupAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Ip",params,undefined,false); 
-			copyArgs(n,"WarmupPercentage",params,undefined,false); 
+			copyArgs(Number(n),"WarmupPercentage",params,undefined,false); 
 			
 			copyArgs(n,"Ip",params,undefined,false); 
-			copyArgs(n,"WarmupPercentage",params,undefined,false); 
+			copyArgs(Number(n),"WarmupPercentage",params,undefined,false); 
 			
 			copyArgs(msg,"Ip",params,undefined,false); 
 			copyArgs(msg,"WarmupPercentage",params,undefined,false); 
@@ -629,14 +562,12 @@ module.exports = function(RED) {
 
 			svc.putDedicatedIpWarmupAttributes(params,cb);
 		}
-
-		
-		service.PutDeliverabilityDashboardOption=function(svc,msg,cb){
+			service.PutDeliverabilityDashboardOption=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"DashboardEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"DashboardEnabled",params,undefined,false); 
 			
-			copyArgs(n,"DashboardEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"DashboardEnabled",params,undefined,false); 
 			copyArgs(n,"SubscribedDomains",params,undefined,true); 
 			
 			copyArgs(msg,"DashboardEnabled",params,undefined,false); 
@@ -645,15 +576,13 @@ module.exports = function(RED) {
 
 			svc.putDeliverabilityDashboardOption(params,cb);
 		}
-
-		
-		service.PutEmailIdentityDkimAttributes=function(svc,msg,cb){
+			service.PutEmailIdentityDkimAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
-			copyArgs(n,"SigningEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"SigningEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"EmailIdentity",params,undefined,false); 
 			copyArgs(msg,"SigningEnabled",params,undefined,false); 
@@ -661,15 +590,13 @@ module.exports = function(RED) {
 
 			svc.putEmailIdentityDkimAttributes(params,cb);
 		}
-
-		
-		service.PutEmailIdentityFeedbackAttributes=function(svc,msg,cb){
+			service.PutEmailIdentityFeedbackAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
-			copyArgs(n,"EmailForwardingEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"EmailForwardingEnabled",params,undefined,false); 
 			
 			copyArgs(msg,"EmailIdentity",params,undefined,false); 
 			copyArgs(msg,"EmailForwardingEnabled",params,undefined,false); 
@@ -677,9 +604,7 @@ module.exports = function(RED) {
 
 			svc.putEmailIdentityFeedbackAttributes(params,cb);
 		}
-
-		
-		service.PutEmailIdentityMailFromAttributes=function(svc,msg,cb){
+			service.PutEmailIdentityMailFromAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmailIdentity",params,undefined,false); 
@@ -695,9 +620,7 @@ module.exports = function(RED) {
 
 			svc.putEmailIdentityMailFromAttributes(params,cb);
 		}
-
-		
-		service.SendEmail=function(svc,msg,cb){
+			service.SendEmail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Destination",params,undefined,false); 
@@ -722,9 +645,7 @@ module.exports = function(RED) {
 
 			svc.sendEmail(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -739,9 +660,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -756,9 +675,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateConfigurationSetEventDestination=function(svc,msg,cb){
+			service.UpdateConfigurationSetEventDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationSetName",params,undefined,false); 
@@ -776,9 +693,7 @@ module.exports = function(RED) {
 
 			svc.updateConfigurationSetEventDestination(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS PinpointEmail", AmazonAPINode);
 

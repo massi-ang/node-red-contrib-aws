@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AnalyzeDocument=function(svc,msg,cb){
+			service.AnalyzeDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Document",params,undefined,true); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.analyzeDocument(params,cb);
 		}
-
-		
-		service.AnalyzeExpense=function(svc,msg,cb){
+			service.AnalyzeExpense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Document",params,undefined,true); 
@@ -125,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.analyzeExpense(params,cb);
 		}
-
-		
-		service.DetectDocumentText=function(svc,msg,cb){
+			service.DetectDocumentText=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Document",params,undefined,true); 
@@ -139,15 +134,13 @@ module.exports = function(RED) {
 
 			svc.detectDocumentText(params,cb);
 		}
-
-		
-		service.GetDocumentAnalysis=function(svc,msg,cb){
+			service.GetDocumentAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
 			
 			copyArgs(n,"JobId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"JobId",params,undefined,false); 
@@ -157,15 +150,13 @@ module.exports = function(RED) {
 
 			svc.getDocumentAnalysis(params,cb);
 		}
-
-		
-		service.GetDocumentTextDetection=function(svc,msg,cb){
+			service.GetDocumentTextDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
 			
 			copyArgs(n,"JobId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"JobId",params,undefined,false); 
@@ -175,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.getDocumentTextDetection(params,cb);
 		}
-
-		
-		service.StartDocumentAnalysis=function(svc,msg,cb){
+			service.StartDocumentAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentLocation",params,undefined,true); 
@@ -202,9 +191,7 @@ module.exports = function(RED) {
 
 			svc.startDocumentAnalysis(params,cb);
 		}
-
-		
-		service.StartDocumentTextDetection=function(svc,msg,cb){
+			service.StartDocumentTextDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentLocation",params,undefined,true); 
@@ -226,9 +213,7 @@ module.exports = function(RED) {
 
 			svc.startDocumentTextDetection(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Textract", AmazonAPINode);
 

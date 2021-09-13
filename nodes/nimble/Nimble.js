@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptEulas=function(svc,msg,cb){
+			service.AcceptEulas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -110,9 +109,7 @@ module.exports = function(RED) {
 
 			svc.acceptEulas(params,cb);
 		}
-
-		
-		service.CreateLaunchProfile=function(svc,msg,cb){
+			service.CreateLaunchProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ec2SubnetIds",params,undefined,true); 
@@ -145,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.createLaunchProfile(params,cb);
 		}
-
-		
-		service.CreateStreamingImage=function(svc,msg,cb){
+			service.CreateStreamingImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -171,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.createStreamingImage(params,cb);
 		}
-
-		
-		service.CreateStreamingSession=function(svc,msg,cb){
+			service.CreateStreamingSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -197,16 +190,14 @@ module.exports = function(RED) {
 
 			svc.createStreamingSession(params,cb);
 		}
-
-		
-		service.CreateStreamingSessionStream=function(svc,msg,cb){
+			service.CreateStreamingSessionStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
 			copyArgs(n,"sessionId",params,undefined,false); 
 			
 			copyArgs(n,"clientToken",params,undefined,false); 
-			copyArgs(n,"expirationInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"expirationInSeconds",params,undefined,false); 
 			copyArgs(n,"sessionId",params,undefined,false); 
 			copyArgs(n,"studioId",params,undefined,false); 
 			
@@ -218,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.createStreamingSessionStream(params,cb);
 		}
-
-		
-		service.CreateStudio=function(svc,msg,cb){
+			service.CreateStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"displayName",params,undefined,false); 
@@ -247,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.createStudio(params,cb);
 		}
-
-		
-		service.CreateStudioComponent=function(svc,msg,cb){
+			service.CreateStudioComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -283,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.createStudioComponent(params,cb);
 		}
-
-		
-		service.DeleteLaunchProfile=function(svc,msg,cb){
+			service.DeleteLaunchProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -302,9 +287,7 @@ module.exports = function(RED) {
 
 			svc.deleteLaunchProfile(params,cb);
 		}
-
-		
-		service.DeleteLaunchProfileMember=function(svc,msg,cb){
+			service.DeleteLaunchProfileMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -324,9 +307,7 @@ module.exports = function(RED) {
 
 			svc.deleteLaunchProfileMember(params,cb);
 		}
-
-		
-		service.DeleteStreamingImage=function(svc,msg,cb){
+			service.DeleteStreamingImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -343,9 +324,7 @@ module.exports = function(RED) {
 
 			svc.deleteStreamingImage(params,cb);
 		}
-
-		
-		service.DeleteStreamingSession=function(svc,msg,cb){
+			service.DeleteStreamingSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -362,9 +341,7 @@ module.exports = function(RED) {
 
 			svc.deleteStreamingSession(params,cb);
 		}
-
-		
-		service.DeleteStudio=function(svc,msg,cb){
+			service.DeleteStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -378,9 +355,7 @@ module.exports = function(RED) {
 
 			svc.deleteStudio(params,cb);
 		}
-
-		
-		service.DeleteStudioComponent=function(svc,msg,cb){
+			service.DeleteStudioComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -397,9 +372,7 @@ module.exports = function(RED) {
 
 			svc.deleteStudioComponent(params,cb);
 		}
-
-		
-		service.DeleteStudioMember=function(svc,msg,cb){
+			service.DeleteStudioMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -416,9 +389,7 @@ module.exports = function(RED) {
 
 			svc.deleteStudioMember(params,cb);
 		}
-
-		
-		service.GetEula=function(svc,msg,cb){
+			service.GetEula=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eulaId",params,undefined,false); 
@@ -430,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.getEula(params,cb);
 		}
-
-		
-		service.GetLaunchProfile=function(svc,msg,cb){
+			service.GetLaunchProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -447,9 +416,7 @@ module.exports = function(RED) {
 
 			svc.getLaunchProfile(params,cb);
 		}
-
-		
-		service.GetLaunchProfileDetails=function(svc,msg,cb){
+			service.GetLaunchProfileDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -464,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.getLaunchProfileDetails(params,cb);
 		}
-
-		
-		service.GetLaunchProfileInitialization=function(svc,msg,cb){
+			service.GetLaunchProfileInitialization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -490,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.getLaunchProfileInitialization(params,cb);
 		}
-
-		
-		service.GetLaunchProfileMember=function(svc,msg,cb){
+			service.GetLaunchProfileMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -510,9 +473,7 @@ module.exports = function(RED) {
 
 			svc.getLaunchProfileMember(params,cb);
 		}
-
-		
-		service.GetStreamingImage=function(svc,msg,cb){
+			service.GetStreamingImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -527,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.getStreamingImage(params,cb);
 		}
-
-		
-		service.GetStreamingSession=function(svc,msg,cb){
+			service.GetStreamingSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -544,9 +503,7 @@ module.exports = function(RED) {
 
 			svc.getStreamingSession(params,cb);
 		}
-
-		
-		service.GetStreamingSessionStream=function(svc,msg,cb){
+			service.GetStreamingSessionStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -564,9 +521,7 @@ module.exports = function(RED) {
 
 			svc.getStreamingSessionStream(params,cb);
 		}
-
-		
-		service.GetStudio=function(svc,msg,cb){
+			service.GetStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -578,9 +533,7 @@ module.exports = function(RED) {
 
 			svc.getStudio(params,cb);
 		}
-
-		
-		service.GetStudioComponent=function(svc,msg,cb){
+			service.GetStudioComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -595,9 +548,7 @@ module.exports = function(RED) {
 
 			svc.getStudioComponent(params,cb);
 		}
-
-		
-		service.GetStudioMember=function(svc,msg,cb){
+			service.GetStudioMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -612,9 +563,7 @@ module.exports = function(RED) {
 
 			svc.getStudioMember(params,cb);
 		}
-
-		
-		service.ListEulaAcceptances=function(svc,msg,cb){
+			service.ListEulaAcceptances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -630,9 +579,7 @@ module.exports = function(RED) {
 
 			svc.listEulaAcceptances(params,cb);
 		}
-
-		
-		service.ListEulas=function(svc,msg,cb){
+			service.ListEulas=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -645,16 +592,14 @@ module.exports = function(RED) {
 
 			svc.listEulas(params,cb);
 		}
-
-		
-		service.ListLaunchProfileMembers=function(svc,msg,cb){
+			service.ListLaunchProfileMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
 			copyArgs(n,"launchProfileId",params,undefined,false); 
 			
 			copyArgs(n,"launchProfileId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"studioId",params,undefined,false); 
 			
@@ -666,14 +611,12 @@ module.exports = function(RED) {
 
 			svc.listLaunchProfileMembers(params,cb);
 		}
-
-		
-		service.ListLaunchProfiles=function(svc,msg,cb){
+			service.ListLaunchProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"principalId",params,undefined,false); 
 			copyArgs(n,"states",params,undefined,true); 
@@ -688,9 +631,7 @@ module.exports = function(RED) {
 
 			svc.listLaunchProfiles(params,cb);
 		}
-
-		
-		service.ListStreamingImages=function(svc,msg,cb){
+			service.ListStreamingImages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -706,9 +647,7 @@ module.exports = function(RED) {
 
 			svc.listStreamingImages(params,cb);
 		}
-
-		
-		service.ListStreamingSessions=function(svc,msg,cb){
+			service.ListStreamingSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -728,14 +667,12 @@ module.exports = function(RED) {
 
 			svc.listStreamingSessions(params,cb);
 		}
-
-		
-		service.ListStudioComponents=function(svc,msg,cb){
+			service.ListStudioComponents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"states",params,undefined,true); 
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -750,14 +687,12 @@ module.exports = function(RED) {
 
 			svc.listStudioComponents(params,cb);
 		}
-
-		
-		service.ListStudioMembers=function(svc,msg,cb){
+			service.ListStudioMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"studioId",params,undefined,false); 
 			
@@ -768,9 +703,7 @@ module.exports = function(RED) {
 
 			svc.listStudioMembers(params,cb);
 		}
-
-		
-		service.ListStudios=function(svc,msg,cb){
+			service.ListStudios=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -781,9 +714,7 @@ module.exports = function(RED) {
 
 			svc.listStudios(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -795,9 +726,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutLaunchProfileMembers=function(svc,msg,cb){
+			service.PutLaunchProfileMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -820,9 +749,7 @@ module.exports = function(RED) {
 
 			svc.putLaunchProfileMembers(params,cb);
 		}
-
-		
-		service.PutStudioMembers=function(svc,msg,cb){
+			service.PutStudioMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -842,9 +769,7 @@ module.exports = function(RED) {
 
 			svc.putStudioMembers(params,cb);
 		}
-
-		
-		service.StartStudioSSOConfigurationRepair=function(svc,msg,cb){
+			service.StartStudioSSOConfigurationRepair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -858,9 +783,7 @@ module.exports = function(RED) {
 
 			svc.startStudioSSOConfigurationRepair(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -874,9 +797,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"tagKeys",params,undefined,true); 
@@ -891,9 +812,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateLaunchProfile=function(svc,msg,cb){
+			service.UpdateLaunchProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -920,9 +839,7 @@ module.exports = function(RED) {
 
 			svc.updateLaunchProfile(params,cb);
 		}
-
-		
-		service.UpdateLaunchProfileMember=function(svc,msg,cb){
+			service.UpdateLaunchProfileMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -945,9 +862,7 @@ module.exports = function(RED) {
 
 			svc.updateLaunchProfileMember(params,cb);
 		}
-
-		
-		service.UpdateStreamingImage=function(svc,msg,cb){
+			service.UpdateStreamingImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -968,9 +883,7 @@ module.exports = function(RED) {
 
 			svc.updateStreamingImage(params,cb);
 		}
-
-		
-		service.UpdateStudio=function(svc,msg,cb){
+			service.UpdateStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -990,9 +903,7 @@ module.exports = function(RED) {
 
 			svc.updateStudio(params,cb);
 		}
-
-		
-		service.UpdateStudioComponent=function(svc,msg,cb){
+			service.UpdateStudioComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"studioId",params,undefined,false); 
@@ -1025,9 +936,7 @@ module.exports = function(RED) {
 
 			svc.updateStudioComponent(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Nimble", AmazonAPINode);
 

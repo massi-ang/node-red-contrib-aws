@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddProfileKey=function(svc,msg,cb){
+			service.AddProfileKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProfileId",params,undefined,false); 
@@ -115,16 +114,14 @@ module.exports = function(RED) {
 
 			svc.addProfileKey(params,cb);
 		}
-
-		
-		service.CreateDomain=function(svc,msg,cb){
+			service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"DefaultExpirationDays",params,undefined,false); 
+			copyArgs(Number(n),"DefaultExpirationDays",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"DefaultExpirationDays",params,undefined,false); 
+			copyArgs(Number(n),"DefaultExpirationDays",params,undefined,false); 
 			copyArgs(n,"DefaultEncryptionKey",params,undefined,false); 
 			copyArgs(n,"DeadLetterQueueUrl",params,undefined,false); 
 			copyArgs(n,"Matching",params,undefined,true); 
@@ -140,9 +137,7 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-
-		
-		service.CreateProfile=function(svc,msg,cb){
+			service.CreateProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -196,9 +191,7 @@ module.exports = function(RED) {
 
 			svc.createProfile(params,cb);
 		}
-
-		
-		service.DeleteDomain=function(svc,msg,cb){
+			service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -210,9 +203,7 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-
-		
-		service.DeleteIntegration=function(svc,msg,cb){
+			service.DeleteIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -227,9 +218,7 @@ module.exports = function(RED) {
 
 			svc.deleteIntegration(params,cb);
 		}
-
-		
-		service.DeleteProfile=function(svc,msg,cb){
+			service.DeleteProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProfileId",params,undefined,false); 
@@ -244,9 +233,7 @@ module.exports = function(RED) {
 
 			svc.deleteProfile(params,cb);
 		}
-
-		
-		service.DeleteProfileKey=function(svc,msg,cb){
+			service.DeleteProfileKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProfileId",params,undefined,false); 
@@ -267,9 +254,7 @@ module.exports = function(RED) {
 
 			svc.deleteProfileKey(params,cb);
 		}
-
-		
-		service.DeleteProfileObject=function(svc,msg,cb){
+			service.DeleteProfileObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProfileId",params,undefined,false); 
@@ -290,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.deleteProfileObject(params,cb);
 		}
-
-		
-		service.DeleteProfileObjectType=function(svc,msg,cb){
+			service.DeleteProfileObjectType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -307,9 +290,7 @@ module.exports = function(RED) {
 
 			svc.deleteProfileObjectType(params,cb);
 		}
-
-		
-		service.GetDomain=function(svc,msg,cb){
+			service.GetDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -321,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.getDomain(params,cb);
 		}
-
-		
-		service.GetIntegration=function(svc,msg,cb){
+			service.GetIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -338,15 +317,13 @@ module.exports = function(RED) {
 
 			svc.getIntegration(params,cb);
 		}
-
-		
-		service.GetMatches=function(svc,msg,cb){
+			service.GetMatches=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -356,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.getMatches(params,cb);
 		}
-
-		
-		service.GetProfileObjectType=function(svc,msg,cb){
+			service.GetProfileObjectType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -373,9 +348,7 @@ module.exports = function(RED) {
 
 			svc.getProfileObjectType(params,cb);
 		}
-
-		
-		service.GetProfileObjectTypeTemplate=function(svc,msg,cb){
+			service.GetProfileObjectTypeTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TemplateId",params,undefined,false); 
@@ -387,16 +360,14 @@ module.exports = function(RED) {
 
 			svc.getProfileObjectTypeTemplate(params,cb);
 		}
-
-		
-		service.ListAccountIntegrations=function(svc,msg,cb){
+			service.ListAccountIntegrations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Uri",params,undefined,false); 
 			
 			copyArgs(n,"Uri",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"Uri",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -405,14 +376,12 @@ module.exports = function(RED) {
 
 			svc.listAccountIntegrations(params,cb);
 		}
-
-		
-		service.ListDomains=function(svc,msg,cb){
+			service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -420,16 +389,14 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-
-		
-		service.ListIntegrations=function(svc,msg,cb){
+			service.ListIntegrations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -438,14 +405,12 @@ module.exports = function(RED) {
 
 			svc.listIntegrations(params,cb);
 		}
-
-		
-		service.ListProfileObjectTypeTemplates=function(svc,msg,cb){
+			service.ListProfileObjectTypeTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -453,16 +418,14 @@ module.exports = function(RED) {
 
 			svc.listProfileObjectTypeTemplates(params,cb);
 		}
-
-		
-		service.ListProfileObjectTypes=function(svc,msg,cb){
+			service.ListProfileObjectTypes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"DomainName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -471,9 +434,7 @@ module.exports = function(RED) {
 
 			svc.listProfileObjectTypes(params,cb);
 		}
-
-		
-		service.ListProfileObjects=function(svc,msg,cb){
+			service.ListProfileObjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -481,7 +442,7 @@ module.exports = function(RED) {
 			copyArgs(n,"ProfileId",params,undefined,false); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"ObjectTypeName",params,undefined,false); 
 			copyArgs(n,"ProfileId",params,undefined,false); 
@@ -497,9 +458,7 @@ module.exports = function(RED) {
 
 			svc.listProfileObjects(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -511,9 +470,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.MergeProfiles=function(svc,msg,cb){
+			service.MergeProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -533,9 +490,7 @@ module.exports = function(RED) {
 
 			svc.mergeProfiles(params,cb);
 		}
-
-		
-		service.PutIntegration=function(svc,msg,cb){
+			service.PutIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -556,9 +511,7 @@ module.exports = function(RED) {
 
 			svc.putIntegration(params,cb);
 		}
-
-		
-		service.PutProfileObject=function(svc,msg,cb){
+			service.PutProfileObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ObjectTypeName",params,undefined,false); 
@@ -576,9 +529,7 @@ module.exports = function(RED) {
 
 			svc.putProfileObject(params,cb);
 		}
-
-		
-		service.PutProfileObjectType=function(svc,msg,cb){
+			service.PutProfileObjectType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -589,9 +540,9 @@ module.exports = function(RED) {
 			copyArgs(n,"ObjectTypeName",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"TemplateId",params,undefined,false); 
-			copyArgs(n,"ExpirationDays",params,undefined,false); 
+			copyArgs(Number(n),"ExpirationDays",params,undefined,false); 
 			copyArgs(n,"EncryptionKey",params,undefined,false); 
-			copyArgs(n,"AllowProfileCreation",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowProfileCreation",params,undefined,false); 
 			copyArgs(n,"Fields",params,undefined,true); 
 			copyArgs(n,"Keys",params,undefined,true); 
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -610,9 +561,7 @@ module.exports = function(RED) {
 
 			svc.putProfileObjectType(params,cb);
 		}
-
-		
-		service.SearchProfiles=function(svc,msg,cb){
+			service.SearchProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -620,7 +569,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Values",params,undefined,true); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"DomainName",params,undefined,false); 
 			copyArgs(n,"KeyName",params,undefined,false); 
 			copyArgs(n,"Values",params,undefined,true); 
@@ -634,9 +583,7 @@ module.exports = function(RED) {
 
 			svc.searchProfiles(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -651,9 +598,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -668,15 +613,13 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDomain=function(svc,msg,cb){
+			service.UpdateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
-			copyArgs(n,"DefaultExpirationDays",params,undefined,false); 
+			copyArgs(Number(n),"DefaultExpirationDays",params,undefined,false); 
 			copyArgs(n,"DefaultEncryptionKey",params,undefined,false); 
 			copyArgs(n,"DeadLetterQueueUrl",params,undefined,false); 
 			copyArgs(n,"Matching",params,undefined,true); 
@@ -692,9 +635,7 @@ module.exports = function(RED) {
 
 			svc.updateDomain(params,cb);
 		}
-
-		
-		service.UpdateProfile=function(svc,msg,cb){
+			service.UpdateProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -751,9 +692,7 @@ module.exports = function(RED) {
 
 			svc.updateProfile(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CustomerProfiles", AmazonAPINode);
 

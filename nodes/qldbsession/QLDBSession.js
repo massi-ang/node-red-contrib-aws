@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.SendCommand=function(svc,msg,cb){
+			service.SendCommand=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -119,9 +118,7 @@ module.exports = function(RED) {
 
 			svc.sendCommand(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS QLDBSession", AmazonAPINode);
 

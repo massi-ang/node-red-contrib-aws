@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchCreateTableRows=function(svc,msg,cb){
+			service.BatchCreateTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -114,9 +113,7 @@ module.exports = function(RED) {
 
 			svc.batchCreateTableRows(params,cb);
 		}
-
-		
-		service.BatchDeleteTableRows=function(svc,msg,cb){
+			service.BatchDeleteTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -136,9 +133,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteTableRows(params,cb);
 		}
-
-		
-		service.BatchUpdateTableRows=function(svc,msg,cb){
+			service.BatchUpdateTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -158,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.batchUpdateTableRows(params,cb);
 		}
-
-		
-		service.BatchUpsertTableRows=function(svc,msg,cb){
+			service.BatchUpsertTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -180,9 +173,7 @@ module.exports = function(RED) {
 
 			svc.batchUpsertTableRows(params,cb);
 		}
-
-		
-		service.DescribeTableDataImportJob=function(svc,msg,cb){
+			service.DescribeTableDataImportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -200,9 +191,7 @@ module.exports = function(RED) {
 
 			svc.describeTableDataImportJob(params,cb);
 		}
-
-		
-		service.GetScreenData=function(svc,msg,cb){
+			service.GetScreenData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -213,7 +202,7 @@ module.exports = function(RED) {
 			copyArgs(n,"appId",params,undefined,false); 
 			copyArgs(n,"screenId",params,undefined,false); 
 			copyArgs(n,"variables",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"workbookId",params,undefined,false); 
@@ -226,9 +215,7 @@ module.exports = function(RED) {
 
 			svc.getScreenData(params,cb);
 		}
-
-		
-		service.InvokeScreenAutomation=function(svc,msg,cb){
+			service.InvokeScreenAutomation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -255,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.invokeScreenAutomation(params,cb);
 		}
-
-		
-		service.ListTableColumns=function(svc,msg,cb){
+			service.ListTableColumns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -274,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.listTableColumns(params,cb);
 		}
-
-		
-		service.ListTableRows=function(svc,msg,cb){
+			service.ListTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -285,7 +268,7 @@ module.exports = function(RED) {
 			copyArgs(n,"workbookId",params,undefined,false); 
 			copyArgs(n,"tableId",params,undefined,false); 
 			copyArgs(n,"rowIds",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"workbookId",params,undefined,false); 
@@ -297,15 +280,13 @@ module.exports = function(RED) {
 
 			svc.listTableRows(params,cb);
 		}
-
-		
-		service.ListTables=function(svc,msg,cb){
+			service.ListTables=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"workbookId",params,undefined,false); 
@@ -315,9 +296,7 @@ module.exports = function(RED) {
 
 			svc.listTables(params,cb);
 		}
-
-		
-		service.QueryTableRows=function(svc,msg,cb){
+			service.QueryTableRows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -327,7 +306,7 @@ module.exports = function(RED) {
 			copyArgs(n,"workbookId",params,undefined,false); 
 			copyArgs(n,"tableId",params,undefined,false); 
 			copyArgs(n,"filterFormula",params,undefined,true); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"workbookId",params,undefined,false); 
@@ -339,9 +318,7 @@ module.exports = function(RED) {
 
 			svc.queryTableRows(params,cb);
 		}
-
-		
-		service.StartTableDataImportJob=function(svc,msg,cb){
+			service.StartTableDataImportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workbookId",params,undefined,false); 
@@ -368,9 +345,7 @@ module.exports = function(RED) {
 
 			svc.startTableDataImportJob(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Honeycode", AmazonAPINode);
 

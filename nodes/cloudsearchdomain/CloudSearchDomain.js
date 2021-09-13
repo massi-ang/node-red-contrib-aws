@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.Search=function(svc,msg,cb){
+			service.Search=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"query",params,undefined,false); 
@@ -104,7 +103,7 @@ module.exports = function(RED) {
 			copyArgs(n,"facet",params,undefined,false); 
 			copyArgs(n,"filterQuery",params,undefined,false); 
 			copyArgs(n,"highlight",params,undefined,false); 
-			copyArgs(n,"partial",params,undefined,false); 
+			copyArgs(Boolean(n),"partial",params,undefined,false); 
 			copyArgs(n,"query",params,undefined,false); 
 			copyArgs(n,"queryOptions",params,undefined,false); 
 			copyArgs(n,"queryParser",params,undefined,false); 
@@ -132,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.search(params,cb);
 		}
-
-		
-		service.Suggest=function(svc,msg,cb){
+			service.Suggest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"query",params,undefined,false); 
@@ -151,15 +148,13 @@ module.exports = function(RED) {
 
 			svc.suggest(params,cb);
 		}
-
-		
-		service.UploadDocuments=function(svc,msg,cb){
+			service.UploadDocuments=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"documents",params,undefined,false); 
+			copyArgs(Buffer.from(n),"documents",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			
-			copyArgs(n,"documents",params,undefined,false); 
+			copyArgs(Buffer.from(n),"documents",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			
 			copyArgs(msg,"documents",params,undefined,false); 
@@ -168,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.uploadDocuments(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CloudSearchDomain", AmazonAPINode);
 

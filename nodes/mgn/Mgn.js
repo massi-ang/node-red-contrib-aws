@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.ChangeServerLifeCycleState=function(svc,msg,cb){
+			service.ChangeServerLifeCycleState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"lifeCycle",params,undefined,false); 
@@ -109,14 +108,12 @@ module.exports = function(RED) {
 
 			svc.changeServerLifeCycleState(params,cb);
 		}
-
-		
-		service.CreateReplicationConfigurationTemplate=function(svc,msg,cb){
+			service.CreateReplicationConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"associateDefaultSecurityGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(n,"bandwidthThrottling",params,undefined,false); 
-			copyArgs(n,"createPublicIP",params,undefined,false); 
+			copyArgs(Boolean(n),"createPublicIP",params,undefined,false); 
 			copyArgs(n,"dataPlaneRouting",params,undefined,false); 
 			copyArgs(n,"defaultLargeStagingDiskType",params,undefined,false); 
 			copyArgs(n,"ebsEncryption",params,undefined,false); 
@@ -124,11 +121,11 @@ module.exports = function(RED) {
 			copyArgs(n,"replicationServersSecurityGroupsIDs",params,undefined,true); 
 			copyArgs(n,"stagingAreaSubnetId",params,undefined,false); 
 			copyArgs(n,"stagingAreaTags",params,undefined,true); 
-			copyArgs(n,"useDedicatedReplicationServer",params,undefined,false); 
+			copyArgs(Boolean(n),"useDedicatedReplicationServer",params,undefined,false); 
 			
-			copyArgs(n,"associateDefaultSecurityGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(n,"bandwidthThrottling",params,undefined,false); 
-			copyArgs(n,"createPublicIP",params,undefined,false); 
+			copyArgs(Boolean(n),"createPublicIP",params,undefined,false); 
 			copyArgs(n,"dataPlaneRouting",params,undefined,false); 
 			copyArgs(n,"defaultLargeStagingDiskType",params,undefined,false); 
 			copyArgs(n,"ebsEncryption",params,undefined,false); 
@@ -138,7 +135,7 @@ module.exports = function(RED) {
 			copyArgs(n,"stagingAreaSubnetId",params,undefined,false); 
 			copyArgs(n,"stagingAreaTags",params,undefined,true); 
 			copyArgs(n,"tags",params,undefined,true); 
-			copyArgs(n,"useDedicatedReplicationServer",params,undefined,false); 
+			copyArgs(Boolean(n),"useDedicatedReplicationServer",params,undefined,false); 
 			
 			copyArgs(msg,"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(msg,"bandwidthThrottling",params,undefined,false); 
@@ -157,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.createReplicationConfigurationTemplate(params,cb);
 		}
-
-		
-		service.DeleteJob=function(svc,msg,cb){
+			service.DeleteJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobID",params,undefined,false); 
@@ -171,9 +166,7 @@ module.exports = function(RED) {
 
 			svc.deleteJob(params,cb);
 		}
-
-		
-		service.DeleteReplicationConfigurationTemplate=function(svc,msg,cb){
+			service.DeleteReplicationConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationConfigurationTemplateID",params,undefined,false); 
@@ -185,9 +178,7 @@ module.exports = function(RED) {
 
 			svc.deleteReplicationConfigurationTemplate(params,cb);
 		}
-
-		
-		service.DeleteSourceServer=function(svc,msg,cb){
+			service.DeleteSourceServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -199,15 +190,13 @@ module.exports = function(RED) {
 
 			svc.deleteSourceServer(params,cb);
 		}
-
-		
-		service.DescribeJobLogItems=function(svc,msg,cb){
+			service.DescribeJobLogItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobID",params,undefined,false); 
 			
 			copyArgs(n,"jobID",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"jobID",params,undefined,false); 
@@ -217,15 +206,13 @@ module.exports = function(RED) {
 
 			svc.describeJobLogItems(params,cb);
 		}
-
-		
-		service.DescribeJobs=function(svc,msg,cb){
+			service.DescribeJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			
 			copyArgs(n,"filters",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
@@ -235,14 +222,12 @@ module.exports = function(RED) {
 
 			svc.describeJobs(params,cb);
 		}
-
-		
-		service.DescribeReplicationConfigurationTemplates=function(svc,msg,cb){
+			service.DescribeReplicationConfigurationTemplates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationConfigurationTemplateIDs",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"replicationConfigurationTemplateIDs",params,undefined,false); 
 			
@@ -253,15 +238,13 @@ module.exports = function(RED) {
 
 			svc.describeReplicationConfigurationTemplates(params,cb);
 		}
-
-		
-		service.DescribeSourceServers=function(svc,msg,cb){
+			service.DescribeSourceServers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filters",params,undefined,false); 
 			
 			copyArgs(n,"filters",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"filters",params,undefined,false); 
@@ -271,9 +254,7 @@ module.exports = function(RED) {
 
 			svc.describeSourceServers(params,cb);
 		}
-
-		
-		service.DisconnectFromService=function(svc,msg,cb){
+			service.DisconnectFromService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -285,9 +266,7 @@ module.exports = function(RED) {
 
 			svc.disconnectFromService(params,cb);
 		}
-
-		
-		service.FinalizeCutover=function(svc,msg,cb){
+			service.FinalizeCutover=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -299,9 +278,7 @@ module.exports = function(RED) {
 
 			svc.finalizeCutover(params,cb);
 		}
-
-		
-		service.GetLaunchConfiguration=function(svc,msg,cb){
+			service.GetLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -313,9 +290,7 @@ module.exports = function(RED) {
 
 			svc.getLaunchConfiguration(params,cb);
 		}
-
-		
-		service.GetReplicationConfiguration=function(svc,msg,cb){
+			service.GetReplicationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -327,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.getReplicationConfiguration(params,cb);
 		}
-
-		
-		service.InitializeService=function(svc,msg,cb){
+			service.InitializeService=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -338,9 +311,7 @@ module.exports = function(RED) {
 
 			svc.initializeService(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -352,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.MarkAsArchived=function(svc,msg,cb){
+			service.MarkAsArchived=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -366,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.markAsArchived(params,cb);
 		}
-
-		
-		service.RetryDataReplication=function(svc,msg,cb){
+			service.RetryDataReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
@@ -380,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.retryDataReplication(params,cb);
 		}
-
-		
-		service.StartCutover=function(svc,msg,cb){
+			service.StartCutover=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerIDs",params,undefined,false); 
@@ -396,9 +361,7 @@ module.exports = function(RED) {
 
 			svc.startCutover(params,cb);
 		}
-
-		
-		service.StartTest=function(svc,msg,cb){
+			service.StartTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerIDs",params,undefined,false); 
@@ -412,9 +375,7 @@ module.exports = function(RED) {
 
 			svc.startTest(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -429,9 +390,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.TerminateTargetInstances=function(svc,msg,cb){
+			service.TerminateTargetInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerIDs",params,undefined,false); 
@@ -445,9 +404,7 @@ module.exports = function(RED) {
 
 			svc.terminateTargetInstances(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -462,15 +419,13 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateLaunchConfiguration=function(svc,msg,cb){
+			service.UpdateLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
 			
-			copyArgs(n,"copyPrivateIp",params,undefined,false); 
-			copyArgs(n,"copyTags",params,undefined,false); 
+			copyArgs(Boolean(n),"copyPrivateIp",params,undefined,false); 
+			copyArgs(Boolean(n),"copyTags",params,undefined,false); 
 			copyArgs(n,"launchDisposition",params,undefined,false); 
 			copyArgs(n,"licensing",params,undefined,true); 
 			copyArgs(n,"name",params,undefined,false); 
@@ -488,16 +443,14 @@ module.exports = function(RED) {
 
 			svc.updateLaunchConfiguration(params,cb);
 		}
-
-		
-		service.UpdateReplicationConfiguration=function(svc,msg,cb){
+			service.UpdateReplicationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sourceServerID",params,undefined,false); 
 			
-			copyArgs(n,"associateDefaultSecurityGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(n,"bandwidthThrottling",params,undefined,false); 
-			copyArgs(n,"createPublicIP",params,undefined,false); 
+			copyArgs(Boolean(n),"createPublicIP",params,undefined,false); 
 			copyArgs(n,"dataPlaneRouting",params,undefined,false); 
 			copyArgs(n,"defaultLargeStagingDiskType",params,undefined,false); 
 			copyArgs(n,"ebsEncryption",params,undefined,false); 
@@ -509,7 +462,7 @@ module.exports = function(RED) {
 			copyArgs(n,"sourceServerID",params,undefined,false); 
 			copyArgs(n,"stagingAreaSubnetId",params,undefined,false); 
 			copyArgs(n,"stagingAreaTags",params,undefined,true); 
-			copyArgs(n,"useDedicatedReplicationServer",params,undefined,false); 
+			copyArgs(Boolean(n),"useDedicatedReplicationServer",params,undefined,false); 
 			
 			copyArgs(msg,"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(msg,"bandwidthThrottling",params,undefined,false); 
@@ -530,17 +483,15 @@ module.exports = function(RED) {
 
 			svc.updateReplicationConfiguration(params,cb);
 		}
-
-		
-		service.UpdateReplicationConfigurationTemplate=function(svc,msg,cb){
+			service.UpdateReplicationConfigurationTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationConfigurationTemplateID",params,undefined,false); 
 			
 			copyArgs(n,"arn",params,undefined,false); 
-			copyArgs(n,"associateDefaultSecurityGroup",params,undefined,false); 
+			copyArgs(Boolean(n),"associateDefaultSecurityGroup",params,undefined,false); 
 			copyArgs(n,"bandwidthThrottling",params,undefined,false); 
-			copyArgs(n,"createPublicIP",params,undefined,false); 
+			copyArgs(Boolean(n),"createPublicIP",params,undefined,false); 
 			copyArgs(n,"dataPlaneRouting",params,undefined,false); 
 			copyArgs(n,"defaultLargeStagingDiskType",params,undefined,false); 
 			copyArgs(n,"ebsEncryption",params,undefined,false); 
@@ -550,7 +501,7 @@ module.exports = function(RED) {
 			copyArgs(n,"replicationServersSecurityGroupsIDs",params,undefined,true); 
 			copyArgs(n,"stagingAreaSubnetId",params,undefined,false); 
 			copyArgs(n,"stagingAreaTags",params,undefined,true); 
-			copyArgs(n,"useDedicatedReplicationServer",params,undefined,false); 
+			copyArgs(Boolean(n),"useDedicatedReplicationServer",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"associateDefaultSecurityGroup",params,undefined,false); 
@@ -570,9 +521,7 @@ module.exports = function(RED) {
 
 			svc.updateReplicationConfigurationTemplate(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Mgn", AmazonAPINode);
 

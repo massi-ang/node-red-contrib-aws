@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateRepository=function(svc,msg,cb){
+			service.AssociateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Repository",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.associateRepository(params,cb);
 		}
-
-		
-		service.CreateCodeReview=function(svc,msg,cb){
+			service.CreateCodeReview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -134,9 +131,7 @@ module.exports = function(RED) {
 
 			svc.createCodeReview(params,cb);
 		}
-
-		
-		service.DescribeCodeReview=function(svc,msg,cb){
+			service.DescribeCodeReview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
@@ -148,9 +143,7 @@ module.exports = function(RED) {
 
 			svc.describeCodeReview(params,cb);
 		}
-
-		
-		service.DescribeRecommendationFeedback=function(svc,msg,cb){
+			service.DescribeRecommendationFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
@@ -167,9 +160,7 @@ module.exports = function(RED) {
 
 			svc.describeRecommendationFeedback(params,cb);
 		}
-
-		
-		service.DescribeRepositoryAssociation=function(svc,msg,cb){
+			service.DescribeRepositoryAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationArn",params,undefined,false); 
@@ -181,9 +172,7 @@ module.exports = function(RED) {
 
 			svc.describeRepositoryAssociation(params,cb);
 		}
-
-		
-		service.DisassociateRepository=function(svc,msg,cb){
+			service.DisassociateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationArn",params,undefined,false); 
@@ -195,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.disassociateRepository(params,cb);
 		}
-
-		
-		service.ListCodeReviews=function(svc,msg,cb){
+			service.ListCodeReviews=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -206,7 +193,7 @@ module.exports = function(RED) {
 			copyArgs(n,"States",params,undefined,false); 
 			copyArgs(n,"RepositoryNames",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ProviderTypes",params,undefined,true); 
@@ -219,15 +206,13 @@ module.exports = function(RED) {
 
 			svc.listCodeReviews(params,cb);
 		}
-
-		
-		service.ListRecommendationFeedback=function(svc,msg,cb){
+			service.ListRecommendationFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
 			copyArgs(n,"UserIds",params,undefined,false); 
 			copyArgs(n,"RecommendationIds",params,undefined,false); 
@@ -241,15 +226,13 @@ module.exports = function(RED) {
 
 			svc.listRecommendationFeedback(params,cb);
 		}
-
-		
-		service.ListRecommendations=function(svc,msg,cb){
+			service.ListRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -259,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.listRecommendations(params,cb);
 		}
-
-		
-		service.ListRepositoryAssociations=function(svc,msg,cb){
+			service.ListRepositoryAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -269,7 +250,7 @@ module.exports = function(RED) {
 			copyArgs(n,"States",params,undefined,false); 
 			copyArgs(n,"Names",params,undefined,false); 
 			copyArgs(n,"Owners",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ProviderTypes",params,undefined,true); 
@@ -282,9 +263,7 @@ module.exports = function(RED) {
 
 			svc.listRepositoryAssociations(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -296,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutRecommendationFeedback=function(svc,msg,cb){
+			service.PutRecommendationFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CodeReviewArn",params,undefined,false); 
@@ -316,9 +293,7 @@ module.exports = function(RED) {
 
 			svc.putRecommendationFeedback(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -333,9 +308,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -350,9 +323,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CodeGuruReviewer", AmazonAPINode);
 

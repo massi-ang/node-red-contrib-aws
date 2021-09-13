@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateConnectionAlias=function(svc,msg,cb){
+			service.AssociateConnectionAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.associateConnectionAlias(params,cb);
 		}
-
-		
-		service.AssociateIpGroups=function(svc,msg,cb){
+			service.AssociateIpGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.associateIpGroups(params,cb);
 		}
-
-		
-		service.AuthorizeIpRules=function(svc,msg,cb){
+			service.AuthorizeIpRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.authorizeIpRules(params,cb);
 		}
-
-		
-		service.CopyWorkspaceImage=function(svc,msg,cb){
+			service.CopyWorkspaceImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -167,9 +160,7 @@ module.exports = function(RED) {
 
 			svc.copyWorkspaceImage(params,cb);
 		}
-
-		
-		service.CreateConnectionAlias=function(svc,msg,cb){
+			service.CreateConnectionAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionString",params,undefined,false); 
@@ -183,9 +174,7 @@ module.exports = function(RED) {
 
 			svc.createConnectionAlias(params,cb);
 		}
-
-		
-		service.CreateIpGroup=function(svc,msg,cb){
+			service.CreateIpGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -203,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.createIpGroup(params,cb);
 		}
-
-		
-		service.CreateTags=function(svc,msg,cb){
+			service.CreateTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -220,9 +207,7 @@ module.exports = function(RED) {
 
 			svc.createTags(params,cb);
 		}
-
-		
-		service.CreateWorkspaceBundle=function(svc,msg,cb){
+			service.CreateWorkspaceBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BundleName",params,undefined,false); 
@@ -250,9 +235,7 @@ module.exports = function(RED) {
 
 			svc.createWorkspaceBundle(params,cb);
 		}
-
-		
-		service.CreateWorkspaces=function(svc,msg,cb){
+			service.CreateWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Workspaces",params,undefined,false); 
@@ -264,9 +247,7 @@ module.exports = function(RED) {
 
 			svc.createWorkspaces(params,cb);
 		}
-
-		
-		service.DeleteConnectionAlias=function(svc,msg,cb){
+			service.DeleteConnectionAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -278,9 +259,7 @@ module.exports = function(RED) {
 
 			svc.deleteConnectionAlias(params,cb);
 		}
-
-		
-		service.DeleteIpGroup=function(svc,msg,cb){
+			service.DeleteIpGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -292,9 +271,7 @@ module.exports = function(RED) {
 
 			svc.deleteIpGroup(params,cb);
 		}
-
-		
-		service.DeleteTags=function(svc,msg,cb){
+			service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -309,9 +286,7 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-
-		
-		service.DeleteWorkspaceBundle=function(svc,msg,cb){
+			service.DeleteWorkspaceBundle=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -322,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.deleteWorkspaceBundle(params,cb);
 		}
-
-		
-		service.DeleteWorkspaceImage=function(svc,msg,cb){
+			service.DeleteWorkspaceImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ImageId",params,undefined,false); 
@@ -336,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.deleteWorkspaceImage(params,cb);
 		}
-
-		
-		service.DeregisterWorkspaceDirectory=function(svc,msg,cb){
+			service.DeregisterWorkspaceDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -350,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.deregisterWorkspaceDirectory(params,cb);
 		}
-
-		
-		service.DescribeAccount=function(svc,msg,cb){
+			service.DescribeAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -361,9 +330,7 @@ module.exports = function(RED) {
 
 			svc.describeAccount(params,cb);
 		}
-
-		
-		service.DescribeAccountModifications=function(svc,msg,cb){
+			service.DescribeAccountModifications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -374,9 +341,7 @@ module.exports = function(RED) {
 
 			svc.describeAccountModifications(params,cb);
 		}
-
-		
-		service.DescribeClientProperties=function(svc,msg,cb){
+			service.DescribeClientProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIds",params,undefined,false); 
@@ -388,16 +353,14 @@ module.exports = function(RED) {
 
 			svc.describeClientProperties(params,cb);
 		}
-
-		
-		service.DescribeConnectionAliasPermissions=function(svc,msg,cb){
+			service.DescribeConnectionAliasPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AliasId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -406,15 +369,13 @@ module.exports = function(RED) {
 
 			svc.describeConnectionAliasPermissions(params,cb);
 		}
-
-		
-		service.DescribeConnectionAliases=function(svc,msg,cb){
+			service.DescribeConnectionAliases=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AliasIds",params,undefined,false); 
 			copyArgs(n,"ResourceId",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AliasIds",params,undefined,false); 
@@ -425,15 +386,13 @@ module.exports = function(RED) {
 
 			svc.describeConnectionAliases(params,cb);
 		}
-
-		
-		service.DescribeIpGroups=function(svc,msg,cb){
+			service.DescribeIpGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"GroupIds",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"GroupIds",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -442,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.describeIpGroups(params,cb);
 		}
-
-		
-		service.DescribeTags=function(svc,msg,cb){
+			service.DescribeTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -456,9 +413,7 @@ module.exports = function(RED) {
 
 			svc.describeTags(params,cb);
 		}
-
-		
-		service.DescribeWorkspaceBundles=function(svc,msg,cb){
+			service.DescribeWorkspaceBundles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -473,14 +428,12 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaceBundles(params,cb);
 		}
-
-		
-		service.DescribeWorkspaceDirectories=function(svc,msg,cb){
+			service.DescribeWorkspaceDirectories=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"DirectoryIds",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"DirectoryIds",params,undefined,false); 
@@ -490,16 +443,14 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaceDirectories(params,cb);
 		}
-
-		
-		service.DescribeWorkspaceImagePermissions=function(svc,msg,cb){
+			service.DescribeWorkspaceImagePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ImageId",params,undefined,false); 
 			
 			copyArgs(n,"ImageId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ImageId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -508,16 +459,14 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaceImagePermissions(params,cb);
 		}
-
-		
-		service.DescribeWorkspaceImages=function(svc,msg,cb){
+			service.DescribeWorkspaceImages=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ImageIds",params,undefined,false); 
 			copyArgs(n,"ImageType",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"ImageIds",params,undefined,false); 
 			copyArgs(msg,"ImageType",params,undefined,false); 
@@ -527,9 +476,7 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaceImages(params,cb);
 		}
-
-		
-		service.DescribeWorkspaceSnapshots=function(svc,msg,cb){
+			service.DescribeWorkspaceSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkspaceId",params,undefined,false); 
@@ -541,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaceSnapshots(params,cb);
 		}
-
-		
-		service.DescribeWorkspaces=function(svc,msg,cb){
+			service.DescribeWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -551,7 +496,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DirectoryId",params,undefined,false); 
 			copyArgs(n,"UserName",params,undefined,false); 
 			copyArgs(n,"BundleId",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"WorkspaceIds",params,undefined,true); 
@@ -564,9 +509,7 @@ module.exports = function(RED) {
 
 			svc.describeWorkspaces(params,cb);
 		}
-
-		
-		service.DescribeWorkspacesConnectionStatus=function(svc,msg,cb){
+			service.DescribeWorkspacesConnectionStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -579,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.describeWorkspacesConnectionStatus(params,cb);
 		}
-
-		
-		service.DisassociateConnectionAlias=function(svc,msg,cb){
+			service.DisassociateConnectionAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -593,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.disassociateConnectionAlias(params,cb);
 		}
-
-		
-		service.DisassociateIpGroups=function(svc,msg,cb){
+			service.DisassociateIpGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -610,9 +549,7 @@ module.exports = function(RED) {
 
 			svc.disassociateIpGroups(params,cb);
 		}
-
-		
-		service.ImportWorkspaceImage=function(svc,msg,cb){
+			service.ImportWorkspaceImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Ec2ImageId",params,undefined,false); 
@@ -637,15 +574,13 @@ module.exports = function(RED) {
 
 			svc.importWorkspaceImage(params,cb);
 		}
-
-		
-		service.ListAvailableManagementCidrRanges=function(svc,msg,cb){
+			service.ListAvailableManagementCidrRanges=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ManagementCidrRangeConstraint",params,undefined,false); 
 			
 			copyArgs(n,"ManagementCidrRangeConstraint",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ManagementCidrRangeConstraint",params,undefined,false); 
@@ -655,9 +590,7 @@ module.exports = function(RED) {
 
 			svc.listAvailableManagementCidrRanges(params,cb);
 		}
-
-		
-		service.MigrateWorkspace=function(svc,msg,cb){
+			service.MigrateWorkspace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceWorkspaceId",params,undefined,false); 
@@ -672,9 +605,7 @@ module.exports = function(RED) {
 
 			svc.migrateWorkspace(params,cb);
 		}
-
-		
-		service.ModifyAccount=function(svc,msg,cb){
+			service.ModifyAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -687,9 +618,7 @@ module.exports = function(RED) {
 
 			svc.modifyAccount(params,cb);
 		}
-
-		
-		service.ModifyClientProperties=function(svc,msg,cb){
+			service.ModifyClientProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -704,9 +633,7 @@ module.exports = function(RED) {
 
 			svc.modifyClientProperties(params,cb);
 		}
-
-		
-		service.ModifySelfservicePermissions=function(svc,msg,cb){
+			service.ModifySelfservicePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -721,9 +648,7 @@ module.exports = function(RED) {
 
 			svc.modifySelfservicePermissions(params,cb);
 		}
-
-		
-		service.ModifyWorkspaceAccessProperties=function(svc,msg,cb){
+			service.ModifyWorkspaceAccessProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -738,9 +663,7 @@ module.exports = function(RED) {
 
 			svc.modifyWorkspaceAccessProperties(params,cb);
 		}
-
-		
-		service.ModifyWorkspaceCreationProperties=function(svc,msg,cb){
+			service.ModifyWorkspaceCreationProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -755,9 +678,7 @@ module.exports = function(RED) {
 
 			svc.modifyWorkspaceCreationProperties(params,cb);
 		}
-
-		
-		service.ModifyWorkspaceProperties=function(svc,msg,cb){
+			service.ModifyWorkspaceProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkspaceId",params,undefined,false); 
@@ -772,9 +693,7 @@ module.exports = function(RED) {
 
 			svc.modifyWorkspaceProperties(params,cb);
 		}
-
-		
-		service.ModifyWorkspaceState=function(svc,msg,cb){
+			service.ModifyWorkspaceState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkspaceId",params,undefined,false); 
@@ -789,9 +708,7 @@ module.exports = function(RED) {
 
 			svc.modifyWorkspaceState(params,cb);
 		}
-
-		
-		service.RebootWorkspaces=function(svc,msg,cb){
+			service.RebootWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RebootWorkspaceRequests",params,undefined,false); 
@@ -803,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.rebootWorkspaces(params,cb);
 		}
-
-		
-		service.RebuildWorkspaces=function(svc,msg,cb){
+			service.RebuildWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RebuildWorkspaceRequests",params,undefined,false); 
@@ -817,18 +732,16 @@ module.exports = function(RED) {
 
 			svc.rebuildWorkspaces(params,cb);
 		}
-
-		
-		service.RegisterWorkspaceDirectory=function(svc,msg,cb){
+			service.RegisterWorkspaceDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
-			copyArgs(n,"EnableWorkDocs",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableWorkDocs",params,undefined,false); 
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
 			copyArgs(n,"SubnetIds",params,undefined,true); 
-			copyArgs(n,"EnableWorkDocs",params,undefined,false); 
-			copyArgs(n,"EnableSelfService",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableWorkDocs",params,undefined,false); 
+			copyArgs(Boolean(n),"EnableSelfService",params,undefined,false); 
 			copyArgs(n,"Tenancy",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
@@ -842,9 +755,7 @@ module.exports = function(RED) {
 
 			svc.registerWorkspaceDirectory(params,cb);
 		}
-
-		
-		service.RestoreWorkspace=function(svc,msg,cb){
+			service.RestoreWorkspace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkspaceId",params,undefined,false); 
@@ -856,9 +767,7 @@ module.exports = function(RED) {
 
 			svc.restoreWorkspace(params,cb);
 		}
-
-		
-		service.RevokeIpRules=function(svc,msg,cb){
+			service.RevokeIpRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -873,9 +782,7 @@ module.exports = function(RED) {
 
 			svc.revokeIpRules(params,cb);
 		}
-
-		
-		service.StartWorkspaces=function(svc,msg,cb){
+			service.StartWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartWorkspaceRequests",params,undefined,false); 
@@ -887,9 +794,7 @@ module.exports = function(RED) {
 
 			svc.startWorkspaces(params,cb);
 		}
-
-		
-		service.StopWorkspaces=function(svc,msg,cb){
+			service.StopWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StopWorkspaceRequests",params,undefined,false); 
@@ -901,9 +806,7 @@ module.exports = function(RED) {
 
 			svc.stopWorkspaces(params,cb);
 		}
-
-		
-		service.TerminateWorkspaces=function(svc,msg,cb){
+			service.TerminateWorkspaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TerminateWorkspaceRequests",params,undefined,false); 
@@ -915,9 +818,7 @@ module.exports = function(RED) {
 
 			svc.terminateWorkspaces(params,cb);
 		}
-
-		
-		service.UpdateConnectionAliasPermission=function(svc,msg,cb){
+			service.UpdateConnectionAliasPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -932,9 +833,7 @@ module.exports = function(RED) {
 
 			svc.updateConnectionAliasPermission(params,cb);
 		}
-
-		
-		service.UpdateRulesOfIpGroup=function(svc,msg,cb){
+			service.UpdateRulesOfIpGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupId",params,undefined,false); 
@@ -949,9 +848,7 @@ module.exports = function(RED) {
 
 			svc.updateRulesOfIpGroup(params,cb);
 		}
-
-		
-		service.UpdateWorkspaceBundle=function(svc,msg,cb){
+			service.UpdateWorkspaceBundle=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -964,17 +861,15 @@ module.exports = function(RED) {
 
 			svc.updateWorkspaceBundle(params,cb);
 		}
-
-		
-		service.UpdateWorkspaceImagePermission=function(svc,msg,cb){
+			service.UpdateWorkspaceImagePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ImageId",params,undefined,false); 
-			copyArgs(n,"AllowCopyImage",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowCopyImage",params,undefined,false); 
 			copyArgs(n,"SharedAccountId",params,undefined,false); 
 			
 			copyArgs(n,"ImageId",params,undefined,false); 
-			copyArgs(n,"AllowCopyImage",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowCopyImage",params,undefined,false); 
 			copyArgs(n,"SharedAccountId",params,undefined,false); 
 			
 			copyArgs(msg,"ImageId",params,undefined,false); 
@@ -984,9 +879,7 @@ module.exports = function(RED) {
 
 			svc.updateWorkspaceImagePermission(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS WorkSpaces", AmazonAPINode);
 

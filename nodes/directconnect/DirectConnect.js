@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
+			service.AcceptDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
@@ -114,22 +113,20 @@ module.exports = function(RED) {
 
 			svc.acceptDirectConnectGatewayAssociationProposal(params,cb);
 		}
-
-		
-		service.AllocateConnectionOnInterconnect=function(svc,msg,cb){
+			service.AllocateConnectionOnInterconnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bandwidth",params,undefined,false); 
 			copyArgs(n,"connectionName",params,undefined,false); 
 			copyArgs(n,"ownerAccount",params,undefined,false); 
 			copyArgs(n,"interconnectId",params,undefined,false); 
-			copyArgs(n,"vlan",params,undefined,false); 
+			copyArgs(Number(n),"vlan",params,undefined,false); 
 			
 			copyArgs(n,"bandwidth",params,undefined,false); 
 			copyArgs(n,"connectionName",params,undefined,false); 
 			copyArgs(n,"ownerAccount",params,undefined,false); 
 			copyArgs(n,"interconnectId",params,undefined,false); 
-			copyArgs(n,"vlan",params,undefined,false); 
+			copyArgs(Number(n),"vlan",params,undefined,false); 
 			
 			copyArgs(msg,"bandwidth",params,undefined,false); 
 			copyArgs(msg,"connectionName",params,undefined,false); 
@@ -140,22 +137,20 @@ module.exports = function(RED) {
 
 			svc.allocateConnectionOnInterconnect(params,cb);
 		}
-
-		
-		service.AllocateHostedConnection=function(svc,msg,cb){
+			service.AllocateHostedConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
 			copyArgs(n,"ownerAccount",params,undefined,false); 
 			copyArgs(n,"bandwidth",params,undefined,false); 
 			copyArgs(n,"connectionName",params,undefined,false); 
-			copyArgs(n,"vlan",params,undefined,false); 
+			copyArgs(Number(n),"vlan",params,undefined,false); 
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
 			copyArgs(n,"ownerAccount",params,undefined,false); 
 			copyArgs(n,"bandwidth",params,undefined,false); 
 			copyArgs(n,"connectionName",params,undefined,false); 
-			copyArgs(n,"vlan",params,undefined,false); 
+			copyArgs(Number(n),"vlan",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
 			copyArgs(msg,"connectionId",params,undefined,false); 
@@ -168,9 +163,7 @@ module.exports = function(RED) {
 
 			svc.allocateHostedConnection(params,cb);
 		}
-
-		
-		service.AllocatePrivateVirtualInterface=function(svc,msg,cb){
+			service.AllocatePrivateVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -188,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.allocatePrivateVirtualInterface(params,cb);
 		}
-
-		
-		service.AllocatePublicVirtualInterface=function(svc,msg,cb){
+			service.AllocatePublicVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -208,9 +199,7 @@ module.exports = function(RED) {
 
 			svc.allocatePublicVirtualInterface(params,cb);
 		}
-
-		
-		service.AllocateTransitVirtualInterface=function(svc,msg,cb){
+			service.AllocateTransitVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -228,9 +217,7 @@ module.exports = function(RED) {
 
 			svc.allocateTransitVirtualInterface(params,cb);
 		}
-
-		
-		service.AssociateConnectionWithLag=function(svc,msg,cb){
+			service.AssociateConnectionWithLag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -245,9 +232,7 @@ module.exports = function(RED) {
 
 			svc.associateConnectionWithLag(params,cb);
 		}
-
-		
-		service.AssociateHostedConnection=function(svc,msg,cb){
+			service.AssociateHostedConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -262,9 +247,7 @@ module.exports = function(RED) {
 
 			svc.associateHostedConnection(params,cb);
 		}
-
-		
-		service.AssociateMacSecKey=function(svc,msg,cb){
+			service.AssociateMacSecKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -282,9 +265,7 @@ module.exports = function(RED) {
 
 			svc.associateMacSecKey(params,cb);
 		}
-
-		
-		service.AssociateVirtualInterface=function(svc,msg,cb){
+			service.AssociateVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -299,9 +280,7 @@ module.exports = function(RED) {
 
 			svc.associateVirtualInterface(params,cb);
 		}
-
-		
-		service.ConfirmConnection=function(svc,msg,cb){
+			service.ConfirmConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -313,9 +292,7 @@ module.exports = function(RED) {
 
 			svc.confirmConnection(params,cb);
 		}
-
-		
-		service.ConfirmPrivateVirtualInterface=function(svc,msg,cb){
+			service.ConfirmPrivateVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -331,9 +308,7 @@ module.exports = function(RED) {
 
 			svc.confirmPrivateVirtualInterface(params,cb);
 		}
-
-		
-		service.ConfirmPublicVirtualInterface=function(svc,msg,cb){
+			service.ConfirmPublicVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -345,9 +320,7 @@ module.exports = function(RED) {
 
 			svc.confirmPublicVirtualInterface(params,cb);
 		}
-
-		
-		service.ConfirmTransitVirtualInterface=function(svc,msg,cb){
+			service.ConfirmTransitVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -362,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.confirmTransitVirtualInterface(params,cb);
 		}
-
-		
-		service.CreateBGPPeer=function(svc,msg,cb){
+			service.CreateBGPPeer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -377,9 +348,7 @@ module.exports = function(RED) {
 
 			svc.createBGPPeer(params,cb);
 		}
-
-		
-		service.CreateConnection=function(svc,msg,cb){
+			service.CreateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"location",params,undefined,false); 
@@ -392,7 +361,7 @@ module.exports = function(RED) {
 			copyArgs(n,"lagId",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"providerName",params,undefined,false); 
-			copyArgs(n,"requestMACSec",params,undefined,false); 
+			copyArgs(Boolean(n),"requestMACSec",params,undefined,false); 
 			
 			copyArgs(msg,"location",params,undefined,false); 
 			copyArgs(msg,"bandwidth",params,undefined,false); 
@@ -405,9 +374,7 @@ module.exports = function(RED) {
 
 			svc.createConnection(params,cb);
 		}
-
-		
-		service.CreateDirectConnectGateway=function(svc,msg,cb){
+			service.CreateDirectConnectGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"directConnectGatewayName",params,undefined,false); 
@@ -421,9 +388,7 @@ module.exports = function(RED) {
 
 			svc.createDirectConnectGateway(params,cb);
 		}
-
-		
-		service.CreateDirectConnectGatewayAssociation=function(svc,msg,cb){
+			service.CreateDirectConnectGatewayAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
@@ -441,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.createDirectConnectGatewayAssociation(params,cb);
 		}
-
-		
-		service.CreateDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
+			service.CreateDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
@@ -465,9 +428,7 @@ module.exports = function(RED) {
 
 			svc.createDirectConnectGatewayAssociationProposal(params,cb);
 		}
-
-		
-		service.CreateInterconnect=function(svc,msg,cb){
+			service.CreateInterconnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"interconnectName",params,undefined,false); 
@@ -491,17 +452,15 @@ module.exports = function(RED) {
 
 			svc.createInterconnect(params,cb);
 		}
-
-		
-		service.CreateLag=function(svc,msg,cb){
+			service.CreateLag=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"numberOfConnections",params,undefined,false); 
+			copyArgs(Number(n),"numberOfConnections",params,undefined,false); 
 			copyArgs(n,"location",params,undefined,false); 
 			copyArgs(n,"connectionsBandwidth",params,undefined,false); 
 			copyArgs(n,"lagName",params,undefined,false); 
 			
-			copyArgs(n,"numberOfConnections",params,undefined,false); 
+			copyArgs(Number(n),"numberOfConnections",params,undefined,false); 
 			copyArgs(n,"location",params,undefined,false); 
 			copyArgs(n,"connectionsBandwidth",params,undefined,false); 
 			copyArgs(n,"lagName",params,undefined,false); 
@@ -509,7 +468,7 @@ module.exports = function(RED) {
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"childConnectionTags",params,undefined,true); 
 			copyArgs(n,"providerName",params,undefined,false); 
-			copyArgs(n,"requestMACSec",params,undefined,false); 
+			copyArgs(Boolean(n),"requestMACSec",params,undefined,false); 
 			
 			copyArgs(msg,"numberOfConnections",params,undefined,false); 
 			copyArgs(msg,"location",params,undefined,false); 
@@ -524,9 +483,7 @@ module.exports = function(RED) {
 
 			svc.createLag(params,cb);
 		}
-
-		
-		service.CreatePrivateVirtualInterface=function(svc,msg,cb){
+			service.CreatePrivateVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -541,9 +498,7 @@ module.exports = function(RED) {
 
 			svc.createPrivateVirtualInterface(params,cb);
 		}
-
-		
-		service.CreatePublicVirtualInterface=function(svc,msg,cb){
+			service.CreatePublicVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -558,9 +513,7 @@ module.exports = function(RED) {
 
 			svc.createPublicVirtualInterface(params,cb);
 		}
-
-		
-		service.CreateTransitVirtualInterface=function(svc,msg,cb){
+			service.CreateTransitVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -575,14 +528,12 @@ module.exports = function(RED) {
 
 			svc.createTransitVirtualInterface(params,cb);
 		}
-
-		
-		service.DeleteBGPPeer=function(svc,msg,cb){
+			service.DeleteBGPPeer=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
-			copyArgs(n,"asn",params,undefined,false); 
+			copyArgs(Number(n),"asn",params,undefined,false); 
 			copyArgs(n,"customerAddress",params,undefined,false); 
 			copyArgs(n,"bgpPeerId",params,undefined,false); 
 			
@@ -594,9 +545,7 @@ module.exports = function(RED) {
 
 			svc.deleteBGPPeer(params,cb);
 		}
-
-		
-		service.DeleteConnection=function(svc,msg,cb){
+			service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -608,9 +557,7 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-
-		
-		service.DeleteDirectConnectGateway=function(svc,msg,cb){
+			service.DeleteDirectConnectGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
@@ -622,9 +569,7 @@ module.exports = function(RED) {
 
 			svc.deleteDirectConnectGateway(params,cb);
 		}
-
-		
-		service.DeleteDirectConnectGatewayAssociation=function(svc,msg,cb){
+			service.DeleteDirectConnectGatewayAssociation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -639,9 +584,7 @@ module.exports = function(RED) {
 
 			svc.deleteDirectConnectGatewayAssociation(params,cb);
 		}
-
-		
-		service.DeleteDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
+			service.DeleteDirectConnectGatewayAssociationProposal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"proposalId",params,undefined,false); 
@@ -653,9 +596,7 @@ module.exports = function(RED) {
 
 			svc.deleteDirectConnectGatewayAssociationProposal(params,cb);
 		}
-
-		
-		service.DeleteInterconnect=function(svc,msg,cb){
+			service.DeleteInterconnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"interconnectId",params,undefined,false); 
@@ -667,9 +608,7 @@ module.exports = function(RED) {
 
 			svc.deleteInterconnect(params,cb);
 		}
-
-		
-		service.DeleteLag=function(svc,msg,cb){
+			service.DeleteLag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"lagId",params,undefined,false); 
@@ -681,9 +620,7 @@ module.exports = function(RED) {
 
 			svc.deleteLag(params,cb);
 		}
-
-		
-		service.DeleteVirtualInterface=function(svc,msg,cb){
+			service.DeleteVirtualInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -695,9 +632,7 @@ module.exports = function(RED) {
 
 			svc.deleteVirtualInterface(params,cb);
 		}
-
-		
-		service.DescribeConnectionLoa=function(svc,msg,cb){
+			service.DescribeConnectionLoa=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -713,9 +648,7 @@ module.exports = function(RED) {
 
 			svc.describeConnectionLoa(params,cb);
 		}
-
-		
-		service.DescribeConnections=function(svc,msg,cb){
+			service.DescribeConnections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -726,9 +659,7 @@ module.exports = function(RED) {
 
 			svc.describeConnections(params,cb);
 		}
-
-		
-		service.DescribeConnectionsOnInterconnect=function(svc,msg,cb){
+			service.DescribeConnectionsOnInterconnect=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"interconnectId",params,undefined,false); 
@@ -740,16 +671,14 @@ module.exports = function(RED) {
 
 			svc.describeConnectionsOnInterconnect(params,cb);
 		}
-
-		
-		service.DescribeDirectConnectGatewayAssociationProposals=function(svc,msg,cb){
+			service.DescribeDirectConnectGatewayAssociationProposals=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
 			copyArgs(n,"proposalId",params,undefined,false); 
 			copyArgs(n,"associatedGatewayId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"directConnectGatewayId",params,undefined,false); 
@@ -761,16 +690,14 @@ module.exports = function(RED) {
 
 			svc.describeDirectConnectGatewayAssociationProposals(params,cb);
 		}
-
-		
-		service.DescribeDirectConnectGatewayAssociations=function(svc,msg,cb){
+			service.DescribeDirectConnectGatewayAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"associationId",params,undefined,false); 
 			copyArgs(n,"associatedGatewayId",params,undefined,false); 
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"virtualGatewayId",params,undefined,false); 
 			
@@ -784,15 +711,13 @@ module.exports = function(RED) {
 
 			svc.describeDirectConnectGatewayAssociations(params,cb);
 		}
-
-		
-		service.DescribeDirectConnectGatewayAttachments=function(svc,msg,cb){
+			service.DescribeDirectConnectGatewayAttachments=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"directConnectGatewayId",params,undefined,false); 
@@ -803,14 +728,12 @@ module.exports = function(RED) {
 
 			svc.describeDirectConnectGatewayAttachments(params,cb);
 		}
-
-		
-		service.DescribeDirectConnectGateways=function(svc,msg,cb){
+			service.DescribeDirectConnectGateways=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"directConnectGatewayId",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"directConnectGatewayId",params,undefined,false); 
@@ -820,9 +743,7 @@ module.exports = function(RED) {
 
 			svc.describeDirectConnectGateways(params,cb);
 		}
-
-		
-		service.DescribeHostedConnections=function(svc,msg,cb){
+			service.DescribeHostedConnections=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -834,9 +755,7 @@ module.exports = function(RED) {
 
 			svc.describeHostedConnections(params,cb);
 		}
-
-		
-		service.DescribeInterconnectLoa=function(svc,msg,cb){
+			service.DescribeInterconnectLoa=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"interconnectId",params,undefined,false); 
@@ -852,9 +771,7 @@ module.exports = function(RED) {
 
 			svc.describeInterconnectLoa(params,cb);
 		}
-
-		
-		service.DescribeInterconnects=function(svc,msg,cb){
+			service.DescribeInterconnects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -865,9 +782,7 @@ module.exports = function(RED) {
 
 			svc.describeInterconnects(params,cb);
 		}
-
-		
-		service.DescribeLags=function(svc,msg,cb){
+			service.DescribeLags=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -878,9 +793,7 @@ module.exports = function(RED) {
 
 			svc.describeLags(params,cb);
 		}
-
-		
-		service.DescribeLoa=function(svc,msg,cb){
+			service.DescribeLoa=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -896,9 +809,7 @@ module.exports = function(RED) {
 
 			svc.describeLoa(params,cb);
 		}
-
-		
-		service.DescribeLocations=function(svc,msg,cb){
+			service.DescribeLocations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -907,9 +818,7 @@ module.exports = function(RED) {
 
 			svc.describeLocations(params,cb);
 		}
-
-		
-		service.DescribeTags=function(svc,msg,cb){
+			service.DescribeTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArns",params,undefined,false); 
@@ -921,9 +830,7 @@ module.exports = function(RED) {
 
 			svc.describeTags(params,cb);
 		}
-
-		
-		service.DescribeVirtualGateways=function(svc,msg,cb){
+			service.DescribeVirtualGateways=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -932,9 +839,7 @@ module.exports = function(RED) {
 
 			svc.describeVirtualGateways(params,cb);
 		}
-
-		
-		service.DescribeVirtualInterfaces=function(svc,msg,cb){
+			service.DescribeVirtualInterfaces=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -947,9 +852,7 @@ module.exports = function(RED) {
 
 			svc.describeVirtualInterfaces(params,cb);
 		}
-
-		
-		service.DisassociateConnectionFromLag=function(svc,msg,cb){
+			service.DisassociateConnectionFromLag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -964,9 +867,7 @@ module.exports = function(RED) {
 
 			svc.disassociateConnectionFromLag(params,cb);
 		}
-
-		
-		service.DisassociateMacSecKey=function(svc,msg,cb){
+			service.DisassociateMacSecKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -981,9 +882,7 @@ module.exports = function(RED) {
 
 			svc.disassociateMacSecKey(params,cb);
 		}
-
-		
-		service.ListVirtualInterfaceTestHistory=function(svc,msg,cb){
+			service.ListVirtualInterfaceTestHistory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -991,7 +890,7 @@ module.exports = function(RED) {
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
 			copyArgs(n,"bgpPeers",params,undefined,true); 
 			copyArgs(n,"status",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"testId",params,undefined,false); 
@@ -1004,16 +903,14 @@ module.exports = function(RED) {
 
 			svc.listVirtualInterfaceTestHistory(params,cb);
 		}
-
-		
-		service.StartBgpFailoverTest=function(svc,msg,cb){
+			service.StartBgpFailoverTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
 			copyArgs(n,"bgpPeers",params,undefined,true); 
-			copyArgs(n,"testDurationInMinutes",params,undefined,false); 
+			copyArgs(Number(n),"testDurationInMinutes",params,undefined,false); 
 			
 			copyArgs(msg,"virtualInterfaceId",params,undefined,false); 
 			copyArgs(msg,"bgpPeers",params,undefined,true); 
@@ -1022,9 +919,7 @@ module.exports = function(RED) {
 
 			svc.startBgpFailoverTest(params,cb);
 		}
-
-		
-		service.StopBgpFailoverTest=function(svc,msg,cb){
+			service.StopBgpFailoverTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
@@ -1036,9 +931,7 @@ module.exports = function(RED) {
 
 			svc.stopBgpFailoverTest(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1053,9 +946,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1070,9 +961,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateConnection=function(svc,msg,cb){
+			service.UpdateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectionId",params,undefined,false); 
@@ -1088,9 +977,7 @@ module.exports = function(RED) {
 
 			svc.updateConnection(params,cb);
 		}
-
-		
-		service.UpdateDirectConnectGatewayAssociation=function(svc,msg,cb){
+			service.UpdateDirectConnectGatewayAssociation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1105,16 +992,14 @@ module.exports = function(RED) {
 
 			svc.updateDirectConnectGatewayAssociation(params,cb);
 		}
-
-		
-		service.UpdateLag=function(svc,msg,cb){
+			service.UpdateLag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"lagId",params,undefined,false); 
 			
 			copyArgs(n,"lagId",params,undefined,false); 
 			copyArgs(n,"lagName",params,undefined,false); 
-			copyArgs(n,"minimumLinks",params,undefined,false); 
+			copyArgs(Number(n),"minimumLinks",params,undefined,false); 
 			copyArgs(n,"encryptionMode",params,undefined,false); 
 			
 			copyArgs(msg,"lagId",params,undefined,false); 
@@ -1125,15 +1010,13 @@ module.exports = function(RED) {
 
 			svc.updateLag(params,cb);
 		}
-
-		
-		service.UpdateVirtualInterfaceAttributes=function(svc,msg,cb){
+			service.UpdateVirtualInterfaceAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
 			
 			copyArgs(n,"virtualInterfaceId",params,undefined,false); 
-			copyArgs(n,"mtu",params,undefined,false); 
+			copyArgs(Number(n),"mtu",params,undefined,false); 
 			
 			copyArgs(msg,"virtualInterfaceId",params,undefined,false); 
 			copyArgs(msg,"mtu",params,undefined,false); 
@@ -1141,9 +1024,7 @@ module.exports = function(RED) {
 
 			svc.updateVirtualInterfaceAttributes(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS DirectConnect", AmazonAPINode);
 

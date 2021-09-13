@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AssociateFirewallPolicy=function(svc,msg,cb){
+			service.AssociateFirewallPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallPolicyArn",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.associateFirewallPolicy(params,cb);
 		}
-
-		
-		service.AssociateSubnets=function(svc,msg,cb){
+			service.AssociateSubnets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetMappings",params,undefined,true); 
@@ -132,9 +129,7 @@ module.exports = function(RED) {
 
 			svc.associateSubnets(params,cb);
 		}
-
-		
-		service.CreateFirewall=function(svc,msg,cb){
+			service.CreateFirewall=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallName",params,undefined,false); 
@@ -146,9 +141,9 @@ module.exports = function(RED) {
 			copyArgs(n,"FirewallPolicyArn",params,undefined,false); 
 			copyArgs(n,"VpcId",params,undefined,false); 
 			copyArgs(n,"SubnetMappings",params,undefined,true); 
-			copyArgs(n,"DeleteProtection",params,undefined,false); 
-			copyArgs(n,"SubnetChangeProtection",params,undefined,false); 
-			copyArgs(n,"FirewallPolicyChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"SubnetChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"FirewallPolicyChangeProtection",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
@@ -165,9 +160,7 @@ module.exports = function(RED) {
 
 			svc.createFirewall(params,cb);
 		}
-
-		
-		service.CreateFirewallPolicy=function(svc,msg,cb){
+			service.CreateFirewallPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FirewallPolicyName",params,undefined,false); 
@@ -177,7 +170,7 @@ module.exports = function(RED) {
 			copyArgs(n,"FirewallPolicy",params,undefined,true); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"FirewallPolicyName",params,undefined,false); 
 			copyArgs(msg,"FirewallPolicy",params,undefined,true); 
@@ -188,23 +181,21 @@ module.exports = function(RED) {
 
 			svc.createFirewallPolicy(params,cb);
 		}
-
-		
-		service.CreateRuleGroup=function(svc,msg,cb){
+			service.CreateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleGroupName",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
-			copyArgs(n,"Capacity",params,undefined,false); 
+			copyArgs(Number(n),"Capacity",params,undefined,false); 
 			
 			copyArgs(n,"RuleGroupName",params,undefined,false); 
 			copyArgs(n,"RuleGroup",params,undefined,true); 
 			copyArgs(n,"Rules",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"Capacity",params,undefined,false); 
+			copyArgs(Number(n),"Capacity",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"RuleGroupName",params,undefined,false); 
 			copyArgs(msg,"RuleGroup",params,undefined,true); 
@@ -218,9 +209,7 @@ module.exports = function(RED) {
 
 			svc.createRuleGroup(params,cb);
 		}
-
-		
-		service.DeleteFirewall=function(svc,msg,cb){
+			service.DeleteFirewall=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -233,9 +222,7 @@ module.exports = function(RED) {
 
 			svc.deleteFirewall(params,cb);
 		}
-
-		
-		service.DeleteFirewallPolicy=function(svc,msg,cb){
+			service.DeleteFirewallPolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -248,9 +235,7 @@ module.exports = function(RED) {
 
 			svc.deleteFirewallPolicy(params,cb);
 		}
-
-		
-		service.DeleteResourcePolicy=function(svc,msg,cb){
+			service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -262,9 +247,7 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-
-		
-		service.DeleteRuleGroup=function(svc,msg,cb){
+			service.DeleteRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -279,9 +262,7 @@ module.exports = function(RED) {
 
 			svc.deleteRuleGroup(params,cb);
 		}
-
-		
-		service.DescribeFirewall=function(svc,msg,cb){
+			service.DescribeFirewall=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -294,9 +275,7 @@ module.exports = function(RED) {
 
 			svc.describeFirewall(params,cb);
 		}
-
-		
-		service.DescribeFirewallPolicy=function(svc,msg,cb){
+			service.DescribeFirewallPolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -309,9 +288,7 @@ module.exports = function(RED) {
 
 			svc.describeFirewallPolicy(params,cb);
 		}
-
-		
-		service.DescribeLoggingConfiguration=function(svc,msg,cb){
+			service.DescribeLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -324,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.describeLoggingConfiguration(params,cb);
 		}
-
-		
-		service.DescribeResourcePolicy=function(svc,msg,cb){
+			service.DescribeResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -338,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.describeResourcePolicy(params,cb);
 		}
-
-		
-		service.DescribeRuleGroup=function(svc,msg,cb){
+			service.DescribeRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -355,9 +328,7 @@ module.exports = function(RED) {
 
 			svc.describeRuleGroup(params,cb);
 		}
-
-		
-		service.DisassociateSubnets=function(svc,msg,cb){
+			service.DisassociateSubnets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetIds",params,undefined,false); 
@@ -375,14 +346,12 @@ module.exports = function(RED) {
 
 			svc.disassociateSubnets(params,cb);
 		}
-
-		
-		service.ListFirewallPolicies=function(svc,msg,cb){
+			service.ListFirewallPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -390,15 +359,13 @@ module.exports = function(RED) {
 
 			svc.listFirewallPolicies(params,cb);
 		}
-
-		
-		service.ListFirewalls=function(svc,msg,cb){
+			service.ListFirewalls=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"VpcIds",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"VpcIds",params,undefined,false); 
@@ -407,14 +374,12 @@ module.exports = function(RED) {
 
 			svc.listFirewalls(params,cb);
 		}
-
-		
-		service.ListRuleGroups=function(svc,msg,cb){
+			service.ListRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -422,15 +387,13 @@ module.exports = function(RED) {
 
 			svc.listRuleGroups(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"ResourceArn",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -440,9 +403,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutResourcePolicy=function(svc,msg,cb){
+			service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -457,9 +418,7 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -474,9 +433,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -491,17 +448,15 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateFirewallDeleteProtection=function(svc,msg,cb){
+			service.UpdateFirewallDeleteProtection=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"DeleteProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteProtection",params,undefined,false); 
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
 			copyArgs(n,"FirewallArn",params,undefined,false); 
 			copyArgs(n,"FirewallName",params,undefined,false); 
-			copyArgs(n,"DeleteProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"DeleteProtection",params,undefined,false); 
 			
 			copyArgs(msg,"UpdateToken",params,undefined,false); 
 			copyArgs(msg,"FirewallArn",params,undefined,false); 
@@ -511,9 +466,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallDeleteProtection(params,cb);
 		}
-
-		
-		service.UpdateFirewallDescription=function(svc,msg,cb){
+			service.UpdateFirewallDescription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -530,9 +483,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallDescription(params,cb);
 		}
-
-		
-		service.UpdateFirewallPolicy=function(svc,msg,cb){
+			service.UpdateFirewallPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
@@ -543,7 +494,7 @@ module.exports = function(RED) {
 			copyArgs(n,"FirewallPolicyName",params,undefined,false); 
 			copyArgs(n,"FirewallPolicy",params,undefined,true); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"UpdateToken",params,undefined,false); 
 			copyArgs(msg,"FirewallPolicyArn",params,undefined,false); 
@@ -555,17 +506,15 @@ module.exports = function(RED) {
 
 			svc.updateFirewallPolicy(params,cb);
 		}
-
-		
-		service.UpdateFirewallPolicyChangeProtection=function(svc,msg,cb){
+			service.UpdateFirewallPolicyChangeProtection=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"FirewallPolicyChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"FirewallPolicyChangeProtection",params,undefined,false); 
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
 			copyArgs(n,"FirewallArn",params,undefined,false); 
 			copyArgs(n,"FirewallName",params,undefined,false); 
-			copyArgs(n,"FirewallPolicyChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"FirewallPolicyChangeProtection",params,undefined,false); 
 			
 			copyArgs(msg,"UpdateToken",params,undefined,false); 
 			copyArgs(msg,"FirewallArn",params,undefined,false); 
@@ -575,9 +524,7 @@ module.exports = function(RED) {
 
 			svc.updateFirewallPolicyChangeProtection(params,cb);
 		}
-
-		
-		service.UpdateLoggingConfiguration=function(svc,msg,cb){
+			service.UpdateLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -592,9 +539,7 @@ module.exports = function(RED) {
 
 			svc.updateLoggingConfiguration(params,cb);
 		}
-
-		
-		service.UpdateRuleGroup=function(svc,msg,cb){
+			service.UpdateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
@@ -606,7 +551,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Rules",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(n,"DryRun",params,undefined,false); 
+			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			
 			copyArgs(msg,"UpdateToken",params,undefined,false); 
 			copyArgs(msg,"RuleGroupArn",params,undefined,false); 
@@ -620,17 +565,15 @@ module.exports = function(RED) {
 
 			svc.updateRuleGroup(params,cb);
 		}
-
-		
-		service.UpdateSubnetChangeProtection=function(svc,msg,cb){
+			service.UpdateSubnetChangeProtection=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"SubnetChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"SubnetChangeProtection",params,undefined,false); 
 			
 			copyArgs(n,"UpdateToken",params,undefined,false); 
 			copyArgs(n,"FirewallArn",params,undefined,false); 
 			copyArgs(n,"FirewallName",params,undefined,false); 
-			copyArgs(n,"SubnetChangeProtection",params,undefined,false); 
+			copyArgs(Boolean(n),"SubnetChangeProtection",params,undefined,false); 
 			
 			copyArgs(msg,"UpdateToken",params,undefined,false); 
 			copyArgs(msg,"FirewallArn",params,undefined,false); 
@@ -640,9 +583,7 @@ module.exports = function(RED) {
 
 			svc.updateSubnetChangeProtection(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS NetworkFirewall", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AddFlowMediaStreams=function(svc,msg,cb){
+			service.AddFlowMediaStreams=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -109,9 +108,7 @@ module.exports = function(RED) {
 
 			svc.addFlowMediaStreams(params,cb);
 		}
-
-		
-		service.AddFlowOutputs=function(svc,msg,cb){
+			service.AddFlowOutputs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -126,9 +123,7 @@ module.exports = function(RED) {
 
 			svc.addFlowOutputs(params,cb);
 		}
-
-		
-		service.AddFlowSources=function(svc,msg,cb){
+			service.AddFlowSources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.addFlowSources(params,cb);
 		}
-
-		
-		service.AddFlowVpcInterfaces=function(svc,msg,cb){
+			service.AddFlowVpcInterfaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -160,9 +153,7 @@ module.exports = function(RED) {
 
 			svc.addFlowVpcInterfaces(params,cb);
 		}
-
-		
-		service.CreateFlow=function(svc,msg,cb){
+			service.CreateFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -190,9 +181,7 @@ module.exports = function(RED) {
 
 			svc.createFlow(params,cb);
 		}
-
-		
-		service.DeleteFlow=function(svc,msg,cb){
+			service.DeleteFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -204,9 +193,7 @@ module.exports = function(RED) {
 
 			svc.deleteFlow(params,cb);
 		}
-
-		
-		service.DescribeFlow=function(svc,msg,cb){
+			service.DescribeFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -218,9 +205,7 @@ module.exports = function(RED) {
 
 			svc.describeFlow(params,cb);
 		}
-
-		
-		service.DescribeOffering=function(svc,msg,cb){
+			service.DescribeOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OfferingArn",params,undefined,false); 
@@ -232,9 +217,7 @@ module.exports = function(RED) {
 
 			svc.describeOffering(params,cb);
 		}
-
-		
-		service.DescribeReservation=function(svc,msg,cb){
+			service.DescribeReservation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservationArn",params,undefined,false); 
@@ -246,9 +229,7 @@ module.exports = function(RED) {
 
 			svc.describeReservation(params,cb);
 		}
-
-		
-		service.GrantFlowEntitlements=function(svc,msg,cb){
+			service.GrantFlowEntitlements=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -263,13 +244,11 @@ module.exports = function(RED) {
 
 			svc.grantFlowEntitlements(params,cb);
 		}
-
-		
-		service.ListEntitlements=function(svc,msg,cb){
+			service.ListEntitlements=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -278,13 +257,11 @@ module.exports = function(RED) {
 
 			svc.listEntitlements(params,cb);
 		}
-
-		
-		service.ListFlows=function(svc,msg,cb){
+			service.ListFlows=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -293,13 +270,11 @@ module.exports = function(RED) {
 
 			svc.listFlows(params,cb);
 		}
-
-		
-		service.ListOfferings=function(svc,msg,cb){
+			service.ListOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -308,13 +283,11 @@ module.exports = function(RED) {
 
 			svc.listOfferings(params,cb);
 		}
-
-		
-		service.ListReservations=function(svc,msg,cb){
+			service.ListReservations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -323,9 +296,7 @@ module.exports = function(RED) {
 
 			svc.listReservations(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -337,9 +308,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PurchaseOffering=function(svc,msg,cb){
+			service.PurchaseOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OfferingArn",params,undefined,false); 
@@ -357,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.purchaseOffering(params,cb);
 		}
-
-		
-		service.RemoveFlowMediaStream=function(svc,msg,cb){
+			service.RemoveFlowMediaStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -374,9 +341,7 @@ module.exports = function(RED) {
 
 			svc.removeFlowMediaStream(params,cb);
 		}
-
-		
-		service.RemoveFlowOutput=function(svc,msg,cb){
+			service.RemoveFlowOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -391,9 +356,7 @@ module.exports = function(RED) {
 
 			svc.removeFlowOutput(params,cb);
 		}
-
-		
-		service.RemoveFlowSource=function(svc,msg,cb){
+			service.RemoveFlowSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -408,9 +371,7 @@ module.exports = function(RED) {
 
 			svc.removeFlowSource(params,cb);
 		}
-
-		
-		service.RemoveFlowVpcInterface=function(svc,msg,cb){
+			service.RemoveFlowVpcInterface=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -425,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.removeFlowVpcInterface(params,cb);
 		}
-
-		
-		service.RevokeFlowEntitlement=function(svc,msg,cb){
+			service.RevokeFlowEntitlement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -442,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.revokeFlowEntitlement(params,cb);
 		}
-
-		
-		service.StartFlow=function(svc,msg,cb){
+			service.StartFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -456,9 +413,7 @@ module.exports = function(RED) {
 
 			svc.startFlow(params,cb);
 		}
-
-		
-		service.StopFlow=function(svc,msg,cb){
+			service.StopFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -470,9 +425,7 @@ module.exports = function(RED) {
 
 			svc.stopFlow(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -487,9 +440,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -504,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateFlow=function(svc,msg,cb){
+			service.UpdateFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -520,9 +469,7 @@ module.exports = function(RED) {
 
 			svc.updateFlow(params,cb);
 		}
-
-		
-		service.UpdateFlowEntitlement=function(svc,msg,cb){
+			service.UpdateFlowEntitlement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -545,16 +492,14 @@ module.exports = function(RED) {
 
 			svc.updateFlowEntitlement(params,cb);
 		}
-
-		
-		service.UpdateFlowMediaStream=function(svc,msg,cb){
+			service.UpdateFlowMediaStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
 			copyArgs(n,"MediaStreamName",params,undefined,false); 
 			
 			copyArgs(n,"Attributes",params,undefined,true); 
-			copyArgs(n,"ClockRate",params,undefined,false); 
+			copyArgs(Number(n),"ClockRate",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"FlowArn",params,undefined,false); 
 			copyArgs(n,"MediaStreamName",params,undefined,false); 
@@ -572,9 +517,7 @@ module.exports = function(RED) {
 
 			svc.updateFlowMediaStream(params,cb);
 		}
-
-		
-		service.UpdateFlowOutput=function(svc,msg,cb){
+			service.UpdateFlowOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -585,14 +528,14 @@ module.exports = function(RED) {
 			copyArgs(n,"Destination",params,undefined,false); 
 			copyArgs(n,"Encryption",params,undefined,true); 
 			copyArgs(n,"FlowArn",params,undefined,false); 
-			copyArgs(n,"MaxLatency",params,undefined,false); 
+			copyArgs(Number(n),"MaxLatency",params,undefined,false); 
 			copyArgs(n,"MediaStreamOutputConfigurations",params,undefined,true); 
-			copyArgs(n,"MinLatency",params,undefined,false); 
+			copyArgs(Number(n),"MinLatency",params,undefined,false); 
 			copyArgs(n,"OutputArn",params,undefined,false); 
-			copyArgs(n,"Port",params,undefined,false); 
+			copyArgs(Number(n),"Port",params,undefined,false); 
 			copyArgs(n,"Protocol",params,undefined,false); 
 			copyArgs(n,"RemoteId",params,undefined,false); 
-			copyArgs(n,"SmoothingLatency",params,undefined,false); 
+			copyArgs(Number(n),"SmoothingLatency",params,undefined,false); 
 			copyArgs(n,"StreamId",params,undefined,false); 
 			copyArgs(n,"VpcInterfaceAttachment",params,undefined,true); 
 			
@@ -615,9 +558,7 @@ module.exports = function(RED) {
 
 			svc.updateFlowOutput(params,cb);
 		}
-
-		
-		service.UpdateFlowSource=function(svc,msg,cb){
+			service.UpdateFlowSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FlowArn",params,undefined,false); 
@@ -627,12 +568,12 @@ module.exports = function(RED) {
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"EntitlementArn",params,undefined,false); 
 			copyArgs(n,"FlowArn",params,undefined,false); 
-			copyArgs(n,"IngestPort",params,undefined,false); 
-			copyArgs(n,"MaxBitrate",params,undefined,false); 
-			copyArgs(n,"MaxLatency",params,undefined,false); 
-			copyArgs(n,"MaxSyncBuffer",params,undefined,false); 
+			copyArgs(Number(n),"IngestPort",params,undefined,false); 
+			copyArgs(Number(n),"MaxBitrate",params,undefined,false); 
+			copyArgs(Number(n),"MaxLatency",params,undefined,false); 
+			copyArgs(Number(n),"MaxSyncBuffer",params,undefined,false); 
 			copyArgs(n,"MediaStreamSourceConfigurations",params,undefined,true); 
-			copyArgs(n,"MinLatency",params,undefined,false); 
+			copyArgs(Number(n),"MinLatency",params,undefined,false); 
 			copyArgs(n,"Protocol",params,undefined,false); 
 			copyArgs(n,"SourceArn",params,undefined,false); 
 			copyArgs(n,"StreamId",params,undefined,false); 
@@ -658,9 +599,7 @@ module.exports = function(RED) {
 
 			svc.updateFlowSource(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS MediaConnect", AmazonAPINode);
 

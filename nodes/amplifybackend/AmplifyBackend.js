@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CloneBackend=function(svc,msg,cb){
+			service.CloneBackend=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.cloneBackend(params,cb);
 		}
-
-		
-		service.CreateBackend=function(svc,msg,cb){
+			service.CreateBackend=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -136,9 +133,7 @@ module.exports = function(RED) {
 
 			svc.createBackend(params,cb);
 		}
-
-		
-		service.CreateBackendAPI=function(svc,msg,cb){
+			service.CreateBackendAPI=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -159,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.createBackendAPI(params,cb);
 		}
-
-		
-		service.CreateBackendAuth=function(svc,msg,cb){
+			service.CreateBackendAuth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -182,9 +175,7 @@ module.exports = function(RED) {
 
 			svc.createBackendAuth(params,cb);
 		}
-
-		
-		service.CreateBackendConfig=function(svc,msg,cb){
+			service.CreateBackendConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -198,9 +189,7 @@ module.exports = function(RED) {
 
 			svc.createBackendConfig(params,cb);
 		}
-
-		
-		service.CreateToken=function(svc,msg,cb){
+			service.CreateToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -212,9 +201,7 @@ module.exports = function(RED) {
 
 			svc.createToken(params,cb);
 		}
-
-		
-		service.DeleteBackend=function(svc,msg,cb){
+			service.DeleteBackend=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -229,9 +216,7 @@ module.exports = function(RED) {
 
 			svc.deleteBackend(params,cb);
 		}
-
-		
-		service.DeleteBackendAPI=function(svc,msg,cb){
+			service.DeleteBackendAPI=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -251,9 +236,7 @@ module.exports = function(RED) {
 
 			svc.deleteBackendAPI(params,cb);
 		}
-
-		
-		service.DeleteBackendAuth=function(svc,msg,cb){
+			service.DeleteBackendAuth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -271,9 +254,7 @@ module.exports = function(RED) {
 
 			svc.deleteBackendAuth(params,cb);
 		}
-
-		
-		service.DeleteToken=function(svc,msg,cb){
+			service.DeleteToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SessionId",params,undefined,false); 
@@ -288,9 +269,7 @@ module.exports = function(RED) {
 
 			svc.deleteToken(params,cb);
 		}
-
-		
-		service.GenerateBackendAPIModels=function(svc,msg,cb){
+			service.GenerateBackendAPIModels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -308,9 +287,7 @@ module.exports = function(RED) {
 
 			svc.generateBackendAPIModels(params,cb);
 		}
-
-		
-		service.GetBackend=function(svc,msg,cb){
+			service.GetBackend=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -324,9 +301,7 @@ module.exports = function(RED) {
 
 			svc.getBackend(params,cb);
 		}
-
-		
-		service.GetBackendAPI=function(svc,msg,cb){
+			service.GetBackendAPI=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -346,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.getBackendAPI(params,cb);
 		}
-
-		
-		service.GetBackendAPIModels=function(svc,msg,cb){
+			service.GetBackendAPIModels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -366,9 +339,7 @@ module.exports = function(RED) {
 
 			svc.getBackendAPIModels(params,cb);
 		}
-
-		
-		service.GetBackendAuth=function(svc,msg,cb){
+			service.GetBackendAuth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -386,9 +357,7 @@ module.exports = function(RED) {
 
 			svc.getBackendAuth(params,cb);
 		}
-
-		
-		service.GetBackendJob=function(svc,msg,cb){
+			service.GetBackendJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -406,9 +375,7 @@ module.exports = function(RED) {
 
 			svc.getBackendJob(params,cb);
 		}
-
-		
-		service.GetToken=function(svc,msg,cb){
+			service.GetToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SessionId",params,undefined,false); 
@@ -423,9 +390,7 @@ module.exports = function(RED) {
 
 			svc.getToken(params,cb);
 		}
-
-		
-		service.ImportBackendAuth=function(svc,msg,cb){
+			service.ImportBackendAuth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -451,9 +416,7 @@ module.exports = function(RED) {
 
 			svc.importBackendAuth(params,cb);
 		}
-
-		
-		service.ListBackendJobs=function(svc,msg,cb){
+			service.ListBackendJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -462,7 +425,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AppId",params,undefined,false); 
 			copyArgs(n,"BackendEnvironmentName",params,undefined,false); 
 			copyArgs(n,"JobId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Operation",params,undefined,false); 
 			copyArgs(n,"Status",params,undefined,false); 
@@ -478,15 +441,13 @@ module.exports = function(RED) {
 
 			svc.listBackendJobs(params,cb);
 		}
-
-		
-		service.RemoveAllBackends=function(svc,msg,cb){
+			service.RemoveAllBackends=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
 			
 			copyArgs(n,"AppId",params,undefined,false); 
-			copyArgs(n,"CleanAmplifyApp",params,undefined,false); 
+			copyArgs(Boolean(n),"CleanAmplifyApp",params,undefined,false); 
 			
 			copyArgs(msg,"AppId",params,undefined,false); 
 			copyArgs(msg,"CleanAmplifyApp",params,undefined,false); 
@@ -494,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.removeAllBackends(params,cb);
 		}
-
-		
-		service.RemoveBackendConfig=function(svc,msg,cb){
+			service.RemoveBackendConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -508,9 +467,7 @@ module.exports = function(RED) {
 
 			svc.removeBackendConfig(params,cb);
 		}
-
-		
-		service.UpdateBackendAPI=function(svc,msg,cb){
+			service.UpdateBackendAPI=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -530,9 +487,7 @@ module.exports = function(RED) {
 
 			svc.updateBackendAPI(params,cb);
 		}
-
-		
-		service.UpdateBackendAuth=function(svc,msg,cb){
+			service.UpdateBackendAuth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -553,9 +508,7 @@ module.exports = function(RED) {
 
 			svc.updateBackendAuth(params,cb);
 		}
-
-		
-		service.UpdateBackendConfig=function(svc,msg,cb){
+			service.UpdateBackendConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -569,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.updateBackendConfig(params,cb);
 		}
-
-		
-		service.UpdateBackendJob=function(svc,msg,cb){
+			service.UpdateBackendJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -593,9 +544,7 @@ module.exports = function(RED) {
 
 			svc.updateBackendJob(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS AmplifyBackend", AmazonAPINode);
 

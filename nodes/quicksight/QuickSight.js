@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CancelIngestion=function(svc,msg,cb){
+			service.CancelIngestion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.cancelIngestion(params,cb);
 		}
-
-		
-		service.CreateAccountCustomization=function(svc,msg,cb){
+			service.CreateAccountCustomization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -133,9 +130,7 @@ module.exports = function(RED) {
 
 			svc.createAccountCustomization(params,cb);
 		}
-
-		
-		service.CreateAnalysis=function(svc,msg,cb){
+			service.CreateAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -164,9 +159,7 @@ module.exports = function(RED) {
 
 			svc.createAnalysis(params,cb);
 		}
-
-		
-		service.CreateDashboard=function(svc,msg,cb){
+			service.CreateDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -199,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.createDashboard(params,cb);
 		}
-
-		
-		service.CreateDataSet=function(svc,msg,cb){
+			service.CreateDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -243,9 +234,7 @@ module.exports = function(RED) {
 
 			svc.createDataSet(params,cb);
 		}
-
-		
-		service.CreateDataSource=function(svc,msg,cb){
+			service.CreateDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -278,9 +267,7 @@ module.exports = function(RED) {
 
 			svc.createDataSource(params,cb);
 		}
-
-		
-		service.CreateFolder=function(svc,msg,cb){
+			service.CreateFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -305,9 +292,7 @@ module.exports = function(RED) {
 
 			svc.createFolder(params,cb);
 		}
-
-		
-		service.CreateFolderMembership=function(svc,msg,cb){
+			service.CreateFolderMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -328,9 +313,7 @@ module.exports = function(RED) {
 
 			svc.createFolderMembership(params,cb);
 		}
-
-		
-		service.CreateGroup=function(svc,msg,cb){
+			service.CreateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -350,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.createGroup(params,cb);
 		}
-
-		
-		service.CreateGroupMembership=function(svc,msg,cb){
+			service.CreateGroupMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MemberName",params,undefined,false); 
@@ -373,9 +354,7 @@ module.exports = function(RED) {
 
 			svc.createGroupMembership(params,cb);
 		}
-
-		
-		service.CreateIAMPolicyAssignment=function(svc,msg,cb){
+			service.CreateIAMPolicyAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -400,9 +379,7 @@ module.exports = function(RED) {
 
 			svc.createIAMPolicyAssignment(params,cb);
 		}
-
-		
-		service.CreateIngestion=function(svc,msg,cb){
+			service.CreateIngestion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -420,9 +397,7 @@ module.exports = function(RED) {
 
 			svc.createIngestion(params,cb);
 		}
-
-		
-		service.CreateNamespace=function(svc,msg,cb){
+			service.CreateNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -442,9 +417,7 @@ module.exports = function(RED) {
 
 			svc.createNamespace(params,cb);
 		}
-
-		
-		service.CreateTemplate=function(svc,msg,cb){
+			service.CreateTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -470,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.createTemplate(params,cb);
 		}
-
-		
-		service.CreateTemplateAlias=function(svc,msg,cb){
+			service.CreateTemplateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -493,9 +464,7 @@ module.exports = function(RED) {
 
 			svc.createTemplateAlias(params,cb);
 		}
-
-		
-		service.CreateTheme=function(svc,msg,cb){
+			service.CreateTheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -525,9 +494,7 @@ module.exports = function(RED) {
 
 			svc.createTheme(params,cb);
 		}
-
-		
-		service.CreateThemeAlias=function(svc,msg,cb){
+			service.CreateThemeAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -548,9 +515,7 @@ module.exports = function(RED) {
 
 			svc.createThemeAlias(params,cb);
 		}
-
-		
-		service.DeleteAccountCustomization=function(svc,msg,cb){
+			service.DeleteAccountCustomization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -564,9 +529,7 @@ module.exports = function(RED) {
 
 			svc.deleteAccountCustomization(params,cb);
 		}
-
-		
-		service.DeleteAnalysis=function(svc,msg,cb){
+			service.DeleteAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -575,7 +538,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"AnalysisId",params,undefined,false); 
 			copyArgs(n,"RecoveryWindowInDays",params,undefined,false); 
-			copyArgs(n,"ForceDeleteWithoutRecovery",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceDeleteWithoutRecovery",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"AnalysisId",params,undefined,false); 
@@ -585,9 +548,7 @@ module.exports = function(RED) {
 
 			svc.deleteAnalysis(params,cb);
 		}
-
-		
-		service.DeleteDashboard=function(svc,msg,cb){
+			service.DeleteDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -604,9 +565,7 @@ module.exports = function(RED) {
 
 			svc.deleteDashboard(params,cb);
 		}
-
-		
-		service.DeleteDataSet=function(svc,msg,cb){
+			service.DeleteDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -621,9 +580,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataSet(params,cb);
 		}
-
-		
-		service.DeleteDataSource=function(svc,msg,cb){
+			service.DeleteDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -638,9 +595,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataSource(params,cb);
 		}
-
-		
-		service.DeleteFolder=function(svc,msg,cb){
+			service.DeleteFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -655,9 +610,7 @@ module.exports = function(RED) {
 
 			svc.deleteFolder(params,cb);
 		}
-
-		
-		service.DeleteFolderMembership=function(svc,msg,cb){
+			service.DeleteFolderMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -678,9 +631,7 @@ module.exports = function(RED) {
 
 			svc.deleteFolderMembership(params,cb);
 		}
-
-		
-		service.DeleteGroup=function(svc,msg,cb){
+			service.DeleteGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -698,9 +649,7 @@ module.exports = function(RED) {
 
 			svc.deleteGroup(params,cb);
 		}
-
-		
-		service.DeleteGroupMembership=function(svc,msg,cb){
+			service.DeleteGroupMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MemberName",params,undefined,false); 
@@ -721,9 +670,7 @@ module.exports = function(RED) {
 
 			svc.deleteGroupMembership(params,cb);
 		}
-
-		
-		service.DeleteIAMPolicyAssignment=function(svc,msg,cb){
+			service.DeleteIAMPolicyAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -741,9 +688,7 @@ module.exports = function(RED) {
 
 			svc.deleteIAMPolicyAssignment(params,cb);
 		}
-
-		
-		service.DeleteNamespace=function(svc,msg,cb){
+			service.DeleteNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -758,9 +703,7 @@ module.exports = function(RED) {
 
 			svc.deleteNamespace(params,cb);
 		}
-
-		
-		service.DeleteTemplate=function(svc,msg,cb){
+			service.DeleteTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -777,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.deleteTemplate(params,cb);
 		}
-
-		
-		service.DeleteTemplateAlias=function(svc,msg,cb){
+			service.DeleteTemplateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -797,9 +738,7 @@ module.exports = function(RED) {
 
 			svc.deleteTemplateAlias(params,cb);
 		}
-
-		
-		service.DeleteTheme=function(svc,msg,cb){
+			service.DeleteTheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -816,9 +755,7 @@ module.exports = function(RED) {
 
 			svc.deleteTheme(params,cb);
 		}
-
-		
-		service.DeleteThemeAlias=function(svc,msg,cb){
+			service.DeleteThemeAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -836,9 +773,7 @@ module.exports = function(RED) {
 
 			svc.deleteThemeAlias(params,cb);
 		}
-
-		
-		service.DeleteUser=function(svc,msg,cb){
+			service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -856,9 +791,7 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-
-		
-		service.DeleteUserByPrincipalId=function(svc,msg,cb){
+			service.DeleteUserByPrincipalId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PrincipalId",params,undefined,false); 
@@ -876,16 +809,14 @@ module.exports = function(RED) {
 
 			svc.deleteUserByPrincipalId(params,cb);
 		}
-
-		
-		service.DescribeAccountCustomization=function(svc,msg,cb){
+			service.DescribeAccountCustomization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
-			copyArgs(n,"Resolved",params,undefined,false); 
+			copyArgs(Boolean(n),"Resolved",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"Namespace",params,undefined,false); 
@@ -894,9 +825,7 @@ module.exports = function(RED) {
 
 			svc.describeAccountCustomization(params,cb);
 		}
-
-		
-		service.DescribeAccountSettings=function(svc,msg,cb){
+			service.DescribeAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -908,9 +837,7 @@ module.exports = function(RED) {
 
 			svc.describeAccountSettings(params,cb);
 		}
-
-		
-		service.DescribeAnalysis=function(svc,msg,cb){
+			service.DescribeAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -925,9 +852,7 @@ module.exports = function(RED) {
 
 			svc.describeAnalysis(params,cb);
 		}
-
-		
-		service.DescribeAnalysisPermissions=function(svc,msg,cb){
+			service.DescribeAnalysisPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -942,9 +867,7 @@ module.exports = function(RED) {
 
 			svc.describeAnalysisPermissions(params,cb);
 		}
-
-		
-		service.DescribeDashboard=function(svc,msg,cb){
+			service.DescribeDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -963,9 +886,7 @@ module.exports = function(RED) {
 
 			svc.describeDashboard(params,cb);
 		}
-
-		
-		service.DescribeDashboardPermissions=function(svc,msg,cb){
+			service.DescribeDashboardPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -980,9 +901,7 @@ module.exports = function(RED) {
 
 			svc.describeDashboardPermissions(params,cb);
 		}
-
-		
-		service.DescribeDataSet=function(svc,msg,cb){
+			service.DescribeDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -997,9 +916,7 @@ module.exports = function(RED) {
 
 			svc.describeDataSet(params,cb);
 		}
-
-		
-		service.DescribeDataSetPermissions=function(svc,msg,cb){
+			service.DescribeDataSetPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1014,9 +931,7 @@ module.exports = function(RED) {
 
 			svc.describeDataSetPermissions(params,cb);
 		}
-
-		
-		service.DescribeDataSource=function(svc,msg,cb){
+			service.DescribeDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1031,9 +946,7 @@ module.exports = function(RED) {
 
 			svc.describeDataSource(params,cb);
 		}
-
-		
-		service.DescribeDataSourcePermissions=function(svc,msg,cb){
+			service.DescribeDataSourcePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1048,9 +961,7 @@ module.exports = function(RED) {
 
 			svc.describeDataSourcePermissions(params,cb);
 		}
-
-		
-		service.DescribeFolder=function(svc,msg,cb){
+			service.DescribeFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1065,9 +976,7 @@ module.exports = function(RED) {
 
 			svc.describeFolder(params,cb);
 		}
-
-		
-		service.DescribeFolderPermissions=function(svc,msg,cb){
+			service.DescribeFolderPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1082,9 +991,7 @@ module.exports = function(RED) {
 
 			svc.describeFolderPermissions(params,cb);
 		}
-
-		
-		service.DescribeFolderResolvedPermissions=function(svc,msg,cb){
+			service.DescribeFolderResolvedPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1099,9 +1006,7 @@ module.exports = function(RED) {
 
 			svc.describeFolderResolvedPermissions(params,cb);
 		}
-
-		
-		service.DescribeGroup=function(svc,msg,cb){
+			service.DescribeGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -1119,9 +1024,7 @@ module.exports = function(RED) {
 
 			svc.describeGroup(params,cb);
 		}
-
-		
-		service.DescribeIAMPolicyAssignment=function(svc,msg,cb){
+			service.DescribeIAMPolicyAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1139,9 +1042,7 @@ module.exports = function(RED) {
 
 			svc.describeIAMPolicyAssignment(params,cb);
 		}
-
-		
-		service.DescribeIngestion=function(svc,msg,cb){
+			service.DescribeIngestion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1159,9 +1060,7 @@ module.exports = function(RED) {
 
 			svc.describeIngestion(params,cb);
 		}
-
-		
-		service.DescribeNamespace=function(svc,msg,cb){
+			service.DescribeNamespace=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1176,9 +1075,7 @@ module.exports = function(RED) {
 
 			svc.describeNamespace(params,cb);
 		}
-
-		
-		service.DescribeTemplate=function(svc,msg,cb){
+			service.DescribeTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1197,9 +1094,7 @@ module.exports = function(RED) {
 
 			svc.describeTemplate(params,cb);
 		}
-
-		
-		service.DescribeTemplateAlias=function(svc,msg,cb){
+			service.DescribeTemplateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1217,9 +1112,7 @@ module.exports = function(RED) {
 
 			svc.describeTemplateAlias(params,cb);
 		}
-
-		
-		service.DescribeTemplatePermissions=function(svc,msg,cb){
+			service.DescribeTemplatePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1234,9 +1127,7 @@ module.exports = function(RED) {
 
 			svc.describeTemplatePermissions(params,cb);
 		}
-
-		
-		service.DescribeTheme=function(svc,msg,cb){
+			service.DescribeTheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1255,9 +1146,7 @@ module.exports = function(RED) {
 
 			svc.describeTheme(params,cb);
 		}
-
-		
-		service.DescribeThemeAlias=function(svc,msg,cb){
+			service.DescribeThemeAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1275,9 +1164,7 @@ module.exports = function(RED) {
 
 			svc.describeThemeAlias(params,cb);
 		}
-
-		
-		service.DescribeThemePermissions=function(svc,msg,cb){
+			service.DescribeThemePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1292,9 +1179,7 @@ module.exports = function(RED) {
 
 			svc.describeThemePermissions(params,cb);
 		}
-
-		
-		service.DescribeUser=function(svc,msg,cb){
+			service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -1312,9 +1197,7 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-
-		
-		service.GenerateEmbedUrlForAnonymousUser=function(svc,msg,cb){
+			service.GenerateEmbedUrlForAnonymousUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1339,9 +1222,7 @@ module.exports = function(RED) {
 
 			svc.generateEmbedUrlForAnonymousUser(params,cb);
 		}
-
-		
-		service.GenerateEmbedUrlForRegisteredUser=function(svc,msg,cb){
+			service.GenerateEmbedUrlForRegisteredUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1361,9 +1242,7 @@ module.exports = function(RED) {
 
 			svc.generateEmbedUrlForRegisteredUser(params,cb);
 		}
-
-		
-		service.GetDashboardEmbedUrl=function(svc,msg,cb){
+			service.GetDashboardEmbedUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1374,9 +1253,9 @@ module.exports = function(RED) {
 			copyArgs(n,"DashboardId",params,undefined,false); 
 			copyArgs(n,"IdentityType",params,undefined,false); 
 			copyArgs(n,"SessionLifetimeInMinutes",params,undefined,false); 
-			copyArgs(n,"UndoRedoDisabled",params,undefined,false); 
-			copyArgs(n,"ResetDisabled",params,undefined,false); 
-			copyArgs(n,"StatePersistenceEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"UndoRedoDisabled",params,undefined,false); 
+			copyArgs(Boolean(n),"ResetDisabled",params,undefined,false); 
+			copyArgs(Boolean(n),"StatePersistenceEnabled",params,undefined,false); 
 			copyArgs(n,"UserArn",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			copyArgs(n,"AdditionalDashboardIds",params,undefined,false); 
@@ -1395,9 +1274,7 @@ module.exports = function(RED) {
 
 			svc.getDashboardEmbedUrl(params,cb);
 		}
-
-		
-		service.GetSessionEmbedUrl=function(svc,msg,cb){
+			service.GetSessionEmbedUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1415,16 +1292,14 @@ module.exports = function(RED) {
 
 			svc.getSessionEmbedUrl(params,cb);
 		}
-
-		
-		service.ListAnalyses=function(svc,msg,cb){
+			service.ListAnalyses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1433,9 +1308,7 @@ module.exports = function(RED) {
 
 			svc.listAnalyses(params,cb);
 		}
-
-		
-		service.ListDashboardVersions=function(svc,msg,cb){
+			service.ListDashboardVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1444,7 +1317,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"DashboardId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"DashboardId",params,undefined,false); 
@@ -1454,16 +1327,14 @@ module.exports = function(RED) {
 
 			svc.listDashboardVersions(params,cb);
 		}
-
-		
-		service.ListDashboards=function(svc,msg,cb){
+			service.ListDashboards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1472,16 +1343,14 @@ module.exports = function(RED) {
 
 			svc.listDashboards(params,cb);
 		}
-
-		
-		service.ListDataSets=function(svc,msg,cb){
+			service.ListDataSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1490,16 +1359,14 @@ module.exports = function(RED) {
 
 			svc.listDataSets(params,cb);
 		}
-
-		
-		service.ListDataSources=function(svc,msg,cb){
+			service.ListDataSources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1508,9 +1375,7 @@ module.exports = function(RED) {
 
 			svc.listDataSources(params,cb);
 		}
-
-		
-		service.ListFolderMembers=function(svc,msg,cb){
+			service.ListFolderMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1519,7 +1384,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"FolderId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"FolderId",params,undefined,false); 
@@ -1529,16 +1394,14 @@ module.exports = function(RED) {
 
 			svc.listFolderMembers(params,cb);
 		}
-
-		
-		service.ListFolders=function(svc,msg,cb){
+			service.ListFolders=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1547,9 +1410,7 @@ module.exports = function(RED) {
 
 			svc.listFolders(params,cb);
 		}
-
-		
-		service.ListGroupMemberships=function(svc,msg,cb){
+			service.ListGroupMemberships=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -1558,7 +1419,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			
@@ -1571,9 +1432,7 @@ module.exports = function(RED) {
 
 			svc.listGroupMemberships(params,cb);
 		}
-
-		
-		service.ListGroups=function(svc,msg,cb){
+			service.ListGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1581,7 +1440,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
@@ -1592,9 +1451,7 @@ module.exports = function(RED) {
 
 			svc.listGroups(params,cb);
 		}
-
-		
-		service.ListIAMPolicyAssignments=function(svc,msg,cb){
+			service.ListIAMPolicyAssignments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1604,7 +1461,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AssignmentStatus",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"AssignmentStatus",params,undefined,false); 
@@ -1615,9 +1472,7 @@ module.exports = function(RED) {
 
 			svc.listIAMPolicyAssignments(params,cb);
 		}
-
-		
-		service.ListIAMPolicyAssignmentsForUser=function(svc,msg,cb){
+			service.ListIAMPolicyAssignmentsForUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1627,7 +1482,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"UserName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
@@ -1639,9 +1494,7 @@ module.exports = function(RED) {
 
 			svc.listIAMPolicyAssignmentsForUser(params,cb);
 		}
-
-		
-		service.ListIngestions=function(svc,msg,cb){
+			service.ListIngestions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -1650,7 +1503,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DataSetId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"DataSetId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1660,16 +1513,14 @@ module.exports = function(RED) {
 
 			svc.listIngestions(params,cb);
 		}
-
-		
-		service.ListNamespaces=function(svc,msg,cb){
+			service.ListNamespaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1678,9 +1529,7 @@ module.exports = function(RED) {
 
 			svc.listNamespaces(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1692,9 +1541,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTemplateAliases=function(svc,msg,cb){
+			service.ListTemplateAliases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1703,7 +1550,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"TemplateId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"TemplateId",params,undefined,false); 
@@ -1713,9 +1560,7 @@ module.exports = function(RED) {
 
 			svc.listTemplateAliases(params,cb);
 		}
-
-		
-		service.ListTemplateVersions=function(svc,msg,cb){
+			service.ListTemplateVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1724,7 +1569,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"TemplateId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"TemplateId",params,undefined,false); 
@@ -1734,16 +1579,14 @@ module.exports = function(RED) {
 
 			svc.listTemplateVersions(params,cb);
 		}
-
-		
-		service.ListTemplates=function(svc,msg,cb){
+			service.ListTemplates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -1752,9 +1595,7 @@ module.exports = function(RED) {
 
 			svc.listTemplates(params,cb);
 		}
-
-		
-		service.ListThemeAliases=function(svc,msg,cb){
+			service.ListThemeAliases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1763,7 +1604,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"ThemeId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"ThemeId",params,undefined,false); 
@@ -1773,9 +1614,7 @@ module.exports = function(RED) {
 
 			svc.listThemeAliases(params,cb);
 		}
-
-		
-		service.ListThemeVersions=function(svc,msg,cb){
+			service.ListThemeVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1784,7 +1623,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"ThemeId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"ThemeId",params,undefined,false); 
@@ -1794,16 +1633,14 @@ module.exports = function(RED) {
 
 			svc.listThemeVersions(params,cb);
 		}
-
-		
-		service.ListThemes=function(svc,msg,cb){
+			service.ListThemes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Type",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
@@ -1814,9 +1651,7 @@ module.exports = function(RED) {
 
 			svc.listThemes(params,cb);
 		}
-
-		
-		service.ListUserGroups=function(svc,msg,cb){
+			service.ListUserGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -1827,7 +1662,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"UserName",params,undefined,false); 
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
@@ -1838,9 +1673,7 @@ module.exports = function(RED) {
 
 			svc.listUserGroups(params,cb);
 		}
-
-		
-		service.ListUsers=function(svc,msg,cb){
+			service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1848,7 +1681,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"Namespace",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
@@ -1859,9 +1692,7 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-
-		
-		service.RegisterUser=function(svc,msg,cb){
+			service.RegisterUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityType",params,undefined,false); 
@@ -1899,9 +1730,7 @@ module.exports = function(RED) {
 
 			svc.registerUser(params,cb);
 		}
-
-		
-		service.RestoreAnalysis=function(svc,msg,cb){
+			service.RestoreAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1916,9 +1745,7 @@ module.exports = function(RED) {
 
 			svc.restoreAnalysis(params,cb);
 		}
-
-		
-		service.SearchAnalyses=function(svc,msg,cb){
+			service.SearchAnalyses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1927,7 +1754,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -1937,9 +1764,7 @@ module.exports = function(RED) {
 
 			svc.searchAnalyses(params,cb);
 		}
-
-		
-		service.SearchDashboards=function(svc,msg,cb){
+			service.SearchDashboards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1948,7 +1773,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -1958,9 +1783,7 @@ module.exports = function(RED) {
 
 			svc.searchDashboards(params,cb);
 		}
-
-		
-		service.SearchFolders=function(svc,msg,cb){
+			service.SearchFolders=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -1969,7 +1792,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"AwsAccountId",params,undefined,false); 
 			copyArgs(msg,"Filters",params,undefined,false); 
@@ -1979,9 +1802,7 @@ module.exports = function(RED) {
 
 			svc.searchFolders(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1996,9 +1817,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -2013,9 +1832,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAccountCustomization=function(svc,msg,cb){
+			service.UpdateAccountCustomization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2032,9 +1849,7 @@ module.exports = function(RED) {
 
 			svc.updateAccountCustomization(params,cb);
 		}
-
-		
-		service.UpdateAccountSettings=function(svc,msg,cb){
+			service.UpdateAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2051,9 +1866,7 @@ module.exports = function(RED) {
 
 			svc.updateAccountSettings(params,cb);
 		}
-
-		
-		service.UpdateAnalysis=function(svc,msg,cb){
+			service.UpdateAnalysis=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2078,9 +1891,7 @@ module.exports = function(RED) {
 
 			svc.updateAnalysis(params,cb);
 		}
-
-		
-		service.UpdateAnalysisPermissions=function(svc,msg,cb){
+			service.UpdateAnalysisPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2099,9 +1910,7 @@ module.exports = function(RED) {
 
 			svc.updateAnalysisPermissions(params,cb);
 		}
-
-		
-		service.UpdateDashboard=function(svc,msg,cb){
+			service.UpdateDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2130,9 +1939,7 @@ module.exports = function(RED) {
 
 			svc.updateDashboard(params,cb);
 		}
-
-		
-		service.UpdateDashboardPermissions=function(svc,msg,cb){
+			service.UpdateDashboardPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2151,9 +1958,7 @@ module.exports = function(RED) {
 
 			svc.updateDashboardPermissions(params,cb);
 		}
-
-		
-		service.UpdateDashboardPublishedVersion=function(svc,msg,cb){
+			service.UpdateDashboardPublishedVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2171,9 +1976,7 @@ module.exports = function(RED) {
 
 			svc.updateDashboardPublishedVersion(params,cb);
 		}
-
-		
-		service.UpdateDataSet=function(svc,msg,cb){
+			service.UpdateDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2211,9 +2014,7 @@ module.exports = function(RED) {
 
 			svc.updateDataSet(params,cb);
 		}
-
-		
-		service.UpdateDataSetPermissions=function(svc,msg,cb){
+			service.UpdateDataSetPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2232,9 +2033,7 @@ module.exports = function(RED) {
 
 			svc.updateDataSetPermissions(params,cb);
 		}
-
-		
-		service.UpdateDataSource=function(svc,msg,cb){
+			service.UpdateDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2260,9 +2059,7 @@ module.exports = function(RED) {
 
 			svc.updateDataSource(params,cb);
 		}
-
-		
-		service.UpdateDataSourcePermissions=function(svc,msg,cb){
+			service.UpdateDataSourcePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2281,9 +2078,7 @@ module.exports = function(RED) {
 
 			svc.updateDataSourcePermissions(params,cb);
 		}
-
-		
-		service.UpdateFolder=function(svc,msg,cb){
+			service.UpdateFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2301,9 +2096,7 @@ module.exports = function(RED) {
 
 			svc.updateFolder(params,cb);
 		}
-
-		
-		service.UpdateFolderPermissions=function(svc,msg,cb){
+			service.UpdateFolderPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2322,9 +2115,7 @@ module.exports = function(RED) {
 
 			svc.updateFolderPermissions(params,cb);
 		}
-
-		
-		service.UpdateGroup=function(svc,msg,cb){
+			service.UpdateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -2344,9 +2135,7 @@ module.exports = function(RED) {
 
 			svc.updateGroup(params,cb);
 		}
-
-		
-		service.UpdateIAMPolicyAssignment=function(svc,msg,cb){
+			service.UpdateIAMPolicyAssignment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2370,9 +2159,7 @@ module.exports = function(RED) {
 
 			svc.updateIAMPolicyAssignment(params,cb);
 		}
-
-		
-		service.UpdateTemplate=function(svc,msg,cb){
+			service.UpdateTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2394,9 +2181,7 @@ module.exports = function(RED) {
 
 			svc.updateTemplate(params,cb);
 		}
-
-		
-		service.UpdateTemplateAlias=function(svc,msg,cb){
+			service.UpdateTemplateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2417,9 +2202,7 @@ module.exports = function(RED) {
 
 			svc.updateTemplateAlias(params,cb);
 		}
-
-		
-		service.UpdateTemplatePermissions=function(svc,msg,cb){
+			service.UpdateTemplatePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2438,9 +2221,7 @@ module.exports = function(RED) {
 
 			svc.updateTemplatePermissions(params,cb);
 		}
-
-		
-		service.UpdateTheme=function(svc,msg,cb){
+			service.UpdateTheme=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2464,9 +2245,7 @@ module.exports = function(RED) {
 
 			svc.updateTheme(params,cb);
 		}
-
-		
-		service.UpdateThemeAlias=function(svc,msg,cb){
+			service.UpdateThemeAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2487,9 +2266,7 @@ module.exports = function(RED) {
 
 			svc.updateThemeAlias(params,cb);
 		}
-
-		
-		service.UpdateThemePermissions=function(svc,msg,cb){
+			service.UpdateThemePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AwsAccountId",params,undefined,false); 
@@ -2508,9 +2285,7 @@ module.exports = function(RED) {
 
 			svc.updateThemePermissions(params,cb);
 		}
-
-		
-		service.UpdateUser=function(svc,msg,cb){
+			service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -2525,7 +2300,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Email",params,undefined,false); 
 			copyArgs(n,"Role",params,undefined,false); 
 			copyArgs(n,"CustomPermissionsName",params,undefined,false); 
-			copyArgs(n,"UnapplyCustomPermissions",params,undefined,false); 
+			copyArgs(Boolean(n),"UnapplyCustomPermissions",params,undefined,false); 
 			copyArgs(n,"ExternalLoginFederationProviderType",params,undefined,false); 
 			copyArgs(n,"CustomFederationProviderUrl",params,undefined,false); 
 			copyArgs(n,"ExternalLoginId",params,undefined,false); 
@@ -2544,9 +2319,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS QuickSight", AmazonAPINode);
 

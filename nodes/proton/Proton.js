@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptEnvironmentAccountConnection=function(svc,msg,cb){
+			service.AcceptEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.acceptEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.CancelEnvironmentDeployment=function(svc,msg,cb){
+			service.CancelEnvironmentDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentName",params,undefined,false); 
@@ -120,9 +117,7 @@ module.exports = function(RED) {
 
 			svc.cancelEnvironmentDeployment(params,cb);
 		}
-
-		
-		service.CancelServiceInstanceDeployment=function(svc,msg,cb){
+			service.CancelServiceInstanceDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceInstanceName",params,undefined,false); 
@@ -137,9 +132,7 @@ module.exports = function(RED) {
 
 			svc.cancelServiceInstanceDeployment(params,cb);
 		}
-
-		
-		service.CancelServicePipelineDeployment=function(svc,msg,cb){
+			service.CancelServicePipelineDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serviceName",params,undefined,false); 
@@ -151,9 +144,7 @@ module.exports = function(RED) {
 
 			svc.cancelServicePipelineDeployment(params,cb);
 		}
-
-		
-		service.CreateEnvironment=function(svc,msg,cb){
+			service.CreateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -184,9 +175,7 @@ module.exports = function(RED) {
 
 			svc.createEnvironment(params,cb);
 		}
-
-		
-		service.CreateEnvironmentAccountConnection=function(svc,msg,cb){
+			service.CreateEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentName",params,undefined,false); 
@@ -206,9 +195,7 @@ module.exports = function(RED) {
 
 			svc.createEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.CreateEnvironmentTemplate=function(svc,msg,cb){
+			service.CreateEnvironmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -230,9 +217,7 @@ module.exports = function(RED) {
 
 			svc.createEnvironmentTemplate(params,cb);
 		}
-
-		
-		service.CreateEnvironmentTemplateVersion=function(svc,msg,cb){
+			service.CreateEnvironmentTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"source",params,undefined,true); 
@@ -255,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.createEnvironmentTemplateVersion(params,cb);
 		}
-
-		
-		service.CreateService=function(svc,msg,cb){
+			service.CreateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -290,9 +273,7 @@ module.exports = function(RED) {
 
 			svc.createService(params,cb);
 		}
-
-		
-		service.CreateServiceTemplate=function(svc,msg,cb){
+			service.CreateServiceTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -314,9 +295,7 @@ module.exports = function(RED) {
 
 			svc.createServiceTemplate(params,cb);
 		}
-
-		
-		service.CreateServiceTemplateVersion=function(svc,msg,cb){
+			service.CreateServiceTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"compatibleEnvironmentTemplates",params,undefined,true); 
@@ -342,9 +321,7 @@ module.exports = function(RED) {
 
 			svc.createServiceTemplateVersion(params,cb);
 		}
-
-		
-		service.DeleteEnvironment=function(svc,msg,cb){
+			service.DeleteEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -356,9 +333,7 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironment(params,cb);
 		}
-
-		
-		service.DeleteEnvironmentAccountConnection=function(svc,msg,cb){
+			service.DeleteEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -370,9 +345,7 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.DeleteEnvironmentTemplate=function(svc,msg,cb){
+			service.DeleteEnvironmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -384,9 +357,7 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironmentTemplate(params,cb);
 		}
-
-		
-		service.DeleteEnvironmentTemplateVersion=function(svc,msg,cb){
+			service.DeleteEnvironmentTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -404,9 +375,7 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironmentTemplateVersion(params,cb);
 		}
-
-		
-		service.DeleteService=function(svc,msg,cb){
+			service.DeleteService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -418,9 +387,7 @@ module.exports = function(RED) {
 
 			svc.deleteService(params,cb);
 		}
-
-		
-		service.DeleteServiceTemplate=function(svc,msg,cb){
+			service.DeleteServiceTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -432,9 +399,7 @@ module.exports = function(RED) {
 
 			svc.deleteServiceTemplate(params,cb);
 		}
-
-		
-		service.DeleteServiceTemplateVersion=function(svc,msg,cb){
+			service.DeleteServiceTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -452,9 +417,7 @@ module.exports = function(RED) {
 
 			svc.deleteServiceTemplateVersion(params,cb);
 		}
-
-		
-		service.GetAccountSettings=function(svc,msg,cb){
+			service.GetAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -463,9 +426,7 @@ module.exports = function(RED) {
 
 			svc.getAccountSettings(params,cb);
 		}
-
-		
-		service.GetEnvironment=function(svc,msg,cb){
+			service.GetEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -477,9 +438,7 @@ module.exports = function(RED) {
 
 			svc.getEnvironment(params,cb);
 		}
-
-		
-		service.GetEnvironmentAccountConnection=function(svc,msg,cb){
+			service.GetEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -491,9 +450,7 @@ module.exports = function(RED) {
 
 			svc.getEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.GetEnvironmentTemplate=function(svc,msg,cb){
+			service.GetEnvironmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -505,9 +462,7 @@ module.exports = function(RED) {
 
 			svc.getEnvironmentTemplate(params,cb);
 		}
-
-		
-		service.GetEnvironmentTemplateVersion=function(svc,msg,cb){
+			service.GetEnvironmentTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -525,9 +480,7 @@ module.exports = function(RED) {
 
 			svc.getEnvironmentTemplateVersion(params,cb);
 		}
-
-		
-		service.GetService=function(svc,msg,cb){
+			service.GetService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -539,9 +492,7 @@ module.exports = function(RED) {
 
 			svc.getService(params,cb);
 		}
-
-		
-		service.GetServiceInstance=function(svc,msg,cb){
+			service.GetServiceInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -556,9 +507,7 @@ module.exports = function(RED) {
 
 			svc.getServiceInstance(params,cb);
 		}
-
-		
-		service.GetServiceTemplate=function(svc,msg,cb){
+			service.GetServiceTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -570,9 +519,7 @@ module.exports = function(RED) {
 
 			svc.getServiceTemplate(params,cb);
 		}
-
-		
-		service.GetServiceTemplateVersion=function(svc,msg,cb){
+			service.GetServiceTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -590,15 +537,13 @@ module.exports = function(RED) {
 
 			svc.getServiceTemplateVersion(params,cb);
 		}
-
-		
-		service.ListEnvironmentAccountConnections=function(svc,msg,cb){
+			service.ListEnvironmentAccountConnections=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"requestedBy",params,undefined,false); 
 			
 			copyArgs(n,"environmentName",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"requestedBy",params,undefined,false); 
 			copyArgs(n,"statuses",params,undefined,false); 
@@ -612,15 +557,13 @@ module.exports = function(RED) {
 
 			svc.listEnvironmentAccountConnections(params,cb);
 		}
-
-		
-		service.ListEnvironmentTemplateVersions=function(svc,msg,cb){
+			service.ListEnvironmentTemplateVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"templateName",params,undefined,false); 
 			
@@ -632,13 +575,11 @@ module.exports = function(RED) {
 
 			svc.listEnvironmentTemplateVersions(params,cb);
 		}
-
-		
-		service.ListEnvironmentTemplates=function(svc,msg,cb){
+			service.ListEnvironmentTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -647,14 +588,12 @@ module.exports = function(RED) {
 
 			svc.listEnvironmentTemplates(params,cb);
 		}
-
-		
-		service.ListEnvironments=function(svc,msg,cb){
+			service.ListEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"environmentTemplates",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"environmentTemplates",params,undefined,false); 
@@ -664,13 +603,11 @@ module.exports = function(RED) {
 
 			svc.listEnvironments(params,cb);
 		}
-
-		
-		service.ListServiceInstances=function(svc,msg,cb){
+			service.ListServiceInstances=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"serviceName",params,undefined,false); 
 			
@@ -681,15 +618,13 @@ module.exports = function(RED) {
 
 			svc.listServiceInstances(params,cb);
 		}
-
-		
-		service.ListServiceTemplateVersions=function(svc,msg,cb){
+			service.ListServiceTemplateVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"templateName",params,undefined,false); 
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"templateName",params,undefined,false); 
 			
@@ -701,13 +636,11 @@ module.exports = function(RED) {
 
 			svc.listServiceTemplateVersions(params,cb);
 		}
-
-		
-		service.ListServiceTemplates=function(svc,msg,cb){
+			service.ListServiceTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -716,13 +649,11 @@ module.exports = function(RED) {
 
 			svc.listServiceTemplates(params,cb);
 		}
-
-		
-		service.ListServices=function(svc,msg,cb){
+			service.ListServices=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -731,14 +662,12 @@ module.exports = function(RED) {
 
 			svc.listServices(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
@@ -749,9 +678,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.RejectEnvironmentAccountConnection=function(svc,msg,cb){
+			service.RejectEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -763,9 +690,7 @@ module.exports = function(RED) {
 
 			svc.rejectEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -780,9 +705,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -797,9 +720,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAccountSettings=function(svc,msg,cb){
+			service.UpdateAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -810,9 +731,7 @@ module.exports = function(RED) {
 
 			svc.updateAccountSettings(params,cb);
 		}
-
-		
-		service.UpdateEnvironment=function(svc,msg,cb){
+			service.UpdateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentType",params,undefined,false); 
@@ -839,9 +758,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironment(params,cb);
 		}
-
-		
-		service.UpdateEnvironmentAccountConnection=function(svc,msg,cb){
+			service.UpdateEnvironmentAccountConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -856,9 +773,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironmentAccountConnection(params,cb);
 		}
-
-		
-		service.UpdateEnvironmentTemplate=function(svc,msg,cb){
+			service.UpdateEnvironmentTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -874,9 +789,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironmentTemplate(params,cb);
 		}
-
-		
-		service.UpdateEnvironmentTemplateVersion=function(svc,msg,cb){
+			service.UpdateEnvironmentTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -898,9 +811,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironmentTemplateVersion(params,cb);
 		}
-
-		
-		service.UpdateService=function(svc,msg,cb){
+			service.UpdateService=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -916,9 +827,7 @@ module.exports = function(RED) {
 
 			svc.updateService(params,cb);
 		}
-
-		
-		service.UpdateServiceInstance=function(svc,msg,cb){
+			service.UpdateServiceInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentType",params,undefined,false); 
@@ -942,9 +851,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceInstance(params,cb);
 		}
-
-		
-		service.UpdateServicePipeline=function(svc,msg,cb){
+			service.UpdateServicePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentType",params,undefined,false); 
@@ -966,9 +873,7 @@ module.exports = function(RED) {
 
 			svc.updateServicePipeline(params,cb);
 		}
-
-		
-		service.UpdateServiceTemplate=function(svc,msg,cb){
+			service.UpdateServiceTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -984,9 +889,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceTemplate(params,cb);
 		}
-
-		
-		service.UpdateServiceTemplateVersion=function(svc,msg,cb){
+			service.UpdateServiceTemplateVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"majorVersion",params,undefined,false); 
@@ -1010,9 +913,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceTemplateVersion(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Proton", AmazonAPINode);
 

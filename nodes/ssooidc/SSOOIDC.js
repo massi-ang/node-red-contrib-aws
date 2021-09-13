@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateToken=function(svc,msg,cb){
+			service.CreateToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientId",params,undefined,false); 
@@ -123,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.createToken(params,cb);
 		}
-
-		
-		service.RegisterClient=function(svc,msg,cb){
+			service.RegisterClient=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientName",params,undefined,false); 
@@ -142,9 +139,7 @@ module.exports = function(RED) {
 
 			svc.registerClient(params,cb);
 		}
-
-		
-		service.StartDeviceAuthorization=function(svc,msg,cb){
+			service.StartDeviceAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientId",params,undefined,false); 
@@ -162,9 +157,7 @@ module.exports = function(RED) {
 
 			svc.startDeviceAuthorization(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS SSOOIDC", AmazonAPINode);
 

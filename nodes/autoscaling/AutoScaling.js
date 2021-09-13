@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AttachInstances=function(svc,msg,cb){
+			service.AttachInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -108,9 +107,7 @@ module.exports = function(RED) {
 
 			svc.attachInstances(params,cb);
 		}
-
-		
-		service.AttachLoadBalancerTargetGroups=function(svc,msg,cb){
+			service.AttachLoadBalancerTargetGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -125,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.attachLoadBalancerTargetGroups(params,cb);
 		}
-
-		
-		service.AttachLoadBalancers=function(svc,msg,cb){
+			service.AttachLoadBalancers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -142,9 +137,7 @@ module.exports = function(RED) {
 
 			svc.attachLoadBalancers(params,cb);
 		}
-
-		
-		service.BatchDeleteScheduledAction=function(svc,msg,cb){
+			service.BatchDeleteScheduledAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -159,9 +152,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteScheduledAction(params,cb);
 		}
-
-		
-		service.BatchPutScheduledUpdateGroupAction=function(svc,msg,cb){
+			service.BatchPutScheduledUpdateGroupAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -176,9 +167,7 @@ module.exports = function(RED) {
 
 			svc.batchPutScheduledUpdateGroupAction(params,cb);
 		}
-
-		
-		service.CancelInstanceRefresh=function(svc,msg,cb){
+			service.CancelInstanceRefresh=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -190,9 +179,7 @@ module.exports = function(RED) {
 
 			svc.cancelInstanceRefresh(params,cb);
 		}
-
-		
-		service.CompleteLifecycleAction=function(svc,msg,cb){
+			service.CompleteLifecycleAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LifecycleHookName",params,undefined,false); 
@@ -214,38 +201,36 @@ module.exports = function(RED) {
 
 			svc.completeLifecycleAction(params,cb);
 		}
-
-		
-		service.CreateAutoScalingGroup=function(svc,msg,cb){
+			service.CreateAutoScalingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(n,"LaunchConfigurationName",params,undefined,false); 
 			copyArgs(n,"LaunchTemplate",params,undefined,true); 
 			copyArgs(n,"MixedInstancesPolicy",params,undefined,true); 
 			copyArgs(n,"InstanceId",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
-			copyArgs(n,"DesiredCapacity",params,undefined,false); 
-			copyArgs(n,"DefaultCooldown",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"DesiredCapacity",params,undefined,false); 
+			copyArgs(Number(n),"DefaultCooldown",params,undefined,false); 
 			copyArgs(n,"AvailabilityZones",params,undefined,true); 
 			copyArgs(n,"LoadBalancerNames",params,undefined,true); 
 			copyArgs(n,"TargetGroupARNs",params,undefined,true); 
 			copyArgs(n,"HealthCheckType",params,undefined,false); 
-			copyArgs(n,"HealthCheckGracePeriod",params,undefined,false); 
+			copyArgs(Number(n),"HealthCheckGracePeriod",params,undefined,false); 
 			copyArgs(n,"PlacementGroup",params,undefined,false); 
 			copyArgs(n,"VPCZoneIdentifier",params,undefined,false); 
 			copyArgs(n,"TerminationPolicies",params,undefined,true); 
-			copyArgs(n,"NewInstancesProtectedFromScaleIn",params,undefined,false); 
-			copyArgs(n,"CapacityRebalance",params,undefined,false); 
+			copyArgs(Boolean(n),"NewInstancesProtectedFromScaleIn",params,undefined,false); 
+			copyArgs(Boolean(n),"CapacityRebalance",params,undefined,false); 
 			copyArgs(n,"LifecycleHookSpecificationList",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			copyArgs(n,"ServiceLinkedRoleARN",params,undefined,false); 
-			copyArgs(n,"MaxInstanceLifetime",params,undefined,false); 
+			copyArgs(Number(n),"MaxInstanceLifetime",params,undefined,false); 
 			copyArgs(n,"Context",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -276,9 +261,7 @@ module.exports = function(RED) {
 
 			svc.createAutoScalingGroup(params,cb);
 		}
-
-		
-		service.CreateLaunchConfiguration=function(svc,msg,cb){
+			service.CreateLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LaunchConfigurationName",params,undefined,false); 
@@ -298,8 +281,8 @@ module.exports = function(RED) {
 			copyArgs(n,"InstanceMonitoring",params,undefined,true); 
 			copyArgs(n,"SpotPrice",params,undefined,false); 
 			copyArgs(n,"IamInstanceProfile",params,undefined,false); 
-			copyArgs(n,"EbsOptimized",params,undefined,false); 
-			copyArgs(n,"AssociatePublicIpAddress",params,undefined,false); 
+			copyArgs(Boolean(n),"EbsOptimized",params,undefined,false); 
+			copyArgs(Boolean(n),"AssociatePublicIpAddress",params,undefined,false); 
 			copyArgs(n,"PlacementTenancy",params,undefined,false); 
 			copyArgs(n,"MetadataOptions",params,undefined,true); 
 			
@@ -326,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.createLaunchConfiguration(params,cb);
 		}
-
-		
-		service.CreateOrUpdateTags=function(svc,msg,cb){
+			service.CreateOrUpdateTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -340,15 +321,13 @@ module.exports = function(RED) {
 
 			svc.createOrUpdateTags(params,cb);
 		}
-
-		
-		service.DeleteAutoScalingGroup=function(svc,msg,cb){
+			service.DeleteAutoScalingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ForceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"ForceDelete",params,undefined,false); 
@@ -356,9 +335,7 @@ module.exports = function(RED) {
 
 			svc.deleteAutoScalingGroup(params,cb);
 		}
-
-		
-		service.DeleteLaunchConfiguration=function(svc,msg,cb){
+			service.DeleteLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LaunchConfigurationName",params,undefined,false); 
@@ -370,9 +347,7 @@ module.exports = function(RED) {
 
 			svc.deleteLaunchConfiguration(params,cb);
 		}
-
-		
-		service.DeleteLifecycleHook=function(svc,msg,cb){
+			service.DeleteLifecycleHook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LifecycleHookName",params,undefined,false); 
@@ -387,9 +362,7 @@ module.exports = function(RED) {
 
 			svc.deleteLifecycleHook(params,cb);
 		}
-
-		
-		service.DeleteNotificationConfiguration=function(svc,msg,cb){
+			service.DeleteNotificationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -404,9 +377,7 @@ module.exports = function(RED) {
 
 			svc.deleteNotificationConfiguration(params,cb);
 		}
-
-		
-		service.DeletePolicy=function(svc,msg,cb){
+			service.DeletePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyName",params,undefined,false); 
@@ -420,9 +391,7 @@ module.exports = function(RED) {
 
 			svc.deletePolicy(params,cb);
 		}
-
-		
-		service.DeleteScheduledAction=function(svc,msg,cb){
+			service.DeleteScheduledAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -437,9 +406,7 @@ module.exports = function(RED) {
 
 			svc.deleteScheduledAction(params,cb);
 		}
-
-		
-		service.DeleteTags=function(svc,msg,cb){
+			service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -451,15 +418,13 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-
-		
-		service.DeleteWarmPool=function(svc,msg,cb){
+			service.DeleteWarmPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ForceDelete",params,undefined,false); 
+			copyArgs(Boolean(n),"ForceDelete",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"ForceDelete",params,undefined,false); 
@@ -467,9 +432,7 @@ module.exports = function(RED) {
 
 			svc.deleteWarmPool(params,cb);
 		}
-
-		
-		service.DescribeAccountLimits=function(svc,msg,cb){
+			service.DescribeAccountLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -478,9 +441,7 @@ module.exports = function(RED) {
 
 			svc.describeAccountLimits(params,cb);
 		}
-
-		
-		service.DescribeAdjustmentTypes=function(svc,msg,cb){
+			service.DescribeAdjustmentTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -489,15 +450,13 @@ module.exports = function(RED) {
 
 			svc.describeAdjustmentTypes(params,cb);
 		}
-
-		
-		service.DescribeAutoScalingGroups=function(svc,msg,cb){
+			service.DescribeAutoScalingGroups=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AutoScalingGroupNames",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupNames",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -506,14 +465,12 @@ module.exports = function(RED) {
 
 			svc.describeAutoScalingGroups(params,cb);
 		}
-
-		
-		service.DescribeAutoScalingInstances=function(svc,msg,cb){
+			service.DescribeAutoScalingInstances=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceIds",params,undefined,true); 
@@ -523,9 +480,7 @@ module.exports = function(RED) {
 
 			svc.describeAutoScalingInstances(params,cb);
 		}
-
-		
-		service.DescribeAutoScalingNotificationTypes=function(svc,msg,cb){
+			service.DescribeAutoScalingNotificationTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -534,9 +489,7 @@ module.exports = function(RED) {
 
 			svc.describeAutoScalingNotificationTypes(params,cb);
 		}
-
-		
-		service.DescribeInstanceRefreshes=function(svc,msg,cb){
+			service.DescribeInstanceRefreshes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -544,7 +497,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(n,"InstanceRefreshIds",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"InstanceRefreshIds",params,undefined,false); 
@@ -554,15 +507,13 @@ module.exports = function(RED) {
 
 			svc.describeInstanceRefreshes(params,cb);
 		}
-
-		
-		service.DescribeLaunchConfigurations=function(svc,msg,cb){
+			service.DescribeLaunchConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"LaunchConfigurationNames",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"LaunchConfigurationNames",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -571,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.describeLaunchConfigurations(params,cb);
 		}
-
-		
-		service.DescribeLifecycleHookTypes=function(svc,msg,cb){
+			service.DescribeLifecycleHookTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -582,9 +531,7 @@ module.exports = function(RED) {
 
 			svc.describeLifecycleHookTypes(params,cb);
 		}
-
-		
-		service.DescribeLifecycleHooks=function(svc,msg,cb){
+			service.DescribeLifecycleHooks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -598,16 +545,14 @@ module.exports = function(RED) {
 
 			svc.describeLifecycleHooks(params,cb);
 		}
-
-		
-		service.DescribeLoadBalancerTargetGroups=function(svc,msg,cb){
+			service.DescribeLoadBalancerTargetGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -616,16 +561,14 @@ module.exports = function(RED) {
 
 			svc.describeLoadBalancerTargetGroups(params,cb);
 		}
-
-		
-		service.DescribeLoadBalancers=function(svc,msg,cb){
+			service.DescribeLoadBalancers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -634,9 +577,7 @@ module.exports = function(RED) {
 
 			svc.describeLoadBalancers(params,cb);
 		}
-
-		
-		service.DescribeMetricCollectionTypes=function(svc,msg,cb){
+			service.DescribeMetricCollectionTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -645,15 +586,13 @@ module.exports = function(RED) {
 
 			svc.describeMetricCollectionTypes(params,cb);
 		}
-
-		
-		service.DescribeNotificationConfigurations=function(svc,msg,cb){
+			service.DescribeNotificationConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"AutoScalingGroupNames",params,undefined,true); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupNames",params,undefined,true); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -662,9 +601,7 @@ module.exports = function(RED) {
 
 			svc.describeNotificationConfigurations(params,cb);
 		}
-
-		
-		service.DescribePolicies=function(svc,msg,cb){
+			service.DescribePolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -672,7 +609,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PolicyNames",params,undefined,false); 
 			copyArgs(n,"PolicyTypes",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"PolicyNames",params,undefined,false); 
@@ -683,16 +620,14 @@ module.exports = function(RED) {
 
 			svc.describePolicies(params,cb);
 		}
-
-		
-		service.DescribeScalingActivities=function(svc,msg,cb){
+			service.DescribeScalingActivities=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"ActivityIds",params,undefined,false); 
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"IncludeDeletedGroups",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Boolean(n),"IncludeDeletedGroups",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"ActivityIds",params,undefined,false); 
@@ -704,9 +639,7 @@ module.exports = function(RED) {
 
 			svc.describeScalingActivities(params,cb);
 		}
-
-		
-		service.DescribeScalingProcessTypes=function(svc,msg,cb){
+			service.DescribeScalingProcessTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -715,9 +648,7 @@ module.exports = function(RED) {
 
 			svc.describeScalingProcessTypes(params,cb);
 		}
-
-		
-		service.DescribeScheduledActions=function(svc,msg,cb){
+			service.DescribeScheduledActions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -726,7 +657,7 @@ module.exports = function(RED) {
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"ScheduledActionNames",params,undefined,true); 
@@ -738,15 +669,13 @@ module.exports = function(RED) {
 
 			svc.describeScheduledActions(params,cb);
 		}
-
-		
-		service.DescribeTags=function(svc,msg,cb){
+			service.DescribeTags=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Filters",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			
 			copyArgs(msg,"Filters",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -755,9 +684,7 @@ module.exports = function(RED) {
 
 			svc.describeTags(params,cb);
 		}
-
-		
-		service.DescribeTerminationPolicyTypes=function(svc,msg,cb){
+			service.DescribeTerminationPolicyTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -766,15 +693,13 @@ module.exports = function(RED) {
 
 			svc.describeTerminationPolicyTypes(params,cb);
 		}
-
-		
-		service.DescribeWarmPool=function(svc,msg,cb){
+			service.DescribeWarmPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"MaxRecords",params,undefined,false); 
+			copyArgs(Number(n),"MaxRecords",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -784,17 +709,15 @@ module.exports = function(RED) {
 
 			svc.describeWarmPool(params,cb);
 		}
-
-		
-		service.DetachInstances=function(svc,msg,cb){
+			service.DetachInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceIds",params,undefined,true); 
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -803,9 +726,7 @@ module.exports = function(RED) {
 
 			svc.detachInstances(params,cb);
 		}
-
-		
-		service.DetachLoadBalancerTargetGroups=function(svc,msg,cb){
+			service.DetachLoadBalancerTargetGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -820,9 +741,7 @@ module.exports = function(RED) {
 
 			svc.detachLoadBalancerTargetGroups(params,cb);
 		}
-
-		
-		service.DetachLoadBalancers=function(svc,msg,cb){
+			service.DetachLoadBalancers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -837,9 +756,7 @@ module.exports = function(RED) {
 
 			svc.detachLoadBalancers(params,cb);
 		}
-
-		
-		service.DisableMetricsCollection=function(svc,msg,cb){
+			service.DisableMetricsCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -853,9 +770,7 @@ module.exports = function(RED) {
 
 			svc.disableMetricsCollection(params,cb);
 		}
-
-		
-		service.EnableMetricsCollection=function(svc,msg,cb){
+			service.EnableMetricsCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -872,17 +787,15 @@ module.exports = function(RED) {
 
 			svc.enableMetricsCollection(params,cb);
 		}
-
-		
-		service.EnterStandby=function(svc,msg,cb){
+			service.EnterStandby=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceIds",params,undefined,true); 
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -891,16 +804,14 @@ module.exports = function(RED) {
 
 			svc.enterStandby(params,cb);
 		}
-
-		
-		service.ExecutePolicy=function(svc,msg,cb){
+			service.ExecutePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(n,"PolicyName",params,undefined,false); 
-			copyArgs(n,"HonorCooldown",params,undefined,false); 
+			copyArgs(Boolean(n),"HonorCooldown",params,undefined,false); 
 			copyArgs(n,"MetricValue",params,undefined,false); 
 			copyArgs(n,"BreachThreshold",params,undefined,false); 
 			
@@ -913,9 +824,7 @@ module.exports = function(RED) {
 
 			svc.executePolicy(params,cb);
 		}
-
-		
-		service.ExitStandby=function(svc,msg,cb){
+			service.ExitStandby=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -929,9 +838,7 @@ module.exports = function(RED) {
 
 			svc.exitStandby(params,cb);
 		}
-
-		
-		service.GetPredictiveScalingForecast=function(svc,msg,cb){
+			service.GetPredictiveScalingForecast=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -952,9 +859,7 @@ module.exports = function(RED) {
 
 			svc.getPredictiveScalingForecast(params,cb);
 		}
-
-		
-		service.PutLifecycleHook=function(svc,msg,cb){
+			service.PutLifecycleHook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LifecycleHookName",params,undefined,false); 
@@ -966,7 +871,7 @@ module.exports = function(RED) {
 			copyArgs(n,"RoleARN",params,undefined,false); 
 			copyArgs(n,"NotificationTargetARN",params,undefined,false); 
 			copyArgs(n,"NotificationMetadata",params,undefined,false); 
-			copyArgs(n,"HeartbeatTimeout",params,undefined,false); 
+			copyArgs(Number(n),"HeartbeatTimeout",params,undefined,false); 
 			copyArgs(n,"DefaultResult",params,undefined,false); 
 			
 			copyArgs(msg,"LifecycleHookName",params,undefined,false); 
@@ -981,9 +886,7 @@ module.exports = function(RED) {
 
 			svc.putLifecycleHook(params,cb);
 		}
-
-		
-		service.PutNotificationConfiguration=function(svc,msg,cb){
+			service.PutNotificationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -1001,9 +904,7 @@ module.exports = function(RED) {
 
 			svc.putNotificationConfiguration(params,cb);
 		}
-
-		
-		service.PutScalingPolicy=function(svc,msg,cb){
+			service.PutScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -1014,14 +915,14 @@ module.exports = function(RED) {
 			copyArgs(n,"PolicyType",params,undefined,false); 
 			copyArgs(n,"AdjustmentType",params,undefined,false); 
 			copyArgs(n,"MinAdjustmentStep",params,undefined,true); 
-			copyArgs(n,"MinAdjustmentMagnitude",params,undefined,false); 
-			copyArgs(n,"ScalingAdjustment",params,undefined,false); 
-			copyArgs(n,"Cooldown",params,undefined,false); 
+			copyArgs(Number(n),"MinAdjustmentMagnitude",params,undefined,false); 
+			copyArgs(Number(n),"ScalingAdjustment",params,undefined,false); 
+			copyArgs(Number(n),"Cooldown",params,undefined,false); 
 			copyArgs(n,"MetricAggregationType",params,undefined,false); 
 			copyArgs(n,"StepAdjustments",params,undefined,true); 
-			copyArgs(n,"EstimatedInstanceWarmup",params,undefined,false); 
+			copyArgs(Number(n),"EstimatedInstanceWarmup",params,undefined,false); 
 			copyArgs(n,"TargetTrackingConfiguration",params,undefined,true); 
-			copyArgs(n,"Enabled",params,undefined,false); 
+			copyArgs(Boolean(n),"Enabled",params,undefined,false); 
 			copyArgs(n,"PredictiveScalingConfiguration",params,undefined,true); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -1042,9 +943,7 @@ module.exports = function(RED) {
 
 			svc.putScalingPolicy(params,cb);
 		}
-
-		
-		service.PutScheduledUpdateGroupAction=function(svc,msg,cb){
+			service.PutScheduledUpdateGroupAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -1056,9 +955,9 @@ module.exports = function(RED) {
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
 			copyArgs(n,"Recurrence",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
-			copyArgs(n,"DesiredCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"DesiredCapacity",params,undefined,false); 
 			copyArgs(n,"TimeZone",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -1075,16 +974,14 @@ module.exports = function(RED) {
 
 			svc.putScheduledUpdateGroupAction(params,cb);
 		}
-
-		
-		service.PutWarmPool=function(svc,msg,cb){
+			service.PutWarmPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"MaxGroupPreparedCapacity",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxGroupPreparedCapacity",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
 			copyArgs(n,"PoolState",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -1095,9 +992,7 @@ module.exports = function(RED) {
 
 			svc.putWarmPool(params,cb);
 		}
-
-		
-		service.RecordLifecycleActionHeartbeat=function(svc,msg,cb){
+			service.RecordLifecycleActionHeartbeat=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LifecycleHookName",params,undefined,false); 
@@ -1116,9 +1011,7 @@ module.exports = function(RED) {
 
 			svc.recordLifecycleActionHeartbeat(params,cb);
 		}
-
-		
-		service.ResumeProcesses=function(svc,msg,cb){
+			service.ResumeProcesses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1129,17 +1022,15 @@ module.exports = function(RED) {
 
 			svc.resumeProcesses(params,cb);
 		}
-
-		
-		service.SetDesiredCapacity=function(svc,msg,cb){
+			service.SetDesiredCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"DesiredCapacity",params,undefined,false); 
+			copyArgs(Number(n),"DesiredCapacity",params,undefined,false); 
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"DesiredCapacity",params,undefined,false); 
-			copyArgs(n,"HonorCooldown",params,undefined,false); 
+			copyArgs(Number(n),"DesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"HonorCooldown",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
 			copyArgs(msg,"DesiredCapacity",params,undefined,false); 
@@ -1148,9 +1039,7 @@ module.exports = function(RED) {
 
 			svc.setDesiredCapacity(params,cb);
 		}
-
-		
-		service.SetInstanceHealth=function(svc,msg,cb){
+			service.SetInstanceHealth=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1158,7 +1047,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
 			copyArgs(n,"HealthStatus",params,undefined,false); 
-			copyArgs(n,"ShouldRespectGracePeriod",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldRespectGracePeriod",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"HealthStatus",params,undefined,false); 
@@ -1167,18 +1056,16 @@ module.exports = function(RED) {
 
 			svc.setInstanceHealth(params,cb);
 		}
-
-		
-		service.SetInstanceProtection=function(svc,msg,cb){
+			service.SetInstanceProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ProtectedFromScaleIn",params,undefined,false); 
+			copyArgs(Boolean(n),"ProtectedFromScaleIn",params,undefined,false); 
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
-			copyArgs(n,"ProtectedFromScaleIn",params,undefined,false); 
+			copyArgs(Boolean(n),"ProtectedFromScaleIn",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceIds",params,undefined,true); 
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -1187,9 +1074,7 @@ module.exports = function(RED) {
 
 			svc.setInstanceProtection(params,cb);
 		}
-
-		
-		service.StartInstanceRefresh=function(svc,msg,cb){
+			service.StartInstanceRefresh=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -1207,9 +1092,7 @@ module.exports = function(RED) {
 
 			svc.startInstanceRefresh(params,cb);
 		}
-
-		
-		service.SuspendProcesses=function(svc,msg,cb){
+			service.SuspendProcesses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1220,16 +1103,14 @@ module.exports = function(RED) {
 
 			svc.suspendProcesses(params,cb);
 		}
-
-		
-		service.TerminateInstanceInAutoScalingGroup=function(svc,msg,cb){
+			service.TerminateInstanceInAutoScalingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
-			copyArgs(n,"ShouldDecrementDesiredCapacity",params,undefined,false); 
+			copyArgs(Boolean(n),"ShouldDecrementDesiredCapacity",params,undefined,false); 
 			
 			copyArgs(msg,"InstanceId",params,undefined,false); 
 			copyArgs(msg,"ShouldDecrementDesiredCapacity",params,undefined,false); 
@@ -1237,9 +1118,7 @@ module.exports = function(RED) {
 
 			svc.terminateInstanceInAutoScalingGroup(params,cb);
 		}
-
-		
-		service.UpdateAutoScalingGroup=function(svc,msg,cb){
+			service.UpdateAutoScalingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutoScalingGroupName",params,undefined,false); 
@@ -1248,20 +1127,20 @@ module.exports = function(RED) {
 			copyArgs(n,"LaunchConfigurationName",params,undefined,false); 
 			copyArgs(n,"LaunchTemplate",params,undefined,true); 
 			copyArgs(n,"MixedInstancesPolicy",params,undefined,true); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
-			copyArgs(n,"DesiredCapacity",params,undefined,false); 
-			copyArgs(n,"DefaultCooldown",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"DesiredCapacity",params,undefined,false); 
+			copyArgs(Number(n),"DefaultCooldown",params,undefined,false); 
 			copyArgs(n,"AvailabilityZones",params,undefined,true); 
 			copyArgs(n,"HealthCheckType",params,undefined,false); 
-			copyArgs(n,"HealthCheckGracePeriod",params,undefined,false); 
+			copyArgs(Number(n),"HealthCheckGracePeriod",params,undefined,false); 
 			copyArgs(n,"PlacementGroup",params,undefined,false); 
 			copyArgs(n,"VPCZoneIdentifier",params,undefined,false); 
 			copyArgs(n,"TerminationPolicies",params,undefined,true); 
-			copyArgs(n,"NewInstancesProtectedFromScaleIn",params,undefined,false); 
+			copyArgs(Boolean(n),"NewInstancesProtectedFromScaleIn",params,undefined,false); 
 			copyArgs(n,"ServiceLinkedRoleARN",params,undefined,false); 
-			copyArgs(n,"MaxInstanceLifetime",params,undefined,false); 
-			copyArgs(n,"CapacityRebalance",params,undefined,false); 
+			copyArgs(Number(n),"MaxInstanceLifetime",params,undefined,false); 
+			copyArgs(Boolean(n),"CapacityRebalance",params,undefined,false); 
 			copyArgs(n,"Context",params,undefined,false); 
 			
 			copyArgs(msg,"AutoScalingGroupName",params,undefined,false); 
@@ -1287,9 +1166,7 @@ module.exports = function(RED) {
 
 			svc.updateAutoScalingGroup(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS AutoScaling", AmazonAPINode);
 

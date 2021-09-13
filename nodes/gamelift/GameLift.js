@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.AcceptMatch=function(svc,msg,cb){
+			service.AcceptMatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TicketId",params,undefined,false); 
@@ -112,9 +111,7 @@ module.exports = function(RED) {
 
 			svc.acceptMatch(params,cb);
 		}
-
-		
-		service.ClaimGameServer=function(svc,msg,cb){
+			service.ClaimGameServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -130,9 +127,7 @@ module.exports = function(RED) {
 
 			svc.claimGameServer(params,cb);
 		}
-
-		
-		service.CreateAlias=function(svc,msg,cb){
+			service.CreateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -151,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.createAlias(params,cb);
 		}
-
-		
-		service.CreateBuild=function(svc,msg,cb){
+			service.CreateBuild=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -172,9 +165,7 @@ module.exports = function(RED) {
 
 			svc.createBuild(params,cb);
 		}
-
-		
-		service.CreateFleet=function(svc,msg,cb){
+			service.CreateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -225,9 +216,7 @@ module.exports = function(RED) {
 
 			svc.createFleet(params,cb);
 		}
-
-		
-		service.CreateFleetLocations=function(svc,msg,cb){
+			service.CreateFleetLocations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -242,22 +231,20 @@ module.exports = function(RED) {
 
 			svc.createFleetLocations(params,cb);
 		}
-
-		
-		service.CreateGameServerGroup=function(svc,msg,cb){
+			service.CreateGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
 			copyArgs(n,"LaunchTemplate",params,undefined,false); 
 			copyArgs(n,"InstanceDefinitions",params,undefined,true); 
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			copyArgs(n,"RoleArn",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
 			copyArgs(n,"LaunchTemplate",params,undefined,false); 
 			copyArgs(n,"InstanceDefinitions",params,undefined,true); 
 			copyArgs(n,"AutoScalingPolicy",params,undefined,false); 
@@ -281,16 +268,14 @@ module.exports = function(RED) {
 
 			svc.createGameServerGroup(params,cb);
 		}
-
-		
-		service.CreateGameSession=function(svc,msg,cb){
+			service.CreateGameSession=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"MaximumPlayerSessionCount",params,undefined,false); 
+			copyArgs(Number(n),"MaximumPlayerSessionCount",params,undefined,false); 
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			copyArgs(n,"AliasId",params,undefined,false); 
-			copyArgs(n,"MaximumPlayerSessionCount",params,undefined,false); 
+			copyArgs(Number(n),"MaximumPlayerSessionCount",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"GameProperties",params,undefined,true); 
 			copyArgs(n,"CreatorId",params,undefined,false); 
@@ -313,15 +298,13 @@ module.exports = function(RED) {
 
 			svc.createGameSession(params,cb);
 		}
-
-		
-		service.CreateGameSessionQueue=function(svc,msg,cb){
+			service.CreateGameSessionQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"TimeoutInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"TimeoutInSeconds",params,undefined,false); 
 			copyArgs(n,"PlayerLatencyPolicies",params,undefined,true); 
 			copyArgs(n,"Destinations",params,undefined,true); 
 			copyArgs(n,"FilterConfiguration",params,undefined,true); 
@@ -343,25 +326,23 @@ module.exports = function(RED) {
 
 			svc.createGameSessionQueue(params,cb);
 		}
-
-		
-		service.CreateMatchmakingConfiguration=function(svc,msg,cb){
+			service.CreateMatchmakingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"RequestTimeoutSeconds",params,undefined,false); 
-			copyArgs(n,"AcceptanceRequired",params,undefined,false); 
+			copyArgs(Number(n),"RequestTimeoutSeconds",params,undefined,false); 
+			copyArgs(Boolean(n),"AcceptanceRequired",params,undefined,false); 
 			copyArgs(n,"RuleSetName",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"GameSessionQueueArns",params,undefined,true); 
-			copyArgs(n,"RequestTimeoutSeconds",params,undefined,false); 
-			copyArgs(n,"AcceptanceTimeoutSeconds",params,undefined,false); 
-			copyArgs(n,"AcceptanceRequired",params,undefined,false); 
+			copyArgs(Number(n),"RequestTimeoutSeconds",params,undefined,false); 
+			copyArgs(Number(n),"AcceptanceTimeoutSeconds",params,undefined,false); 
+			copyArgs(Boolean(n),"AcceptanceRequired",params,undefined,false); 
 			copyArgs(n,"RuleSetName",params,undefined,false); 
 			copyArgs(n,"NotificationTarget",params,undefined,false); 
-			copyArgs(n,"AdditionalPlayerCount",params,undefined,false); 
+			copyArgs(Number(n),"AdditionalPlayerCount",params,undefined,false); 
 			copyArgs(n,"CustomEventData",params,undefined,false); 
 			copyArgs(n,"GameProperties",params,undefined,true); 
 			copyArgs(n,"GameSessionData",params,undefined,false); 
@@ -388,9 +369,7 @@ module.exports = function(RED) {
 
 			svc.createMatchmakingConfiguration(params,cb);
 		}
-
-		
-		service.CreateMatchmakingRuleSet=function(svc,msg,cb){
+			service.CreateMatchmakingRuleSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -407,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.createMatchmakingRuleSet(params,cb);
 		}
-
-		
-		service.CreatePlayerSession=function(svc,msg,cb){
+			service.CreatePlayerSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameSessionId",params,undefined,false); 
@@ -426,9 +403,7 @@ module.exports = function(RED) {
 
 			svc.createPlayerSession(params,cb);
 		}
-
-		
-		service.CreatePlayerSessions=function(svc,msg,cb){
+			service.CreatePlayerSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameSessionId",params,undefined,false); 
@@ -445,16 +420,14 @@ module.exports = function(RED) {
 
 			svc.createPlayerSessions(params,cb);
 		}
-
-		
-		service.CreateScript=function(svc,msg,cb){
+			service.CreateScript=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Version",params,undefined,false); 
 			copyArgs(n,"StorageLocation",params,undefined,true); 
-			copyArgs(n,"ZipFile",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ZipFile",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -466,9 +439,7 @@ module.exports = function(RED) {
 
 			svc.createScript(params,cb);
 		}
-
-		
-		service.CreateVpcPeeringAuthorization=function(svc,msg,cb){
+			service.CreateVpcPeeringAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameLiftAwsAccountId",params,undefined,false); 
@@ -483,9 +454,7 @@ module.exports = function(RED) {
 
 			svc.createVpcPeeringAuthorization(params,cb);
 		}
-
-		
-		service.CreateVpcPeeringConnection=function(svc,msg,cb){
+			service.CreateVpcPeeringConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -503,9 +472,7 @@ module.exports = function(RED) {
 
 			svc.createVpcPeeringConnection(params,cb);
 		}
-
-		
-		service.DeleteAlias=function(svc,msg,cb){
+			service.DeleteAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -517,9 +484,7 @@ module.exports = function(RED) {
 
 			svc.deleteAlias(params,cb);
 		}
-
-		
-		service.DeleteBuild=function(svc,msg,cb){
+			service.DeleteBuild=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BuildId",params,undefined,false); 
@@ -531,9 +496,7 @@ module.exports = function(RED) {
 
 			svc.deleteBuild(params,cb);
 		}
-
-		
-		service.DeleteFleet=function(svc,msg,cb){
+			service.DeleteFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -545,9 +508,7 @@ module.exports = function(RED) {
 
 			svc.deleteFleet(params,cb);
 		}
-
-		
-		service.DeleteFleetLocations=function(svc,msg,cb){
+			service.DeleteFleetLocations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -562,9 +523,7 @@ module.exports = function(RED) {
 
 			svc.deleteFleetLocations(params,cb);
 		}
-
-		
-		service.DeleteGameServerGroup=function(svc,msg,cb){
+			service.DeleteGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -578,9 +537,7 @@ module.exports = function(RED) {
 
 			svc.deleteGameServerGroup(params,cb);
 		}
-
-		
-		service.DeleteGameSessionQueue=function(svc,msg,cb){
+			service.DeleteGameSessionQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -592,9 +549,7 @@ module.exports = function(RED) {
 
 			svc.deleteGameSessionQueue(params,cb);
 		}
-
-		
-		service.DeleteMatchmakingConfiguration=function(svc,msg,cb){
+			service.DeleteMatchmakingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -606,9 +561,7 @@ module.exports = function(RED) {
 
 			svc.deleteMatchmakingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteMatchmakingRuleSet=function(svc,msg,cb){
+			service.DeleteMatchmakingRuleSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -620,9 +573,7 @@ module.exports = function(RED) {
 
 			svc.deleteMatchmakingRuleSet(params,cb);
 		}
-
-		
-		service.DeleteScalingPolicy=function(svc,msg,cb){
+			service.DeleteScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -637,9 +588,7 @@ module.exports = function(RED) {
 
 			svc.deleteScalingPolicy(params,cb);
 		}
-
-		
-		service.DeleteScript=function(svc,msg,cb){
+			service.DeleteScript=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScriptId",params,undefined,false); 
@@ -651,9 +600,7 @@ module.exports = function(RED) {
 
 			svc.deleteScript(params,cb);
 		}
-
-		
-		service.DeleteVpcPeeringAuthorization=function(svc,msg,cb){
+			service.DeleteVpcPeeringAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameLiftAwsAccountId",params,undefined,false); 
@@ -668,9 +615,7 @@ module.exports = function(RED) {
 
 			svc.deleteVpcPeeringAuthorization(params,cb);
 		}
-
-		
-		service.DeleteVpcPeeringConnection=function(svc,msg,cb){
+			service.DeleteVpcPeeringConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -685,9 +630,7 @@ module.exports = function(RED) {
 
 			svc.deleteVpcPeeringConnection(params,cb);
 		}
-
-		
-		service.DeregisterGameServer=function(svc,msg,cb){
+			service.DeregisterGameServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -702,9 +645,7 @@ module.exports = function(RED) {
 
 			svc.deregisterGameServer(params,cb);
 		}
-
-		
-		service.DescribeAlias=function(svc,msg,cb){
+			service.DescribeAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -716,9 +657,7 @@ module.exports = function(RED) {
 
 			svc.describeAlias(params,cb);
 		}
-
-		
-		service.DescribeBuild=function(svc,msg,cb){
+			service.DescribeBuild=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BuildId",params,undefined,false); 
@@ -730,9 +669,7 @@ module.exports = function(RED) {
 
 			svc.describeBuild(params,cb);
 		}
-
-		
-		service.DescribeEC2InstanceLimits=function(svc,msg,cb){
+			service.DescribeEC2InstanceLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -745,14 +682,12 @@ module.exports = function(RED) {
 
 			svc.describeEC2InstanceLimits(params,cb);
 		}
-
-		
-		service.DescribeFleetAttributes=function(svc,msg,cb){
+			service.DescribeFleetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"FleetIds",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetIds",params,undefined,true); 
@@ -762,14 +697,12 @@ module.exports = function(RED) {
 
 			svc.describeFleetAttributes(params,cb);
 		}
-
-		
-		service.DescribeFleetCapacity=function(svc,msg,cb){
+			service.DescribeFleetCapacity=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"FleetIds",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetIds",params,undefined,true); 
@@ -779,9 +712,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetCapacity(params,cb);
 		}
-
-		
-		service.DescribeFleetEvents=function(svc,msg,cb){
+			service.DescribeFleetEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -789,7 +720,7 @@ module.exports = function(RED) {
 			copyArgs(n,"FleetId",params,undefined,false); 
 			copyArgs(n,"StartTime",params,undefined,false); 
 			copyArgs(n,"EndTime",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -801,16 +732,14 @@ module.exports = function(RED) {
 
 			svc.describeFleetEvents(params,cb);
 		}
-
-		
-		service.DescribeFleetLocationAttributes=function(svc,msg,cb){
+			service.DescribeFleetLocationAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			copyArgs(n,"Locations",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -821,9 +750,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetLocationAttributes(params,cb);
 		}
-
-		
-		service.DescribeFleetLocationCapacity=function(svc,msg,cb){
+			service.DescribeFleetLocationCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -838,9 +765,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetLocationCapacity(params,cb);
 		}
-
-		
-		service.DescribeFleetLocationUtilization=function(svc,msg,cb){
+			service.DescribeFleetLocationUtilization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -855,9 +780,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetLocationUtilization(params,cb);
 		}
-
-		
-		service.DescribeFleetPortSettings=function(svc,msg,cb){
+			service.DescribeFleetPortSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -871,14 +794,12 @@ module.exports = function(RED) {
 
 			svc.describeFleetPortSettings(params,cb);
 		}
-
-		
-		service.DescribeFleetUtilization=function(svc,msg,cb){
+			service.DescribeFleetUtilization=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"FleetIds",params,undefined,true); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetIds",params,undefined,true); 
@@ -888,9 +809,7 @@ module.exports = function(RED) {
 
 			svc.describeFleetUtilization(params,cb);
 		}
-
-		
-		service.DescribeGameServer=function(svc,msg,cb){
+			service.DescribeGameServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -905,9 +824,7 @@ module.exports = function(RED) {
 
 			svc.describeGameServer(params,cb);
 		}
-
-		
-		service.DescribeGameServerGroup=function(svc,msg,cb){
+			service.DescribeGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -919,16 +836,14 @@ module.exports = function(RED) {
 
 			svc.describeGameServerGroup(params,cb);
 		}
-
-		
-		service.DescribeGameServerInstances=function(svc,msg,cb){
+			service.DescribeGameServerInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			copyArgs(n,"InstanceIds",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"GameServerGroupName",params,undefined,false); 
@@ -939,9 +854,7 @@ module.exports = function(RED) {
 
 			svc.describeGameServerInstances(params,cb);
 		}
-
-		
-		service.DescribeGameSessionDetails=function(svc,msg,cb){
+			service.DescribeGameSessionDetails=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -950,7 +863,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AliasId",params,undefined,false); 
 			copyArgs(n,"Location",params,undefined,false); 
 			copyArgs(n,"StatusFilter",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -964,9 +877,7 @@ module.exports = function(RED) {
 
 			svc.describeGameSessionDetails(params,cb);
 		}
-
-		
-		service.DescribeGameSessionPlacement=function(svc,msg,cb){
+			service.DescribeGameSessionPlacement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlacementId",params,undefined,false); 
@@ -978,14 +889,12 @@ module.exports = function(RED) {
 
 			svc.describeGameSessionPlacement(params,cb);
 		}
-
-		
-		service.DescribeGameSessionQueues=function(svc,msg,cb){
+			service.DescribeGameSessionQueues=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Names",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Names",params,undefined,false); 
@@ -995,9 +904,7 @@ module.exports = function(RED) {
 
 			svc.describeGameSessionQueues(params,cb);
 		}
-
-		
-		service.DescribeGameSessions=function(svc,msg,cb){
+			service.DescribeGameSessions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1006,7 +913,7 @@ module.exports = function(RED) {
 			copyArgs(n,"AliasId",params,undefined,false); 
 			copyArgs(n,"Location",params,undefined,false); 
 			copyArgs(n,"StatusFilter",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -1020,16 +927,14 @@ module.exports = function(RED) {
 
 			svc.describeGameSessions(params,cb);
 		}
-
-		
-		service.DescribeInstances=function(svc,msg,cb){
+			service.DescribeInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			copyArgs(n,"InstanceId",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Location",params,undefined,false); 
 			
@@ -1042,9 +947,7 @@ module.exports = function(RED) {
 
 			svc.describeInstances(params,cb);
 		}
-
-		
-		service.DescribeMatchmaking=function(svc,msg,cb){
+			service.DescribeMatchmaking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TicketIds",params,undefined,false); 
@@ -1056,15 +959,13 @@ module.exports = function(RED) {
 
 			svc.describeMatchmaking(params,cb);
 		}
-
-		
-		service.DescribeMatchmakingConfigurations=function(svc,msg,cb){
+			service.DescribeMatchmakingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Names",params,undefined,false); 
 			copyArgs(n,"RuleSetName",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Names",params,undefined,false); 
@@ -1075,14 +976,12 @@ module.exports = function(RED) {
 
 			svc.describeMatchmakingConfigurations(params,cb);
 		}
-
-		
-		service.DescribeMatchmakingRuleSets=function(svc,msg,cb){
+			service.DescribeMatchmakingRuleSets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Names",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Names",params,undefined,false); 
@@ -1092,9 +991,7 @@ module.exports = function(RED) {
 
 			svc.describeMatchmakingRuleSets(params,cb);
 		}
-
-		
-		service.DescribePlayerSessions=function(svc,msg,cb){
+			service.DescribePlayerSessions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1102,7 +999,7 @@ module.exports = function(RED) {
 			copyArgs(n,"PlayerId",params,undefined,false); 
 			copyArgs(n,"PlayerSessionId",params,undefined,false); 
 			copyArgs(n,"PlayerSessionStatusFilter",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"GameSessionId",params,undefined,false); 
@@ -1115,9 +1012,7 @@ module.exports = function(RED) {
 
 			svc.describePlayerSessions(params,cb);
 		}
-
-		
-		service.DescribeRuntimeConfiguration=function(svc,msg,cb){
+			service.DescribeRuntimeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1129,16 +1024,14 @@ module.exports = function(RED) {
 
 			svc.describeRuntimeConfiguration(params,cb);
 		}
-
-		
-		service.DescribeScalingPolicies=function(svc,msg,cb){
+			service.DescribeScalingPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			copyArgs(n,"StatusFilter",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			copyArgs(n,"Location",params,undefined,false); 
 			
@@ -1151,9 +1044,7 @@ module.exports = function(RED) {
 
 			svc.describeScalingPolicies(params,cb);
 		}
-
-		
-		service.DescribeScript=function(svc,msg,cb){
+			service.DescribeScript=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScriptId",params,undefined,false); 
@@ -1165,9 +1056,7 @@ module.exports = function(RED) {
 
 			svc.describeScript(params,cb);
 		}
-
-		
-		service.DescribeVpcPeeringAuthorizations=function(svc,msg,cb){
+			service.DescribeVpcPeeringAuthorizations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1176,9 +1065,7 @@ module.exports = function(RED) {
 
 			svc.describeVpcPeeringAuthorizations(params,cb);
 		}
-
-		
-		service.DescribeVpcPeeringConnections=function(svc,msg,cb){
+			service.DescribeVpcPeeringConnections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1189,9 +1076,7 @@ module.exports = function(RED) {
 
 			svc.describeVpcPeeringConnections(params,cb);
 		}
-
-		
-		service.GetGameSessionLogUrl=function(svc,msg,cb){
+			service.GetGameSessionLogUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameSessionId",params,undefined,false); 
@@ -1203,9 +1088,7 @@ module.exports = function(RED) {
 
 			svc.getGameSessionLogUrl(params,cb);
 		}
-
-		
-		service.GetInstanceAccess=function(svc,msg,cb){
+			service.GetInstanceAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1220,15 +1103,13 @@ module.exports = function(RED) {
 
 			svc.getInstanceAccess(params,cb);
 		}
-
-		
-		service.ListAliases=function(svc,msg,cb){
+			service.ListAliases=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"RoutingStrategyType",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"RoutingStrategyType",params,undefined,false); 
@@ -1239,14 +1120,12 @@ module.exports = function(RED) {
 
 			svc.listAliases(params,cb);
 		}
-
-		
-		service.ListBuilds=function(svc,msg,cb){
+			service.ListBuilds=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"Status",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Status",params,undefined,false); 
@@ -1256,15 +1135,13 @@ module.exports = function(RED) {
 
 			svc.listBuilds(params,cb);
 		}
-
-		
-		service.ListFleets=function(svc,msg,cb){
+			service.ListFleets=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"BuildId",params,undefined,false); 
 			copyArgs(n,"ScriptId",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"BuildId",params,undefined,false); 
@@ -1275,13 +1152,11 @@ module.exports = function(RED) {
 
 			svc.listFleets(params,cb);
 		}
-
-		
-		service.ListGameServerGroups=function(svc,msg,cb){
+			service.ListGameServerGroups=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1290,16 +1165,14 @@ module.exports = function(RED) {
 
 			svc.listGameServerGroups(params,cb);
 		}
-
-		
-		service.ListGameServers=function(svc,msg,cb){
+			service.ListGameServers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
 			copyArgs(n,"SortOrder",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"GameServerGroupName",params,undefined,false); 
@@ -1310,13 +1183,11 @@ module.exports = function(RED) {
 
 			svc.listGameServers(params,cb);
 		}
-
-		
-		service.ListScripts=function(svc,msg,cb){
+			service.ListScripts=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"Limit",params,undefined,false); 
@@ -1325,9 +1196,7 @@ module.exports = function(RED) {
 
 			svc.listScripts(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1339,9 +1208,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutScalingPolicy=function(svc,msg,cb){
+			service.PutScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1350,11 +1217,11 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"FleetId",params,undefined,false); 
-			copyArgs(n,"ScalingAdjustment",params,undefined,false); 
+			copyArgs(Number(n),"ScalingAdjustment",params,undefined,false); 
 			copyArgs(n,"ScalingAdjustmentType",params,undefined,false); 
 			copyArgs(n,"Threshold",params,undefined,false); 
 			copyArgs(n,"ComparisonOperator",params,undefined,false); 
-			copyArgs(n,"EvaluationPeriods",params,undefined,false); 
+			copyArgs(Number(n),"EvaluationPeriods",params,undefined,false); 
 			copyArgs(n,"MetricName",params,undefined,false); 
 			copyArgs(n,"PolicyType",params,undefined,false); 
 			copyArgs(n,"TargetConfiguration",params,undefined,true); 
@@ -1373,9 +1240,7 @@ module.exports = function(RED) {
 
 			svc.putScalingPolicy(params,cb);
 		}
-
-		
-		service.RegisterGameServer=function(svc,msg,cb){
+			service.RegisterGameServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -1397,9 +1262,7 @@ module.exports = function(RED) {
 
 			svc.registerGameServer(params,cb);
 		}
-
-		
-		service.RequestUploadCredentials=function(svc,msg,cb){
+			service.RequestUploadCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BuildId",params,undefined,false); 
@@ -1411,9 +1274,7 @@ module.exports = function(RED) {
 
 			svc.requestUploadCredentials(params,cb);
 		}
-
-		
-		service.ResolveAlias=function(svc,msg,cb){
+			service.ResolveAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -1425,9 +1286,7 @@ module.exports = function(RED) {
 
 			svc.resolveAlias(params,cb);
 		}
-
-		
-		service.ResumeGameServerGroup=function(svc,msg,cb){
+			service.ResumeGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -1442,9 +1301,7 @@ module.exports = function(RED) {
 
 			svc.resumeGameServerGroup(params,cb);
 		}
-
-		
-		service.SearchGameSessions=function(svc,msg,cb){
+			service.SearchGameSessions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1453,7 +1310,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Location",params,undefined,false); 
 			copyArgs(n,"FilterExpression",params,undefined,false); 
 			copyArgs(n,"SortExpression",params,undefined,false); 
-			copyArgs(n,"Limit",params,undefined,false); 
+			copyArgs(Number(n),"Limit",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -1467,9 +1324,7 @@ module.exports = function(RED) {
 
 			svc.searchGameSessions(params,cb);
 		}
-
-		
-		service.StartFleetActions=function(svc,msg,cb){
+			service.StartFleetActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1486,19 +1341,17 @@ module.exports = function(RED) {
 
 			svc.startFleetActions(params,cb);
 		}
-
-		
-		service.StartGameSessionPlacement=function(svc,msg,cb){
+			service.StartGameSessionPlacement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlacementId",params,undefined,false); 
 			copyArgs(n,"GameSessionQueueName",params,undefined,false); 
-			copyArgs(n,"MaximumPlayerSessionCount",params,undefined,false); 
+			copyArgs(Number(n),"MaximumPlayerSessionCount",params,undefined,false); 
 			
 			copyArgs(n,"PlacementId",params,undefined,false); 
 			copyArgs(n,"GameSessionQueueName",params,undefined,false); 
 			copyArgs(n,"GameProperties",params,undefined,true); 
-			copyArgs(n,"MaximumPlayerSessionCount",params,undefined,false); 
+			copyArgs(Number(n),"MaximumPlayerSessionCount",params,undefined,false); 
 			copyArgs(n,"GameSessionName",params,undefined,false); 
 			copyArgs(n,"PlayerLatencies",params,undefined,true); 
 			copyArgs(n,"DesiredPlayerSessions",params,undefined,false); 
@@ -1516,9 +1369,7 @@ module.exports = function(RED) {
 
 			svc.startGameSessionPlacement(params,cb);
 		}
-
-		
-		service.StartMatchBackfill=function(svc,msg,cb){
+			service.StartMatchBackfill=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationName",params,undefined,false); 
@@ -1537,9 +1388,7 @@ module.exports = function(RED) {
 
 			svc.startMatchBackfill(params,cb);
 		}
-
-		
-		service.StartMatchmaking=function(svc,msg,cb){
+			service.StartMatchmaking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationName",params,undefined,false); 
@@ -1556,9 +1405,7 @@ module.exports = function(RED) {
 
 			svc.startMatchmaking(params,cb);
 		}
-
-		
-		service.StopFleetActions=function(svc,msg,cb){
+			service.StopFleetActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1575,9 +1422,7 @@ module.exports = function(RED) {
 
 			svc.stopFleetActions(params,cb);
 		}
-
-		
-		service.StopGameSessionPlacement=function(svc,msg,cb){
+			service.StopGameSessionPlacement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlacementId",params,undefined,false); 
@@ -1589,9 +1434,7 @@ module.exports = function(RED) {
 
 			svc.stopGameSessionPlacement(params,cb);
 		}
-
-		
-		service.StopMatchmaking=function(svc,msg,cb){
+			service.StopMatchmaking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TicketId",params,undefined,false); 
@@ -1603,9 +1446,7 @@ module.exports = function(RED) {
 
 			svc.stopMatchmaking(params,cb);
 		}
-
-		
-		service.SuspendGameServerGroup=function(svc,msg,cb){
+			service.SuspendGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -1620,9 +1461,7 @@ module.exports = function(RED) {
 
 			svc.suspendGameServerGroup(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1637,9 +1476,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1654,9 +1491,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateAlias=function(svc,msg,cb){
+			service.UpdateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasId",params,undefined,false); 
@@ -1674,9 +1509,7 @@ module.exports = function(RED) {
 
 			svc.updateAlias(params,cb);
 		}
-
-		
-		service.UpdateBuild=function(svc,msg,cb){
+			service.UpdateBuild=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BuildId",params,undefined,false); 
@@ -1692,9 +1525,7 @@ module.exports = function(RED) {
 
 			svc.updateBuild(params,cb);
 		}
-
-		
-		service.UpdateFleetAttributes=function(svc,msg,cb){
+			service.UpdateFleetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1716,17 +1547,15 @@ module.exports = function(RED) {
 
 			svc.updateFleetAttributes(params,cb);
 		}
-
-		
-		service.UpdateFleetCapacity=function(svc,msg,cb){
+			service.UpdateFleetCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
-			copyArgs(n,"DesiredInstances",params,undefined,false); 
-			copyArgs(n,"MinSize",params,undefined,false); 
-			copyArgs(n,"MaxSize",params,undefined,false); 
+			copyArgs(Number(n),"DesiredInstances",params,undefined,false); 
+			copyArgs(Number(n),"MinSize",params,undefined,false); 
+			copyArgs(Number(n),"MaxSize",params,undefined,false); 
 			copyArgs(n,"Location",params,undefined,false); 
 			
 			copyArgs(msg,"FleetId",params,undefined,false); 
@@ -1738,9 +1567,7 @@ module.exports = function(RED) {
 
 			svc.updateFleetCapacity(params,cb);
 		}
-
-		
-		service.UpdateFleetPortSettings=function(svc,msg,cb){
+			service.UpdateFleetPortSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1756,9 +1583,7 @@ module.exports = function(RED) {
 
 			svc.updateFleetPortSettings(params,cb);
 		}
-
-		
-		service.UpdateGameServer=function(svc,msg,cb){
+			service.UpdateGameServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -1779,9 +1604,7 @@ module.exports = function(RED) {
 
 			svc.updateGameServer(params,cb);
 		}
-
-		
-		service.UpdateGameServerGroup=function(svc,msg,cb){
+			service.UpdateGameServerGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameServerGroupName",params,undefined,false); 
@@ -1801,15 +1624,13 @@ module.exports = function(RED) {
 
 			svc.updateGameServerGroup(params,cb);
 		}
-
-		
-		service.UpdateGameSession=function(svc,msg,cb){
+			service.UpdateGameSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GameSessionId",params,undefined,false); 
 			
 			copyArgs(n,"GameSessionId",params,undefined,false); 
-			copyArgs(n,"MaximumPlayerSessionCount",params,undefined,false); 
+			copyArgs(Number(n),"MaximumPlayerSessionCount",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"PlayerSessionCreationPolicy",params,undefined,false); 
 			copyArgs(n,"ProtectionPolicy",params,undefined,false); 
@@ -1823,15 +1644,13 @@ module.exports = function(RED) {
 
 			svc.updateGameSession(params,cb);
 		}
-
-		
-		service.UpdateGameSessionQueue=function(svc,msg,cb){
+			service.UpdateGameSessionQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(n,"TimeoutInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"TimeoutInSeconds",params,undefined,false); 
 			copyArgs(n,"PlayerLatencyPolicies",params,undefined,true); 
 			copyArgs(n,"Destinations",params,undefined,true); 
 			copyArgs(n,"FilterConfiguration",params,undefined,true); 
@@ -1851,9 +1670,7 @@ module.exports = function(RED) {
 
 			svc.updateGameSessionQueue(params,cb);
 		}
-
-		
-		service.UpdateMatchmakingConfiguration=function(svc,msg,cb){
+			service.UpdateMatchmakingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1861,12 +1678,12 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"GameSessionQueueArns",params,undefined,true); 
-			copyArgs(n,"RequestTimeoutSeconds",params,undefined,false); 
-			copyArgs(n,"AcceptanceTimeoutSeconds",params,undefined,false); 
-			copyArgs(n,"AcceptanceRequired",params,undefined,false); 
+			copyArgs(Number(n),"RequestTimeoutSeconds",params,undefined,false); 
+			copyArgs(Number(n),"AcceptanceTimeoutSeconds",params,undefined,false); 
+			copyArgs(Boolean(n),"AcceptanceRequired",params,undefined,false); 
 			copyArgs(n,"RuleSetName",params,undefined,false); 
 			copyArgs(n,"NotificationTarget",params,undefined,false); 
-			copyArgs(n,"AdditionalPlayerCount",params,undefined,false); 
+			copyArgs(Number(n),"AdditionalPlayerCount",params,undefined,false); 
 			copyArgs(n,"CustomEventData",params,undefined,false); 
 			copyArgs(n,"GameProperties",params,undefined,true); 
 			copyArgs(n,"GameSessionData",params,undefined,false); 
@@ -1891,9 +1708,7 @@ module.exports = function(RED) {
 
 			svc.updateMatchmakingConfiguration(params,cb);
 		}
-
-		
-		service.UpdateRuntimeConfiguration=function(svc,msg,cb){
+			service.UpdateRuntimeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetId",params,undefined,false); 
@@ -1908,9 +1723,7 @@ module.exports = function(RED) {
 
 			svc.updateRuntimeConfiguration(params,cb);
 		}
-
-		
-		service.UpdateScript=function(svc,msg,cb){
+			service.UpdateScript=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScriptId",params,undefined,false); 
@@ -1919,7 +1732,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Version",params,undefined,false); 
 			copyArgs(n,"StorageLocation",params,undefined,true); 
-			copyArgs(n,"ZipFile",params,undefined,false); 
+			copyArgs(Buffer.from(n),"ZipFile",params,undefined,false); 
 			
 			copyArgs(msg,"ScriptId",params,undefined,false); 
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -1930,9 +1743,7 @@ module.exports = function(RED) {
 
 			svc.updateScript(params,cb);
 		}
-
-		
-		service.ValidateMatchmakingRuleSet=function(svc,msg,cb){
+			service.ValidateMatchmakingRuleSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleSetBody",params,undefined,false); 
@@ -1944,9 +1755,7 @@ module.exports = function(RED) {
 
 			svc.validateMatchmakingRuleSet(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS GameLift", AmazonAPINode);
 

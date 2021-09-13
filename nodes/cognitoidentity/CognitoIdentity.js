@@ -92,17 +92,16 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateIdentityPool=function(svc,msg,cb){
+			service.CreateIdentityPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolName",params,undefined,false); 
-			copyArgs(n,"AllowUnauthenticatedIdentities",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowUnauthenticatedIdentities",params,undefined,false); 
 			
 			copyArgs(n,"IdentityPoolName",params,undefined,false); 
-			copyArgs(n,"AllowUnauthenticatedIdentities",params,undefined,false); 
-			copyArgs(n,"AllowClassicFlow",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowUnauthenticatedIdentities",params,undefined,false); 
+			copyArgs(Boolean(n),"AllowClassicFlow",params,undefined,false); 
 			copyArgs(n,"SupportedLoginProviders",params,undefined,true); 
 			copyArgs(n,"DeveloperProviderName",params,undefined,false); 
 			copyArgs(n,"OpenIdConnectProviderARNs",params,undefined,true); 
@@ -123,9 +122,7 @@ module.exports = function(RED) {
 
 			svc.createIdentityPool(params,cb);
 		}
-
-		
-		service.DeleteIdentities=function(svc,msg,cb){
+			service.DeleteIdentities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityIdsToDelete",params,undefined,false); 
@@ -137,9 +134,7 @@ module.exports = function(RED) {
 
 			svc.deleteIdentities(params,cb);
 		}
-
-		
-		service.DeleteIdentityPool=function(svc,msg,cb){
+			service.DeleteIdentityPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -151,9 +146,7 @@ module.exports = function(RED) {
 
 			svc.deleteIdentityPool(params,cb);
 		}
-
-		
-		service.DescribeIdentity=function(svc,msg,cb){
+			service.DescribeIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -165,9 +158,7 @@ module.exports = function(RED) {
 
 			svc.describeIdentity(params,cb);
 		}
-
-		
-		service.DescribeIdentityPool=function(svc,msg,cb){
+			service.DescribeIdentityPool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -179,9 +170,7 @@ module.exports = function(RED) {
 
 			svc.describeIdentityPool(params,cb);
 		}
-
-		
-		service.GetCredentialsForIdentity=function(svc,msg,cb){
+			service.GetCredentialsForIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -197,9 +186,7 @@ module.exports = function(RED) {
 
 			svc.getCredentialsForIdentity(params,cb);
 		}
-
-		
-		service.GetId=function(svc,msg,cb){
+			service.GetId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -215,9 +202,7 @@ module.exports = function(RED) {
 
 			svc.getId(params,cb);
 		}
-
-		
-		service.GetIdentityPoolRoles=function(svc,msg,cb){
+			service.GetIdentityPoolRoles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -229,9 +214,7 @@ module.exports = function(RED) {
 
 			svc.getIdentityPoolRoles(params,cb);
 		}
-
-		
-		service.GetOpenIdToken=function(svc,msg,cb){
+			service.GetOpenIdToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -245,9 +228,7 @@ module.exports = function(RED) {
 
 			svc.getOpenIdToken(params,cb);
 		}
-
-		
-		service.GetOpenIdTokenForDeveloperIdentity=function(svc,msg,cb){
+			service.GetOpenIdTokenForDeveloperIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -268,9 +249,7 @@ module.exports = function(RED) {
 
 			svc.getOpenIdTokenForDeveloperIdentity(params,cb);
 		}
-
-		
-		service.GetPrincipalTagAttributeMap=function(svc,msg,cb){
+			service.GetPrincipalTagAttributeMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -285,18 +264,16 @@ module.exports = function(RED) {
 
 			svc.getPrincipalTagAttributeMap(params,cb);
 		}
-
-		
-		service.ListIdentities=function(svc,msg,cb){
+			service.ListIdentities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"HideDisabled",params,undefined,false); 
+			copyArgs(Boolean(n),"HideDisabled",params,undefined,false); 
 			
 			copyArgs(msg,"IdentityPoolId",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -306,14 +283,12 @@ module.exports = function(RED) {
 
 			svc.listIdentities(params,cb);
 		}
-
-		
-		service.ListIdentityPools=function(svc,msg,cb){
+			service.ListIdentityPools=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -322,9 +297,7 @@ module.exports = function(RED) {
 
 			svc.listIdentityPools(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -336,9 +309,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.LookupDeveloperIdentity=function(svc,msg,cb){
+			service.LookupDeveloperIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -346,7 +317,7 @@ module.exports = function(RED) {
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
 			copyArgs(n,"IdentityId",params,undefined,false); 
 			copyArgs(n,"DeveloperUserIdentifier",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
 			
 			copyArgs(msg,"IdentityPoolId",params,undefined,false); 
@@ -358,9 +329,7 @@ module.exports = function(RED) {
 
 			svc.lookupDeveloperIdentity(params,cb);
 		}
-
-		
-		service.MergeDeveloperIdentities=function(svc,msg,cb){
+			service.MergeDeveloperIdentities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceUserIdentifier",params,undefined,false); 
@@ -381,9 +350,7 @@ module.exports = function(RED) {
 
 			svc.mergeDeveloperIdentities(params,cb);
 		}
-
-		
-		service.SetIdentityPoolRoles=function(svc,msg,cb){
+			service.SetIdentityPoolRoles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -400,9 +367,7 @@ module.exports = function(RED) {
 
 			svc.setIdentityPoolRoles(params,cb);
 		}
-
-		
-		service.SetPrincipalTagAttributeMap=function(svc,msg,cb){
+			service.SetPrincipalTagAttributeMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
@@ -410,7 +375,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"IdentityPoolId",params,undefined,false); 
 			copyArgs(n,"IdentityProviderName",params,undefined,false); 
-			copyArgs(n,"UseDefaults",params,undefined,false); 
+			copyArgs(Boolean(n),"UseDefaults",params,undefined,false); 
 			copyArgs(n,"PrincipalTags",params,undefined,true); 
 			
 			copyArgs(msg,"IdentityPoolId",params,undefined,false); 
@@ -421,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.setPrincipalTagAttributeMap(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -438,9 +401,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UnlinkDeveloperIdentity=function(svc,msg,cb){
+			service.UnlinkDeveloperIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -461,9 +422,7 @@ module.exports = function(RED) {
 
 			svc.unlinkDeveloperIdentity(params,cb);
 		}
-
-		
-		service.UnlinkIdentity=function(svc,msg,cb){
+			service.UnlinkIdentity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityId",params,undefined,false); 
@@ -481,9 +440,7 @@ module.exports = function(RED) {
 
 			svc.unlinkIdentity(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -498,9 +455,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateIdentityPool=function(svc,msg,cb){
+			service.UpdateIdentityPool=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -519,9 +474,7 @@ module.exports = function(RED) {
 
 			svc.updateIdentityPool(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS CognitoIdentity", AmazonAPINode);
 

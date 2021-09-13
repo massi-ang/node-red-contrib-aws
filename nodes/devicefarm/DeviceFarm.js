@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.CreateDevicePool=function(svc,msg,cb){
+			service.CreateDevicePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -105,7 +104,7 @@ module.exports = function(RED) {
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"rules",params,undefined,true); 
-			copyArgs(n,"maxDevices",params,undefined,false); 
+			copyArgs(Number(n),"maxDevices",params,undefined,false); 
 			
 			copyArgs(msg,"projectArn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -116,18 +115,16 @@ module.exports = function(RED) {
 
 			svc.createDevicePool(params,cb);
 		}
-
-		
-		service.CreateInstanceProfile=function(svc,msg,cb){
+			service.CreateInstanceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
-			copyArgs(n,"packageCleanup",params,undefined,false); 
+			copyArgs(Boolean(n),"packageCleanup",params,undefined,false); 
 			copyArgs(n,"excludeAppPackagesFromCleanup",params,undefined,true); 
-			copyArgs(n,"rebootAfterUse",params,undefined,false); 
+			copyArgs(Boolean(n),"rebootAfterUse",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"description",params,undefined,false); 
@@ -138,9 +135,7 @@ module.exports = function(RED) {
 
 			svc.createInstanceProfile(params,cb);
 		}
-
-		
-		service.CreateNetworkProfile=function(svc,msg,cb){
+			service.CreateNetworkProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -156,8 +151,8 @@ module.exports = function(RED) {
 			copyArgs(n,"downlinkDelayMs",params,undefined,false); 
 			copyArgs(n,"uplinkJitterMs",params,undefined,false); 
 			copyArgs(n,"downlinkJitterMs",params,undefined,false); 
-			copyArgs(n,"uplinkLossPercent",params,undefined,false); 
-			copyArgs(n,"downlinkLossPercent",params,undefined,false); 
+			copyArgs(Number(n),"uplinkLossPercent",params,undefined,false); 
+			copyArgs(Number(n),"downlinkLossPercent",params,undefined,false); 
 			
 			copyArgs(msg,"projectArn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -175,15 +170,13 @@ module.exports = function(RED) {
 
 			svc.createNetworkProfile(params,cb);
 		}
-
-		
-		service.CreateProject=function(svc,msg,cb){
+			service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
 			
 			copyArgs(n,"name",params,undefined,false); 
-			copyArgs(n,"defaultJobTimeoutMinutes",params,undefined,false); 
+			copyArgs(Number(n),"defaultJobTimeoutMinutes",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
 			copyArgs(msg,"defaultJobTimeoutMinutes",params,undefined,false); 
@@ -191,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-
-		
-		service.CreateRemoteAccessSession=function(svc,msg,cb){
+			service.CreateRemoteAccessSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -203,14 +194,14 @@ module.exports = function(RED) {
 			copyArgs(n,"deviceArn",params,undefined,false); 
 			copyArgs(n,"instanceArn",params,undefined,false); 
 			copyArgs(n,"sshPublicKey",params,undefined,false); 
-			copyArgs(n,"remoteDebugEnabled",params,undefined,false); 
-			copyArgs(n,"remoteRecordEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"remoteDebugEnabled",params,undefined,false); 
+			copyArgs(Boolean(n),"remoteRecordEnabled",params,undefined,false); 
 			copyArgs(n,"remoteRecordAppArn",params,undefined,false); 
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"clientId",params,undefined,false); 
 			copyArgs(n,"configuration",params,undefined,false); 
 			copyArgs(n,"interactionMode",params,undefined,false); 
-			copyArgs(n,"skipAppResign",params,undefined,false); 
+			copyArgs(Boolean(n),"skipAppResign",params,undefined,false); 
 			
 			copyArgs(msg,"projectArn",params,undefined,false); 
 			copyArgs(msg,"deviceArn",params,undefined,false); 
@@ -228,9 +219,7 @@ module.exports = function(RED) {
 
 			svc.createRemoteAccessSession(params,cb);
 		}
-
-		
-		service.CreateTestGridProject=function(svc,msg,cb){
+			service.CreateTestGridProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -246,16 +235,14 @@ module.exports = function(RED) {
 
 			svc.createTestGridProject(params,cb);
 		}
-
-		
-		service.CreateTestGridUrl=function(svc,msg,cb){
+			service.CreateTestGridUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
-			copyArgs(n,"expiresInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"expiresInSeconds",params,undefined,false); 
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
-			copyArgs(n,"expiresInSeconds",params,undefined,false); 
+			copyArgs(Number(n),"expiresInSeconds",params,undefined,false); 
 			
 			copyArgs(msg,"projectArn",params,undefined,false); 
 			copyArgs(msg,"expiresInSeconds",params,undefined,false); 
@@ -263,9 +250,7 @@ module.exports = function(RED) {
 
 			svc.createTestGridUrl(params,cb);
 		}
-
-		
-		service.CreateUpload=function(svc,msg,cb){
+			service.CreateUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -285,9 +270,7 @@ module.exports = function(RED) {
 
 			svc.createUpload(params,cb);
 		}
-
-		
-		service.CreateVPCEConfiguration=function(svc,msg,cb){
+			service.CreateVPCEConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"vpceConfigurationName",params,undefined,false); 
@@ -307,9 +290,7 @@ module.exports = function(RED) {
 
 			svc.createVPCEConfiguration(params,cb);
 		}
-
-		
-		service.DeleteDevicePool=function(svc,msg,cb){
+			service.DeleteDevicePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -321,9 +302,7 @@ module.exports = function(RED) {
 
 			svc.deleteDevicePool(params,cb);
 		}
-
-		
-		service.DeleteInstanceProfile=function(svc,msg,cb){
+			service.DeleteInstanceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -335,9 +314,7 @@ module.exports = function(RED) {
 
 			svc.deleteInstanceProfile(params,cb);
 		}
-
-		
-		service.DeleteNetworkProfile=function(svc,msg,cb){
+			service.DeleteNetworkProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -349,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.deleteNetworkProfile(params,cb);
 		}
-
-		
-		service.DeleteProject=function(svc,msg,cb){
+			service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -363,9 +338,7 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-
-		
-		service.DeleteRemoteAccessSession=function(svc,msg,cb){
+			service.DeleteRemoteAccessSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -377,9 +350,7 @@ module.exports = function(RED) {
 
 			svc.deleteRemoteAccessSession(params,cb);
 		}
-
-		
-		service.DeleteRun=function(svc,msg,cb){
+			service.DeleteRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -391,9 +362,7 @@ module.exports = function(RED) {
 
 			svc.deleteRun(params,cb);
 		}
-
-		
-		service.DeleteTestGridProject=function(svc,msg,cb){
+			service.DeleteTestGridProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -405,9 +374,7 @@ module.exports = function(RED) {
 
 			svc.deleteTestGridProject(params,cb);
 		}
-
-		
-		service.DeleteUpload=function(svc,msg,cb){
+			service.DeleteUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -419,9 +386,7 @@ module.exports = function(RED) {
 
 			svc.deleteUpload(params,cb);
 		}
-
-		
-		service.DeleteVPCEConfiguration=function(svc,msg,cb){
+			service.DeleteVPCEConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -433,9 +398,7 @@ module.exports = function(RED) {
 
 			svc.deleteVPCEConfiguration(params,cb);
 		}
-
-		
-		service.GetAccountSettings=function(svc,msg,cb){
+			service.GetAccountSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -444,9 +407,7 @@ module.exports = function(RED) {
 
 			svc.getAccountSettings(params,cb);
 		}
-
-		
-		service.GetDevice=function(svc,msg,cb){
+			service.GetDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -458,9 +419,7 @@ module.exports = function(RED) {
 
 			svc.getDevice(params,cb);
 		}
-
-		
-		service.GetDeviceInstance=function(svc,msg,cb){
+			service.GetDeviceInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -472,9 +431,7 @@ module.exports = function(RED) {
 
 			svc.getDeviceInstance(params,cb);
 		}
-
-		
-		service.GetDevicePool=function(svc,msg,cb){
+			service.GetDevicePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -486,9 +443,7 @@ module.exports = function(RED) {
 
 			svc.getDevicePool(params,cb);
 		}
-
-		
-		service.GetDevicePoolCompatibility=function(svc,msg,cb){
+			service.GetDevicePoolCompatibility=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"devicePoolArn",params,undefined,false); 
@@ -508,9 +463,7 @@ module.exports = function(RED) {
 
 			svc.getDevicePoolCompatibility(params,cb);
 		}
-
-		
-		service.GetInstanceProfile=function(svc,msg,cb){
+			service.GetInstanceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -522,9 +475,7 @@ module.exports = function(RED) {
 
 			svc.getInstanceProfile(params,cb);
 		}
-
-		
-		service.GetJob=function(svc,msg,cb){
+			service.GetJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -536,9 +487,7 @@ module.exports = function(RED) {
 
 			svc.getJob(params,cb);
 		}
-
-		
-		service.GetNetworkProfile=function(svc,msg,cb){
+			service.GetNetworkProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -550,9 +499,7 @@ module.exports = function(RED) {
 
 			svc.getNetworkProfile(params,cb);
 		}
-
-		
-		service.GetOfferingStatus=function(svc,msg,cb){
+			service.GetOfferingStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -563,9 +510,7 @@ module.exports = function(RED) {
 
 			svc.getOfferingStatus(params,cb);
 		}
-
-		
-		service.GetProject=function(svc,msg,cb){
+			service.GetProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -577,9 +522,7 @@ module.exports = function(RED) {
 
 			svc.getProject(params,cb);
 		}
-
-		
-		service.GetRemoteAccessSession=function(svc,msg,cb){
+			service.GetRemoteAccessSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -591,9 +534,7 @@ module.exports = function(RED) {
 
 			svc.getRemoteAccessSession(params,cb);
 		}
-
-		
-		service.GetRun=function(svc,msg,cb){
+			service.GetRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -605,9 +546,7 @@ module.exports = function(RED) {
 
 			svc.getRun(params,cb);
 		}
-
-		
-		service.GetSuite=function(svc,msg,cb){
+			service.GetSuite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -619,9 +558,7 @@ module.exports = function(RED) {
 
 			svc.getSuite(params,cb);
 		}
-
-		
-		service.GetTest=function(svc,msg,cb){
+			service.GetTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -633,9 +570,7 @@ module.exports = function(RED) {
 
 			svc.getTest(params,cb);
 		}
-
-		
-		service.GetTestGridProject=function(svc,msg,cb){
+			service.GetTestGridProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -647,9 +582,7 @@ module.exports = function(RED) {
 
 			svc.getTestGridProject(params,cb);
 		}
-
-		
-		service.GetTestGridSession=function(svc,msg,cb){
+			service.GetTestGridSession=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -664,9 +597,7 @@ module.exports = function(RED) {
 
 			svc.getTestGridSession(params,cb);
 		}
-
-		
-		service.GetUpload=function(svc,msg,cb){
+			service.GetUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -678,9 +609,7 @@ module.exports = function(RED) {
 
 			svc.getUpload(params,cb);
 		}
-
-		
-		service.GetVPCEConfiguration=function(svc,msg,cb){
+			service.GetVPCEConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -692,9 +621,7 @@ module.exports = function(RED) {
 
 			svc.getVPCEConfiguration(params,cb);
 		}
-
-		
-		service.InstallToRemoteAccessSession=function(svc,msg,cb){
+			service.InstallToRemoteAccessSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"remoteAccessSessionArn",params,undefined,false); 
@@ -709,9 +636,7 @@ module.exports = function(RED) {
 
 			svc.installToRemoteAccessSession(params,cb);
 		}
-
-		
-		service.ListArtifacts=function(svc,msg,cb){
+			service.ListArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -728,13 +653,11 @@ module.exports = function(RED) {
 
 			svc.listArtifacts(params,cb);
 		}
-
-		
-		service.ListDeviceInstances=function(svc,msg,cb){
+			service.ListDeviceInstances=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -743,9 +666,7 @@ module.exports = function(RED) {
 
 			svc.listDeviceInstances(params,cb);
 		}
-
-		
-		service.ListDevicePools=function(svc,msg,cb){
+			service.ListDevicePools=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -761,9 +682,7 @@ module.exports = function(RED) {
 
 			svc.listDevicePools(params,cb);
 		}
-
-		
-		service.ListDevices=function(svc,msg,cb){
+			service.ListDevices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -778,13 +697,11 @@ module.exports = function(RED) {
 
 			svc.listDevices(params,cb);
 		}
-
-		
-		service.ListInstanceProfiles=function(svc,msg,cb){
+			service.ListInstanceProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -793,9 +710,7 @@ module.exports = function(RED) {
 
 			svc.listInstanceProfiles(params,cb);
 		}
-
-		
-		service.ListJobs=function(svc,msg,cb){
+			service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -809,9 +724,7 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-
-		
-		service.ListNetworkProfiles=function(svc,msg,cb){
+			service.ListNetworkProfiles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -827,9 +740,7 @@ module.exports = function(RED) {
 
 			svc.listNetworkProfiles(params,cb);
 		}
-
-		
-		service.ListOfferingPromotions=function(svc,msg,cb){
+			service.ListOfferingPromotions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -840,9 +751,7 @@ module.exports = function(RED) {
 
 			svc.listOfferingPromotions(params,cb);
 		}
-
-		
-		service.ListOfferingTransactions=function(svc,msg,cb){
+			service.ListOfferingTransactions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -853,9 +762,7 @@ module.exports = function(RED) {
 
 			svc.listOfferingTransactions(params,cb);
 		}
-
-		
-		service.ListOfferings=function(svc,msg,cb){
+			service.ListOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -866,9 +773,7 @@ module.exports = function(RED) {
 
 			svc.listOfferings(params,cb);
 		}
-
-		
-		service.ListProjects=function(svc,msg,cb){
+			service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -881,9 +786,7 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-
-		
-		service.ListRemoteAccessSessions=function(svc,msg,cb){
+			service.ListRemoteAccessSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -897,9 +800,7 @@ module.exports = function(RED) {
 
 			svc.listRemoteAccessSessions(params,cb);
 		}
-
-		
-		service.ListRuns=function(svc,msg,cb){
+			service.ListRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -913,9 +814,7 @@ module.exports = function(RED) {
 
 			svc.listRuns(params,cb);
 		}
-
-		
-		service.ListSamples=function(svc,msg,cb){
+			service.ListSamples=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -929,9 +828,7 @@ module.exports = function(RED) {
 
 			svc.listSamples(params,cb);
 		}
-
-		
-		service.ListSuites=function(svc,msg,cb){
+			service.ListSuites=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -945,9 +842,7 @@ module.exports = function(RED) {
 
 			svc.listSuites(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -959,13 +854,11 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListTestGridProjects=function(svc,msg,cb){
+			service.ListTestGridProjects=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResult",params,undefined,false); 
+			copyArgs(Number(n),"maxResult",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResult",params,undefined,false); 
@@ -974,15 +867,13 @@ module.exports = function(RED) {
 
 			svc.listTestGridProjects(params,cb);
 		}
-
-		
-		service.ListTestGridSessionActions=function(svc,msg,cb){
+			service.ListTestGridSessionActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sessionArn",params,undefined,false); 
 			
 			copyArgs(n,"sessionArn",params,undefined,false); 
-			copyArgs(n,"maxResult",params,undefined,false); 
+			copyArgs(Number(n),"maxResult",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"sessionArn",params,undefined,false); 
@@ -992,16 +883,14 @@ module.exports = function(RED) {
 
 			svc.listTestGridSessionActions(params,cb);
 		}
-
-		
-		service.ListTestGridSessionArtifacts=function(svc,msg,cb){
+			service.ListTestGridSessionArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"sessionArn",params,undefined,false); 
 			
 			copyArgs(n,"sessionArn",params,undefined,false); 
 			copyArgs(n,"type",params,undefined,false); 
-			copyArgs(n,"maxResult",params,undefined,false); 
+			copyArgs(Number(n),"maxResult",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"sessionArn",params,undefined,false); 
@@ -1012,9 +901,7 @@ module.exports = function(RED) {
 
 			svc.listTestGridSessionArtifacts(params,cb);
 		}
-
-		
-		service.ListTestGridSessions=function(svc,msg,cb){
+			service.ListTestGridSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -1025,7 +912,7 @@ module.exports = function(RED) {
 			copyArgs(n,"creationTimeBefore",params,undefined,false); 
 			copyArgs(n,"endTimeAfter",params,undefined,false); 
 			copyArgs(n,"endTimeBefore",params,undefined,false); 
-			copyArgs(n,"maxResult",params,undefined,false); 
+			copyArgs(Number(n),"maxResult",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"projectArn",params,undefined,false); 
@@ -1040,9 +927,7 @@ module.exports = function(RED) {
 
 			svc.listTestGridSessions(params,cb);
 		}
-
-		
-		service.ListTests=function(svc,msg,cb){
+			service.ListTests=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1056,9 +941,7 @@ module.exports = function(RED) {
 
 			svc.listTests(params,cb);
 		}
-
-		
-		service.ListUniqueProblems=function(svc,msg,cb){
+			service.ListUniqueProblems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1072,9 +955,7 @@ module.exports = function(RED) {
 
 			svc.listUniqueProblems(params,cb);
 		}
-
-		
-		service.ListUploads=function(svc,msg,cb){
+			service.ListUploads=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1090,13 +971,11 @@ module.exports = function(RED) {
 
 			svc.listUploads(params,cb);
 		}
-
-		
-		service.ListVPCEConfigurations=function(svc,msg,cb){
+			service.ListVPCEConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
 			
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -1105,16 +984,14 @@ module.exports = function(RED) {
 
 			svc.listVPCEConfigurations(params,cb);
 		}
-
-		
-		service.PurchaseOffering=function(svc,msg,cb){
+			service.PurchaseOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"offeringId",params,undefined,false); 
-			copyArgs(n,"quantity",params,undefined,false); 
+			copyArgs(Number(n),"quantity",params,undefined,false); 
 			
 			copyArgs(n,"offeringId",params,undefined,false); 
-			copyArgs(n,"quantity",params,undefined,false); 
+			copyArgs(Number(n),"quantity",params,undefined,false); 
 			copyArgs(n,"offeringPromotionId",params,undefined,false); 
 			
 			copyArgs(msg,"offeringId",params,undefined,false); 
@@ -1124,16 +1001,14 @@ module.exports = function(RED) {
 
 			svc.purchaseOffering(params,cb);
 		}
-
-		
-		service.RenewOffering=function(svc,msg,cb){
+			service.RenewOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"offeringId",params,undefined,false); 
-			copyArgs(n,"quantity",params,undefined,false); 
+			copyArgs(Number(n),"quantity",params,undefined,false); 
 			
 			copyArgs(n,"offeringId",params,undefined,false); 
-			copyArgs(n,"quantity",params,undefined,false); 
+			copyArgs(Number(n),"quantity",params,undefined,false); 
 			
 			copyArgs(msg,"offeringId",params,undefined,false); 
 			copyArgs(msg,"quantity",params,undefined,false); 
@@ -1141,9 +1016,7 @@ module.exports = function(RED) {
 
 			svc.renewOffering(params,cb);
 		}
-
-		
-		service.ScheduleRun=function(svc,msg,cb){
+			service.ScheduleRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -1170,9 +1043,7 @@ module.exports = function(RED) {
 
 			svc.scheduleRun(params,cb);
 		}
-
-		
-		service.StopJob=function(svc,msg,cb){
+			service.StopJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1184,9 +1055,7 @@ module.exports = function(RED) {
 
 			svc.stopJob(params,cb);
 		}
-
-		
-		service.StopRemoteAccessSession=function(svc,msg,cb){
+			service.StopRemoteAccessSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1198,9 +1067,7 @@ module.exports = function(RED) {
 
 			svc.stopRemoteAccessSession(params,cb);
 		}
-
-		
-		service.StopRun=function(svc,msg,cb){
+			service.StopRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1212,9 +1079,7 @@ module.exports = function(RED) {
 
 			svc.stopRun(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1229,9 +1094,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1246,9 +1109,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDeviceInstance=function(svc,msg,cb){
+			service.UpdateDeviceInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1264,9 +1125,7 @@ module.exports = function(RED) {
 
 			svc.updateDeviceInstance(params,cb);
 		}
-
-		
-		service.UpdateDevicePool=function(svc,msg,cb){
+			service.UpdateDevicePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1275,8 +1134,8 @@ module.exports = function(RED) {
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
 			copyArgs(n,"rules",params,undefined,true); 
-			copyArgs(n,"maxDevices",params,undefined,false); 
-			copyArgs(n,"clearMaxDevices",params,undefined,false); 
+			copyArgs(Number(n),"maxDevices",params,undefined,false); 
+			copyArgs(Boolean(n),"clearMaxDevices",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -1288,9 +1147,7 @@ module.exports = function(RED) {
 
 			svc.updateDevicePool(params,cb);
 		}
-
-		
-		service.UpdateInstanceProfile=function(svc,msg,cb){
+			service.UpdateInstanceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1298,9 +1155,9 @@ module.exports = function(RED) {
 			copyArgs(n,"arn",params,undefined,false); 
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"description",params,undefined,false); 
-			copyArgs(n,"packageCleanup",params,undefined,false); 
+			copyArgs(Boolean(n),"packageCleanup",params,undefined,false); 
 			copyArgs(n,"excludeAppPackagesFromCleanup",params,undefined,true); 
-			copyArgs(n,"rebootAfterUse",params,undefined,false); 
+			copyArgs(Boolean(n),"rebootAfterUse",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -1312,9 +1169,7 @@ module.exports = function(RED) {
 
 			svc.updateInstanceProfile(params,cb);
 		}
-
-		
-		service.UpdateNetworkProfile=function(svc,msg,cb){
+			service.UpdateNetworkProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1329,8 +1184,8 @@ module.exports = function(RED) {
 			copyArgs(n,"downlinkDelayMs",params,undefined,false); 
 			copyArgs(n,"uplinkJitterMs",params,undefined,false); 
 			copyArgs(n,"downlinkJitterMs",params,undefined,false); 
-			copyArgs(n,"uplinkLossPercent",params,undefined,false); 
-			copyArgs(n,"downlinkLossPercent",params,undefined,false); 
+			copyArgs(Number(n),"uplinkLossPercent",params,undefined,false); 
+			copyArgs(Number(n),"downlinkLossPercent",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -1348,16 +1203,14 @@ module.exports = function(RED) {
 
 			svc.updateNetworkProfile(params,cb);
 		}
-
-		
-		service.UpdateProject=function(svc,msg,cb){
+			service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
 			
 			copyArgs(n,"arn",params,undefined,false); 
 			copyArgs(n,"name",params,undefined,false); 
-			copyArgs(n,"defaultJobTimeoutMinutes",params,undefined,false); 
+			copyArgs(Number(n),"defaultJobTimeoutMinutes",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -1366,9 +1219,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
-
-		
-		service.UpdateTestGridProject=function(svc,msg,cb){
+			service.UpdateTestGridProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -1386,9 +1237,7 @@ module.exports = function(RED) {
 
 			svc.updateTestGridProject(params,cb);
 		}
-
-		
-		service.UpdateUpload=function(svc,msg,cb){
+			service.UpdateUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1396,7 +1245,7 @@ module.exports = function(RED) {
 			copyArgs(n,"arn",params,undefined,false); 
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
-			copyArgs(n,"editContent",params,undefined,false); 
+			copyArgs(Boolean(n),"editContent",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
 			copyArgs(msg,"name",params,undefined,false); 
@@ -1406,9 +1255,7 @@ module.exports = function(RED) {
 
 			svc.updateUpload(params,cb);
 		}
-
-		
-		service.UpdateVPCEConfiguration=function(svc,msg,cb){
+			service.UpdateVPCEConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -1428,9 +1275,7 @@ module.exports = function(RED) {
 
 			svc.updateVPCEConfiguration(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS DeviceFarm", AmazonAPINode);
 

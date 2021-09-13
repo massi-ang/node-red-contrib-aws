@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchGetChannel=function(svc,msg,cb){
+			service.BatchGetChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arns",params,undefined,false); 
@@ -106,9 +105,7 @@ module.exports = function(RED) {
 
 			svc.batchGetChannel(params,cb);
 		}
-
-		
-		service.BatchGetStreamKey=function(svc,msg,cb){
+			service.BatchGetStreamKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arns",params,undefined,false); 
@@ -120,16 +117,14 @@ module.exports = function(RED) {
 
 			svc.batchGetStreamKey(params,cb);
 		}
-
-		
-		service.CreateChannel=function(svc,msg,cb){
+			service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"latencyMode",params,undefined,false); 
 			copyArgs(n,"type",params,undefined,false); 
-			copyArgs(n,"authorized",params,undefined,false); 
+			copyArgs(Boolean(n),"authorized",params,undefined,false); 
 			copyArgs(n,"recordingConfigurationArn",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			
@@ -143,9 +138,7 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-
-		
-		service.CreateRecordingConfiguration=function(svc,msg,cb){
+			service.CreateRecordingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"destinationConfiguration",params,undefined,true); 
@@ -161,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.createRecordingConfiguration(params,cb);
 		}
-
-		
-		service.CreateStreamKey=function(svc,msg,cb){
+			service.CreateStreamKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
@@ -177,9 +168,7 @@ module.exports = function(RED) {
 
 			svc.createStreamKey(params,cb);
 		}
-
-		
-		service.DeleteChannel=function(svc,msg,cb){
+			service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -191,9 +180,7 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-
-		
-		service.DeletePlaybackKeyPair=function(svc,msg,cb){
+			service.DeletePlaybackKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -205,9 +192,7 @@ module.exports = function(RED) {
 
 			svc.deletePlaybackKeyPair(params,cb);
 		}
-
-		
-		service.DeleteRecordingConfiguration=function(svc,msg,cb){
+			service.DeleteRecordingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -219,9 +204,7 @@ module.exports = function(RED) {
 
 			svc.deleteRecordingConfiguration(params,cb);
 		}
-
-		
-		service.DeleteStreamKey=function(svc,msg,cb){
+			service.DeleteStreamKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -233,9 +216,7 @@ module.exports = function(RED) {
 
 			svc.deleteStreamKey(params,cb);
 		}
-
-		
-		service.GetChannel=function(svc,msg,cb){
+			service.GetChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -247,9 +228,7 @@ module.exports = function(RED) {
 
 			svc.getChannel(params,cb);
 		}
-
-		
-		service.GetPlaybackKeyPair=function(svc,msg,cb){
+			service.GetPlaybackKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -261,9 +240,7 @@ module.exports = function(RED) {
 
 			svc.getPlaybackKeyPair(params,cb);
 		}
-
-		
-		service.GetRecordingConfiguration=function(svc,msg,cb){
+			service.GetRecordingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -275,9 +252,7 @@ module.exports = function(RED) {
 
 			svc.getRecordingConfiguration(params,cb);
 		}
-
-		
-		service.GetStream=function(svc,msg,cb){
+			service.GetStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
@@ -289,9 +264,7 @@ module.exports = function(RED) {
 
 			svc.getStream(params,cb);
 		}
-
-		
-		service.GetStreamKey=function(svc,msg,cb){
+			service.GetStreamKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -303,9 +276,7 @@ module.exports = function(RED) {
 
 			svc.getStreamKey(params,cb);
 		}
-
-		
-		service.ImportPlaybackKeyPair=function(svc,msg,cb){
+			service.ImportPlaybackKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"publicKeyMaterial",params,undefined,false); 
@@ -321,16 +292,14 @@ module.exports = function(RED) {
 
 			svc.importPlaybackKeyPair(params,cb);
 		}
-
-		
-		service.ListChannels=function(svc,msg,cb){
+			service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"filterByName",params,undefined,false); 
 			copyArgs(n,"filterByRecordingConfigurationArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"filterByName",params,undefined,false); 
 			copyArgs(msg,"filterByRecordingConfigurationArn",params,undefined,false); 
@@ -340,14 +309,12 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-
-		
-		service.ListPlaybackKeyPairs=function(svc,msg,cb){
+			service.ListPlaybackKeyPairs=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -355,14 +322,12 @@ module.exports = function(RED) {
 
 			svc.listPlaybackKeyPairs(params,cb);
 		}
-
-		
-		service.ListRecordingConfigurations=function(svc,msg,cb){
+			service.ListRecordingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -370,16 +335,14 @@ module.exports = function(RED) {
 
 			svc.listRecordingConfigurations(params,cb);
 		}
-
-		
-		service.ListStreamKeys=function(svc,msg,cb){
+			service.ListStreamKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"channelArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -388,14 +351,12 @@ module.exports = function(RED) {
 
 			svc.listStreamKeys(params,cb);
 		}
-
-		
-		service.ListStreams=function(svc,msg,cb){
+			service.ListStreams=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"nextToken",params,undefined,false); 
 			copyArgs(msg,"maxResults",params,undefined,false); 
@@ -403,16 +364,14 @@ module.exports = function(RED) {
 
 			svc.listStreams(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
 			copyArgs(n,"nextToken",params,undefined,false); 
-			copyArgs(n,"maxResults",params,undefined,false); 
+			copyArgs(Number(n),"maxResults",params,undefined,false); 
 			
 			copyArgs(msg,"resourceArn",params,undefined,false); 
 			copyArgs(msg,"nextToken",params,undefined,false); 
@@ -421,9 +380,7 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.PutMetadata=function(svc,msg,cb){
+			service.PutMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
@@ -438,9 +395,7 @@ module.exports = function(RED) {
 
 			svc.putMetadata(params,cb);
 		}
-
-		
-		service.StopStream=function(svc,msg,cb){
+			service.StopStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"channelArn",params,undefined,false); 
@@ -452,9 +407,7 @@ module.exports = function(RED) {
 
 			svc.stopStream(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -469,9 +422,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -486,9 +437,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateChannel=function(svc,msg,cb){
+			service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -497,7 +446,7 @@ module.exports = function(RED) {
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"latencyMode",params,undefined,false); 
 			copyArgs(n,"type",params,undefined,false); 
-			copyArgs(n,"authorized",params,undefined,false); 
+			copyArgs(Boolean(n),"authorized",params,undefined,false); 
 			copyArgs(n,"recordingConfigurationArn",params,undefined,false); 
 			
 			copyArgs(msg,"arn",params,undefined,false); 
@@ -510,9 +459,7 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS IVS", AmazonAPINode);
 

@@ -92,9 +92,8 @@ module.exports = function(RED) {
 		});
 
 		var service={};
-
 		
-		service.BatchDeleteDocument=function(svc,msg,cb){
+			service.BatchDeleteDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -111,9 +110,7 @@ module.exports = function(RED) {
 
 			svc.batchDeleteDocument(params,cb);
 		}
-
-		
-		service.BatchGetDocumentStatus=function(svc,msg,cb){
+			service.BatchGetDocumentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -128,9 +125,7 @@ module.exports = function(RED) {
 
 			svc.batchGetDocumentStatus(params,cb);
 		}
-
-		
-		service.BatchPutDocument=function(svc,msg,cb){
+			service.BatchPutDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -147,9 +142,7 @@ module.exports = function(RED) {
 
 			svc.batchPutDocument(params,cb);
 		}
-
-		
-		service.ClearQuerySuggestions=function(svc,msg,cb){
+			service.ClearQuerySuggestions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -161,9 +154,7 @@ module.exports = function(RED) {
 
 			svc.clearQuerySuggestions(params,cb);
 		}
-
-		
-		service.CreateDataSource=function(svc,msg,cb){
+			service.CreateDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -193,9 +184,7 @@ module.exports = function(RED) {
 
 			svc.createDataSource(params,cb);
 		}
-
-		
-		service.CreateFaq=function(svc,msg,cb){
+			service.CreateFaq=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -224,9 +213,7 @@ module.exports = function(RED) {
 
 			svc.createFaq(params,cb);
 		}
-
-		
-		service.CreateIndex=function(svc,msg,cb){
+			service.CreateIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -255,9 +242,7 @@ module.exports = function(RED) {
 
 			svc.createIndex(params,cb);
 		}
-
-		
-		service.CreateQuerySuggestionsBlockList=function(svc,msg,cb){
+			service.CreateQuerySuggestionsBlockList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -284,9 +269,7 @@ module.exports = function(RED) {
 
 			svc.createQuerySuggestionsBlockList(params,cb);
 		}
-
-		
-		service.CreateThesaurus=function(svc,msg,cb){
+			service.CreateThesaurus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -313,9 +296,7 @@ module.exports = function(RED) {
 
 			svc.createThesaurus(params,cb);
 		}
-
-		
-		service.DeleteDataSource=function(svc,msg,cb){
+			service.DeleteDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -330,9 +311,7 @@ module.exports = function(RED) {
 
 			svc.deleteDataSource(params,cb);
 		}
-
-		
-		service.DeleteFaq=function(svc,msg,cb){
+			service.DeleteFaq=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -347,9 +326,7 @@ module.exports = function(RED) {
 
 			svc.deleteFaq(params,cb);
 		}
-
-		
-		service.DeleteIndex=function(svc,msg,cb){
+			service.DeleteIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -361,9 +338,7 @@ module.exports = function(RED) {
 
 			svc.deleteIndex(params,cb);
 		}
-
-		
-		service.DeletePrincipalMapping=function(svc,msg,cb){
+			service.DeletePrincipalMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -382,9 +357,7 @@ module.exports = function(RED) {
 
 			svc.deletePrincipalMapping(params,cb);
 		}
-
-		
-		service.DeleteQuerySuggestionsBlockList=function(svc,msg,cb){
+			service.DeleteQuerySuggestionsBlockList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -399,9 +372,7 @@ module.exports = function(RED) {
 
 			svc.deleteQuerySuggestionsBlockList(params,cb);
 		}
-
-		
-		service.DeleteThesaurus=function(svc,msg,cb){
+			service.DeleteThesaurus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -416,9 +387,7 @@ module.exports = function(RED) {
 
 			svc.deleteThesaurus(params,cb);
 		}
-
-		
-		service.DescribeDataSource=function(svc,msg,cb){
+			service.DescribeDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -433,9 +402,7 @@ module.exports = function(RED) {
 
 			svc.describeDataSource(params,cb);
 		}
-
-		
-		service.DescribeFaq=function(svc,msg,cb){
+			service.DescribeFaq=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -450,9 +417,7 @@ module.exports = function(RED) {
 
 			svc.describeFaq(params,cb);
 		}
-
-		
-		service.DescribeIndex=function(svc,msg,cb){
+			service.DescribeIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -464,9 +429,7 @@ module.exports = function(RED) {
 
 			svc.describeIndex(params,cb);
 		}
-
-		
-		service.DescribePrincipalMapping=function(svc,msg,cb){
+			service.DescribePrincipalMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -483,9 +446,7 @@ module.exports = function(RED) {
 
 			svc.describePrincipalMapping(params,cb);
 		}
-
-		
-		service.DescribeQuerySuggestionsBlockList=function(svc,msg,cb){
+			service.DescribeQuerySuggestionsBlockList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -500,9 +461,7 @@ module.exports = function(RED) {
 
 			svc.describeQuerySuggestionsBlockList(params,cb);
 		}
-
-		
-		service.DescribeQuerySuggestionsConfig=function(svc,msg,cb){
+			service.DescribeQuerySuggestionsConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -514,9 +473,7 @@ module.exports = function(RED) {
 
 			svc.describeQuerySuggestionsConfig(params,cb);
 		}
-
-		
-		service.DescribeThesaurus=function(svc,msg,cb){
+			service.DescribeThesaurus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -531,9 +488,7 @@ module.exports = function(RED) {
 
 			svc.describeThesaurus(params,cb);
 		}
-
-		
-		service.GetQuerySuggestions=function(svc,msg,cb){
+			service.GetQuerySuggestions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -541,7 +496,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"QueryText",params,undefined,false); 
-			copyArgs(n,"MaxSuggestionsCount",params,undefined,false); 
+			copyArgs(Number(n),"MaxSuggestionsCount",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"QueryText",params,undefined,false); 
@@ -550,9 +505,7 @@ module.exports = function(RED) {
 
 			svc.getQuerySuggestions(params,cb);
 		}
-
-		
-		service.ListDataSourceSyncJobs=function(svc,msg,cb){
+			service.ListDataSourceSyncJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -561,7 +514,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Id",params,undefined,false); 
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			copyArgs(n,"StartTimeFilter",params,undefined,false); 
 			copyArgs(n,"StatusFilter",params,undefined,false); 
 			
@@ -575,16 +528,14 @@ module.exports = function(RED) {
 
 			svc.listDataSourceSyncJobs(params,cb);
 		}
-
-		
-		service.ListDataSources=function(svc,msg,cb){
+			service.ListDataSources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -593,16 +544,14 @@ module.exports = function(RED) {
 
 			svc.listDataSources(params,cb);
 		}
-
-		
-		service.ListFaqs=function(svc,msg,cb){
+			service.ListFaqs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -611,9 +560,7 @@ module.exports = function(RED) {
 
 			svc.listFaqs(params,cb);
 		}
-
-		
-		service.ListGroupsOlderThanOrderingId=function(svc,msg,cb){
+			service.ListGroupsOlderThanOrderingId=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -623,7 +570,7 @@ module.exports = function(RED) {
 			copyArgs(n,"DataSourceId",params,undefined,false); 
 			copyArgs(n,"OrderingId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"DataSourceId",params,undefined,false); 
@@ -634,14 +581,12 @@ module.exports = function(RED) {
 
 			svc.listGroupsOlderThanOrderingId(params,cb);
 		}
-
-		
-		service.ListIndices=function(svc,msg,cb){
+			service.ListIndices=function(svc,msg,cb){
 			var params={};
 			
 			
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"NextToken",params,undefined,false); 
 			copyArgs(msg,"MaxResults",params,undefined,false); 
@@ -649,16 +594,14 @@ module.exports = function(RED) {
 
 			svc.listIndices(params,cb);
 		}
-
-		
-		service.ListQuerySuggestionsBlockLists=function(svc,msg,cb){
+			service.ListQuerySuggestionsBlockLists=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -667,9 +610,7 @@ module.exports = function(RED) {
 
 			svc.listQuerySuggestionsBlockLists(params,cb);
 		}
-
-		
-		service.ListTagsForResource=function(svc,msg,cb){
+			service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -681,16 +622,14 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-
-		
-		service.ListThesauri=function(svc,msg,cb){
+			service.ListThesauri=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"NextToken",params,undefined,false); 
-			copyArgs(n,"MaxResults",params,undefined,false); 
+			copyArgs(Number(n),"MaxResults",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"NextToken",params,undefined,false); 
@@ -699,9 +638,7 @@ module.exports = function(RED) {
 
 			svc.listThesauri(params,cb);
 		}
-
-		
-		service.PutPrincipalMapping=function(svc,msg,cb){
+			service.PutPrincipalMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -725,9 +662,7 @@ module.exports = function(RED) {
 
 			svc.putPrincipalMapping(params,cb);
 		}
-
-		
-		service.Query=function(svc,msg,cb){
+			service.Query=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -740,8 +675,8 @@ module.exports = function(RED) {
 			copyArgs(n,"RequestedDocumentAttributes",params,undefined,false); 
 			copyArgs(n,"QueryResultTypeFilter",params,undefined,false); 
 			copyArgs(n,"DocumentRelevanceOverrideConfigurations",params,undefined,false); 
-			copyArgs(n,"PageNumber",params,undefined,false); 
-			copyArgs(n,"PageSize",params,undefined,false); 
+			copyArgs(Number(n),"PageNumber",params,undefined,false); 
+			copyArgs(Number(n),"PageSize",params,undefined,false); 
 			copyArgs(n,"SortingConfiguration",params,undefined,false); 
 			copyArgs(n,"UserContext",params,undefined,false); 
 			copyArgs(n,"VisitorId",params,undefined,false); 
@@ -762,9 +697,7 @@ module.exports = function(RED) {
 
 			svc.query(params,cb);
 		}
-
-		
-		service.StartDataSourceSyncJob=function(svc,msg,cb){
+			service.StartDataSourceSyncJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -779,9 +712,7 @@ module.exports = function(RED) {
 
 			svc.startDataSourceSyncJob(params,cb);
 		}
-
-		
-		service.StopDataSourceSyncJob=function(svc,msg,cb){
+			service.StopDataSourceSyncJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -796,9 +727,7 @@ module.exports = function(RED) {
 
 			svc.stopDataSourceSyncJob(params,cb);
 		}
-
-		
-		service.SubmitFeedback=function(svc,msg,cb){
+			service.SubmitFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -817,9 +746,7 @@ module.exports = function(RED) {
 
 			svc.submitFeedback(params,cb);
 		}
-
-		
-		service.TagResource=function(svc,msg,cb){
+			service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -834,9 +761,7 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-
-		
-		service.UntagResource=function(svc,msg,cb){
+			service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -851,9 +776,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-
-		
-		service.UpdateDataSource=function(svc,msg,cb){
+			service.UpdateDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -878,9 +801,7 @@ module.exports = function(RED) {
 
 			svc.updateDataSource(params,cb);
 		}
-
-		
-		service.UpdateIndex=function(svc,msg,cb){
+			service.UpdateIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -906,9 +827,7 @@ module.exports = function(RED) {
 
 			svc.updateIndex(params,cb);
 		}
-
-		
-		service.UpdateQuerySuggestionsBlockList=function(svc,msg,cb){
+			service.UpdateQuerySuggestionsBlockList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
@@ -931,19 +850,17 @@ module.exports = function(RED) {
 
 			svc.updateQuerySuggestionsBlockList(params,cb);
 		}
-
-		
-		service.UpdateQuerySuggestionsConfig=function(svc,msg,cb){
+			service.UpdateQuerySuggestionsConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			
 			copyArgs(n,"IndexId",params,undefined,false); 
 			copyArgs(n,"Mode",params,undefined,false); 
-			copyArgs(n,"QueryLogLookBackWindowInDays",params,undefined,false); 
-			copyArgs(n,"IncludeQueriesWithoutUserInformation",params,undefined,false); 
-			copyArgs(n,"MinimumNumberOfQueryingUsers",params,undefined,false); 
-			copyArgs(n,"MinimumQueryCount",params,undefined,false); 
+			copyArgs(Number(n),"QueryLogLookBackWindowInDays",params,undefined,false); 
+			copyArgs(Boolean(n),"IncludeQueriesWithoutUserInformation",params,undefined,false); 
+			copyArgs(Number(n),"MinimumNumberOfQueryingUsers",params,undefined,false); 
+			copyArgs(Number(n),"MinimumQueryCount",params,undefined,false); 
 			
 			copyArgs(msg,"IndexId",params,undefined,false); 
 			copyArgs(msg,"Mode",params,undefined,false); 
@@ -955,9 +872,7 @@ module.exports = function(RED) {
 
 			svc.updateQuerySuggestionsConfig(params,cb);
 		}
-
-		
-		service.UpdateThesaurus=function(svc,msg,cb){
+			service.UpdateThesaurus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -980,9 +895,7 @@ module.exports = function(RED) {
 
 			svc.updateThesaurus(params,cb);
 		}
-
-		 
-
+	
 	}
 	RED.nodes.registerType("AWS Kendra", AmazonAPINode);
 
