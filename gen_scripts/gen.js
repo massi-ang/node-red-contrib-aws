@@ -68,7 +68,7 @@ module.exports = {
 				case 'boolean':
 					return 'Boolean(n)';
 				case 'blob':
-					return 'Buffer.from(n)';
+					return 'n';
 				case 'str':
 					return 'n';
 				default:
