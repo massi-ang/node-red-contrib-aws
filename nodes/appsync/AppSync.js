@@ -641,10 +641,10 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"apiId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"definition",params,undefined,false); 
+			copyArgs(n,"definition",params,undefined,false); 
 			
 			copyArgs(n,"apiId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"definition",params,undefined,false); 
+			copyArgs(n,"definition",params,undefined,false); 
 			
 			copyArgs(msg,"apiId",params,undefined,false); 
 			copyArgs(msg,"definition",params,undefined,false); 

@@ -170,7 +170,7 @@ module.exports = function(RED) {
 			copyArgs(n,"topic",params,undefined,false); 
 			copyArgs(Number(n),"qos",params,undefined,false); 
 			copyArgs(Boolean(n),"retain",params,undefined,false); 
-			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
+			copyArgs(n,"payload",params,undefined,false); 
 			
 			copyArgs(msg,"topic",params,undefined,false); 
 			copyArgs(msg,"qos",params,undefined,false); 
@@ -184,11 +184,11 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
+			copyArgs(n,"payload",params,undefined,false); 
 			
 			copyArgs(n,"thingName",params,undefined,false); 
 			copyArgs(n,"shadowName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"payload",params,undefined,false); 
+			copyArgs(n,"payload",params,undefined,false); 
 			
 			copyArgs(msg,"thingName",params,undefined,false); 
 			copyArgs(msg,"shadowName",params,undefined,false); 

@@ -279,11 +279,11 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
+			copyArgs(n,"Certificate",params,undefined,false); 
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
-			copyArgs(Buffer.from(n),"CertificateChain",params,undefined,false); 
+			copyArgs(n,"Certificate",params,undefined,false); 
+			copyArgs(n,"CertificateChain",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateAuthorityArn",params,undefined,false); 
 			copyArgs(msg,"Certificate",params,undefined,false); 
@@ -296,13 +296,13 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Csr",params,undefined,false); 
+			copyArgs(n,"Csr",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			copyArgs(n,"Validity",params,undefined,true); 
 			
 			copyArgs(n,"ApiPassthrough",params,undefined,false); 
 			copyArgs(n,"CertificateAuthorityArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Csr",params,undefined,false); 
+			copyArgs(n,"Csr",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			copyArgs(n,"TemplateArn",params,undefined,false); 
 			copyArgs(n,"Validity",params,undefined,true); 

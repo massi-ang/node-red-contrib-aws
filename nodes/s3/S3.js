@@ -1751,7 +1751,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Key",params,undefined,false); 
 			
 			copyArgs(n,"ACL",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(n,"Body",params,undefined,false); 
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"CacheControl",params,undefined,false); 
 			copyArgs(n,"ContentDisposition",params,undefined,false); 
@@ -2045,7 +2045,7 @@ module.exports = function(RED) {
 			copyArgs(Number(n),"PartNumber",params,undefined,false); 
 			copyArgs(n,"UploadId",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(n,"Body",params,undefined,false); 
 			copyArgs(n,"Bucket",params,undefined,false); 
 			copyArgs(n,"ContentLength",params,undefined,false); 
 			copyArgs(n,"ContentMD5",params,undefined,false); 
@@ -2134,7 +2134,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"RequestRoute",params,undefined,false); 
 			copyArgs(n,"RequestToken",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(n,"Body",params,undefined,false); 
 			copyArgs(Number(n),"StatusCode",params,undefined,false); 
 			copyArgs(n,"ErrorCode",params,undefined,false); 
 			copyArgs(n,"ErrorMessage",params,undefined,false); 

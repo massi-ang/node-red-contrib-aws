@@ -1540,10 +1540,10 @@ module.exports = function(RED) {
 			service.ImportApiKeys=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			copyArgs(n,"format",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			copyArgs(n,"format",params,undefined,false); 
 			copyArgs(Boolean(n),"failOnWarnings",params,undefined,false); 
 			
@@ -1558,12 +1558,12 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"restApiId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(n,"restApiId",params,undefined,false); 
 			copyArgs(n,"mode",params,undefined,false); 
 			copyArgs(Boolean(n),"failOnWarnings",params,undefined,false); 
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(msg,"restApiId",params,undefined,false); 
 			copyArgs(msg,"mode",params,undefined,false); 
@@ -1576,11 +1576,11 @@ module.exports = function(RED) {
 			service.ImportRestApi=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(Boolean(n),"failOnWarnings",params,undefined,false); 
 			copyArgs(n,"parameters",params,undefined,true); 
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(msg,"failOnWarnings",params,undefined,false); 
 			copyArgs(msg,"parameters",params,undefined,true); 
@@ -1750,13 +1750,13 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"restApiId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(n,"restApiId",params,undefined,false); 
 			copyArgs(n,"mode",params,undefined,false); 
 			copyArgs(Boolean(n),"failOnWarnings",params,undefined,false); 
 			copyArgs(n,"parameters",params,undefined,true); 
-			copyArgs(Buffer.from(n),"body",params,undefined,false); 
+			copyArgs(n,"body",params,undefined,false); 
 			
 			copyArgs(msg,"restApiId",params,undefined,false); 
 			copyArgs(msg,"mode",params,undefined,false); 

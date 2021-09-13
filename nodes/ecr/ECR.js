@@ -628,14 +628,14 @@ module.exports = function(RED) {
 			copyArgs(n,"uploadId",params,undefined,false); 
 			copyArgs(n,"partFirstByte",params,undefined,false); 
 			copyArgs(n,"partLastByte",params,undefined,false); 
-			copyArgs(Buffer.from(n),"layerPartBlob",params,undefined,false); 
+			copyArgs(n,"layerPartBlob",params,undefined,false); 
 			
 			copyArgs(n,"registryId",params,undefined,false); 
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"uploadId",params,undefined,false); 
 			copyArgs(n,"partFirstByte",params,undefined,false); 
 			copyArgs(n,"partLastByte",params,undefined,false); 
-			copyArgs(Buffer.from(n),"layerPartBlob",params,undefined,false); 
+			copyArgs(n,"layerPartBlob",params,undefined,false); 
 			
 			copyArgs(msg,"registryId",params,undefined,false); 
 			copyArgs(msg,"repositoryName",params,undefined,false); 

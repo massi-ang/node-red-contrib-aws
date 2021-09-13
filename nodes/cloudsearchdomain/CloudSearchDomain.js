@@ -151,10 +151,10 @@ module.exports = function(RED) {
 			service.UploadDocuments=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"documents",params,undefined,false); 
+			copyArgs(n,"documents",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"documents",params,undefined,false); 
+			copyArgs(n,"documents",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			
 			copyArgs(msg,"documents",params,undefined,false); 

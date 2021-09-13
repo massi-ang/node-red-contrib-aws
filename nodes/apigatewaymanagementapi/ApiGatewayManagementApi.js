@@ -121,9 +121,9 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"ConnectionId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
+			copyArgs(n,"Data",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
+			copyArgs(n,"Data",params,undefined,false); 
 			copyArgs(n,"ConnectionId",params,undefined,false); 
 			
 			copyArgs(msg,"Data",params,undefined,false); 

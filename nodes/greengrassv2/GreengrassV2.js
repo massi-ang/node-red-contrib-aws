@@ -137,7 +137,7 @@ module.exports = function(RED) {
 			var params={};
 			
 			
-			copyArgs(Buffer.from(n),"inlineRecipe",params,undefined,false); 
+			copyArgs(n,"inlineRecipe",params,undefined,false); 
 			copyArgs(n,"lambdaFunction",params,undefined,false); 
 			copyArgs(n,"tags",params,undefined,true); 
 			copyArgs(n,"clientToken",params,undefined,false); 

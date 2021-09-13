@@ -244,12 +244,12 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
 			copyArgs(n,"ModelVersion",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(n,"Body",params,undefined,false); 
 			copyArgs(n,"ContentType",params,undefined,false); 
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
 			copyArgs(n,"ModelVersion",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Body",params,undefined,false); 
+			copyArgs(n,"Body",params,undefined,false); 
 			copyArgs(n,"ContentType",params,undefined,false); 
 			
 			copyArgs(msg,"ProjectName",params,undefined,false); 
@@ -402,11 +402,11 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
 			copyArgs(n,"DatasetType",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Changes",params,undefined,false); 
+			copyArgs(n,"Changes",params,undefined,false); 
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
 			copyArgs(n,"DatasetType",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Changes",params,undefined,false); 
+			copyArgs(n,"Changes",params,undefined,false); 
 			copyArgs(n,"ClientToken",params,undefined,false); 
 			
 			copyArgs(msg,"ProjectName",params,undefined,false); 

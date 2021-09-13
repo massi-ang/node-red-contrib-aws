@@ -427,7 +427,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Version",params,undefined,false); 
 			copyArgs(n,"StorageLocation",params,undefined,true); 
-			copyArgs(Buffer.from(n),"ZipFile",params,undefined,false); 
+			copyArgs(n,"ZipFile",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
@@ -1732,7 +1732,7 @@ module.exports = function(RED) {
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"Version",params,undefined,false); 
 			copyArgs(n,"StorageLocation",params,undefined,true); 
-			copyArgs(Buffer.from(n),"ZipFile",params,undefined,false); 
+			copyArgs(n,"ZipFile",params,undefined,false); 
 			
 			copyArgs(msg,"ScriptId",params,undefined,false); 
 			copyArgs(msg,"Name",params,undefined,false); 

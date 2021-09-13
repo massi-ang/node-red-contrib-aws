@@ -390,11 +390,11 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
+			copyArgs(n,"Data",params,undefined,false); 
 			copyArgs(n,"PartitionKey",params,undefined,false); 
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Data",params,undefined,false); 
+			copyArgs(n,"Data",params,undefined,false); 
 			copyArgs(n,"PartitionKey",params,undefined,false); 
 			copyArgs(n,"ExplicitHashKey",params,undefined,false); 
 			copyArgs(n,"SequenceNumberForOrdering",params,undefined,false); 

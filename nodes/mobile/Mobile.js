@@ -99,7 +99,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"name",params,undefined,false); 
 			copyArgs(n,"region",params,undefined,false); 
-			copyArgs(Buffer.from(n),"contents",params,undefined,false); 
+			copyArgs(n,"contents",params,undefined,false); 
 			copyArgs(n,"snapshotId",params,undefined,false); 
 			
 			copyArgs(msg,"name",params,undefined,false); 
@@ -207,7 +207,7 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"projectId",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"contents",params,undefined,false); 
+			copyArgs(n,"contents",params,undefined,false); 
 			copyArgs(n,"projectId",params,undefined,false); 
 			
 			copyArgs(msg,"contents",params,undefined,false); 

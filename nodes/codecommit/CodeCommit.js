@@ -1237,12 +1237,12 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"branchName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"fileContent",params,undefined,false); 
+			copyArgs(n,"fileContent",params,undefined,false); 
 			copyArgs(n,"filePath",params,undefined,false); 
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
 			copyArgs(n,"branchName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"fileContent",params,undefined,false); 
+			copyArgs(n,"fileContent",params,undefined,false); 
 			copyArgs(n,"filePath",params,undefined,false); 
 			copyArgs(n,"fileMode",params,undefined,false); 
 			copyArgs(n,"parentCommitId",params,undefined,false); 

@@ -353,11 +353,11 @@ module.exports = function(RED) {
 			service.PostAgentProfile=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"agentProfile",params,undefined,false); 
+			copyArgs(n,"agentProfile",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"agentProfile",params,undefined,false); 
+			copyArgs(n,"agentProfile",params,undefined,false); 
 			copyArgs(n,"contentType",params,undefined,false); 
 			copyArgs(n,"profileToken",params,undefined,false); 
 			copyArgs(n,"profilingGroupName",params,undefined,false); 

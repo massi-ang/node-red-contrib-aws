@@ -6720,11 +6720,11 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"KeyName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"PublicKeyMaterial",params,undefined,false); 
+			copyArgs(n,"PublicKeyMaterial",params,undefined,false); 
 			
 			copyArgs(Boolean(n),"DryRun",params,undefined,false); 
 			copyArgs(n,"KeyName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"PublicKeyMaterial",params,undefined,false); 
+			copyArgs(n,"PublicKeyMaterial",params,undefined,false); 
 			copyArgs(n,"TagSpecifications",params,undefined,true); 
 			
 			copyArgs(msg,"DryRun",params,undefined,false); 

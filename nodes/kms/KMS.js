@@ -211,9 +211,9 @@ module.exports = function(RED) {
 			service.Decrypt=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"CiphertextBlob",params,undefined,false); 
+			copyArgs(n,"CiphertextBlob",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"CiphertextBlob",params,undefined,false); 
+			copyArgs(n,"CiphertextBlob",params,undefined,false); 
 			copyArgs(n,"EncryptionContext",params,undefined,true); 
 			copyArgs(n,"GrantTokens",params,undefined,true); 
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -530,12 +530,12 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"ImportToken",params,undefined,false); 
-			copyArgs(Buffer.from(n),"EncryptedKeyMaterial",params,undefined,false); 
+			copyArgs(n,"ImportToken",params,undefined,false); 
+			copyArgs(n,"EncryptedKeyMaterial",params,undefined,false); 
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
-			copyArgs(Buffer.from(n),"ImportToken",params,undefined,false); 
-			copyArgs(Buffer.from(n),"EncryptedKeyMaterial",params,undefined,false); 
+			copyArgs(n,"ImportToken",params,undefined,false); 
+			copyArgs(n,"EncryptedKeyMaterial",params,undefined,false); 
 			copyArgs(n,"ValidTo",params,undefined,false); 
 			copyArgs(n,"ExpirationModel",params,undefined,false); 
 			
@@ -667,10 +667,10 @@ module.exports = function(RED) {
 			service.ReEncrypt=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"CiphertextBlob",params,undefined,false); 
+			copyArgs(n,"CiphertextBlob",params,undefined,false); 
 			copyArgs(n,"DestinationKeyId",params,undefined,false); 
 			
-			copyArgs(Buffer.from(n),"CiphertextBlob",params,undefined,false); 
+			copyArgs(n,"CiphertextBlob",params,undefined,false); 
 			copyArgs(n,"SourceEncryptionContext",params,undefined,true); 
 			copyArgs(n,"SourceKeyId",params,undefined,false); 
 			copyArgs(n,"DestinationKeyId",params,undefined,false); 
@@ -878,13 +878,13 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
 			copyArgs(n,"Message",params,undefined,true); 
-			copyArgs(Buffer.from(n),"Signature",params,undefined,false); 
+			copyArgs(n,"Signature",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
 			copyArgs(n,"Message",params,undefined,true); 
 			copyArgs(n,"MessageType",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Signature",params,undefined,false); 
+			copyArgs(n,"Signature",params,undefined,false); 
 			copyArgs(n,"SigningAlgorithm",params,undefined,false); 
 			copyArgs(n,"GrantTokens",params,undefined,true); 
 			

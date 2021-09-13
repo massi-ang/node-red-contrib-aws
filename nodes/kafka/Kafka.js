@@ -146,13 +146,13 @@ module.exports = function(RED) {
 			service.CreateConfiguration=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
+			copyArgs(n,"ServerProperties",params,undefined,false); 
 			copyArgs(n,"Name",params,undefined,false); 
 			
 			copyArgs(n,"Description",params,undefined,false); 
 			copyArgs(n,"KafkaVersions",params,undefined,true); 
 			copyArgs(n,"Name",params,undefined,false); 
-			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
+			copyArgs(n,"ServerProperties",params,undefined,false); 
 			
 			copyArgs(msg,"Description",params,undefined,false); 
 			copyArgs(msg,"KafkaVersions",params,undefined,true); 
@@ -497,11 +497,11 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
+			copyArgs(n,"ServerProperties",params,undefined,false); 
 			
 			copyArgs(n,"Arn",params,undefined,false); 
 			copyArgs(n,"Description",params,undefined,false); 
-			copyArgs(Buffer.from(n),"ServerProperties",params,undefined,false); 
+			copyArgs(n,"ServerProperties",params,undefined,false); 
 			
 			copyArgs(msg,"Arn",params,undefined,false); 
 			copyArgs(msg,"Description",params,undefined,false); 

@@ -136,10 +136,10 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"CertificateArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Passphrase",params,undefined,false); 
+			copyArgs(n,"Passphrase",params,undefined,false); 
 			
 			copyArgs(n,"CertificateArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Passphrase",params,undefined,false); 
+			copyArgs(n,"Passphrase",params,undefined,false); 
 			
 			copyArgs(msg,"CertificateArn",params,undefined,false); 
 			copyArgs(msg,"Passphrase",params,undefined,false); 
@@ -171,13 +171,13 @@ module.exports = function(RED) {
 			service.ImportCertificate=function(svc,msg,cb){
 			var params={};
 			
-			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
-			copyArgs(Buffer.from(n),"PrivateKey",params,undefined,false); 
+			copyArgs(n,"Certificate",params,undefined,false); 
+			copyArgs(n,"PrivateKey",params,undefined,false); 
 			
 			copyArgs(n,"CertificateArn",params,undefined,false); 
-			copyArgs(Buffer.from(n),"Certificate",params,undefined,false); 
-			copyArgs(Buffer.from(n),"PrivateKey",params,undefined,false); 
-			copyArgs(Buffer.from(n),"CertificateChain",params,undefined,false); 
+			copyArgs(n,"Certificate",params,undefined,false); 
+			copyArgs(n,"PrivateKey",params,undefined,false); 
+			copyArgs(n,"CertificateChain",params,undefined,false); 
 			copyArgs(n,"Tags",params,undefined,true); 
 			
 			copyArgs(msg,"CertificateArn",params,undefined,false); 

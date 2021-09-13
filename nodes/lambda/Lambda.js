@@ -620,10 +620,10 @@ module.exports = function(RED) {
 			var params={};
 			
 			copyArgs(n,"FunctionName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"InvokeArgs",params,undefined,false); 
+			copyArgs(n,"InvokeArgs",params,undefined,false); 
 			
 			copyArgs(n,"FunctionName",params,undefined,false); 
-			copyArgs(Buffer.from(n),"InvokeArgs",params,undefined,false); 
+			copyArgs(n,"InvokeArgs",params,undefined,false); 
 			
 			copyArgs(msg,"FunctionName",params,undefined,false); 
 			copyArgs(msg,"InvokeArgs",params,undefined,false); 

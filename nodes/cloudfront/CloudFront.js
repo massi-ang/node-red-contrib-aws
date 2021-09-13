@@ -1071,12 +1071,12 @@ module.exports = function(RED) {
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"IfMatch",params,undefined,false); 
-			copyArgs(Buffer.from(n),"EventObject",params,undefined,false); 
+			copyArgs(n,"EventObject",params,undefined,false); 
 			
 			copyArgs(n,"Name",params,undefined,false); 
 			copyArgs(n,"IfMatch",params,undefined,false); 
 			copyArgs(n,"Stage",params,undefined,false); 
-			copyArgs(Buffer.from(n),"EventObject",params,undefined,false); 
+			copyArgs(n,"EventObject",params,undefined,false); 
 			
 			copyArgs(msg,"Name",params,undefined,false); 
 			copyArgs(msg,"IfMatch",params,undefined,false); 
