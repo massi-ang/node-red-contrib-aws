@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddAttachmentsToSet=function(svc,msg,cb){
+		service.AddAttachmentsToSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"attachments",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.addAttachmentsToSet(params,cb);
 		}
-			service.AddCommunicationToCase=function(svc,msg,cb){
+		
+		service.AddCommunicationToCase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"communicationBody",params,undefined,false); 
@@ -125,7 +126,8 @@ module.exports = function(RED) {
 
 			svc.addCommunicationToCase(params,cb);
 		}
-			service.CreateCase=function(svc,msg,cb){
+		
+		service.CreateCase=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"subject",params,undefined,false); 
@@ -154,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.createCase(params,cb);
 		}
-			service.DescribeAttachment=function(svc,msg,cb){
+		
+		service.DescribeAttachment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"attachmentId",params,undefined,false); 
@@ -166,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.describeAttachment(params,cb);
 		}
-			service.DescribeCases=function(svc,msg,cb){
+		
+		service.DescribeCases=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -193,7 +197,8 @@ module.exports = function(RED) {
 
 			svc.describeCases(params,cb);
 		}
-			service.DescribeCommunications=function(svc,msg,cb){
+		
+		service.DescribeCommunications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"caseId",params,undefined,false); 
@@ -213,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.describeCommunications(params,cb);
 		}
-			service.DescribeServices=function(svc,msg,cb){
+		
+		service.DescribeServices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -226,7 +232,8 @@ module.exports = function(RED) {
 
 			svc.describeServices(params,cb);
 		}
-			service.DescribeSeverityLevels=function(svc,msg,cb){
+		
+		service.DescribeSeverityLevels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -237,7 +244,8 @@ module.exports = function(RED) {
 
 			svc.describeSeverityLevels(params,cb);
 		}
-			service.DescribeTrustedAdvisorCheckRefreshStatuses=function(svc,msg,cb){
+		
+		service.DescribeTrustedAdvisorCheckRefreshStatuses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkIds",params,undefined,true); 
@@ -249,7 +257,8 @@ module.exports = function(RED) {
 
 			svc.describeTrustedAdvisorCheckRefreshStatuses(params,cb);
 		}
-			service.DescribeTrustedAdvisorCheckResult=function(svc,msg,cb){
+		
+		service.DescribeTrustedAdvisorCheckResult=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkId",params,undefined,false); 
@@ -263,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.describeTrustedAdvisorCheckResult(params,cb);
 		}
-			service.DescribeTrustedAdvisorCheckSummaries=function(svc,msg,cb){
+		
+		service.DescribeTrustedAdvisorCheckSummaries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkIds",params,undefined,true); 
@@ -275,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.describeTrustedAdvisorCheckSummaries(params,cb);
 		}
-			service.DescribeTrustedAdvisorChecks=function(svc,msg,cb){
+		
+		service.DescribeTrustedAdvisorChecks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"language",params,undefined,false); 
@@ -287,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.describeTrustedAdvisorChecks(params,cb);
 		}
-			service.RefreshTrustedAdvisorCheck=function(svc,msg,cb){
+		
+		service.RefreshTrustedAdvisorCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"checkId",params,undefined,false); 
@@ -299,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.refreshTrustedAdvisorCheck(params,cb);
 		}
-			service.ResolveCase=function(svc,msg,cb){
+		
+		service.ResolveCase=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -310,6 +323,7 @@ module.exports = function(RED) {
 
 			svc.resolveCase(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Support", AmazonAPINode);

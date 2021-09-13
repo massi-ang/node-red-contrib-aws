@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateLenses=function(svc,msg,cb){
+		service.AssociateLenses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateLenses(params,cb);
 		}
-			service.CreateMilestone=function(svc,msg,cb){
+		
+		service.CreateMilestone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.createMilestone(params,cb);
 		}
-			service.CreateWorkload=function(svc,msg,cb){
+		
+		service.CreateWorkload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadName",params,undefined,false); 
@@ -171,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.createWorkload(params,cb);
 		}
-			service.CreateWorkloadShare=function(svc,msg,cb){
+		
+		service.CreateWorkloadShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -192,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.createWorkloadShare(params,cb);
 		}
-			service.DeleteWorkload=function(svc,msg,cb){
+		
+		service.DeleteWorkload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -207,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.deleteWorkload(params,cb);
 		}
-			service.DeleteWorkloadShare=function(svc,msg,cb){
+		
+		service.DeleteWorkloadShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ShareId",params,undefined,false); 
@@ -225,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.deleteWorkloadShare(params,cb);
 		}
-			service.DisassociateLenses=function(svc,msg,cb){
+		
+		service.DisassociateLenses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -240,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.disassociateLenses(params,cb);
 		}
-			service.GetAnswer=function(svc,msg,cb){
+		
+		service.GetAnswer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -260,7 +267,8 @@ module.exports = function(RED) {
 
 			svc.getAnswer(params,cb);
 		}
-			service.GetLensReview=function(svc,msg,cb){
+		
+		service.GetLensReview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -277,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.getLensReview(params,cb);
 		}
-			service.GetLensReviewReport=function(svc,msg,cb){
+		
+		service.GetLensReviewReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -294,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.getLensReviewReport(params,cb);
 		}
-			service.GetLensVersionDifference=function(svc,msg,cb){
+		
+		service.GetLensVersionDifference=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LensAlias",params,undefined,false); 
@@ -309,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.getLensVersionDifference(params,cb);
 		}
-			service.GetMilestone=function(svc,msg,cb){
+		
+		service.GetMilestone=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -324,7 +335,8 @@ module.exports = function(RED) {
 
 			svc.getMilestone(params,cb);
 		}
-			service.GetWorkload=function(svc,msg,cb){
+		
+		service.GetWorkload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -336,7 +348,8 @@ module.exports = function(RED) {
 
 			svc.getWorkload(params,cb);
 		}
-			service.ListAnswers=function(svc,msg,cb){
+		
+		service.ListAnswers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -359,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.listAnswers(params,cb);
 		}
-			service.ListLensReviewImprovements=function(svc,msg,cb){
+		
+		service.ListLensReviewImprovements=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -382,7 +396,8 @@ module.exports = function(RED) {
 
 			svc.listLensReviewImprovements(params,cb);
 		}
-			service.ListLensReviews=function(svc,msg,cb){
+		
+		service.ListLensReviews=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -400,7 +415,8 @@ module.exports = function(RED) {
 
 			svc.listLensReviews(params,cb);
 		}
-			service.ListLenses=function(svc,msg,cb){
+		
+		service.ListLenses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -413,7 +429,8 @@ module.exports = function(RED) {
 
 			svc.listLenses(params,cb);
 		}
-			service.ListMilestones=function(svc,msg,cb){
+		
+		service.ListMilestones=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -429,7 +446,8 @@ module.exports = function(RED) {
 
 			svc.listMilestones(params,cb);
 		}
-			service.ListNotifications=function(svc,msg,cb){
+		
+		service.ListNotifications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -444,7 +462,8 @@ module.exports = function(RED) {
 
 			svc.listNotifications(params,cb);
 		}
-			service.ListShareInvitations=function(svc,msg,cb){
+		
+		service.ListShareInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -459,7 +478,8 @@ module.exports = function(RED) {
 
 			svc.listShareInvitations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadArn",params,undefined,false); 
@@ -471,7 +491,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWorkloadShares=function(svc,msg,cb){
+		
+		service.ListWorkloadShares=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -489,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.listWorkloadShares(params,cb);
 		}
-			service.ListWorkloads=function(svc,msg,cb){
+		
+		service.ListWorkloads=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -504,7 +526,8 @@ module.exports = function(RED) {
 
 			svc.listWorkloads(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadArn",params,undefined,false); 
@@ -519,7 +542,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadArn",params,undefined,false); 
@@ -534,7 +558,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAnswer=function(svc,msg,cb){
+		
+		service.UpdateAnswer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -562,7 +587,8 @@ module.exports = function(RED) {
 
 			svc.updateAnswer(params,cb);
 		}
-			service.UpdateLensReview=function(svc,msg,cb){
+		
+		service.UpdateLensReview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -581,7 +607,8 @@ module.exports = function(RED) {
 
 			svc.updateLensReview(params,cb);
 		}
-			service.UpdateShareInvitation=function(svc,msg,cb){
+		
+		service.UpdateShareInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ShareInvitationId",params,undefined,false); 
@@ -596,7 +623,8 @@ module.exports = function(RED) {
 
 			svc.updateShareInvitation(params,cb);
 		}
-			service.UpdateWorkload=function(svc,msg,cb){
+		
+		service.UpdateWorkload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -636,7 +664,8 @@ module.exports = function(RED) {
 
 			svc.updateWorkload(params,cb);
 		}
-			service.UpdateWorkloadShare=function(svc,msg,cb){
+		
+		service.UpdateWorkloadShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ShareId",params,undefined,false); 
@@ -654,7 +683,8 @@ module.exports = function(RED) {
 
 			svc.updateWorkloadShare(params,cb);
 		}
-			service.UpgradeLensReview=function(svc,msg,cb){
+		
+		service.UpgradeLensReview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkloadId",params,undefined,false); 
@@ -674,6 +704,7 @@ module.exports = function(RED) {
 
 			svc.upgradeLensReview(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS WellArchitected", AmazonAPINode);

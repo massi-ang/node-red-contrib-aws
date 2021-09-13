@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateCreatedArtifact=function(svc,msg,cb){
+		service.AssociateCreatedArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.associateCreatedArtifact(params,cb);
 		}
-			service.AssociateDiscoveredResource=function(svc,msg,cb){
+		
+		service.AssociateDiscoveredResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -133,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.associateDiscoveredResource(params,cb);
 		}
-			service.CreateProgressUpdateStream=function(svc,msg,cb){
+		
+		service.CreateProgressUpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
@@ -147,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.createProgressUpdateStream(params,cb);
 		}
-			service.DeleteProgressUpdateStream=function(svc,msg,cb){
+		
+		service.DeleteProgressUpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStreamName",params,undefined,false); 
@@ -161,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.deleteProgressUpdateStream(params,cb);
 		}
-			service.DescribeApplicationState=function(svc,msg,cb){
+		
+		service.DescribeApplicationState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationId",params,undefined,false); 
@@ -173,7 +177,8 @@ module.exports = function(RED) {
 
 			svc.describeApplicationState(params,cb);
 		}
-			service.DescribeMigrationTask=function(svc,msg,cb){
+		
+		service.DescribeMigrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -188,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.describeMigrationTask(params,cb);
 		}
-			service.DisassociateCreatedArtifact=function(svc,msg,cb){
+		
+		service.DisassociateCreatedArtifact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -208,7 +214,8 @@ module.exports = function(RED) {
 
 			svc.disassociateCreatedArtifact(params,cb);
 		}
-			service.DisassociateDiscoveredResource=function(svc,msg,cb){
+		
+		service.DisassociateDiscoveredResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -228,7 +235,8 @@ module.exports = function(RED) {
 
 			svc.disassociateDiscoveredResource(params,cb);
 		}
-			service.ImportMigrationTask=function(svc,msg,cb){
+		
+		service.ImportMigrationTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -245,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.importMigrationTask(params,cb);
 		}
-			service.ListApplicationStates=function(svc,msg,cb){
+		
+		service.ListApplicationStates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -260,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.listApplicationStates(params,cb);
 		}
-			service.ListCreatedArtifacts=function(svc,msg,cb){
+		
+		service.ListCreatedArtifacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -279,7 +289,8 @@ module.exports = function(RED) {
 
 			svc.listCreatedArtifacts(params,cb);
 		}
-			service.ListDiscoveredResources=function(svc,msg,cb){
+		
+		service.ListDiscoveredResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -298,7 +309,8 @@ module.exports = function(RED) {
 
 			svc.listDiscoveredResources(params,cb);
 		}
-			service.ListMigrationTasks=function(svc,msg,cb){
+		
+		service.ListMigrationTasks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -313,7 +325,8 @@ module.exports = function(RED) {
 
 			svc.listMigrationTasks(params,cb);
 		}
-			service.ListProgressUpdateStreams=function(svc,msg,cb){
+		
+		service.ListProgressUpdateStreams=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -326,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.listProgressUpdateStreams(params,cb);
 		}
-			service.NotifyApplicationState=function(svc,msg,cb){
+		
+		service.NotifyApplicationState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ApplicationId",params,undefined,false); 
@@ -345,7 +359,8 @@ module.exports = function(RED) {
 
 			svc.notifyApplicationState(params,cb);
 		}
-			service.NotifyMigrationTaskState=function(svc,msg,cb){
+		
+		service.NotifyMigrationTaskState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -371,7 +386,8 @@ module.exports = function(RED) {
 
 			svc.notifyMigrationTaskState(params,cb);
 		}
-			service.PutResourceAttributes=function(svc,msg,cb){
+		
+		service.PutResourceAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProgressUpdateStream",params,undefined,false); 
@@ -391,6 +407,7 @@ module.exports = function(RED) {
 
 			svc.putResourceAttributes(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MigrationHub", AmazonAPINode);

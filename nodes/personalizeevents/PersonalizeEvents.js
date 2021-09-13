@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.PutEvents=function(svc,msg,cb){
+		service.PutEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"trackingId",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.putEvents(params,cb);
 		}
-			service.PutItems=function(svc,msg,cb){
+		
+		service.PutItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetArn",params,undefined,false); 
@@ -128,7 +129,8 @@ module.exports = function(RED) {
 
 			svc.putItems(params,cb);
 		}
-			service.PutUsers=function(svc,msg,cb){
+		
+		service.PutUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetArn",params,undefined,false); 
@@ -143,6 +145,7 @@ module.exports = function(RED) {
 
 			svc.putUsers(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS PersonalizeEvents", AmazonAPINode);

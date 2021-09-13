@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AbortDocumentVersionUpload=function(svc,msg,cb){
+		service.AbortDocumentVersionUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.abortDocumentVersionUpload(params,cb);
 		}
-			service.ActivateUser=function(svc,msg,cb){
+		
+		service.ActivateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -124,7 +125,8 @@ module.exports = function(RED) {
 
 			svc.activateUser(params,cb);
 		}
-			service.AddResourcePermissions=function(svc,msg,cb){
+		
+		service.AddResourcePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -143,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.addResourcePermissions(params,cb);
 		}
-			service.CreateComment=function(svc,msg,cb){
+		
+		service.CreateComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -171,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.createComment(params,cb);
 		}
-			service.CreateCustomMetadata=function(svc,msg,cb){
+		
+		service.CreateCustomMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -190,7 +194,8 @@ module.exports = function(RED) {
 
 			svc.createCustomMetadata(params,cb);
 		}
-			service.CreateFolder=function(svc,msg,cb){
+		
+		service.CreateFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentFolderId",params,undefined,false); 
@@ -206,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.createFolder(params,cb);
 		}
-			service.CreateLabels=function(svc,msg,cb){
+		
+		service.CreateLabels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -223,7 +229,8 @@ module.exports = function(RED) {
 
 			svc.createLabels(params,cb);
 		}
-			service.CreateNotificationSubscription=function(svc,msg,cb){
+		
+		service.CreateNotificationSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -244,7 +251,8 @@ module.exports = function(RED) {
 
 			svc.createNotificationSubscription(params,cb);
 		}
-			service.CreateUser=function(svc,msg,cb){
+		
+		service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -275,7 +283,8 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-			service.DeactivateUser=function(svc,msg,cb){
+		
+		service.DeactivateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -289,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.deactivateUser(params,cb);
 		}
-			service.DeleteComment=function(svc,msg,cb){
+		
+		service.DeleteComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -309,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.deleteComment(params,cb);
 		}
-			service.DeleteCustomMetadata=function(svc,msg,cb){
+		
+		service.DeleteCustomMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -329,7 +340,8 @@ module.exports = function(RED) {
 
 			svc.deleteCustomMetadata(params,cb);
 		}
-			service.DeleteDocument=function(svc,msg,cb){
+		
+		service.DeleteDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -343,7 +355,8 @@ module.exports = function(RED) {
 
 			svc.deleteDocument(params,cb);
 		}
-			service.DeleteFolder=function(svc,msg,cb){
+		
+		service.DeleteFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -357,7 +370,8 @@ module.exports = function(RED) {
 
 			svc.deleteFolder(params,cb);
 		}
-			service.DeleteFolderContents=function(svc,msg,cb){
+		
+		service.DeleteFolderContents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -371,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.deleteFolderContents(params,cb);
 		}
-			service.DeleteLabels=function(svc,msg,cb){
+		
+		service.DeleteLabels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -389,7 +404,8 @@ module.exports = function(RED) {
 
 			svc.deleteLabels(params,cb);
 		}
-			service.DeleteNotificationSubscription=function(svc,msg,cb){
+		
+		service.DeleteNotificationSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionId",params,undefined,false); 
@@ -404,7 +420,8 @@ module.exports = function(RED) {
 
 			svc.deleteNotificationSubscription(params,cb);
 		}
-			service.DeleteUser=function(svc,msg,cb){
+		
+		service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -418,7 +435,8 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-			service.DescribeActivities=function(svc,msg,cb){
+		
+		service.DescribeActivities=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -447,7 +465,8 @@ module.exports = function(RED) {
 
 			svc.describeActivities(params,cb);
 		}
-			service.DescribeComments=function(svc,msg,cb){
+		
+		service.DescribeComments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -468,7 +487,8 @@ module.exports = function(RED) {
 
 			svc.describeComments(params,cb);
 		}
-			service.DescribeDocumentVersions=function(svc,msg,cb){
+		
+		service.DescribeDocumentVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -490,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.describeDocumentVersions(params,cb);
 		}
-			service.DescribeFolderContents=function(svc,msg,cb){
+		
+		service.DescribeFolderContents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -516,7 +537,8 @@ module.exports = function(RED) {
 
 			svc.describeFolderContents(params,cb);
 		}
-			service.DescribeGroups=function(svc,msg,cb){
+		
+		service.DescribeGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SearchQuery",params,undefined,true); 
@@ -536,7 +558,8 @@ module.exports = function(RED) {
 
 			svc.describeGroups(params,cb);
 		}
-			service.DescribeNotificationSubscriptions=function(svc,msg,cb){
+		
+		service.DescribeNotificationSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OrganizationId",params,undefined,false); 
@@ -552,7 +575,8 @@ module.exports = function(RED) {
 
 			svc.describeNotificationSubscriptions(params,cb);
 		}
-			service.DescribeResourcePermissions=function(svc,msg,cb){
+		
+		service.DescribeResourcePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -572,7 +596,8 @@ module.exports = function(RED) {
 
 			svc.describeResourcePermissions(params,cb);
 		}
-			service.DescribeRootFolders=function(svc,msg,cb){
+		
+		service.DescribeRootFolders=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationToken",params,undefined,true); 
@@ -588,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.describeRootFolders(params,cb);
 		}
-			service.DescribeUsers=function(svc,msg,cb){
+		
+		service.DescribeUsers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -617,7 +643,8 @@ module.exports = function(RED) {
 
 			svc.describeUsers(params,cb);
 		}
-			service.GetCurrentUser=function(svc,msg,cb){
+		
+		service.GetCurrentUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationToken",params,undefined,true); 
@@ -629,7 +656,8 @@ module.exports = function(RED) {
 
 			svc.getCurrentUser(params,cb);
 		}
-			service.GetDocument=function(svc,msg,cb){
+		
+		service.GetDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -645,7 +673,8 @@ module.exports = function(RED) {
 
 			svc.getDocument(params,cb);
 		}
-			service.GetDocumentPath=function(svc,msg,cb){
+		
+		service.GetDocumentPath=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -665,7 +694,8 @@ module.exports = function(RED) {
 
 			svc.getDocumentPath(params,cb);
 		}
-			service.GetDocumentVersion=function(svc,msg,cb){
+		
+		service.GetDocumentVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -686,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.getDocumentVersion(params,cb);
 		}
-			service.GetFolder=function(svc,msg,cb){
+		
+		service.GetFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -702,7 +733,8 @@ module.exports = function(RED) {
 
 			svc.getFolder(params,cb);
 		}
-			service.GetFolderPath=function(svc,msg,cb){
+		
+		service.GetFolderPath=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -722,7 +754,8 @@ module.exports = function(RED) {
 
 			svc.getFolderPath(params,cb);
 		}
-			service.GetResources=function(svc,msg,cb){
+		
+		service.GetResources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -741,7 +774,8 @@ module.exports = function(RED) {
 
 			svc.getResources(params,cb);
 		}
-			service.InitiateDocumentVersionUpload=function(svc,msg,cb){
+		
+		service.InitiateDocumentVersionUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParentFolderId",params,undefined,false); 
@@ -767,7 +801,8 @@ module.exports = function(RED) {
 
 			svc.initiateDocumentVersionUpload(params,cb);
 		}
-			service.RemoveAllResourcePermissions=function(svc,msg,cb){
+		
+		service.RemoveAllResourcePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -781,7 +816,8 @@ module.exports = function(RED) {
 
 			svc.removeAllResourcePermissions(params,cb);
 		}
-			service.RemoveResourcePermission=function(svc,msg,cb){
+		
+		service.RemoveResourcePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -800,7 +836,8 @@ module.exports = function(RED) {
 
 			svc.removeResourcePermission(params,cb);
 		}
-			service.UpdateDocument=function(svc,msg,cb){
+		
+		service.UpdateDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -820,7 +857,8 @@ module.exports = function(RED) {
 
 			svc.updateDocument(params,cb);
 		}
-			service.UpdateDocumentVersion=function(svc,msg,cb){
+		
+		service.UpdateDocumentVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentId",params,undefined,false); 
@@ -839,7 +877,8 @@ module.exports = function(RED) {
 
 			svc.updateDocumentVersion(params,cb);
 		}
-			service.UpdateFolder=function(svc,msg,cb){
+		
+		service.UpdateFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FolderId",params,undefined,false); 
@@ -859,7 +898,8 @@ module.exports = function(RED) {
 
 			svc.updateFolder(params,cb);
 		}
-			service.UpdateUser=function(svc,msg,cb){
+		
+		service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserId",params,undefined,false); 
@@ -887,6 +927,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS WorkDocs", AmazonAPINode);

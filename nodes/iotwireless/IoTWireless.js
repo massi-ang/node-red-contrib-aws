@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateAwsAccountWithPartnerAccount=function(svc,msg,cb){
+		service.AssociateAwsAccountWithPartnerAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Sidewalk",params,undefined,true); 
@@ -109,7 +109,8 @@ module.exports = function(RED) {
 
 			svc.associateAwsAccountWithPartnerAccount(params,cb);
 		}
-			service.AssociateWirelessDeviceWithThing=function(svc,msg,cb){
+		
+		service.AssociateWirelessDeviceWithThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -124,7 +125,8 @@ module.exports = function(RED) {
 
 			svc.associateWirelessDeviceWithThing(params,cb);
 		}
-			service.AssociateWirelessGatewayWithCertificate=function(svc,msg,cb){
+		
+		service.AssociateWirelessGatewayWithCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.associateWirelessGatewayWithCertificate(params,cb);
 		}
-			service.AssociateWirelessGatewayWithThing=function(svc,msg,cb){
+		
+		service.AssociateWirelessGatewayWithThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -154,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.associateWirelessGatewayWithThing(params,cb);
 		}
-			service.CreateDestination=function(svc,msg,cb){
+		
+		service.CreateDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -181,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.createDestination(params,cb);
 		}
-			service.CreateDeviceProfile=function(svc,msg,cb){
+		
+		service.CreateDeviceProfile=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -198,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.createDeviceProfile(params,cb);
 		}
-			service.CreateServiceProfile=function(svc,msg,cb){
+		
+		service.CreateServiceProfile=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -215,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.createServiceProfile(params,cb);
 		}
-			service.CreateWirelessDevice=function(svc,msg,cb){
+		
+		service.CreateWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -240,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.createWirelessDevice(params,cb);
 		}
-			service.CreateWirelessGateway=function(svc,msg,cb){
+		
+		service.CreateWirelessGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoRaWAN",params,undefined,true); 
@@ -260,7 +268,8 @@ module.exports = function(RED) {
 
 			svc.createWirelessGateway(params,cb);
 		}
-			service.CreateWirelessGatewayTask=function(svc,msg,cb){
+		
+		service.CreateWirelessGatewayTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -275,7 +284,8 @@ module.exports = function(RED) {
 
 			svc.createWirelessGatewayTask(params,cb);
 		}
-			service.CreateWirelessGatewayTaskDefinition=function(svc,msg,cb){
+		
+		service.CreateWirelessGatewayTaskDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Boolean(n),"AutoCreateTasks",params,undefined,false); 
@@ -295,7 +305,8 @@ module.exports = function(RED) {
 
 			svc.createWirelessGatewayTaskDefinition(params,cb);
 		}
-			service.DeleteDestination=function(svc,msg,cb){
+		
+		service.DeleteDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -307,7 +318,8 @@ module.exports = function(RED) {
 
 			svc.deleteDestination(params,cb);
 		}
-			service.DeleteDeviceProfile=function(svc,msg,cb){
+		
+		service.DeleteDeviceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -319,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.deleteDeviceProfile(params,cb);
 		}
-			service.DeleteServiceProfile=function(svc,msg,cb){
+		
+		service.DeleteServiceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -331,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.deleteServiceProfile(params,cb);
 		}
-			service.DeleteWirelessDevice=function(svc,msg,cb){
+		
+		service.DeleteWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -343,7 +357,8 @@ module.exports = function(RED) {
 
 			svc.deleteWirelessDevice(params,cb);
 		}
-			service.DeleteWirelessGateway=function(svc,msg,cb){
+		
+		service.DeleteWirelessGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -355,7 +370,8 @@ module.exports = function(RED) {
 
 			svc.deleteWirelessGateway(params,cb);
 		}
-			service.DeleteWirelessGatewayTask=function(svc,msg,cb){
+		
+		service.DeleteWirelessGatewayTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -367,7 +383,8 @@ module.exports = function(RED) {
 
 			svc.deleteWirelessGatewayTask(params,cb);
 		}
-			service.DeleteWirelessGatewayTaskDefinition=function(svc,msg,cb){
+		
+		service.DeleteWirelessGatewayTaskDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -379,7 +396,8 @@ module.exports = function(RED) {
 
 			svc.deleteWirelessGatewayTaskDefinition(params,cb);
 		}
-			service.DisassociateAwsAccountFromPartnerAccount=function(svc,msg,cb){
+		
+		service.DisassociateAwsAccountFromPartnerAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PartnerAccountId",params,undefined,false); 
@@ -394,7 +412,8 @@ module.exports = function(RED) {
 
 			svc.disassociateAwsAccountFromPartnerAccount(params,cb);
 		}
-			service.DisassociateWirelessDeviceFromThing=function(svc,msg,cb){
+		
+		service.DisassociateWirelessDeviceFromThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -406,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWirelessDeviceFromThing(params,cb);
 		}
-			service.DisassociateWirelessGatewayFromCertificate=function(svc,msg,cb){
+		
+		service.DisassociateWirelessGatewayFromCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -418,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWirelessGatewayFromCertificate(params,cb);
 		}
-			service.DisassociateWirelessGatewayFromThing=function(svc,msg,cb){
+		
+		service.DisassociateWirelessGatewayFromThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -430,7 +451,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWirelessGatewayFromThing(params,cb);
 		}
-			service.GetDestination=function(svc,msg,cb){
+		
+		service.GetDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -442,7 +464,8 @@ module.exports = function(RED) {
 
 			svc.getDestination(params,cb);
 		}
-			service.GetDeviceProfile=function(svc,msg,cb){
+		
+		service.GetDeviceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -454,7 +477,8 @@ module.exports = function(RED) {
 
 			svc.getDeviceProfile(params,cb);
 		}
-			service.GetLogLevelsByResourceTypes=function(svc,msg,cb){
+		
+		service.GetLogLevelsByResourceTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -463,7 +487,8 @@ module.exports = function(RED) {
 
 			svc.getLogLevelsByResourceTypes(params,cb);
 		}
-			service.GetPartnerAccount=function(svc,msg,cb){
+		
+		service.GetPartnerAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PartnerAccountId",params,undefined,false); 
@@ -478,7 +503,8 @@ module.exports = function(RED) {
 
 			svc.getPartnerAccount(params,cb);
 		}
-			service.GetResourceLogLevel=function(svc,msg,cb){
+		
+		service.GetResourceLogLevel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIdentifier",params,undefined,false); 
@@ -493,7 +519,8 @@ module.exports = function(RED) {
 
 			svc.getResourceLogLevel(params,cb);
 		}
-			service.GetServiceEndpoint=function(svc,msg,cb){
+		
+		service.GetServiceEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -504,7 +531,8 @@ module.exports = function(RED) {
 
 			svc.getServiceEndpoint(params,cb);
 		}
-			service.GetServiceProfile=function(svc,msg,cb){
+		
+		service.GetServiceProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -516,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.getServiceProfile(params,cb);
 		}
-			service.GetWirelessDevice=function(svc,msg,cb){
+		
+		service.GetWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Identifier",params,undefined,false); 
@@ -531,7 +560,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessDevice(params,cb);
 		}
-			service.GetWirelessDeviceStatistics=function(svc,msg,cb){
+		
+		service.GetWirelessDeviceStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WirelessDeviceId",params,undefined,false); 
@@ -543,7 +573,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessDeviceStatistics(params,cb);
 		}
-			service.GetWirelessGateway=function(svc,msg,cb){
+		
+		service.GetWirelessGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Identifier",params,undefined,false); 
@@ -558,7 +589,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGateway(params,cb);
 		}
-			service.GetWirelessGatewayCertificate=function(svc,msg,cb){
+		
+		service.GetWirelessGatewayCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -570,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGatewayCertificate(params,cb);
 		}
-			service.GetWirelessGatewayFirmwareInformation=function(svc,msg,cb){
+		
+		service.GetWirelessGatewayFirmwareInformation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -582,7 +615,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGatewayFirmwareInformation(params,cb);
 		}
-			service.GetWirelessGatewayStatistics=function(svc,msg,cb){
+		
+		service.GetWirelessGatewayStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WirelessGatewayId",params,undefined,false); 
@@ -594,7 +628,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGatewayStatistics(params,cb);
 		}
-			service.GetWirelessGatewayTask=function(svc,msg,cb){
+		
+		service.GetWirelessGatewayTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -606,7 +641,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGatewayTask(params,cb);
 		}
-			service.GetWirelessGatewayTaskDefinition=function(svc,msg,cb){
+		
+		service.GetWirelessGatewayTaskDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -618,7 +654,8 @@ module.exports = function(RED) {
 
 			svc.getWirelessGatewayTaskDefinition(params,cb);
 		}
-			service.ListDestinations=function(svc,msg,cb){
+		
+		service.ListDestinations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -631,7 +668,8 @@ module.exports = function(RED) {
 
 			svc.listDestinations(params,cb);
 		}
-			service.ListDeviceProfiles=function(svc,msg,cb){
+		
+		service.ListDeviceProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -644,7 +682,8 @@ module.exports = function(RED) {
 
 			svc.listDeviceProfiles(params,cb);
 		}
-			service.ListPartnerAccounts=function(svc,msg,cb){
+		
+		service.ListPartnerAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -657,7 +696,8 @@ module.exports = function(RED) {
 
 			svc.listPartnerAccounts(params,cb);
 		}
-			service.ListServiceProfiles=function(svc,msg,cb){
+		
+		service.ListServiceProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -670,7 +710,8 @@ module.exports = function(RED) {
 
 			svc.listServiceProfiles(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -682,7 +723,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWirelessDevices=function(svc,msg,cb){
+		
+		service.ListWirelessDevices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -703,7 +745,8 @@ module.exports = function(RED) {
 
 			svc.listWirelessDevices(params,cb);
 		}
-			service.ListWirelessGatewayTaskDefinitions=function(svc,msg,cb){
+		
+		service.ListWirelessGatewayTaskDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -718,7 +761,8 @@ module.exports = function(RED) {
 
 			svc.listWirelessGatewayTaskDefinitions(params,cb);
 		}
-			service.ListWirelessGateways=function(svc,msg,cb){
+		
+		service.ListWirelessGateways=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -731,7 +775,8 @@ module.exports = function(RED) {
 
 			svc.listWirelessGateways(params,cb);
 		}
-			service.PutResourceLogLevel=function(svc,msg,cb){
+		
+		service.PutResourceLogLevel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIdentifier",params,undefined,false); 
@@ -749,7 +794,8 @@ module.exports = function(RED) {
 
 			svc.putResourceLogLevel(params,cb);
 		}
-			service.ResetAllResourceLogLevels=function(svc,msg,cb){
+		
+		service.ResetAllResourceLogLevels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -758,7 +804,8 @@ module.exports = function(RED) {
 
 			svc.resetAllResourceLogLevels(params,cb);
 		}
-			service.ResetResourceLogLevel=function(svc,msg,cb){
+		
+		service.ResetResourceLogLevel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIdentifier",params,undefined,false); 
@@ -773,7 +820,8 @@ module.exports = function(RED) {
 
 			svc.resetResourceLogLevel(params,cb);
 		}
-			service.SendDataToWirelessDevice=function(svc,msg,cb){
+		
+		service.SendDataToWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -793,7 +841,8 @@ module.exports = function(RED) {
 
 			svc.sendDataToWirelessDevice(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -808,7 +857,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TestWirelessDevice=function(svc,msg,cb){
+		
+		service.TestWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -820,7 +870,8 @@ module.exports = function(RED) {
 
 			svc.testWirelessDevice(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -835,7 +886,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateDestination=function(svc,msg,cb){
+		
+		service.UpdateDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -855,7 +907,8 @@ module.exports = function(RED) {
 
 			svc.updateDestination(params,cb);
 		}
-			service.UpdateLogLevelsByResourceTypes=function(svc,msg,cb){
+		
+		service.UpdateLogLevelsByResourceTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -870,7 +923,8 @@ module.exports = function(RED) {
 
 			svc.updateLogLevelsByResourceTypes(params,cb);
 		}
-			service.UpdatePartnerAccount=function(svc,msg,cb){
+		
+		service.UpdatePartnerAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Sidewalk",params,undefined,false); 
@@ -888,7 +942,8 @@ module.exports = function(RED) {
 
 			svc.updatePartnerAccount(params,cb);
 		}
-			service.UpdateWirelessDevice=function(svc,msg,cb){
+		
+		service.UpdateWirelessDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -908,7 +963,8 @@ module.exports = function(RED) {
 
 			svc.updateWirelessDevice(params,cb);
 		}
-			service.UpdateWirelessGateway=function(svc,msg,cb){
+		
+		service.UpdateWirelessGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -928,6 +984,7 @@ module.exports = function(RED) {
 
 			svc.updateWirelessGateway(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IoTWireless", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeAffectedAccountsForOrganization=function(svc,msg,cb){
+		service.DescribeAffectedAccountsForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventArn",params,undefined,false); 
@@ -109,7 +109,8 @@ module.exports = function(RED) {
 
 			svc.describeAffectedAccountsForOrganization(params,cb);
 		}
-			service.DescribeAffectedEntities=function(svc,msg,cb){
+		
+		service.DescribeAffectedEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filter",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.describeAffectedEntities(params,cb);
 		}
-			service.DescribeAffectedEntitiesForOrganization=function(svc,msg,cb){
+		
+		service.DescribeAffectedEntitiesForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"organizationEntityFilters",params,undefined,false); 
@@ -145,7 +147,8 @@ module.exports = function(RED) {
 
 			svc.describeAffectedEntitiesForOrganization(params,cb);
 		}
-			service.DescribeEntityAggregates=function(svc,msg,cb){
+		
+		service.DescribeEntityAggregates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -156,7 +159,8 @@ module.exports = function(RED) {
 
 			svc.describeEntityAggregates(params,cb);
 		}
-			service.DescribeEventAggregates=function(svc,msg,cb){
+		
+		service.DescribeEventAggregates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"aggregateField",params,undefined,false); 
@@ -174,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.describeEventAggregates(params,cb);
 		}
-			service.DescribeEventDetails=function(svc,msg,cb){
+		
+		service.DescribeEventDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"eventArns",params,undefined,true); 
@@ -188,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.describeEventDetails(params,cb);
 		}
-			service.DescribeEventDetailsForOrganization=function(svc,msg,cb){
+		
+		service.DescribeEventDetailsForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"organizationEventDetailFilters",params,undefined,false); 
@@ -202,7 +208,8 @@ module.exports = function(RED) {
 
 			svc.describeEventDetailsForOrganization(params,cb);
 		}
-			service.DescribeEventTypes=function(svc,msg,cb){
+		
+		service.DescribeEventTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -219,7 +226,8 @@ module.exports = function(RED) {
 
 			svc.describeEventTypes(params,cb);
 		}
-			service.DescribeEvents=function(svc,msg,cb){
+		
+		service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -236,7 +244,8 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-			service.DescribeEventsForOrganization=function(svc,msg,cb){
+		
+		service.DescribeEventsForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -253,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.describeEventsForOrganization(params,cb);
 		}
-			service.DescribeHealthServiceStatusForOrganization=function(svc,msg,cb){
+		
+		service.DescribeHealthServiceStatusForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -262,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.describeHealthServiceStatusForOrganization(params,cb);
 		}
-			service.DisableHealthServiceAccessForOrganization=function(svc,msg,cb){
+		
+		service.DisableHealthServiceAccessForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -271,7 +282,8 @@ module.exports = function(RED) {
 
 			svc.disableHealthServiceAccessForOrganization(params,cb);
 		}
-			service.EnableHealthServiceAccessForOrganization=function(svc,msg,cb){
+		
+		service.EnableHealthServiceAccessForOrganization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -280,6 +292,7 @@ module.exports = function(RED) {
 
 			svc.enableHealthServiceAccessForOrganization(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Health", AmazonAPINode);

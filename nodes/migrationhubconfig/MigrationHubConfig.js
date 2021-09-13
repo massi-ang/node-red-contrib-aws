@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateHomeRegionControl=function(svc,msg,cb){
+		service.CreateHomeRegionControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HomeRegion",params,undefined,false); 
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.createHomeRegionControl(params,cb);
 		}
-			service.DescribeHomeRegionControls=function(svc,msg,cb){
+		
+		service.DescribeHomeRegionControls=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -129,7 +130,8 @@ module.exports = function(RED) {
 
 			svc.describeHomeRegionControls(params,cb);
 		}
-			service.GetHomeRegion=function(svc,msg,cb){
+		
+		service.GetHomeRegion=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -138,6 +140,7 @@ module.exports = function(RED) {
 
 			svc.getHomeRegion(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MigrationHubConfig", AmazonAPINode);

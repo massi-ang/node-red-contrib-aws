@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssignInstance=function(svc,msg,cb){
+		service.AssignInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.assignInstance(params,cb);
 		}
-			service.AssignVolume=function(svc,msg,cb){
+		
+		service.AssignVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeId",params,undefined,false); 
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.assignVolume(params,cb);
 		}
-			service.AssociateElasticIp=function(svc,msg,cb){
+		
+		service.AssociateElasticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticIp",params,undefined,false); 
@@ -136,7 +138,8 @@ module.exports = function(RED) {
 
 			svc.associateElasticIp(params,cb);
 		}
-			service.AttachElasticLoadBalancer=function(svc,msg,cb){
+		
+		service.AttachElasticLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticLoadBalancerName",params,undefined,false); 
@@ -151,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.attachElasticLoadBalancer(params,cb);
 		}
-			service.CloneStack=function(svc,msg,cb){
+		
+		service.CloneStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceStackId",params,undefined,false); 
@@ -206,7 +210,8 @@ module.exports = function(RED) {
 
 			svc.cloneStack(params,cb);
 		}
-			service.CreateApp=function(svc,msg,cb){
+		
+		service.CreateApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -242,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.createApp(params,cb);
 		}
-			service.CreateDeployment=function(svc,msg,cb){
+		
+		service.CreateDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -267,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.createDeployment(params,cb);
 		}
-			service.CreateInstance=function(svc,msg,cb){
+		
+		service.CreateInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -315,7 +322,8 @@ module.exports = function(RED) {
 
 			svc.createInstance(params,cb);
 		}
-			service.CreateLayer=function(svc,msg,cb){
+		
+		service.CreateLayer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -364,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.createLayer(params,cb);
 		}
-			service.CreateStack=function(svc,msg,cb){
+		
+		service.CreateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -415,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.createStack(params,cb);
 		}
-			service.CreateUserProfile=function(svc,msg,cb){
+		
+		service.CreateUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IamUserArn",params,undefined,false); 
@@ -433,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.createUserProfile(params,cb);
 		}
-			service.DeleteApp=function(svc,msg,cb){
+		
+		service.DeleteApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -445,7 +456,8 @@ module.exports = function(RED) {
 
 			svc.deleteApp(params,cb);
 		}
-			service.DeleteInstance=function(svc,msg,cb){
+		
+		service.DeleteInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -461,7 +473,8 @@ module.exports = function(RED) {
 
 			svc.deleteInstance(params,cb);
 		}
-			service.DeleteLayer=function(svc,msg,cb){
+		
+		service.DeleteLayer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LayerId",params,undefined,false); 
@@ -473,7 +486,8 @@ module.exports = function(RED) {
 
 			svc.deleteLayer(params,cb);
 		}
-			service.DeleteStack=function(svc,msg,cb){
+		
+		service.DeleteStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -485,7 +499,8 @@ module.exports = function(RED) {
 
 			svc.deleteStack(params,cb);
 		}
-			service.DeleteUserProfile=function(svc,msg,cb){
+		
+		service.DeleteUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IamUserArn",params,undefined,false); 
@@ -497,7 +512,8 @@ module.exports = function(RED) {
 
 			svc.deleteUserProfile(params,cb);
 		}
-			service.DeregisterEcsCluster=function(svc,msg,cb){
+		
+		service.DeregisterEcsCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EcsClusterArn",params,undefined,false); 
@@ -509,7 +525,8 @@ module.exports = function(RED) {
 
 			svc.deregisterEcsCluster(params,cb);
 		}
-			service.DeregisterElasticIp=function(svc,msg,cb){
+		
+		service.DeregisterElasticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticIp",params,undefined,false); 
@@ -521,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.deregisterElasticIp(params,cb);
 		}
-			service.DeregisterInstance=function(svc,msg,cb){
+		
+		service.DeregisterInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -533,7 +551,8 @@ module.exports = function(RED) {
 
 			svc.deregisterInstance(params,cb);
 		}
-			service.DeregisterRdsDbInstance=function(svc,msg,cb){
+		
+		service.DeregisterRdsDbInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RdsDbInstanceArn",params,undefined,false); 
@@ -545,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.deregisterRdsDbInstance(params,cb);
 		}
-			service.DeregisterVolume=function(svc,msg,cb){
+		
+		service.DeregisterVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeId",params,undefined,false); 
@@ -557,7 +577,8 @@ module.exports = function(RED) {
 
 			svc.deregisterVolume(params,cb);
 		}
-			service.DescribeAgentVersions=function(svc,msg,cb){
+		
+		service.DescribeAgentVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -570,7 +591,8 @@ module.exports = function(RED) {
 
 			svc.describeAgentVersions(params,cb);
 		}
-			service.DescribeApps=function(svc,msg,cb){
+		
+		service.DescribeApps=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -583,7 +605,8 @@ module.exports = function(RED) {
 
 			svc.describeApps(params,cb);
 		}
-			service.DescribeCommands=function(svc,msg,cb){
+		
+		service.DescribeCommands=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -598,7 +621,8 @@ module.exports = function(RED) {
 
 			svc.describeCommands(params,cb);
 		}
-			service.DescribeDeployments=function(svc,msg,cb){
+		
+		service.DescribeDeployments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -613,7 +637,8 @@ module.exports = function(RED) {
 
 			svc.describeDeployments(params,cb);
 		}
-			service.DescribeEcsClusters=function(svc,msg,cb){
+		
+		service.DescribeEcsClusters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -630,7 +655,8 @@ module.exports = function(RED) {
 
 			svc.describeEcsClusters(params,cb);
 		}
-			service.DescribeElasticIps=function(svc,msg,cb){
+		
+		service.DescribeElasticIps=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -645,7 +671,8 @@ module.exports = function(RED) {
 
 			svc.describeElasticIps(params,cb);
 		}
-			service.DescribeElasticLoadBalancers=function(svc,msg,cb){
+		
+		service.DescribeElasticLoadBalancers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -658,7 +685,8 @@ module.exports = function(RED) {
 
 			svc.describeElasticLoadBalancers(params,cb);
 		}
-			service.DescribeInstances=function(svc,msg,cb){
+		
+		service.DescribeInstances=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -673,7 +701,8 @@ module.exports = function(RED) {
 
 			svc.describeInstances(params,cb);
 		}
-			service.DescribeLayers=function(svc,msg,cb){
+		
+		service.DescribeLayers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -686,7 +715,8 @@ module.exports = function(RED) {
 
 			svc.describeLayers(params,cb);
 		}
-			service.DescribeLoadBasedAutoScaling=function(svc,msg,cb){
+		
+		service.DescribeLoadBasedAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LayerIds",params,undefined,true); 
@@ -698,7 +728,8 @@ module.exports = function(RED) {
 
 			svc.describeLoadBasedAutoScaling(params,cb);
 		}
-			service.DescribeMyUserProfile=function(svc,msg,cb){
+		
+		service.DescribeMyUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -707,7 +738,8 @@ module.exports = function(RED) {
 
 			svc.describeMyUserProfile(params,cb);
 		}
-			service.DescribeOperatingSystems=function(svc,msg,cb){
+		
+		service.DescribeOperatingSystems=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -716,7 +748,8 @@ module.exports = function(RED) {
 
 			svc.describeOperatingSystems(params,cb);
 		}
-			service.DescribePermissions=function(svc,msg,cb){
+		
+		service.DescribePermissions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -729,7 +762,8 @@ module.exports = function(RED) {
 
 			svc.describePermissions(params,cb);
 		}
-			service.DescribeRaidArrays=function(svc,msg,cb){
+		
+		service.DescribeRaidArrays=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -744,7 +778,8 @@ module.exports = function(RED) {
 
 			svc.describeRaidArrays(params,cb);
 		}
-			service.DescribeRdsDbInstances=function(svc,msg,cb){
+		
+		service.DescribeRdsDbInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -758,7 +793,8 @@ module.exports = function(RED) {
 
 			svc.describeRdsDbInstances(params,cb);
 		}
-			service.DescribeServiceErrors=function(svc,msg,cb){
+		
+		service.DescribeServiceErrors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -773,7 +809,8 @@ module.exports = function(RED) {
 
 			svc.describeServiceErrors(params,cb);
 		}
-			service.DescribeStackProvisioningParameters=function(svc,msg,cb){
+		
+		service.DescribeStackProvisioningParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -785,7 +822,8 @@ module.exports = function(RED) {
 
 			svc.describeStackProvisioningParameters(params,cb);
 		}
-			service.DescribeStackSummary=function(svc,msg,cb){
+		
+		service.DescribeStackSummary=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -797,7 +835,8 @@ module.exports = function(RED) {
 
 			svc.describeStackSummary(params,cb);
 		}
-			service.DescribeStacks=function(svc,msg,cb){
+		
+		service.DescribeStacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -808,7 +847,8 @@ module.exports = function(RED) {
 
 			svc.describeStacks(params,cb);
 		}
-			service.DescribeTimeBasedAutoScaling=function(svc,msg,cb){
+		
+		service.DescribeTimeBasedAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
@@ -820,7 +860,8 @@ module.exports = function(RED) {
 
 			svc.describeTimeBasedAutoScaling(params,cb);
 		}
-			service.DescribeUserProfiles=function(svc,msg,cb){
+		
+		service.DescribeUserProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -831,7 +872,8 @@ module.exports = function(RED) {
 
 			svc.describeUserProfiles(params,cb);
 		}
-			service.DescribeVolumes=function(svc,msg,cb){
+		
+		service.DescribeVolumes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -848,7 +890,8 @@ module.exports = function(RED) {
 
 			svc.describeVolumes(params,cb);
 		}
-			service.DetachElasticLoadBalancer=function(svc,msg,cb){
+		
+		service.DetachElasticLoadBalancer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticLoadBalancerName",params,undefined,false); 
@@ -863,7 +906,8 @@ module.exports = function(RED) {
 
 			svc.detachElasticLoadBalancer(params,cb);
 		}
-			service.DisassociateElasticIp=function(svc,msg,cb){
+		
+		service.DisassociateElasticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticIp",params,undefined,false); 
@@ -875,7 +919,8 @@ module.exports = function(RED) {
 
 			svc.disassociateElasticIp(params,cb);
 		}
-			service.GetHostnameSuggestion=function(svc,msg,cb){
+		
+		service.GetHostnameSuggestion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LayerId",params,undefined,false); 
@@ -887,7 +932,8 @@ module.exports = function(RED) {
 
 			svc.getHostnameSuggestion(params,cb);
 		}
-			service.GrantAccess=function(svc,msg,cb){
+		
+		service.GrantAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -901,7 +947,8 @@ module.exports = function(RED) {
 
 			svc.grantAccess(params,cb);
 		}
-			service.ListTags=function(svc,msg,cb){
+		
+		service.ListTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -917,7 +964,8 @@ module.exports = function(RED) {
 
 			svc.listTags(params,cb);
 		}
-			service.RebootInstance=function(svc,msg,cb){
+		
+		service.RebootInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -929,7 +977,8 @@ module.exports = function(RED) {
 
 			svc.rebootInstance(params,cb);
 		}
-			service.RegisterEcsCluster=function(svc,msg,cb){
+		
+		service.RegisterEcsCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EcsClusterArn",params,undefined,false); 
@@ -944,7 +993,8 @@ module.exports = function(RED) {
 
 			svc.registerEcsCluster(params,cb);
 		}
-			service.RegisterElasticIp=function(svc,msg,cb){
+		
+		service.RegisterElasticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticIp",params,undefined,false); 
@@ -959,7 +1009,8 @@ module.exports = function(RED) {
 
 			svc.registerElasticIp(params,cb);
 		}
-			service.RegisterInstance=function(svc,msg,cb){
+		
+		service.RegisterInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -983,7 +1034,8 @@ module.exports = function(RED) {
 
 			svc.registerInstance(params,cb);
 		}
-			service.RegisterRdsDbInstance=function(svc,msg,cb){
+		
+		service.RegisterRdsDbInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1004,7 +1056,8 @@ module.exports = function(RED) {
 
 			svc.registerRdsDbInstance(params,cb);
 		}
-			service.RegisterVolume=function(svc,msg,cb){
+		
+		service.RegisterVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1018,7 +1071,8 @@ module.exports = function(RED) {
 
 			svc.registerVolume(params,cb);
 		}
-			service.SetLoadBasedAutoScaling=function(svc,msg,cb){
+		
+		service.SetLoadBasedAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LayerId",params,undefined,false); 
@@ -1036,7 +1090,8 @@ module.exports = function(RED) {
 
 			svc.setLoadBasedAutoScaling(params,cb);
 		}
-			service.SetPermission=function(svc,msg,cb){
+		
+		service.SetPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1057,7 +1112,8 @@ module.exports = function(RED) {
 
 			svc.setPermission(params,cb);
 		}
-			service.SetTimeBasedAutoScaling=function(svc,msg,cb){
+		
+		service.SetTimeBasedAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1071,7 +1127,8 @@ module.exports = function(RED) {
 
 			svc.setTimeBasedAutoScaling(params,cb);
 		}
-			service.StartInstance=function(svc,msg,cb){
+		
+		service.StartInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1083,7 +1140,8 @@ module.exports = function(RED) {
 
 			svc.startInstance(params,cb);
 		}
-			service.StartStack=function(svc,msg,cb){
+		
+		service.StartStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1095,7 +1153,8 @@ module.exports = function(RED) {
 
 			svc.startStack(params,cb);
 		}
-			service.StopInstance=function(svc,msg,cb){
+		
+		service.StopInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1109,7 +1168,8 @@ module.exports = function(RED) {
 
 			svc.stopInstance(params,cb);
 		}
-			service.StopStack=function(svc,msg,cb){
+		
+		service.StopStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1121,7 +1181,8 @@ module.exports = function(RED) {
 
 			svc.stopStack(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1136,7 +1197,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UnassignInstance=function(svc,msg,cb){
+		
+		service.UnassignInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1148,7 +1210,8 @@ module.exports = function(RED) {
 
 			svc.unassignInstance(params,cb);
 		}
-			service.UnassignVolume=function(svc,msg,cb){
+		
+		service.UnassignVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeId",params,undefined,false); 
@@ -1160,7 +1223,8 @@ module.exports = function(RED) {
 
 			svc.unassignVolume(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1175,7 +1239,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateApp=function(svc,msg,cb){
+		
+		service.UpdateApp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppId",params,undefined,false); 
@@ -1207,7 +1272,8 @@ module.exports = function(RED) {
 
 			svc.updateApp(params,cb);
 		}
-			service.UpdateElasticIp=function(svc,msg,cb){
+		
+		service.UpdateElasticIp=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ElasticIp",params,undefined,false); 
@@ -1221,7 +1287,8 @@ module.exports = function(RED) {
 
 			svc.updateElasticIp(params,cb);
 		}
-			service.UpdateInstance=function(svc,msg,cb){
+		
+		service.UpdateInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1255,7 +1322,8 @@ module.exports = function(RED) {
 
 			svc.updateInstance(params,cb);
 		}
-			service.UpdateLayer=function(svc,msg,cb){
+		
+		service.UpdateLayer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LayerId",params,undefined,false); 
@@ -1299,7 +1367,8 @@ module.exports = function(RED) {
 
 			svc.updateLayer(params,cb);
 		}
-			service.UpdateMyUserProfile=function(svc,msg,cb){
+		
+		service.UpdateMyUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1310,7 +1379,8 @@ module.exports = function(RED) {
 
 			svc.updateMyUserProfile(params,cb);
 		}
-			service.UpdateRdsDbInstance=function(svc,msg,cb){
+		
+		service.UpdateRdsDbInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RdsDbInstanceArn",params,undefined,false); 
@@ -1326,7 +1396,8 @@ module.exports = function(RED) {
 
 			svc.updateRdsDbInstance(params,cb);
 		}
-			service.UpdateStack=function(svc,msg,cb){
+		
+		service.UpdateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackId",params,undefined,false); 
@@ -1372,7 +1443,8 @@ module.exports = function(RED) {
 
 			svc.updateStack(params,cb);
 		}
-			service.UpdateUserProfile=function(svc,msg,cb){
+		
+		service.UpdateUserProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IamUserArn",params,undefined,false); 
@@ -1390,7 +1462,8 @@ module.exports = function(RED) {
 
 			svc.updateUserProfile(params,cb);
 		}
-			service.UpdateVolume=function(svc,msg,cb){
+		
+		service.UpdateVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeId",params,undefined,false); 
@@ -1406,6 +1479,7 @@ module.exports = function(RED) {
 
 			svc.updateVolume(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS OpsWorks", AmazonAPINode);

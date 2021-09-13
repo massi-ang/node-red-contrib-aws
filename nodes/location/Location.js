@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateTrackerConsumer=function(svc,msg,cb){
+		service.AssociateTrackerConsumer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConsumerArn",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateTrackerConsumer(params,cb);
 		}
-			service.BatchDeleteDevicePositionHistory=function(svc,msg,cb){
+		
+		service.BatchDeleteDevicePositionHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceIds",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteDevicePositionHistory(params,cb);
 		}
-			service.BatchDeleteGeofence=function(svc,msg,cb){
+		
+		service.BatchDeleteGeofence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -138,7 +140,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteGeofence(params,cb);
 		}
-			service.BatchEvaluateGeofences=function(svc,msg,cb){
+		
+		service.BatchEvaluateGeofences=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -153,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.batchEvaluateGeofences(params,cb);
 		}
-			service.BatchGetDevicePosition=function(svc,msg,cb){
+		
+		service.BatchGetDevicePosition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceIds",params,undefined,false); 
@@ -168,7 +172,8 @@ module.exports = function(RED) {
 
 			svc.batchGetDevicePosition(params,cb);
 		}
-			service.BatchPutGeofence=function(svc,msg,cb){
+		
+		service.BatchPutGeofence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -183,7 +188,8 @@ module.exports = function(RED) {
 
 			svc.batchPutGeofence(params,cb);
 		}
-			service.BatchUpdateDevicePosition=function(svc,msg,cb){
+		
+		service.BatchUpdateDevicePosition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -198,7 +204,8 @@ module.exports = function(RED) {
 
 			svc.batchUpdateDevicePosition(params,cb);
 		}
-			service.CalculateRoute=function(svc,msg,cb){
+		
+		service.CalculateRoute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalculatorName",params,undefined,false); 
@@ -232,7 +239,8 @@ module.exports = function(RED) {
 
 			svc.calculateRoute(params,cb);
 		}
-			service.CreateGeofenceCollection=function(svc,msg,cb){
+		
+		service.CreateGeofenceCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -255,7 +263,8 @@ module.exports = function(RED) {
 
 			svc.createGeofenceCollection(params,cb);
 		}
-			service.CreateMap=function(svc,msg,cb){
+		
+		service.CreateMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Configuration",params,undefined,true); 
@@ -277,7 +286,8 @@ module.exports = function(RED) {
 
 			svc.createMap(params,cb);
 		}
-			service.CreatePlaceIndex=function(svc,msg,cb){
+		
+		service.CreatePlaceIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSource",params,undefined,false); 
@@ -301,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.createPlaceIndex(params,cb);
 		}
-			service.CreateRouteCalculator=function(svc,msg,cb){
+		
+		service.CreateRouteCalculator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalculatorName",params,undefined,false); 
@@ -323,7 +334,8 @@ module.exports = function(RED) {
 
 			svc.createRouteCalculator(params,cb);
 		}
-			service.CreateTracker=function(svc,msg,cb){
+		
+		service.CreateTracker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PricingPlan",params,undefined,false); 
@@ -346,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.createTracker(params,cb);
 		}
-			service.DeleteGeofenceCollection=function(svc,msg,cb){
+		
+		service.DeleteGeofenceCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -358,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.deleteGeofenceCollection(params,cb);
 		}
-			service.DeleteMap=function(svc,msg,cb){
+		
+		service.DeleteMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MapName",params,undefined,false); 
@@ -370,7 +384,8 @@ module.exports = function(RED) {
 
 			svc.deleteMap(params,cb);
 		}
-			service.DeletePlaceIndex=function(svc,msg,cb){
+		
+		service.DeletePlaceIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexName",params,undefined,false); 
@@ -382,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.deletePlaceIndex(params,cb);
 		}
-			service.DeleteRouteCalculator=function(svc,msg,cb){
+		
+		service.DeleteRouteCalculator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalculatorName",params,undefined,false); 
@@ -394,7 +410,8 @@ module.exports = function(RED) {
 
 			svc.deleteRouteCalculator(params,cb);
 		}
-			service.DeleteTracker=function(svc,msg,cb){
+		
+		service.DeleteTracker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -406,7 +423,8 @@ module.exports = function(RED) {
 
 			svc.deleteTracker(params,cb);
 		}
-			service.DescribeGeofenceCollection=function(svc,msg,cb){
+		
+		service.DescribeGeofenceCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -418,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.describeGeofenceCollection(params,cb);
 		}
-			service.DescribeMap=function(svc,msg,cb){
+		
+		service.DescribeMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MapName",params,undefined,false); 
@@ -430,7 +449,8 @@ module.exports = function(RED) {
 
 			svc.describeMap(params,cb);
 		}
-			service.DescribePlaceIndex=function(svc,msg,cb){
+		
+		service.DescribePlaceIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexName",params,undefined,false); 
@@ -442,7 +462,8 @@ module.exports = function(RED) {
 
 			svc.describePlaceIndex(params,cb);
 		}
-			service.DescribeRouteCalculator=function(svc,msg,cb){
+		
+		service.DescribeRouteCalculator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalculatorName",params,undefined,false); 
@@ -454,7 +475,8 @@ module.exports = function(RED) {
 
 			svc.describeRouteCalculator(params,cb);
 		}
-			service.DescribeTracker=function(svc,msg,cb){
+		
+		service.DescribeTracker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -466,7 +488,8 @@ module.exports = function(RED) {
 
 			svc.describeTracker(params,cb);
 		}
-			service.DisassociateTrackerConsumer=function(svc,msg,cb){
+		
+		service.DisassociateTrackerConsumer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConsumerArn",params,undefined,false); 
@@ -481,7 +504,8 @@ module.exports = function(RED) {
 
 			svc.disassociateTrackerConsumer(params,cb);
 		}
-			service.GetDevicePosition=function(svc,msg,cb){
+		
+		service.GetDevicePosition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceId",params,undefined,false); 
@@ -496,7 +520,8 @@ module.exports = function(RED) {
 
 			svc.getDevicePosition(params,cb);
 		}
-			service.GetDevicePositionHistory=function(svc,msg,cb){
+		
+		service.GetDevicePositionHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DeviceId",params,undefined,false); 
@@ -517,7 +542,8 @@ module.exports = function(RED) {
 
 			svc.getDevicePositionHistory(params,cb);
 		}
-			service.GetGeofence=function(svc,msg,cb){
+		
+		service.GetGeofence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -532,7 +558,8 @@ module.exports = function(RED) {
 
 			svc.getGeofence(params,cb);
 		}
-			service.GetMapGlyphs=function(svc,msg,cb){
+		
+		service.GetMapGlyphs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FontStack",params,undefined,false); 
@@ -550,7 +577,8 @@ module.exports = function(RED) {
 
 			svc.getMapGlyphs(params,cb);
 		}
-			service.GetMapSprites=function(svc,msg,cb){
+		
+		service.GetMapSprites=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileName",params,undefined,false); 
@@ -565,7 +593,8 @@ module.exports = function(RED) {
 
 			svc.getMapSprites(params,cb);
 		}
-			service.GetMapStyleDescriptor=function(svc,msg,cb){
+		
+		service.GetMapStyleDescriptor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MapName",params,undefined,false); 
@@ -577,7 +606,8 @@ module.exports = function(RED) {
 
 			svc.getMapStyleDescriptor(params,cb);
 		}
-			service.GetMapTile=function(svc,msg,cb){
+		
+		service.GetMapTile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MapName",params,undefined,false); 
@@ -598,7 +628,8 @@ module.exports = function(RED) {
 
 			svc.getMapTile(params,cb);
 		}
-			service.ListDevicePositions=function(svc,msg,cb){
+		
+		service.ListDevicePositions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -614,7 +645,8 @@ module.exports = function(RED) {
 
 			svc.listDevicePositions(params,cb);
 		}
-			service.ListGeofenceCollections=function(svc,msg,cb){
+		
+		service.ListGeofenceCollections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -627,7 +659,8 @@ module.exports = function(RED) {
 
 			svc.listGeofenceCollections(params,cb);
 		}
-			service.ListGeofences=function(svc,msg,cb){
+		
+		service.ListGeofences=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -641,7 +674,8 @@ module.exports = function(RED) {
 
 			svc.listGeofences(params,cb);
 		}
-			service.ListMaps=function(svc,msg,cb){
+		
+		service.ListMaps=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -654,7 +688,8 @@ module.exports = function(RED) {
 
 			svc.listMaps(params,cb);
 		}
-			service.ListPlaceIndexes=function(svc,msg,cb){
+		
+		service.ListPlaceIndexes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -667,7 +702,8 @@ module.exports = function(RED) {
 
 			svc.listPlaceIndexes(params,cb);
 		}
-			service.ListRouteCalculators=function(svc,msg,cb){
+		
+		service.ListRouteCalculators=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -680,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.listRouteCalculators(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -692,7 +729,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTrackerConsumers=function(svc,msg,cb){
+		
+		service.ListTrackerConsumers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -708,7 +746,8 @@ module.exports = function(RED) {
 
 			svc.listTrackerConsumers(params,cb);
 		}
-			service.ListTrackers=function(svc,msg,cb){
+		
+		service.ListTrackers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -721,7 +760,8 @@ module.exports = function(RED) {
 
 			svc.listTrackers(params,cb);
 		}
-			service.PutGeofence=function(svc,msg,cb){
+		
+		service.PutGeofence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -739,7 +779,8 @@ module.exports = function(RED) {
 
 			svc.putGeofence(params,cb);
 		}
-			service.SearchPlaceIndexForPosition=function(svc,msg,cb){
+		
+		service.SearchPlaceIndexForPosition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexName",params,undefined,false); 
@@ -756,7 +797,8 @@ module.exports = function(RED) {
 
 			svc.searchPlaceIndexForPosition(params,cb);
 		}
-			service.SearchPlaceIndexForText=function(svc,msg,cb){
+		
+		service.SearchPlaceIndexForText=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexName",params,undefined,false); 
@@ -779,7 +821,8 @@ module.exports = function(RED) {
 
 			svc.searchPlaceIndexForText(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -794,7 +837,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -809,7 +853,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateGeofenceCollection=function(svc,msg,cb){
+		
+		service.UpdateGeofenceCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionName",params,undefined,false); 
@@ -827,7 +872,8 @@ module.exports = function(RED) {
 
 			svc.updateGeofenceCollection(params,cb);
 		}
-			service.UpdateMap=function(svc,msg,cb){
+		
+		service.UpdateMap=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MapName",params,undefined,false); 
@@ -843,7 +889,8 @@ module.exports = function(RED) {
 
 			svc.updateMap(params,cb);
 		}
-			service.UpdatePlaceIndex=function(svc,msg,cb){
+		
+		service.UpdatePlaceIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IndexName",params,undefined,false); 
@@ -861,7 +908,8 @@ module.exports = function(RED) {
 
 			svc.updatePlaceIndex(params,cb);
 		}
-			service.UpdateRouteCalculator=function(svc,msg,cb){
+		
+		service.UpdateRouteCalculator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalculatorName",params,undefined,false); 
@@ -877,7 +925,8 @@ module.exports = function(RED) {
 
 			svc.updateRouteCalculator(params,cb);
 		}
-			service.UpdateTracker=function(svc,msg,cb){
+		
+		service.UpdateTracker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrackerName",params,undefined,false); 
@@ -895,6 +944,7 @@ module.exports = function(RED) {
 
 			svc.updateTracker(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Location", AmazonAPINode);

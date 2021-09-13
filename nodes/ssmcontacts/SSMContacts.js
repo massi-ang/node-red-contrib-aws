@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptPage=function(svc,msg,cb){
+		service.AcceptPage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PageId",params,undefined,false); 
@@ -117,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.acceptPage(params,cb);
 		}
-			service.ActivateContactChannel=function(svc,msg,cb){
+		
+		service.ActivateContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -132,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.activateContactChannel(params,cb);
 		}
-			service.CreateContact=function(svc,msg,cb){
+		
+		service.CreateContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Alias",params,undefined,false); 
@@ -156,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.createContact(params,cb);
 		}
-			service.CreateContactChannel=function(svc,msg,cb){
+		
+		service.CreateContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -181,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.createContactChannel(params,cb);
 		}
-			service.DeactivateContactChannel=function(svc,msg,cb){
+		
+		service.DeactivateContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -193,7 +197,8 @@ module.exports = function(RED) {
 
 			svc.deactivateContactChannel(params,cb);
 		}
-			service.DeleteContact=function(svc,msg,cb){
+		
+		service.DeleteContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -205,7 +210,8 @@ module.exports = function(RED) {
 
 			svc.deleteContact(params,cb);
 		}
-			service.DeleteContactChannel=function(svc,msg,cb){
+		
+		service.DeleteContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -217,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.deleteContactChannel(params,cb);
 		}
-			service.DescribeEngagement=function(svc,msg,cb){
+		
+		service.DescribeEngagement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EngagementId",params,undefined,false); 
@@ -229,7 +236,8 @@ module.exports = function(RED) {
 
 			svc.describeEngagement(params,cb);
 		}
-			service.DescribePage=function(svc,msg,cb){
+		
+		service.DescribePage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PageId",params,undefined,false); 
@@ -241,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.describePage(params,cb);
 		}
-			service.GetContact=function(svc,msg,cb){
+		
+		service.GetContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -253,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.getContact(params,cb);
 		}
-			service.GetContactChannel=function(svc,msg,cb){
+		
+		service.GetContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -265,7 +275,8 @@ module.exports = function(RED) {
 
 			svc.getContactChannel(params,cb);
 		}
-			service.GetContactPolicy=function(svc,msg,cb){
+		
+		service.GetContactPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactArn",params,undefined,false); 
@@ -277,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.getContactPolicy(params,cb);
 		}
-			service.ListContactChannels=function(svc,msg,cb){
+		
+		service.ListContactChannels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -293,7 +305,8 @@ module.exports = function(RED) {
 
 			svc.listContactChannels(params,cb);
 		}
-			service.ListContacts=function(svc,msg,cb){
+		
+		service.ListContacts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -310,7 +323,8 @@ module.exports = function(RED) {
 
 			svc.listContacts(params,cb);
 		}
-			service.ListEngagements=function(svc,msg,cb){
+		
+		service.ListEngagements=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -327,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.listEngagements(params,cb);
 		}
-			service.ListPageReceipts=function(svc,msg,cb){
+		
+		service.ListPageReceipts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PageId",params,undefined,false); 
@@ -343,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.listPageReceipts(params,cb);
 		}
-			service.ListPagesByContact=function(svc,msg,cb){
+		
+		service.ListPagesByContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -359,7 +375,8 @@ module.exports = function(RED) {
 
 			svc.listPagesByContact(params,cb);
 		}
-			service.ListPagesByEngagement=function(svc,msg,cb){
+		
+		service.ListPagesByEngagement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EngagementId",params,undefined,false); 
@@ -375,7 +392,8 @@ module.exports = function(RED) {
 
 			svc.listPagesByEngagement(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -387,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutContactPolicy=function(svc,msg,cb){
+		
+		service.PutContactPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactArn",params,undefined,false); 
@@ -402,7 +421,8 @@ module.exports = function(RED) {
 
 			svc.putContactPolicy(params,cb);
 		}
-			service.SendActivationCode=function(svc,msg,cb){
+		
+		service.SendActivationCode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -414,7 +434,8 @@ module.exports = function(RED) {
 
 			svc.sendActivationCode(params,cb);
 		}
-			service.StartEngagement=function(svc,msg,cb){
+		
+		service.StartEngagement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -443,7 +464,8 @@ module.exports = function(RED) {
 
 			svc.startEngagement(params,cb);
 		}
-			service.StopEngagement=function(svc,msg,cb){
+		
+		service.StopEngagement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EngagementId",params,undefined,false); 
@@ -457,7 +479,8 @@ module.exports = function(RED) {
 
 			svc.stopEngagement(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -472,7 +495,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -487,7 +511,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateContact=function(svc,msg,cb){
+		
+		service.UpdateContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactId",params,undefined,false); 
@@ -503,7 +528,8 @@ module.exports = function(RED) {
 
 			svc.updateContact(params,cb);
 		}
-			service.UpdateContactChannel=function(svc,msg,cb){
+		
+		service.UpdateContactChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContactChannelId",params,undefined,false); 
@@ -519,6 +545,7 @@ module.exports = function(RED) {
 
 			svc.updateContactChannel(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SSMContacts", AmazonAPINode);

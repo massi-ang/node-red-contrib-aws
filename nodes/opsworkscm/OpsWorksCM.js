@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateNode=function(svc,msg,cb){
+		service.AssociateNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.associateNode(params,cb);
 		}
-			service.CreateBackup=function(svc,msg,cb){
+		
+		service.CreateBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.createBackup(params,cb);
 		}
-			service.CreateServer=function(svc,msg,cb){
+		
+		service.CreateServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Engine",params,undefined,false); 
@@ -183,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.createServer(params,cb);
 		}
-			service.DeleteBackup=function(svc,msg,cb){
+		
+		service.DeleteBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BackupId",params,undefined,false); 
@@ -195,7 +198,8 @@ module.exports = function(RED) {
 
 			svc.deleteBackup(params,cb);
 		}
-			service.DeleteServer=function(svc,msg,cb){
+		
+		service.DeleteServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -207,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.deleteServer(params,cb);
 		}
-			service.DescribeAccountAttributes=function(svc,msg,cb){
+		
+		service.DescribeAccountAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -216,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.describeAccountAttributes(params,cb);
 		}
-			service.DescribeBackups=function(svc,msg,cb){
+		
+		service.DescribeBackups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -233,7 +239,8 @@ module.exports = function(RED) {
 
 			svc.describeBackups(params,cb);
 		}
-			service.DescribeEvents=function(svc,msg,cb){
+		
+		service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -249,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-			service.DescribeNodeAssociationStatus=function(svc,msg,cb){
+		
+		service.DescribeNodeAssociationStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NodeAssociationStatusToken",params,undefined,false); 
@@ -264,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.describeNodeAssociationStatus(params,cb);
 		}
-			service.DescribeServers=function(svc,msg,cb){
+		
+		service.DescribeServers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -279,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.describeServers(params,cb);
 		}
-			service.DisassociateNode=function(svc,msg,cb){
+		
+		service.DisassociateNode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -296,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.disassociateNode(params,cb);
 		}
-			service.ExportServerEngineAttribute=function(svc,msg,cb){
+		
+		service.ExportServerEngineAttribute=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExportAttributeName",params,undefined,false); 
@@ -313,7 +324,8 @@ module.exports = function(RED) {
 
 			svc.exportServerEngineAttribute(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -329,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RestoreServer=function(svc,msg,cb){
+		
+		service.RestoreServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BackupId",params,undefined,false); 
@@ -348,7 +361,8 @@ module.exports = function(RED) {
 
 			svc.restoreServer(params,cb);
 		}
-			service.StartMaintenance=function(svc,msg,cb){
+		
+		service.StartMaintenance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -362,7 +376,8 @@ module.exports = function(RED) {
 
 			svc.startMaintenance(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -377,7 +392,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -392,7 +408,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateServer=function(svc,msg,cb){
+		
+		service.UpdateServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -412,7 +429,8 @@ module.exports = function(RED) {
 
 			svc.updateServer(params,cb);
 		}
-			service.UpdateServerEngineAttributes=function(svc,msg,cb){
+		
+		service.UpdateServerEngineAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerName",params,undefined,false); 
@@ -429,6 +447,7 @@ module.exports = function(RED) {
 
 			svc.updateServerEngineAttributes(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS OpsWorksCM", AmazonAPINode);

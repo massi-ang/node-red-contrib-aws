@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateKmsKey=function(svc,msg,cb){
+		service.AssociateKmsKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateKmsKey(params,cb);
 		}
-			service.CancelExportTask=function(svc,msg,cb){
+		
+		service.CancelExportTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -120,7 +121,8 @@ module.exports = function(RED) {
 
 			svc.cancelExportTask(params,cb);
 		}
-			service.CreateExportTask=function(svc,msg,cb){
+		
+		service.CreateExportTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -147,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.createExportTask(params,cb);
 		}
-			service.CreateLogGroup=function(svc,msg,cb){
+		
+		service.CreateLogGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -163,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.createLogGroup(params,cb);
 		}
-			service.CreateLogStream=function(svc,msg,cb){
+		
+		service.CreateLogStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -178,7 +182,8 @@ module.exports = function(RED) {
 
 			svc.createLogStream(params,cb);
 		}
-			service.DeleteDestination=function(svc,msg,cb){
+		
+		service.DeleteDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"destinationName",params,undefined,false); 
@@ -190,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.deleteDestination(params,cb);
 		}
-			service.DeleteLogGroup=function(svc,msg,cb){
+		
+		service.DeleteLogGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -202,7 +208,8 @@ module.exports = function(RED) {
 
 			svc.deleteLogGroup(params,cb);
 		}
-			service.DeleteLogStream=function(svc,msg,cb){
+		
+		service.DeleteLogStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -217,7 +224,8 @@ module.exports = function(RED) {
 
 			svc.deleteLogStream(params,cb);
 		}
-			service.DeleteMetricFilter=function(svc,msg,cb){
+		
+		service.DeleteMetricFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -232,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.deleteMetricFilter(params,cb);
 		}
-			service.DeleteQueryDefinition=function(svc,msg,cb){
+		
+		service.DeleteQueryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryDefinitionId",params,undefined,false); 
@@ -244,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.deleteQueryDefinition(params,cb);
 		}
-			service.DeleteResourcePolicy=function(svc,msg,cb){
+		
+		service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -255,7 +265,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-			service.DeleteRetentionPolicy=function(svc,msg,cb){
+		
+		service.DeleteRetentionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -267,7 +278,8 @@ module.exports = function(RED) {
 
 			svc.deleteRetentionPolicy(params,cb);
 		}
-			service.DeleteSubscriptionFilter=function(svc,msg,cb){
+		
+		service.DeleteSubscriptionFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -282,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.deleteSubscriptionFilter(params,cb);
 		}
-			service.DescribeDestinations=function(svc,msg,cb){
+		
+		service.DescribeDestinations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -297,7 +310,8 @@ module.exports = function(RED) {
 
 			svc.describeDestinations(params,cb);
 		}
-			service.DescribeExportTasks=function(svc,msg,cb){
+		
+		service.DescribeExportTasks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -314,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.describeExportTasks(params,cb);
 		}
-			service.DescribeLogGroups=function(svc,msg,cb){
+		
+		service.DescribeLogGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -329,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.describeLogGroups(params,cb);
 		}
-			service.DescribeLogStreams=function(svc,msg,cb){
+		
+		service.DescribeLogStreams=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -351,7 +367,8 @@ module.exports = function(RED) {
 
 			svc.describeLogStreams(params,cb);
 		}
-			service.DescribeMetricFilters=function(svc,msg,cb){
+		
+		service.DescribeMetricFilters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -372,7 +389,8 @@ module.exports = function(RED) {
 
 			svc.describeMetricFilters(params,cb);
 		}
-			service.DescribeQueries=function(svc,msg,cb){
+		
+		service.DescribeQueries=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -389,7 +407,8 @@ module.exports = function(RED) {
 
 			svc.describeQueries(params,cb);
 		}
-			service.DescribeQueryDefinitions=function(svc,msg,cb){
+		
+		service.DescribeQueryDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -404,7 +423,8 @@ module.exports = function(RED) {
 
 			svc.describeQueryDefinitions(params,cb);
 		}
-			service.DescribeResourcePolicies=function(svc,msg,cb){
+		
+		service.DescribeResourcePolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -417,7 +437,8 @@ module.exports = function(RED) {
 
 			svc.describeResourcePolicies(params,cb);
 		}
-			service.DescribeSubscriptionFilters=function(svc,msg,cb){
+		
+		service.DescribeSubscriptionFilters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -435,7 +456,8 @@ module.exports = function(RED) {
 
 			svc.describeSubscriptionFilters(params,cb);
 		}
-			service.DisassociateKmsKey=function(svc,msg,cb){
+		
+		service.DisassociateKmsKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -447,7 +469,8 @@ module.exports = function(RED) {
 
 			svc.disassociateKmsKey(params,cb);
 		}
-			service.FilterLogEvents=function(svc,msg,cb){
+		
+		service.FilterLogEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -475,7 +498,8 @@ module.exports = function(RED) {
 
 			svc.filterLogEvents(params,cb);
 		}
-			service.GetLogEvents=function(svc,msg,cb){
+		
+		service.GetLogEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -500,7 +524,8 @@ module.exports = function(RED) {
 
 			svc.getLogEvents(params,cb);
 		}
-			service.GetLogGroupFields=function(svc,msg,cb){
+		
+		service.GetLogGroupFields=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -514,7 +539,8 @@ module.exports = function(RED) {
 
 			svc.getLogGroupFields(params,cb);
 		}
-			service.GetLogRecord=function(svc,msg,cb){
+		
+		service.GetLogRecord=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logRecordPointer",params,undefined,false); 
@@ -526,7 +552,8 @@ module.exports = function(RED) {
 
 			svc.getLogRecord(params,cb);
 		}
-			service.GetQueryResults=function(svc,msg,cb){
+		
+		service.GetQueryResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryId",params,undefined,false); 
@@ -538,7 +565,8 @@ module.exports = function(RED) {
 
 			svc.getQueryResults(params,cb);
 		}
-			service.ListTagsLogGroup=function(svc,msg,cb){
+		
+		service.ListTagsLogGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -550,7 +578,8 @@ module.exports = function(RED) {
 
 			svc.listTagsLogGroup(params,cb);
 		}
-			service.PutDestination=function(svc,msg,cb){
+		
+		service.PutDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"destinationName",params,undefined,false); 
@@ -568,7 +597,8 @@ module.exports = function(RED) {
 
 			svc.putDestination(params,cb);
 		}
-			service.PutDestinationPolicy=function(svc,msg,cb){
+		
+		service.PutDestinationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"destinationName",params,undefined,false); 
@@ -583,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.putDestinationPolicy(params,cb);
 		}
-			service.PutLogEvents=function(svc,msg,cb){
+		
+		service.PutLogEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -603,7 +634,8 @@ module.exports = function(RED) {
 
 			svc.putLogEvents(params,cb);
 		}
-			service.PutMetricFilter=function(svc,msg,cb){
+		
+		service.PutMetricFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -624,7 +656,8 @@ module.exports = function(RED) {
 
 			svc.putMetricFilter(params,cb);
 		}
-			service.PutQueryDefinition=function(svc,msg,cb){
+		
+		service.PutQueryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -643,7 +676,8 @@ module.exports = function(RED) {
 
 			svc.putQueryDefinition(params,cb);
 		}
-			service.PutResourcePolicy=function(svc,msg,cb){
+		
+		service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -656,7 +690,8 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-			service.PutRetentionPolicy=function(svc,msg,cb){
+		
+		service.PutRetentionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -671,7 +706,8 @@ module.exports = function(RED) {
 
 			svc.putRetentionPolicy(params,cb);
 		}
-			service.PutSubscriptionFilter=function(svc,msg,cb){
+		
+		service.PutSubscriptionFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -696,7 +732,8 @@ module.exports = function(RED) {
 
 			svc.putSubscriptionFilter(params,cb);
 		}
-			service.StartQuery=function(svc,msg,cb){
+		
+		service.StartQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTime",params,undefined,false); 
@@ -720,7 +757,8 @@ module.exports = function(RED) {
 
 			svc.startQuery(params,cb);
 		}
-			service.StopQuery=function(svc,msg,cb){
+		
+		service.StopQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"queryId",params,undefined,false); 
@@ -732,7 +770,8 @@ module.exports = function(RED) {
 
 			svc.stopQuery(params,cb);
 		}
-			service.TagLogGroup=function(svc,msg,cb){
+		
+		service.TagLogGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -747,7 +786,8 @@ module.exports = function(RED) {
 
 			svc.tagLogGroup(params,cb);
 		}
-			service.TestMetricFilter=function(svc,msg,cb){
+		
+		service.TestMetricFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filterPattern",params,undefined,false); 
@@ -762,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.testMetricFilter(params,cb);
 		}
-			service.UntagLogGroup=function(svc,msg,cb){
+		
+		service.UntagLogGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"logGroupName",params,undefined,false); 
@@ -777,6 +818,7 @@ module.exports = function(RED) {
 
 			svc.untagLogGroup(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudWatchLogs", AmazonAPINode);

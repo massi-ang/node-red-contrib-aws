@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelJob=function(svc,msg,cb){
+		service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-			service.CreateDataSet=function(svc,msg,cb){
+		
+		service.CreateDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssetType",params,undefined,false); 
@@ -125,7 +126,8 @@ module.exports = function(RED) {
 
 			svc.createDataSet(params,cb);
 		}
-			service.CreateJob=function(svc,msg,cb){
+		
+		service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -140,7 +142,8 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-			service.CreateRevision=function(svc,msg,cb){
+		
+		service.CreateRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -156,7 +159,8 @@ module.exports = function(RED) {
 
 			svc.createRevision(params,cb);
 		}
-			service.DeleteAsset=function(svc,msg,cb){
+		
+		service.DeleteAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -174,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.deleteAsset(params,cb);
 		}
-			service.DeleteDataSet=function(svc,msg,cb){
+		
+		service.DeleteDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -186,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.deleteDataSet(params,cb);
 		}
-			service.DeleteRevision=function(svc,msg,cb){
+		
+		service.DeleteRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -201,7 +207,8 @@ module.exports = function(RED) {
 
 			svc.deleteRevision(params,cb);
 		}
-			service.GetAsset=function(svc,msg,cb){
+		
+		service.GetAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -219,7 +226,8 @@ module.exports = function(RED) {
 
 			svc.getAsset(params,cb);
 		}
-			service.GetDataSet=function(svc,msg,cb){
+		
+		service.GetDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -231,7 +239,8 @@ module.exports = function(RED) {
 
 			svc.getDataSet(params,cb);
 		}
-			service.GetJob=function(svc,msg,cb){
+		
+		service.GetJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -243,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.getJob(params,cb);
 		}
-			service.GetRevision=function(svc,msg,cb){
+		
+		service.GetRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -258,7 +268,8 @@ module.exports = function(RED) {
 
 			svc.getRevision(params,cb);
 		}
-			service.ListDataSetRevisions=function(svc,msg,cb){
+		
+		service.ListDataSetRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -274,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.listDataSetRevisions(params,cb);
 		}
-			service.ListDataSets=function(svc,msg,cb){
+		
+		service.ListDataSets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -289,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.listDataSets(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -306,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListRevisionAssets=function(svc,msg,cb){
+		
+		service.ListRevisionAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -325,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.listRevisionAssets(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -337,7 +352,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartJob=function(svc,msg,cb){
+		
+		service.StartJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -349,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.startJob(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -364,7 +381,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,false); 
@@ -379,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAsset=function(svc,msg,cb){
+		
+		service.UpdateAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -400,7 +419,8 @@ module.exports = function(RED) {
 
 			svc.updateAsset(params,cb);
 		}
-			service.UpdateDataSet=function(svc,msg,cb){
+		
+		service.UpdateDataSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSetId",params,undefined,false); 
@@ -416,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.updateDataSet(params,cb);
 		}
-			service.UpdateRevision=function(svc,msg,cb){
+		
+		service.UpdateRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RevisionId",params,undefined,false); 
@@ -435,6 +456,7 @@ module.exports = function(RED) {
 
 			svc.updateRevision(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DataExchange", AmazonAPINode);

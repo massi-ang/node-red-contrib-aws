@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateChangeset=function(svc,msg,cb){
+		service.CreateChangeset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"datasetId",params,undefined,false); 
@@ -120,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.createChangeset(params,cb);
 		}
-			service.GetProgrammaticAccessCredentials=function(svc,msg,cb){
+		
+		service.GetProgrammaticAccessCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -134,7 +135,8 @@ module.exports = function(RED) {
 
 			svc.getProgrammaticAccessCredentials(params,cb);
 		}
-			service.GetWorkingLocation=function(svc,msg,cb){
+		
+		service.GetWorkingLocation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -145,6 +147,7 @@ module.exports = function(RED) {
 
 			svc.getWorkingLocation(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Finspacedata", AmazonAPINode);

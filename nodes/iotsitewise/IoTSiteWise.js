@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateAssets=function(svc,msg,cb){
+		service.AssociateAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.associateAssets(params,cb);
 		}
-			service.BatchAssociateProjectAssets=function(svc,msg,cb){
+		
+		service.BatchAssociateProjectAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -130,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.batchAssociateProjectAssets(params,cb);
 		}
-			service.BatchDisassociateProjectAssets=function(svc,msg,cb){
+		
+		service.BatchDisassociateProjectAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -147,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateProjectAssets(params,cb);
 		}
-			service.BatchPutAssetPropertyValue=function(svc,msg,cb){
+		
+		service.BatchPutAssetPropertyValue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"entries",params,undefined,false); 
@@ -159,7 +162,8 @@ module.exports = function(RED) {
 
 			svc.batchPutAssetPropertyValue(params,cb);
 		}
-			service.CreateAccessPolicy=function(svc,msg,cb){
+		
+		service.CreateAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPolicyIdentity",params,undefined,true); 
@@ -181,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.createAccessPolicy(params,cb);
 		}
-			service.CreateAsset=function(svc,msg,cb){
+		
+		service.CreateAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetName",params,undefined,false); 
@@ -200,7 +205,8 @@ module.exports = function(RED) {
 
 			svc.createAsset(params,cb);
 		}
-			service.CreateAssetModel=function(svc,msg,cb){
+		
+		service.CreateAssetModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetModelName",params,undefined,false); 
@@ -224,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.createAssetModel(params,cb);
 		}
-			service.CreateDashboard=function(svc,msg,cb){
+		
+		service.CreateDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -248,7 +255,8 @@ module.exports = function(RED) {
 
 			svc.createDashboard(params,cb);
 		}
-			service.CreateGateway=function(svc,msg,cb){
+		
+		service.CreateGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayName",params,undefined,false); 
@@ -265,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.createGateway(params,cb);
 		}
-			service.CreatePortal=function(svc,msg,cb){
+		
+		service.CreatePortal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalName",params,undefined,false); 
@@ -297,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.createPortal(params,cb);
 		}
-			service.CreateProject=function(svc,msg,cb){
+		
+		service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalId",params,undefined,false); 
@@ -318,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-			service.DeleteAccessPolicy=function(svc,msg,cb){
+		
+		service.DeleteAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPolicyId",params,undefined,false); 
@@ -332,7 +343,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccessPolicy(params,cb);
 		}
-			service.DeleteAsset=function(svc,msg,cb){
+		
+		service.DeleteAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -346,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.deleteAsset(params,cb);
 		}
-			service.DeleteAssetModel=function(svc,msg,cb){
+		
+		service.DeleteAssetModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetModelId",params,undefined,false); 
@@ -360,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.deleteAssetModel(params,cb);
 		}
-			service.DeleteDashboard=function(svc,msg,cb){
+		
+		service.DeleteDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dashboardId",params,undefined,false); 
@@ -374,7 +388,8 @@ module.exports = function(RED) {
 
 			svc.deleteDashboard(params,cb);
 		}
-			service.DeleteGateway=function(svc,msg,cb){
+		
+		service.DeleteGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayId",params,undefined,false); 
@@ -386,7 +401,8 @@ module.exports = function(RED) {
 
 			svc.deleteGateway(params,cb);
 		}
-			service.DeletePortal=function(svc,msg,cb){
+		
+		service.DeletePortal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalId",params,undefined,false); 
@@ -400,7 +416,8 @@ module.exports = function(RED) {
 
 			svc.deletePortal(params,cb);
 		}
-			service.DeleteProject=function(svc,msg,cb){
+		
+		service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -414,7 +431,8 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-			service.DescribeAccessPolicy=function(svc,msg,cb){
+		
+		service.DescribeAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPolicyId",params,undefined,false); 
@@ -426,7 +444,8 @@ module.exports = function(RED) {
 
 			svc.describeAccessPolicy(params,cb);
 		}
-			service.DescribeAsset=function(svc,msg,cb){
+		
+		service.DescribeAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -438,7 +457,8 @@ module.exports = function(RED) {
 
 			svc.describeAsset(params,cb);
 		}
-			service.DescribeAssetModel=function(svc,msg,cb){
+		
+		service.DescribeAssetModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetModelId",params,undefined,false); 
@@ -450,7 +470,8 @@ module.exports = function(RED) {
 
 			svc.describeAssetModel(params,cb);
 		}
-			service.DescribeAssetProperty=function(svc,msg,cb){
+		
+		service.DescribeAssetProperty=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -465,7 +486,8 @@ module.exports = function(RED) {
 
 			svc.describeAssetProperty(params,cb);
 		}
-			service.DescribeDashboard=function(svc,msg,cb){
+		
+		service.DescribeDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dashboardId",params,undefined,false); 
@@ -477,7 +499,8 @@ module.exports = function(RED) {
 
 			svc.describeDashboard(params,cb);
 		}
-			service.DescribeDefaultEncryptionConfiguration=function(svc,msg,cb){
+		
+		service.DescribeDefaultEncryptionConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -486,7 +509,8 @@ module.exports = function(RED) {
 
 			svc.describeDefaultEncryptionConfiguration(params,cb);
 		}
-			service.DescribeGateway=function(svc,msg,cb){
+		
+		service.DescribeGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayId",params,undefined,false); 
@@ -498,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.describeGateway(params,cb);
 		}
-			service.DescribeGatewayCapabilityConfiguration=function(svc,msg,cb){
+		
+		service.DescribeGatewayCapabilityConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayId",params,undefined,false); 
@@ -513,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.describeGatewayCapabilityConfiguration(params,cb);
 		}
-			service.DescribeLoggingOptions=function(svc,msg,cb){
+		
+		service.DescribeLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -522,7 +548,8 @@ module.exports = function(RED) {
 
 			svc.describeLoggingOptions(params,cb);
 		}
-			service.DescribePortal=function(svc,msg,cb){
+		
+		service.DescribePortal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalId",params,undefined,false); 
@@ -534,7 +561,8 @@ module.exports = function(RED) {
 
 			svc.describePortal(params,cb);
 		}
-			service.DescribeProject=function(svc,msg,cb){
+		
+		service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -546,7 +574,8 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-			service.DescribeStorageConfiguration=function(svc,msg,cb){
+		
+		service.DescribeStorageConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -555,7 +584,8 @@ module.exports = function(RED) {
 
 			svc.describeStorageConfiguration(params,cb);
 		}
-			service.DisassociateAssets=function(svc,msg,cb){
+		
+		service.DisassociateAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -575,7 +605,8 @@ module.exports = function(RED) {
 
 			svc.disassociateAssets(params,cb);
 		}
-			service.GetAssetPropertyAggregates=function(svc,msg,cb){
+		
+		service.GetAssetPropertyAggregates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"aggregateTypes",params,undefined,false); 
@@ -610,7 +641,8 @@ module.exports = function(RED) {
 
 			svc.getAssetPropertyAggregates(params,cb);
 		}
-			service.GetAssetPropertyValue=function(svc,msg,cb){
+		
+		service.GetAssetPropertyValue=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -625,7 +657,8 @@ module.exports = function(RED) {
 
 			svc.getAssetPropertyValue(params,cb);
 		}
-			service.GetAssetPropertyValueHistory=function(svc,msg,cb){
+		
+		service.GetAssetPropertyValueHistory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -652,7 +685,8 @@ module.exports = function(RED) {
 
 			svc.getAssetPropertyValueHistory(params,cb);
 		}
-			service.GetInterpolatedAssetPropertyValues=function(svc,msg,cb){
+		
+		service.GetInterpolatedAssetPropertyValues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"startTimeInSeconds",params,undefined,false); 
@@ -692,7 +726,8 @@ module.exports = function(RED) {
 
 			svc.getInterpolatedAssetPropertyValues(params,cb);
 		}
-			service.ListAccessPolicies=function(svc,msg,cb){
+		
+		service.ListAccessPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -715,7 +750,8 @@ module.exports = function(RED) {
 
 			svc.listAccessPolicies(params,cb);
 		}
-			service.ListAssetModels=function(svc,msg,cb){
+		
+		service.ListAssetModels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -728,7 +764,8 @@ module.exports = function(RED) {
 
 			svc.listAssetModels(params,cb);
 		}
-			service.ListAssetRelationships=function(svc,msg,cb){
+		
+		service.ListAssetRelationships=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -747,7 +784,8 @@ module.exports = function(RED) {
 
 			svc.listAssetRelationships(params,cb);
 		}
-			service.ListAssets=function(svc,msg,cb){
+		
+		service.ListAssets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -764,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.listAssets(params,cb);
 		}
-			service.ListAssociatedAssets=function(svc,msg,cb){
+		
+		service.ListAssociatedAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -784,7 +823,8 @@ module.exports = function(RED) {
 
 			svc.listAssociatedAssets(params,cb);
 		}
-			service.ListDashboards=function(svc,msg,cb){
+		
+		service.ListDashboards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -800,7 +840,8 @@ module.exports = function(RED) {
 
 			svc.listDashboards(params,cb);
 		}
-			service.ListGateways=function(svc,msg,cb){
+		
+		service.ListGateways=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -813,7 +854,8 @@ module.exports = function(RED) {
 
 			svc.listGateways(params,cb);
 		}
-			service.ListPortals=function(svc,msg,cb){
+		
+		service.ListPortals=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -826,7 +868,8 @@ module.exports = function(RED) {
 
 			svc.listPortals(params,cb);
 		}
-			service.ListProjectAssets=function(svc,msg,cb){
+		
+		service.ListProjectAssets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -842,7 +885,8 @@ module.exports = function(RED) {
 
 			svc.listProjectAssets(params,cb);
 		}
-			service.ListProjects=function(svc,msg,cb){
+		
+		service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalId",params,undefined,false); 
@@ -858,7 +902,8 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -870,7 +915,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutDefaultEncryptionConfiguration=function(svc,msg,cb){
+		
+		service.PutDefaultEncryptionConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"encryptionType",params,undefined,false); 
@@ -884,7 +930,8 @@ module.exports = function(RED) {
 
 			svc.putDefaultEncryptionConfiguration(params,cb);
 		}
-			service.PutLoggingOptions=function(svc,msg,cb){
+		
+		service.PutLoggingOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"loggingOptions",params,undefined,true); 
@@ -896,7 +943,8 @@ module.exports = function(RED) {
 
 			svc.putLoggingOptions(params,cb);
 		}
-			service.PutStorageConfiguration=function(svc,msg,cb){
+		
+		service.PutStorageConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"storageType",params,undefined,false); 
@@ -910,7 +958,8 @@ module.exports = function(RED) {
 
 			svc.putStorageConfiguration(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -925,7 +974,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -940,7 +990,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAccessPolicy=function(svc,msg,cb){
+		
+		service.UpdateAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPolicyId",params,undefined,false); 
@@ -963,7 +1014,8 @@ module.exports = function(RED) {
 
 			svc.updateAccessPolicy(params,cb);
 		}
-			service.UpdateAsset=function(svc,msg,cb){
+		
+		service.UpdateAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -980,7 +1032,8 @@ module.exports = function(RED) {
 
 			svc.updateAsset(params,cb);
 		}
-			service.UpdateAssetModel=function(svc,msg,cb){
+		
+		service.UpdateAssetModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetModelId",params,undefined,false); 
@@ -1005,7 +1058,8 @@ module.exports = function(RED) {
 
 			svc.updateAssetModel(params,cb);
 		}
-			service.UpdateAssetProperty=function(svc,msg,cb){
+		
+		service.UpdateAssetProperty=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assetId",params,undefined,false); 
@@ -1026,7 +1080,8 @@ module.exports = function(RED) {
 
 			svc.updateAssetProperty(params,cb);
 		}
-			service.UpdateDashboard=function(svc,msg,cb){
+		
+		service.UpdateDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dashboardId",params,undefined,false); 
@@ -1048,7 +1103,8 @@ module.exports = function(RED) {
 
 			svc.updateDashboard(params,cb);
 		}
-			service.UpdateGateway=function(svc,msg,cb){
+		
+		service.UpdateGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayId",params,undefined,false); 
@@ -1063,7 +1119,8 @@ module.exports = function(RED) {
 
 			svc.updateGateway(params,cb);
 		}
-			service.UpdateGatewayCapabilityConfiguration=function(svc,msg,cb){
+		
+		service.UpdateGatewayCapabilityConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"gatewayId",params,undefined,false); 
@@ -1081,7 +1138,8 @@ module.exports = function(RED) {
 
 			svc.updateGatewayCapabilityConfiguration(params,cb);
 		}
-			service.UpdatePortal=function(svc,msg,cb){
+		
+		service.UpdatePortal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"portalId",params,undefined,false); 
@@ -1112,7 +1170,8 @@ module.exports = function(RED) {
 
 			svc.updatePortal(params,cb);
 		}
-			service.UpdateProject=function(svc,msg,cb){
+		
+		service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -1131,6 +1190,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IoTSiteWise", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateDataset=function(svc,msg,cb){
+		service.CreateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -112,7 +112,8 @@ module.exports = function(RED) {
 
 			svc.createDataset(params,cb);
 		}
-			service.CreateModel=function(svc,msg,cb){
+		
+		service.CreateModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -135,7 +136,8 @@ module.exports = function(RED) {
 
 			svc.createModel(params,cb);
 		}
-			service.CreateProject=function(svc,msg,cb){
+		
+		service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -149,7 +151,8 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-			service.DeleteDataset=function(svc,msg,cb){
+		
+		service.DeleteDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -166,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.deleteDataset(params,cb);
 		}
-			service.DeleteModel=function(svc,msg,cb){
+		
+		service.DeleteModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -183,7 +187,8 @@ module.exports = function(RED) {
 
 			svc.deleteModel(params,cb);
 		}
-			service.DeleteProject=function(svc,msg,cb){
+		
+		service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -197,7 +202,8 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-			service.DescribeDataset=function(svc,msg,cb){
+		
+		service.DescribeDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -212,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.describeDataset(params,cb);
 		}
-			service.DescribeModel=function(svc,msg,cb){
+		
+		service.DescribeModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -227,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.describeModel(params,cb);
 		}
-			service.DescribeProject=function(svc,msg,cb){
+		
+		service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -239,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-			service.DetectAnomalies=function(svc,msg,cb){
+		
+		service.DetectAnomalies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -260,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.detectAnomalies(params,cb);
 		}
-			service.ListDatasetEntries=function(svc,msg,cb){
+		
+		service.ListDatasetEntries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -289,7 +299,8 @@ module.exports = function(RED) {
 
 			svc.listDatasetEntries(params,cb);
 		}
-			service.ListModels=function(svc,msg,cb){
+		
+		service.ListModels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -305,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.listModels(params,cb);
 		}
-			service.ListProjects=function(svc,msg,cb){
+		
+		service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -318,7 +330,8 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -330,7 +343,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartModel=function(svc,msg,cb){
+		
+		service.StartModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -350,7 +364,8 @@ module.exports = function(RED) {
 
 			svc.startModel(params,cb);
 		}
-			service.StopModel=function(svc,msg,cb){
+		
+		service.StopModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -367,7 +382,8 @@ module.exports = function(RED) {
 
 			svc.stopModel(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -382,7 +398,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -397,7 +414,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateDatasetEntries=function(svc,msg,cb){
+		
+		service.UpdateDatasetEntries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -417,6 +435,7 @@ module.exports = function(RED) {
 
 			svc.updateDatasetEntries(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS LookoutVision", AmazonAPINode);

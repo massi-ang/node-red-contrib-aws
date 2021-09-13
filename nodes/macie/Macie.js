@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateMemberAccount=function(svc,msg,cb){
+		service.AssociateMemberAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"memberAccountId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.associateMemberAccount(params,cb);
 		}
-			service.AssociateS3Resources=function(svc,msg,cb){
+		
+		service.AssociateS3Resources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3Resources",params,undefined,true); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.associateS3Resources(params,cb);
 		}
-			service.DisassociateMemberAccount=function(svc,msg,cb){
+		
+		service.DisassociateMemberAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"memberAccountId",params,undefined,false); 
@@ -131,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.disassociateMemberAccount(params,cb);
 		}
-			service.DisassociateS3Resources=function(svc,msg,cb){
+		
+		service.DisassociateS3Resources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"associatedS3Resources",params,undefined,false); 
@@ -145,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.disassociateS3Resources(params,cb);
 		}
-			service.ListMemberAccounts=function(svc,msg,cb){
+		
+		service.ListMemberAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -158,7 +162,8 @@ module.exports = function(RED) {
 
 			svc.listMemberAccounts(params,cb);
 		}
-			service.ListS3Resources=function(svc,msg,cb){
+		
+		service.ListS3Resources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -173,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.listS3Resources(params,cb);
 		}
-			service.UpdateS3Resources=function(svc,msg,cb){
+		
+		service.UpdateS3Resources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3ResourcesUpdate",params,undefined,false); 
@@ -187,6 +193,7 @@ module.exports = function(RED) {
 
 			svc.updateS3Resources(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Macie", AmazonAPINode);

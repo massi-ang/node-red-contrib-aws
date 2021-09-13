@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateParallelData=function(svc,msg,cb){
+		service.CreateParallelData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -115,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.createParallelData(params,cb);
 		}
-			service.DeleteParallelData=function(svc,msg,cb){
+		
+		service.DeleteParallelData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.deleteParallelData(params,cb);
 		}
-			service.DeleteTerminology=function(svc,msg,cb){
+		
+		service.DeleteTerminology=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.deleteTerminology(params,cb);
 		}
-			service.DescribeTextTranslationJob=function(svc,msg,cb){
+		
+		service.DescribeTextTranslationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -151,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.describeTextTranslationJob(params,cb);
 		}
-			service.GetParallelData=function(svc,msg,cb){
+		
+		service.GetParallelData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -163,7 +167,8 @@ module.exports = function(RED) {
 
 			svc.getParallelData(params,cb);
 		}
-			service.GetTerminology=function(svc,msg,cb){
+		
+		service.GetTerminology=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -178,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.getTerminology(params,cb);
 		}
-			service.ImportTerminology=function(svc,msg,cb){
+		
+		service.ImportTerminology=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -200,7 +206,8 @@ module.exports = function(RED) {
 
 			svc.importTerminology(params,cb);
 		}
-			service.ListParallelData=function(svc,msg,cb){
+		
+		service.ListParallelData=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -213,7 +220,8 @@ module.exports = function(RED) {
 
 			svc.listParallelData(params,cb);
 		}
-			service.ListTerminologies=function(svc,msg,cb){
+		
+		service.ListTerminologies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -226,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.listTerminologies(params,cb);
 		}
-			service.ListTextTranslationJobs=function(svc,msg,cb){
+		
+		service.ListTextTranslationJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -241,7 +250,8 @@ module.exports = function(RED) {
 
 			svc.listTextTranslationJobs(params,cb);
 		}
-			service.StartTextTranslationJob=function(svc,msg,cb){
+		
+		service.StartTextTranslationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -274,7 +284,8 @@ module.exports = function(RED) {
 
 			svc.startTextTranslationJob(params,cb);
 		}
-			service.StopTextTranslationJob=function(svc,msg,cb){
+		
+		service.StopTextTranslationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -286,7 +297,8 @@ module.exports = function(RED) {
 
 			svc.stopTextTranslationJob(params,cb);
 		}
-			service.TranslateText=function(svc,msg,cb){
+		
+		service.TranslateText=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -306,7 +318,8 @@ module.exports = function(RED) {
 
 			svc.translateText(params,cb);
 		}
-			service.UpdateParallelData=function(svc,msg,cb){
+		
+		service.UpdateParallelData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -326,6 +339,7 @@ module.exports = function(RED) {
 
 			svc.updateParallelData(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Translate", AmazonAPINode);

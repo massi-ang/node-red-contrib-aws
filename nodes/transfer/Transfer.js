@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateAccess=function(svc,msg,cb){
+		service.CreateAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Role",params,undefined,false); 
@@ -121,7 +121,8 @@ module.exports = function(RED) {
 
 			svc.createAccess(params,cb);
 		}
-			service.CreateServer=function(svc,msg,cb){
+		
+		service.CreateServer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -154,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.createServer(params,cb);
 		}
-			service.CreateUser=function(svc,msg,cb){
+		
+		service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Role",params,undefined,false); 
@@ -186,7 +188,8 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-			service.CreateWorkflow=function(svc,msg,cb){
+		
+		service.CreateWorkflow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Steps",params,undefined,true); 
@@ -204,7 +207,8 @@ module.exports = function(RED) {
 
 			svc.createWorkflow(params,cb);
 		}
-			service.DeleteAccess=function(svc,msg,cb){
+		
+		service.DeleteAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -219,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccess(params,cb);
 		}
-			service.DeleteServer=function(svc,msg,cb){
+		
+		service.DeleteServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -231,7 +236,8 @@ module.exports = function(RED) {
 
 			svc.deleteServer(params,cb);
 		}
-			service.DeleteSshPublicKey=function(svc,msg,cb){
+		
+		service.DeleteSshPublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -249,7 +255,8 @@ module.exports = function(RED) {
 
 			svc.deleteSshPublicKey(params,cb);
 		}
-			service.DeleteUser=function(svc,msg,cb){
+		
+		service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -264,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-			service.DeleteWorkflow=function(svc,msg,cb){
+		
+		service.DeleteWorkflow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkflowId",params,undefined,false); 
@@ -276,7 +284,8 @@ module.exports = function(RED) {
 
 			svc.deleteWorkflow(params,cb);
 		}
-			service.DescribeAccess=function(svc,msg,cb){
+		
+		service.DescribeAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -291,7 +300,8 @@ module.exports = function(RED) {
 
 			svc.describeAccess(params,cb);
 		}
-			service.DescribeExecution=function(svc,msg,cb){
+		
+		service.DescribeExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExecutionId",params,undefined,false); 
@@ -306,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.describeExecution(params,cb);
 		}
-			service.DescribeSecurityPolicy=function(svc,msg,cb){
+		
+		service.DescribeSecurityPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecurityPolicyName",params,undefined,false); 
@@ -318,7 +329,8 @@ module.exports = function(RED) {
 
 			svc.describeSecurityPolicy(params,cb);
 		}
-			service.DescribeServer=function(svc,msg,cb){
+		
+		service.DescribeServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -330,7 +342,8 @@ module.exports = function(RED) {
 
 			svc.describeServer(params,cb);
 		}
-			service.DescribeUser=function(svc,msg,cb){
+		
+		service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -345,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-			service.DescribeWorkflow=function(svc,msg,cb){
+		
+		service.DescribeWorkflow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkflowId",params,undefined,false); 
@@ -357,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.describeWorkflow(params,cb);
 		}
-			service.ImportSshPublicKey=function(svc,msg,cb){
+		
+		service.ImportSshPublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -375,7 +390,8 @@ module.exports = function(RED) {
 
 			svc.importSshPublicKey(params,cb);
 		}
-			service.ListAccesses=function(svc,msg,cb){
+		
+		service.ListAccesses=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -391,7 +407,8 @@ module.exports = function(RED) {
 
 			svc.listAccesses(params,cb);
 		}
-			service.ListExecutions=function(svc,msg,cb){
+		
+		service.ListExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkflowId",params,undefined,false); 
@@ -407,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.listExecutions(params,cb);
 		}
-			service.ListSecurityPolicies=function(svc,msg,cb){
+		
+		service.ListSecurityPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -420,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.listSecurityPolicies(params,cb);
 		}
-			service.ListServers=function(svc,msg,cb){
+		
+		service.ListServers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -433,7 +452,8 @@ module.exports = function(RED) {
 
 			svc.listServers(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -449,7 +469,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListUsers=function(svc,msg,cb){
+		
+		service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -465,7 +486,8 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-			service.ListWorkflows=function(svc,msg,cb){
+		
+		service.ListWorkflows=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -478,7 +500,8 @@ module.exports = function(RED) {
 
 			svc.listWorkflows(params,cb);
 		}
-			service.SendWorkflowStepState=function(svc,msg,cb){
+		
+		service.SendWorkflowStepState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WorkflowId",params,undefined,false); 
@@ -499,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.sendWorkflowStepState(params,cb);
 		}
-			service.StartServer=function(svc,msg,cb){
+		
+		service.StartServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -511,7 +535,8 @@ module.exports = function(RED) {
 
 			svc.startServer(params,cb);
 		}
-			service.StopServer=function(svc,msg,cb){
+		
+		service.StopServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -523,7 +548,8 @@ module.exports = function(RED) {
 
 			svc.stopServer(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -538,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TestIdentityProvider=function(svc,msg,cb){
+		
+		service.TestIdentityProvider=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -559,7 +586,8 @@ module.exports = function(RED) {
 
 			svc.testIdentityProvider(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -574,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAccess=function(svc,msg,cb){
+		
+		service.UpdateAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -601,7 +630,8 @@ module.exports = function(RED) {
 
 			svc.updateAccess(params,cb);
 		}
-			service.UpdateServer=function(svc,msg,cb){
+		
+		service.UpdateServer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -633,7 +663,8 @@ module.exports = function(RED) {
 
 			svc.updateServer(params,cb);
 		}
-			service.UpdateUser=function(svc,msg,cb){
+		
+		service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerId",params,undefined,false); 
@@ -660,6 +691,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Transfer", AmazonAPINode);

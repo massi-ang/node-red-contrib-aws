@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateWebACL=function(svc,msg,cb){
+		service.AssociateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLArn",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateWebACL(params,cb);
 		}
-			service.CheckCapacity=function(svc,msg,cb){
+		
+		service.CheckCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.checkCapacity(params,cb);
 		}
-			service.CreateIPSet=function(svc,msg,cb){
+		
+		service.CreateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -148,7 +150,8 @@ module.exports = function(RED) {
 
 			svc.createIPSet(params,cb);
 		}
-			service.CreateRegexPatternSet=function(svc,msg,cb){
+		
+		service.CreateRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -170,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.createRegexPatternSet(params,cb);
 		}
-			service.CreateRuleGroup=function(svc,msg,cb){
+		
+		service.CreateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -199,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.createRuleGroup(params,cb);
 		}
-			service.CreateWebACL=function(svc,msg,cb){
+		
+		service.CreateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -228,7 +233,8 @@ module.exports = function(RED) {
 
 			svc.createWebACL(params,cb);
 		}
-			service.DeleteFirewallManagerRuleGroups=function(svc,msg,cb){
+		
+		service.DeleteFirewallManagerRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLArn",params,undefined,false); 
@@ -243,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.deleteFirewallManagerRuleGroups(params,cb);
 		}
-			service.DeleteIPSet=function(svc,msg,cb){
+		
+		service.DeleteIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -264,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.deleteIPSet(params,cb);
 		}
-			service.DeleteLoggingConfiguration=function(svc,msg,cb){
+		
+		service.DeleteLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -276,7 +284,8 @@ module.exports = function(RED) {
 
 			svc.deleteLoggingConfiguration(params,cb);
 		}
-			service.DeletePermissionPolicy=function(svc,msg,cb){
+		
+		service.DeletePermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -288,7 +297,8 @@ module.exports = function(RED) {
 
 			svc.deletePermissionPolicy(params,cb);
 		}
-			service.DeleteRegexPatternSet=function(svc,msg,cb){
+		
+		service.DeleteRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -309,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.deleteRegexPatternSet(params,cb);
 		}
-			service.DeleteRuleGroup=function(svc,msg,cb){
+		
+		service.DeleteRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -330,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.deleteRuleGroup(params,cb);
 		}
-			service.DeleteWebACL=function(svc,msg,cb){
+		
+		service.DeleteWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -351,7 +363,8 @@ module.exports = function(RED) {
 
 			svc.deleteWebACL(params,cb);
 		}
-			service.DescribeManagedRuleGroup=function(svc,msg,cb){
+		
+		service.DescribeManagedRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VendorName",params,undefined,false); 
@@ -371,7 +384,8 @@ module.exports = function(RED) {
 
 			svc.describeManagedRuleGroup(params,cb);
 		}
-			service.DisassociateWebACL=function(svc,msg,cb){
+		
+		service.DisassociateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -383,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWebACL(params,cb);
 		}
-			service.GetIPSet=function(svc,msg,cb){
+		
+		service.GetIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -401,7 +416,8 @@ module.exports = function(RED) {
 
 			svc.getIPSet(params,cb);
 		}
-			service.GetLoggingConfiguration=function(svc,msg,cb){
+		
+		service.GetLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -413,7 +429,8 @@ module.exports = function(RED) {
 
 			svc.getLoggingConfiguration(params,cb);
 		}
-			service.GetManagedRuleSet=function(svc,msg,cb){
+		
+		service.GetManagedRuleSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -431,7 +448,8 @@ module.exports = function(RED) {
 
 			svc.getManagedRuleSet(params,cb);
 		}
-			service.GetPermissionPolicy=function(svc,msg,cb){
+		
+		service.GetPermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -443,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.getPermissionPolicy(params,cb);
 		}
-			service.GetRateBasedStatementManagedKeys=function(svc,msg,cb){
+		
+		service.GetRateBasedStatementManagedKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -464,7 +483,8 @@ module.exports = function(RED) {
 
 			svc.getRateBasedStatementManagedKeys(params,cb);
 		}
-			service.GetRegexPatternSet=function(svc,msg,cb){
+		
+		service.GetRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -482,7 +502,8 @@ module.exports = function(RED) {
 
 			svc.getRegexPatternSet(params,cb);
 		}
-			service.GetRuleGroup=function(svc,msg,cb){
+		
+		service.GetRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -499,7 +520,8 @@ module.exports = function(RED) {
 
 			svc.getRuleGroup(params,cb);
 		}
-			service.GetSampledRequests=function(svc,msg,cb){
+		
+		service.GetSampledRequests=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebAclArn",params,undefined,false); 
@@ -523,7 +545,8 @@ module.exports = function(RED) {
 
 			svc.getSampledRequests(params,cb);
 		}
-			service.GetWebACL=function(svc,msg,cb){
+		
+		service.GetWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -541,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.getWebACL(params,cb);
 		}
-			service.GetWebACLForResource=function(svc,msg,cb){
+		
+		service.GetWebACLForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -553,7 +577,8 @@ module.exports = function(RED) {
 
 			svc.getWebACLForResource(params,cb);
 		}
-			service.ListAvailableManagedRuleGroupVersions=function(svc,msg,cb){
+		
+		service.ListAvailableManagedRuleGroupVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VendorName",params,undefined,false); 
@@ -575,7 +600,8 @@ module.exports = function(RED) {
 
 			svc.listAvailableManagedRuleGroupVersions(params,cb);
 		}
-			service.ListAvailableManagedRuleGroups=function(svc,msg,cb){
+		
+		service.ListAvailableManagedRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -591,7 +617,8 @@ module.exports = function(RED) {
 
 			svc.listAvailableManagedRuleGroups(params,cb);
 		}
-			service.ListIPSets=function(svc,msg,cb){
+		
+		service.ListIPSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -607,7 +634,8 @@ module.exports = function(RED) {
 
 			svc.listIPSets(params,cb);
 		}
-			service.ListLoggingConfigurations=function(svc,msg,cb){
+		
+		service.ListLoggingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -622,7 +650,8 @@ module.exports = function(RED) {
 
 			svc.listLoggingConfigurations(params,cb);
 		}
-			service.ListManagedRuleSets=function(svc,msg,cb){
+		
+		service.ListManagedRuleSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -638,7 +667,8 @@ module.exports = function(RED) {
 
 			svc.listManagedRuleSets(params,cb);
 		}
-			service.ListRegexPatternSets=function(svc,msg,cb){
+		
+		service.ListRegexPatternSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -654,7 +684,8 @@ module.exports = function(RED) {
 
 			svc.listRegexPatternSets(params,cb);
 		}
-			service.ListResourcesForWebACL=function(svc,msg,cb){
+		
+		service.ListResourcesForWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WebACLArn",params,undefined,false); 
@@ -668,7 +699,8 @@ module.exports = function(RED) {
 
 			svc.listResourcesForWebACL(params,cb);
 		}
-			service.ListRuleGroups=function(svc,msg,cb){
+		
+		service.ListRuleGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -684,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.listRuleGroups(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -700,7 +733,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWebACLs=function(svc,msg,cb){
+		
+		service.ListWebACLs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Scope",params,undefined,false); 
@@ -716,7 +750,8 @@ module.exports = function(RED) {
 
 			svc.listWebACLs(params,cb);
 		}
-			service.PutLoggingConfiguration=function(svc,msg,cb){
+		
+		service.PutLoggingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LoggingConfiguration",params,undefined,true); 
@@ -728,7 +763,8 @@ module.exports = function(RED) {
 
 			svc.putLoggingConfiguration(params,cb);
 		}
-			service.PutManagedRuleSetVersions=function(svc,msg,cb){
+		
+		service.PutManagedRuleSetVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -753,7 +789,8 @@ module.exports = function(RED) {
 
 			svc.putManagedRuleSetVersions(params,cb);
 		}
-			service.PutPermissionPolicy=function(svc,msg,cb){
+		
+		service.PutPermissionPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -768,7 +805,8 @@ module.exports = function(RED) {
 
 			svc.putPermissionPolicy(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -783,7 +821,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -798,7 +837,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateIPSet=function(svc,msg,cb){
+		
+		service.UpdateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -824,7 +864,8 @@ module.exports = function(RED) {
 
 			svc.updateIPSet(params,cb);
 		}
-			service.UpdateManagedRuleSetVersionExpiryDate=function(svc,msg,cb){
+		
+		service.UpdateManagedRuleSetVersionExpiryDate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -851,7 +892,8 @@ module.exports = function(RED) {
 
 			svc.updateManagedRuleSetVersionExpiryDate(params,cb);
 		}
-			service.UpdateRegexPatternSet=function(svc,msg,cb){
+		
+		service.UpdateRegexPatternSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -877,7 +919,8 @@ module.exports = function(RED) {
 
 			svc.updateRegexPatternSet(params,cb);
 		}
-			service.UpdateRuleGroup=function(svc,msg,cb){
+		
+		service.UpdateRuleGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -907,7 +950,8 @@ module.exports = function(RED) {
 
 			svc.updateRuleGroup(params,cb);
 		}
-			service.UpdateWebACL=function(svc,msg,cb){
+		
+		service.UpdateWebACL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -940,6 +984,7 @@ module.exports = function(RED) {
 
 			svc.updateWebACL(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS WAFV2", AmazonAPINode);

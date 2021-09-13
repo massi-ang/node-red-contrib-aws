@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeEntitiesDetectionV2Job=function(svc,msg,cb){
+		service.DescribeEntitiesDetectionV2Job=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.describeEntitiesDetectionV2Job(params,cb);
 		}
-			service.DescribeICD10CMInferenceJob=function(svc,msg,cb){
+		
+		service.DescribeICD10CMInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.describeICD10CMInferenceJob(params,cb);
 		}
-			service.DescribePHIDetectionJob=function(svc,msg,cb){
+		
+		service.DescribePHIDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -129,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.describePHIDetectionJob(params,cb);
 		}
-			service.DescribeRxNormInferenceJob=function(svc,msg,cb){
+		
+		service.DescribeRxNormInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -141,7 +144,8 @@ module.exports = function(RED) {
 
 			svc.describeRxNormInferenceJob(params,cb);
 		}
-			service.DetectEntities=function(svc,msg,cb){
+		
+		service.DetectEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -153,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.detectEntities(params,cb);
 		}
-			service.DetectEntitiesV2=function(svc,msg,cb){
+		
+		service.DetectEntitiesV2=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -165,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.detectEntitiesV2(params,cb);
 		}
-			service.DetectPHI=function(svc,msg,cb){
+		
+		service.DetectPHI=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -177,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.detectPHI(params,cb);
 		}
-			service.InferICD10CM=function(svc,msg,cb){
+		
+		service.InferICD10CM=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -189,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.inferICD10CM(params,cb);
 		}
-			service.InferRxNorm=function(svc,msg,cb){
+		
+		service.InferRxNorm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -201,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.inferRxNorm(params,cb);
 		}
-			service.ListEntitiesDetectionV2Jobs=function(svc,msg,cb){
+		
+		service.ListEntitiesDetectionV2Jobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -216,7 +225,8 @@ module.exports = function(RED) {
 
 			svc.listEntitiesDetectionV2Jobs(params,cb);
 		}
-			service.ListICD10CMInferenceJobs=function(svc,msg,cb){
+		
+		service.ListICD10CMInferenceJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -231,7 +241,8 @@ module.exports = function(RED) {
 
 			svc.listICD10CMInferenceJobs(params,cb);
 		}
-			service.ListPHIDetectionJobs=function(svc,msg,cb){
+		
+		service.ListPHIDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -246,7 +257,8 @@ module.exports = function(RED) {
 
 			svc.listPHIDetectionJobs(params,cb);
 		}
-			service.ListRxNormInferenceJobs=function(svc,msg,cb){
+		
+		service.ListRxNormInferenceJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -261,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.listRxNormInferenceJobs(params,cb);
 		}
-			service.StartEntitiesDetectionV2Job=function(svc,msg,cb){
+		
+		service.StartEntitiesDetectionV2Job=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -288,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.startEntitiesDetectionV2Job(params,cb);
 		}
-			service.StartICD10CMInferenceJob=function(svc,msg,cb){
+		
+		service.StartICD10CMInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -315,7 +329,8 @@ module.exports = function(RED) {
 
 			svc.startICD10CMInferenceJob(params,cb);
 		}
-			service.StartPHIDetectionJob=function(svc,msg,cb){
+		
+		service.StartPHIDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -342,7 +357,8 @@ module.exports = function(RED) {
 
 			svc.startPHIDetectionJob(params,cb);
 		}
-			service.StartRxNormInferenceJob=function(svc,msg,cb){
+		
+		service.StartRxNormInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -369,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.startRxNormInferenceJob(params,cb);
 		}
-			service.StopEntitiesDetectionV2Job=function(svc,msg,cb){
+		
+		service.StopEntitiesDetectionV2Job=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -381,7 +398,8 @@ module.exports = function(RED) {
 
 			svc.stopEntitiesDetectionV2Job(params,cb);
 		}
-			service.StopICD10CMInferenceJob=function(svc,msg,cb){
+		
+		service.StopICD10CMInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -393,7 +411,8 @@ module.exports = function(RED) {
 
 			svc.stopICD10CMInferenceJob(params,cb);
 		}
-			service.StopPHIDetectionJob=function(svc,msg,cb){
+		
+		service.StopPHIDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -405,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.stopPHIDetectionJob(params,cb);
 		}
-			service.StopRxNormInferenceJob=function(svc,msg,cb){
+		
+		service.StopRxNormInferenceJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -417,6 +437,7 @@ module.exports = function(RED) {
 
 			svc.stopRxNormInferenceJob(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ComprehendMedical", AmazonAPINode);

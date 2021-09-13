@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateDiscoverer=function(svc,msg,cb){
+		service.CreateDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceArn",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.createDiscoverer(params,cb);
 		}
-			service.CreateRegistry=function(svc,msg,cb){
+		
+		service.CreateRegistry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.createRegistry(params,cb);
 		}
-			service.CreateSchema=function(svc,msg,cb){
+		
+		service.CreateSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -152,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.createSchema(params,cb);
 		}
-			service.DeleteDiscoverer=function(svc,msg,cb){
+		
+		service.DeleteDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DiscovererId",params,undefined,false); 
@@ -164,7 +167,8 @@ module.exports = function(RED) {
 
 			svc.deleteDiscoverer(params,cb);
 		}
-			service.DeleteRegistry=function(svc,msg,cb){
+		
+		service.DeleteRegistry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -176,7 +180,8 @@ module.exports = function(RED) {
 
 			svc.deleteRegistry(params,cb);
 		}
-			service.DeleteResourcePolicy=function(svc,msg,cb){
+		
+		service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -187,7 +192,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-			service.DeleteSchema=function(svc,msg,cb){
+		
+		service.DeleteSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -202,7 +208,8 @@ module.exports = function(RED) {
 
 			svc.deleteSchema(params,cb);
 		}
-			service.DeleteSchemaVersion=function(svc,msg,cb){
+		
+		service.DeleteSchemaVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaVersion",params,undefined,false); 
@@ -220,7 +227,8 @@ module.exports = function(RED) {
 
 			svc.deleteSchemaVersion(params,cb);
 		}
-			service.DescribeCodeBinding=function(svc,msg,cb){
+		
+		service.DescribeCodeBinding=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -240,7 +248,8 @@ module.exports = function(RED) {
 
 			svc.describeCodeBinding(params,cb);
 		}
-			service.DescribeDiscoverer=function(svc,msg,cb){
+		
+		service.DescribeDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DiscovererId",params,undefined,false); 
@@ -252,7 +261,8 @@ module.exports = function(RED) {
 
 			svc.describeDiscoverer(params,cb);
 		}
-			service.DescribeRegistry=function(svc,msg,cb){
+		
+		service.DescribeRegistry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -264,7 +274,8 @@ module.exports = function(RED) {
 
 			svc.describeRegistry(params,cb);
 		}
-			service.DescribeSchema=function(svc,msg,cb){
+		
+		service.DescribeSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -281,7 +292,8 @@ module.exports = function(RED) {
 
 			svc.describeSchema(params,cb);
 		}
-			service.ExportSchema=function(svc,msg,cb){
+		
+		service.ExportSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -301,7 +313,8 @@ module.exports = function(RED) {
 
 			svc.exportSchema(params,cb);
 		}
-			service.GetCodeBindingSource=function(svc,msg,cb){
+		
+		service.GetCodeBindingSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -321,7 +334,8 @@ module.exports = function(RED) {
 
 			svc.getCodeBindingSource(params,cb);
 		}
-			service.GetDiscoveredSchema=function(svc,msg,cb){
+		
+		service.GetDiscoveredSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -336,7 +350,8 @@ module.exports = function(RED) {
 
 			svc.getDiscoveredSchema(params,cb);
 		}
-			service.GetResourcePolicy=function(svc,msg,cb){
+		
+		service.GetResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -347,7 +362,8 @@ module.exports = function(RED) {
 
 			svc.getResourcePolicy(params,cb);
 		}
-			service.ListDiscoverers=function(svc,msg,cb){
+		
+		service.ListDiscoverers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -364,7 +380,8 @@ module.exports = function(RED) {
 
 			svc.listDiscoverers(params,cb);
 		}
-			service.ListRegistries=function(svc,msg,cb){
+		
+		service.ListRegistries=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -381,7 +398,8 @@ module.exports = function(RED) {
 
 			svc.listRegistries(params,cb);
 		}
-			service.ListSchemaVersions=function(svc,msg,cb){
+		
+		service.ListSchemaVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -400,7 +418,8 @@ module.exports = function(RED) {
 
 			svc.listSchemaVersions(params,cb);
 		}
-			service.ListSchemas=function(svc,msg,cb){
+		
+		service.ListSchemas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -418,7 +437,8 @@ module.exports = function(RED) {
 
 			svc.listSchemas(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -430,7 +450,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutCodeBinding=function(svc,msg,cb){
+		
+		service.PutCodeBinding=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -450,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.putCodeBinding(params,cb);
 		}
-			service.PutResourcePolicy=function(svc,msg,cb){
+		
+		service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Policy",params,undefined,false); 
@@ -466,7 +488,8 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-			service.SearchSchemas=function(svc,msg,cb){
+		
+		service.SearchSchemas=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -485,7 +508,8 @@ module.exports = function(RED) {
 
 			svc.searchSchemas(params,cb);
 		}
-			service.StartDiscoverer=function(svc,msg,cb){
+		
+		service.StartDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DiscovererId",params,undefined,false); 
@@ -497,7 +521,8 @@ module.exports = function(RED) {
 
 			svc.startDiscoverer(params,cb);
 		}
-			service.StopDiscoverer=function(svc,msg,cb){
+		
+		service.StopDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DiscovererId",params,undefined,false); 
@@ -509,7 +534,8 @@ module.exports = function(RED) {
 
 			svc.stopDiscoverer(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -524,7 +550,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,false); 
@@ -539,7 +566,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateDiscoverer=function(svc,msg,cb){
+		
+		service.UpdateDiscoverer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DiscovererId",params,undefined,false); 
@@ -555,7 +583,8 @@ module.exports = function(RED) {
 
 			svc.updateDiscoverer(params,cb);
 		}
-			service.UpdateRegistry=function(svc,msg,cb){
+		
+		service.UpdateRegistry=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -569,7 +598,8 @@ module.exports = function(RED) {
 
 			svc.updateRegistry(params,cb);
 		}
-			service.UpdateSchema=function(svc,msg,cb){
+		
+		service.UpdateSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistryName",params,undefined,false); 
@@ -592,6 +622,7 @@ module.exports = function(RED) {
 
 			svc.updateSchema(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Schemas", AmazonAPINode);

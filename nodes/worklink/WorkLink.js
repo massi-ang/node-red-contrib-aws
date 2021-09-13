@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateDomain=function(svc,msg,cb){
+		service.AssociateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.associateDomain(params,cb);
 		}
-			service.AssociateWebsiteAuthorizationProvider=function(svc,msg,cb){
+		
+		service.AssociateWebsiteAuthorizationProvider=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -130,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.associateWebsiteAuthorizationProvider(params,cb);
 		}
-			service.AssociateWebsiteCertificateAuthority=function(svc,msg,cb){
+		
+		service.AssociateWebsiteCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -147,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.associateWebsiteCertificateAuthority(params,cb);
 		}
-			service.CreateFleet=function(svc,msg,cb){
+		
+		service.CreateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetName",params,undefined,false); 
@@ -165,7 +168,8 @@ module.exports = function(RED) {
 
 			svc.createFleet(params,cb);
 		}
-			service.DeleteFleet=function(svc,msg,cb){
+		
+		service.DeleteFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -177,7 +181,8 @@ module.exports = function(RED) {
 
 			svc.deleteFleet(params,cb);
 		}
-			service.DescribeAuditStreamConfiguration=function(svc,msg,cb){
+		
+		service.DescribeAuditStreamConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -189,7 +194,8 @@ module.exports = function(RED) {
 
 			svc.describeAuditStreamConfiguration(params,cb);
 		}
-			service.DescribeCompanyNetworkConfiguration=function(svc,msg,cb){
+		
+		service.DescribeCompanyNetworkConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -201,7 +207,8 @@ module.exports = function(RED) {
 
 			svc.describeCompanyNetworkConfiguration(params,cb);
 		}
-			service.DescribeDevice=function(svc,msg,cb){
+		
+		service.DescribeDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -216,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.describeDevice(params,cb);
 		}
-			service.DescribeDevicePolicyConfiguration=function(svc,msg,cb){
+		
+		service.DescribeDevicePolicyConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -228,7 +236,8 @@ module.exports = function(RED) {
 
 			svc.describeDevicePolicyConfiguration(params,cb);
 		}
-			service.DescribeDomain=function(svc,msg,cb){
+		
+		service.DescribeDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -243,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.describeDomain(params,cb);
 		}
-			service.DescribeFleetMetadata=function(svc,msg,cb){
+		
+		service.DescribeFleetMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -255,7 +265,8 @@ module.exports = function(RED) {
 
 			svc.describeFleetMetadata(params,cb);
 		}
-			service.DescribeIdentityProviderConfiguration=function(svc,msg,cb){
+		
+		service.DescribeIdentityProviderConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -267,7 +278,8 @@ module.exports = function(RED) {
 
 			svc.describeIdentityProviderConfiguration(params,cb);
 		}
-			service.DescribeWebsiteCertificateAuthority=function(svc,msg,cb){
+		
+		service.DescribeWebsiteCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -282,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.describeWebsiteCertificateAuthority(params,cb);
 		}
-			service.DisassociateDomain=function(svc,msg,cb){
+		
+		service.DisassociateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -297,7 +310,8 @@ module.exports = function(RED) {
 
 			svc.disassociateDomain(params,cb);
 		}
-			service.DisassociateWebsiteAuthorizationProvider=function(svc,msg,cb){
+		
+		service.DisassociateWebsiteAuthorizationProvider=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -312,7 +326,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWebsiteAuthorizationProvider(params,cb);
 		}
-			service.DisassociateWebsiteCertificateAuthority=function(svc,msg,cb){
+		
+		service.DisassociateWebsiteCertificateAuthority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -327,7 +342,8 @@ module.exports = function(RED) {
 
 			svc.disassociateWebsiteCertificateAuthority(params,cb);
 		}
-			service.ListDevices=function(svc,msg,cb){
+		
+		service.ListDevices=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -343,7 +359,8 @@ module.exports = function(RED) {
 
 			svc.listDevices(params,cb);
 		}
-			service.ListDomains=function(svc,msg,cb){
+		
+		service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -359,7 +376,8 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-			service.ListFleets=function(svc,msg,cb){
+		
+		service.ListFleets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -372,7 +390,8 @@ module.exports = function(RED) {
 
 			svc.listFleets(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -384,7 +403,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWebsiteAuthorizationProviders=function(svc,msg,cb){
+		
+		service.ListWebsiteAuthorizationProviders=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -400,7 +420,8 @@ module.exports = function(RED) {
 
 			svc.listWebsiteAuthorizationProviders(params,cb);
 		}
-			service.ListWebsiteCertificateAuthorities=function(svc,msg,cb){
+		
+		service.ListWebsiteCertificateAuthorities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -416,7 +437,8 @@ module.exports = function(RED) {
 
 			svc.listWebsiteCertificateAuthorities(params,cb);
 		}
-			service.RestoreDomainAccess=function(svc,msg,cb){
+		
+		service.RestoreDomainAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -431,7 +453,8 @@ module.exports = function(RED) {
 
 			svc.restoreDomainAccess(params,cb);
 		}
-			service.RevokeDomainAccess=function(svc,msg,cb){
+		
+		service.RevokeDomainAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -446,7 +469,8 @@ module.exports = function(RED) {
 
 			svc.revokeDomainAccess(params,cb);
 		}
-			service.SignOutUser=function(svc,msg,cb){
+		
+		service.SignOutUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -461,7 +485,8 @@ module.exports = function(RED) {
 
 			svc.signOutUser(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -476,7 +501,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -491,7 +517,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAuditStreamConfiguration=function(svc,msg,cb){
+		
+		service.UpdateAuditStreamConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -505,7 +532,8 @@ module.exports = function(RED) {
 
 			svc.updateAuditStreamConfiguration(params,cb);
 		}
-			service.UpdateCompanyNetworkConfiguration=function(svc,msg,cb){
+		
+		service.UpdateCompanyNetworkConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -526,7 +554,8 @@ module.exports = function(RED) {
 
 			svc.updateCompanyNetworkConfiguration(params,cb);
 		}
-			service.UpdateDevicePolicyConfiguration=function(svc,msg,cb){
+		
+		service.UpdateDevicePolicyConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -540,7 +569,8 @@ module.exports = function(RED) {
 
 			svc.updateDevicePolicyConfiguration(params,cb);
 		}
-			service.UpdateDomainMetadata=function(svc,msg,cb){
+		
+		service.UpdateDomainMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -557,7 +587,8 @@ module.exports = function(RED) {
 
 			svc.updateDomainMetadata(params,cb);
 		}
-			service.UpdateFleetMetadata=function(svc,msg,cb){
+		
+		service.UpdateFleetMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -573,7 +604,8 @@ module.exports = function(RED) {
 
 			svc.updateFleetMetadata(params,cb);
 		}
-			service.UpdateIdentityProviderConfiguration=function(svc,msg,cb){
+		
+		service.UpdateIdentityProviderConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetArn",params,undefined,false); 
@@ -590,6 +622,7 @@ module.exports = function(RED) {
 
 			svc.updateIdentityProviderConfiguration(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS WorkLink", AmazonAPINode);

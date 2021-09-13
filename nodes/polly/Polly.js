@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DeleteLexicon=function(svc,msg,cb){
+		service.DeleteLexicon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.deleteLexicon(params,cb);
 		}
-			service.DescribeVoices=function(svc,msg,cb){
+		
+		service.DescribeVoices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.describeVoices(params,cb);
 		}
-			service.GetLexicon=function(svc,msg,cb){
+		
+		service.GetLexicon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -134,7 +136,8 @@ module.exports = function(RED) {
 
 			svc.getLexicon(params,cb);
 		}
-			service.GetSpeechSynthesisTask=function(svc,msg,cb){
+		
+		service.GetSpeechSynthesisTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskId",params,undefined,false); 
@@ -146,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.getSpeechSynthesisTask(params,cb);
 		}
-			service.ListLexicons=function(svc,msg,cb){
+		
+		service.ListLexicons=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -157,7 +161,8 @@ module.exports = function(RED) {
 
 			svc.listLexicons(params,cb);
 		}
-			service.ListSpeechSynthesisTasks=function(svc,msg,cb){
+		
+		service.ListSpeechSynthesisTasks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -172,7 +177,8 @@ module.exports = function(RED) {
 
 			svc.listSpeechSynthesisTasks(params,cb);
 		}
-			service.PutLexicon=function(svc,msg,cb){
+		
+		service.PutLexicon=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -187,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.putLexicon(params,cb);
 		}
-			service.StartSpeechSynthesisTask=function(svc,msg,cb){
+		
+		service.StartSpeechSynthesisTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutputFormat",params,undefined,false); 
@@ -224,7 +231,8 @@ module.exports = function(RED) {
 
 			svc.startSpeechSynthesisTask(params,cb);
 		}
-			service.SynthesizeSpeech=function(svc,msg,cb){
+		
+		service.SynthesizeSpeech=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutputFormat",params,undefined,false); 
@@ -254,6 +262,7 @@ module.exports = function(RED) {
 
 			svc.synthesizeSpeech(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Polly", AmazonAPINode);

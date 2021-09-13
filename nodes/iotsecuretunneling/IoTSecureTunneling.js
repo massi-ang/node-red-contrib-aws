@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CloseTunnel=function(svc,msg,cb){
+		service.CloseTunnel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"tunnelId",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.closeTunnel(params,cb);
 		}
-			service.DescribeTunnel=function(svc,msg,cb){
+		
+		service.DescribeTunnel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"tunnelId",params,undefined,false); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.describeTunnel(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -131,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTunnels=function(svc,msg,cb){
+		
+		service.ListTunnels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -146,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.listTunnels(params,cb);
 		}
-			service.OpenTunnel=function(svc,msg,cb){
+		
+		service.OpenTunnel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -163,7 +167,8 @@ module.exports = function(RED) {
 
 			svc.openTunnel(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -178,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -193,6 +199,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IoTSecureTunneling", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CompleteAttachmentUpload=function(svc,msg,cb){
+		service.CompleteAttachmentUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AttachmentIds",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.completeAttachmentUpload(params,cb);
 		}
-			service.CreateParticipantConnection=function(svc,msg,cb){
+		
+		service.CreateParticipantConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.createParticipantConnection(params,cb);
 		}
-			service.DisconnectParticipant=function(svc,msg,cb){
+		
+		service.DisconnectParticipant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionToken",params,undefined,false); 
@@ -140,7 +142,8 @@ module.exports = function(RED) {
 
 			svc.disconnectParticipant(params,cb);
 		}
-			service.GetAttachment=function(svc,msg,cb){
+		
+		service.GetAttachment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AttachmentId",params,undefined,false); 
@@ -155,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.getAttachment(params,cb);
 		}
-			service.GetTranscript=function(svc,msg,cb){
+		
+		service.GetTranscript=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionToken",params,undefined,false); 
@@ -179,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.getTranscript(params,cb);
 		}
-			service.SendEvent=function(svc,msg,cb){
+		
+		service.SendEvent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContentType",params,undefined,false); 
@@ -198,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.sendEvent(params,cb);
 		}
-			service.SendMessage=function(svc,msg,cb){
+		
+		service.SendMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContentType",params,undefined,false); 
@@ -218,7 +224,8 @@ module.exports = function(RED) {
 
 			svc.sendMessage(params,cb);
 		}
-			service.StartAttachmentUpload=function(svc,msg,cb){
+		
+		service.StartAttachmentUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContentType",params,undefined,false); 
@@ -242,6 +249,7 @@ module.exports = function(RED) {
 
 			svc.startAttachmentUpload(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ConnectParticipant", AmazonAPINode);

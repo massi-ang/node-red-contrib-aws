@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeStream=function(svc,msg,cb){
+		service.DescribeStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamArn",params,undefined,false); 
@@ -109,7 +109,8 @@ module.exports = function(RED) {
 
 			svc.describeStream(params,cb);
 		}
-			service.GetRecords=function(svc,msg,cb){
+		
+		service.GetRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ShardIterator",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.getRecords(params,cb);
 		}
-			service.GetShardIterator=function(svc,msg,cb){
+		
+		service.GetShardIterator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamArn",params,undefined,false); 
@@ -143,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.getShardIterator(params,cb);
 		}
-			service.ListStreams=function(svc,msg,cb){
+		
+		service.ListStreams=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -158,6 +161,7 @@ module.exports = function(RED) {
 
 			svc.listStreams(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DynamoDBStreams", AmazonAPINode);

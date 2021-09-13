@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.Search=function(svc,msg,cb){
+		service.Search=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"query",params,undefined,false); 
@@ -131,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.search(params,cb);
 		}
-			service.Suggest=function(svc,msg,cb){
+		
+		service.Suggest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"query",params,undefined,false); 
@@ -148,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.suggest(params,cb);
 		}
-			service.UploadDocuments=function(svc,msg,cb){
+		
+		service.UploadDocuments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"documents",params,undefined,false); 
@@ -163,6 +165,7 @@ module.exports = function(RED) {
 
 			svc.uploadDocuments(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudSearchDomain", AmazonAPINode);

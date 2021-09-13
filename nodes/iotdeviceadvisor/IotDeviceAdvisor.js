@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateSuiteDefinition=function(svc,msg,cb){
+		service.CreateSuiteDefinition=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -106,7 +106,8 @@ module.exports = function(RED) {
 
 			svc.createSuiteDefinition(params,cb);
 		}
-			service.DeleteSuiteDefinition=function(svc,msg,cb){
+		
+		service.DeleteSuiteDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -118,7 +119,8 @@ module.exports = function(RED) {
 
 			svc.deleteSuiteDefinition(params,cb);
 		}
-			service.GetSuiteDefinition=function(svc,msg,cb){
+		
+		service.GetSuiteDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -132,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.getSuiteDefinition(params,cb);
 		}
-			service.GetSuiteRun=function(svc,msg,cb){
+		
+		service.GetSuiteRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -147,7 +150,8 @@ module.exports = function(RED) {
 
 			svc.getSuiteRun(params,cb);
 		}
-			service.GetSuiteRunReport=function(svc,msg,cb){
+		
+		service.GetSuiteRunReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -162,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.getSuiteRunReport(params,cb);
 		}
-			service.ListSuiteDefinitions=function(svc,msg,cb){
+		
+		service.ListSuiteDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -175,7 +180,8 @@ module.exports = function(RED) {
 
 			svc.listSuiteDefinitions(params,cb);
 		}
-			service.ListSuiteRuns=function(svc,msg,cb){
+		
+		service.ListSuiteRuns=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -192,7 +198,8 @@ module.exports = function(RED) {
 
 			svc.listSuiteRuns(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -204,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartSuiteRun=function(svc,msg,cb){
+		
+		service.StartSuiteRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -222,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.startSuiteRun(params,cb);
 		}
-			service.StopSuiteRun=function(svc,msg,cb){
+		
+		service.StopSuiteRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -237,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.stopSuiteRun(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -252,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -267,7 +278,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateSuiteDefinition=function(svc,msg,cb){
+		
+		service.UpdateSuiteDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"suiteDefinitionId",params,undefined,false); 
@@ -281,6 +293,7 @@ module.exports = function(RED) {
 
 			svc.updateSuiteDefinition(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IotDeviceAdvisor", AmazonAPINode);

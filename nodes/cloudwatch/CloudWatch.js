@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DeleteAlarms=function(svc,msg,cb){
+		service.DeleteAlarms=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmNames",params,undefined,true); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.deleteAlarms(params,cb);
 		}
-			service.DeleteAnomalyDetector=function(svc,msg,cb){
+		
+		service.DeleteAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Namespace",params,undefined,false); 
@@ -125,7 +126,8 @@ module.exports = function(RED) {
 
 			svc.deleteAnomalyDetector(params,cb);
 		}
-			service.DeleteDashboards=function(svc,msg,cb){
+		
+		service.DeleteDashboards=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DashboardNames",params,undefined,false); 
@@ -137,7 +139,8 @@ module.exports = function(RED) {
 
 			svc.deleteDashboards(params,cb);
 		}
-			service.DeleteInsightRules=function(svc,msg,cb){
+		
+		service.DeleteInsightRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleNames",params,undefined,true); 
@@ -149,7 +152,8 @@ module.exports = function(RED) {
 
 			svc.deleteInsightRules(params,cb);
 		}
-			service.DeleteMetricStream=function(svc,msg,cb){
+		
+		service.DeleteMetricStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -161,7 +165,8 @@ module.exports = function(RED) {
 
 			svc.deleteMetricStream(params,cb);
 		}
-			service.DescribeAlarmHistory=function(svc,msg,cb){
+		
+		service.DescribeAlarmHistory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -186,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.describeAlarmHistory(params,cb);
 		}
-			service.DescribeAlarms=function(svc,msg,cb){
+		
+		service.DescribeAlarms=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -213,7 +219,8 @@ module.exports = function(RED) {
 
 			svc.describeAlarms(params,cb);
 		}
-			service.DescribeAlarmsForMetric=function(svc,msg,cb){
+		
+		service.DescribeAlarmsForMetric=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MetricName",params,undefined,false); 
@@ -238,7 +245,8 @@ module.exports = function(RED) {
 
 			svc.describeAlarmsForMetric(params,cb);
 		}
-			service.DescribeAnomalyDetectors=function(svc,msg,cb){
+		
+		service.DescribeAnomalyDetectors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -257,7 +265,8 @@ module.exports = function(RED) {
 
 			svc.describeAnomalyDetectors(params,cb);
 		}
-			service.DescribeInsightRules=function(svc,msg,cb){
+		
+		service.DescribeInsightRules=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -270,7 +279,8 @@ module.exports = function(RED) {
 
 			svc.describeInsightRules(params,cb);
 		}
-			service.DisableAlarmActions=function(svc,msg,cb){
+		
+		service.DisableAlarmActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmNames",params,undefined,true); 
@@ -282,7 +292,8 @@ module.exports = function(RED) {
 
 			svc.disableAlarmActions(params,cb);
 		}
-			service.DisableInsightRules=function(svc,msg,cb){
+		
+		service.DisableInsightRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleNames",params,undefined,true); 
@@ -294,7 +305,8 @@ module.exports = function(RED) {
 
 			svc.disableInsightRules(params,cb);
 		}
-			service.EnableAlarmActions=function(svc,msg,cb){
+		
+		service.EnableAlarmActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmNames",params,undefined,true); 
@@ -306,7 +318,8 @@ module.exports = function(RED) {
 
 			svc.enableAlarmActions(params,cb);
 		}
-			service.EnableInsightRules=function(svc,msg,cb){
+		
+		service.EnableInsightRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleNames",params,undefined,true); 
@@ -318,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.enableInsightRules(params,cb);
 		}
-			service.GetDashboard=function(svc,msg,cb){
+		
+		service.GetDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DashboardName",params,undefined,false); 
@@ -330,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.getDashboard(params,cb);
 		}
-			service.GetInsightRuleReport=function(svc,msg,cb){
+		
+		service.GetInsightRuleReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleName",params,undefined,false); 
@@ -357,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.getInsightRuleReport(params,cb);
 		}
-			service.GetMetricData=function(svc,msg,cb){
+		
+		service.GetMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MetricDataQueries",params,undefined,true); 
@@ -383,7 +399,8 @@ module.exports = function(RED) {
 
 			svc.getMetricData(params,cb);
 		}
-			service.GetMetricStatistics=function(svc,msg,cb){
+		
+		service.GetMetricStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Namespace",params,undefined,false); 
@@ -415,7 +432,8 @@ module.exports = function(RED) {
 
 			svc.getMetricStatistics(params,cb);
 		}
-			service.GetMetricStream=function(svc,msg,cb){
+		
+		service.GetMetricStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -427,7 +445,8 @@ module.exports = function(RED) {
 
 			svc.getMetricStream(params,cb);
 		}
-			service.GetMetricWidgetImage=function(svc,msg,cb){
+		
+		service.GetMetricWidgetImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MetricWidget",params,undefined,false); 
@@ -441,7 +460,8 @@ module.exports = function(RED) {
 
 			svc.getMetricWidgetImage(params,cb);
 		}
-			service.ListDashboards=function(svc,msg,cb){
+		
+		service.ListDashboards=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -454,7 +474,8 @@ module.exports = function(RED) {
 
 			svc.listDashboards(params,cb);
 		}
-			service.ListMetricStreams=function(svc,msg,cb){
+		
+		service.ListMetricStreams=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -467,7 +488,8 @@ module.exports = function(RED) {
 
 			svc.listMetricStreams(params,cb);
 		}
-			service.ListMetrics=function(svc,msg,cb){
+		
+		service.ListMetrics=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -486,7 +508,8 @@ module.exports = function(RED) {
 
 			svc.listMetrics(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -498,7 +521,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutAnomalyDetector=function(svc,msg,cb){
+		
+		service.PutAnomalyDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Namespace",params,undefined,false); 
@@ -520,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.putAnomalyDetector(params,cb);
 		}
-			service.PutCompositeAlarm=function(svc,msg,cb){
+		
+		service.PutCompositeAlarm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmName",params,undefined,false); 
@@ -547,7 +572,8 @@ module.exports = function(RED) {
 
 			svc.putCompositeAlarm(params,cb);
 		}
-			service.PutDashboard=function(svc,msg,cb){
+		
+		service.PutDashboard=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DashboardName",params,undefined,false); 
@@ -562,7 +588,8 @@ module.exports = function(RED) {
 
 			svc.putDashboard(params,cb);
 		}
-			service.PutInsightRule=function(svc,msg,cb){
+		
+		service.PutInsightRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RuleName",params,undefined,false); 
@@ -581,7 +608,8 @@ module.exports = function(RED) {
 
 			svc.putInsightRule(params,cb);
 		}
-			service.PutMetricAlarm=function(svc,msg,cb){
+		
+		service.PutMetricAlarm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmName",params,undefined,false); 
@@ -637,7 +665,8 @@ module.exports = function(RED) {
 
 			svc.putMetricAlarm(params,cb);
 		}
-			service.PutMetricData=function(svc,msg,cb){
+		
+		service.PutMetricData=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Namespace",params,undefined,false); 
@@ -652,7 +681,8 @@ module.exports = function(RED) {
 
 			svc.putMetricData(params,cb);
 		}
-			service.PutMetricStream=function(svc,msg,cb){
+		
+		service.PutMetricStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -679,7 +709,8 @@ module.exports = function(RED) {
 
 			svc.putMetricStream(params,cb);
 		}
-			service.SetAlarmState=function(svc,msg,cb){
+		
+		service.SetAlarmState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AlarmName",params,undefined,false); 
@@ -699,7 +730,8 @@ module.exports = function(RED) {
 
 			svc.setAlarmState(params,cb);
 		}
-			service.StartMetricStreams=function(svc,msg,cb){
+		
+		service.StartMetricStreams=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Names",params,undefined,true); 
@@ -711,7 +743,8 @@ module.exports = function(RED) {
 
 			svc.startMetricStreams(params,cb);
 		}
-			service.StopMetricStreams=function(svc,msg,cb){
+		
+		service.StopMetricStreams=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Names",params,undefined,true); 
@@ -723,7 +756,8 @@ module.exports = function(RED) {
 
 			svc.stopMetricStreams(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -738,7 +772,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -753,6 +788,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudWatch", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddLFTagsToResource=function(svc,msg,cb){
+		service.AddLFTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,true); 
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.addLFTagsToResource(params,cb);
 		}
-			service.BatchGrantPermissions=function(svc,msg,cb){
+		
+		service.BatchGrantPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Entries",params,undefined,true); 
@@ -124,7 +125,8 @@ module.exports = function(RED) {
 
 			svc.batchGrantPermissions(params,cb);
 		}
-			service.BatchRevokePermissions=function(svc,msg,cb){
+		
+		service.BatchRevokePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Entries",params,undefined,true); 
@@ -138,7 +140,8 @@ module.exports = function(RED) {
 
 			svc.batchRevokePermissions(params,cb);
 		}
-			service.CreateLFTag=function(svc,msg,cb){
+		
+		service.CreateLFTag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKey",params,undefined,false); 
@@ -155,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.createLFTag(params,cb);
 		}
-			service.DeleteLFTag=function(svc,msg,cb){
+		
+		service.DeleteLFTag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKey",params,undefined,false); 
@@ -169,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.deleteLFTag(params,cb);
 		}
-			service.DeregisterResource=function(svc,msg,cb){
+		
+		service.DeregisterResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -181,7 +186,8 @@ module.exports = function(RED) {
 
 			svc.deregisterResource(params,cb);
 		}
-			service.DescribeResource=function(svc,msg,cb){
+		
+		service.DescribeResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -193,7 +199,8 @@ module.exports = function(RED) {
 
 			svc.describeResource(params,cb);
 		}
-			service.GetDataLakeSettings=function(svc,msg,cb){
+		
+		service.GetDataLakeSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -204,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.getDataLakeSettings(params,cb);
 		}
-			service.GetEffectivePermissionsForPath=function(svc,msg,cb){
+		
+		service.GetEffectivePermissionsForPath=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -222,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.getEffectivePermissionsForPath(params,cb);
 		}
-			service.GetLFTag=function(svc,msg,cb){
+		
+		service.GetLFTag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKey",params,undefined,false); 
@@ -236,7 +245,8 @@ module.exports = function(RED) {
 
 			svc.getLFTag(params,cb);
 		}
-			service.GetResourceLFTags=function(svc,msg,cb){
+		
+		service.GetResourceLFTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,true); 
@@ -252,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.getResourceLFTags(params,cb);
 		}
-			service.GrantPermissions=function(svc,msg,cb){
+		
+		service.GrantPermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Principal",params,undefined,true); 
@@ -274,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.grantPermissions(params,cb);
 		}
-			service.ListLFTags=function(svc,msg,cb){
+		
+		service.ListLFTags=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -291,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.listLFTags(params,cb);
 		}
-			service.ListPermissions=function(svc,msg,cb){
+		
+		service.ListPermissions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -312,7 +325,8 @@ module.exports = function(RED) {
 
 			svc.listPermissions(params,cb);
 		}
-			service.ListResources=function(svc,msg,cb){
+		
+		service.ListResources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -327,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.listResources(params,cb);
 		}
-			service.PutDataLakeSettings=function(svc,msg,cb){
+		
+		service.PutDataLakeSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataLakeSettings",params,undefined,true); 
@@ -341,7 +356,8 @@ module.exports = function(RED) {
 
 			svc.putDataLakeSettings(params,cb);
 		}
-			service.RegisterResource=function(svc,msg,cb){
+		
+		service.RegisterResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -357,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.registerResource(params,cb);
 		}
-			service.RemoveLFTagsFromResource=function(svc,msg,cb){
+		
+		service.RemoveLFTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,true); 
@@ -374,7 +391,8 @@ module.exports = function(RED) {
 
 			svc.removeLFTagsFromResource(params,cb);
 		}
-			service.RevokePermissions=function(svc,msg,cb){
+		
+		service.RevokePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Principal",params,undefined,true); 
@@ -396,7 +414,8 @@ module.exports = function(RED) {
 
 			svc.revokePermissions(params,cb);
 		}
-			service.SearchDatabasesByLFTags=function(svc,msg,cb){
+		
+		service.SearchDatabasesByLFTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Expression",params,undefined,true); 
@@ -414,7 +433,8 @@ module.exports = function(RED) {
 
 			svc.searchDatabasesByLFTags(params,cb);
 		}
-			service.SearchTablesByLFTags=function(svc,msg,cb){
+		
+		service.SearchTablesByLFTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Expression",params,undefined,true); 
@@ -432,7 +452,8 @@ module.exports = function(RED) {
 
 			svc.searchTablesByLFTags(params,cb);
 		}
-			service.UpdateLFTag=function(svc,msg,cb){
+		
+		service.UpdateLFTag=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKey",params,undefined,false); 
@@ -450,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.updateLFTag(params,cb);
 		}
-			service.UpdateResource=function(svc,msg,cb){
+		
+		service.UpdateResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -465,6 +487,7 @@ module.exports = function(RED) {
 
 			svc.updateResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS LakeFormation", AmazonAPINode);

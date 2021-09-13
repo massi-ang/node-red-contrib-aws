@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeGroup=function(svc,msg,cb){
+		service.DescribeGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityStoreId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.describeGroup(params,cb);
 		}
-			service.DescribeUser=function(svc,msg,cb){
+		
+		service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityStoreId",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-			service.ListGroups=function(svc,msg,cb){
+		
+		service.ListGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityStoreId",params,undefined,false); 
@@ -141,7 +143,8 @@ module.exports = function(RED) {
 
 			svc.listGroups(params,cb);
 		}
-			service.ListUsers=function(svc,msg,cb){
+		
+		service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IdentityStoreId",params,undefined,false); 
@@ -159,6 +162,7 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IdentityStore", AmazonAPINode);

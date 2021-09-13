@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchDeleteWorlds=function(svc,msg,cb){
+		service.BatchDeleteWorlds=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"worlds",params,undefined,true); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteWorlds(params,cb);
 		}
-			service.BatchDescribeSimulationJob=function(svc,msg,cb){
+		
+		service.BatchDescribeSimulationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobs",params,undefined,true); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.batchDescribeSimulationJob(params,cb);
 		}
-			service.CancelDeploymentJob=function(svc,msg,cb){
+		
+		service.CancelDeploymentJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -129,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.cancelDeploymentJob(params,cb);
 		}
-			service.CancelSimulationJob=function(svc,msg,cb){
+		
+		service.CancelSimulationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -141,7 +144,8 @@ module.exports = function(RED) {
 
 			svc.cancelSimulationJob(params,cb);
 		}
-			service.CancelSimulationJobBatch=function(svc,msg,cb){
+		
+		service.CancelSimulationJobBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"batch",params,undefined,false); 
@@ -153,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.cancelSimulationJobBatch(params,cb);
 		}
-			service.CancelWorldExportJob=function(svc,msg,cb){
+		
+		service.CancelWorldExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -165,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.cancelWorldExportJob(params,cb);
 		}
-			service.CancelWorldGenerationJob=function(svc,msg,cb){
+		
+		service.CancelWorldGenerationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -177,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.cancelWorldGenerationJob(params,cb);
 		}
-			service.CreateDeploymentJob=function(svc,msg,cb){
+		
+		service.CreateDeploymentJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
@@ -199,7 +206,8 @@ module.exports = function(RED) {
 
 			svc.createDeploymentJob(params,cb);
 		}
-			service.CreateFleet=function(svc,msg,cb){
+		
+		service.CreateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -213,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.createFleet(params,cb);
 		}
-			service.CreateRobot=function(svc,msg,cb){
+		
+		service.CreateRobot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -233,7 +242,8 @@ module.exports = function(RED) {
 
 			svc.createRobot(params,cb);
 		}
-			service.CreateRobotApplication=function(svc,msg,cb){
+		
+		service.CreateRobotApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -253,7 +263,8 @@ module.exports = function(RED) {
 
 			svc.createRobotApplication(params,cb);
 		}
-			service.CreateRobotApplicationVersion=function(svc,msg,cb){
+		
+		service.CreateRobotApplicationVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -267,7 +278,8 @@ module.exports = function(RED) {
 
 			svc.createRobotApplicationVersion(params,cb);
 		}
-			service.CreateSimulationApplication=function(svc,msg,cb){
+		
+		service.CreateSimulationApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -292,7 +304,8 @@ module.exports = function(RED) {
 
 			svc.createSimulationApplication(params,cb);
 		}
-			service.CreateSimulationApplicationVersion=function(svc,msg,cb){
+		
+		service.CreateSimulationApplicationVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -306,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.createSimulationApplicationVersion(params,cb);
 		}
-			service.CreateSimulationJob=function(svc,msg,cb){
+		
+		service.CreateSimulationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"maxJobDurationInSeconds",params,undefined,false); 
@@ -341,7 +355,8 @@ module.exports = function(RED) {
 
 			svc.createSimulationJob(params,cb);
 		}
-			service.CreateWorldExportJob=function(svc,msg,cb){
+		
+		service.CreateWorldExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"worlds",params,undefined,true); 
@@ -363,7 +378,8 @@ module.exports = function(RED) {
 
 			svc.createWorldExportJob(params,cb);
 		}
-			service.CreateWorldGenerationJob=function(svc,msg,cb){
+		
+		service.CreateWorldGenerationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"template",params,undefined,false); 
@@ -384,7 +400,8 @@ module.exports = function(RED) {
 
 			svc.createWorldGenerationJob(params,cb);
 		}
-			service.CreateWorldTemplate=function(svc,msg,cb){
+		
+		service.CreateWorldTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -403,7 +420,8 @@ module.exports = function(RED) {
 
 			svc.createWorldTemplate(params,cb);
 		}
-			service.DeleteFleet=function(svc,msg,cb){
+		
+		service.DeleteFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"fleet",params,undefined,false); 
@@ -415,7 +433,8 @@ module.exports = function(RED) {
 
 			svc.deleteFleet(params,cb);
 		}
-			service.DeleteRobot=function(svc,msg,cb){
+		
+		service.DeleteRobot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"robot",params,undefined,false); 
@@ -427,7 +446,8 @@ module.exports = function(RED) {
 
 			svc.deleteRobot(params,cb);
 		}
-			service.DeleteRobotApplication=function(svc,msg,cb){
+		
+		service.DeleteRobotApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -441,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.deleteRobotApplication(params,cb);
 		}
-			service.DeleteSimulationApplication=function(svc,msg,cb){
+		
+		service.DeleteSimulationApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -455,7 +476,8 @@ module.exports = function(RED) {
 
 			svc.deleteSimulationApplication(params,cb);
 		}
-			service.DeleteWorldTemplate=function(svc,msg,cb){
+		
+		service.DeleteWorldTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"template",params,undefined,false); 
@@ -467,7 +489,8 @@ module.exports = function(RED) {
 
 			svc.deleteWorldTemplate(params,cb);
 		}
-			service.DeregisterRobot=function(svc,msg,cb){
+		
+		service.DeregisterRobot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"fleet",params,undefined,false); 
@@ -482,7 +505,8 @@ module.exports = function(RED) {
 
 			svc.deregisterRobot(params,cb);
 		}
-			service.DescribeDeploymentJob=function(svc,msg,cb){
+		
+		service.DescribeDeploymentJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -494,7 +518,8 @@ module.exports = function(RED) {
 
 			svc.describeDeploymentJob(params,cb);
 		}
-			service.DescribeFleet=function(svc,msg,cb){
+		
+		service.DescribeFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"fleet",params,undefined,false); 
@@ -506,7 +531,8 @@ module.exports = function(RED) {
 
 			svc.describeFleet(params,cb);
 		}
-			service.DescribeRobot=function(svc,msg,cb){
+		
+		service.DescribeRobot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"robot",params,undefined,false); 
@@ -518,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.describeRobot(params,cb);
 		}
-			service.DescribeRobotApplication=function(svc,msg,cb){
+		
+		service.DescribeRobotApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -532,7 +559,8 @@ module.exports = function(RED) {
 
 			svc.describeRobotApplication(params,cb);
 		}
-			service.DescribeSimulationApplication=function(svc,msg,cb){
+		
+		service.DescribeSimulationApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -546,7 +574,8 @@ module.exports = function(RED) {
 
 			svc.describeSimulationApplication(params,cb);
 		}
-			service.DescribeSimulationJob=function(svc,msg,cb){
+		
+		service.DescribeSimulationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -558,7 +587,8 @@ module.exports = function(RED) {
 
 			svc.describeSimulationJob(params,cb);
 		}
-			service.DescribeSimulationJobBatch=function(svc,msg,cb){
+		
+		service.DescribeSimulationJobBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"batch",params,undefined,false); 
@@ -570,7 +600,8 @@ module.exports = function(RED) {
 
 			svc.describeSimulationJobBatch(params,cb);
 		}
-			service.DescribeWorld=function(svc,msg,cb){
+		
+		service.DescribeWorld=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"world",params,undefined,false); 
@@ -582,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.describeWorld(params,cb);
 		}
-			service.DescribeWorldExportJob=function(svc,msg,cb){
+		
+		service.DescribeWorldExportJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -594,7 +626,8 @@ module.exports = function(RED) {
 
 			svc.describeWorldExportJob(params,cb);
 		}
-			service.DescribeWorldGenerationJob=function(svc,msg,cb){
+		
+		service.DescribeWorldGenerationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -606,7 +639,8 @@ module.exports = function(RED) {
 
 			svc.describeWorldGenerationJob(params,cb);
 		}
-			service.DescribeWorldTemplate=function(svc,msg,cb){
+		
+		service.DescribeWorldTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"template",params,undefined,false); 
@@ -618,7 +652,8 @@ module.exports = function(RED) {
 
 			svc.describeWorldTemplate(params,cb);
 		}
-			service.GetWorldTemplateBody=function(svc,msg,cb){
+		
+		service.GetWorldTemplateBody=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -631,7 +666,8 @@ module.exports = function(RED) {
 
 			svc.getWorldTemplateBody(params,cb);
 		}
-			service.ListDeploymentJobs=function(svc,msg,cb){
+		
+		service.ListDeploymentJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -646,7 +682,8 @@ module.exports = function(RED) {
 
 			svc.listDeploymentJobs(params,cb);
 		}
-			service.ListFleets=function(svc,msg,cb){
+		
+		service.ListFleets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -661,7 +698,8 @@ module.exports = function(RED) {
 
 			svc.listFleets(params,cb);
 		}
-			service.ListRobotApplications=function(svc,msg,cb){
+		
+		service.ListRobotApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -678,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.listRobotApplications(params,cb);
 		}
-			service.ListRobots=function(svc,msg,cb){
+		
+		service.ListRobots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -693,7 +732,8 @@ module.exports = function(RED) {
 
 			svc.listRobots(params,cb);
 		}
-			service.ListSimulationApplications=function(svc,msg,cb){
+		
+		service.ListSimulationApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -710,7 +750,8 @@ module.exports = function(RED) {
 
 			svc.listSimulationApplications(params,cb);
 		}
-			service.ListSimulationJobBatches=function(svc,msg,cb){
+		
+		service.ListSimulationJobBatches=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -725,7 +766,8 @@ module.exports = function(RED) {
 
 			svc.listSimulationJobBatches(params,cb);
 		}
-			service.ListSimulationJobs=function(svc,msg,cb){
+		
+		service.ListSimulationJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -740,7 +782,8 @@ module.exports = function(RED) {
 
 			svc.listSimulationJobs(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -752,7 +795,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWorldExportJobs=function(svc,msg,cb){
+		
+		service.ListWorldExportJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -767,7 +811,8 @@ module.exports = function(RED) {
 
 			svc.listWorldExportJobs(params,cb);
 		}
-			service.ListWorldGenerationJobs=function(svc,msg,cb){
+		
+		service.ListWorldGenerationJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -782,7 +827,8 @@ module.exports = function(RED) {
 
 			svc.listWorldGenerationJobs(params,cb);
 		}
-			service.ListWorldTemplates=function(svc,msg,cb){
+		
+		service.ListWorldTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -795,7 +841,8 @@ module.exports = function(RED) {
 
 			svc.listWorldTemplates(params,cb);
 		}
-			service.ListWorlds=function(svc,msg,cb){
+		
+		service.ListWorlds=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -810,7 +857,8 @@ module.exports = function(RED) {
 
 			svc.listWorlds(params,cb);
 		}
-			service.RegisterRobot=function(svc,msg,cb){
+		
+		service.RegisterRobot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"fleet",params,undefined,false); 
@@ -825,7 +873,8 @@ module.exports = function(RED) {
 
 			svc.registerRobot(params,cb);
 		}
-			service.RestartSimulationJob=function(svc,msg,cb){
+		
+		service.RestartSimulationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"job",params,undefined,false); 
@@ -837,7 +886,8 @@ module.exports = function(RED) {
 
 			svc.restartSimulationJob(params,cb);
 		}
-			service.StartSimulationJobBatch=function(svc,msg,cb){
+		
+		service.StartSimulationJobBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"createSimulationJobRequests",params,undefined,true); 
@@ -855,7 +905,8 @@ module.exports = function(RED) {
 
 			svc.startSimulationJobBatch(params,cb);
 		}
-			service.SyncDeploymentJob=function(svc,msg,cb){
+		
+		service.SyncDeploymentJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientRequestToken",params,undefined,false); 
@@ -870,7 +921,8 @@ module.exports = function(RED) {
 
 			svc.syncDeploymentJob(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -885,7 +937,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -900,7 +953,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateRobotApplication=function(svc,msg,cb){
+		
+		service.UpdateRobotApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -920,7 +974,8 @@ module.exports = function(RED) {
 
 			svc.updateRobotApplication(params,cb);
 		}
-			service.UpdateSimulationApplication=function(svc,msg,cb){
+		
+		service.UpdateSimulationApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"application",params,undefined,false); 
@@ -945,7 +1000,8 @@ module.exports = function(RED) {
 
 			svc.updateSimulationApplication(params,cb);
 		}
-			service.UpdateWorldTemplate=function(svc,msg,cb){
+		
+		service.UpdateWorldTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"template",params,undefined,false); 
@@ -963,6 +1019,7 @@ module.exports = function(RED) {
 
 			svc.updateWorldTemplate(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS RoboMaker", AmazonAPINode);

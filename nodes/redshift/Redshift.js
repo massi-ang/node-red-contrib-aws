@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptReservedNodeExchange=function(svc,msg,cb){
+		service.AcceptReservedNodeExchange=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservedNodeId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.acceptReservedNodeExchange(params,cb);
 		}
-			service.AddPartner=function(svc,msg,cb){
+		
+		service.AddPartner=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -121,7 +122,8 @@ module.exports = function(RED) {
 
 			svc.addPartner(params,cb);
 		}
-			service.AssociateDataShareConsumer=function(svc,msg,cb){
+		
+		service.AssociateDataShareConsumer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataShareArn",params,undefined,false); 
@@ -137,7 +139,8 @@ module.exports = function(RED) {
 
 			svc.associateDataShareConsumer(params,cb);
 		}
-			service.AuthorizeClusterSecurityGroupIngress=function(svc,msg,cb){
+		
+		service.AuthorizeClusterSecurityGroupIngress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSecurityGroupName",params,undefined,false); 
@@ -155,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.authorizeClusterSecurityGroupIngress(params,cb);
 		}
-			service.AuthorizeDataShare=function(svc,msg,cb){
+		
+		service.AuthorizeDataShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataShareArn",params,undefined,false); 
@@ -170,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.authorizeDataShare(params,cb);
 		}
-			service.AuthorizeEndpointAccess=function(svc,msg,cb){
+		
+		service.AuthorizeEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Account",params,undefined,false); 
@@ -186,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.authorizeEndpointAccess(params,cb);
 		}
-			service.AuthorizeSnapshotAccess=function(svc,msg,cb){
+		
+		service.AuthorizeSnapshotAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotIdentifier",params,undefined,false); 
@@ -203,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.authorizeSnapshotAccess(params,cb);
 		}
-			service.BatchDeleteClusterSnapshots=function(svc,msg,cb){
+		
+		service.BatchDeleteClusterSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Identifiers",params,undefined,false); 
@@ -215,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteClusterSnapshots(params,cb);
 		}
-			service.BatchModifyClusterSnapshots=function(svc,msg,cb){
+		
+		service.BatchModifyClusterSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotIdentifierList",params,undefined,true); 
@@ -231,7 +239,8 @@ module.exports = function(RED) {
 
 			svc.batchModifyClusterSnapshots(params,cb);
 		}
-			service.CancelResize=function(svc,msg,cb){
+		
+		service.CancelResize=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -243,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.cancelResize(params,cb);
 		}
-			service.CopyClusterSnapshot=function(svc,msg,cb){
+		
+		service.CopyClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceSnapshotIdentifier",params,undefined,false); 
@@ -262,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.copyClusterSnapshot(params,cb);
 		}
-			service.CreateAuthenticationProfile=function(svc,msg,cb){
+		
+		service.CreateAuthenticationProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationProfileName",params,undefined,false); 
@@ -277,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.createAuthenticationProfile(params,cb);
 		}
-			service.CreateCluster=function(svc,msg,cb){
+		
+		service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -354,7 +366,8 @@ module.exports = function(RED) {
 
 			svc.createCluster(params,cb);
 		}
-			service.CreateClusterParameterGroup=function(svc,msg,cb){
+		
+		service.CreateClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -374,7 +387,8 @@ module.exports = function(RED) {
 
 			svc.createClusterParameterGroup(params,cb);
 		}
-			service.CreateClusterSecurityGroup=function(svc,msg,cb){
+		
+		service.CreateClusterSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSecurityGroupName",params,undefined,false); 
@@ -391,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.createClusterSecurityGroup(params,cb);
 		}
-			service.CreateClusterSnapshot=function(svc,msg,cb){
+		
+		service.CreateClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotIdentifier",params,undefined,false); 
@@ -410,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.createClusterSnapshot(params,cb);
 		}
-			service.CreateClusterSubnetGroup=function(svc,msg,cb){
+		
+		service.CreateClusterSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSubnetGroupName",params,undefined,false); 
@@ -430,7 +446,8 @@ module.exports = function(RED) {
 
 			svc.createClusterSubnetGroup(params,cb);
 		}
-			service.CreateEndpointAccess=function(svc,msg,cb){
+		
+		service.CreateEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -451,7 +468,8 @@ module.exports = function(RED) {
 
 			svc.createEndpointAccess(params,cb);
 		}
-			service.CreateEventSubscription=function(svc,msg,cb){
+		
+		service.CreateEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -478,7 +496,8 @@ module.exports = function(RED) {
 
 			svc.createEventSubscription(params,cb);
 		}
-			service.CreateHsmClientCertificate=function(svc,msg,cb){
+		
+		service.CreateHsmClientCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmClientCertificateIdentifier",params,undefined,false); 
@@ -492,7 +511,8 @@ module.exports = function(RED) {
 
 			svc.createHsmClientCertificate(params,cb);
 		}
-			service.CreateHsmConfiguration=function(svc,msg,cb){
+		
+		service.CreateHsmConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmConfigurationIdentifier",params,undefined,false); 
@@ -521,7 +541,8 @@ module.exports = function(RED) {
 
 			svc.createHsmConfiguration(params,cb);
 		}
-			service.CreateScheduledAction=function(svc,msg,cb){
+		
+		service.CreateScheduledAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScheduledActionName",params,undefined,false); 
@@ -550,7 +571,8 @@ module.exports = function(RED) {
 
 			svc.createScheduledAction(params,cb);
 		}
-			service.CreateSnapshotCopyGrant=function(svc,msg,cb){
+		
+		service.CreateSnapshotCopyGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotCopyGrantName",params,undefined,false); 
@@ -566,7 +588,8 @@ module.exports = function(RED) {
 
 			svc.createSnapshotCopyGrant(params,cb);
 		}
-			service.CreateSnapshotSchedule=function(svc,msg,cb){
+		
+		service.CreateSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -587,7 +610,8 @@ module.exports = function(RED) {
 
 			svc.createSnapshotSchedule(params,cb);
 		}
-			service.CreateTags=function(svc,msg,cb){
+		
+		service.CreateTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -602,7 +626,8 @@ module.exports = function(RED) {
 
 			svc.createTags(params,cb);
 		}
-			service.CreateUsageLimit=function(svc,msg,cb){
+		
+		service.CreateUsageLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -629,7 +654,8 @@ module.exports = function(RED) {
 
 			svc.createUsageLimit(params,cb);
 		}
-			service.DeauthorizeDataShare=function(svc,msg,cb){
+		
+		service.DeauthorizeDataShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataShareArn",params,undefined,false); 
@@ -644,7 +670,8 @@ module.exports = function(RED) {
 
 			svc.deauthorizeDataShare(params,cb);
 		}
-			service.DeleteAuthenticationProfile=function(svc,msg,cb){
+		
+		service.DeleteAuthenticationProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationProfileName",params,undefined,false); 
@@ -656,7 +683,8 @@ module.exports = function(RED) {
 
 			svc.deleteAuthenticationProfile(params,cb);
 		}
-			service.DeleteCluster=function(svc,msg,cb){
+		
+		service.DeleteCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -674,7 +702,8 @@ module.exports = function(RED) {
 
 			svc.deleteCluster(params,cb);
 		}
-			service.DeleteClusterParameterGroup=function(svc,msg,cb){
+		
+		service.DeleteClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -686,7 +715,8 @@ module.exports = function(RED) {
 
 			svc.deleteClusterParameterGroup(params,cb);
 		}
-			service.DeleteClusterSecurityGroup=function(svc,msg,cb){
+		
+		service.DeleteClusterSecurityGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSecurityGroupName",params,undefined,false); 
@@ -698,7 +728,8 @@ module.exports = function(RED) {
 
 			svc.deleteClusterSecurityGroup(params,cb);
 		}
-			service.DeleteClusterSnapshot=function(svc,msg,cb){
+		
+		service.DeleteClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -709,7 +740,8 @@ module.exports = function(RED) {
 
 			svc.deleteClusterSnapshot(params,cb);
 		}
-			service.DeleteClusterSubnetGroup=function(svc,msg,cb){
+		
+		service.DeleteClusterSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSubnetGroupName",params,undefined,false); 
@@ -721,7 +753,8 @@ module.exports = function(RED) {
 
 			svc.deleteClusterSubnetGroup(params,cb);
 		}
-			service.DeleteEndpointAccess=function(svc,msg,cb){
+		
+		service.DeleteEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -733,7 +766,8 @@ module.exports = function(RED) {
 
 			svc.deleteEndpointAccess(params,cb);
 		}
-			service.DeleteEventSubscription=function(svc,msg,cb){
+		
+		service.DeleteEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -745,7 +779,8 @@ module.exports = function(RED) {
 
 			svc.deleteEventSubscription(params,cb);
 		}
-			service.DeleteHsmClientCertificate=function(svc,msg,cb){
+		
+		service.DeleteHsmClientCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmClientCertificateIdentifier",params,undefined,false); 
@@ -757,7 +792,8 @@ module.exports = function(RED) {
 
 			svc.deleteHsmClientCertificate(params,cb);
 		}
-			service.DeleteHsmConfiguration=function(svc,msg,cb){
+		
+		service.DeleteHsmConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmConfigurationIdentifier",params,undefined,false); 
@@ -769,7 +805,8 @@ module.exports = function(RED) {
 
 			svc.deleteHsmConfiguration(params,cb);
 		}
-			service.DeletePartner=function(svc,msg,cb){
+		
+		service.DeletePartner=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -782,7 +819,8 @@ module.exports = function(RED) {
 
 			svc.deletePartner(params,cb);
 		}
-			service.DeleteScheduledAction=function(svc,msg,cb){
+		
+		service.DeleteScheduledAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScheduledActionName",params,undefined,false); 
@@ -794,7 +832,8 @@ module.exports = function(RED) {
 
 			svc.deleteScheduledAction(params,cb);
 		}
-			service.DeleteSnapshotCopyGrant=function(svc,msg,cb){
+		
+		service.DeleteSnapshotCopyGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotCopyGrantName",params,undefined,false); 
@@ -806,7 +845,8 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshotCopyGrant(params,cb);
 		}
-			service.DeleteSnapshotSchedule=function(svc,msg,cb){
+		
+		service.DeleteSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScheduleIdentifier",params,undefined,false); 
@@ -818,7 +858,8 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshotSchedule(params,cb);
 		}
-			service.DeleteTags=function(svc,msg,cb){
+		
+		service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceName",params,undefined,false); 
@@ -833,7 +874,8 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-			service.DeleteUsageLimit=function(svc,msg,cb){
+		
+		service.DeleteUsageLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UsageLimitId",params,undefined,false); 
@@ -845,7 +887,8 @@ module.exports = function(RED) {
 
 			svc.deleteUsageLimit(params,cb);
 		}
-			service.DescribeAccountAttributes=function(svc,msg,cb){
+		
+		service.DescribeAccountAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -856,7 +899,8 @@ module.exports = function(RED) {
 
 			svc.describeAccountAttributes(params,cb);
 		}
-			service.DescribeAuthenticationProfiles=function(svc,msg,cb){
+		
+		service.DescribeAuthenticationProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -867,7 +911,8 @@ module.exports = function(RED) {
 
 			svc.describeAuthenticationProfiles(params,cb);
 		}
-			service.DescribeClusterDbRevisions=function(svc,msg,cb){
+		
+		service.DescribeClusterDbRevisions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -882,7 +927,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterDbRevisions(params,cb);
 		}
-			service.DescribeClusterParameterGroups=function(svc,msg,cb){
+		
+		service.DescribeClusterParameterGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -901,7 +947,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterParameterGroups(params,cb);
 		}
-			service.DescribeClusterParameters=function(svc,msg,cb){
+		
+		service.DescribeClusterParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -919,7 +966,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterParameters(params,cb);
 		}
-			service.DescribeClusterSecurityGroups=function(svc,msg,cb){
+		
+		service.DescribeClusterSecurityGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -938,7 +986,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterSecurityGroups(params,cb);
 		}
-			service.DescribeClusterSnapshots=function(svc,msg,cb){
+		
+		service.DescribeClusterSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -971,7 +1020,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterSnapshots(params,cb);
 		}
-			service.DescribeClusterSubnetGroups=function(svc,msg,cb){
+		
+		service.DescribeClusterSubnetGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -990,7 +1040,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterSubnetGroups(params,cb);
 		}
-			service.DescribeClusterTracks=function(svc,msg,cb){
+		
+		service.DescribeClusterTracks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1005,7 +1056,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterTracks(params,cb);
 		}
-			service.DescribeClusterVersions=function(svc,msg,cb){
+		
+		service.DescribeClusterVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1022,7 +1074,8 @@ module.exports = function(RED) {
 
 			svc.describeClusterVersions(params,cb);
 		}
-			service.DescribeClusters=function(svc,msg,cb){
+		
+		service.DescribeClusters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1041,7 +1094,8 @@ module.exports = function(RED) {
 
 			svc.describeClusters(params,cb);
 		}
-			service.DescribeDataShares=function(svc,msg,cb){
+		
+		service.DescribeDataShares=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1056,7 +1110,8 @@ module.exports = function(RED) {
 
 			svc.describeDataShares(params,cb);
 		}
-			service.DescribeDataSharesForConsumer=function(svc,msg,cb){
+		
+		service.DescribeDataSharesForConsumer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1073,7 +1128,8 @@ module.exports = function(RED) {
 
 			svc.describeDataSharesForConsumer(params,cb);
 		}
-			service.DescribeDataSharesForProducer=function(svc,msg,cb){
+		
+		service.DescribeDataSharesForProducer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1090,7 +1146,8 @@ module.exports = function(RED) {
 
 			svc.describeDataSharesForProducer(params,cb);
 		}
-			service.DescribeDefaultClusterParameters=function(svc,msg,cb){
+		
+		service.DescribeDefaultClusterParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupFamily",params,undefined,false); 
@@ -1106,7 +1163,8 @@ module.exports = function(RED) {
 
 			svc.describeDefaultClusterParameters(params,cb);
 		}
-			service.DescribeEndpointAccess=function(svc,msg,cb){
+		
+		service.DescribeEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1127,7 +1185,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpointAccess(params,cb);
 		}
-			service.DescribeEndpointAuthorization=function(svc,msg,cb){
+		
+		service.DescribeEndpointAuthorization=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1146,7 +1205,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpointAuthorization(params,cb);
 		}
-			service.DescribeEventCategories=function(svc,msg,cb){
+		
+		service.DescribeEventCategories=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1157,7 +1217,8 @@ module.exports = function(RED) {
 
 			svc.describeEventCategories(params,cb);
 		}
-			service.DescribeEventSubscriptions=function(svc,msg,cb){
+		
+		service.DescribeEventSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1176,7 +1237,8 @@ module.exports = function(RED) {
 
 			svc.describeEventSubscriptions(params,cb);
 		}
-			service.DescribeEvents=function(svc,msg,cb){
+		
+		service.DescribeEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1199,7 +1261,8 @@ module.exports = function(RED) {
 
 			svc.describeEvents(params,cb);
 		}
-			service.DescribeHsmClientCertificates=function(svc,msg,cb){
+		
+		service.DescribeHsmClientCertificates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1218,7 +1281,8 @@ module.exports = function(RED) {
 
 			svc.describeHsmClientCertificates(params,cb);
 		}
-			service.DescribeHsmConfigurations=function(svc,msg,cb){
+		
+		service.DescribeHsmConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1237,7 +1301,8 @@ module.exports = function(RED) {
 
 			svc.describeHsmConfigurations(params,cb);
 		}
-			service.DescribeLoggingStatus=function(svc,msg,cb){
+		
+		service.DescribeLoggingStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1249,7 +1314,8 @@ module.exports = function(RED) {
 
 			svc.describeLoggingStatus(params,cb);
 		}
-			service.DescribeNodeConfigurationOptions=function(svc,msg,cb){
+		
+		service.DescribeNodeConfigurationOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActionType",params,undefined,false); 
@@ -1273,7 +1339,8 @@ module.exports = function(RED) {
 
 			svc.describeNodeConfigurationOptions(params,cb);
 		}
-			service.DescribeOrderableClusterOptions=function(svc,msg,cb){
+		
+		service.DescribeOrderableClusterOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1290,7 +1357,8 @@ module.exports = function(RED) {
 
 			svc.describeOrderableClusterOptions(params,cb);
 		}
-			service.DescribePartners=function(svc,msg,cb){
+		
+		service.DescribePartners=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1309,7 +1377,8 @@ module.exports = function(RED) {
 
 			svc.describePartners(params,cb);
 		}
-			service.DescribeReservedNodeOfferings=function(svc,msg,cb){
+		
+		service.DescribeReservedNodeOfferings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1324,7 +1393,8 @@ module.exports = function(RED) {
 
 			svc.describeReservedNodeOfferings(params,cb);
 		}
-			service.DescribeReservedNodes=function(svc,msg,cb){
+		
+		service.DescribeReservedNodes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1339,7 +1409,8 @@ module.exports = function(RED) {
 
 			svc.describeReservedNodes(params,cb);
 		}
-			service.DescribeResize=function(svc,msg,cb){
+		
+		service.DescribeResize=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1351,7 +1422,8 @@ module.exports = function(RED) {
 
 			svc.describeResize(params,cb);
 		}
-			service.DescribeScheduledActions=function(svc,msg,cb){
+		
+		service.DescribeScheduledActions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1376,7 +1448,8 @@ module.exports = function(RED) {
 
 			svc.describeScheduledActions(params,cb);
 		}
-			service.DescribeSnapshotCopyGrants=function(svc,msg,cb){
+		
+		service.DescribeSnapshotCopyGrants=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1395,7 +1468,8 @@ module.exports = function(RED) {
 
 			svc.describeSnapshotCopyGrants(params,cb);
 		}
-			service.DescribeSnapshotSchedules=function(svc,msg,cb){
+		
+		service.DescribeSnapshotSchedules=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1416,7 +1490,8 @@ module.exports = function(RED) {
 
 			svc.describeSnapshotSchedules(params,cb);
 		}
-			service.DescribeStorage=function(svc,msg,cb){
+		
+		service.DescribeStorage=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1425,7 +1500,8 @@ module.exports = function(RED) {
 
 			svc.describeStorage(params,cb);
 		}
-			service.DescribeTableRestoreStatus=function(svc,msg,cb){
+		
+		service.DescribeTableRestoreStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1442,7 +1518,8 @@ module.exports = function(RED) {
 
 			svc.describeTableRestoreStatus(params,cb);
 		}
-			service.DescribeTags=function(svc,msg,cb){
+		
+		service.DescribeTags=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1463,7 +1540,8 @@ module.exports = function(RED) {
 
 			svc.describeTags(params,cb);
 		}
-			service.DescribeUsageLimits=function(svc,msg,cb){
+		
+		service.DescribeUsageLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1486,7 +1564,8 @@ module.exports = function(RED) {
 
 			svc.describeUsageLimits(params,cb);
 		}
-			service.DisableLogging=function(svc,msg,cb){
+		
+		service.DisableLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1498,7 +1577,8 @@ module.exports = function(RED) {
 
 			svc.disableLogging(params,cb);
 		}
-			service.DisableSnapshotCopy=function(svc,msg,cb){
+		
+		service.DisableSnapshotCopy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1510,7 +1590,8 @@ module.exports = function(RED) {
 
 			svc.disableSnapshotCopy(params,cb);
 		}
-			service.DisassociateDataShareConsumer=function(svc,msg,cb){
+		
+		service.DisassociateDataShareConsumer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataShareArn",params,undefined,false); 
@@ -1526,7 +1607,8 @@ module.exports = function(RED) {
 
 			svc.disassociateDataShareConsumer(params,cb);
 		}
-			service.EnableLogging=function(svc,msg,cb){
+		
+		service.EnableLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1543,7 +1625,8 @@ module.exports = function(RED) {
 
 			svc.enableLogging(params,cb);
 		}
-			service.EnableSnapshotCopy=function(svc,msg,cb){
+		
+		service.EnableSnapshotCopy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1564,7 +1647,8 @@ module.exports = function(RED) {
 
 			svc.enableSnapshotCopy(params,cb);
 		}
-			service.GetClusterCredentials=function(svc,msg,cb){
+		
+		service.GetClusterCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DbUser",params,undefined,false); 
@@ -1587,7 +1671,8 @@ module.exports = function(RED) {
 
 			svc.getClusterCredentials(params,cb);
 		}
-			service.GetReservedNodeExchangeOfferings=function(svc,msg,cb){
+		
+		service.GetReservedNodeExchangeOfferings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservedNodeId",params,undefined,false); 
@@ -1603,7 +1688,8 @@ module.exports = function(RED) {
 
 			svc.getReservedNodeExchangeOfferings(params,cb);
 		}
-			service.ModifyAquaConfiguration=function(svc,msg,cb){
+		
+		service.ModifyAquaConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1617,7 +1703,8 @@ module.exports = function(RED) {
 
 			svc.modifyAquaConfiguration(params,cb);
 		}
-			service.ModifyAuthenticationProfile=function(svc,msg,cb){
+		
+		service.ModifyAuthenticationProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationProfileName",params,undefined,false); 
@@ -1632,7 +1719,8 @@ module.exports = function(RED) {
 
 			svc.modifyAuthenticationProfile(params,cb);
 		}
-			service.ModifyCluster=function(svc,msg,cb){
+		
+		service.ModifyCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1692,7 +1780,8 @@ module.exports = function(RED) {
 
 			svc.modifyCluster(params,cb);
 		}
-			service.ModifyClusterDbRevision=function(svc,msg,cb){
+		
+		service.ModifyClusterDbRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1707,7 +1796,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterDbRevision(params,cb);
 		}
-			service.ModifyClusterIamRoles=function(svc,msg,cb){
+		
+		service.ModifyClusterIamRoles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1723,7 +1813,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterIamRoles(params,cb);
 		}
-			service.ModifyClusterMaintenance=function(svc,msg,cb){
+		
+		service.ModifyClusterMaintenance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1745,7 +1836,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterMaintenance(params,cb);
 		}
-			service.ModifyClusterParameterGroup=function(svc,msg,cb){
+		
+		service.ModifyClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -1760,7 +1852,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterParameterGroup(params,cb);
 		}
-			service.ModifyClusterSnapshot=function(svc,msg,cb){
+		
+		service.ModifyClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotIdentifier",params,undefined,false); 
@@ -1776,7 +1869,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterSnapshot(params,cb);
 		}
-			service.ModifyClusterSnapshotSchedule=function(svc,msg,cb){
+		
+		service.ModifyClusterSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1792,7 +1886,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterSnapshotSchedule(params,cb);
 		}
-			service.ModifyClusterSubnetGroup=function(svc,msg,cb){
+		
+		service.ModifyClusterSubnetGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSubnetGroupName",params,undefined,false); 
@@ -1809,7 +1904,8 @@ module.exports = function(RED) {
 
 			svc.modifyClusterSubnetGroup(params,cb);
 		}
-			service.ModifyEndpointAccess=function(svc,msg,cb){
+		
+		service.ModifyEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -1823,7 +1919,8 @@ module.exports = function(RED) {
 
 			svc.modifyEndpointAccess(params,cb);
 		}
-			service.ModifyEventSubscription=function(svc,msg,cb){
+		
+		service.ModifyEventSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionName",params,undefined,false); 
@@ -1847,7 +1944,8 @@ module.exports = function(RED) {
 
 			svc.modifyEventSubscription(params,cb);
 		}
-			service.ModifyScheduledAction=function(svc,msg,cb){
+		
+		service.ModifyScheduledAction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScheduledActionName",params,undefined,false); 
@@ -1873,7 +1971,8 @@ module.exports = function(RED) {
 
 			svc.modifyScheduledAction(params,cb);
 		}
-			service.ModifySnapshotCopyRetentionPeriod=function(svc,msg,cb){
+		
+		service.ModifySnapshotCopyRetentionPeriod=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1890,7 +1989,8 @@ module.exports = function(RED) {
 
 			svc.modifySnapshotCopyRetentionPeriod(params,cb);
 		}
-			service.ModifySnapshotSchedule=function(svc,msg,cb){
+		
+		service.ModifySnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ScheduleIdentifier",params,undefined,false); 
@@ -1905,7 +2005,8 @@ module.exports = function(RED) {
 
 			svc.modifySnapshotSchedule(params,cb);
 		}
-			service.ModifyUsageLimit=function(svc,msg,cb){
+		
+		service.ModifyUsageLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UsageLimitId",params,undefined,false); 
@@ -1921,7 +2022,8 @@ module.exports = function(RED) {
 
 			svc.modifyUsageLimit(params,cb);
 		}
-			service.PauseCluster=function(svc,msg,cb){
+		
+		service.PauseCluster=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1931,7 +2033,8 @@ module.exports = function(RED) {
 
 			svc.pauseCluster(params,cb);
 		}
-			service.PurchaseReservedNodeOffering=function(svc,msg,cb){
+		
+		service.PurchaseReservedNodeOffering=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReservedNodeOfferingId",params,undefined,false); 
@@ -1945,7 +2048,8 @@ module.exports = function(RED) {
 
 			svc.purchaseReservedNodeOffering(params,cb);
 		}
-			service.RebootCluster=function(svc,msg,cb){
+		
+		service.RebootCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -1957,7 +2061,8 @@ module.exports = function(RED) {
 
 			svc.rebootCluster(params,cb);
 		}
-			service.RejectDataShare=function(svc,msg,cb){
+		
+		service.RejectDataShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataShareArn",params,undefined,false); 
@@ -1969,7 +2074,8 @@ module.exports = function(RED) {
 
 			svc.rejectDataShare(params,cb);
 		}
-			service.ResetClusterParameterGroup=function(svc,msg,cb){
+		
+		service.ResetClusterParameterGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ParameterGroupName",params,undefined,false); 
@@ -1985,7 +2091,8 @@ module.exports = function(RED) {
 
 			svc.resetClusterParameterGroup(params,cb);
 		}
-			service.ResizeCluster=function(svc,msg,cb){
+		
+		service.ResizeCluster=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1999,7 +2106,8 @@ module.exports = function(RED) {
 
 			svc.resizeCluster(params,cb);
 		}
-			service.RestoreFromClusterSnapshot=function(svc,msg,cb){
+		
+		service.RestoreFromClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -2066,7 +2174,8 @@ module.exports = function(RED) {
 
 			svc.restoreFromClusterSnapshot(params,cb);
 		}
-			service.RestoreTableFromClusterSnapshot=function(svc,msg,cb){
+		
+		service.RestoreTableFromClusterSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -2098,7 +2207,8 @@ module.exports = function(RED) {
 
 			svc.restoreTableFromClusterSnapshot(params,cb);
 		}
-			service.ResumeCluster=function(svc,msg,cb){
+		
+		service.ResumeCluster=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2108,7 +2218,8 @@ module.exports = function(RED) {
 
 			svc.resumeCluster(params,cb);
 		}
-			service.RevokeClusterSecurityGroupIngress=function(svc,msg,cb){
+		
+		service.RevokeClusterSecurityGroupIngress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterSecurityGroupName",params,undefined,false); 
@@ -2126,7 +2237,8 @@ module.exports = function(RED) {
 
 			svc.revokeClusterSecurityGroupIngress(params,cb);
 		}
-			service.RevokeEndpointAccess=function(svc,msg,cb){
+		
+		service.RevokeEndpointAccess=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -2143,7 +2255,8 @@ module.exports = function(RED) {
 
 			svc.revokeEndpointAccess(params,cb);
 		}
-			service.RevokeSnapshotAccess=function(svc,msg,cb){
+		
+		service.RevokeSnapshotAccess=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotIdentifier",params,undefined,false); 
@@ -2160,7 +2273,8 @@ module.exports = function(RED) {
 
 			svc.revokeSnapshotAccess(params,cb);
 		}
-			service.RotateEncryptionKey=function(svc,msg,cb){
+		
+		service.RotateEncryptionKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterIdentifier",params,undefined,false); 
@@ -2172,7 +2286,8 @@ module.exports = function(RED) {
 
 			svc.rotateEncryptionKey(params,cb);
 		}
-			service.UpdatePartnerStatus=function(svc,msg,cb){
+		
+		service.UpdatePartnerStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -2198,6 +2313,7 @@ module.exports = function(RED) {
 
 			svc.updatePartnerStatus(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Redshift", AmazonAPINode);

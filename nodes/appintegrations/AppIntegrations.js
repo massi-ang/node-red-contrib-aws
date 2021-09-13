@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateEventIntegration=function(svc,msg,cb){
+		service.CreateEventIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -117,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.createEventIntegration(params,cb);
 		}
-			service.DeleteEventIntegration=function(svc,msg,cb){
+		
+		service.DeleteEventIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -129,7 +130,8 @@ module.exports = function(RED) {
 
 			svc.deleteEventIntegration(params,cb);
 		}
-			service.GetEventIntegration=function(svc,msg,cb){
+		
+		service.GetEventIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -141,7 +143,8 @@ module.exports = function(RED) {
 
 			svc.getEventIntegration(params,cb);
 		}
-			service.ListEventIntegrationAssociations=function(svc,msg,cb){
+		
+		service.ListEventIntegrationAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EventIntegrationName",params,undefined,false); 
@@ -157,7 +160,8 @@ module.exports = function(RED) {
 
 			svc.listEventIntegrationAssociations(params,cb);
 		}
-			service.ListEventIntegrations=function(svc,msg,cb){
+		
+		service.ListEventIntegrations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -170,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.listEventIntegrations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -182,7 +187,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -197,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -212,7 +219,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateEventIntegration=function(svc,msg,cb){
+		
+		service.UpdateEventIntegration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -226,6 +234,7 @@ module.exports = function(RED) {
 
 			svc.updateEventIntegration(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS AppIntegrations", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateBroker=function(svc,msg,cb){
+		service.CreateBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EngineVersion",params,undefined,false); 
@@ -148,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.createBroker(params,cb);
 		}
-			service.CreateConfiguration=function(svc,msg,cb){
+		
+		service.CreateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EngineVersion",params,undefined,false); 
@@ -170,7 +171,8 @@ module.exports = function(RED) {
 
 			svc.createConfiguration(params,cb);
 		}
-			service.CreateTags=function(svc,msg,cb){
+		
+		service.CreateTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -184,7 +186,8 @@ module.exports = function(RED) {
 
 			svc.createTags(params,cb);
 		}
-			service.CreateUser=function(svc,msg,cb){
+		
+		service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -206,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-			service.DeleteBroker=function(svc,msg,cb){
+		
+		service.DeleteBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerId",params,undefined,false); 
@@ -218,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.deleteBroker(params,cb);
 		}
-			service.DeleteTags=function(svc,msg,cb){
+		
+		service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -233,7 +238,8 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-			service.DeleteUser=function(svc,msg,cb){
+		
+		service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -248,7 +254,8 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-			service.DescribeBroker=function(svc,msg,cb){
+		
+		service.DescribeBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerId",params,undefined,false); 
@@ -260,7 +267,8 @@ module.exports = function(RED) {
 
 			svc.describeBroker(params,cb);
 		}
-			service.DescribeBrokerEngineTypes=function(svc,msg,cb){
+		
+		service.DescribeBrokerEngineTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -275,7 +283,8 @@ module.exports = function(RED) {
 
 			svc.describeBrokerEngineTypes(params,cb);
 		}
-			service.DescribeBrokerInstanceOptions=function(svc,msg,cb){
+		
+		service.DescribeBrokerInstanceOptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -294,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.describeBrokerInstanceOptions(params,cb);
 		}
-			service.DescribeConfiguration=function(svc,msg,cb){
+		
+		service.DescribeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationId",params,undefined,false); 
@@ -306,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.describeConfiguration(params,cb);
 		}
-			service.DescribeConfigurationRevision=function(svc,msg,cb){
+		
+		service.DescribeConfigurationRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationRevision",params,undefined,false); 
@@ -321,7 +332,8 @@ module.exports = function(RED) {
 
 			svc.describeConfigurationRevision(params,cb);
 		}
-			service.DescribeUser=function(svc,msg,cb){
+		
+		service.DescribeUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -336,7 +348,8 @@ module.exports = function(RED) {
 
 			svc.describeUser(params,cb);
 		}
-			service.ListBrokers=function(svc,msg,cb){
+		
+		service.ListBrokers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -349,7 +362,8 @@ module.exports = function(RED) {
 
 			svc.listBrokers(params,cb);
 		}
-			service.ListConfigurationRevisions=function(svc,msg,cb){
+		
+		service.ListConfigurationRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationId",params,undefined,false); 
@@ -365,7 +379,8 @@ module.exports = function(RED) {
 
 			svc.listConfigurationRevisions(params,cb);
 		}
-			service.ListConfigurations=function(svc,msg,cb){
+		
+		service.ListConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -378,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.listConfigurations(params,cb);
 		}
-			service.ListTags=function(svc,msg,cb){
+		
+		service.ListTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -390,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.listTags(params,cb);
 		}
-			service.ListUsers=function(svc,msg,cb){
+		
+		service.ListUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerId",params,undefined,false); 
@@ -406,7 +423,8 @@ module.exports = function(RED) {
 
 			svc.listUsers(params,cb);
 		}
-			service.RebootBroker=function(svc,msg,cb){
+		
+		service.RebootBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerId",params,undefined,false); 
@@ -418,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.rebootBroker(params,cb);
 		}
-			service.UpdateBroker=function(svc,msg,cb){
+		
+		service.UpdateBroker=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BrokerId",params,undefined,false); 
@@ -448,7 +467,8 @@ module.exports = function(RED) {
 
 			svc.updateBroker(params,cb);
 		}
-			service.UpdateConfiguration=function(svc,msg,cb){
+		
+		service.UpdateConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigurationId",params,undefined,false); 
@@ -465,7 +485,8 @@ module.exports = function(RED) {
 
 			svc.updateConfiguration(params,cb);
 		}
-			service.UpdateUser=function(svc,msg,cb){
+		
+		service.UpdateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Username",params,undefined,false); 
@@ -486,6 +507,7 @@ module.exports = function(RED) {
 
 			svc.updateUser(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MQ", AmazonAPINode);

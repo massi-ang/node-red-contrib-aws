@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchGetTraces=function(svc,msg,cb){
+		service.BatchGetTraces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TraceIds",params,undefined,true); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.batchGetTraces(params,cb);
 		}
-			service.CreateGroup=function(svc,msg,cb){
+		
+		service.CreateGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GroupName",params,undefined,false); 
@@ -125,7 +126,8 @@ module.exports = function(RED) {
 
 			svc.createGroup(params,cb);
 		}
-			service.CreateSamplingRule=function(svc,msg,cb){
+		
+		service.CreateSamplingRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SamplingRule",params,undefined,true); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.createSamplingRule(params,cb);
 		}
-			service.DeleteGroup=function(svc,msg,cb){
+		
+		service.DeleteGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -152,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.deleteGroup(params,cb);
 		}
-			service.DeleteSamplingRule=function(svc,msg,cb){
+		
+		service.DeleteSamplingRule=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -165,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.deleteSamplingRule(params,cb);
 		}
-			service.GetEncryptionConfig=function(svc,msg,cb){
+		
+		service.GetEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -174,7 +179,8 @@ module.exports = function(RED) {
 
 			svc.getEncryptionConfig(params,cb);
 		}
-			service.GetGroup=function(svc,msg,cb){
+		
+		service.GetGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -187,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.getGroup(params,cb);
 		}
-			service.GetGroups=function(svc,msg,cb){
+		
+		service.GetGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -198,7 +205,8 @@ module.exports = function(RED) {
 
 			svc.getGroups(params,cb);
 		}
-			service.GetInsight=function(svc,msg,cb){
+		
+		service.GetInsight=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightId",params,undefined,false); 
@@ -210,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.getInsight(params,cb);
 		}
-			service.GetInsightEvents=function(svc,msg,cb){
+		
+		service.GetInsightEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightId",params,undefined,false); 
@@ -226,7 +235,8 @@ module.exports = function(RED) {
 
 			svc.getInsightEvents(params,cb);
 		}
-			service.GetInsightImpactGraph=function(svc,msg,cb){
+		
+		service.GetInsightImpactGraph=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InsightId",params,undefined,false); 
@@ -246,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.getInsightImpactGraph(params,cb);
 		}
-			service.GetInsightSummaries=function(svc,msg,cb){
+		
+		service.GetInsightSummaries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartTime",params,undefined,false); 
@@ -271,7 +282,8 @@ module.exports = function(RED) {
 
 			svc.getInsightSummaries(params,cb);
 		}
-			service.GetSamplingRules=function(svc,msg,cb){
+		
+		service.GetSamplingRules=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -282,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.getSamplingRules(params,cb);
 		}
-			service.GetSamplingStatisticSummaries=function(svc,msg,cb){
+		
+		service.GetSamplingStatisticSummaries=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -293,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.getSamplingStatisticSummaries(params,cb);
 		}
-			service.GetSamplingTargets=function(svc,msg,cb){
+		
+		service.GetSamplingTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SamplingStatisticsDocuments",params,undefined,false); 
@@ -305,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.getSamplingTargets(params,cb);
 		}
-			service.GetServiceGraph=function(svc,msg,cb){
+		
+		service.GetServiceGraph=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartTime",params,undefined,false); 
@@ -326,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.getServiceGraph(params,cb);
 		}
-			service.GetTimeSeriesServiceStatistics=function(svc,msg,cb){
+		
+		service.GetTimeSeriesServiceStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartTime",params,undefined,false); 
@@ -353,7 +369,8 @@ module.exports = function(RED) {
 
 			svc.getTimeSeriesServiceStatistics(params,cb);
 		}
-			service.GetTraceGraph=function(svc,msg,cb){
+		
+		service.GetTraceGraph=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TraceIds",params,undefined,true); 
@@ -367,7 +384,8 @@ module.exports = function(RED) {
 
 			svc.getTraceGraph(params,cb);
 		}
-			service.GetTraceSummaries=function(svc,msg,cb){
+		
+		service.GetTraceSummaries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StartTime",params,undefined,false); 
@@ -392,7 +410,8 @@ module.exports = function(RED) {
 
 			svc.getTraceSummaries(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -406,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutEncryptionConfig=function(svc,msg,cb){
+		
+		service.PutEncryptionConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Type",params,undefined,false); 
@@ -420,7 +440,8 @@ module.exports = function(RED) {
 
 			svc.putEncryptionConfig(params,cb);
 		}
-			service.PutTelemetryRecords=function(svc,msg,cb){
+		
+		service.PutTelemetryRecords=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TelemetryRecords",params,undefined,false); 
@@ -438,7 +459,8 @@ module.exports = function(RED) {
 
 			svc.putTelemetryRecords(params,cb);
 		}
-			service.PutTraceSegments=function(svc,msg,cb){
+		
+		service.PutTraceSegments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TraceSegmentDocuments",params,undefined,false); 
@@ -450,7 +472,8 @@ module.exports = function(RED) {
 
 			svc.putTraceSegments(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -465,7 +488,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -480,7 +504,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateGroup=function(svc,msg,cb){
+		
+		service.UpdateGroup=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -497,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.updateGroup(params,cb);
 		}
-			service.UpdateSamplingRule=function(svc,msg,cb){
+		
+		service.UpdateSamplingRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SamplingRuleUpdate",params,undefined,false); 
@@ -509,6 +535,7 @@ module.exports = function(RED) {
 
 			svc.updateSamplingRule(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS XRay", AmazonAPINode);

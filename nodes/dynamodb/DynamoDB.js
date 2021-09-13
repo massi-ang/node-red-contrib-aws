@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchExecuteStatement=function(svc,msg,cb){
+		service.BatchExecuteStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Statements",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.batchExecuteStatement(params,cb);
 		}
-			service.BatchGetItem=function(svc,msg,cb){
+		
+		service.BatchGetItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequestItems",params,undefined,true); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.batchGetItem(params,cb);
 		}
-			service.BatchWriteItem=function(svc,msg,cb){
+		
+		service.BatchWriteItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RequestItems",params,undefined,true); 
@@ -135,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.batchWriteItem(params,cb);
 		}
-			service.CreateBackup=function(svc,msg,cb){
+		
+		service.CreateBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -150,7 +153,8 @@ module.exports = function(RED) {
 
 			svc.createBackup(params,cb);
 		}
-			service.CreateGlobalTable=function(svc,msg,cb){
+		
+		service.CreateGlobalTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalTableName",params,undefined,false); 
@@ -165,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.createGlobalTable(params,cb);
 		}
-			service.CreateTable=function(svc,msg,cb){
+		
+		service.CreateTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AttributeDefinitions",params,undefined,true); 
@@ -197,7 +202,8 @@ module.exports = function(RED) {
 
 			svc.createTable(params,cb);
 		}
-			service.DeleteBackup=function(svc,msg,cb){
+		
+		service.DeleteBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BackupArn",params,undefined,false); 
@@ -209,7 +215,8 @@ module.exports = function(RED) {
 
 			svc.deleteBackup(params,cb);
 		}
-			service.DeleteItem=function(svc,msg,cb){
+		
+		service.DeleteItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -240,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.deleteItem(params,cb);
 		}
-			service.DeleteTable=function(svc,msg,cb){
+		
+		service.DeleteTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -252,7 +260,8 @@ module.exports = function(RED) {
 
 			svc.deleteTable(params,cb);
 		}
-			service.DescribeBackup=function(svc,msg,cb){
+		
+		service.DescribeBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BackupArn",params,undefined,false); 
@@ -264,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.describeBackup(params,cb);
 		}
-			service.DescribeContinuousBackups=function(svc,msg,cb){
+		
+		service.DescribeContinuousBackups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -276,7 +286,8 @@ module.exports = function(RED) {
 
 			svc.describeContinuousBackups(params,cb);
 		}
-			service.DescribeContributorInsights=function(svc,msg,cb){
+		
+		service.DescribeContributorInsights=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -290,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.describeContributorInsights(params,cb);
 		}
-			service.DescribeEndpoints=function(svc,msg,cb){
+		
+		service.DescribeEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -299,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpoints(params,cb);
 		}
-			service.DescribeExport=function(svc,msg,cb){
+		
+		service.DescribeExport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExportArn",params,undefined,false); 
@@ -311,7 +324,8 @@ module.exports = function(RED) {
 
 			svc.describeExport(params,cb);
 		}
-			service.DescribeGlobalTable=function(svc,msg,cb){
+		
+		service.DescribeGlobalTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalTableName",params,undefined,false); 
@@ -323,7 +337,8 @@ module.exports = function(RED) {
 
 			svc.describeGlobalTable(params,cb);
 		}
-			service.DescribeGlobalTableSettings=function(svc,msg,cb){
+		
+		service.DescribeGlobalTableSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalTableName",params,undefined,false); 
@@ -335,7 +350,8 @@ module.exports = function(RED) {
 
 			svc.describeGlobalTableSettings(params,cb);
 		}
-			service.DescribeKinesisStreamingDestination=function(svc,msg,cb){
+		
+		service.DescribeKinesisStreamingDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -347,7 +363,8 @@ module.exports = function(RED) {
 
 			svc.describeKinesisStreamingDestination(params,cb);
 		}
-			service.DescribeLimits=function(svc,msg,cb){
+		
+		service.DescribeLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -356,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.describeLimits(params,cb);
 		}
-			service.DescribeTable=function(svc,msg,cb){
+		
+		service.DescribeTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -368,7 +386,8 @@ module.exports = function(RED) {
 
 			svc.describeTable(params,cb);
 		}
-			service.DescribeTableReplicaAutoScaling=function(svc,msg,cb){
+		
+		service.DescribeTableReplicaAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -380,7 +399,8 @@ module.exports = function(RED) {
 
 			svc.describeTableReplicaAutoScaling(params,cb);
 		}
-			service.DescribeTimeToLive=function(svc,msg,cb){
+		
+		service.DescribeTimeToLive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -392,7 +412,8 @@ module.exports = function(RED) {
 
 			svc.describeTimeToLive(params,cb);
 		}
-			service.DisableKinesisStreamingDestination=function(svc,msg,cb){
+		
+		service.DisableKinesisStreamingDestination=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -403,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.disableKinesisStreamingDestination(params,cb);
 		}
-			service.EnableKinesisStreamingDestination=function(svc,msg,cb){
+		
+		service.EnableKinesisStreamingDestination=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -414,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.enableKinesisStreamingDestination(params,cb);
 		}
-			service.ExecuteStatement=function(svc,msg,cb){
+		
+		service.ExecuteStatement=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Statement",params,undefined,false); 
@@ -432,7 +455,8 @@ module.exports = function(RED) {
 
 			svc.executeStatement(params,cb);
 		}
-			service.ExecuteTransaction=function(svc,msg,cb){
+		
+		service.ExecuteTransaction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TransactStatements",params,undefined,false); 
@@ -446,7 +470,8 @@ module.exports = function(RED) {
 
 			svc.executeTransaction(params,cb);
 		}
-			service.ExportTableToPointInTime=function(svc,msg,cb){
+		
+		service.ExportTableToPointInTime=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableArn",params,undefined,false); 
@@ -475,7 +500,8 @@ module.exports = function(RED) {
 
 			svc.exportTableToPointInTime(params,cb);
 		}
-			service.GetItem=function(svc,msg,cb){
+		
+		service.GetItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -500,7 +526,8 @@ module.exports = function(RED) {
 
 			svc.getItem(params,cb);
 		}
-			service.ListBackups=function(svc,msg,cb){
+		
+		service.ListBackups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -521,7 +548,8 @@ module.exports = function(RED) {
 
 			svc.listBackups(params,cb);
 		}
-			service.ListContributorInsights=function(svc,msg,cb){
+		
+		service.ListContributorInsights=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -536,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.listContributorInsights(params,cb);
 		}
-			service.ListExports=function(svc,msg,cb){
+		
+		service.ListExports=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -551,7 +580,8 @@ module.exports = function(RED) {
 
 			svc.listExports(params,cb);
 		}
-			service.ListGlobalTables=function(svc,msg,cb){
+		
+		service.ListGlobalTables=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -566,7 +596,8 @@ module.exports = function(RED) {
 
 			svc.listGlobalTables(params,cb);
 		}
-			service.ListTables=function(svc,msg,cb){
+		
+		service.ListTables=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -579,7 +610,8 @@ module.exports = function(RED) {
 
 			svc.listTables(params,cb);
 		}
-			service.ListTagsOfResource=function(svc,msg,cb){
+		
+		service.ListTagsOfResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -593,7 +625,8 @@ module.exports = function(RED) {
 
 			svc.listTagsOfResource(params,cb);
 		}
-			service.PutItem=function(svc,msg,cb){
+		
+		service.PutItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -624,7 +657,8 @@ module.exports = function(RED) {
 
 			svc.putItem(params,cb);
 		}
-			service.Query=function(svc,msg,cb){
+		
+		service.Query=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -668,7 +702,8 @@ module.exports = function(RED) {
 
 			svc.query(params,cb);
 		}
-			service.RestoreTableFromBackup=function(svc,msg,cb){
+		
+		service.RestoreTableFromBackup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetTableName",params,undefined,false); 
@@ -693,7 +728,8 @@ module.exports = function(RED) {
 
 			svc.restoreTableFromBackup(params,cb);
 		}
-			service.RestoreTableToPointInTime=function(svc,msg,cb){
+		
+		service.RestoreTableToPointInTime=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetTableName",params,undefined,false); 
@@ -723,7 +759,8 @@ module.exports = function(RED) {
 
 			svc.restoreTableToPointInTime(params,cb);
 		}
-			service.Scan=function(svc,msg,cb){
+		
+		service.Scan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -765,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.scan(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -780,7 +818,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TransactGetItems=function(svc,msg,cb){
+		
+		service.TransactGetItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TransactItems",params,undefined,false); 
@@ -794,7 +833,8 @@ module.exports = function(RED) {
 
 			svc.transactGetItems(params,cb);
 		}
-			service.TransactWriteItems=function(svc,msg,cb){
+		
+		service.TransactWriteItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TransactItems",params,undefined,false); 
@@ -812,7 +852,8 @@ module.exports = function(RED) {
 
 			svc.transactWriteItems(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -827,7 +868,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateContinuousBackups=function(svc,msg,cb){
+		
+		service.UpdateContinuousBackups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -842,7 +884,8 @@ module.exports = function(RED) {
 
 			svc.updateContinuousBackups(params,cb);
 		}
-			service.UpdateContributorInsights=function(svc,msg,cb){
+		
+		service.UpdateContributorInsights=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -859,7 +902,8 @@ module.exports = function(RED) {
 
 			svc.updateContributorInsights(params,cb);
 		}
-			service.UpdateGlobalTable=function(svc,msg,cb){
+		
+		service.UpdateGlobalTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalTableName",params,undefined,false); 
@@ -874,7 +918,8 @@ module.exports = function(RED) {
 
 			svc.updateGlobalTable(params,cb);
 		}
-			service.UpdateGlobalTableSettings=function(svc,msg,cb){
+		
+		service.UpdateGlobalTableSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalTableName",params,undefined,false); 
@@ -896,7 +941,8 @@ module.exports = function(RED) {
 
 			svc.updateGlobalTableSettings(params,cb);
 		}
-			service.UpdateItem=function(svc,msg,cb){
+		
+		service.UpdateItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -931,7 +977,8 @@ module.exports = function(RED) {
 
 			svc.updateItem(params,cb);
 		}
-			service.UpdateTable=function(svc,msg,cb){
+		
+		service.UpdateTable=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -957,7 +1004,8 @@ module.exports = function(RED) {
 
 			svc.updateTable(params,cb);
 		}
-			service.UpdateTableReplicaAutoScaling=function(svc,msg,cb){
+		
+		service.UpdateTableReplicaAutoScaling=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -975,7 +1023,8 @@ module.exports = function(RED) {
 
 			svc.updateTableReplicaAutoScaling(params,cb);
 		}
-			service.UpdateTimeToLive=function(svc,msg,cb){
+		
+		service.UpdateTimeToLive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TableName",params,undefined,false); 
@@ -990,6 +1039,7 @@ module.exports = function(RED) {
 
 			svc.updateTimeToLive(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DynamoDB", AmazonAPINode);

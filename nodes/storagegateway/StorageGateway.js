@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ActivateGateway=function(svc,msg,cb){
+		service.ActivateGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActivationKey",params,undefined,false); 
@@ -122,7 +122,8 @@ module.exports = function(RED) {
 
 			svc.activateGateway(params,cb);
 		}
-			service.AddCache=function(svc,msg,cb){
+		
+		service.AddCache=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -137,7 +138,8 @@ module.exports = function(RED) {
 
 			svc.addCache(params,cb);
 		}
-			service.AddTagsToResource=function(svc,msg,cb){
+		
+		service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -152,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-			service.AddUploadBuffer=function(svc,msg,cb){
+		
+		service.AddUploadBuffer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -167,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.addUploadBuffer(params,cb);
 		}
-			service.AddWorkingStorage=function(svc,msg,cb){
+		
+		service.AddWorkingStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -182,7 +186,8 @@ module.exports = function(RED) {
 
 			svc.addWorkingStorage(params,cb);
 		}
-			service.AssignTapePool=function(svc,msg,cb){
+		
+		service.AssignTapePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TapeARN",params,undefined,false); 
@@ -199,7 +204,8 @@ module.exports = function(RED) {
 
 			svc.assignTapePool(params,cb);
 		}
-			service.AssociateFileSystem=function(svc,msg,cb){
+		
+		service.AssociateFileSystem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,false); 
@@ -231,7 +237,8 @@ module.exports = function(RED) {
 
 			svc.associateFileSystem(params,cb);
 		}
-			service.AttachVolume=function(svc,msg,cb){
+		
+		service.AttachVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -253,7 +260,8 @@ module.exports = function(RED) {
 
 			svc.attachVolume(params,cb);
 		}
-			service.CancelArchival=function(svc,msg,cb){
+		
+		service.CancelArchival=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -268,7 +276,8 @@ module.exports = function(RED) {
 
 			svc.cancelArchival(params,cb);
 		}
-			service.CancelRetrieval=function(svc,msg,cb){
+		
+		service.CancelRetrieval=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -283,7 +292,8 @@ module.exports = function(RED) {
 
 			svc.cancelRetrieval(params,cb);
 		}
-			service.CreateCachediSCSIVolume=function(svc,msg,cb){
+		
+		service.CreateCachediSCSIVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -317,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.createCachediSCSIVolume(params,cb);
 		}
-			service.CreateNFSFileShare=function(svc,msg,cb){
+		
+		service.CreateNFSFileShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -370,7 +381,8 @@ module.exports = function(RED) {
 
 			svc.createNFSFileShare(params,cb);
 		}
-			service.CreateSMBFileShare=function(svc,msg,cb){
+		
+		service.CreateSMBFileShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -435,7 +447,8 @@ module.exports = function(RED) {
 
 			svc.createSMBFileShare(params,cb);
 		}
-			service.CreateSnapshot=function(svc,msg,cb){
+		
+		service.CreateSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -452,7 +465,8 @@ module.exports = function(RED) {
 
 			svc.createSnapshot(params,cb);
 		}
-			service.CreateSnapshotFromVolumeRecoveryPoint=function(svc,msg,cb){
+		
+		service.CreateSnapshotFromVolumeRecoveryPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -469,7 +483,8 @@ module.exports = function(RED) {
 
 			svc.createSnapshotFromVolumeRecoveryPoint(params,cb);
 		}
-			service.CreateStorediSCSIVolume=function(svc,msg,cb){
+		
+		service.CreateStorediSCSIVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -501,7 +516,8 @@ module.exports = function(RED) {
 
 			svc.createStorediSCSIVolume(params,cb);
 		}
-			service.CreateTapePool=function(svc,msg,cb){
+		
+		service.CreateTapePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PoolName",params,undefined,false); 
@@ -522,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.createTapePool(params,cb);
 		}
-			service.CreateTapeWithBarcode=function(svc,msg,cb){
+		
+		service.CreateTapeWithBarcode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -550,7 +567,8 @@ module.exports = function(RED) {
 
 			svc.createTapeWithBarcode(params,cb);
 		}
-			service.CreateTapes=function(svc,msg,cb){
+		
+		service.CreateTapes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -584,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.createTapes(params,cb);
 		}
-			service.DeleteAutomaticTapeCreationPolicy=function(svc,msg,cb){
+		
+		service.DeleteAutomaticTapeCreationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -596,7 +615,8 @@ module.exports = function(RED) {
 
 			svc.deleteAutomaticTapeCreationPolicy(params,cb);
 		}
-			service.DeleteBandwidthRateLimit=function(svc,msg,cb){
+		
+		service.DeleteBandwidthRateLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -611,7 +631,8 @@ module.exports = function(RED) {
 
 			svc.deleteBandwidthRateLimit(params,cb);
 		}
-			service.DeleteChapCredentials=function(svc,msg,cb){
+		
+		service.DeleteChapCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetARN",params,undefined,false); 
@@ -626,7 +647,8 @@ module.exports = function(RED) {
 
 			svc.deleteChapCredentials(params,cb);
 		}
-			service.DeleteFileShare=function(svc,msg,cb){
+		
+		service.DeleteFileShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARN",params,undefined,false); 
@@ -640,7 +662,8 @@ module.exports = function(RED) {
 
 			svc.deleteFileShare(params,cb);
 		}
-			service.DeleteGateway=function(svc,msg,cb){
+		
+		service.DeleteGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -652,7 +675,8 @@ module.exports = function(RED) {
 
 			svc.deleteGateway(params,cb);
 		}
-			service.DeleteSnapshotSchedule=function(svc,msg,cb){
+		
+		service.DeleteSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -664,7 +688,8 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshotSchedule(params,cb);
 		}
-			service.DeleteTape=function(svc,msg,cb){
+		
+		service.DeleteTape=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -681,7 +706,8 @@ module.exports = function(RED) {
 
 			svc.deleteTape(params,cb);
 		}
-			service.DeleteTapeArchive=function(svc,msg,cb){
+		
+		service.DeleteTapeArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TapeARN",params,undefined,false); 
@@ -695,7 +721,8 @@ module.exports = function(RED) {
 
 			svc.deleteTapeArchive(params,cb);
 		}
-			service.DeleteTapePool=function(svc,msg,cb){
+		
+		service.DeleteTapePool=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PoolARN",params,undefined,false); 
@@ -707,7 +734,8 @@ module.exports = function(RED) {
 
 			svc.deleteTapePool(params,cb);
 		}
-			service.DeleteVolume=function(svc,msg,cb){
+		
+		service.DeleteVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -719,7 +747,8 @@ module.exports = function(RED) {
 
 			svc.deleteVolume(params,cb);
 		}
-			service.DescribeAvailabilityMonitorTest=function(svc,msg,cb){
+		
+		service.DescribeAvailabilityMonitorTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -731,7 +760,8 @@ module.exports = function(RED) {
 
 			svc.describeAvailabilityMonitorTest(params,cb);
 		}
-			service.DescribeBandwidthRateLimit=function(svc,msg,cb){
+		
+		service.DescribeBandwidthRateLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -743,7 +773,8 @@ module.exports = function(RED) {
 
 			svc.describeBandwidthRateLimit(params,cb);
 		}
-			service.DescribeBandwidthRateLimitSchedule=function(svc,msg,cb){
+		
+		service.DescribeBandwidthRateLimitSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -755,7 +786,8 @@ module.exports = function(RED) {
 
 			svc.describeBandwidthRateLimitSchedule(params,cb);
 		}
-			service.DescribeCache=function(svc,msg,cb){
+		
+		service.DescribeCache=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -767,7 +799,8 @@ module.exports = function(RED) {
 
 			svc.describeCache(params,cb);
 		}
-			service.DescribeCachediSCSIVolumes=function(svc,msg,cb){
+		
+		service.DescribeCachediSCSIVolumes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARNs",params,undefined,true); 
@@ -779,7 +812,8 @@ module.exports = function(RED) {
 
 			svc.describeCachediSCSIVolumes(params,cb);
 		}
-			service.DescribeChapCredentials=function(svc,msg,cb){
+		
+		service.DescribeChapCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetARN",params,undefined,false); 
@@ -791,7 +825,8 @@ module.exports = function(RED) {
 
 			svc.describeChapCredentials(params,cb);
 		}
-			service.DescribeFileSystemAssociations=function(svc,msg,cb){
+		
+		service.DescribeFileSystemAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileSystemAssociationARNList",params,undefined,false); 
@@ -803,7 +838,8 @@ module.exports = function(RED) {
 
 			svc.describeFileSystemAssociations(params,cb);
 		}
-			service.DescribeGatewayInformation=function(svc,msg,cb){
+		
+		service.DescribeGatewayInformation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -815,7 +851,8 @@ module.exports = function(RED) {
 
 			svc.describeGatewayInformation(params,cb);
 		}
-			service.DescribeMaintenanceStartTime=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceStartTime=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -827,7 +864,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceStartTime(params,cb);
 		}
-			service.DescribeNFSFileShares=function(svc,msg,cb){
+		
+		service.DescribeNFSFileShares=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARNList",params,undefined,true); 
@@ -839,7 +877,8 @@ module.exports = function(RED) {
 
 			svc.describeNFSFileShares(params,cb);
 		}
-			service.DescribeSMBFileShares=function(svc,msg,cb){
+		
+		service.DescribeSMBFileShares=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARNList",params,undefined,true); 
@@ -851,7 +890,8 @@ module.exports = function(RED) {
 
 			svc.describeSMBFileShares(params,cb);
 		}
-			service.DescribeSMBSettings=function(svc,msg,cb){
+		
+		service.DescribeSMBSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -863,7 +903,8 @@ module.exports = function(RED) {
 
 			svc.describeSMBSettings(params,cb);
 		}
-			service.DescribeSnapshotSchedule=function(svc,msg,cb){
+		
+		service.DescribeSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -875,7 +916,8 @@ module.exports = function(RED) {
 
 			svc.describeSnapshotSchedule(params,cb);
 		}
-			service.DescribeStorediSCSIVolumes=function(svc,msg,cb){
+		
+		service.DescribeStorediSCSIVolumes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARNs",params,undefined,true); 
@@ -887,7 +929,8 @@ module.exports = function(RED) {
 
 			svc.describeStorediSCSIVolumes(params,cb);
 		}
-			service.DescribeTapeArchives=function(svc,msg,cb){
+		
+		service.DescribeTapeArchives=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -902,7 +945,8 @@ module.exports = function(RED) {
 
 			svc.describeTapeArchives(params,cb);
 		}
-			service.DescribeTapeRecoveryPoints=function(svc,msg,cb){
+		
+		service.DescribeTapeRecoveryPoints=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -918,7 +962,8 @@ module.exports = function(RED) {
 
 			svc.describeTapeRecoveryPoints(params,cb);
 		}
-			service.DescribeTapes=function(svc,msg,cb){
+		
+		service.DescribeTapes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -936,7 +981,8 @@ module.exports = function(RED) {
 
 			svc.describeTapes(params,cb);
 		}
-			service.DescribeUploadBuffer=function(svc,msg,cb){
+		
+		service.DescribeUploadBuffer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -948,7 +994,8 @@ module.exports = function(RED) {
 
 			svc.describeUploadBuffer(params,cb);
 		}
-			service.DescribeVTLDevices=function(svc,msg,cb){
+		
+		service.DescribeVTLDevices=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -966,7 +1013,8 @@ module.exports = function(RED) {
 
 			svc.describeVTLDevices(params,cb);
 		}
-			service.DescribeWorkingStorage=function(svc,msg,cb){
+		
+		service.DescribeWorkingStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -978,7 +1026,8 @@ module.exports = function(RED) {
 
 			svc.describeWorkingStorage(params,cb);
 		}
-			service.DetachVolume=function(svc,msg,cb){
+		
+		service.DetachVolume=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -992,7 +1041,8 @@ module.exports = function(RED) {
 
 			svc.detachVolume(params,cb);
 		}
-			service.DisableGateway=function(svc,msg,cb){
+		
+		service.DisableGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1004,7 +1054,8 @@ module.exports = function(RED) {
 
 			svc.disableGateway(params,cb);
 		}
-			service.DisassociateFileSystem=function(svc,msg,cb){
+		
+		service.DisassociateFileSystem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileSystemAssociationARN",params,undefined,false); 
@@ -1018,7 +1069,8 @@ module.exports = function(RED) {
 
 			svc.disassociateFileSystem(params,cb);
 		}
-			service.JoinDomain=function(svc,msg,cb){
+		
+		service.JoinDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1045,7 +1097,8 @@ module.exports = function(RED) {
 
 			svc.joinDomain(params,cb);
 		}
-			service.ListAutomaticTapeCreationPolicies=function(svc,msg,cb){
+		
+		service.ListAutomaticTapeCreationPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1056,7 +1109,8 @@ module.exports = function(RED) {
 
 			svc.listAutomaticTapeCreationPolicies(params,cb);
 		}
-			service.ListFileShares=function(svc,msg,cb){
+		
+		service.ListFileShares=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1071,7 +1125,8 @@ module.exports = function(RED) {
 
 			svc.listFileShares(params,cb);
 		}
-			service.ListFileSystemAssociations=function(svc,msg,cb){
+		
+		service.ListFileSystemAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1086,7 +1141,8 @@ module.exports = function(RED) {
 
 			svc.listFileSystemAssociations(params,cb);
 		}
-			service.ListGateways=function(svc,msg,cb){
+		
+		service.ListGateways=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1099,7 +1155,8 @@ module.exports = function(RED) {
 
 			svc.listGateways(params,cb);
 		}
-			service.ListLocalDisks=function(svc,msg,cb){
+		
+		service.ListLocalDisks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1111,7 +1168,8 @@ module.exports = function(RED) {
 
 			svc.listLocalDisks(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1127,7 +1185,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTapePools=function(svc,msg,cb){
+		
+		service.ListTapePools=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1142,7 +1201,8 @@ module.exports = function(RED) {
 
 			svc.listTapePools(params,cb);
 		}
-			service.ListTapes=function(svc,msg,cb){
+		
+		service.ListTapes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1157,7 +1217,8 @@ module.exports = function(RED) {
 
 			svc.listTapes(params,cb);
 		}
-			service.ListVolumeInitiators=function(svc,msg,cb){
+		
+		service.ListVolumeInitiators=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -1169,7 +1230,8 @@ module.exports = function(RED) {
 
 			svc.listVolumeInitiators(params,cb);
 		}
-			service.ListVolumeRecoveryPoints=function(svc,msg,cb){
+		
+		service.ListVolumeRecoveryPoints=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1181,7 +1243,8 @@ module.exports = function(RED) {
 
 			svc.listVolumeRecoveryPoints(params,cb);
 		}
-			service.ListVolumes=function(svc,msg,cb){
+		
+		service.ListVolumes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1196,7 +1259,8 @@ module.exports = function(RED) {
 
 			svc.listVolumes(params,cb);
 		}
-			service.NotifyWhenUploaded=function(svc,msg,cb){
+		
+		service.NotifyWhenUploaded=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARN",params,undefined,false); 
@@ -1208,7 +1272,8 @@ module.exports = function(RED) {
 
 			svc.notifyWhenUploaded(params,cb);
 		}
-			service.RefreshCache=function(svc,msg,cb){
+		
+		service.RefreshCache=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARN",params,undefined,false); 
@@ -1224,7 +1289,8 @@ module.exports = function(RED) {
 
 			svc.refreshCache(params,cb);
 		}
-			service.RemoveTagsFromResource=function(svc,msg,cb){
+		
+		service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -1239,7 +1305,8 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
-			service.ResetCache=function(svc,msg,cb){
+		
+		service.ResetCache=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1251,7 +1318,8 @@ module.exports = function(RED) {
 
 			svc.resetCache(params,cb);
 		}
-			service.RetrieveTapeArchive=function(svc,msg,cb){
+		
+		service.RetrieveTapeArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TapeARN",params,undefined,false); 
@@ -1266,7 +1334,8 @@ module.exports = function(RED) {
 
 			svc.retrieveTapeArchive(params,cb);
 		}
-			service.RetrieveTapeRecoveryPoint=function(svc,msg,cb){
+		
+		service.RetrieveTapeRecoveryPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TapeARN",params,undefined,false); 
@@ -1281,7 +1350,8 @@ module.exports = function(RED) {
 
 			svc.retrieveTapeRecoveryPoint(params,cb);
 		}
-			service.SetLocalConsolePassword=function(svc,msg,cb){
+		
+		service.SetLocalConsolePassword=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1296,7 +1366,8 @@ module.exports = function(RED) {
 
 			svc.setLocalConsolePassword(params,cb);
 		}
-			service.SetSMBGuestPassword=function(svc,msg,cb){
+		
+		service.SetSMBGuestPassword=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1311,7 +1382,8 @@ module.exports = function(RED) {
 
 			svc.setSMBGuestPassword(params,cb);
 		}
-			service.ShutdownGateway=function(svc,msg,cb){
+		
+		service.ShutdownGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1323,7 +1395,8 @@ module.exports = function(RED) {
 
 			svc.shutdownGateway(params,cb);
 		}
-			service.StartAvailabilityMonitorTest=function(svc,msg,cb){
+		
+		service.StartAvailabilityMonitorTest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1335,7 +1408,8 @@ module.exports = function(RED) {
 
 			svc.startAvailabilityMonitorTest(params,cb);
 		}
-			service.StartGateway=function(svc,msg,cb){
+		
+		service.StartGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1347,7 +1421,8 @@ module.exports = function(RED) {
 
 			svc.startGateway(params,cb);
 		}
-			service.UpdateAutomaticTapeCreationPolicy=function(svc,msg,cb){
+		
+		service.UpdateAutomaticTapeCreationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutomaticTapeCreationRules",params,undefined,true); 
@@ -1362,7 +1437,8 @@ module.exports = function(RED) {
 
 			svc.updateAutomaticTapeCreationPolicy(params,cb);
 		}
-			service.UpdateBandwidthRateLimit=function(svc,msg,cb){
+		
+		service.UpdateBandwidthRateLimit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1378,7 +1454,8 @@ module.exports = function(RED) {
 
 			svc.updateBandwidthRateLimit(params,cb);
 		}
-			service.UpdateBandwidthRateLimitSchedule=function(svc,msg,cb){
+		
+		service.UpdateBandwidthRateLimitSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1393,7 +1470,8 @@ module.exports = function(RED) {
 
 			svc.updateBandwidthRateLimitSchedule(params,cb);
 		}
-			service.UpdateChapCredentials=function(svc,msg,cb){
+		
+		service.UpdateChapCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetARN",params,undefined,false); 
@@ -1413,7 +1491,8 @@ module.exports = function(RED) {
 
 			svc.updateChapCredentials(params,cb);
 		}
-			service.UpdateFileSystemAssociation=function(svc,msg,cb){
+		
+		service.UpdateFileSystemAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileSystemAssociationARN",params,undefined,false); 
@@ -1433,7 +1512,8 @@ module.exports = function(RED) {
 
 			svc.updateFileSystemAssociation(params,cb);
 		}
-			service.UpdateGatewayInformation=function(svc,msg,cb){
+		
+		service.UpdateGatewayInformation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1453,7 +1533,8 @@ module.exports = function(RED) {
 
 			svc.updateGatewayInformation(params,cb);
 		}
-			service.UpdateGatewaySoftwareNow=function(svc,msg,cb){
+		
+		service.UpdateGatewaySoftwareNow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1465,7 +1546,8 @@ module.exports = function(RED) {
 
 			svc.updateGatewaySoftwareNow(params,cb);
 		}
-			service.UpdateMaintenanceStartTime=function(svc,msg,cb){
+		
+		service.UpdateMaintenanceStartTime=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1487,7 +1569,8 @@ module.exports = function(RED) {
 
 			svc.updateMaintenanceStartTime(params,cb);
 		}
-			service.UpdateNFSFileShare=function(svc,msg,cb){
+		
+		service.UpdateNFSFileShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARN",params,undefined,false); 
@@ -1525,7 +1608,8 @@ module.exports = function(RED) {
 
 			svc.updateNFSFileShare(params,cb);
 		}
-			service.UpdateSMBFileShare=function(svc,msg,cb){
+		
+		service.UpdateSMBFileShare=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FileShareARN",params,undefined,false); 
@@ -1573,7 +1657,8 @@ module.exports = function(RED) {
 
 			svc.updateSMBFileShare(params,cb);
 		}
-			service.UpdateSMBFileShareVisibility=function(svc,msg,cb){
+		
+		service.UpdateSMBFileShareVisibility=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1588,7 +1673,8 @@ module.exports = function(RED) {
 
 			svc.updateSMBFileShareVisibility(params,cb);
 		}
-			service.UpdateSMBSecurityStrategy=function(svc,msg,cb){
+		
+		service.UpdateSMBSecurityStrategy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GatewayARN",params,undefined,false); 
@@ -1603,7 +1689,8 @@ module.exports = function(RED) {
 
 			svc.updateSMBSecurityStrategy(params,cb);
 		}
-			service.UpdateSnapshotSchedule=function(svc,msg,cb){
+		
+		service.UpdateSnapshotSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeARN",params,undefined,false); 
@@ -1625,7 +1712,8 @@ module.exports = function(RED) {
 
 			svc.updateSnapshotSchedule(params,cb);
 		}
-			service.UpdateVTLDeviceType=function(svc,msg,cb){
+		
+		service.UpdateVTLDeviceType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VTLDeviceARN",params,undefined,false); 
@@ -1640,6 +1728,7 @@ module.exports = function(RED) {
 
 			svc.updateVTLDeviceType(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS StorageGateway", AmazonAPINode);

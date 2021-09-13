@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AbortMultipartUpload=function(svc,msg,cb){
+		service.AbortMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.abortMultipartUpload(params,cb);
 		}
-			service.AbortVaultLock=function(svc,msg,cb){
+		
+		service.AbortVaultLock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.abortVaultLock(params,cb);
 		}
-			service.AddTagsToVault=function(svc,msg,cb){
+		
+		service.AddTagsToVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -143,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToVault(params,cb);
 		}
-			service.CompleteMultipartUpload=function(svc,msg,cb){
+		
+		service.CompleteMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -165,7 +168,8 @@ module.exports = function(RED) {
 
 			svc.completeMultipartUpload(params,cb);
 		}
-			service.CompleteVaultLock=function(svc,msg,cb){
+		
+		service.CompleteVaultLock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -183,7 +187,8 @@ module.exports = function(RED) {
 
 			svc.completeVaultLock(params,cb);
 		}
-			service.CreateVault=function(svc,msg,cb){
+		
+		service.CreateVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -198,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.createVault(params,cb);
 		}
-			service.DeleteArchive=function(svc,msg,cb){
+		
+		service.DeleteArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -216,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.deleteArchive(params,cb);
 		}
-			service.DeleteVault=function(svc,msg,cb){
+		
+		service.DeleteVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -231,7 +238,8 @@ module.exports = function(RED) {
 
 			svc.deleteVault(params,cb);
 		}
-			service.DeleteVaultAccessPolicy=function(svc,msg,cb){
+		
+		service.DeleteVaultAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -246,7 +254,8 @@ module.exports = function(RED) {
 
 			svc.deleteVaultAccessPolicy(params,cb);
 		}
-			service.DeleteVaultNotifications=function(svc,msg,cb){
+		
+		service.DeleteVaultNotifications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -261,7 +270,8 @@ module.exports = function(RED) {
 
 			svc.deleteVaultNotifications(params,cb);
 		}
-			service.DescribeJob=function(svc,msg,cb){
+		
+		service.DescribeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -279,7 +289,8 @@ module.exports = function(RED) {
 
 			svc.describeJob(params,cb);
 		}
-			service.DescribeVault=function(svc,msg,cb){
+		
+		service.DescribeVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -294,7 +305,8 @@ module.exports = function(RED) {
 
 			svc.describeVault(params,cb);
 		}
-			service.GetDataRetrievalPolicy=function(svc,msg,cb){
+		
+		service.GetDataRetrievalPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -306,7 +318,8 @@ module.exports = function(RED) {
 
 			svc.getDataRetrievalPolicy(params,cb);
 		}
-			service.GetJobOutput=function(svc,msg,cb){
+		
+		service.GetJobOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -326,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.getJobOutput(params,cb);
 		}
-			service.GetVaultAccessPolicy=function(svc,msg,cb){
+		
+		service.GetVaultAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -341,7 +355,8 @@ module.exports = function(RED) {
 
 			svc.getVaultAccessPolicy(params,cb);
 		}
-			service.GetVaultLock=function(svc,msg,cb){
+		
+		service.GetVaultLock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -356,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.getVaultLock(params,cb);
 		}
-			service.GetVaultNotifications=function(svc,msg,cb){
+		
+		service.GetVaultNotifications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -371,7 +387,8 @@ module.exports = function(RED) {
 
 			svc.getVaultNotifications(params,cb);
 		}
-			service.InitiateJob=function(svc,msg,cb){
+		
+		service.InitiateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -388,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.initiateJob(params,cb);
 		}
-			service.InitiateMultipartUpload=function(svc,msg,cb){
+		
+		service.InitiateMultipartUpload=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -407,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.initiateMultipartUpload(params,cb);
 		}
-			service.InitiateVaultLock=function(svc,msg,cb){
+		
+		service.InitiateVaultLock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -424,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.initiateVaultLock(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -447,7 +467,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListMultipartUploads=function(svc,msg,cb){
+		
+		service.ListMultipartUploads=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -466,7 +487,8 @@ module.exports = function(RED) {
 
 			svc.listMultipartUploads(params,cb);
 		}
-			service.ListParts=function(svc,msg,cb){
+		
+		service.ListParts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -488,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.listParts(params,cb);
 		}
-			service.ListProvisionedCapacity=function(svc,msg,cb){
+		
+		service.ListProvisionedCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -500,7 +523,8 @@ module.exports = function(RED) {
 
 			svc.listProvisionedCapacity(params,cb);
 		}
-			service.ListTagsForVault=function(svc,msg,cb){
+		
+		service.ListTagsForVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -515,7 +539,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForVault(params,cb);
 		}
-			service.ListVaults=function(svc,msg,cb){
+		
+		service.ListVaults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -531,7 +556,8 @@ module.exports = function(RED) {
 
 			svc.listVaults(params,cb);
 		}
-			service.PurchaseProvisionedCapacity=function(svc,msg,cb){
+		
+		service.PurchaseProvisionedCapacity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -543,7 +569,8 @@ module.exports = function(RED) {
 
 			svc.purchaseProvisionedCapacity(params,cb);
 		}
-			service.RemoveTagsFromVault=function(svc,msg,cb){
+		
+		service.RemoveTagsFromVault=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -560,7 +587,8 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromVault(params,cb);
 		}
-			service.SetDataRetrievalPolicy=function(svc,msg,cb){
+		
+		service.SetDataRetrievalPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -574,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.setDataRetrievalPolicy(params,cb);
 		}
-			service.SetVaultAccessPolicy=function(svc,msg,cb){
+		
+		service.SetVaultAccessPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -591,7 +620,8 @@ module.exports = function(RED) {
 
 			svc.setVaultAccessPolicy(params,cb);
 		}
-			service.SetVaultNotifications=function(svc,msg,cb){
+		
+		service.SetVaultNotifications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -608,7 +638,8 @@ module.exports = function(RED) {
 
 			svc.setVaultNotifications(params,cb);
 		}
-			service.UploadArchive=function(svc,msg,cb){
+		
+		service.UploadArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"vaultName",params,undefined,false); 
@@ -629,7 +660,8 @@ module.exports = function(RED) {
 
 			svc.uploadArchive(params,cb);
 		}
-			service.UploadMultipartPart=function(svc,msg,cb){
+		
+		service.UploadMultipartPart=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accountId",params,undefined,false); 
@@ -653,6 +685,7 @@ module.exports = function(RED) {
 
 			svc.uploadMultipartPart(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Glacier", AmazonAPINode);

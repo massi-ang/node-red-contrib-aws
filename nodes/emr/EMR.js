@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddInstanceFleet=function(svc,msg,cb){
+		service.AddInstanceFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.addInstanceFleet(params,cb);
 		}
-			service.AddInstanceGroups=function(svc,msg,cb){
+		
+		service.AddInstanceGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceGroups",params,undefined,true); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.addInstanceGroups(params,cb);
 		}
-			service.AddJobFlowSteps=function(svc,msg,cb){
+		
+		service.AddJobFlowSteps=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobFlowId",params,undefined,false); 
@@ -138,7 +140,8 @@ module.exports = function(RED) {
 
 			svc.addJobFlowSteps(params,cb);
 		}
-			service.AddTags=function(svc,msg,cb){
+		
+		service.AddTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -153,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.addTags(params,cb);
 		}
-			service.CancelSteps=function(svc,msg,cb){
+		
+		service.CancelSteps=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -170,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.cancelSteps(params,cb);
 		}
-			service.CreateSecurityConfiguration=function(svc,msg,cb){
+		
+		service.CreateSecurityConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -185,7 +190,8 @@ module.exports = function(RED) {
 
 			svc.createSecurityConfiguration(params,cb);
 		}
-			service.CreateStudio=function(svc,msg,cb){
+		
+		service.CreateStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -225,7 +231,8 @@ module.exports = function(RED) {
 
 			svc.createStudio(params,cb);
 		}
-			service.CreateStudioSessionMapping=function(svc,msg,cb){
+		
+		service.CreateStudioSessionMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -247,7 +254,8 @@ module.exports = function(RED) {
 
 			svc.createStudioSessionMapping(params,cb);
 		}
-			service.DeleteSecurityConfiguration=function(svc,msg,cb){
+		
+		service.DeleteSecurityConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -259,7 +267,8 @@ module.exports = function(RED) {
 
 			svc.deleteSecurityConfiguration(params,cb);
 		}
-			service.DeleteStudio=function(svc,msg,cb){
+		
+		service.DeleteStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -271,7 +280,8 @@ module.exports = function(RED) {
 
 			svc.deleteStudio(params,cb);
 		}
-			service.DeleteStudioSessionMapping=function(svc,msg,cb){
+		
+		service.DeleteStudioSessionMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -290,7 +300,8 @@ module.exports = function(RED) {
 
 			svc.deleteStudioSessionMapping(params,cb);
 		}
-			service.DescribeCluster=function(svc,msg,cb){
+		
+		service.DescribeCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -302,7 +313,8 @@ module.exports = function(RED) {
 
 			svc.describeCluster(params,cb);
 		}
-			service.DescribeJobFlows=function(svc,msg,cb){
+		
+		service.DescribeJobFlows=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -319,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.describeJobFlows(params,cb);
 		}
-			service.DescribeNotebookExecution=function(svc,msg,cb){
+		
+		service.DescribeNotebookExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NotebookExecutionId",params,undefined,false); 
@@ -331,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.describeNotebookExecution(params,cb);
 		}
-			service.DescribeReleaseLabel=function(svc,msg,cb){
+		
+		service.DescribeReleaseLabel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -346,7 +360,8 @@ module.exports = function(RED) {
 
 			svc.describeReleaseLabel(params,cb);
 		}
-			service.DescribeSecurityConfiguration=function(svc,msg,cb){
+		
+		service.DescribeSecurityConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -358,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.describeSecurityConfiguration(params,cb);
 		}
-			service.DescribeStep=function(svc,msg,cb){
+		
+		service.DescribeStep=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -373,7 +389,8 @@ module.exports = function(RED) {
 
 			svc.describeStep(params,cb);
 		}
-			service.DescribeStudio=function(svc,msg,cb){
+		
+		service.DescribeStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -385,7 +402,8 @@ module.exports = function(RED) {
 
 			svc.describeStudio(params,cb);
 		}
-			service.GetAutoTerminationPolicy=function(svc,msg,cb){
+		
+		service.GetAutoTerminationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -397,7 +415,8 @@ module.exports = function(RED) {
 
 			svc.getAutoTerminationPolicy(params,cb);
 		}
-			service.GetBlockPublicAccessConfiguration=function(svc,msg,cb){
+		
+		service.GetBlockPublicAccessConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -406,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.getBlockPublicAccessConfiguration(params,cb);
 		}
-			service.GetManagedScalingPolicy=function(svc,msg,cb){
+		
+		service.GetManagedScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -418,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.getManagedScalingPolicy(params,cb);
 		}
-			service.GetStudioSessionMapping=function(svc,msg,cb){
+		
+		service.GetStudioSessionMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -437,7 +458,8 @@ module.exports = function(RED) {
 
 			svc.getStudioSessionMapping(params,cb);
 		}
-			service.ListBootstrapActions=function(svc,msg,cb){
+		
+		service.ListBootstrapActions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -451,7 +473,8 @@ module.exports = function(RED) {
 
 			svc.listBootstrapActions(params,cb);
 		}
-			service.ListClusters=function(svc,msg,cb){
+		
+		service.ListClusters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -468,7 +491,8 @@ module.exports = function(RED) {
 
 			svc.listClusters(params,cb);
 		}
-			service.ListInstanceFleets=function(svc,msg,cb){
+		
+		service.ListInstanceFleets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -482,7 +506,8 @@ module.exports = function(RED) {
 
 			svc.listInstanceFleets(params,cb);
 		}
-			service.ListInstanceGroups=function(svc,msg,cb){
+		
+		service.ListInstanceGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -496,7 +521,8 @@ module.exports = function(RED) {
 
 			svc.listInstanceGroups(params,cb);
 		}
-			service.ListInstances=function(svc,msg,cb){
+		
+		service.ListInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -520,7 +546,8 @@ module.exports = function(RED) {
 
 			svc.listInstances(params,cb);
 		}
-			service.ListNotebookExecutions=function(svc,msg,cb){
+		
+		service.ListNotebookExecutions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -539,7 +566,8 @@ module.exports = function(RED) {
 
 			svc.listNotebookExecutions(params,cb);
 		}
-			service.ListReleaseLabels=function(svc,msg,cb){
+		
+		service.ListReleaseLabels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -554,7 +582,8 @@ module.exports = function(RED) {
 
 			svc.listReleaseLabels(params,cb);
 		}
-			service.ListSecurityConfigurations=function(svc,msg,cb){
+		
+		service.ListSecurityConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -565,7 +594,8 @@ module.exports = function(RED) {
 
 			svc.listSecurityConfigurations(params,cb);
 		}
-			service.ListSteps=function(svc,msg,cb){
+		
+		service.ListSteps=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -583,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.listSteps(params,cb);
 		}
-			service.ListStudioSessionMappings=function(svc,msg,cb){
+		
+		service.ListStudioSessionMappings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -598,7 +629,8 @@ module.exports = function(RED) {
 
 			svc.listStudioSessionMappings(params,cb);
 		}
-			service.ListStudios=function(svc,msg,cb){
+		
+		service.ListStudios=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -609,7 +641,8 @@ module.exports = function(RED) {
 
 			svc.listStudios(params,cb);
 		}
-			service.ModifyCluster=function(svc,msg,cb){
+		
+		service.ModifyCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -623,7 +656,8 @@ module.exports = function(RED) {
 
 			svc.modifyCluster(params,cb);
 		}
-			service.ModifyInstanceFleet=function(svc,msg,cb){
+		
+		service.ModifyInstanceFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -638,7 +672,8 @@ module.exports = function(RED) {
 
 			svc.modifyInstanceFleet(params,cb);
 		}
-			service.ModifyInstanceGroups=function(svc,msg,cb){
+		
+		service.ModifyInstanceGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -651,7 +686,8 @@ module.exports = function(RED) {
 
 			svc.modifyInstanceGroups(params,cb);
 		}
-			service.PutAutoScalingPolicy=function(svc,msg,cb){
+		
+		service.PutAutoScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -669,7 +705,8 @@ module.exports = function(RED) {
 
 			svc.putAutoScalingPolicy(params,cb);
 		}
-			service.PutAutoTerminationPolicy=function(svc,msg,cb){
+		
+		service.PutAutoTerminationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -683,7 +720,8 @@ module.exports = function(RED) {
 
 			svc.putAutoTerminationPolicy(params,cb);
 		}
-			service.PutBlockPublicAccessConfiguration=function(svc,msg,cb){
+		
+		service.PutBlockPublicAccessConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BlockPublicAccessConfiguration",params,undefined,true); 
@@ -695,7 +733,8 @@ module.exports = function(RED) {
 
 			svc.putBlockPublicAccessConfiguration(params,cb);
 		}
-			service.PutManagedScalingPolicy=function(svc,msg,cb){
+		
+		service.PutManagedScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -710,7 +749,8 @@ module.exports = function(RED) {
 
 			svc.putManagedScalingPolicy(params,cb);
 		}
-			service.RemoveAutoScalingPolicy=function(svc,msg,cb){
+		
+		service.RemoveAutoScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -725,7 +765,8 @@ module.exports = function(RED) {
 
 			svc.removeAutoScalingPolicy(params,cb);
 		}
-			service.RemoveAutoTerminationPolicy=function(svc,msg,cb){
+		
+		service.RemoveAutoTerminationPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -737,7 +778,8 @@ module.exports = function(RED) {
 
 			svc.removeAutoTerminationPolicy(params,cb);
 		}
-			service.RemoveManagedScalingPolicy=function(svc,msg,cb){
+		
+		service.RemoveManagedScalingPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -749,7 +791,8 @@ module.exports = function(RED) {
 
 			svc.removeManagedScalingPolicy(params,cb);
 		}
-			service.RemoveTags=function(svc,msg,cb){
+		
+		service.RemoveTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -764,7 +807,8 @@ module.exports = function(RED) {
 
 			svc.removeTags(params,cb);
 		}
-			service.RunJobFlow=function(svc,msg,cb){
+		
+		service.RunJobFlow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -831,7 +875,8 @@ module.exports = function(RED) {
 
 			svc.runJobFlow(params,cb);
 		}
-			service.SetTerminationProtection=function(svc,msg,cb){
+		
+		service.SetTerminationProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobFlowIds",params,undefined,true); 
@@ -846,7 +891,8 @@ module.exports = function(RED) {
 
 			svc.setTerminationProtection(params,cb);
 		}
-			service.SetVisibleToAllUsers=function(svc,msg,cb){
+		
+		service.SetVisibleToAllUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobFlowIds",params,undefined,true); 
@@ -861,7 +907,8 @@ module.exports = function(RED) {
 
 			svc.setVisibleToAllUsers(params,cb);
 		}
-			service.StartNotebookExecution=function(svc,msg,cb){
+		
+		service.StartNotebookExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EditorId",params,undefined,false); 
@@ -890,7 +937,8 @@ module.exports = function(RED) {
 
 			svc.startNotebookExecution(params,cb);
 		}
-			service.StopNotebookExecution=function(svc,msg,cb){
+		
+		service.StopNotebookExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NotebookExecutionId",params,undefined,false); 
@@ -902,7 +950,8 @@ module.exports = function(RED) {
 
 			svc.stopNotebookExecution(params,cb);
 		}
-			service.TerminateJobFlows=function(svc,msg,cb){
+		
+		service.TerminateJobFlows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobFlowIds",params,undefined,true); 
@@ -914,7 +963,8 @@ module.exports = function(RED) {
 
 			svc.terminateJobFlows(params,cb);
 		}
-			service.UpdateStudio=function(svc,msg,cb){
+		
+		service.UpdateStudio=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -934,7 +984,8 @@ module.exports = function(RED) {
 
 			svc.updateStudio(params,cb);
 		}
-			service.UpdateStudioSessionMapping=function(svc,msg,cb){
+		
+		service.UpdateStudioSessionMapping=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StudioId",params,undefined,false); 
@@ -956,6 +1007,7 @@ module.exports = function(RED) {
 
 			svc.updateStudioSessionMapping(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS EMR", AmazonAPINode);

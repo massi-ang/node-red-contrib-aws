@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddTags=function(svc,msg,cb){
+		service.AddTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.addTags(params,cb);
 		}
-			service.CreateBatchPrediction=function(svc,msg,cb){
+		
+		service.CreateBatchPrediction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BatchPredictionId",params,undefined,false); 
@@ -134,7 +135,8 @@ module.exports = function(RED) {
 
 			svc.createBatchPrediction(params,cb);
 		}
-			service.CreateDataSourceFromRDS=function(svc,msg,cb){
+		
+		service.CreateDataSourceFromRDS=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -156,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.createDataSourceFromRDS(params,cb);
 		}
-			service.CreateDataSourceFromRedshift=function(svc,msg,cb){
+		
+		service.CreateDataSourceFromRedshift=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -178,7 +181,8 @@ module.exports = function(RED) {
 
 			svc.createDataSourceFromRedshift(params,cb);
 		}
-			service.CreateDataSourceFromS3=function(svc,msg,cb){
+		
+		service.CreateDataSourceFromS3=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -197,7 +201,8 @@ module.exports = function(RED) {
 
 			svc.createDataSourceFromS3(params,cb);
 		}
-			service.CreateEvaluation=function(svc,msg,cb){
+		
+		service.CreateEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EvaluationId",params,undefined,false); 
@@ -217,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.createEvaluation(params,cb);
 		}
-			service.CreateMLModel=function(svc,msg,cb){
+		
+		service.CreateMLModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -243,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.createMLModel(params,cb);
 		}
-			service.CreateRealtimeEndpoint=function(svc,msg,cb){
+		
+		service.CreateRealtimeEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -255,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.createRealtimeEndpoint(params,cb);
 		}
-			service.DeleteBatchPrediction=function(svc,msg,cb){
+		
+		service.DeleteBatchPrediction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BatchPredictionId",params,undefined,false); 
@@ -267,7 +275,8 @@ module.exports = function(RED) {
 
 			svc.deleteBatchPrediction(params,cb);
 		}
-			service.DeleteDataSource=function(svc,msg,cb){
+		
+		service.DeleteDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -279,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.deleteDataSource(params,cb);
 		}
-			service.DeleteEvaluation=function(svc,msg,cb){
+		
+		service.DeleteEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EvaluationId",params,undefined,false); 
@@ -291,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.deleteEvaluation(params,cb);
 		}
-			service.DeleteMLModel=function(svc,msg,cb){
+		
+		service.DeleteMLModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -303,7 +314,8 @@ module.exports = function(RED) {
 
 			svc.deleteMLModel(params,cb);
 		}
-			service.DeleteRealtimeEndpoint=function(svc,msg,cb){
+		
+		service.DeleteRealtimeEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -315,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.deleteRealtimeEndpoint(params,cb);
 		}
-			service.DeleteTags=function(svc,msg,cb){
+		
+		service.DeleteTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,false); 
@@ -333,7 +346,8 @@ module.exports = function(RED) {
 
 			svc.deleteTags(params,cb);
 		}
-			service.DescribeBatchPredictions=function(svc,msg,cb){
+		
+		service.DescribeBatchPredictions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -364,7 +378,8 @@ module.exports = function(RED) {
 
 			svc.describeBatchPredictions(params,cb);
 		}
-			service.DescribeDataSources=function(svc,msg,cb){
+		
+		service.DescribeDataSources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -395,7 +410,8 @@ module.exports = function(RED) {
 
 			svc.describeDataSources(params,cb);
 		}
-			service.DescribeEvaluations=function(svc,msg,cb){
+		
+		service.DescribeEvaluations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -426,7 +442,8 @@ module.exports = function(RED) {
 
 			svc.describeEvaluations(params,cb);
 		}
-			service.DescribeMLModels=function(svc,msg,cb){
+		
+		service.DescribeMLModels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -457,7 +474,8 @@ module.exports = function(RED) {
 
 			svc.describeMLModels(params,cb);
 		}
-			service.DescribeTags=function(svc,msg,cb){
+		
+		service.DescribeTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -472,7 +490,8 @@ module.exports = function(RED) {
 
 			svc.describeTags(params,cb);
 		}
-			service.GetBatchPrediction=function(svc,msg,cb){
+		
+		service.GetBatchPrediction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BatchPredictionId",params,undefined,false); 
@@ -484,7 +503,8 @@ module.exports = function(RED) {
 
 			svc.getBatchPrediction(params,cb);
 		}
-			service.GetDataSource=function(svc,msg,cb){
+		
+		service.GetDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -498,7 +518,8 @@ module.exports = function(RED) {
 
 			svc.getDataSource(params,cb);
 		}
-			service.GetEvaluation=function(svc,msg,cb){
+		
+		service.GetEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EvaluationId",params,undefined,false); 
@@ -510,7 +531,8 @@ module.exports = function(RED) {
 
 			svc.getEvaluation(params,cb);
 		}
-			service.GetMLModel=function(svc,msg,cb){
+		
+		service.GetMLModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -524,7 +546,8 @@ module.exports = function(RED) {
 
 			svc.getMLModel(params,cb);
 		}
-			service.Predict=function(svc,msg,cb){
+		
+		service.Predict=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -542,7 +565,8 @@ module.exports = function(RED) {
 
 			svc.predict(params,cb);
 		}
-			service.UpdateBatchPrediction=function(svc,msg,cb){
+		
+		service.UpdateBatchPrediction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BatchPredictionId",params,undefined,false); 
@@ -557,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.updateBatchPrediction(params,cb);
 		}
-			service.UpdateDataSource=function(svc,msg,cb){
+		
+		service.UpdateDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DataSourceId",params,undefined,false); 
@@ -572,7 +597,8 @@ module.exports = function(RED) {
 
 			svc.updateDataSource(params,cb);
 		}
-			service.UpdateEvaluation=function(svc,msg,cb){
+		
+		service.UpdateEvaluation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EvaluationId",params,undefined,false); 
@@ -587,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.updateEvaluation(params,cb);
 		}
-			service.UpdateMLModel=function(svc,msg,cb){
+		
+		service.UpdateMLModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MLModelId",params,undefined,false); 
@@ -603,6 +630,7 @@ module.exports = function(RED) {
 
 			svc.updateMLModel(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MachineLearning", AmazonAPINode);

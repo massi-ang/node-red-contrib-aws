@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelJob=function(svc,msg,cb){
+		service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-			service.CreateComputeEnvironment=function(svc,msg,cb){
+		
+		service.CreateComputeEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"computeEnvironmentName",params,undefined,false); 
@@ -131,7 +132,8 @@ module.exports = function(RED) {
 
 			svc.createComputeEnvironment(params,cb);
 		}
-			service.CreateJobQueue=function(svc,msg,cb){
+		
+		service.CreateJobQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobQueueName",params,undefined,false); 
@@ -153,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.createJobQueue(params,cb);
 		}
-			service.DeleteComputeEnvironment=function(svc,msg,cb){
+		
+		service.DeleteComputeEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"computeEnvironment",params,undefined,false); 
@@ -165,7 +168,8 @@ module.exports = function(RED) {
 
 			svc.deleteComputeEnvironment(params,cb);
 		}
-			service.DeleteJobQueue=function(svc,msg,cb){
+		
+		service.DeleteJobQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobQueue",params,undefined,false); 
@@ -177,7 +181,8 @@ module.exports = function(RED) {
 
 			svc.deleteJobQueue(params,cb);
 		}
-			service.DeregisterJobDefinition=function(svc,msg,cb){
+		
+		service.DeregisterJobDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobDefinition",params,undefined,false); 
@@ -189,7 +194,8 @@ module.exports = function(RED) {
 
 			svc.deregisterJobDefinition(params,cb);
 		}
-			service.DescribeComputeEnvironments=function(svc,msg,cb){
+		
+		service.DescribeComputeEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -204,7 +210,8 @@ module.exports = function(RED) {
 
 			svc.describeComputeEnvironments(params,cb);
 		}
-			service.DescribeJobDefinitions=function(svc,msg,cb){
+		
+		service.DescribeJobDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -223,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.describeJobDefinitions(params,cb);
 		}
-			service.DescribeJobQueues=function(svc,msg,cb){
+		
+		service.DescribeJobQueues=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -238,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.describeJobQueues(params,cb);
 		}
-			service.DescribeJobs=function(svc,msg,cb){
+		
+		service.DescribeJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobs",params,undefined,true); 
@@ -250,7 +259,8 @@ module.exports = function(RED) {
 
 			svc.describeJobs(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -273,7 +283,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -285,7 +296,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RegisterJobDefinition=function(svc,msg,cb){
+		
+		service.RegisterJobDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobDefinitionName",params,undefined,false); 
@@ -316,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.registerJobDefinition(params,cb);
 		}
-			service.SubmitJob=function(svc,msg,cb){
+		
+		service.SubmitJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobName",params,undefined,false); 
@@ -352,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.submitJob(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -367,7 +381,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TerminateJob=function(svc,msg,cb){
+		
+		service.TerminateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -382,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.terminateJob(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -397,7 +413,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateComputeEnvironment=function(svc,msg,cb){
+		
+		service.UpdateComputeEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"computeEnvironment",params,undefined,false); 
@@ -415,7 +432,8 @@ module.exports = function(RED) {
 
 			svc.updateComputeEnvironment(params,cb);
 		}
-			service.UpdateJobQueue=function(svc,msg,cb){
+		
+		service.UpdateJobQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobQueue",params,undefined,false); 
@@ -433,6 +451,7 @@ module.exports = function(RED) {
 
 			svc.updateJobQueue(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Batch", AmazonAPINode);

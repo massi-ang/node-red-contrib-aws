@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateFleet=function(svc,msg,cb){
+		service.AssociateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetName",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateFleet(params,cb);
 		}
-			service.BatchAssociateUserStack=function(svc,msg,cb){
+		
+		service.BatchAssociateUserStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserStackAssociations",params,undefined,true); 
@@ -120,7 +121,8 @@ module.exports = function(RED) {
 
 			svc.batchAssociateUserStack(params,cb);
 		}
-			service.BatchDisassociateUserStack=function(svc,msg,cb){
+		
+		service.BatchDisassociateUserStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserStackAssociations",params,undefined,true); 
@@ -132,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateUserStack(params,cb);
 		}
-			service.CopyImage=function(svc,msg,cb){
+		
+		service.CopyImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceImageName",params,undefined,false); 
@@ -152,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.copyImage(params,cb);
 		}
-			service.CreateDirectoryConfig=function(svc,msg,cb){
+		
+		service.CreateDirectoryConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryName",params,undefined,false); 
@@ -169,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.createDirectoryConfig(params,cb);
 		}
-			service.CreateFleet=function(svc,msg,cb){
+		
+		service.CreateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -215,7 +220,8 @@ module.exports = function(RED) {
 
 			svc.createFleet(params,cb);
 		}
-			service.CreateImageBuilder=function(svc,msg,cb){
+		
+		service.CreateImageBuilder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -252,7 +258,8 @@ module.exports = function(RED) {
 
 			svc.createImageBuilder(params,cb);
 		}
-			service.CreateImageBuilderStreamingURL=function(svc,msg,cb){
+		
+		service.CreateImageBuilderStreamingURL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -266,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.createImageBuilderStreamingURL(params,cb);
 		}
-			service.CreateStack=function(svc,msg,cb){
+		
+		service.CreateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -298,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.createStack(params,cb);
 		}
-			service.CreateStreamingURL=function(svc,msg,cb){
+		
+		service.CreateStreamingURL=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -322,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.createStreamingURL(params,cb);
 		}
-			service.CreateUpdatedImage=function(svc,msg,cb){
+		
+		service.CreateUpdatedImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"existingImageName",params,undefined,false); 
@@ -345,7 +355,8 @@ module.exports = function(RED) {
 
 			svc.createUpdatedImage(params,cb);
 		}
-			service.CreateUsageReportSubscription=function(svc,msg,cb){
+		
+		service.CreateUsageReportSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -354,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.createUsageReportSubscription(params,cb);
 		}
-			service.CreateUser=function(svc,msg,cb){
+		
+		service.CreateUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,true); 
@@ -375,7 +387,8 @@ module.exports = function(RED) {
 
 			svc.createUser(params,cb);
 		}
-			service.DeleteDirectoryConfig=function(svc,msg,cb){
+		
+		service.DeleteDirectoryConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryName",params,undefined,false); 
@@ -387,7 +400,8 @@ module.exports = function(RED) {
 
 			svc.deleteDirectoryConfig(params,cb);
 		}
-			service.DeleteFleet=function(svc,msg,cb){
+		
+		service.DeleteFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -399,7 +413,8 @@ module.exports = function(RED) {
 
 			svc.deleteFleet(params,cb);
 		}
-			service.DeleteImage=function(svc,msg,cb){
+		
+		service.DeleteImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -411,7 +426,8 @@ module.exports = function(RED) {
 
 			svc.deleteImage(params,cb);
 		}
-			service.DeleteImageBuilder=function(svc,msg,cb){
+		
+		service.DeleteImageBuilder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -423,7 +439,8 @@ module.exports = function(RED) {
 
 			svc.deleteImageBuilder(params,cb);
 		}
-			service.DeleteImagePermissions=function(svc,msg,cb){
+		
+		service.DeleteImagePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -438,7 +455,8 @@ module.exports = function(RED) {
 
 			svc.deleteImagePermissions(params,cb);
 		}
-			service.DeleteStack=function(svc,msg,cb){
+		
+		service.DeleteStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -450,7 +468,8 @@ module.exports = function(RED) {
 
 			svc.deleteStack(params,cb);
 		}
-			service.DeleteUsageReportSubscription=function(svc,msg,cb){
+		
+		service.DeleteUsageReportSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -459,7 +478,8 @@ module.exports = function(RED) {
 
 			svc.deleteUsageReportSubscription(params,cb);
 		}
-			service.DeleteUser=function(svc,msg,cb){
+		
+		service.DeleteUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,true); 
@@ -474,7 +494,8 @@ module.exports = function(RED) {
 
 			svc.deleteUser(params,cb);
 		}
-			service.DescribeDirectoryConfigs=function(svc,msg,cb){
+		
+		service.DescribeDirectoryConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -489,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.describeDirectoryConfigs(params,cb);
 		}
-			service.DescribeFleets=function(svc,msg,cb){
+		
+		service.DescribeFleets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -502,7 +524,8 @@ module.exports = function(RED) {
 
 			svc.describeFleets(params,cb);
 		}
-			service.DescribeImageBuilders=function(svc,msg,cb){
+		
+		service.DescribeImageBuilders=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -517,7 +540,8 @@ module.exports = function(RED) {
 
 			svc.describeImageBuilders(params,cb);
 		}
-			service.DescribeImagePermissions=function(svc,msg,cb){
+		
+		service.DescribeImagePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -535,7 +559,8 @@ module.exports = function(RED) {
 
 			svc.describeImagePermissions(params,cb);
 		}
-			service.DescribeImages=function(svc,msg,cb){
+		
+		service.DescribeImages=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -554,7 +579,8 @@ module.exports = function(RED) {
 
 			svc.describeImages(params,cb);
 		}
-			service.DescribeSessions=function(svc,msg,cb){
+		
+		service.DescribeSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -577,7 +603,8 @@ module.exports = function(RED) {
 
 			svc.describeSessions(params,cb);
 		}
-			service.DescribeStacks=function(svc,msg,cb){
+		
+		service.DescribeStacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -590,7 +617,8 @@ module.exports = function(RED) {
 
 			svc.describeStacks(params,cb);
 		}
-			service.DescribeUsageReportSubscriptions=function(svc,msg,cb){
+		
+		service.DescribeUsageReportSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -603,7 +631,8 @@ module.exports = function(RED) {
 
 			svc.describeUsageReportSubscriptions(params,cb);
 		}
-			service.DescribeUserStackAssociations=function(svc,msg,cb){
+		
+		service.DescribeUserStackAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -622,7 +651,8 @@ module.exports = function(RED) {
 
 			svc.describeUserStackAssociations(params,cb);
 		}
-			service.DescribeUsers=function(svc,msg,cb){
+		
+		service.DescribeUsers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AuthenticationType",params,undefined,false); 
@@ -638,7 +668,8 @@ module.exports = function(RED) {
 
 			svc.describeUsers(params,cb);
 		}
-			service.DisableUser=function(svc,msg,cb){
+		
+		service.DisableUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,true); 
@@ -653,7 +684,8 @@ module.exports = function(RED) {
 
 			svc.disableUser(params,cb);
 		}
-			service.DisassociateFleet=function(svc,msg,cb){
+		
+		service.DisassociateFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetName",params,undefined,false); 
@@ -668,7 +700,8 @@ module.exports = function(RED) {
 
 			svc.disassociateFleet(params,cb);
 		}
-			service.EnableUser=function(svc,msg,cb){
+		
+		service.EnableUser=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UserName",params,undefined,true); 
@@ -683,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.enableUser(params,cb);
 		}
-			service.ExpireSession=function(svc,msg,cb){
+		
+		service.ExpireSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SessionId",params,undefined,false); 
@@ -695,7 +729,8 @@ module.exports = function(RED) {
 
 			svc.expireSession(params,cb);
 		}
-			service.ListAssociatedFleets=function(svc,msg,cb){
+		
+		service.ListAssociatedFleets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -709,7 +744,8 @@ module.exports = function(RED) {
 
 			svc.listAssociatedFleets(params,cb);
 		}
-			service.ListAssociatedStacks=function(svc,msg,cb){
+		
+		service.ListAssociatedStacks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FleetName",params,undefined,false); 
@@ -723,7 +759,8 @@ module.exports = function(RED) {
 
 			svc.listAssociatedStacks(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -735,7 +772,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartFleet=function(svc,msg,cb){
+		
+		service.StartFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -747,7 +785,8 @@ module.exports = function(RED) {
 
 			svc.startFleet(params,cb);
 		}
-			service.StartImageBuilder=function(svc,msg,cb){
+		
+		service.StartImageBuilder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -761,7 +800,8 @@ module.exports = function(RED) {
 
 			svc.startImageBuilder(params,cb);
 		}
-			service.StopFleet=function(svc,msg,cb){
+		
+		service.StopFleet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -773,7 +813,8 @@ module.exports = function(RED) {
 
 			svc.stopFleet(params,cb);
 		}
-			service.StopImageBuilder=function(svc,msg,cb){
+		
+		service.StopImageBuilder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -785,7 +826,8 @@ module.exports = function(RED) {
 
 			svc.stopImageBuilder(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -800,7 +842,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -815,7 +858,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateDirectoryConfig=function(svc,msg,cb){
+		
+		service.UpdateDirectoryConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryName",params,undefined,false); 
@@ -831,7 +875,8 @@ module.exports = function(RED) {
 
 			svc.updateDirectoryConfig(params,cb);
 		}
-			service.UpdateFleet=function(svc,msg,cb){
+		
+		service.UpdateFleet=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -874,7 +919,8 @@ module.exports = function(RED) {
 
 			svc.updateFleet(params,cb);
 		}
-			service.UpdateImagePermissions=function(svc,msg,cb){
+		
+		service.UpdateImagePermissions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -892,7 +938,8 @@ module.exports = function(RED) {
 
 			svc.updateImagePermissions(params,cb);
 		}
-			service.UpdateStack=function(svc,msg,cb){
+		
+		service.UpdateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -926,6 +973,7 @@ module.exports = function(RED) {
 
 			svc.updateStack(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS AppStream", AmazonAPINode);

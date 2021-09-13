@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ConfigureLogs=function(svc,msg,cb){
+		service.ConfigureLogs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.configureLogs(params,cb);
 		}
-			service.CreateAsset=function(svc,msg,cb){
+		
+		service.CreateAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceArn",params,undefined,false); 
@@ -132,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.createAsset(params,cb);
 		}
-			service.CreatePackagingConfiguration=function(svc,msg,cb){
+		
+		service.CreatePackagingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -157,7 +159,8 @@ module.exports = function(RED) {
 
 			svc.createPackagingConfiguration(params,cb);
 		}
-			service.CreatePackagingGroup=function(svc,msg,cb){
+		
+		service.CreatePackagingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -175,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.createPackagingGroup(params,cb);
 		}
-			service.DeleteAsset=function(svc,msg,cb){
+		
+		service.DeleteAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -187,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.deleteAsset(params,cb);
 		}
-			service.DeletePackagingConfiguration=function(svc,msg,cb){
+		
+		service.DeletePackagingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -199,7 +204,8 @@ module.exports = function(RED) {
 
 			svc.deletePackagingConfiguration(params,cb);
 		}
-			service.DeletePackagingGroup=function(svc,msg,cb){
+		
+		service.DeletePackagingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -211,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.deletePackagingGroup(params,cb);
 		}
-			service.DescribeAsset=function(svc,msg,cb){
+		
+		service.DescribeAsset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -223,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.describeAsset(params,cb);
 		}
-			service.DescribePackagingConfiguration=function(svc,msg,cb){
+		
+		service.DescribePackagingConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -235,7 +243,8 @@ module.exports = function(RED) {
 
 			svc.describePackagingConfiguration(params,cb);
 		}
-			service.DescribePackagingGroup=function(svc,msg,cb){
+		
+		service.DescribePackagingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -247,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.describePackagingGroup(params,cb);
 		}
-			service.ListAssets=function(svc,msg,cb){
+		
+		service.ListAssets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -262,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.listAssets(params,cb);
 		}
-			service.ListPackagingConfigurations=function(svc,msg,cb){
+		
+		service.ListPackagingConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -277,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.listPackagingConfigurations(params,cb);
 		}
-			service.ListPackagingGroups=function(svc,msg,cb){
+		
+		service.ListPackagingGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -290,7 +302,8 @@ module.exports = function(RED) {
 
 			svc.listPackagingGroups(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -302,7 +315,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -317,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeys",params,undefined,true); 
@@ -332,7 +347,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdatePackagingGroup=function(svc,msg,cb){
+		
+		service.UpdatePackagingGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -346,6 +362,7 @@ module.exports = function(RED) {
 
 			svc.updatePackagingGroup(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MediaPackageVod", AmazonAPINode);

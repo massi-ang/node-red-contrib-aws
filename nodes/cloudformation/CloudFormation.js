@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ActivateType=function(svc,msg,cb){
+		service.ActivateType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -122,7 +122,8 @@ module.exports = function(RED) {
 
 			svc.activateType(params,cb);
 		}
-			service.BatchDescribeTypeConfigurations=function(svc,msg,cb){
+		
+		service.BatchDescribeTypeConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TypeConfigurationIdentifiers",params,undefined,false); 
@@ -134,7 +135,8 @@ module.exports = function(RED) {
 
 			svc.batchDescribeTypeConfigurations(params,cb);
 		}
-			service.CancelUpdateStack=function(svc,msg,cb){
+		
+		service.CancelUpdateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -148,7 +150,8 @@ module.exports = function(RED) {
 
 			svc.cancelUpdateStack(params,cb);
 		}
-			service.ContinueUpdateRollback=function(svc,msg,cb){
+		
+		service.ContinueUpdateRollback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -166,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.continueUpdateRollback(params,cb);
 		}
-			service.CreateChangeSet=function(svc,msg,cb){
+		
+		service.CreateChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -211,7 +215,8 @@ module.exports = function(RED) {
 
 			svc.createChangeSet(params,cb);
 		}
-			service.CreateStack=function(svc,msg,cb){
+		
+		service.CreateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -255,7 +260,8 @@ module.exports = function(RED) {
 
 			svc.createStack(params,cb);
 		}
-			service.CreateStackInstances=function(svc,msg,cb){
+		
+		service.CreateStackInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -282,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.createStackInstances(params,cb);
 		}
-			service.CreateStackSet=function(svc,msg,cb){
+		
+		service.CreateStackSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -320,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.createStackSet(params,cb);
 		}
-			service.DeactivateType=function(svc,msg,cb){
+		
+		service.DeactivateType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -335,7 +343,8 @@ module.exports = function(RED) {
 
 			svc.deactivateType(params,cb);
 		}
-			service.DeleteChangeSet=function(svc,msg,cb){
+		
+		service.DeleteChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChangeSetName",params,undefined,false); 
@@ -349,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.deleteChangeSet(params,cb);
 		}
-			service.DeleteStack=function(svc,msg,cb){
+		
+		service.DeleteStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -367,7 +377,8 @@ module.exports = function(RED) {
 
 			svc.deleteStack(params,cb);
 		}
-			service.DeleteStackInstances=function(svc,msg,cb){
+		
+		service.DeleteStackInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -395,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.deleteStackInstances(params,cb);
 		}
-			service.DeleteStackSet=function(svc,msg,cb){
+		
+		service.DeleteStackSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -409,7 +421,8 @@ module.exports = function(RED) {
 
 			svc.deleteStackSet(params,cb);
 		}
-			service.DeregisterType=function(svc,msg,cb){
+		
+		service.DeregisterType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -426,7 +439,8 @@ module.exports = function(RED) {
 
 			svc.deregisterType(params,cb);
 		}
-			service.DescribeAccountLimits=function(svc,msg,cb){
+		
+		service.DescribeAccountLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -437,7 +451,8 @@ module.exports = function(RED) {
 
 			svc.describeAccountLimits(params,cb);
 		}
-			service.DescribeChangeSet=function(svc,msg,cb){
+		
+		service.DescribeChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChangeSetName",params,undefined,false); 
@@ -453,7 +468,8 @@ module.exports = function(RED) {
 
 			svc.describeChangeSet(params,cb);
 		}
-			service.DescribePublisher=function(svc,msg,cb){
+		
+		service.DescribePublisher=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -464,7 +480,8 @@ module.exports = function(RED) {
 
 			svc.describePublisher(params,cb);
 		}
-			service.DescribeStackDriftDetectionStatus=function(svc,msg,cb){
+		
+		service.DescribeStackDriftDetectionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackDriftDetectionId",params,undefined,false); 
@@ -476,7 +493,8 @@ module.exports = function(RED) {
 
 			svc.describeStackDriftDetectionStatus(params,cb);
 		}
-			service.DescribeStackEvents=function(svc,msg,cb){
+		
+		service.DescribeStackEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -489,7 +507,8 @@ module.exports = function(RED) {
 
 			svc.describeStackEvents(params,cb);
 		}
-			service.DescribeStackInstance=function(svc,msg,cb){
+		
+		service.DescribeStackInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -509,7 +528,8 @@ module.exports = function(RED) {
 
 			svc.describeStackInstance(params,cb);
 		}
-			service.DescribeStackResource=function(svc,msg,cb){
+		
+		service.DescribeStackResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -524,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.describeStackResource(params,cb);
 		}
-			service.DescribeStackResourceDrifts=function(svc,msg,cb){
+		
+		service.DescribeStackResourceDrifts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -542,7 +563,8 @@ module.exports = function(RED) {
 
 			svc.describeStackResourceDrifts(params,cb);
 		}
-			service.DescribeStackResources=function(svc,msg,cb){
+		
+		service.DescribeStackResources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -557,7 +579,8 @@ module.exports = function(RED) {
 
 			svc.describeStackResources(params,cb);
 		}
-			service.DescribeStackSet=function(svc,msg,cb){
+		
+		service.DescribeStackSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -571,7 +594,8 @@ module.exports = function(RED) {
 
 			svc.describeStackSet(params,cb);
 		}
-			service.DescribeStackSetOperation=function(svc,msg,cb){
+		
+		service.DescribeStackSetOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -588,7 +612,8 @@ module.exports = function(RED) {
 
 			svc.describeStackSetOperation(params,cb);
 		}
-			service.DescribeStacks=function(svc,msg,cb){
+		
+		service.DescribeStacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -601,7 +626,8 @@ module.exports = function(RED) {
 
 			svc.describeStacks(params,cb);
 		}
-			service.DescribeType=function(svc,msg,cb){
+		
+		service.DescribeType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -622,7 +648,8 @@ module.exports = function(RED) {
 
 			svc.describeType(params,cb);
 		}
-			service.DescribeTypeRegistration=function(svc,msg,cb){
+		
+		service.DescribeTypeRegistration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistrationToken",params,undefined,false); 
@@ -634,7 +661,8 @@ module.exports = function(RED) {
 
 			svc.describeTypeRegistration(params,cb);
 		}
-			service.DetectStackDrift=function(svc,msg,cb){
+		
+		service.DetectStackDrift=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -648,7 +676,8 @@ module.exports = function(RED) {
 
 			svc.detectStackDrift(params,cb);
 		}
-			service.DetectStackResourceDrift=function(svc,msg,cb){
+		
+		service.DetectStackResourceDrift=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -663,7 +692,8 @@ module.exports = function(RED) {
 
 			svc.detectStackResourceDrift(params,cb);
 		}
-			service.DetectStackSetDrift=function(svc,msg,cb){
+		
+		service.DetectStackSetDrift=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -681,7 +711,8 @@ module.exports = function(RED) {
 
 			svc.detectStackSetDrift(params,cb);
 		}
-			service.EstimateTemplateCost=function(svc,msg,cb){
+		
+		service.EstimateTemplateCost=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -696,7 +727,8 @@ module.exports = function(RED) {
 
 			svc.estimateTemplateCost(params,cb);
 		}
-			service.ExecuteChangeSet=function(svc,msg,cb){
+		
+		service.ExecuteChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChangeSetName",params,undefined,false); 
@@ -714,7 +746,8 @@ module.exports = function(RED) {
 
 			svc.executeChangeSet(params,cb);
 		}
-			service.GetStackPolicy=function(svc,msg,cb){
+		
+		service.GetStackPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -726,7 +759,8 @@ module.exports = function(RED) {
 
 			svc.getStackPolicy(params,cb);
 		}
-			service.GetTemplate=function(svc,msg,cb){
+		
+		service.GetTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -741,7 +775,8 @@ module.exports = function(RED) {
 
 			svc.getTemplate(params,cb);
 		}
-			service.GetTemplateSummary=function(svc,msg,cb){
+		
+		service.GetTemplateSummary=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -760,7 +795,8 @@ module.exports = function(RED) {
 
 			svc.getTemplateSummary(params,cb);
 		}
-			service.ImportStacksToStackSet=function(svc,msg,cb){
+		
+		service.ImportStacksToStackSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -781,7 +817,8 @@ module.exports = function(RED) {
 
 			svc.importStacksToStackSet(params,cb);
 		}
-			service.ListChangeSets=function(svc,msg,cb){
+		
+		service.ListChangeSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -795,7 +832,8 @@ module.exports = function(RED) {
 
 			svc.listChangeSets(params,cb);
 		}
-			service.ListExports=function(svc,msg,cb){
+		
+		service.ListExports=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -806,7 +844,8 @@ module.exports = function(RED) {
 
 			svc.listExports(params,cb);
 		}
-			service.ListImports=function(svc,msg,cb){
+		
+		service.ListImports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ExportName",params,undefined,false); 
@@ -820,7 +859,8 @@ module.exports = function(RED) {
 
 			svc.listImports(params,cb);
 		}
-			service.ListStackInstances=function(svc,msg,cb){
+		
+		service.ListStackInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -844,7 +884,8 @@ module.exports = function(RED) {
 
 			svc.listStackInstances(params,cb);
 		}
-			service.ListStackResources=function(svc,msg,cb){
+		
+		service.ListStackResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -858,7 +899,8 @@ module.exports = function(RED) {
 
 			svc.listStackResources(params,cb);
 		}
-			service.ListStackSetOperationResults=function(svc,msg,cb){
+		
+		service.ListStackSetOperationResults=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -879,7 +921,8 @@ module.exports = function(RED) {
 
 			svc.listStackSetOperationResults(params,cb);
 		}
-			service.ListStackSetOperations=function(svc,msg,cb){
+		
+		service.ListStackSetOperations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -897,7 +940,8 @@ module.exports = function(RED) {
 
 			svc.listStackSetOperations(params,cb);
 		}
-			service.ListStackSets=function(svc,msg,cb){
+		
+		service.ListStackSets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -914,7 +958,8 @@ module.exports = function(RED) {
 
 			svc.listStackSets(params,cb);
 		}
-			service.ListStacks=function(svc,msg,cb){
+		
+		service.ListStacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -927,7 +972,8 @@ module.exports = function(RED) {
 
 			svc.listStacks(params,cb);
 		}
-			service.ListTypeRegistrations=function(svc,msg,cb){
+		
+		service.ListTypeRegistrations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -948,7 +994,8 @@ module.exports = function(RED) {
 
 			svc.listTypeRegistrations(params,cb);
 		}
-			service.ListTypeVersions=function(svc,msg,cb){
+		
+		service.ListTypeVersions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -971,7 +1018,8 @@ module.exports = function(RED) {
 
 			svc.listTypeVersions(params,cb);
 		}
-			service.ListTypes=function(svc,msg,cb){
+		
+		service.ListTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -994,7 +1042,8 @@ module.exports = function(RED) {
 
 			svc.listTypes(params,cb);
 		}
-			service.PublishType=function(svc,msg,cb){
+		
+		service.PublishType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1011,7 +1060,8 @@ module.exports = function(RED) {
 
 			svc.publishType(params,cb);
 		}
-			service.RecordHandlerProgress=function(svc,msg,cb){
+		
+		service.RecordHandlerProgress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BearerToken",params,undefined,false); 
@@ -1036,7 +1086,8 @@ module.exports = function(RED) {
 
 			svc.recordHandlerProgress(params,cb);
 		}
-			service.RegisterPublisher=function(svc,msg,cb){
+		
+		service.RegisterPublisher=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1049,7 +1100,8 @@ module.exports = function(RED) {
 
 			svc.registerPublisher(params,cb);
 		}
-			service.RegisterType=function(svc,msg,cb){
+		
+		service.RegisterType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TypeName",params,undefined,false); 
@@ -1072,7 +1124,8 @@ module.exports = function(RED) {
 
 			svc.registerType(params,cb);
 		}
-			service.RollbackStack=function(svc,msg,cb){
+		
+		service.RollbackStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -1088,7 +1141,8 @@ module.exports = function(RED) {
 
 			svc.rollbackStack(params,cb);
 		}
-			service.SetStackPolicy=function(svc,msg,cb){
+		
+		service.SetStackPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -1104,7 +1158,8 @@ module.exports = function(RED) {
 
 			svc.setStackPolicy(params,cb);
 		}
-			service.SetTypeConfiguration=function(svc,msg,cb){
+		
+		service.SetTypeConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Configuration",params,undefined,false); 
@@ -1124,7 +1179,8 @@ module.exports = function(RED) {
 
 			svc.setTypeConfiguration(params,cb);
 		}
-			service.SetTypeDefaultVersion=function(svc,msg,cb){
+		
+		service.SetTypeDefaultVersion=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1141,7 +1197,8 @@ module.exports = function(RED) {
 
 			svc.setTypeDefaultVersion(params,cb);
 		}
-			service.SignalResource=function(svc,msg,cb){
+		
+		service.SignalResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -1162,7 +1219,8 @@ module.exports = function(RED) {
 
 			svc.signalResource(params,cb);
 		}
-			service.StopStackSetOperation=function(svc,msg,cb){
+		
+		service.StopStackSetOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -1179,7 +1237,8 @@ module.exports = function(RED) {
 
 			svc.stopStackSetOperation(params,cb);
 		}
-			service.TestType=function(svc,msg,cb){
+		
+		service.TestType=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1198,7 +1257,8 @@ module.exports = function(RED) {
 
 			svc.testType(params,cb);
 		}
-			service.UpdateStack=function(svc,msg,cb){
+		
+		service.UpdateStack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackName",params,undefined,false); 
@@ -1242,7 +1302,8 @@ module.exports = function(RED) {
 
 			svc.updateStack(params,cb);
 		}
-			service.UpdateStackInstances=function(svc,msg,cb){
+		
+		service.UpdateStackInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -1269,7 +1330,8 @@ module.exports = function(RED) {
 
 			svc.updateStackInstances(params,cb);
 		}
-			service.UpdateStackSet=function(svc,msg,cb){
+		
+		service.UpdateStackSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StackSetName",params,undefined,false); 
@@ -1315,7 +1377,8 @@ module.exports = function(RED) {
 
 			svc.updateStackSet(params,cb);
 		}
-			service.UpdateTerminationProtection=function(svc,msg,cb){
+		
+		service.UpdateTerminationProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Boolean(n),"EnableTerminationProtection",params,undefined,false); 
@@ -1330,7 +1393,8 @@ module.exports = function(RED) {
 
 			svc.updateTerminationProtection(params,cb);
 		}
-			service.ValidateTemplate=function(svc,msg,cb){
+		
+		service.ValidateTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1343,6 +1407,7 @@ module.exports = function(RED) {
 
 			svc.validateTemplate(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudFormation", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddTags=function(svc,msg,cb){
+		service.AddTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.addTags(params,cb);
 		}
-			service.CreateTrail=function(svc,msg,cb){
+		
+		service.CreateTrail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -142,7 +143,8 @@ module.exports = function(RED) {
 
 			svc.createTrail(params,cb);
 		}
-			service.DeleteTrail=function(svc,msg,cb){
+		
+		service.DeleteTrail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -154,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.deleteTrail(params,cb);
 		}
-			service.DescribeTrails=function(svc,msg,cb){
+		
+		service.DescribeTrails=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -167,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.describeTrails(params,cb);
 		}
-			service.GetEventSelectors=function(svc,msg,cb){
+		
+		service.GetEventSelectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrailName",params,undefined,false); 
@@ -179,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.getEventSelectors(params,cb);
 		}
-			service.GetInsightSelectors=function(svc,msg,cb){
+		
+		service.GetInsightSelectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrailName",params,undefined,false); 
@@ -191,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.getInsightSelectors(params,cb);
 		}
-			service.GetTrail=function(svc,msg,cb){
+		
+		service.GetTrail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -203,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.getTrail(params,cb);
 		}
-			service.GetTrailStatus=function(svc,msg,cb){
+		
+		service.GetTrailStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -215,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.getTrailStatus(params,cb);
 		}
-			service.ListPublicKeys=function(svc,msg,cb){
+		
+		service.ListPublicKeys=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -230,7 +238,8 @@ module.exports = function(RED) {
 
 			svc.listPublicKeys(params,cb);
 		}
-			service.ListTags=function(svc,msg,cb){
+		
+		service.ListTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceIdList",params,undefined,false); 
@@ -244,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.listTags(params,cb);
 		}
-			service.ListTrails=function(svc,msg,cb){
+		
+		service.ListTrails=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -255,7 +265,8 @@ module.exports = function(RED) {
 
 			svc.listTrails(params,cb);
 		}
-			service.LookupEvents=function(svc,msg,cb){
+		
+		service.LookupEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -276,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.lookupEvents(params,cb);
 		}
-			service.PutEventSelectors=function(svc,msg,cb){
+		
+		service.PutEventSelectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrailName",params,undefined,false); 
@@ -292,7 +304,8 @@ module.exports = function(RED) {
 
 			svc.putEventSelectors(params,cb);
 		}
-			service.PutInsightSelectors=function(svc,msg,cb){
+		
+		service.PutInsightSelectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrailName",params,undefined,false); 
@@ -307,7 +320,8 @@ module.exports = function(RED) {
 
 			svc.putInsightSelectors(params,cb);
 		}
-			service.RemoveTags=function(svc,msg,cb){
+		
+		service.RemoveTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -321,7 +335,8 @@ module.exports = function(RED) {
 
 			svc.removeTags(params,cb);
 		}
-			service.StartLogging=function(svc,msg,cb){
+		
+		service.StartLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -333,7 +348,8 @@ module.exports = function(RED) {
 
 			svc.startLogging(params,cb);
 		}
-			service.StopLogging=function(svc,msg,cb){
+		
+		service.StopLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -345,7 +361,8 @@ module.exports = function(RED) {
 
 			svc.stopLogging(params,cb);
 		}
-			service.UpdateTrail=function(svc,msg,cb){
+		
+		service.UpdateTrail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -377,6 +394,7 @@ module.exports = function(RED) {
 
 			svc.updateTrail(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudTrail", AmazonAPINode);

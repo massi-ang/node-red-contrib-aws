@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateDRTLogBucket=function(svc,msg,cb){
+		service.AssociateDRTLogBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LogBucket",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.associateDRTLogBucket(params,cb);
 		}
-			service.AssociateDRTRole=function(svc,msg,cb){
+		
+		service.AssociateDRTRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RoleArn",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.associateDRTRole(params,cb);
 		}
-			service.AssociateHealthCheck=function(svc,msg,cb){
+		
+		service.AssociateHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionId",params,undefined,false); 
@@ -132,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.associateHealthCheck(params,cb);
 		}
-			service.AssociateProactiveEngagementDetails=function(svc,msg,cb){
+		
+		service.AssociateProactiveEngagementDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EmergencyContactList",params,undefined,true); 
@@ -144,7 +147,8 @@ module.exports = function(RED) {
 
 			svc.associateProactiveEngagementDetails(params,cb);
 		}
-			service.CreateProtection=function(svc,msg,cb){
+		
+		service.CreateProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -161,7 +165,8 @@ module.exports = function(RED) {
 
 			svc.createProtection(params,cb);
 		}
-			service.CreateProtectionGroup=function(svc,msg,cb){
+		
+		service.CreateProtectionGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionGroupId",params,undefined,false); 
@@ -185,7 +190,8 @@ module.exports = function(RED) {
 
 			svc.createProtectionGroup(params,cb);
 		}
-			service.CreateSubscription=function(svc,msg,cb){
+		
+		service.CreateSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -194,7 +200,8 @@ module.exports = function(RED) {
 
 			svc.createSubscription(params,cb);
 		}
-			service.DeleteProtection=function(svc,msg,cb){
+		
+		service.DeleteProtection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionId",params,undefined,false); 
@@ -206,7 +213,8 @@ module.exports = function(RED) {
 
 			svc.deleteProtection(params,cb);
 		}
-			service.DeleteProtectionGroup=function(svc,msg,cb){
+		
+		service.DeleteProtectionGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionGroupId",params,undefined,false); 
@@ -218,7 +226,8 @@ module.exports = function(RED) {
 
 			svc.deleteProtectionGroup(params,cb);
 		}
-			service.DeleteSubscription=function(svc,msg,cb){
+		
+		service.DeleteSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -227,7 +236,8 @@ module.exports = function(RED) {
 
 			svc.deleteSubscription(params,cb);
 		}
-			service.DescribeAttack=function(svc,msg,cb){
+		
+		service.DescribeAttack=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AttackId",params,undefined,false); 
@@ -239,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.describeAttack(params,cb);
 		}
-			service.DescribeAttackStatistics=function(svc,msg,cb){
+		
+		service.DescribeAttackStatistics=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -248,7 +259,8 @@ module.exports = function(RED) {
 
 			svc.describeAttackStatistics(params,cb);
 		}
-			service.DescribeDRTAccess=function(svc,msg,cb){
+		
+		service.DescribeDRTAccess=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -257,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.describeDRTAccess(params,cb);
 		}
-			service.DescribeEmergencyContactSettings=function(svc,msg,cb){
+		
+		service.DescribeEmergencyContactSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -266,7 +279,8 @@ module.exports = function(RED) {
 
 			svc.describeEmergencyContactSettings(params,cb);
 		}
-			service.DescribeProtection=function(svc,msg,cb){
+		
+		service.DescribeProtection=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -279,7 +293,8 @@ module.exports = function(RED) {
 
 			svc.describeProtection(params,cb);
 		}
-			service.DescribeProtectionGroup=function(svc,msg,cb){
+		
+		service.DescribeProtectionGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionGroupId",params,undefined,false); 
@@ -291,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.describeProtectionGroup(params,cb);
 		}
-			service.DescribeSubscription=function(svc,msg,cb){
+		
+		service.DescribeSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -300,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.describeSubscription(params,cb);
 		}
-			service.DisableProactiveEngagement=function(svc,msg,cb){
+		
+		service.DisableProactiveEngagement=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -309,7 +326,8 @@ module.exports = function(RED) {
 
 			svc.disableProactiveEngagement(params,cb);
 		}
-			service.DisassociateDRTLogBucket=function(svc,msg,cb){
+		
+		service.DisassociateDRTLogBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LogBucket",params,undefined,false); 
@@ -321,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.disassociateDRTLogBucket(params,cb);
 		}
-			service.DisassociateDRTRole=function(svc,msg,cb){
+		
+		service.DisassociateDRTRole=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -330,7 +349,8 @@ module.exports = function(RED) {
 
 			svc.disassociateDRTRole(params,cb);
 		}
-			service.DisassociateHealthCheck=function(svc,msg,cb){
+		
+		service.DisassociateHealthCheck=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionId",params,undefined,false); 
@@ -345,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.disassociateHealthCheck(params,cb);
 		}
-			service.EnableProactiveEngagement=function(svc,msg,cb){
+		
+		service.EnableProactiveEngagement=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -354,7 +375,8 @@ module.exports = function(RED) {
 
 			svc.enableProactiveEngagement(params,cb);
 		}
-			service.GetSubscriptionState=function(svc,msg,cb){
+		
+		service.GetSubscriptionState=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -363,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.getSubscriptionState(params,cb);
 		}
-			service.ListAttacks=function(svc,msg,cb){
+		
+		service.ListAttacks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -382,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.listAttacks(params,cb);
 		}
-			service.ListProtectionGroups=function(svc,msg,cb){
+		
+		service.ListProtectionGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -395,7 +419,8 @@ module.exports = function(RED) {
 
 			svc.listProtectionGroups(params,cb);
 		}
-			service.ListProtections=function(svc,msg,cb){
+		
+		service.ListProtections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -408,7 +433,8 @@ module.exports = function(RED) {
 
 			svc.listProtections(params,cb);
 		}
-			service.ListResourcesInProtectionGroup=function(svc,msg,cb){
+		
+		service.ListResourcesInProtectionGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionGroupId",params,undefined,false); 
@@ -424,7 +450,8 @@ module.exports = function(RED) {
 
 			svc.listResourcesInProtectionGroup(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -436,7 +463,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -451,7 +479,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -466,7 +495,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateEmergencyContactSettings=function(svc,msg,cb){
+		
+		service.UpdateEmergencyContactSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -477,7 +507,8 @@ module.exports = function(RED) {
 
 			svc.updateEmergencyContactSettings(params,cb);
 		}
-			service.UpdateProtectionGroup=function(svc,msg,cb){
+		
+		service.UpdateProtectionGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtectionGroupId",params,undefined,false); 
@@ -499,7 +530,8 @@ module.exports = function(RED) {
 
 			svc.updateProtectionGroup(params,cb);
 		}
-			service.UpdateSubscription=function(svc,msg,cb){
+		
+		service.UpdateSubscription=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -510,6 +542,7 @@ module.exports = function(RED) {
 
 			svc.updateSubscription(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Shield", AmazonAPINode);

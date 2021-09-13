@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddFacetToObject=function(svc,msg,cb){
+		service.AddFacetToObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.addFacetToObject(params,cb);
 		}
-			service.ApplySchema=function(svc,msg,cb){
+		
+		service.ApplySchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PublishedSchemaArn",params,undefined,false); 
@@ -128,7 +129,8 @@ module.exports = function(RED) {
 
 			svc.applySchema(params,cb);
 		}
-			service.AttachObject=function(svc,msg,cb){
+		
+		service.AttachObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -149,7 +151,8 @@ module.exports = function(RED) {
 
 			svc.attachObject(params,cb);
 		}
-			service.AttachPolicy=function(svc,msg,cb){
+		
+		service.AttachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -167,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.attachPolicy(params,cb);
 		}
-			service.AttachToIndex=function(svc,msg,cb){
+		
+		service.AttachToIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -185,7 +189,8 @@ module.exports = function(RED) {
 
 			svc.attachToIndex(params,cb);
 		}
-			service.AttachTypedLink=function(svc,msg,cb){
+		
+		service.AttachTypedLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -209,7 +214,8 @@ module.exports = function(RED) {
 
 			svc.attachTypedLink(params,cb);
 		}
-			service.BatchRead=function(svc,msg,cb){
+		
+		service.BatchRead=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -226,7 +232,8 @@ module.exports = function(RED) {
 
 			svc.batchRead(params,cb);
 		}
-			service.BatchWrite=function(svc,msg,cb){
+		
+		service.BatchWrite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -241,7 +248,8 @@ module.exports = function(RED) {
 
 			svc.batchWrite(params,cb);
 		}
-			service.CreateDirectory=function(svc,msg,cb){
+		
+		service.CreateDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -256,7 +264,8 @@ module.exports = function(RED) {
 
 			svc.createDirectory(params,cb);
 		}
-			service.CreateFacet=function(svc,msg,cb){
+		
+		service.CreateFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -277,7 +286,8 @@ module.exports = function(RED) {
 
 			svc.createFacet(params,cb);
 		}
-			service.CreateIndex=function(svc,msg,cb){
+		
+		service.CreateIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -299,7 +309,8 @@ module.exports = function(RED) {
 
 			svc.createIndex(params,cb);
 		}
-			service.CreateObject=function(svc,msg,cb){
+		
+		service.CreateObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -320,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.createObject(params,cb);
 		}
-			service.CreateSchema=function(svc,msg,cb){
+		
+		service.CreateSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -332,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.createSchema(params,cb);
 		}
-			service.CreateTypedLinkFacet=function(svc,msg,cb){
+		
+		service.CreateTypedLinkFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -347,7 +360,8 @@ module.exports = function(RED) {
 
 			svc.createTypedLinkFacet(params,cb);
 		}
-			service.DeleteDirectory=function(svc,msg,cb){
+		
+		service.DeleteDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -359,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.deleteDirectory(params,cb);
 		}
-			service.DeleteFacet=function(svc,msg,cb){
+		
+		service.DeleteFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -374,7 +389,8 @@ module.exports = function(RED) {
 
 			svc.deleteFacet(params,cb);
 		}
-			service.DeleteObject=function(svc,msg,cb){
+		
+		service.DeleteObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -389,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.deleteObject(params,cb);
 		}
-			service.DeleteSchema=function(svc,msg,cb){
+		
+		service.DeleteSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -401,7 +418,8 @@ module.exports = function(RED) {
 
 			svc.deleteSchema(params,cb);
 		}
-			service.DeleteTypedLinkFacet=function(svc,msg,cb){
+		
+		service.DeleteTypedLinkFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -416,7 +434,8 @@ module.exports = function(RED) {
 
 			svc.deleteTypedLinkFacet(params,cb);
 		}
-			service.DetachFromIndex=function(svc,msg,cb){
+		
+		service.DetachFromIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -434,7 +453,8 @@ module.exports = function(RED) {
 
 			svc.detachFromIndex(params,cb);
 		}
-			service.DetachObject=function(svc,msg,cb){
+		
+		service.DetachObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -452,7 +472,8 @@ module.exports = function(RED) {
 
 			svc.detachObject(params,cb);
 		}
-			service.DetachPolicy=function(svc,msg,cb){
+		
+		service.DetachPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -470,7 +491,8 @@ module.exports = function(RED) {
 
 			svc.detachPolicy(params,cb);
 		}
-			service.DetachTypedLink=function(svc,msg,cb){
+		
+		service.DetachTypedLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -485,7 +507,8 @@ module.exports = function(RED) {
 
 			svc.detachTypedLink(params,cb);
 		}
-			service.DisableDirectory=function(svc,msg,cb){
+		
+		service.DisableDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -497,7 +520,8 @@ module.exports = function(RED) {
 
 			svc.disableDirectory(params,cb);
 		}
-			service.EnableDirectory=function(svc,msg,cb){
+		
+		service.EnableDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -509,7 +533,8 @@ module.exports = function(RED) {
 
 			svc.enableDirectory(params,cb);
 		}
-			service.GetAppliedSchemaVersion=function(svc,msg,cb){
+		
+		service.GetAppliedSchemaVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -521,7 +546,8 @@ module.exports = function(RED) {
 
 			svc.getAppliedSchemaVersion(params,cb);
 		}
-			service.GetDirectory=function(svc,msg,cb){
+		
+		service.GetDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -533,7 +559,8 @@ module.exports = function(RED) {
 
 			svc.getDirectory(params,cb);
 		}
-			service.GetFacet=function(svc,msg,cb){
+		
+		service.GetFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -548,7 +575,8 @@ module.exports = function(RED) {
 
 			svc.getFacet(params,cb);
 		}
-			service.GetLinkAttributes=function(svc,msg,cb){
+		
+		service.GetLinkAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -568,7 +596,8 @@ module.exports = function(RED) {
 
 			svc.getLinkAttributes(params,cb);
 		}
-			service.GetObjectAttributes=function(svc,msg,cb){
+		
+		service.GetObjectAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -591,7 +620,8 @@ module.exports = function(RED) {
 
 			svc.getObjectAttributes(params,cb);
 		}
-			service.GetObjectInformation=function(svc,msg,cb){
+		
+		service.GetObjectInformation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -608,7 +638,8 @@ module.exports = function(RED) {
 
 			svc.getObjectInformation(params,cb);
 		}
-			service.GetSchemaAsJson=function(svc,msg,cb){
+		
+		service.GetSchemaAsJson=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -620,7 +651,8 @@ module.exports = function(RED) {
 
 			svc.getSchemaAsJson(params,cb);
 		}
-			service.GetTypedLinkFacetInformation=function(svc,msg,cb){
+		
+		service.GetTypedLinkFacetInformation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -635,7 +667,8 @@ module.exports = function(RED) {
 
 			svc.getTypedLinkFacetInformation(params,cb);
 		}
-			service.ListAppliedSchemaArns=function(svc,msg,cb){
+		
+		service.ListAppliedSchemaArns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -653,7 +686,8 @@ module.exports = function(RED) {
 
 			svc.listAppliedSchemaArns(params,cb);
 		}
-			service.ListAttachedIndices=function(svc,msg,cb){
+		
+		service.ListAttachedIndices=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -674,7 +708,8 @@ module.exports = function(RED) {
 
 			svc.listAttachedIndices(params,cb);
 		}
-			service.ListDevelopmentSchemaArns=function(svc,msg,cb){
+		
+		service.ListDevelopmentSchemaArns=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -687,7 +722,8 @@ module.exports = function(RED) {
 
 			svc.listDevelopmentSchemaArns(params,cb);
 		}
-			service.ListDirectories=function(svc,msg,cb){
+		
+		service.ListDirectories=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -702,7 +738,8 @@ module.exports = function(RED) {
 
 			svc.listDirectories(params,cb);
 		}
-			service.ListFacetAttributes=function(svc,msg,cb){
+		
+		service.ListFacetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -721,7 +758,8 @@ module.exports = function(RED) {
 
 			svc.listFacetAttributes(params,cb);
 		}
-			service.ListFacetNames=function(svc,msg,cb){
+		
+		service.ListFacetNames=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -737,7 +775,8 @@ module.exports = function(RED) {
 
 			svc.listFacetNames(params,cb);
 		}
-			service.ListIncomingTypedLinks=function(svc,msg,cb){
+		
+		service.ListIncomingTypedLinks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -762,7 +801,8 @@ module.exports = function(RED) {
 
 			svc.listIncomingTypedLinks(params,cb);
 		}
-			service.ListIndex=function(svc,msg,cb){
+		
+		service.ListIndex=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -785,7 +825,8 @@ module.exports = function(RED) {
 
 			svc.listIndex(params,cb);
 		}
-			service.ListManagedSchemaArns=function(svc,msg,cb){
+		
+		service.ListManagedSchemaArns=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -800,7 +841,8 @@ module.exports = function(RED) {
 
 			svc.listManagedSchemaArns(params,cb);
 		}
-			service.ListObjectAttributes=function(svc,msg,cb){
+		
+		service.ListObjectAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -823,7 +865,8 @@ module.exports = function(RED) {
 
 			svc.listObjectAttributes(params,cb);
 		}
-			service.ListObjectChildren=function(svc,msg,cb){
+		
+		service.ListObjectChildren=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -844,7 +887,8 @@ module.exports = function(RED) {
 
 			svc.listObjectChildren(params,cb);
 		}
-			service.ListObjectParentPaths=function(svc,msg,cb){
+		
+		service.ListObjectParentPaths=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -863,7 +907,8 @@ module.exports = function(RED) {
 
 			svc.listObjectParentPaths(params,cb);
 		}
-			service.ListObjectParents=function(svc,msg,cb){
+		
+		service.ListObjectParents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -886,7 +931,8 @@ module.exports = function(RED) {
 
 			svc.listObjectParents(params,cb);
 		}
-			service.ListObjectPolicies=function(svc,msg,cb){
+		
+		service.ListObjectPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -907,7 +953,8 @@ module.exports = function(RED) {
 
 			svc.listObjectPolicies(params,cb);
 		}
-			service.ListOutgoingTypedLinks=function(svc,msg,cb){
+		
+		service.ListOutgoingTypedLinks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -932,7 +979,8 @@ module.exports = function(RED) {
 
 			svc.listOutgoingTypedLinks(params,cb);
 		}
-			service.ListPolicyAttachments=function(svc,msg,cb){
+		
+		service.ListPolicyAttachments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -953,7 +1001,8 @@ module.exports = function(RED) {
 
 			svc.listPolicyAttachments(params,cb);
 		}
-			service.ListPublishedSchemaArns=function(svc,msg,cb){
+		
+		service.ListPublishedSchemaArns=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -968,7 +1017,8 @@ module.exports = function(RED) {
 
 			svc.listPublishedSchemaArns(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -984,7 +1034,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTypedLinkFacetAttributes=function(svc,msg,cb){
+		
+		service.ListTypedLinkFacetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1003,7 +1054,8 @@ module.exports = function(RED) {
 
 			svc.listTypedLinkFacetAttributes(params,cb);
 		}
-			service.ListTypedLinkFacetNames=function(svc,msg,cb){
+		
+		service.ListTypedLinkFacetNames=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1019,7 +1071,8 @@ module.exports = function(RED) {
 
 			svc.listTypedLinkFacetNames(params,cb);
 		}
-			service.LookupPolicy=function(svc,msg,cb){
+		
+		service.LookupPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -1038,7 +1091,8 @@ module.exports = function(RED) {
 
 			svc.lookupPolicy(params,cb);
 		}
-			service.PublishSchema=function(svc,msg,cb){
+		
+		service.PublishSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DevelopmentSchemaArn",params,undefined,false); 
@@ -1057,7 +1111,8 @@ module.exports = function(RED) {
 
 			svc.publishSchema(params,cb);
 		}
-			service.PutSchemaFromJson=function(svc,msg,cb){
+		
+		service.PutSchemaFromJson=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1072,7 +1127,8 @@ module.exports = function(RED) {
 
 			svc.putSchemaFromJson(params,cb);
 		}
-			service.RemoveFacetFromObject=function(svc,msg,cb){
+		
+		service.RemoveFacetFromObject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -1090,7 +1146,8 @@ module.exports = function(RED) {
 
 			svc.removeFacetFromObject(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1105,7 +1162,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1120,7 +1178,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateFacet=function(svc,msg,cb){
+		
+		service.UpdateFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1139,7 +1198,8 @@ module.exports = function(RED) {
 
 			svc.updateFacet(params,cb);
 		}
-			service.UpdateLinkAttributes=function(svc,msg,cb){
+		
+		service.UpdateLinkAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -1157,7 +1217,8 @@ module.exports = function(RED) {
 
 			svc.updateLinkAttributes(params,cb);
 		}
-			service.UpdateObjectAttributes=function(svc,msg,cb){
+		
+		service.UpdateObjectAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryArn",params,undefined,false); 
@@ -1175,7 +1236,8 @@ module.exports = function(RED) {
 
 			svc.updateObjectAttributes(params,cb);
 		}
-			service.UpdateSchema=function(svc,msg,cb){
+		
+		service.UpdateSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1190,7 +1252,8 @@ module.exports = function(RED) {
 
 			svc.updateSchema(params,cb);
 		}
-			service.UpdateTypedLinkFacet=function(svc,msg,cb){
+		
+		service.UpdateTypedLinkFacet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SchemaArn",params,undefined,false); 
@@ -1211,7 +1274,8 @@ module.exports = function(RED) {
 
 			svc.updateTypedLinkFacet(params,cb);
 		}
-			service.UpgradeAppliedSchema=function(svc,msg,cb){
+		
+		service.UpgradeAppliedSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PublishedSchemaArn",params,undefined,false); 
@@ -1228,7 +1292,8 @@ module.exports = function(RED) {
 
 			svc.upgradeAppliedSchema(params,cb);
 		}
-			service.UpgradePublishedSchema=function(svc,msg,cb){
+		
+		service.UpgradePublishedSchema=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DevelopmentSchemaArn",params,undefined,false); 
@@ -1248,6 +1313,7 @@ module.exports = function(RED) {
 
 			svc.upgradePublishedSchema(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudDirectory", AmazonAPINode);

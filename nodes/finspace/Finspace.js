@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateEnvironment=function(svc,msg,cb){
+		service.CreateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -115,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.createEnvironment(params,cb);
 		}
-			service.DeleteEnvironment=function(svc,msg,cb){
+		
+		service.DeleteEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironment(params,cb);
 		}
-			service.GetEnvironment=function(svc,msg,cb){
+		
+		service.GetEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.getEnvironment(params,cb);
 		}
-			service.ListEnvironments=function(svc,msg,cb){
+		
+		service.ListEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -152,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.listEnvironments(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -164,7 +168,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -179,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -194,7 +200,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateEnvironment=function(svc,msg,cb){
+		
+		service.UpdateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -214,6 +221,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironment(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Finspace", AmazonAPINode);

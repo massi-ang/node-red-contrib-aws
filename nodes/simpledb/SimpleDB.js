@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchDeleteAttributes=function(svc,msg,cb){
+		service.BatchDeleteAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteAttributes(params,cb);
 		}
-			service.BatchPutAttributes=function(svc,msg,cb){
+		
+		service.BatchPutAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.batchPutAttributes(params,cb);
 		}
-			service.CreateDomain=function(svc,msg,cb){
+		
+		service.CreateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -135,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.createDomain(params,cb);
 		}
-			service.DeleteAttributes=function(svc,msg,cb){
+		
+		service.DeleteAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -154,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.deleteAttributes(params,cb);
 		}
-			service.DeleteDomain=function(svc,msg,cb){
+		
+		service.DeleteDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -166,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.deleteDomain(params,cb);
 		}
-			service.DomainMetadata=function(svc,msg,cb){
+		
+		service.DomainMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -178,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.domainMetadata(params,cb);
 		}
-			service.GetAttributes=function(svc,msg,cb){
+		
+		service.GetAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -197,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.getAttributes(params,cb);
 		}
-			service.ListDomains=function(svc,msg,cb){
+		
+		service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -210,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-			service.PutAttributes=function(svc,msg,cb){
+		
+		service.PutAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DomainName",params,undefined,false); 
@@ -230,7 +238,8 @@ module.exports = function(RED) {
 
 			svc.putAttributes(params,cb);
 		}
-			service.Select=function(svc,msg,cb){
+		
+		service.Select=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SelectExpression",params,undefined,false); 
@@ -246,6 +255,7 @@ module.exports = function(RED) {
 
 			svc.select(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SimpleDB", AmazonAPINode);

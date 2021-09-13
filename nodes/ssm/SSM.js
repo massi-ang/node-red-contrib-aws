@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddTagsToResource=function(svc,msg,cb){
+		service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-			service.AssociateOpsItemRelatedItem=function(svc,msg,cb){
+		
+		service.AssociateOpsItemRelatedItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsItemId",params,undefined,false); 
@@ -132,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.associateOpsItemRelatedItem(params,cb);
 		}
-			service.CancelCommand=function(svc,msg,cb){
+		
+		service.CancelCommand=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CommandId",params,undefined,false); 
@@ -146,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.cancelCommand(params,cb);
 		}
-			service.CancelMaintenanceWindowExecution=function(svc,msg,cb){
+		
+		service.CancelMaintenanceWindowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -158,7 +161,8 @@ module.exports = function(RED) {
 
 			svc.cancelMaintenanceWindowExecution(params,cb);
 		}
-			service.CreateActivation=function(svc,msg,cb){
+		
+		service.CreateActivation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"IamRole",params,undefined,false); 
@@ -180,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.createActivation(params,cb);
 		}
-			service.CreateAssociation=function(svc,msg,cb){
+		
+		service.CreateAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -222,7 +227,8 @@ module.exports = function(RED) {
 
 			svc.createAssociation(params,cb);
 		}
-			service.CreateAssociationBatch=function(svc,msg,cb){
+		
+		service.CreateAssociationBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Entries",params,undefined,false); 
@@ -234,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.createAssociationBatch(params,cb);
 		}
-			service.CreateDocument=function(svc,msg,cb){
+		
+		service.CreateDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Content",params,undefined,false); 
@@ -265,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.createDocument(params,cb);
 		}
-			service.CreateMaintenanceWindow=function(svc,msg,cb){
+		
+		service.CreateMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -303,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.createMaintenanceWindow(params,cb);
 		}
-			service.CreateOpsItem=function(svc,msg,cb){
+		
+		service.CreateOpsItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Description",params,undefined,false); 
@@ -345,7 +354,8 @@ module.exports = function(RED) {
 
 			svc.createOpsItem(params,cb);
 		}
-			service.CreateOpsMetadata=function(svc,msg,cb){
+		
+		service.CreateOpsMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -361,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.createOpsMetadata(params,cb);
 		}
-			service.CreatePatchBaseline=function(svc,msg,cb){
+		
+		service.CreatePatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -397,7 +408,8 @@ module.exports = function(RED) {
 
 			svc.createPatchBaseline(params,cb);
 		}
-			service.CreateResourceDataSync=function(svc,msg,cb){
+		
+		service.CreateResourceDataSync=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SyncName",params,undefined,false); 
@@ -415,7 +427,8 @@ module.exports = function(RED) {
 
 			svc.createResourceDataSync(params,cb);
 		}
-			service.DeleteActivation=function(svc,msg,cb){
+		
+		service.DeleteActivation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActivationId",params,undefined,false); 
@@ -427,7 +440,8 @@ module.exports = function(RED) {
 
 			svc.deleteActivation(params,cb);
 		}
-			service.DeleteAssociation=function(svc,msg,cb){
+		
+		service.DeleteAssociation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -442,7 +456,8 @@ module.exports = function(RED) {
 
 			svc.deleteAssociation(params,cb);
 		}
-			service.DeleteDocument=function(svc,msg,cb){
+		
+		service.DeleteDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -460,7 +475,8 @@ module.exports = function(RED) {
 
 			svc.deleteDocument(params,cb);
 		}
-			service.DeleteInventory=function(svc,msg,cb){
+		
+		service.DeleteInventory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TypeName",params,undefined,false); 
@@ -478,7 +494,8 @@ module.exports = function(RED) {
 
 			svc.deleteInventory(params,cb);
 		}
-			service.DeleteMaintenanceWindow=function(svc,msg,cb){
+		
+		service.DeleteMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -490,7 +507,8 @@ module.exports = function(RED) {
 
 			svc.deleteMaintenanceWindow(params,cb);
 		}
-			service.DeleteOpsMetadata=function(svc,msg,cb){
+		
+		service.DeleteOpsMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsMetadataArn",params,undefined,false); 
@@ -502,7 +520,8 @@ module.exports = function(RED) {
 
 			svc.deleteOpsMetadata(params,cb);
 		}
-			service.DeleteParameter=function(svc,msg,cb){
+		
+		service.DeleteParameter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -514,7 +533,8 @@ module.exports = function(RED) {
 
 			svc.deleteParameter(params,cb);
 		}
-			service.DeleteParameters=function(svc,msg,cb){
+		
+		service.DeleteParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Names",params,undefined,true); 
@@ -526,7 +546,8 @@ module.exports = function(RED) {
 
 			svc.deleteParameters(params,cb);
 		}
-			service.DeletePatchBaseline=function(svc,msg,cb){
+		
+		service.DeletePatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -538,7 +559,8 @@ module.exports = function(RED) {
 
 			svc.deletePatchBaseline(params,cb);
 		}
-			service.DeleteResourceDataSync=function(svc,msg,cb){
+		
+		service.DeleteResourceDataSync=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SyncName",params,undefined,false); 
@@ -552,7 +574,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourceDataSync(params,cb);
 		}
-			service.DeregisterManagedInstance=function(svc,msg,cb){
+		
+		service.DeregisterManagedInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -564,7 +587,8 @@ module.exports = function(RED) {
 
 			svc.deregisterManagedInstance(params,cb);
 		}
-			service.DeregisterPatchBaselineForPatchGroup=function(svc,msg,cb){
+		
+		service.DeregisterPatchBaselineForPatchGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -579,7 +603,8 @@ module.exports = function(RED) {
 
 			svc.deregisterPatchBaselineForPatchGroup(params,cb);
 		}
-			service.DeregisterTargetFromMaintenanceWindow=function(svc,msg,cb){
+		
+		service.DeregisterTargetFromMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -596,7 +621,8 @@ module.exports = function(RED) {
 
 			svc.deregisterTargetFromMaintenanceWindow(params,cb);
 		}
-			service.DeregisterTaskFromMaintenanceWindow=function(svc,msg,cb){
+		
+		service.DeregisterTaskFromMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -611,7 +637,8 @@ module.exports = function(RED) {
 
 			svc.deregisterTaskFromMaintenanceWindow(params,cb);
 		}
-			service.DescribeActivations=function(svc,msg,cb){
+		
+		service.DescribeActivations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -626,7 +653,8 @@ module.exports = function(RED) {
 
 			svc.describeActivations(params,cb);
 		}
-			service.DescribeAssociation=function(svc,msg,cb){
+		
+		service.DescribeAssociation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -643,7 +671,8 @@ module.exports = function(RED) {
 
 			svc.describeAssociation(params,cb);
 		}
-			service.DescribeAssociationExecutionTargets=function(svc,msg,cb){
+		
+		service.DescribeAssociationExecutionTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationId",params,undefined,false); 
@@ -664,7 +693,8 @@ module.exports = function(RED) {
 
 			svc.describeAssociationExecutionTargets(params,cb);
 		}
-			service.DescribeAssociationExecutions=function(svc,msg,cb){
+		
+		service.DescribeAssociationExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationId",params,undefined,false); 
@@ -682,7 +712,8 @@ module.exports = function(RED) {
 
 			svc.describeAssociationExecutions(params,cb);
 		}
-			service.DescribeAutomationExecutions=function(svc,msg,cb){
+		
+		service.DescribeAutomationExecutions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -697,7 +728,8 @@ module.exports = function(RED) {
 
 			svc.describeAutomationExecutions(params,cb);
 		}
-			service.DescribeAutomationStepExecutions=function(svc,msg,cb){
+		
+		service.DescribeAutomationStepExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutomationExecutionId",params,undefined,false); 
@@ -717,7 +749,8 @@ module.exports = function(RED) {
 
 			svc.describeAutomationStepExecutions(params,cb);
 		}
-			service.DescribeAvailablePatches=function(svc,msg,cb){
+		
+		service.DescribeAvailablePatches=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -732,7 +765,8 @@ module.exports = function(RED) {
 
 			svc.describeAvailablePatches(params,cb);
 		}
-			service.DescribeDocument=function(svc,msg,cb){
+		
+		service.DescribeDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -748,7 +782,8 @@ module.exports = function(RED) {
 
 			svc.describeDocument(params,cb);
 		}
-			service.DescribeDocumentPermission=function(svc,msg,cb){
+		
+		service.DescribeDocumentPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -767,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.describeDocumentPermission(params,cb);
 		}
-			service.DescribeEffectiveInstanceAssociations=function(svc,msg,cb){
+		
+		service.DescribeEffectiveInstanceAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -783,7 +819,8 @@ module.exports = function(RED) {
 
 			svc.describeEffectiveInstanceAssociations(params,cb);
 		}
-			service.DescribeEffectivePatchesForPatchBaseline=function(svc,msg,cb){
+		
+		service.DescribeEffectivePatchesForPatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -799,7 +836,8 @@ module.exports = function(RED) {
 
 			svc.describeEffectivePatchesForPatchBaseline(params,cb);
 		}
-			service.DescribeInstanceAssociationsStatus=function(svc,msg,cb){
+		
+		service.DescribeInstanceAssociationsStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -815,7 +853,8 @@ module.exports = function(RED) {
 
 			svc.describeInstanceAssociationsStatus(params,cb);
 		}
-			service.DescribeInstanceInformation=function(svc,msg,cb){
+		
+		service.DescribeInstanceInformation=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -832,7 +871,8 @@ module.exports = function(RED) {
 
 			svc.describeInstanceInformation(params,cb);
 		}
-			service.DescribeInstancePatchStates=function(svc,msg,cb){
+		
+		service.DescribeInstancePatchStates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceIds",params,undefined,true); 
@@ -848,7 +888,8 @@ module.exports = function(RED) {
 
 			svc.describeInstancePatchStates(params,cb);
 		}
-			service.DescribeInstancePatchStatesForPatchGroup=function(svc,msg,cb){
+		
+		service.DescribeInstancePatchStatesForPatchGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PatchGroup",params,undefined,false); 
@@ -866,7 +907,8 @@ module.exports = function(RED) {
 
 			svc.describeInstancePatchStatesForPatchGroup(params,cb);
 		}
-			service.DescribeInstancePatches=function(svc,msg,cb){
+		
+		service.DescribeInstancePatches=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -884,7 +926,8 @@ module.exports = function(RED) {
 
 			svc.describeInstancePatches(params,cb);
 		}
-			service.DescribeInventoryDeletions=function(svc,msg,cb){
+		
+		service.DescribeInventoryDeletions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -899,7 +942,8 @@ module.exports = function(RED) {
 
 			svc.describeInventoryDeletions(params,cb);
 		}
-			service.DescribeMaintenanceWindowExecutionTaskInvocations=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowExecutionTaskInvocations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -920,7 +964,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowExecutionTaskInvocations(params,cb);
 		}
-			service.DescribeMaintenanceWindowExecutionTasks=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowExecutionTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -938,7 +983,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowExecutionTasks(params,cb);
 		}
-			service.DescribeMaintenanceWindowExecutions=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -956,7 +1002,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowExecutions(params,cb);
 		}
-			service.DescribeMaintenanceWindowSchedule=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowSchedule=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -977,7 +1024,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowSchedule(params,cb);
 		}
-			service.DescribeMaintenanceWindowTargets=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -995,7 +1043,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowTargets(params,cb);
 		}
-			service.DescribeMaintenanceWindowTasks=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -1013,7 +1062,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowTasks(params,cb);
 		}
-			service.DescribeMaintenanceWindows=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindows=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1028,7 +1078,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindows(params,cb);
 		}
-			service.DescribeMaintenanceWindowsForTarget=function(svc,msg,cb){
+		
+		service.DescribeMaintenanceWindowsForTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Targets",params,undefined,true); 
@@ -1047,7 +1098,8 @@ module.exports = function(RED) {
 
 			svc.describeMaintenanceWindowsForTarget(params,cb);
 		}
-			service.DescribeOpsItems=function(svc,msg,cb){
+		
+		service.DescribeOpsItems=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1062,7 +1114,8 @@ module.exports = function(RED) {
 
 			svc.describeOpsItems(params,cb);
 		}
-			service.DescribeParameters=function(svc,msg,cb){
+		
+		service.DescribeParameters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1079,7 +1132,8 @@ module.exports = function(RED) {
 
 			svc.describeParameters(params,cb);
 		}
-			service.DescribePatchBaselines=function(svc,msg,cb){
+		
+		service.DescribePatchBaselines=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1094,7 +1148,8 @@ module.exports = function(RED) {
 
 			svc.describePatchBaselines(params,cb);
 		}
-			service.DescribePatchGroupState=function(svc,msg,cb){
+		
+		service.DescribePatchGroupState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PatchGroup",params,undefined,false); 
@@ -1106,7 +1161,8 @@ module.exports = function(RED) {
 
 			svc.describePatchGroupState(params,cb);
 		}
-			service.DescribePatchGroups=function(svc,msg,cb){
+		
+		service.DescribePatchGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1121,7 +1177,8 @@ module.exports = function(RED) {
 
 			svc.describePatchGroups(params,cb);
 		}
-			service.DescribePatchProperties=function(svc,msg,cb){
+		
+		service.DescribePatchProperties=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OperatingSystem",params,undefined,false); 
@@ -1142,7 +1199,8 @@ module.exports = function(RED) {
 
 			svc.describePatchProperties(params,cb);
 		}
-			service.DescribeSessions=function(svc,msg,cb){
+		
+		service.DescribeSessions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"State",params,undefined,false); 
@@ -1160,7 +1218,8 @@ module.exports = function(RED) {
 
 			svc.describeSessions(params,cb);
 		}
-			service.DisassociateOpsItemRelatedItem=function(svc,msg,cb){
+		
+		service.DisassociateOpsItemRelatedItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsItemId",params,undefined,false); 
@@ -1175,7 +1234,8 @@ module.exports = function(RED) {
 
 			svc.disassociateOpsItemRelatedItem(params,cb);
 		}
-			service.GetAutomationExecution=function(svc,msg,cb){
+		
+		service.GetAutomationExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutomationExecutionId",params,undefined,false); 
@@ -1187,7 +1247,8 @@ module.exports = function(RED) {
 
 			svc.getAutomationExecution(params,cb);
 		}
-			service.GetCalendarState=function(svc,msg,cb){
+		
+		service.GetCalendarState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CalendarNames",params,undefined,true); 
@@ -1201,7 +1262,8 @@ module.exports = function(RED) {
 
 			svc.getCalendarState(params,cb);
 		}
-			service.GetCommandInvocation=function(svc,msg,cb){
+		
+		service.GetCommandInvocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CommandId",params,undefined,false); 
@@ -1218,7 +1280,8 @@ module.exports = function(RED) {
 
 			svc.getCommandInvocation(params,cb);
 		}
-			service.GetConnectionStatus=function(svc,msg,cb){
+		
+		service.GetConnectionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Target",params,undefined,false); 
@@ -1230,7 +1293,8 @@ module.exports = function(RED) {
 
 			svc.getConnectionStatus(params,cb);
 		}
-			service.GetDefaultPatchBaseline=function(svc,msg,cb){
+		
+		service.GetDefaultPatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1241,7 +1305,8 @@ module.exports = function(RED) {
 
 			svc.getDefaultPatchBaseline(params,cb);
 		}
-			service.GetDeployablePatchSnapshotForInstance=function(svc,msg,cb){
+		
+		service.GetDeployablePatchSnapshotForInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1258,7 +1323,8 @@ module.exports = function(RED) {
 
 			svc.getDeployablePatchSnapshotForInstance(params,cb);
 		}
-			service.GetDocument=function(svc,msg,cb){
+		
+		service.GetDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1276,7 +1342,8 @@ module.exports = function(RED) {
 
 			svc.getDocument(params,cb);
 		}
-			service.GetInventory=function(svc,msg,cb){
+		
+		service.GetInventory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1295,7 +1362,8 @@ module.exports = function(RED) {
 
 			svc.getInventory(params,cb);
 		}
-			service.GetInventorySchema=function(svc,msg,cb){
+		
+		service.GetInventorySchema=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1314,7 +1382,8 @@ module.exports = function(RED) {
 
 			svc.getInventorySchema(params,cb);
 		}
-			service.GetMaintenanceWindow=function(svc,msg,cb){
+		
+		service.GetMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -1326,7 +1395,8 @@ module.exports = function(RED) {
 
 			svc.getMaintenanceWindow(params,cb);
 		}
-			service.GetMaintenanceWindowExecution=function(svc,msg,cb){
+		
+		service.GetMaintenanceWindowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -1338,7 +1408,8 @@ module.exports = function(RED) {
 
 			svc.getMaintenanceWindowExecution(params,cb);
 		}
-			service.GetMaintenanceWindowExecutionTask=function(svc,msg,cb){
+		
+		service.GetMaintenanceWindowExecutionTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -1353,7 +1424,8 @@ module.exports = function(RED) {
 
 			svc.getMaintenanceWindowExecutionTask(params,cb);
 		}
-			service.GetMaintenanceWindowExecutionTaskInvocation=function(svc,msg,cb){
+		
+		service.GetMaintenanceWindowExecutionTaskInvocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowExecutionId",params,undefined,false); 
@@ -1371,7 +1443,8 @@ module.exports = function(RED) {
 
 			svc.getMaintenanceWindowExecutionTaskInvocation(params,cb);
 		}
-			service.GetMaintenanceWindowTask=function(svc,msg,cb){
+		
+		service.GetMaintenanceWindowTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -1386,7 +1459,8 @@ module.exports = function(RED) {
 
 			svc.getMaintenanceWindowTask(params,cb);
 		}
-			service.GetOpsItem=function(svc,msg,cb){
+		
+		service.GetOpsItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsItemId",params,undefined,false); 
@@ -1398,7 +1472,8 @@ module.exports = function(RED) {
 
 			svc.getOpsItem(params,cb);
 		}
-			service.GetOpsMetadata=function(svc,msg,cb){
+		
+		service.GetOpsMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsMetadataArn",params,undefined,false); 
@@ -1414,7 +1489,8 @@ module.exports = function(RED) {
 
 			svc.getOpsMetadata(params,cb);
 		}
-			service.GetOpsSummary=function(svc,msg,cb){
+		
+		service.GetOpsSummary=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1435,7 +1511,8 @@ module.exports = function(RED) {
 
 			svc.getOpsSummary(params,cb);
 		}
-			service.GetParameter=function(svc,msg,cb){
+		
+		service.GetParameter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1449,7 +1526,8 @@ module.exports = function(RED) {
 
 			svc.getParameter(params,cb);
 		}
-			service.GetParameterHistory=function(svc,msg,cb){
+		
+		service.GetParameterHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1467,7 +1545,8 @@ module.exports = function(RED) {
 
 			svc.getParameterHistory(params,cb);
 		}
-			service.GetParameters=function(svc,msg,cb){
+		
+		service.GetParameters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Names",params,undefined,true); 
@@ -1481,7 +1560,8 @@ module.exports = function(RED) {
 
 			svc.getParameters(params,cb);
 		}
-			service.GetParametersByPath=function(svc,msg,cb){
+		
+		service.GetParametersByPath=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Path",params,undefined,false); 
@@ -1503,7 +1583,8 @@ module.exports = function(RED) {
 
 			svc.getParametersByPath(params,cb);
 		}
-			service.GetPatchBaseline=function(svc,msg,cb){
+		
+		service.GetPatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -1515,7 +1596,8 @@ module.exports = function(RED) {
 
 			svc.getPatchBaseline(params,cb);
 		}
-			service.GetPatchBaselineForPatchGroup=function(svc,msg,cb){
+		
+		service.GetPatchBaselineForPatchGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PatchGroup",params,undefined,false); 
@@ -1529,7 +1611,8 @@ module.exports = function(RED) {
 
 			svc.getPatchBaselineForPatchGroup(params,cb);
 		}
-			service.GetServiceSetting=function(svc,msg,cb){
+		
+		service.GetServiceSetting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SettingId",params,undefined,false); 
@@ -1541,7 +1624,8 @@ module.exports = function(RED) {
 
 			svc.getServiceSetting(params,cb);
 		}
-			service.LabelParameterVersion=function(svc,msg,cb){
+		
+		service.LabelParameterVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1558,7 +1642,8 @@ module.exports = function(RED) {
 
 			svc.labelParameterVersion(params,cb);
 		}
-			service.ListAssociationVersions=function(svc,msg,cb){
+		
+		service.ListAssociationVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationId",params,undefined,false); 
@@ -1574,7 +1659,8 @@ module.exports = function(RED) {
 
 			svc.listAssociationVersions(params,cb);
 		}
-			service.ListAssociations=function(svc,msg,cb){
+		
+		service.ListAssociations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1589,7 +1675,8 @@ module.exports = function(RED) {
 
 			svc.listAssociations(params,cb);
 		}
-			service.ListCommandInvocations=function(svc,msg,cb){
+		
+		service.ListCommandInvocations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1610,7 +1697,8 @@ module.exports = function(RED) {
 
 			svc.listCommandInvocations(params,cb);
 		}
-			service.ListCommands=function(svc,msg,cb){
+		
+		service.ListCommands=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1629,7 +1717,8 @@ module.exports = function(RED) {
 
 			svc.listCommands(params,cb);
 		}
-			service.ListComplianceItems=function(svc,msg,cb){
+		
+		service.ListComplianceItems=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1648,7 +1737,8 @@ module.exports = function(RED) {
 
 			svc.listComplianceItems(params,cb);
 		}
-			service.ListComplianceSummaries=function(svc,msg,cb){
+		
+		service.ListComplianceSummaries=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1663,7 +1753,8 @@ module.exports = function(RED) {
 
 			svc.listComplianceSummaries(params,cb);
 		}
-			service.ListDocumentMetadataHistory=function(svc,msg,cb){
+		
+		service.ListDocumentMetadataHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1684,7 +1775,8 @@ module.exports = function(RED) {
 
 			svc.listDocumentMetadataHistory(params,cb);
 		}
-			service.ListDocumentVersions=function(svc,msg,cb){
+		
+		service.ListDocumentVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1700,7 +1792,8 @@ module.exports = function(RED) {
 
 			svc.listDocumentVersions(params,cb);
 		}
-			service.ListDocuments=function(svc,msg,cb){
+		
+		service.ListDocuments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1717,7 +1810,8 @@ module.exports = function(RED) {
 
 			svc.listDocuments(params,cb);
 		}
-			service.ListInventoryEntries=function(svc,msg,cb){
+		
+		service.ListInventoryEntries=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1738,7 +1832,8 @@ module.exports = function(RED) {
 
 			svc.listInventoryEntries(params,cb);
 		}
-			service.ListOpsItemEvents=function(svc,msg,cb){
+		
+		service.ListOpsItemEvents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1753,7 +1848,8 @@ module.exports = function(RED) {
 
 			svc.listOpsItemEvents(params,cb);
 		}
-			service.ListOpsItemRelatedItems=function(svc,msg,cb){
+		
+		service.ListOpsItemRelatedItems=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1770,7 +1866,8 @@ module.exports = function(RED) {
 
 			svc.listOpsItemRelatedItems(params,cb);
 		}
-			service.ListOpsMetadata=function(svc,msg,cb){
+		
+		service.ListOpsMetadata=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1785,7 +1882,8 @@ module.exports = function(RED) {
 
 			svc.listOpsMetadata(params,cb);
 		}
-			service.ListResourceComplianceSummaries=function(svc,msg,cb){
+		
+		service.ListResourceComplianceSummaries=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1800,7 +1898,8 @@ module.exports = function(RED) {
 
 			svc.listResourceComplianceSummaries(params,cb);
 		}
-			service.ListResourceDataSync=function(svc,msg,cb){
+		
+		service.ListResourceDataSync=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -1815,7 +1914,8 @@ module.exports = function(RED) {
 
 			svc.listResourceDataSync(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -1830,7 +1930,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ModifyDocumentPermission=function(svc,msg,cb){
+		
+		service.ModifyDocumentPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1851,7 +1952,8 @@ module.exports = function(RED) {
 
 			svc.modifyDocumentPermission(params,cb);
 		}
-			service.PutComplianceItems=function(svc,msg,cb){
+		
+		service.PutComplianceItems=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -1879,7 +1981,8 @@ module.exports = function(RED) {
 
 			svc.putComplianceItems(params,cb);
 		}
-			service.PutInventory=function(svc,msg,cb){
+		
+		service.PutInventory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -1894,7 +1997,8 @@ module.exports = function(RED) {
 
 			svc.putInventory(params,cb);
 		}
-			service.PutParameter=function(svc,msg,cb){
+		
+		service.PutParameter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -1927,7 +2031,8 @@ module.exports = function(RED) {
 
 			svc.putParameter(params,cb);
 		}
-			service.RegisterDefaultPatchBaseline=function(svc,msg,cb){
+		
+		service.RegisterDefaultPatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -1939,7 +2044,8 @@ module.exports = function(RED) {
 
 			svc.registerDefaultPatchBaseline(params,cb);
 		}
-			service.RegisterPatchBaselineForPatchGroup=function(svc,msg,cb){
+		
+		service.RegisterPatchBaselineForPatchGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -1954,7 +2060,8 @@ module.exports = function(RED) {
 
 			svc.registerPatchBaselineForPatchGroup(params,cb);
 		}
-			service.RegisterTargetWithMaintenanceWindow=function(svc,msg,cb){
+		
+		service.RegisterTargetWithMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -1980,7 +2087,8 @@ module.exports = function(RED) {
 
 			svc.registerTargetWithMaintenanceWindow(params,cb);
 		}
-			service.RegisterTaskWithMaintenanceWindow=function(svc,msg,cb){
+		
+		service.RegisterTaskWithMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -2020,7 +2128,8 @@ module.exports = function(RED) {
 
 			svc.registerTaskWithMaintenanceWindow(params,cb);
 		}
-			service.RemoveTagsFromResource=function(svc,msg,cb){
+		
+		service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceType",params,undefined,false); 
@@ -2038,7 +2147,8 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
-			service.ResetServiceSetting=function(svc,msg,cb){
+		
+		service.ResetServiceSetting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SettingId",params,undefined,false); 
@@ -2050,7 +2160,8 @@ module.exports = function(RED) {
 
 			svc.resetServiceSetting(params,cb);
 		}
-			service.ResumeSession=function(svc,msg,cb){
+		
+		service.ResumeSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SessionId",params,undefined,false); 
@@ -2062,7 +2173,8 @@ module.exports = function(RED) {
 
 			svc.resumeSession(params,cb);
 		}
-			service.SendAutomationSignal=function(svc,msg,cb){
+		
+		service.SendAutomationSignal=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutomationExecutionId",params,undefined,false); 
@@ -2079,7 +2191,8 @@ module.exports = function(RED) {
 
 			svc.sendAutomationSignal(params,cb);
 		}
-			service.SendCommand=function(svc,msg,cb){
+		
+		service.SendCommand=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentName",params,undefined,false); 
@@ -2123,7 +2236,8 @@ module.exports = function(RED) {
 
 			svc.sendCommand(params,cb);
 		}
-			service.StartAssociationsOnce=function(svc,msg,cb){
+		
+		service.StartAssociationsOnce=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationIds",params,undefined,false); 
@@ -2135,7 +2249,8 @@ module.exports = function(RED) {
 
 			svc.startAssociationsOnce(params,cb);
 		}
-			service.StartAutomationExecution=function(svc,msg,cb){
+		
+		service.StartAutomationExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentName",params,undefined,false); 
@@ -2169,7 +2284,8 @@ module.exports = function(RED) {
 
 			svc.startAutomationExecution(params,cb);
 		}
-			service.StartChangeRequestExecution=function(svc,msg,cb){
+		
+		service.StartChangeRequestExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentName",params,undefined,false); 
@@ -2200,7 +2316,8 @@ module.exports = function(RED) {
 
 			svc.startChangeRequestExecution(params,cb);
 		}
-			service.StartSession=function(svc,msg,cb){
+		
+		service.StartSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Target",params,undefined,false); 
@@ -2216,7 +2333,8 @@ module.exports = function(RED) {
 
 			svc.startSession(params,cb);
 		}
-			service.StopAutomationExecution=function(svc,msg,cb){
+		
+		service.StopAutomationExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AutomationExecutionId",params,undefined,false); 
@@ -2230,7 +2348,8 @@ module.exports = function(RED) {
 
 			svc.stopAutomationExecution(params,cb);
 		}
-			service.TerminateSession=function(svc,msg,cb){
+		
+		service.TerminateSession=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SessionId",params,undefined,false); 
@@ -2242,7 +2361,8 @@ module.exports = function(RED) {
 
 			svc.terminateSession(params,cb);
 		}
-			service.UnlabelParameterVersion=function(svc,msg,cb){
+		
+		service.UnlabelParameterVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -2260,7 +2380,8 @@ module.exports = function(RED) {
 
 			svc.unlabelParameterVersion(params,cb);
 		}
-			service.UpdateAssociation=function(svc,msg,cb){
+		
+		service.UpdateAssociation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AssociationId",params,undefined,false); 
@@ -2304,7 +2425,8 @@ module.exports = function(RED) {
 
 			svc.updateAssociation(params,cb);
 		}
-			service.UpdateAssociationStatus=function(svc,msg,cb){
+		
+		service.UpdateAssociationStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -2322,7 +2444,8 @@ module.exports = function(RED) {
 
 			svc.updateAssociationStatus(params,cb);
 		}
-			service.UpdateDocument=function(svc,msg,cb){
+		
+		service.UpdateDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Content",params,undefined,false); 
@@ -2349,7 +2472,8 @@ module.exports = function(RED) {
 
 			svc.updateDocument(params,cb);
 		}
-			service.UpdateDocumentDefaultVersion=function(svc,msg,cb){
+		
+		service.UpdateDocumentDefaultVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -2364,7 +2488,8 @@ module.exports = function(RED) {
 
 			svc.updateDocumentDefaultVersion(params,cb);
 		}
-			service.UpdateDocumentMetadata=function(svc,msg,cb){
+		
+		service.UpdateDocumentMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -2381,7 +2506,8 @@ module.exports = function(RED) {
 
 			svc.updateDocumentMetadata(params,cb);
 		}
-			service.UpdateMaintenanceWindow=function(svc,msg,cb){
+		
+		service.UpdateMaintenanceWindow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -2417,7 +2543,8 @@ module.exports = function(RED) {
 
 			svc.updateMaintenanceWindow(params,cb);
 		}
-			service.UpdateMaintenanceWindowTarget=function(svc,msg,cb){
+		
+		service.UpdateMaintenanceWindowTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -2442,7 +2569,8 @@ module.exports = function(RED) {
 
 			svc.updateMaintenanceWindowTarget(params,cb);
 		}
-			service.UpdateMaintenanceWindowTask=function(svc,msg,cb){
+		
+		service.UpdateMaintenanceWindowTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"WindowId",params,undefined,false); 
@@ -2481,7 +2609,8 @@ module.exports = function(RED) {
 
 			svc.updateMaintenanceWindowTask(params,cb);
 		}
-			service.UpdateManagedInstanceRole=function(svc,msg,cb){
+		
+		service.UpdateManagedInstanceRole=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InstanceId",params,undefined,false); 
@@ -2496,7 +2625,8 @@ module.exports = function(RED) {
 
 			svc.updateManagedInstanceRole(params,cb);
 		}
-			service.UpdateOpsItem=function(svc,msg,cb){
+		
+		service.UpdateOpsItem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsItemId",params,undefined,false); 
@@ -2536,7 +2666,8 @@ module.exports = function(RED) {
 
 			svc.updateOpsItem(params,cb);
 		}
-			service.UpdateOpsMetadata=function(svc,msg,cb){
+		
+		service.UpdateOpsMetadata=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OpsMetadataArn",params,undefined,false); 
@@ -2552,7 +2683,8 @@ module.exports = function(RED) {
 
 			svc.updateOpsMetadata(params,cb);
 		}
-			service.UpdatePatchBaseline=function(svc,msg,cb){
+		
+		service.UpdatePatchBaseline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"BaselineId",params,undefined,false); 
@@ -2586,7 +2718,8 @@ module.exports = function(RED) {
 
 			svc.updatePatchBaseline(params,cb);
 		}
-			service.UpdateResourceDataSync=function(svc,msg,cb){
+		
+		service.UpdateResourceDataSync=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SyncName",params,undefined,false); 
@@ -2604,7 +2737,8 @@ module.exports = function(RED) {
 
 			svc.updateResourceDataSync(params,cb);
 		}
-			service.UpdateServiceSetting=function(svc,msg,cb){
+		
+		service.UpdateServiceSetting=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SettingId",params,undefined,false); 
@@ -2619,6 +2753,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceSetting(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SSM", AmazonAPINode);

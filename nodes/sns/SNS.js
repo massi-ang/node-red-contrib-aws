@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddPermission=function(svc,msg,cb){
+		service.AddPermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -114,7 +114,8 @@ module.exports = function(RED) {
 
 			svc.addPermission(params,cb);
 		}
-			service.CheckIfPhoneNumberIsOptedOut=function(svc,msg,cb){
+		
+		service.CheckIfPhoneNumberIsOptedOut=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"phoneNumber",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.checkIfPhoneNumberIsOptedOut(params,cb);
 		}
-			service.ConfirmSubscription=function(svc,msg,cb){
+		
+		service.ConfirmSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -143,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.confirmSubscription(params,cb);
 		}
-			service.CreatePlatformApplication=function(svc,msg,cb){
+		
+		service.CreatePlatformApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -161,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.createPlatformApplication(params,cb);
 		}
-			service.CreatePlatformEndpoint=function(svc,msg,cb){
+		
+		service.CreatePlatformEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformApplicationArn",params,undefined,false); 
@@ -180,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.createPlatformEndpoint(params,cb);
 		}
-			service.CreateSMSSandboxPhoneNumber=function(svc,msg,cb){
+		
+		service.CreateSMSSandboxPhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumber",params,undefined,false); 
@@ -194,7 +199,8 @@ module.exports = function(RED) {
 
 			svc.createSMSSandboxPhoneNumber(params,cb);
 		}
-			service.CreateTopic=function(svc,msg,cb){
+		
+		service.CreateTopic=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -210,7 +216,8 @@ module.exports = function(RED) {
 
 			svc.createTopic(params,cb);
 		}
-			service.DeleteEndpoint=function(svc,msg,cb){
+		
+		service.DeleteEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -222,7 +229,8 @@ module.exports = function(RED) {
 
 			svc.deleteEndpoint(params,cb);
 		}
-			service.DeletePlatformApplication=function(svc,msg,cb){
+		
+		service.DeletePlatformApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformApplicationArn",params,undefined,false); 
@@ -234,7 +242,8 @@ module.exports = function(RED) {
 
 			svc.deletePlatformApplication(params,cb);
 		}
-			service.DeleteSMSSandboxPhoneNumber=function(svc,msg,cb){
+		
+		service.DeleteSMSSandboxPhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumber",params,undefined,false); 
@@ -246,7 +255,8 @@ module.exports = function(RED) {
 
 			svc.deleteSMSSandboxPhoneNumber(params,cb);
 		}
-			service.DeleteTopic=function(svc,msg,cb){
+		
+		service.DeleteTopic=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -258,7 +268,8 @@ module.exports = function(RED) {
 
 			svc.deleteTopic(params,cb);
 		}
-			service.GetEndpointAttributes=function(svc,msg,cb){
+		
+		service.GetEndpointAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -270,7 +281,8 @@ module.exports = function(RED) {
 
 			svc.getEndpointAttributes(params,cb);
 		}
-			service.GetPlatformApplicationAttributes=function(svc,msg,cb){
+		
+		service.GetPlatformApplicationAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformApplicationArn",params,undefined,false); 
@@ -282,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.getPlatformApplicationAttributes(params,cb);
 		}
-			service.GetSMSAttributes=function(svc,msg,cb){
+		
+		service.GetSMSAttributes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -293,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.getSMSAttributes(params,cb);
 		}
-			service.GetSMSSandboxAccountStatus=function(svc,msg,cb){
+		
+		service.GetSMSSandboxAccountStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -302,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.getSMSSandboxAccountStatus(params,cb);
 		}
-			service.GetSubscriptionAttributes=function(svc,msg,cb){
+		
+		service.GetSubscriptionAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionArn",params,undefined,false); 
@@ -314,7 +329,8 @@ module.exports = function(RED) {
 
 			svc.getSubscriptionAttributes(params,cb);
 		}
-			service.GetTopicAttributes=function(svc,msg,cb){
+		
+		service.GetTopicAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -326,7 +342,8 @@ module.exports = function(RED) {
 
 			svc.getTopicAttributes(params,cb);
 		}
-			service.ListEndpointsByPlatformApplication=function(svc,msg,cb){
+		
+		service.ListEndpointsByPlatformApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformApplicationArn",params,undefined,false); 
@@ -340,7 +357,8 @@ module.exports = function(RED) {
 
 			svc.listEndpointsByPlatformApplication(params,cb);
 		}
-			service.ListOriginationNumbers=function(svc,msg,cb){
+		
+		service.ListOriginationNumbers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -353,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.listOriginationNumbers(params,cb);
 		}
-			service.ListPhoneNumbersOptedOut=function(svc,msg,cb){
+		
+		service.ListPhoneNumbersOptedOut=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -364,7 +383,8 @@ module.exports = function(RED) {
 
 			svc.listPhoneNumbersOptedOut(params,cb);
 		}
-			service.ListPlatformApplications=function(svc,msg,cb){
+		
+		service.ListPlatformApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -375,7 +395,8 @@ module.exports = function(RED) {
 
 			svc.listPlatformApplications(params,cb);
 		}
-			service.ListSMSSandboxPhoneNumbers=function(svc,msg,cb){
+		
+		service.ListSMSSandboxPhoneNumbers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -388,7 +409,8 @@ module.exports = function(RED) {
 
 			svc.listSMSSandboxPhoneNumbers(params,cb);
 		}
-			service.ListSubscriptions=function(svc,msg,cb){
+		
+		service.ListSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -399,7 +421,8 @@ module.exports = function(RED) {
 
 			svc.listSubscriptions(params,cb);
 		}
-			service.ListSubscriptionsByTopic=function(svc,msg,cb){
+		
+		service.ListSubscriptionsByTopic=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -413,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.listSubscriptionsByTopic(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -425,7 +449,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTopics=function(svc,msg,cb){
+		
+		service.ListTopics=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -436,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.listTopics(params,cb);
 		}
-			service.OptInPhoneNumber=function(svc,msg,cb){
+		
+		service.OptInPhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"phoneNumber",params,undefined,false); 
@@ -448,7 +474,8 @@ module.exports = function(RED) {
 
 			svc.optInPhoneNumber(params,cb);
 		}
-			service.Publish=function(svc,msg,cb){
+		
+		service.Publish=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Message",params,undefined,false); 
@@ -476,7 +503,8 @@ module.exports = function(RED) {
 
 			svc.publish(params,cb);
 		}
-			service.RemovePermission=function(svc,msg,cb){
+		
+		service.RemovePermission=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -491,7 +519,8 @@ module.exports = function(RED) {
 
 			svc.removePermission(params,cb);
 		}
-			service.SetEndpointAttributes=function(svc,msg,cb){
+		
+		service.SetEndpointAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -506,7 +535,8 @@ module.exports = function(RED) {
 
 			svc.setEndpointAttributes(params,cb);
 		}
-			service.SetPlatformApplicationAttributes=function(svc,msg,cb){
+		
+		service.SetPlatformApplicationAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PlatformApplicationArn",params,undefined,false); 
@@ -521,7 +551,8 @@ module.exports = function(RED) {
 
 			svc.setPlatformApplicationAttributes(params,cb);
 		}
-			service.SetSMSAttributes=function(svc,msg,cb){
+		
+		service.SetSMSAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"attributes",params,undefined,true); 
@@ -533,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.setSMSAttributes(params,cb);
 		}
-			service.SetSubscriptionAttributes=function(svc,msg,cb){
+		
+		service.SetSubscriptionAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionArn",params,undefined,false); 
@@ -550,7 +582,8 @@ module.exports = function(RED) {
 
 			svc.setSubscriptionAttributes(params,cb);
 		}
-			service.SetTopicAttributes=function(svc,msg,cb){
+		
+		service.SetTopicAttributes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -567,7 +600,8 @@ module.exports = function(RED) {
 
 			svc.setTopicAttributes(params,cb);
 		}
-			service.Subscribe=function(svc,msg,cb){
+		
+		service.Subscribe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TopicArn",params,undefined,false); 
@@ -588,7 +622,8 @@ module.exports = function(RED) {
 
 			svc.subscribe(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -603,7 +638,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.Unsubscribe=function(svc,msg,cb){
+		
+		service.Unsubscribe=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionArn",params,undefined,false); 
@@ -615,7 +651,8 @@ module.exports = function(RED) {
 
 			svc.unsubscribe(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -630,7 +667,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.VerifySMSSandboxPhoneNumber=function(svc,msg,cb){
+		
+		service.VerifySMSSandboxPhoneNumber=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PhoneNumber",params,undefined,false); 
@@ -645,6 +683,7 @@ module.exports = function(RED) {
 
 			svc.verifySMSSandboxPhoneNumber(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SNS", AmazonAPINode);

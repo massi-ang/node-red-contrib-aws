@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateApprovalRuleTemplateWithRepository=function(svc,msg,cb){
+		service.AssociateApprovalRuleTemplateWithRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateApprovalRuleTemplateWithRepository(params,cb);
 		}
-			service.BatchAssociateApprovalRuleTemplateWithRepositories=function(svc,msg,cb){
+		
+		service.BatchAssociateApprovalRuleTemplateWithRepositories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.batchAssociateApprovalRuleTemplateWithRepositories(params,cb);
 		}
-			service.BatchDescribeMergeConflicts=function(svc,msg,cb){
+		
+		service.BatchDescribeMergeConflicts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -156,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.batchDescribeMergeConflicts(params,cb);
 		}
-			service.BatchDisassociateApprovalRuleTemplateFromRepositories=function(svc,msg,cb){
+		
+		service.BatchDisassociateApprovalRuleTemplateFromRepositories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -171,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateApprovalRuleTemplateFromRepositories(params,cb);
 		}
-			service.BatchGetCommits=function(svc,msg,cb){
+		
+		service.BatchGetCommits=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commitIds",params,undefined,false); 
@@ -186,7 +190,8 @@ module.exports = function(RED) {
 
 			svc.batchGetCommits(params,cb);
 		}
-			service.BatchGetRepositories=function(svc,msg,cb){
+		
+		service.BatchGetRepositories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryNames",params,undefined,true); 
@@ -198,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.batchGetRepositories(params,cb);
 		}
-			service.CreateApprovalRuleTemplate=function(svc,msg,cb){
+		
+		service.CreateApprovalRuleTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -215,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.createApprovalRuleTemplate(params,cb);
 		}
-			service.CreateBranch=function(svc,msg,cb){
+		
+		service.CreateBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -233,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.createBranch(params,cb);
 		}
-			service.CreateCommit=function(svc,msg,cb){
+		
+		service.CreateCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -264,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.createCommit(params,cb);
 		}
-			service.CreatePullRequest=function(svc,msg,cb){
+		
+		service.CreatePullRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"title",params,undefined,false); 
@@ -283,7 +292,8 @@ module.exports = function(RED) {
 
 			svc.createPullRequest(params,cb);
 		}
-			service.CreatePullRequestApprovalRule=function(svc,msg,cb){
+		
+		service.CreatePullRequestApprovalRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -301,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.createPullRequestApprovalRule(params,cb);
 		}
-			service.CreateRepository=function(svc,msg,cb){
+		
+		service.CreateRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -317,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.createRepository(params,cb);
 		}
-			service.CreateUnreferencedMergeCommit=function(svc,msg,cb){
+		
+		service.CreateUnreferencedMergeCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -352,7 +364,8 @@ module.exports = function(RED) {
 
 			svc.createUnreferencedMergeCommit(params,cb);
 		}
-			service.DeleteApprovalRuleTemplate=function(svc,msg,cb){
+		
+		service.DeleteApprovalRuleTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -364,7 +377,8 @@ module.exports = function(RED) {
 
 			svc.deleteApprovalRuleTemplate(params,cb);
 		}
-			service.DeleteBranch=function(svc,msg,cb){
+		
+		service.DeleteBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -379,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.deleteBranch(params,cb);
 		}
-			service.DeleteCommentContent=function(svc,msg,cb){
+		
+		service.DeleteCommentContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commentId",params,undefined,false); 
@@ -391,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.deleteCommentContent(params,cb);
 		}
-			service.DeleteFile=function(svc,msg,cb){
+		
+		service.DeleteFile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -420,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.deleteFile(params,cb);
 		}
-			service.DeletePullRequestApprovalRule=function(svc,msg,cb){
+		
+		service.DeletePullRequestApprovalRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -435,7 +452,8 @@ module.exports = function(RED) {
 
 			svc.deletePullRequestApprovalRule(params,cb);
 		}
-			service.DeleteRepository=function(svc,msg,cb){
+		
+		service.DeleteRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -447,7 +465,8 @@ module.exports = function(RED) {
 
 			svc.deleteRepository(params,cb);
 		}
-			service.DescribeMergeConflicts=function(svc,msg,cb){
+		
+		service.DescribeMergeConflicts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -479,7 +498,8 @@ module.exports = function(RED) {
 
 			svc.describeMergeConflicts(params,cb);
 		}
-			service.DescribePullRequestEvents=function(svc,msg,cb){
+		
+		service.DescribePullRequestEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -499,7 +519,8 @@ module.exports = function(RED) {
 
 			svc.describePullRequestEvents(params,cb);
 		}
-			service.DisassociateApprovalRuleTemplateFromRepository=function(svc,msg,cb){
+		
+		service.DisassociateApprovalRuleTemplateFromRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -514,7 +535,8 @@ module.exports = function(RED) {
 
 			svc.disassociateApprovalRuleTemplateFromRepository(params,cb);
 		}
-			service.EvaluatePullRequestApprovalRules=function(svc,msg,cb){
+		
+		service.EvaluatePullRequestApprovalRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -529,7 +551,8 @@ module.exports = function(RED) {
 
 			svc.evaluatePullRequestApprovalRules(params,cb);
 		}
-			service.GetApprovalRuleTemplate=function(svc,msg,cb){
+		
+		service.GetApprovalRuleTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -541,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.getApprovalRuleTemplate(params,cb);
 		}
-			service.GetBlob=function(svc,msg,cb){
+		
+		service.GetBlob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -556,7 +580,8 @@ module.exports = function(RED) {
 
 			svc.getBlob(params,cb);
 		}
-			service.GetBranch=function(svc,msg,cb){
+		
+		service.GetBranch=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -569,7 +594,8 @@ module.exports = function(RED) {
 
 			svc.getBranch(params,cb);
 		}
-			service.GetComment=function(svc,msg,cb){
+		
+		service.GetComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commentId",params,undefined,false); 
@@ -581,7 +607,8 @@ module.exports = function(RED) {
 
 			svc.getComment(params,cb);
 		}
-			service.GetCommentReactions=function(svc,msg,cb){
+		
+		service.GetCommentReactions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commentId",params,undefined,false); 
@@ -599,7 +626,8 @@ module.exports = function(RED) {
 
 			svc.getCommentReactions(params,cb);
 		}
-			service.GetCommentsForComparedCommit=function(svc,msg,cb){
+		
+		service.GetCommentsForComparedCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -620,7 +648,8 @@ module.exports = function(RED) {
 
 			svc.getCommentsForComparedCommit(params,cb);
 		}
-			service.GetCommentsForPullRequest=function(svc,msg,cb){
+		
+		service.GetCommentsForPullRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -642,7 +671,8 @@ module.exports = function(RED) {
 
 			svc.getCommentsForPullRequest(params,cb);
 		}
-			service.GetCommit=function(svc,msg,cb){
+		
+		service.GetCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -657,7 +687,8 @@ module.exports = function(RED) {
 
 			svc.getCommit(params,cb);
 		}
-			service.GetDifferences=function(svc,msg,cb){
+		
+		service.GetDifferences=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -682,7 +713,8 @@ module.exports = function(RED) {
 
 			svc.getDifferences(params,cb);
 		}
-			service.GetFile=function(svc,msg,cb){
+		
+		service.GetFile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -699,7 +731,8 @@ module.exports = function(RED) {
 
 			svc.getFile(params,cb);
 		}
-			service.GetFolder=function(svc,msg,cb){
+		
+		service.GetFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -716,7 +749,8 @@ module.exports = function(RED) {
 
 			svc.getFolder(params,cb);
 		}
-			service.GetMergeCommit=function(svc,msg,cb){
+		
+		service.GetMergeCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -738,7 +772,8 @@ module.exports = function(RED) {
 
 			svc.getMergeCommit(params,cb);
 		}
-			service.GetMergeConflicts=function(svc,msg,cb){
+		
+		service.GetMergeConflicts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -767,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.getMergeConflicts(params,cb);
 		}
-			service.GetMergeOptions=function(svc,msg,cb){
+		
+		service.GetMergeOptions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -789,7 +825,8 @@ module.exports = function(RED) {
 
 			svc.getMergeOptions(params,cb);
 		}
-			service.GetPullRequest=function(svc,msg,cb){
+		
+		service.GetPullRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -801,7 +838,8 @@ module.exports = function(RED) {
 
 			svc.getPullRequest(params,cb);
 		}
-			service.GetPullRequestApprovalStates=function(svc,msg,cb){
+		
+		service.GetPullRequestApprovalStates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -816,7 +854,8 @@ module.exports = function(RED) {
 
 			svc.getPullRequestApprovalStates(params,cb);
 		}
-			service.GetPullRequestOverrideState=function(svc,msg,cb){
+		
+		service.GetPullRequestOverrideState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -831,7 +870,8 @@ module.exports = function(RED) {
 
 			svc.getPullRequestOverrideState(params,cb);
 		}
-			service.GetRepository=function(svc,msg,cb){
+		
+		service.GetRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -843,7 +883,8 @@ module.exports = function(RED) {
 
 			svc.getRepository(params,cb);
 		}
-			service.GetRepositoryTriggers=function(svc,msg,cb){
+		
+		service.GetRepositoryTriggers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -855,7 +896,8 @@ module.exports = function(RED) {
 
 			svc.getRepositoryTriggers(params,cb);
 		}
-			service.ListApprovalRuleTemplates=function(svc,msg,cb){
+		
+		service.ListApprovalRuleTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -868,7 +910,8 @@ module.exports = function(RED) {
 
 			svc.listApprovalRuleTemplates(params,cb);
 		}
-			service.ListAssociatedApprovalRuleTemplatesForRepository=function(svc,msg,cb){
+		
+		service.ListAssociatedApprovalRuleTemplatesForRepository=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -884,7 +927,8 @@ module.exports = function(RED) {
 
 			svc.listAssociatedApprovalRuleTemplatesForRepository(params,cb);
 		}
-			service.ListBranches=function(svc,msg,cb){
+		
+		service.ListBranches=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -898,7 +942,8 @@ module.exports = function(RED) {
 
 			svc.listBranches(params,cb);
 		}
-			service.ListPullRequests=function(svc,msg,cb){
+		
+		service.ListPullRequests=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -918,7 +963,8 @@ module.exports = function(RED) {
 
 			svc.listPullRequests(params,cb);
 		}
-			service.ListRepositories=function(svc,msg,cb){
+		
+		service.ListRepositories=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -933,7 +979,8 @@ module.exports = function(RED) {
 
 			svc.listRepositories(params,cb);
 		}
-			service.ListRepositoriesForApprovalRuleTemplate=function(svc,msg,cb){
+		
+		service.ListRepositoriesForApprovalRuleTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -949,7 +996,8 @@ module.exports = function(RED) {
 
 			svc.listRepositoriesForApprovalRuleTemplate(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -963,7 +1011,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.MergeBranchesByFastForward=function(svc,msg,cb){
+		
+		service.MergeBranchesByFastForward=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -983,7 +1032,8 @@ module.exports = function(RED) {
 
 			svc.mergeBranchesByFastForward(params,cb);
 		}
-			service.MergeBranchesBySquash=function(svc,msg,cb){
+		
+		service.MergeBranchesBySquash=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1017,7 +1067,8 @@ module.exports = function(RED) {
 
 			svc.mergeBranchesBySquash(params,cb);
 		}
-			service.MergeBranchesByThreeWay=function(svc,msg,cb){
+		
+		service.MergeBranchesByThreeWay=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1051,7 +1102,8 @@ module.exports = function(RED) {
 
 			svc.mergeBranchesByThreeWay(params,cb);
 		}
-			service.MergePullRequestByFastForward=function(svc,msg,cb){
+		
+		service.MergePullRequestByFastForward=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1068,7 +1120,8 @@ module.exports = function(RED) {
 
 			svc.mergePullRequestByFastForward(params,cb);
 		}
-			service.MergePullRequestBySquash=function(svc,msg,cb){
+		
+		service.MergePullRequestBySquash=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1099,7 +1152,8 @@ module.exports = function(RED) {
 
 			svc.mergePullRequestBySquash(params,cb);
 		}
-			service.MergePullRequestByThreeWay=function(svc,msg,cb){
+		
+		service.MergePullRequestByThreeWay=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1130,7 +1184,8 @@ module.exports = function(RED) {
 
 			svc.mergePullRequestByThreeWay(params,cb);
 		}
-			service.OverridePullRequestApprovalRules=function(svc,msg,cb){
+		
+		service.OverridePullRequestApprovalRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1148,7 +1203,8 @@ module.exports = function(RED) {
 
 			svc.overridePullRequestApprovalRules(params,cb);
 		}
-			service.PostCommentForComparedCommit=function(svc,msg,cb){
+		
+		service.PostCommentForComparedCommit=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1172,7 +1228,8 @@ module.exports = function(RED) {
 
 			svc.postCommentForComparedCommit(params,cb);
 		}
-			service.PostCommentForPullRequest=function(svc,msg,cb){
+		
+		service.PostCommentForPullRequest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1200,7 +1257,8 @@ module.exports = function(RED) {
 
 			svc.postCommentForPullRequest(params,cb);
 		}
-			service.PostCommentReply=function(svc,msg,cb){
+		
+		service.PostCommentReply=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"inReplyTo",params,undefined,false); 
@@ -1217,7 +1275,8 @@ module.exports = function(RED) {
 
 			svc.postCommentReply(params,cb);
 		}
-			service.PutCommentReaction=function(svc,msg,cb){
+		
+		service.PutCommentReaction=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commentId",params,undefined,false); 
@@ -1232,7 +1291,8 @@ module.exports = function(RED) {
 
 			svc.putCommentReaction(params,cb);
 		}
-			service.PutFile=function(svc,msg,cb){
+		
+		service.PutFile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1263,7 +1323,8 @@ module.exports = function(RED) {
 
 			svc.putFile(params,cb);
 		}
-			service.PutRepositoryTriggers=function(svc,msg,cb){
+		
+		service.PutRepositoryTriggers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1278,7 +1339,8 @@ module.exports = function(RED) {
 
 			svc.putRepositoryTriggers(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1293,7 +1355,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TestRepositoryTriggers=function(svc,msg,cb){
+		
+		service.TestRepositoryTriggers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1308,7 +1371,8 @@ module.exports = function(RED) {
 
 			svc.testRepositoryTriggers(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -1323,7 +1387,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateApprovalRuleTemplateContent=function(svc,msg,cb){
+		
+		service.UpdateApprovalRuleTemplateContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -1340,7 +1405,8 @@ module.exports = function(RED) {
 
 			svc.updateApprovalRuleTemplateContent(params,cb);
 		}
-			service.UpdateApprovalRuleTemplateDescription=function(svc,msg,cb){
+		
+		service.UpdateApprovalRuleTemplateDescription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"approvalRuleTemplateName",params,undefined,false); 
@@ -1355,7 +1421,8 @@ module.exports = function(RED) {
 
 			svc.updateApprovalRuleTemplateDescription(params,cb);
 		}
-			service.UpdateApprovalRuleTemplateName=function(svc,msg,cb){
+		
+		service.UpdateApprovalRuleTemplateName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"oldApprovalRuleTemplateName",params,undefined,false); 
@@ -1370,7 +1437,8 @@ module.exports = function(RED) {
 
 			svc.updateApprovalRuleTemplateName(params,cb);
 		}
-			service.UpdateComment=function(svc,msg,cb){
+		
+		service.UpdateComment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"commentId",params,undefined,false); 
@@ -1385,7 +1453,8 @@ module.exports = function(RED) {
 
 			svc.updateComment(params,cb);
 		}
-			service.UpdateDefaultBranch=function(svc,msg,cb){
+		
+		service.UpdateDefaultBranch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1400,7 +1469,8 @@ module.exports = function(RED) {
 
 			svc.updateDefaultBranch(params,cb);
 		}
-			service.UpdatePullRequestApprovalRuleContent=function(svc,msg,cb){
+		
+		service.UpdatePullRequestApprovalRuleContent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1420,7 +1490,8 @@ module.exports = function(RED) {
 
 			svc.updatePullRequestApprovalRuleContent(params,cb);
 		}
-			service.UpdatePullRequestApprovalState=function(svc,msg,cb){
+		
+		service.UpdatePullRequestApprovalState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1438,7 +1509,8 @@ module.exports = function(RED) {
 
 			svc.updatePullRequestApprovalState(params,cb);
 		}
-			service.UpdatePullRequestDescription=function(svc,msg,cb){
+		
+		service.UpdatePullRequestDescription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1453,7 +1525,8 @@ module.exports = function(RED) {
 
 			svc.updatePullRequestDescription(params,cb);
 		}
-			service.UpdatePullRequestStatus=function(svc,msg,cb){
+		
+		service.UpdatePullRequestStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1468,7 +1541,8 @@ module.exports = function(RED) {
 
 			svc.updatePullRequestStatus(params,cb);
 		}
-			service.UpdatePullRequestTitle=function(svc,msg,cb){
+		
+		service.UpdatePullRequestTitle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pullRequestId",params,undefined,false); 
@@ -1483,7 +1557,8 @@ module.exports = function(RED) {
 
 			svc.updatePullRequestTitle(params,cb);
 		}
-			service.UpdateRepositoryDescription=function(svc,msg,cb){
+		
+		service.UpdateRepositoryDescription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"repositoryName",params,undefined,false); 
@@ -1497,7 +1572,8 @@ module.exports = function(RED) {
 
 			svc.updateRepositoryDescription(params,cb);
 		}
-			service.UpdateRepositoryName=function(svc,msg,cb){
+		
+		service.UpdateRepositoryName=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"oldName",params,undefined,false); 
@@ -1512,6 +1588,7 @@ module.exports = function(RED) {
 
 			svc.updateRepositoryName(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CodeCommit", AmazonAPINode);

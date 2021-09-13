@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptInvitation=function(svc,msg,cb){
+		service.AcceptInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.acceptInvitation(params,cb);
 		}
-			service.CreateGraph=function(svc,msg,cb){
+		
+		service.CreateGraph=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -116,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.createGraph(params,cb);
 		}
-			service.CreateMembers=function(svc,msg,cb){
+		
+		service.CreateMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -135,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.createMembers(params,cb);
 		}
-			service.DeleteGraph=function(svc,msg,cb){
+		
+		service.DeleteGraph=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -147,7 +150,8 @@ module.exports = function(RED) {
 
 			svc.deleteGraph(params,cb);
 		}
-			service.DeleteMembers=function(svc,msg,cb){
+		
+		service.DeleteMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -162,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.deleteMembers(params,cb);
 		}
-			service.DisassociateMembership=function(svc,msg,cb){
+		
+		service.DisassociateMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -174,7 +179,8 @@ module.exports = function(RED) {
 
 			svc.disassociateMembership(params,cb);
 		}
-			service.GetMembers=function(svc,msg,cb){
+		
+		service.GetMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -189,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.getMembers(params,cb);
 		}
-			service.ListGraphs=function(svc,msg,cb){
+		
+		service.ListGraphs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -202,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.listGraphs(params,cb);
 		}
-			service.ListInvitations=function(svc,msg,cb){
+		
+		service.ListInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -215,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.listInvitations(params,cb);
 		}
-			service.ListMembers=function(svc,msg,cb){
+		
+		service.ListMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -231,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.listMembers(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -243,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RejectInvitation=function(svc,msg,cb){
+		
+		service.RejectInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -255,7 +266,8 @@ module.exports = function(RED) {
 
 			svc.rejectInvitation(params,cb);
 		}
-			service.StartMonitoringMember=function(svc,msg,cb){
+		
+		service.StartMonitoringMember=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GraphArn",params,undefined,false); 
@@ -270,7 +282,8 @@ module.exports = function(RED) {
 
 			svc.startMonitoringMember(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -285,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -300,6 +314,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Detective", AmazonAPINode);

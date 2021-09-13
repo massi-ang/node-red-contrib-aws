@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateApplication=function(svc,msg,cb){
+		service.CreateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.createApplication(params,cb);
 		}
-			service.CreateComponent=function(svc,msg,cb){
+		
+		service.CreateComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -131,7 +132,8 @@ module.exports = function(RED) {
 
 			svc.createComponent(params,cb);
 		}
-			service.CreateLogPattern=function(svc,msg,cb){
+		
+		service.CreateLogPattern=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -155,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.createLogPattern(params,cb);
 		}
-			service.DeleteApplication=function(svc,msg,cb){
+		
+		service.DeleteApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -167,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.deleteApplication(params,cb);
 		}
-			service.DeleteComponent=function(svc,msg,cb){
+		
+		service.DeleteComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -182,7 +186,8 @@ module.exports = function(RED) {
 
 			svc.deleteComponent(params,cb);
 		}
-			service.DeleteLogPattern=function(svc,msg,cb){
+		
+		service.DeleteLogPattern=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -200,7 +205,8 @@ module.exports = function(RED) {
 
 			svc.deleteLogPattern(params,cb);
 		}
-			service.DescribeApplication=function(svc,msg,cb){
+		
+		service.DescribeApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -212,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.describeApplication(params,cb);
 		}
-			service.DescribeComponent=function(svc,msg,cb){
+		
+		service.DescribeComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -227,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.describeComponent(params,cb);
 		}
-			service.DescribeComponentConfiguration=function(svc,msg,cb){
+		
+		service.DescribeComponentConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -242,7 +250,8 @@ module.exports = function(RED) {
 
 			svc.describeComponentConfiguration(params,cb);
 		}
-			service.DescribeComponentConfigurationRecommendation=function(svc,msg,cb){
+		
+		service.DescribeComponentConfigurationRecommendation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -260,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.describeComponentConfigurationRecommendation(params,cb);
 		}
-			service.DescribeLogPattern=function(svc,msg,cb){
+		
+		service.DescribeLogPattern=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -278,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.describeLogPattern(params,cb);
 		}
-			service.DescribeObservation=function(svc,msg,cb){
+		
+		service.DescribeObservation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ObservationId",params,undefined,false); 
@@ -290,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.describeObservation(params,cb);
 		}
-			service.DescribeProblem=function(svc,msg,cb){
+		
+		service.DescribeProblem=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProblemId",params,undefined,false); 
@@ -302,7 +314,8 @@ module.exports = function(RED) {
 
 			svc.describeProblem(params,cb);
 		}
-			service.DescribeProblemObservations=function(svc,msg,cb){
+		
+		service.DescribeProblemObservations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProblemId",params,undefined,false); 
@@ -314,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.describeProblemObservations(params,cb);
 		}
-			service.ListApplications=function(svc,msg,cb){
+		
+		service.ListApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -327,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.listApplications(params,cb);
 		}
-			service.ListComponents=function(svc,msg,cb){
+		
+		service.ListComponents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -343,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.listComponents(params,cb);
 		}
-			service.ListConfigurationHistory=function(svc,msg,cb){
+		
+		service.ListConfigurationHistory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -364,7 +380,8 @@ module.exports = function(RED) {
 
 			svc.listConfigurationHistory(params,cb);
 		}
-			service.ListLogPatternSets=function(svc,msg,cb){
+		
+		service.ListLogPatternSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -380,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.listLogPatternSets(params,cb);
 		}
-			service.ListLogPatterns=function(svc,msg,cb){
+		
+		service.ListLogPatterns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -398,7 +416,8 @@ module.exports = function(RED) {
 
 			svc.listLogPatterns(params,cb);
 		}
-			service.ListProblems=function(svc,msg,cb){
+		
+		service.ListProblems=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -417,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.listProblems(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -429,7 +449,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -444,7 +465,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -459,7 +481,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateApplication=function(svc,msg,cb){
+		
+		service.UpdateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -479,7 +502,8 @@ module.exports = function(RED) {
 
 			svc.updateApplication(params,cb);
 		}
-			service.UpdateComponent=function(svc,msg,cb){
+		
+		service.UpdateComponent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -498,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.updateComponent(params,cb);
 		}
-			service.UpdateComponentConfiguration=function(svc,msg,cb){
+		
+		service.UpdateComponentConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -519,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.updateComponentConfiguration(params,cb);
 		}
-			service.UpdateLogPattern=function(svc,msg,cb){
+		
+		service.UpdateLogPattern=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceGroupName",params,undefined,false); 
@@ -541,6 +567,7 @@ module.exports = function(RED) {
 
 			svc.updateLogPattern(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ApplicationInsights", AmazonAPINode);

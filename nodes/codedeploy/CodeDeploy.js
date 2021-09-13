@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddTagsToOnPremisesInstances=function(svc,msg,cb){
+		service.AddTagsToOnPremisesInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"tags",params,undefined,true); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToOnPremisesInstances(params,cb);
 		}
-			service.BatchGetApplicationRevisions=function(svc,msg,cb){
+		
+		service.BatchGetApplicationRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -123,7 +124,8 @@ module.exports = function(RED) {
 
 			svc.batchGetApplicationRevisions(params,cb);
 		}
-			service.BatchGetApplications=function(svc,msg,cb){
+		
+		service.BatchGetApplications=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationNames",params,undefined,true); 
@@ -135,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.batchGetApplications(params,cb);
 		}
-			service.BatchGetDeploymentGroups=function(svc,msg,cb){
+		
+		service.BatchGetDeploymentGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -150,7 +153,8 @@ module.exports = function(RED) {
 
 			svc.batchGetDeploymentGroups(params,cb);
 		}
-			service.BatchGetDeploymentInstances=function(svc,msg,cb){
+		
+		service.BatchGetDeploymentInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -165,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.batchGetDeploymentInstances(params,cb);
 		}
-			service.BatchGetDeploymentTargets=function(svc,msg,cb){
+		
+		service.BatchGetDeploymentTargets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -178,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.batchGetDeploymentTargets(params,cb);
 		}
-			service.BatchGetDeployments=function(svc,msg,cb){
+		
+		service.BatchGetDeployments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentIds",params,undefined,true); 
@@ -190,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.batchGetDeployments(params,cb);
 		}
-			service.BatchGetOnPremisesInstances=function(svc,msg,cb){
+		
+		service.BatchGetOnPremisesInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceNames",params,undefined,true); 
@@ -202,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.batchGetOnPremisesInstances(params,cb);
 		}
-			service.ContinueDeployment=function(svc,msg,cb){
+		
+		service.ContinueDeployment=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -215,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.continueDeployment(params,cb);
 		}
-			service.CreateApplication=function(svc,msg,cb){
+		
+		service.CreateApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -231,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.createApplication(params,cb);
 		}
-			service.CreateDeployment=function(svc,msg,cb){
+		
+		service.CreateDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -261,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.createDeployment(params,cb);
 		}
-			service.CreateDeploymentConfig=function(svc,msg,cb){
+		
+		service.CreateDeploymentConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentConfigName",params,undefined,false); 
@@ -279,7 +290,8 @@ module.exports = function(RED) {
 
 			svc.createDeploymentConfig(params,cb);
 		}
-			service.CreateDeploymentGroup=function(svc,msg,cb){
+		
+		service.CreateDeploymentGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -327,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.createDeploymentGroup(params,cb);
 		}
-			service.DeleteApplication=function(svc,msg,cb){
+		
+		service.DeleteApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -339,7 +352,8 @@ module.exports = function(RED) {
 
 			svc.deleteApplication(params,cb);
 		}
-			service.DeleteDeploymentConfig=function(svc,msg,cb){
+		
+		service.DeleteDeploymentConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentConfigName",params,undefined,false); 
@@ -351,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.deleteDeploymentConfig(params,cb);
 		}
-			service.DeleteDeploymentGroup=function(svc,msg,cb){
+		
+		service.DeleteDeploymentGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -366,7 +381,8 @@ module.exports = function(RED) {
 
 			svc.deleteDeploymentGroup(params,cb);
 		}
-			service.DeleteGitHubAccountToken=function(svc,msg,cb){
+		
+		service.DeleteGitHubAccountToken=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -377,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.deleteGitHubAccountToken(params,cb);
 		}
-			service.DeleteResourcesByExternalId=function(svc,msg,cb){
+		
+		service.DeleteResourcesByExternalId=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -388,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourcesByExternalId(params,cb);
 		}
-			service.DeregisterOnPremisesInstance=function(svc,msg,cb){
+		
+		service.DeregisterOnPremisesInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -400,7 +418,8 @@ module.exports = function(RED) {
 
 			svc.deregisterOnPremisesInstance(params,cb);
 		}
-			service.GetApplication=function(svc,msg,cb){
+		
+		service.GetApplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -412,7 +431,8 @@ module.exports = function(RED) {
 
 			svc.getApplication(params,cb);
 		}
-			service.GetApplicationRevision=function(svc,msg,cb){
+		
+		service.GetApplicationRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -427,7 +447,8 @@ module.exports = function(RED) {
 
 			svc.getApplicationRevision(params,cb);
 		}
-			service.GetDeployment=function(svc,msg,cb){
+		
+		service.GetDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -439,7 +460,8 @@ module.exports = function(RED) {
 
 			svc.getDeployment(params,cb);
 		}
-			service.GetDeploymentConfig=function(svc,msg,cb){
+		
+		service.GetDeploymentConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentConfigName",params,undefined,false); 
@@ -451,7 +473,8 @@ module.exports = function(RED) {
 
 			svc.getDeploymentConfig(params,cb);
 		}
-			service.GetDeploymentGroup=function(svc,msg,cb){
+		
+		service.GetDeploymentGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -466,7 +489,8 @@ module.exports = function(RED) {
 
 			svc.getDeploymentGroup(params,cb);
 		}
-			service.GetDeploymentInstance=function(svc,msg,cb){
+		
+		service.GetDeploymentInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -481,7 +505,8 @@ module.exports = function(RED) {
 
 			svc.getDeploymentInstance(params,cb);
 		}
-			service.GetDeploymentTarget=function(svc,msg,cb){
+		
+		service.GetDeploymentTarget=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -494,7 +519,8 @@ module.exports = function(RED) {
 
 			svc.getDeploymentTarget(params,cb);
 		}
-			service.GetOnPremisesInstance=function(svc,msg,cb){
+		
+		service.GetOnPremisesInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -506,7 +532,8 @@ module.exports = function(RED) {
 
 			svc.getOnPremisesInstance(params,cb);
 		}
-			service.ListApplicationRevisions=function(svc,msg,cb){
+		
+		service.ListApplicationRevisions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -530,7 +557,8 @@ module.exports = function(RED) {
 
 			svc.listApplicationRevisions(params,cb);
 		}
-			service.ListApplications=function(svc,msg,cb){
+		
+		service.ListApplications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -541,7 +569,8 @@ module.exports = function(RED) {
 
 			svc.listApplications(params,cb);
 		}
-			service.ListDeploymentConfigs=function(svc,msg,cb){
+		
+		service.ListDeploymentConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -552,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.listDeploymentConfigs(params,cb);
 		}
-			service.ListDeploymentGroups=function(svc,msg,cb){
+		
+		service.ListDeploymentGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -566,7 +596,8 @@ module.exports = function(RED) {
 
 			svc.listDeploymentGroups(params,cb);
 		}
-			service.ListDeploymentInstances=function(svc,msg,cb){
+		
+		service.ListDeploymentInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -584,7 +615,8 @@ module.exports = function(RED) {
 
 			svc.listDeploymentInstances(params,cb);
 		}
-			service.ListDeploymentTargets=function(svc,msg,cb){
+		
+		service.ListDeploymentTargets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -599,7 +631,8 @@ module.exports = function(RED) {
 
 			svc.listDeploymentTargets(params,cb);
 		}
-			service.ListDeployments=function(svc,msg,cb){
+		
+		service.ListDeployments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -620,7 +653,8 @@ module.exports = function(RED) {
 
 			svc.listDeployments(params,cb);
 		}
-			service.ListGitHubAccountTokenNames=function(svc,msg,cb){
+		
+		service.ListGitHubAccountTokenNames=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -631,7 +665,8 @@ module.exports = function(RED) {
 
 			svc.listGitHubAccountTokenNames(params,cb);
 		}
-			service.ListOnPremisesInstances=function(svc,msg,cb){
+		
+		service.ListOnPremisesInstances=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -646,7 +681,8 @@ module.exports = function(RED) {
 
 			svc.listOnPremisesInstances(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -660,7 +696,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutLifecycleEventHookExecutionStatus=function(svc,msg,cb){
+		
+		service.PutLifecycleEventHookExecutionStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -675,7 +712,8 @@ module.exports = function(RED) {
 
 			svc.putLifecycleEventHookExecutionStatus(params,cb);
 		}
-			service.RegisterApplicationRevision=function(svc,msg,cb){
+		
+		service.RegisterApplicationRevision=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -692,7 +730,8 @@ module.exports = function(RED) {
 
 			svc.registerApplicationRevision(params,cb);
 		}
-			service.RegisterOnPremisesInstance=function(svc,msg,cb){
+		
+		service.RegisterOnPremisesInstance=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"instanceName",params,undefined,false); 
@@ -708,7 +747,8 @@ module.exports = function(RED) {
 
 			svc.registerOnPremisesInstance(params,cb);
 		}
-			service.RemoveTagsFromOnPremisesInstances=function(svc,msg,cb){
+		
+		service.RemoveTagsFromOnPremisesInstances=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"tags",params,undefined,true); 
@@ -723,7 +763,8 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromOnPremisesInstances(params,cb);
 		}
-			service.SkipWaitTimeForInstanceTermination=function(svc,msg,cb){
+		
+		service.SkipWaitTimeForInstanceTermination=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -734,7 +775,8 @@ module.exports = function(RED) {
 
 			svc.skipWaitTimeForInstanceTermination(params,cb);
 		}
-			service.StopDeployment=function(svc,msg,cb){
+		
+		service.StopDeployment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deploymentId",params,undefined,false); 
@@ -748,7 +790,8 @@ module.exports = function(RED) {
 
 			svc.stopDeployment(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -763,7 +806,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -778,7 +822,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateApplication=function(svc,msg,cb){
+		
+		service.UpdateApplication=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -791,7 +836,8 @@ module.exports = function(RED) {
 
 			svc.updateApplication(params,cb);
 		}
-			service.UpdateDeploymentGroup=function(svc,msg,cb){
+		
+		service.UpdateDeploymentGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"applicationName",params,undefined,false); 
@@ -838,6 +884,7 @@ module.exports = function(RED) {
 
 			svc.updateDeploymentGroup(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CodeDeploy", AmazonAPINode);

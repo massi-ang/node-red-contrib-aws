@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelKeyDeletion=function(svc,msg,cb){
+		service.CancelKeyDeletion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelKeyDeletion(params,cb);
 		}
-			service.ConnectCustomKeyStore=function(svc,msg,cb){
+		
+		service.ConnectCustomKeyStore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomKeyStoreId",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.connectCustomKeyStore(params,cb);
 		}
-			service.CreateAlias=function(svc,msg,cb){
+		
+		service.CreateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasName",params,undefined,false); 
@@ -132,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.createAlias(params,cb);
 		}
-			service.CreateCustomKeyStore=function(svc,msg,cb){
+		
+		service.CreateCustomKeyStore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomKeyStoreName",params,undefined,false); 
@@ -153,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.createCustomKeyStore(params,cb);
 		}
-			service.CreateGrant=function(svc,msg,cb){
+		
+		service.CreateGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -179,7 +183,8 @@ module.exports = function(RED) {
 
 			svc.createGrant(params,cb);
 		}
-			service.CreateKey=function(svc,msg,cb){
+		
+		service.CreateKey=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -208,7 +213,8 @@ module.exports = function(RED) {
 
 			svc.createKey(params,cb);
 		}
-			service.Decrypt=function(svc,msg,cb){
+		
+		service.Decrypt=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CiphertextBlob",params,undefined,false); 
@@ -228,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.decrypt(params,cb);
 		}
-			service.DeleteAlias=function(svc,msg,cb){
+		
+		service.DeleteAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasName",params,undefined,false); 
@@ -240,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.deleteAlias(params,cb);
 		}
-			service.DeleteCustomKeyStore=function(svc,msg,cb){
+		
+		service.DeleteCustomKeyStore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomKeyStoreId",params,undefined,false); 
@@ -252,7 +260,8 @@ module.exports = function(RED) {
 
 			svc.deleteCustomKeyStore(params,cb);
 		}
-			service.DeleteImportedKeyMaterial=function(svc,msg,cb){
+		
+		service.DeleteImportedKeyMaterial=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -264,7 +273,8 @@ module.exports = function(RED) {
 
 			svc.deleteImportedKeyMaterial(params,cb);
 		}
-			service.DescribeCustomKeyStores=function(svc,msg,cb){
+		
+		service.DescribeCustomKeyStores=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -281,7 +291,8 @@ module.exports = function(RED) {
 
 			svc.describeCustomKeyStores(params,cb);
 		}
-			service.DescribeKey=function(svc,msg,cb){
+		
+		service.DescribeKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -295,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.describeKey(params,cb);
 		}
-			service.DisableKey=function(svc,msg,cb){
+		
+		service.DisableKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -307,7 +319,8 @@ module.exports = function(RED) {
 
 			svc.disableKey(params,cb);
 		}
-			service.DisableKeyRotation=function(svc,msg,cb){
+		
+		service.DisableKeyRotation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -319,7 +332,8 @@ module.exports = function(RED) {
 
 			svc.disableKeyRotation(params,cb);
 		}
-			service.DisconnectCustomKeyStore=function(svc,msg,cb){
+		
+		service.DisconnectCustomKeyStore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomKeyStoreId",params,undefined,false); 
@@ -331,7 +345,8 @@ module.exports = function(RED) {
 
 			svc.disconnectCustomKeyStore(params,cb);
 		}
-			service.EnableKey=function(svc,msg,cb){
+		
+		service.EnableKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -343,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.enableKey(params,cb);
 		}
-			service.EnableKeyRotation=function(svc,msg,cb){
+		
+		service.EnableKeyRotation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -355,7 +371,8 @@ module.exports = function(RED) {
 
 			svc.enableKeyRotation(params,cb);
 		}
-			service.Encrypt=function(svc,msg,cb){
+		
+		service.Encrypt=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -376,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.encrypt(params,cb);
 		}
-			service.GenerateDataKey=function(svc,msg,cb){
+		
+		service.GenerateDataKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -396,7 +414,8 @@ module.exports = function(RED) {
 
 			svc.generateDataKey(params,cb);
 		}
-			service.GenerateDataKeyPair=function(svc,msg,cb){
+		
+		service.GenerateDataKeyPair=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -415,7 +434,8 @@ module.exports = function(RED) {
 
 			svc.generateDataKeyPair(params,cb);
 		}
-			service.GenerateDataKeyPairWithoutPlaintext=function(svc,msg,cb){
+		
+		service.GenerateDataKeyPairWithoutPlaintext=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -434,7 +454,8 @@ module.exports = function(RED) {
 
 			svc.generateDataKeyPairWithoutPlaintext(params,cb);
 		}
-			service.GenerateDataKeyWithoutPlaintext=function(svc,msg,cb){
+		
+		service.GenerateDataKeyWithoutPlaintext=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -454,7 +475,8 @@ module.exports = function(RED) {
 
 			svc.generateDataKeyWithoutPlaintext(params,cb);
 		}
-			service.GenerateRandom=function(svc,msg,cb){
+		
+		service.GenerateRandom=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -467,7 +489,8 @@ module.exports = function(RED) {
 
 			svc.generateRandom(params,cb);
 		}
-			service.GetKeyPolicy=function(svc,msg,cb){
+		
+		service.GetKeyPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -482,7 +505,8 @@ module.exports = function(RED) {
 
 			svc.getKeyPolicy(params,cb);
 		}
-			service.GetKeyRotationStatus=function(svc,msg,cb){
+		
+		service.GetKeyRotationStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -494,7 +518,8 @@ module.exports = function(RED) {
 
 			svc.getKeyRotationStatus(params,cb);
 		}
-			service.GetParametersForImport=function(svc,msg,cb){
+		
+		service.GetParametersForImport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -512,7 +537,8 @@ module.exports = function(RED) {
 
 			svc.getParametersForImport(params,cb);
 		}
-			service.GetPublicKey=function(svc,msg,cb){
+		
+		service.GetPublicKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -526,7 +552,8 @@ module.exports = function(RED) {
 
 			svc.getPublicKey(params,cb);
 		}
-			service.ImportKeyMaterial=function(svc,msg,cb){
+		
+		service.ImportKeyMaterial=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -548,7 +575,8 @@ module.exports = function(RED) {
 
 			svc.importKeyMaterial(params,cb);
 		}
-			service.ListAliases=function(svc,msg,cb){
+		
+		service.ListAliases=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -563,7 +591,8 @@ module.exports = function(RED) {
 
 			svc.listAliases(params,cb);
 		}
-			service.ListGrants=function(svc,msg,cb){
+		
+		service.ListGrants=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -583,7 +612,8 @@ module.exports = function(RED) {
 
 			svc.listGrants(params,cb);
 		}
-			service.ListKeyPolicies=function(svc,msg,cb){
+		
+		service.ListKeyPolicies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -599,7 +629,8 @@ module.exports = function(RED) {
 
 			svc.listKeyPolicies(params,cb);
 		}
-			service.ListKeys=function(svc,msg,cb){
+		
+		service.ListKeys=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -612,7 +643,8 @@ module.exports = function(RED) {
 
 			svc.listKeys(params,cb);
 		}
-			service.ListResourceTags=function(svc,msg,cb){
+		
+		service.ListResourceTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -628,7 +660,8 @@ module.exports = function(RED) {
 
 			svc.listResourceTags(params,cb);
 		}
-			service.ListRetirableGrants=function(svc,msg,cb){
+		
+		service.ListRetirableGrants=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RetiringPrincipal",params,undefined,false); 
@@ -644,7 +677,8 @@ module.exports = function(RED) {
 
 			svc.listRetirableGrants(params,cb);
 		}
-			service.PutKeyPolicy=function(svc,msg,cb){
+		
+		service.PutKeyPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -664,7 +698,8 @@ module.exports = function(RED) {
 
 			svc.putKeyPolicy(params,cb);
 		}
-			service.ReEncrypt=function(svc,msg,cb){
+		
+		service.ReEncrypt=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CiphertextBlob",params,undefined,false); 
@@ -691,7 +726,8 @@ module.exports = function(RED) {
 
 			svc.reEncrypt(params,cb);
 		}
-			service.ReplicateKey=function(svc,msg,cb){
+		
+		service.ReplicateKey=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -714,7 +750,8 @@ module.exports = function(RED) {
 
 			svc.replicateKey(params,cb);
 		}
-			service.RetireGrant=function(svc,msg,cb){
+		
+		service.RetireGrant=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -729,7 +766,8 @@ module.exports = function(RED) {
 
 			svc.retireGrant(params,cb);
 		}
-			service.RevokeGrant=function(svc,msg,cb){
+		
+		service.RevokeGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -744,7 +782,8 @@ module.exports = function(RED) {
 
 			svc.revokeGrant(params,cb);
 		}
-			service.ScheduleKeyDeletion=function(svc,msg,cb){
+		
+		service.ScheduleKeyDeletion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -758,7 +797,8 @@ module.exports = function(RED) {
 
 			svc.scheduleKeyDeletion(params,cb);
 		}
-			service.Sign=function(svc,msg,cb){
+		
+		service.Sign=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -780,7 +820,8 @@ module.exports = function(RED) {
 
 			svc.sign(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -795,7 +836,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -810,7 +852,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAlias=function(svc,msg,cb){
+		
+		service.UpdateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AliasName",params,undefined,false); 
@@ -825,7 +868,8 @@ module.exports = function(RED) {
 
 			svc.updateAlias(params,cb);
 		}
-			service.UpdateCustomKeyStore=function(svc,msg,cb){
+		
+		service.UpdateCustomKeyStore=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomKeyStoreId",params,undefined,false); 
@@ -843,7 +887,8 @@ module.exports = function(RED) {
 
 			svc.updateCustomKeyStore(params,cb);
 		}
-			service.UpdateKeyDescription=function(svc,msg,cb){
+		
+		service.UpdateKeyDescription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -858,7 +903,8 @@ module.exports = function(RED) {
 
 			svc.updateKeyDescription(params,cb);
 		}
-			service.UpdatePrimaryRegion=function(svc,msg,cb){
+		
+		service.UpdatePrimaryRegion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -873,7 +919,8 @@ module.exports = function(RED) {
 
 			svc.updatePrimaryRegion(params,cb);
 		}
-			service.Verify=function(svc,msg,cb){
+		
+		service.Verify=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"KeyId",params,undefined,false); 
@@ -898,6 +945,7 @@ module.exports = function(RED) {
 
 			svc.verify(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS KMS", AmazonAPINode);

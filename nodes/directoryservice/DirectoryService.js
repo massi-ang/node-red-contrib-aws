@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptSharedDirectory=function(svc,msg,cb){
+		service.AcceptSharedDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SharedDirectoryId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.acceptSharedDirectory(params,cb);
 		}
-			service.AddIpRoutes=function(svc,msg,cb){
+		
+		service.AddIpRoutes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.addIpRoutes(params,cb);
 		}
-			service.AddRegion=function(svc,msg,cb){
+		
+		service.AddRegion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -140,7 +142,8 @@ module.exports = function(RED) {
 
 			svc.addRegion(params,cb);
 		}
-			service.AddTagsToResource=function(svc,msg,cb){
+		
+		service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -155,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-			service.CancelSchemaExtension=function(svc,msg,cb){
+		
+		service.CancelSchemaExtension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -170,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.cancelSchemaExtension(params,cb);
 		}
-			service.ConnectDirectory=function(svc,msg,cb){
+		
+		service.ConnectDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -197,7 +202,8 @@ module.exports = function(RED) {
 
 			svc.connectDirectory(params,cb);
 		}
-			service.CreateAlias=function(svc,msg,cb){
+		
+		service.CreateAlias=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -212,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.createAlias(params,cb);
 		}
-			service.CreateComputer=function(svc,msg,cb){
+		
+		service.CreateComputer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -234,7 +241,8 @@ module.exports = function(RED) {
 
 			svc.createComputer(params,cb);
 		}
-			service.CreateConditionalForwarder=function(svc,msg,cb){
+		
+		service.CreateConditionalForwarder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -252,7 +260,8 @@ module.exports = function(RED) {
 
 			svc.createConditionalForwarder(params,cb);
 		}
-			service.CreateDirectory=function(svc,msg,cb){
+		
+		service.CreateDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -278,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.createDirectory(params,cb);
 		}
-			service.CreateLogSubscription=function(svc,msg,cb){
+		
+		service.CreateLogSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -293,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.createLogSubscription(params,cb);
 		}
-			service.CreateMicrosoftAD=function(svc,msg,cb){
+		
+		service.CreateMicrosoftAD=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -319,7 +330,8 @@ module.exports = function(RED) {
 
 			svc.createMicrosoftAD(params,cb);
 		}
-			service.CreateSnapshot=function(svc,msg,cb){
+		
+		service.CreateSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -333,7 +345,8 @@ module.exports = function(RED) {
 
 			svc.createSnapshot(params,cb);
 		}
-			service.CreateTrust=function(svc,msg,cb){
+		
+		service.CreateTrust=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -360,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.createTrust(params,cb);
 		}
-			service.DeleteConditionalForwarder=function(svc,msg,cb){
+		
+		service.DeleteConditionalForwarder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -375,7 +389,8 @@ module.exports = function(RED) {
 
 			svc.deleteConditionalForwarder(params,cb);
 		}
-			service.DeleteDirectory=function(svc,msg,cb){
+		
+		service.DeleteDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -387,7 +402,8 @@ module.exports = function(RED) {
 
 			svc.deleteDirectory(params,cb);
 		}
-			service.DeleteLogSubscription=function(svc,msg,cb){
+		
+		service.DeleteLogSubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -399,7 +415,8 @@ module.exports = function(RED) {
 
 			svc.deleteLogSubscription(params,cb);
 		}
-			service.DeleteSnapshot=function(svc,msg,cb){
+		
+		service.DeleteSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -411,7 +428,8 @@ module.exports = function(RED) {
 
 			svc.deleteSnapshot(params,cb);
 		}
-			service.DeleteTrust=function(svc,msg,cb){
+		
+		service.DeleteTrust=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrustId",params,undefined,false); 
@@ -425,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.deleteTrust(params,cb);
 		}
-			service.DeregisterCertificate=function(svc,msg,cb){
+		
+		service.DeregisterCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -440,7 +459,8 @@ module.exports = function(RED) {
 
 			svc.deregisterCertificate(params,cb);
 		}
-			service.DeregisterEventTopic=function(svc,msg,cb){
+		
+		service.DeregisterEventTopic=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -455,7 +475,8 @@ module.exports = function(RED) {
 
 			svc.deregisterEventTopic(params,cb);
 		}
-			service.DescribeCertificate=function(svc,msg,cb){
+		
+		service.DescribeCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -470,7 +491,8 @@ module.exports = function(RED) {
 
 			svc.describeCertificate(params,cb);
 		}
-			service.DescribeClientAuthenticationSettings=function(svc,msg,cb){
+		
+		service.DescribeClientAuthenticationSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -488,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.describeClientAuthenticationSettings(params,cb);
 		}
-			service.DescribeConditionalForwarders=function(svc,msg,cb){
+		
+		service.DescribeConditionalForwarders=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -502,7 +525,8 @@ module.exports = function(RED) {
 
 			svc.describeConditionalForwarders(params,cb);
 		}
-			service.DescribeDirectories=function(svc,msg,cb){
+		
+		service.DescribeDirectories=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -517,7 +541,8 @@ module.exports = function(RED) {
 
 			svc.describeDirectories(params,cb);
 		}
-			service.DescribeDomainControllers=function(svc,msg,cb){
+		
+		service.DescribeDomainControllers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -535,7 +560,8 @@ module.exports = function(RED) {
 
 			svc.describeDomainControllers(params,cb);
 		}
-			service.DescribeEventTopics=function(svc,msg,cb){
+		
+		service.DescribeEventTopics=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -548,7 +574,8 @@ module.exports = function(RED) {
 
 			svc.describeEventTopics(params,cb);
 		}
-			service.DescribeLDAPSSettings=function(svc,msg,cb){
+		
+		service.DescribeLDAPSSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -566,7 +593,8 @@ module.exports = function(RED) {
 
 			svc.describeLDAPSSettings(params,cb);
 		}
-			service.DescribeRegions=function(svc,msg,cb){
+		
+		service.DescribeRegions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -582,7 +610,8 @@ module.exports = function(RED) {
 
 			svc.describeRegions(params,cb);
 		}
-			service.DescribeSharedDirectories=function(svc,msg,cb){
+		
+		service.DescribeSharedDirectories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OwnerDirectoryId",params,undefined,false); 
@@ -600,7 +629,8 @@ module.exports = function(RED) {
 
 			svc.describeSharedDirectories(params,cb);
 		}
-			service.DescribeSnapshots=function(svc,msg,cb){
+		
+		service.DescribeSnapshots=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -617,7 +647,8 @@ module.exports = function(RED) {
 
 			svc.describeSnapshots(params,cb);
 		}
-			service.DescribeTrusts=function(svc,msg,cb){
+		
+		service.DescribeTrusts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -634,7 +665,8 @@ module.exports = function(RED) {
 
 			svc.describeTrusts(params,cb);
 		}
-			service.DisableClientAuthentication=function(svc,msg,cb){
+		
+		service.DisableClientAuthentication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -649,7 +681,8 @@ module.exports = function(RED) {
 
 			svc.disableClientAuthentication(params,cb);
 		}
-			service.DisableLDAPS=function(svc,msg,cb){
+		
+		service.DisableLDAPS=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -664,7 +697,8 @@ module.exports = function(RED) {
 
 			svc.disableLDAPS(params,cb);
 		}
-			service.DisableRadius=function(svc,msg,cb){
+		
+		service.DisableRadius=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -676,7 +710,8 @@ module.exports = function(RED) {
 
 			svc.disableRadius(params,cb);
 		}
-			service.DisableSso=function(svc,msg,cb){
+		
+		service.DisableSso=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -692,7 +727,8 @@ module.exports = function(RED) {
 
 			svc.disableSso(params,cb);
 		}
-			service.EnableClientAuthentication=function(svc,msg,cb){
+		
+		service.EnableClientAuthentication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -707,7 +743,8 @@ module.exports = function(RED) {
 
 			svc.enableClientAuthentication(params,cb);
 		}
-			service.EnableLDAPS=function(svc,msg,cb){
+		
+		service.EnableLDAPS=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -722,7 +759,8 @@ module.exports = function(RED) {
 
 			svc.enableLDAPS(params,cb);
 		}
-			service.EnableRadius=function(svc,msg,cb){
+		
+		service.EnableRadius=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -737,7 +775,8 @@ module.exports = function(RED) {
 
 			svc.enableRadius(params,cb);
 		}
-			service.EnableSso=function(svc,msg,cb){
+		
+		service.EnableSso=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -753,7 +792,8 @@ module.exports = function(RED) {
 
 			svc.enableSso(params,cb);
 		}
-			service.GetDirectoryLimits=function(svc,msg,cb){
+		
+		service.GetDirectoryLimits=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -762,7 +802,8 @@ module.exports = function(RED) {
 
 			svc.getDirectoryLimits(params,cb);
 		}
-			service.GetSnapshotLimits=function(svc,msg,cb){
+		
+		service.GetSnapshotLimits=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -774,7 +815,8 @@ module.exports = function(RED) {
 
 			svc.getSnapshotLimits(params,cb);
 		}
-			service.ListCertificates=function(svc,msg,cb){
+		
+		service.ListCertificates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -790,7 +832,8 @@ module.exports = function(RED) {
 
 			svc.listCertificates(params,cb);
 		}
-			service.ListIpRoutes=function(svc,msg,cb){
+		
+		service.ListIpRoutes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -806,7 +849,8 @@ module.exports = function(RED) {
 
 			svc.listIpRoutes(params,cb);
 		}
-			service.ListLogSubscriptions=function(svc,msg,cb){
+		
+		service.ListLogSubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -821,7 +865,8 @@ module.exports = function(RED) {
 
 			svc.listLogSubscriptions(params,cb);
 		}
-			service.ListSchemaExtensions=function(svc,msg,cb){
+		
+		service.ListSchemaExtensions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -837,7 +882,8 @@ module.exports = function(RED) {
 
 			svc.listSchemaExtensions(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -853,7 +899,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RegisterCertificate=function(svc,msg,cb){
+		
+		service.RegisterCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -872,7 +919,8 @@ module.exports = function(RED) {
 
 			svc.registerCertificate(params,cb);
 		}
-			service.RegisterEventTopic=function(svc,msg,cb){
+		
+		service.RegisterEventTopic=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -887,7 +935,8 @@ module.exports = function(RED) {
 
 			svc.registerEventTopic(params,cb);
 		}
-			service.RejectSharedDirectory=function(svc,msg,cb){
+		
+		service.RejectSharedDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SharedDirectoryId",params,undefined,false); 
@@ -899,7 +948,8 @@ module.exports = function(RED) {
 
 			svc.rejectSharedDirectory(params,cb);
 		}
-			service.RemoveIpRoutes=function(svc,msg,cb){
+		
+		service.RemoveIpRoutes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -914,7 +964,8 @@ module.exports = function(RED) {
 
 			svc.removeIpRoutes(params,cb);
 		}
-			service.RemoveRegion=function(svc,msg,cb){
+		
+		service.RemoveRegion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -926,7 +977,8 @@ module.exports = function(RED) {
 
 			svc.removeRegion(params,cb);
 		}
-			service.RemoveTagsFromResource=function(svc,msg,cb){
+		
+		service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceId",params,undefined,false); 
@@ -941,7 +993,8 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
-			service.ResetUserPassword=function(svc,msg,cb){
+		
+		service.ResetUserPassword=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -959,7 +1012,8 @@ module.exports = function(RED) {
 
 			svc.resetUserPassword(params,cb);
 		}
-			service.RestoreFromSnapshot=function(svc,msg,cb){
+		
+		service.RestoreFromSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -971,7 +1025,8 @@ module.exports = function(RED) {
 
 			svc.restoreFromSnapshot(params,cb);
 		}
-			service.ShareDirectory=function(svc,msg,cb){
+		
+		service.ShareDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -991,7 +1046,8 @@ module.exports = function(RED) {
 
 			svc.shareDirectory(params,cb);
 		}
-			service.StartSchemaExtension=function(svc,msg,cb){
+		
+		service.StartSchemaExtension=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -1012,7 +1068,8 @@ module.exports = function(RED) {
 
 			svc.startSchemaExtension(params,cb);
 		}
-			service.UnshareDirectory=function(svc,msg,cb){
+		
+		service.UnshareDirectory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -1027,7 +1084,8 @@ module.exports = function(RED) {
 
 			svc.unshareDirectory(params,cb);
 		}
-			service.UpdateConditionalForwarder=function(svc,msg,cb){
+		
+		service.UpdateConditionalForwarder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -1045,7 +1103,8 @@ module.exports = function(RED) {
 
 			svc.updateConditionalForwarder(params,cb);
 		}
-			service.UpdateNumberOfDomainControllers=function(svc,msg,cb){
+		
+		service.UpdateNumberOfDomainControllers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -1060,7 +1119,8 @@ module.exports = function(RED) {
 
 			svc.updateNumberOfDomainControllers(params,cb);
 		}
-			service.UpdateRadius=function(svc,msg,cb){
+		
+		service.UpdateRadius=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DirectoryId",params,undefined,false); 
@@ -1075,7 +1135,8 @@ module.exports = function(RED) {
 
 			svc.updateRadius(params,cb);
 		}
-			service.UpdateTrust=function(svc,msg,cb){
+		
+		service.UpdateTrust=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrustId",params,undefined,false); 
@@ -1089,7 +1150,8 @@ module.exports = function(RED) {
 
 			svc.updateTrust(params,cb);
 		}
-			service.VerifyTrust=function(svc,msg,cb){
+		
+		service.VerifyTrust=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TrustId",params,undefined,false); 
@@ -1101,6 +1163,7 @@ module.exports = function(RED) {
 
 			svc.verifyTrust(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DirectoryService", AmazonAPINode);

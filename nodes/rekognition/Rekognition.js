@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CompareFaces=function(svc,msg,cb){
+		service.CompareFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceImage",params,undefined,true); 
@@ -112,7 +112,8 @@ module.exports = function(RED) {
 
 			svc.compareFaces(params,cb);
 		}
-			service.CreateCollection=function(svc,msg,cb){
+		
+		service.CreateCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.createCollection(params,cb);
 		}
-			service.CreateProject=function(svc,msg,cb){
+		
+		service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectName",params,undefined,false); 
@@ -138,7 +140,8 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-			service.CreateProjectVersion=function(svc,msg,cb){
+		
+		service.CreateProjectVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectArn",params,undefined,false); 
@@ -166,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.createProjectVersion(params,cb);
 		}
-			service.CreateStreamProcessor=function(svc,msg,cb){
+		
+		service.CreateStreamProcessor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Input",params,undefined,true); 
@@ -192,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.createStreamProcessor(params,cb);
 		}
-			service.DeleteCollection=function(svc,msg,cb){
+		
+		service.DeleteCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -204,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.deleteCollection(params,cb);
 		}
-			service.DeleteFaces=function(svc,msg,cb){
+		
+		service.DeleteFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -219,7 +225,8 @@ module.exports = function(RED) {
 
 			svc.deleteFaces(params,cb);
 		}
-			service.DeleteProject=function(svc,msg,cb){
+		
+		service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectArn",params,undefined,false); 
@@ -231,7 +238,8 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-			service.DeleteProjectVersion=function(svc,msg,cb){
+		
+		service.DeleteProjectVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectVersionArn",params,undefined,false); 
@@ -243,7 +251,8 @@ module.exports = function(RED) {
 
 			svc.deleteProjectVersion(params,cb);
 		}
-			service.DeleteStreamProcessor=function(svc,msg,cb){
+		
+		service.DeleteStreamProcessor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -255,7 +264,8 @@ module.exports = function(RED) {
 
 			svc.deleteStreamProcessor(params,cb);
 		}
-			service.DescribeCollection=function(svc,msg,cb){
+		
+		service.DescribeCollection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -267,7 +277,8 @@ module.exports = function(RED) {
 
 			svc.describeCollection(params,cb);
 		}
-			service.DescribeProjectVersions=function(svc,msg,cb){
+		
+		service.DescribeProjectVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectArn",params,undefined,false); 
@@ -285,7 +296,8 @@ module.exports = function(RED) {
 
 			svc.describeProjectVersions(params,cb);
 		}
-			service.DescribeProjects=function(svc,msg,cb){
+		
+		service.DescribeProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -298,7 +310,8 @@ module.exports = function(RED) {
 
 			svc.describeProjects(params,cb);
 		}
-			service.DescribeStreamProcessor=function(svc,msg,cb){
+		
+		service.DescribeStreamProcessor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -310,7 +323,8 @@ module.exports = function(RED) {
 
 			svc.describeStreamProcessor(params,cb);
 		}
-			service.DetectCustomLabels=function(svc,msg,cb){
+		
+		service.DetectCustomLabels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectVersionArn",params,undefined,false); 
@@ -329,7 +343,8 @@ module.exports = function(RED) {
 
 			svc.detectCustomLabels(params,cb);
 		}
-			service.DetectFaces=function(svc,msg,cb){
+		
+		service.DetectFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -343,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.detectFaces(params,cb);
 		}
-			service.DetectLabels=function(svc,msg,cb){
+		
+		service.DetectLabels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -359,7 +375,8 @@ module.exports = function(RED) {
 
 			svc.detectLabels(params,cb);
 		}
-			service.DetectModerationLabels=function(svc,msg,cb){
+		
+		service.DetectModerationLabels=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -375,7 +392,8 @@ module.exports = function(RED) {
 
 			svc.detectModerationLabels(params,cb);
 		}
-			service.DetectProtectiveEquipment=function(svc,msg,cb){
+		
+		service.DetectProtectiveEquipment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -389,7 +407,8 @@ module.exports = function(RED) {
 
 			svc.detectProtectiveEquipment(params,cb);
 		}
-			service.DetectText=function(svc,msg,cb){
+		
+		service.DetectText=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -403,7 +422,8 @@ module.exports = function(RED) {
 
 			svc.detectText(params,cb);
 		}
-			service.GetCelebrityInfo=function(svc,msg,cb){
+		
+		service.GetCelebrityInfo=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -415,7 +435,8 @@ module.exports = function(RED) {
 
 			svc.getCelebrityInfo(params,cb);
 		}
-			service.GetCelebrityRecognition=function(svc,msg,cb){
+		
+		service.GetCelebrityRecognition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -433,7 +454,8 @@ module.exports = function(RED) {
 
 			svc.getCelebrityRecognition(params,cb);
 		}
-			service.GetContentModeration=function(svc,msg,cb){
+		
+		service.GetContentModeration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -451,7 +473,8 @@ module.exports = function(RED) {
 
 			svc.getContentModeration(params,cb);
 		}
-			service.GetFaceDetection=function(svc,msg,cb){
+		
+		service.GetFaceDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -467,7 +490,8 @@ module.exports = function(RED) {
 
 			svc.getFaceDetection(params,cb);
 		}
-			service.GetFaceSearch=function(svc,msg,cb){
+		
+		service.GetFaceSearch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -485,7 +509,8 @@ module.exports = function(RED) {
 
 			svc.getFaceSearch(params,cb);
 		}
-			service.GetLabelDetection=function(svc,msg,cb){
+		
+		service.GetLabelDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -503,7 +528,8 @@ module.exports = function(RED) {
 
 			svc.getLabelDetection(params,cb);
 		}
-			service.GetPersonTracking=function(svc,msg,cb){
+		
+		service.GetPersonTracking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -521,7 +547,8 @@ module.exports = function(RED) {
 
 			svc.getPersonTracking(params,cb);
 		}
-			service.GetSegmentDetection=function(svc,msg,cb){
+		
+		service.GetSegmentDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -537,7 +564,8 @@ module.exports = function(RED) {
 
 			svc.getSegmentDetection(params,cb);
 		}
-			service.GetTextDetection=function(svc,msg,cb){
+		
+		service.GetTextDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -553,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.getTextDetection(params,cb);
 		}
-			service.IndexFaces=function(svc,msg,cb){
+		
+		service.IndexFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -576,7 +605,8 @@ module.exports = function(RED) {
 
 			svc.indexFaces(params,cb);
 		}
-			service.ListCollections=function(svc,msg,cb){
+		
+		service.ListCollections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -589,7 +619,8 @@ module.exports = function(RED) {
 
 			svc.listCollections(params,cb);
 		}
-			service.ListFaces=function(svc,msg,cb){
+		
+		service.ListFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -605,7 +636,8 @@ module.exports = function(RED) {
 
 			svc.listFaces(params,cb);
 		}
-			service.ListStreamProcessors=function(svc,msg,cb){
+		
+		service.ListStreamProcessors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -618,7 +650,8 @@ module.exports = function(RED) {
 
 			svc.listStreamProcessors(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -630,7 +663,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RecognizeCelebrities=function(svc,msg,cb){
+		
+		service.RecognizeCelebrities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Image",params,undefined,true); 
@@ -642,7 +676,8 @@ module.exports = function(RED) {
 
 			svc.recognizeCelebrities(params,cb);
 		}
-			service.SearchFaces=function(svc,msg,cb){
+		
+		service.SearchFaces=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -661,7 +696,8 @@ module.exports = function(RED) {
 
 			svc.searchFaces(params,cb);
 		}
-			service.SearchFacesByImage=function(svc,msg,cb){
+		
+		service.SearchFacesByImage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CollectionId",params,undefined,false); 
@@ -682,7 +718,8 @@ module.exports = function(RED) {
 
 			svc.searchFacesByImage(params,cb);
 		}
-			service.StartCelebrityRecognition=function(svc,msg,cb){
+		
+		service.StartCelebrityRecognition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -700,7 +737,8 @@ module.exports = function(RED) {
 
 			svc.startCelebrityRecognition(params,cb);
 		}
-			service.StartContentModeration=function(svc,msg,cb){
+		
+		service.StartContentModeration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -720,7 +758,8 @@ module.exports = function(RED) {
 
 			svc.startContentModeration(params,cb);
 		}
-			service.StartFaceDetection=function(svc,msg,cb){
+		
+		service.StartFaceDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -740,7 +779,8 @@ module.exports = function(RED) {
 
 			svc.startFaceDetection(params,cb);
 		}
-			service.StartFaceSearch=function(svc,msg,cb){
+		
+		service.StartFaceSearch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -763,7 +803,8 @@ module.exports = function(RED) {
 
 			svc.startFaceSearch(params,cb);
 		}
-			service.StartLabelDetection=function(svc,msg,cb){
+		
+		service.StartLabelDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -783,7 +824,8 @@ module.exports = function(RED) {
 
 			svc.startLabelDetection(params,cb);
 		}
-			service.StartPersonTracking=function(svc,msg,cb){
+		
+		service.StartPersonTracking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -801,7 +843,8 @@ module.exports = function(RED) {
 
 			svc.startPersonTracking(params,cb);
 		}
-			service.StartProjectVersion=function(svc,msg,cb){
+		
+		service.StartProjectVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectVersionArn",params,undefined,false); 
@@ -816,7 +859,8 @@ module.exports = function(RED) {
 
 			svc.startProjectVersion(params,cb);
 		}
-			service.StartSegmentDetection=function(svc,msg,cb){
+		
+		service.StartSegmentDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -839,7 +883,8 @@ module.exports = function(RED) {
 
 			svc.startSegmentDetection(params,cb);
 		}
-			service.StartStreamProcessor=function(svc,msg,cb){
+		
+		service.StartStreamProcessor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -851,7 +896,8 @@ module.exports = function(RED) {
 
 			svc.startStreamProcessor(params,cb);
 		}
-			service.StartTextDetection=function(svc,msg,cb){
+		
+		service.StartTextDetection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Video",params,undefined,true); 
@@ -871,7 +917,8 @@ module.exports = function(RED) {
 
 			svc.startTextDetection(params,cb);
 		}
-			service.StopProjectVersion=function(svc,msg,cb){
+		
+		service.StopProjectVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProjectVersionArn",params,undefined,false); 
@@ -883,7 +930,8 @@ module.exports = function(RED) {
 
 			svc.stopProjectVersion(params,cb);
 		}
-			service.StopStreamProcessor=function(svc,msg,cb){
+		
+		service.StopStreamProcessor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -895,7 +943,8 @@ module.exports = function(RED) {
 
 			svc.stopStreamProcessor(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -910,7 +959,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -925,6 +975,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Rekognition", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ActivatePipeline=function(svc,msg,cb){
+		service.ActivatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -109,7 +109,8 @@ module.exports = function(RED) {
 
 			svc.activatePipeline(params,cb);
 		}
-			service.AddTags=function(svc,msg,cb){
+		
+		service.AddTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -124,7 +125,8 @@ module.exports = function(RED) {
 
 			svc.addTags(params,cb);
 		}
-			service.CreatePipeline=function(svc,msg,cb){
+		
+		service.CreatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -143,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.createPipeline(params,cb);
 		}
-			service.DeactivatePipeline=function(svc,msg,cb){
+		
+		service.DeactivatePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -157,7 +160,8 @@ module.exports = function(RED) {
 
 			svc.deactivatePipeline(params,cb);
 		}
-			service.DeletePipeline=function(svc,msg,cb){
+		
+		service.DeletePipeline=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -169,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.deletePipeline(params,cb);
 		}
-			service.DescribeObjects=function(svc,msg,cb){
+		
+		service.DescribeObjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -188,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.describeObjects(params,cb);
 		}
-			service.DescribePipelines=function(svc,msg,cb){
+		
+		service.DescribePipelines=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineIds",params,undefined,true); 
@@ -200,7 +206,8 @@ module.exports = function(RED) {
 
 			svc.describePipelines(params,cb);
 		}
-			service.EvaluateExpression=function(svc,msg,cb){
+		
+		service.EvaluateExpression=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -218,7 +225,8 @@ module.exports = function(RED) {
 
 			svc.evaluateExpression(params,cb);
 		}
-			service.GetPipelineDefinition=function(svc,msg,cb){
+		
+		service.GetPipelineDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -232,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.getPipelineDefinition(params,cb);
 		}
-			service.ListPipelines=function(svc,msg,cb){
+		
+		service.ListPipelines=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -243,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.listPipelines(params,cb);
 		}
-			service.PollForTask=function(svc,msg,cb){
+		
+		service.PollForTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"workerGroup",params,undefined,false); 
@@ -259,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.pollForTask(params,cb);
 		}
-			service.PutPipelineDefinition=function(svc,msg,cb){
+		
+		service.PutPipelineDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -278,7 +289,8 @@ module.exports = function(RED) {
 
 			svc.putPipelineDefinition(params,cb);
 		}
-			service.QueryObjects=function(svc,msg,cb){
+		
+		service.QueryObjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -299,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.queryObjects(params,cb);
 		}
-			service.RemoveTags=function(svc,msg,cb){
+		
+		service.RemoveTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -314,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.removeTags(params,cb);
 		}
-			service.ReportTaskProgress=function(svc,msg,cb){
+		
+		service.ReportTaskProgress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -328,7 +342,8 @@ module.exports = function(RED) {
 
 			svc.reportTaskProgress(params,cb);
 		}
-			service.ReportTaskRunnerHeartbeat=function(svc,msg,cb){
+		
+		service.ReportTaskRunnerHeartbeat=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskrunnerId",params,undefined,false); 
@@ -344,7 +359,8 @@ module.exports = function(RED) {
 
 			svc.reportTaskRunnerHeartbeat(params,cb);
 		}
-			service.SetStatus=function(svc,msg,cb){
+		
+		service.SetStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -362,7 +378,8 @@ module.exports = function(RED) {
 
 			svc.setStatus(params,cb);
 		}
-			service.SetTaskStatus=function(svc,msg,cb){
+		
+		service.SetTaskStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskId",params,undefined,false); 
@@ -383,7 +400,8 @@ module.exports = function(RED) {
 
 			svc.setTaskStatus(params,cb);
 		}
-			service.ValidatePipelineDefinition=function(svc,msg,cb){
+		
+		service.ValidatePipelineDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"pipelineId",params,undefined,false); 
@@ -402,6 +420,7 @@ module.exports = function(RED) {
 
 			svc.validatePipelineDefinition(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DataPipeline", AmazonAPINode);

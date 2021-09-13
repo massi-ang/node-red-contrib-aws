@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptInvitation=function(svc,msg,cb){
+		service.AcceptInvitation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.acceptInvitation(params,cb);
 		}
-			service.ArchiveFindings=function(svc,msg,cb){
+		
+		service.ArchiveFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.archiveFindings(params,cb);
 		}
-			service.CreateDetector=function(svc,msg,cb){
+		
+		service.CreateDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Boolean(n),"Enable",params,undefined,false); 
@@ -146,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.createDetector(params,cb);
 		}
-			service.CreateFilter=function(svc,msg,cb){
+		
+		service.CreateFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -174,7 +177,8 @@ module.exports = function(RED) {
 
 			svc.createFilter(params,cb);
 		}
-			service.CreateIPSet=function(svc,msg,cb){
+		
+		service.CreateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -202,7 +206,8 @@ module.exports = function(RED) {
 
 			svc.createIPSet(params,cb);
 		}
-			service.CreateMembers=function(svc,msg,cb){
+		
+		service.CreateMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -217,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.createMembers(params,cb);
 		}
-			service.CreatePublishingDestination=function(svc,msg,cb){
+		
+		service.CreatePublishingDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -237,7 +243,8 @@ module.exports = function(RED) {
 
 			svc.createPublishingDestination(params,cb);
 		}
-			service.CreateSampleFindings=function(svc,msg,cb){
+		
+		service.CreateSampleFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -251,7 +258,8 @@ module.exports = function(RED) {
 
 			svc.createSampleFindings(params,cb);
 		}
-			service.CreateThreatIntelSet=function(svc,msg,cb){
+		
+		service.CreateThreatIntelSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -279,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.createThreatIntelSet(params,cb);
 		}
-			service.DeclineInvitations=function(svc,msg,cb){
+		
+		service.DeclineInvitations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -291,7 +300,8 @@ module.exports = function(RED) {
 
 			svc.declineInvitations(params,cb);
 		}
-			service.DeleteDetector=function(svc,msg,cb){
+		
+		service.DeleteDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -303,7 +313,8 @@ module.exports = function(RED) {
 
 			svc.deleteDetector(params,cb);
 		}
-			service.DeleteFilter=function(svc,msg,cb){
+		
+		service.DeleteFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -318,7 +329,8 @@ module.exports = function(RED) {
 
 			svc.deleteFilter(params,cb);
 		}
-			service.DeleteIPSet=function(svc,msg,cb){
+		
+		service.DeleteIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -333,7 +345,8 @@ module.exports = function(RED) {
 
 			svc.deleteIPSet(params,cb);
 		}
-			service.DeleteInvitations=function(svc,msg,cb){
+		
+		service.DeleteInvitations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountIds",params,undefined,true); 
@@ -345,7 +358,8 @@ module.exports = function(RED) {
 
 			svc.deleteInvitations(params,cb);
 		}
-			service.DeleteMembers=function(svc,msg,cb){
+		
+		service.DeleteMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -360,7 +374,8 @@ module.exports = function(RED) {
 
 			svc.deleteMembers(params,cb);
 		}
-			service.DeletePublishingDestination=function(svc,msg,cb){
+		
+		service.DeletePublishingDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -375,7 +390,8 @@ module.exports = function(RED) {
 
 			svc.deletePublishingDestination(params,cb);
 		}
-			service.DeleteThreatIntelSet=function(svc,msg,cb){
+		
+		service.DeleteThreatIntelSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -390,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.deleteThreatIntelSet(params,cb);
 		}
-			service.DescribeOrganizationConfiguration=function(svc,msg,cb){
+		
+		service.DescribeOrganizationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -402,7 +419,8 @@ module.exports = function(RED) {
 
 			svc.describeOrganizationConfiguration(params,cb);
 		}
-			service.DescribePublishingDestination=function(svc,msg,cb){
+		
+		service.DescribePublishingDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -417,7 +435,8 @@ module.exports = function(RED) {
 
 			svc.describePublishingDestination(params,cb);
 		}
-			service.DisableOrganizationAdminAccount=function(svc,msg,cb){
+		
+		service.DisableOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdminAccountId",params,undefined,false); 
@@ -429,7 +448,8 @@ module.exports = function(RED) {
 
 			svc.disableOrganizationAdminAccount(params,cb);
 		}
-			service.DisassociateFromMasterAccount=function(svc,msg,cb){
+		
+		service.DisassociateFromMasterAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -441,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.disassociateFromMasterAccount(params,cb);
 		}
-			service.DisassociateMembers=function(svc,msg,cb){
+		
+		service.DisassociateMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -456,7 +477,8 @@ module.exports = function(RED) {
 
 			svc.disassociateMembers(params,cb);
 		}
-			service.EnableOrganizationAdminAccount=function(svc,msg,cb){
+		
+		service.EnableOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdminAccountId",params,undefined,false); 
@@ -468,7 +490,8 @@ module.exports = function(RED) {
 
 			svc.enableOrganizationAdminAccount(params,cb);
 		}
-			service.GetDetector=function(svc,msg,cb){
+		
+		service.GetDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -480,7 +503,8 @@ module.exports = function(RED) {
 
 			svc.getDetector(params,cb);
 		}
-			service.GetFilter=function(svc,msg,cb){
+		
+		service.GetFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -495,7 +519,8 @@ module.exports = function(RED) {
 
 			svc.getFilter(params,cb);
 		}
-			service.GetFindings=function(svc,msg,cb){
+		
+		service.GetFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -512,7 +537,8 @@ module.exports = function(RED) {
 
 			svc.getFindings(params,cb);
 		}
-			service.GetFindingsStatistics=function(svc,msg,cb){
+		
+		service.GetFindingsStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -529,7 +555,8 @@ module.exports = function(RED) {
 
 			svc.getFindingsStatistics(params,cb);
 		}
-			service.GetIPSet=function(svc,msg,cb){
+		
+		service.GetIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -544,7 +571,8 @@ module.exports = function(RED) {
 
 			svc.getIPSet(params,cb);
 		}
-			service.GetInvitationsCount=function(svc,msg,cb){
+		
+		service.GetInvitationsCount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -553,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.getInvitationsCount(params,cb);
 		}
-			service.GetMasterAccount=function(svc,msg,cb){
+		
+		service.GetMasterAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -565,7 +594,8 @@ module.exports = function(RED) {
 
 			svc.getMasterAccount(params,cb);
 		}
-			service.GetMemberDetectors=function(svc,msg,cb){
+		
+		service.GetMemberDetectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -580,7 +610,8 @@ module.exports = function(RED) {
 
 			svc.getMemberDetectors(params,cb);
 		}
-			service.GetMembers=function(svc,msg,cb){
+		
+		service.GetMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -595,7 +626,8 @@ module.exports = function(RED) {
 
 			svc.getMembers(params,cb);
 		}
-			service.GetThreatIntelSet=function(svc,msg,cb){
+		
+		service.GetThreatIntelSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -610,7 +642,8 @@ module.exports = function(RED) {
 
 			svc.getThreatIntelSet(params,cb);
 		}
-			service.GetUsageStatistics=function(svc,msg,cb){
+		
+		service.GetUsageStatistics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -634,7 +667,8 @@ module.exports = function(RED) {
 
 			svc.getUsageStatistics(params,cb);
 		}
-			service.InviteMembers=function(svc,msg,cb){
+		
+		service.InviteMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -653,7 +687,8 @@ module.exports = function(RED) {
 
 			svc.inviteMembers(params,cb);
 		}
-			service.ListDetectors=function(svc,msg,cb){
+		
+		service.ListDetectors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -666,7 +701,8 @@ module.exports = function(RED) {
 
 			svc.listDetectors(params,cb);
 		}
-			service.ListFilters=function(svc,msg,cb){
+		
+		service.ListFilters=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -682,7 +718,8 @@ module.exports = function(RED) {
 
 			svc.listFilters(params,cb);
 		}
-			service.ListFindings=function(svc,msg,cb){
+		
+		service.ListFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -702,7 +739,8 @@ module.exports = function(RED) {
 
 			svc.listFindings(params,cb);
 		}
-			service.ListIPSets=function(svc,msg,cb){
+		
+		service.ListIPSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -718,7 +756,8 @@ module.exports = function(RED) {
 
 			svc.listIPSets(params,cb);
 		}
-			service.ListInvitations=function(svc,msg,cb){
+		
+		service.ListInvitations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -731,7 +770,8 @@ module.exports = function(RED) {
 
 			svc.listInvitations(params,cb);
 		}
-			service.ListMembers=function(svc,msg,cb){
+		
+		service.ListMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -749,7 +789,8 @@ module.exports = function(RED) {
 
 			svc.listMembers(params,cb);
 		}
-			service.ListOrganizationAdminAccounts=function(svc,msg,cb){
+		
+		service.ListOrganizationAdminAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -762,7 +803,8 @@ module.exports = function(RED) {
 
 			svc.listOrganizationAdminAccounts(params,cb);
 		}
-			service.ListPublishingDestinations=function(svc,msg,cb){
+		
+		service.ListPublishingDestinations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -778,7 +820,8 @@ module.exports = function(RED) {
 
 			svc.listPublishingDestinations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -790,7 +833,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListThreatIntelSets=function(svc,msg,cb){
+		
+		service.ListThreatIntelSets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -806,7 +850,8 @@ module.exports = function(RED) {
 
 			svc.listThreatIntelSets(params,cb);
 		}
-			service.StartMonitoringMembers=function(svc,msg,cb){
+		
+		service.StartMonitoringMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -821,7 +866,8 @@ module.exports = function(RED) {
 
 			svc.startMonitoringMembers(params,cb);
 		}
-			service.StopMonitoringMembers=function(svc,msg,cb){
+		
+		service.StopMonitoringMembers=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -836,7 +882,8 @@ module.exports = function(RED) {
 
 			svc.stopMonitoringMembers(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -851,7 +898,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UnarchiveFindings=function(svc,msg,cb){
+		
+		service.UnarchiveFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -866,7 +914,8 @@ module.exports = function(RED) {
 
 			svc.unarchiveFindings(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -881,7 +930,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateDetector=function(svc,msg,cb){
+		
+		service.UpdateDetector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -899,7 +949,8 @@ module.exports = function(RED) {
 
 			svc.updateDetector(params,cb);
 		}
-			service.UpdateFilter=function(svc,msg,cb){
+		
+		service.UpdateFilter=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -922,7 +973,8 @@ module.exports = function(RED) {
 
 			svc.updateFilter(params,cb);
 		}
-			service.UpdateFindingsFeedback=function(svc,msg,cb){
+		
+		service.UpdateFindingsFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -942,7 +994,8 @@ module.exports = function(RED) {
 
 			svc.updateFindingsFeedback(params,cb);
 		}
-			service.UpdateIPSet=function(svc,msg,cb){
+		
+		service.UpdateIPSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -963,7 +1016,8 @@ module.exports = function(RED) {
 
 			svc.updateIPSet(params,cb);
 		}
-			service.UpdateMemberDetectors=function(svc,msg,cb){
+		
+		service.UpdateMemberDetectors=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -980,7 +1034,8 @@ module.exports = function(RED) {
 
 			svc.updateMemberDetectors(params,cb);
 		}
-			service.UpdateOrganizationConfiguration=function(svc,msg,cb){
+		
+		service.UpdateOrganizationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -997,7 +1052,8 @@ module.exports = function(RED) {
 
 			svc.updateOrganizationConfiguration(params,cb);
 		}
-			service.UpdatePublishingDestination=function(svc,msg,cb){
+		
+		service.UpdatePublishingDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -1014,7 +1070,8 @@ module.exports = function(RED) {
 
 			svc.updatePublishingDestination(params,cb);
 		}
-			service.UpdateThreatIntelSet=function(svc,msg,cb){
+		
+		service.UpdateThreatIntelSet=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DetectorId",params,undefined,false); 
@@ -1035,6 +1092,7 @@ module.exports = function(RED) {
 
 			svc.updateThreatIntelSet(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS GuardDuty", AmazonAPINode);

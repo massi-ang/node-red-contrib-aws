@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateContainer=function(svc,msg,cb){
+		service.CreateContainer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.createContainer(params,cb);
 		}
-			service.DeleteContainer=function(svc,msg,cb){
+		
+		service.DeleteContainer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.deleteContainer(params,cb);
 		}
-			service.DeleteContainerPolicy=function(svc,msg,cb){
+		
+		service.DeleteContainerPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -131,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.deleteContainerPolicy(params,cb);
 		}
-			service.DeleteCorsPolicy=function(svc,msg,cb){
+		
+		service.DeleteCorsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -143,7 +146,8 @@ module.exports = function(RED) {
 
 			svc.deleteCorsPolicy(params,cb);
 		}
-			service.DeleteLifecyclePolicy=function(svc,msg,cb){
+		
+		service.DeleteLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -155,7 +159,8 @@ module.exports = function(RED) {
 
 			svc.deleteLifecyclePolicy(params,cb);
 		}
-			service.DeleteMetricPolicy=function(svc,msg,cb){
+		
+		service.DeleteMetricPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -167,7 +172,8 @@ module.exports = function(RED) {
 
 			svc.deleteMetricPolicy(params,cb);
 		}
-			service.DescribeContainer=function(svc,msg,cb){
+		
+		service.DescribeContainer=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -178,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.describeContainer(params,cb);
 		}
-			service.GetContainerPolicy=function(svc,msg,cb){
+		
+		service.GetContainerPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -190,7 +197,8 @@ module.exports = function(RED) {
 
 			svc.getContainerPolicy(params,cb);
 		}
-			service.GetCorsPolicy=function(svc,msg,cb){
+		
+		service.GetCorsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -202,7 +210,8 @@ module.exports = function(RED) {
 
 			svc.getCorsPolicy(params,cb);
 		}
-			service.GetLifecyclePolicy=function(svc,msg,cb){
+		
+		service.GetLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -214,7 +223,8 @@ module.exports = function(RED) {
 
 			svc.getLifecyclePolicy(params,cb);
 		}
-			service.GetMetricPolicy=function(svc,msg,cb){
+		
+		service.GetMetricPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -226,7 +236,8 @@ module.exports = function(RED) {
 
 			svc.getMetricPolicy(params,cb);
 		}
-			service.ListContainers=function(svc,msg,cb){
+		
+		service.ListContainers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -239,7 +250,8 @@ module.exports = function(RED) {
 
 			svc.listContainers(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -251,7 +263,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutContainerPolicy=function(svc,msg,cb){
+		
+		service.PutContainerPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -266,7 +279,8 @@ module.exports = function(RED) {
 
 			svc.putContainerPolicy(params,cb);
 		}
-			service.PutCorsPolicy=function(svc,msg,cb){
+		
+		service.PutCorsPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -281,7 +295,8 @@ module.exports = function(RED) {
 
 			svc.putCorsPolicy(params,cb);
 		}
-			service.PutLifecyclePolicy=function(svc,msg,cb){
+		
+		service.PutLifecyclePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -296,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.putLifecyclePolicy(params,cb);
 		}
-			service.PutMetricPolicy=function(svc,msg,cb){
+		
+		service.PutMetricPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -311,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.putMetricPolicy(params,cb);
 		}
-			service.StartAccessLogging=function(svc,msg,cb){
+		
+		service.StartAccessLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -323,7 +340,8 @@ module.exports = function(RED) {
 
 			svc.startAccessLogging(params,cb);
 		}
-			service.StopAccessLogging=function(svc,msg,cb){
+		
+		service.StopAccessLogging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ContainerName",params,undefined,false); 
@@ -335,7 +353,8 @@ module.exports = function(RED) {
 
 			svc.stopAccessLogging(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -350,7 +369,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Resource",params,undefined,false); 
@@ -365,6 +385,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MediaStore", AmazonAPINode);

@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchDeleteBuilds=function(svc,msg,cb){
+		service.BatchDeleteBuilds=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ids",params,undefined,true); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteBuilds(params,cb);
 		}
-			service.BatchGetBuildBatches=function(svc,msg,cb){
+		
+		service.BatchGetBuildBatches=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ids",params,undefined,true); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.batchGetBuildBatches(params,cb);
 		}
-			service.BatchGetBuilds=function(svc,msg,cb){
+		
+		service.BatchGetBuilds=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ids",params,undefined,true); 
@@ -129,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.batchGetBuilds(params,cb);
 		}
-			service.BatchGetProjects=function(svc,msg,cb){
+		
+		service.BatchGetProjects=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"names",params,undefined,true); 
@@ -141,7 +144,8 @@ module.exports = function(RED) {
 
 			svc.batchGetProjects(params,cb);
 		}
-			service.BatchGetReportGroups=function(svc,msg,cb){
+		
+		service.BatchGetReportGroups=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportGroupArns",params,undefined,true); 
@@ -153,7 +157,8 @@ module.exports = function(RED) {
 
 			svc.batchGetReportGroups(params,cb);
 		}
-			service.BatchGetReports=function(svc,msg,cb){
+		
+		service.BatchGetReports=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportArns",params,undefined,true); 
@@ -165,7 +170,8 @@ module.exports = function(RED) {
 
 			svc.batchGetReports(params,cb);
 		}
-			service.CreateProject=function(svc,msg,cb){
+		
+		service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -221,7 +227,8 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-			service.CreateReportGroup=function(svc,msg,cb){
+		
+		service.CreateReportGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -241,7 +248,8 @@ module.exports = function(RED) {
 
 			svc.createReportGroup(params,cb);
 		}
-			service.CreateWebhook=function(svc,msg,cb){
+		
+		service.CreateWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -259,7 +267,8 @@ module.exports = function(RED) {
 
 			svc.createWebhook(params,cb);
 		}
-			service.DeleteBuildBatch=function(svc,msg,cb){
+		
+		service.DeleteBuildBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -271,7 +280,8 @@ module.exports = function(RED) {
 
 			svc.deleteBuildBatch(params,cb);
 		}
-			service.DeleteProject=function(svc,msg,cb){
+		
+		service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -283,7 +293,8 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-			service.DeleteReport=function(svc,msg,cb){
+		
+		service.DeleteReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -295,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.deleteReport(params,cb);
 		}
-			service.DeleteReportGroup=function(svc,msg,cb){
+		
+		service.DeleteReportGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -309,7 +321,8 @@ module.exports = function(RED) {
 
 			svc.deleteReportGroup(params,cb);
 		}
-			service.DeleteResourcePolicy=function(svc,msg,cb){
+		
+		service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -321,7 +334,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-			service.DeleteSourceCredentials=function(svc,msg,cb){
+		
+		service.DeleteSourceCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -333,7 +347,8 @@ module.exports = function(RED) {
 
 			svc.deleteSourceCredentials(params,cb);
 		}
-			service.DeleteWebhook=function(svc,msg,cb){
+		
+		service.DeleteWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -345,7 +360,8 @@ module.exports = function(RED) {
 
 			svc.deleteWebhook(params,cb);
 		}
-			service.DescribeCodeCoverages=function(svc,msg,cb){
+		
+		service.DescribeCodeCoverages=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportArn",params,undefined,false); 
@@ -369,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.describeCodeCoverages(params,cb);
 		}
-			service.DescribeTestCases=function(svc,msg,cb){
+		
+		service.DescribeTestCases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportArn",params,undefined,false); 
@@ -387,7 +404,8 @@ module.exports = function(RED) {
 
 			svc.describeTestCases(params,cb);
 		}
-			service.GetReportGroupTrend=function(svc,msg,cb){
+		
+		service.GetReportGroupTrend=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportGroupArn",params,undefined,false); 
@@ -404,7 +422,8 @@ module.exports = function(RED) {
 
 			svc.getReportGroupTrend(params,cb);
 		}
-			service.GetResourcePolicy=function(svc,msg,cb){
+		
+		service.GetResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -416,7 +435,8 @@ module.exports = function(RED) {
 
 			svc.getResourcePolicy(params,cb);
 		}
-			service.ImportSourceCredentials=function(svc,msg,cb){
+		
+		service.ImportSourceCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"token",params,undefined,false); 
@@ -438,7 +458,8 @@ module.exports = function(RED) {
 
 			svc.importSourceCredentials(params,cb);
 		}
-			service.InvalidateProjectCache=function(svc,msg,cb){
+		
+		service.InvalidateProjectCache=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -450,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.invalidateProjectCache(params,cb);
 		}
-			service.ListBuildBatches=function(svc,msg,cb){
+		
+		service.ListBuildBatches=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -467,7 +489,8 @@ module.exports = function(RED) {
 
 			svc.listBuildBatches(params,cb);
 		}
-			service.ListBuildBatchesForProject=function(svc,msg,cb){
+		
+		service.ListBuildBatchesForProject=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -486,7 +509,8 @@ module.exports = function(RED) {
 
 			svc.listBuildBatchesForProject(params,cb);
 		}
-			service.ListBuilds=function(svc,msg,cb){
+		
+		service.ListBuilds=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -499,7 +523,8 @@ module.exports = function(RED) {
 
 			svc.listBuilds(params,cb);
 		}
-			service.ListBuildsForProject=function(svc,msg,cb){
+		
+		service.ListBuildsForProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -515,7 +540,8 @@ module.exports = function(RED) {
 
 			svc.listBuildsForProject(params,cb);
 		}
-			service.ListCuratedEnvironmentImages=function(svc,msg,cb){
+		
+		service.ListCuratedEnvironmentImages=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -524,7 +550,8 @@ module.exports = function(RED) {
 
 			svc.listCuratedEnvironmentImages(params,cb);
 		}
-			service.ListProjects=function(svc,msg,cb){
+		
+		service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -539,7 +566,8 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-			service.ListReportGroups=function(svc,msg,cb){
+		
+		service.ListReportGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -556,7 +584,8 @@ module.exports = function(RED) {
 
 			svc.listReportGroups(params,cb);
 		}
-			service.ListReports=function(svc,msg,cb){
+		
+		service.ListReports=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -573,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.listReports(params,cb);
 		}
-			service.ListReportsForReportGroup=function(svc,msg,cb){
+		
+		service.ListReportsForReportGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"reportGroupArn",params,undefined,false); 
@@ -593,7 +623,8 @@ module.exports = function(RED) {
 
 			svc.listReportsForReportGroup(params,cb);
 		}
-			service.ListSharedProjects=function(svc,msg,cb){
+		
+		service.ListSharedProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -610,7 +641,8 @@ module.exports = function(RED) {
 
 			svc.listSharedProjects(params,cb);
 		}
-			service.ListSharedReportGroups=function(svc,msg,cb){
+		
+		service.ListSharedReportGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -627,7 +659,8 @@ module.exports = function(RED) {
 
 			svc.listSharedReportGroups(params,cb);
 		}
-			service.ListSourceCredentials=function(svc,msg,cb){
+		
+		service.ListSourceCredentials=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -636,7 +669,8 @@ module.exports = function(RED) {
 
 			svc.listSourceCredentials(params,cb);
 		}
-			service.PutResourcePolicy=function(svc,msg,cb){
+		
+		service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policy",params,undefined,false); 
@@ -651,7 +685,8 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-			service.RetryBuild=function(svc,msg,cb){
+		
+		service.RetryBuild=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -664,7 +699,8 @@ module.exports = function(RED) {
 
 			svc.retryBuild(params,cb);
 		}
-			service.RetryBuildBatch=function(svc,msg,cb){
+		
+		service.RetryBuildBatch=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -679,7 +715,8 @@ module.exports = function(RED) {
 
 			svc.retryBuildBatch(params,cb);
 		}
-			service.StartBuild=function(svc,msg,cb){
+		
+		service.StartBuild=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -751,7 +788,8 @@ module.exports = function(RED) {
 
 			svc.startBuild(params,cb);
 		}
-			service.StartBuildBatch=function(svc,msg,cb){
+		
+		service.StartBuildBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -823,7 +861,8 @@ module.exports = function(RED) {
 
 			svc.startBuildBatch(params,cb);
 		}
-			service.StopBuild=function(svc,msg,cb){
+		
+		service.StopBuild=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -835,7 +874,8 @@ module.exports = function(RED) {
 
 			svc.stopBuild(params,cb);
 		}
-			service.StopBuildBatch=function(svc,msg,cb){
+		
+		service.StopBuildBatch=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"id",params,undefined,false); 
@@ -847,7 +887,8 @@ module.exports = function(RED) {
 
 			svc.stopBuildBatch(params,cb);
 		}
-			service.UpdateProject=function(svc,msg,cb){
+		
+		service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -899,7 +940,8 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
-			service.UpdateProjectVisibility=function(svc,msg,cb){
+		
+		service.UpdateProjectVisibility=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectArn",params,undefined,false); 
@@ -916,7 +958,8 @@ module.exports = function(RED) {
 
 			svc.updateProjectVisibility(params,cb);
 		}
-			service.UpdateReportGroup=function(svc,msg,cb){
+		
+		service.UpdateReportGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"arn",params,undefined,false); 
@@ -932,7 +975,8 @@ module.exports = function(RED) {
 
 			svc.updateReportGroup(params,cb);
 		}
-			service.UpdateWebhook=function(svc,msg,cb){
+		
+		service.UpdateWebhook=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectName",params,undefined,false); 
@@ -952,6 +996,7 @@ module.exports = function(RED) {
 
 			svc.updateWebhook(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CodeBuild", AmazonAPINode);

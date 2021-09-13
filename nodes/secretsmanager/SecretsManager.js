@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelRotateSecret=function(svc,msg,cb){
+		service.CancelRotateSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelRotateSecret(params,cb);
 		}
-			service.CreateSecret=function(svc,msg,cb){
+		
+		service.CreateSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -133,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.createSecret(params,cb);
 		}
-			service.DeleteResourcePolicy=function(svc,msg,cb){
+		
+		service.DeleteResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -145,7 +147,8 @@ module.exports = function(RED) {
 
 			svc.deleteResourcePolicy(params,cb);
 		}
-			service.DeleteSecret=function(svc,msg,cb){
+		
+		service.DeleteSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -161,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.deleteSecret(params,cb);
 		}
-			service.DescribeSecret=function(svc,msg,cb){
+		
+		service.DescribeSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -173,7 +177,8 @@ module.exports = function(RED) {
 
 			svc.describeSecret(params,cb);
 		}
-			service.GetRandomPassword=function(svc,msg,cb){
+		
+		service.GetRandomPassword=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -198,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.getRandomPassword(params,cb);
 		}
-			service.GetResourcePolicy=function(svc,msg,cb){
+		
+		service.GetResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -210,7 +216,8 @@ module.exports = function(RED) {
 
 			svc.getResourcePolicy(params,cb);
 		}
-			service.GetSecretValue=function(svc,msg,cb){
+		
+		service.GetSecretValue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -226,7 +233,8 @@ module.exports = function(RED) {
 
 			svc.getSecretValue(params,cb);
 		}
-			service.ListSecretVersionIds=function(svc,msg,cb){
+		
+		service.ListSecretVersionIds=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -244,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.listSecretVersionIds(params,cb);
 		}
-			service.ListSecrets=function(svc,msg,cb){
+		
+		service.ListSecrets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -261,7 +270,8 @@ module.exports = function(RED) {
 
 			svc.listSecrets(params,cb);
 		}
-			service.PutResourcePolicy=function(svc,msg,cb){
+		
+		service.PutResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -278,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.putResourcePolicy(params,cb);
 		}
-			service.PutSecretValue=function(svc,msg,cb){
+		
+		service.PutSecretValue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -298,7 +309,8 @@ module.exports = function(RED) {
 
 			svc.putSecretValue(params,cb);
 		}
-			service.RemoveRegionsFromReplication=function(svc,msg,cb){
+		
+		service.RemoveRegionsFromReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -313,7 +325,8 @@ module.exports = function(RED) {
 
 			svc.removeRegionsFromReplication(params,cb);
 		}
-			service.ReplicateSecretToRegions=function(svc,msg,cb){
+		
+		service.ReplicateSecretToRegions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -330,7 +343,8 @@ module.exports = function(RED) {
 
 			svc.replicateSecretToRegions(params,cb);
 		}
-			service.RestoreSecret=function(svc,msg,cb){
+		
+		service.RestoreSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -342,7 +356,8 @@ module.exports = function(RED) {
 
 			svc.restoreSecret(params,cb);
 		}
-			service.RotateSecret=function(svc,msg,cb){
+		
+		service.RotateSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -360,7 +375,8 @@ module.exports = function(RED) {
 
 			svc.rotateSecret(params,cb);
 		}
-			service.StopReplicationToReplica=function(svc,msg,cb){
+		
+		service.StopReplicationToReplica=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -372,7 +388,8 @@ module.exports = function(RED) {
 
 			svc.stopReplicationToReplica(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -387,7 +404,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -402,7 +420,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateSecret=function(svc,msg,cb){
+		
+		service.UpdateSecret=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -424,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.updateSecret(params,cb);
 		}
-			service.UpdateSecretVersionStage=function(svc,msg,cb){
+		
+		service.UpdateSecretVersionStage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecretId",params,undefined,false); 
@@ -443,7 +463,8 @@ module.exports = function(RED) {
 
 			svc.updateSecretVersionStage(params,cb);
 		}
-			service.ValidateResourcePolicy=function(svc,msg,cb){
+		
+		service.ValidateResourcePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourcePolicy",params,undefined,false); 
@@ -457,6 +478,7 @@ module.exports = function(RED) {
 
 			svc.validateResourcePolicy(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SecretsManager", AmazonAPINode);

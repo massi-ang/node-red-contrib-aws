@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ApplyArchiveRule=function(svc,msg,cb){
+		service.ApplyArchiveRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.applyArchiveRule(params,cb);
 		}
-			service.CancelPolicyGeneration=function(svc,msg,cb){
+		
+		service.CancelPolicyGeneration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.cancelPolicyGeneration(params,cb);
 		}
-			service.CreateAccessPreview=function(svc,msg,cb){
+		
+		service.CreateAccessPreview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.createAccessPreview(params,cb);
 		}
-			service.CreateAnalyzer=function(svc,msg,cb){
+		
+		service.CreateAnalyzer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -160,7 +163,8 @@ module.exports = function(RED) {
 
 			svc.createAnalyzer(params,cb);
 		}
-			service.CreateArchiveRule=function(svc,msg,cb){
+		
+		service.CreateArchiveRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -180,7 +184,8 @@ module.exports = function(RED) {
 
 			svc.createArchiveRule(params,cb);
 		}
-			service.DeleteAnalyzer=function(svc,msg,cb){
+		
+		service.DeleteAnalyzer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -194,7 +199,8 @@ module.exports = function(RED) {
 
 			svc.deleteAnalyzer(params,cb);
 		}
-			service.DeleteArchiveRule=function(svc,msg,cb){
+		
+		service.DeleteArchiveRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -211,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.deleteArchiveRule(params,cb);
 		}
-			service.GetAccessPreview=function(svc,msg,cb){
+		
+		service.GetAccessPreview=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPreviewId",params,undefined,false); 
@@ -226,7 +233,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPreview(params,cb);
 		}
-			service.GetAnalyzedResource=function(svc,msg,cb){
+		
+		service.GetAnalyzedResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -241,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.getAnalyzedResource(params,cb);
 		}
-			service.GetAnalyzer=function(svc,msg,cb){
+		
+		service.GetAnalyzer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -253,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.getAnalyzer(params,cb);
 		}
-			service.GetArchiveRule=function(svc,msg,cb){
+		
+		service.GetArchiveRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -268,7 +278,8 @@ module.exports = function(RED) {
 
 			svc.getArchiveRule(params,cb);
 		}
-			service.GetFinding=function(svc,msg,cb){
+		
+		service.GetFinding=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -283,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.getFinding(params,cb);
 		}
-			service.GetGeneratedPolicy=function(svc,msg,cb){
+		
+		service.GetGeneratedPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobId",params,undefined,false); 
@@ -299,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.getGeneratedPolicy(params,cb);
 		}
-			service.ListAccessPreviewFindings=function(svc,msg,cb){
+		
+		service.ListAccessPreviewFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessPreviewId",params,undefined,false); 
@@ -320,7 +333,8 @@ module.exports = function(RED) {
 
 			svc.listAccessPreviewFindings(params,cb);
 		}
-			service.ListAccessPreviews=function(svc,msg,cb){
+		
+		service.ListAccessPreviews=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -336,7 +350,8 @@ module.exports = function(RED) {
 
 			svc.listAccessPreviews(params,cb);
 		}
-			service.ListAnalyzedResources=function(svc,msg,cb){
+		
+		service.ListAnalyzedResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -354,7 +369,8 @@ module.exports = function(RED) {
 
 			svc.listAnalyzedResources(params,cb);
 		}
-			service.ListAnalyzers=function(svc,msg,cb){
+		
+		service.ListAnalyzers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -369,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.listAnalyzers(params,cb);
 		}
-			service.ListArchiveRules=function(svc,msg,cb){
+		
+		service.ListArchiveRules=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -385,7 +402,8 @@ module.exports = function(RED) {
 
 			svc.listArchiveRules(params,cb);
 		}
-			service.ListFindings=function(svc,msg,cb){
+		
+		service.ListFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -405,7 +423,8 @@ module.exports = function(RED) {
 
 			svc.listFindings(params,cb);
 		}
-			service.ListPolicyGenerations=function(svc,msg,cb){
+		
+		service.ListPolicyGenerations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -420,7 +439,8 @@ module.exports = function(RED) {
 
 			svc.listPolicyGenerations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -432,7 +452,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartPolicyGeneration=function(svc,msg,cb){
+		
+		service.StartPolicyGeneration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyGenerationDetails",params,undefined,false); 
@@ -448,7 +469,8 @@ module.exports = function(RED) {
 
 			svc.startPolicyGeneration(params,cb);
 		}
-			service.StartResourceScan=function(svc,msg,cb){
+		
+		service.StartResourceScan=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -463,7 +485,8 @@ module.exports = function(RED) {
 
 			svc.startResourceScan(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -478,7 +501,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -493,7 +517,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateArchiveRule=function(svc,msg,cb){
+		
+		service.UpdateArchiveRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerName",params,undefined,false); 
@@ -513,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.updateArchiveRule(params,cb);
 		}
-			service.UpdateFindings=function(svc,msg,cb){
+		
+		service.UpdateFindings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"analyzerArn",params,undefined,false); 
@@ -534,7 +560,8 @@ module.exports = function(RED) {
 
 			svc.updateFindings(params,cb);
 		}
-			service.ValidatePolicy=function(svc,msg,cb){
+		
+		service.ValidatePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"policyDocument",params,undefined,false); 
@@ -555,6 +582,7 @@ module.exports = function(RED) {
 
 			svc.validatePolicy(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS AccessAnalyzer", AmazonAPINode);

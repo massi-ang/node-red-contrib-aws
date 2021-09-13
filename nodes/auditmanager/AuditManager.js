@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateAssessmentReportEvidenceFolder=function(svc,msg,cb){
+		service.AssociateAssessmentReportEvidenceFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.associateAssessmentReportEvidenceFolder(params,cb);
 		}
-			service.BatchAssociateAssessmentReportEvidence=function(svc,msg,cb){
+		
+		service.BatchAssociateAssessmentReportEvidence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -126,7 +127,8 @@ module.exports = function(RED) {
 
 			svc.batchAssociateAssessmentReportEvidence(params,cb);
 		}
-			service.BatchCreateDelegationByAssessment=function(svc,msg,cb){
+		
+		service.BatchCreateDelegationByAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"createDelegationRequests",params,undefined,false); 
@@ -141,7 +143,8 @@ module.exports = function(RED) {
 
 			svc.batchCreateDelegationByAssessment(params,cb);
 		}
-			service.BatchDeleteDelegationByAssessment=function(svc,msg,cb){
+		
+		service.BatchDeleteDelegationByAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"delegationIds",params,undefined,false); 
@@ -156,7 +159,8 @@ module.exports = function(RED) {
 
 			svc.batchDeleteDelegationByAssessment(params,cb);
 		}
-			service.BatchDisassociateAssessmentReportEvidence=function(svc,msg,cb){
+		
+		service.BatchDisassociateAssessmentReportEvidence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -174,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.batchDisassociateAssessmentReportEvidence(params,cb);
 		}
-			service.BatchImportEvidenceToAssessmentControl=function(svc,msg,cb){
+		
+		service.BatchImportEvidenceToAssessmentControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -195,7 +200,8 @@ module.exports = function(RED) {
 
 			svc.batchImportEvidenceToAssessmentControl(params,cb);
 		}
-			service.CreateAssessment=function(svc,msg,cb){
+		
+		service.CreateAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -223,7 +229,8 @@ module.exports = function(RED) {
 
 			svc.createAssessment(params,cb);
 		}
-			service.CreateAssessmentFramework=function(svc,msg,cb){
+		
+		service.CreateAssessmentFramework=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -244,7 +251,8 @@ module.exports = function(RED) {
 
 			svc.createAssessmentFramework(params,cb);
 		}
-			service.CreateAssessmentReport=function(svc,msg,cb){
+		
+		service.CreateAssessmentReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -261,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.createAssessmentReport(params,cb);
 		}
-			service.CreateControl=function(svc,msg,cb){
+		
+		service.CreateControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -286,7 +295,8 @@ module.exports = function(RED) {
 
 			svc.createControl(params,cb);
 		}
-			service.DeleteAssessment=function(svc,msg,cb){
+		
+		service.DeleteAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -298,7 +308,8 @@ module.exports = function(RED) {
 
 			svc.deleteAssessment(params,cb);
 		}
-			service.DeleteAssessmentFramework=function(svc,msg,cb){
+		
+		service.DeleteAssessmentFramework=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"frameworkId",params,undefined,false); 
@@ -310,7 +321,8 @@ module.exports = function(RED) {
 
 			svc.deleteAssessmentFramework(params,cb);
 		}
-			service.DeleteAssessmentReport=function(svc,msg,cb){
+		
+		service.DeleteAssessmentReport=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -325,7 +337,8 @@ module.exports = function(RED) {
 
 			svc.deleteAssessmentReport(params,cb);
 		}
-			service.DeleteControl=function(svc,msg,cb){
+		
+		service.DeleteControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"controlId",params,undefined,false); 
@@ -337,7 +350,8 @@ module.exports = function(RED) {
 
 			svc.deleteControl(params,cb);
 		}
-			service.DeregisterAccount=function(svc,msg,cb){
+		
+		service.DeregisterAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -346,7 +360,8 @@ module.exports = function(RED) {
 
 			svc.deregisterAccount(params,cb);
 		}
-			service.DeregisterOrganizationAdminAccount=function(svc,msg,cb){
+		
+		service.DeregisterOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -357,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.deregisterOrganizationAdminAccount(params,cb);
 		}
-			service.DisassociateAssessmentReportEvidenceFolder=function(svc,msg,cb){
+		
+		service.DisassociateAssessmentReportEvidenceFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -372,7 +388,8 @@ module.exports = function(RED) {
 
 			svc.disassociateAssessmentReportEvidenceFolder(params,cb);
 		}
-			service.GetAccountStatus=function(svc,msg,cb){
+		
+		service.GetAccountStatus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -381,7 +398,8 @@ module.exports = function(RED) {
 
 			svc.getAccountStatus(params,cb);
 		}
-			service.GetAssessment=function(svc,msg,cb){
+		
+		service.GetAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -393,7 +411,8 @@ module.exports = function(RED) {
 
 			svc.getAssessment(params,cb);
 		}
-			service.GetAssessmentFramework=function(svc,msg,cb){
+		
+		service.GetAssessmentFramework=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"frameworkId",params,undefined,false); 
@@ -405,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.getAssessmentFramework(params,cb);
 		}
-			service.GetAssessmentReportUrl=function(svc,msg,cb){
+		
+		service.GetAssessmentReportUrl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentReportId",params,undefined,false); 
@@ -420,7 +440,8 @@ module.exports = function(RED) {
 
 			svc.getAssessmentReportUrl(params,cb);
 		}
-			service.GetChangeLogs=function(svc,msg,cb){
+		
+		service.GetChangeLogs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -440,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.getChangeLogs(params,cb);
 		}
-			service.GetControl=function(svc,msg,cb){
+		
+		service.GetControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"controlId",params,undefined,false); 
@@ -452,7 +474,8 @@ module.exports = function(RED) {
 
 			svc.getControl(params,cb);
 		}
-			service.GetDelegations=function(svc,msg,cb){
+		
+		service.GetDelegations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -465,7 +488,8 @@ module.exports = function(RED) {
 
 			svc.getDelegations(params,cb);
 		}
-			service.GetEvidence=function(svc,msg,cb){
+		
+		service.GetEvidence=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -486,7 +510,8 @@ module.exports = function(RED) {
 
 			svc.getEvidence(params,cb);
 		}
-			service.GetEvidenceByEvidenceFolder=function(svc,msg,cb){
+		
+		service.GetEvidenceByEvidenceFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -508,7 +533,8 @@ module.exports = function(RED) {
 
 			svc.getEvidenceByEvidenceFolder(params,cb);
 		}
-			service.GetEvidenceFolder=function(svc,msg,cb){
+		
+		service.GetEvidenceFolder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -526,7 +552,8 @@ module.exports = function(RED) {
 
 			svc.getEvidenceFolder(params,cb);
 		}
-			service.GetEvidenceFoldersByAssessment=function(svc,msg,cb){
+		
+		service.GetEvidenceFoldersByAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -542,7 +569,8 @@ module.exports = function(RED) {
 
 			svc.getEvidenceFoldersByAssessment(params,cb);
 		}
-			service.GetEvidenceFoldersByAssessmentControl=function(svc,msg,cb){
+		
+		service.GetEvidenceFoldersByAssessmentControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -564,7 +592,8 @@ module.exports = function(RED) {
 
 			svc.getEvidenceFoldersByAssessmentControl(params,cb);
 		}
-			service.GetOrganizationAdminAccount=function(svc,msg,cb){
+		
+		service.GetOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -573,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.getOrganizationAdminAccount(params,cb);
 		}
-			service.GetServicesInScope=function(svc,msg,cb){
+		
+		service.GetServicesInScope=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -582,7 +612,8 @@ module.exports = function(RED) {
 
 			svc.getServicesInScope(params,cb);
 		}
-			service.GetSettings=function(svc,msg,cb){
+		
+		service.GetSettings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"attribute",params,undefined,false); 
@@ -594,7 +625,8 @@ module.exports = function(RED) {
 
 			svc.getSettings(params,cb);
 		}
-			service.ListAssessmentFrameworks=function(svc,msg,cb){
+		
+		service.ListAssessmentFrameworks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"frameworkType",params,undefined,false); 
@@ -610,7 +642,8 @@ module.exports = function(RED) {
 
 			svc.listAssessmentFrameworks(params,cb);
 		}
-			service.ListAssessmentReports=function(svc,msg,cb){
+		
+		service.ListAssessmentReports=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -623,7 +656,8 @@ module.exports = function(RED) {
 
 			svc.listAssessmentReports(params,cb);
 		}
-			service.ListAssessments=function(svc,msg,cb){
+		
+		service.ListAssessments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -636,7 +670,8 @@ module.exports = function(RED) {
 
 			svc.listAssessments(params,cb);
 		}
-			service.ListControls=function(svc,msg,cb){
+		
+		service.ListControls=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"controlType",params,undefined,false); 
@@ -652,7 +687,8 @@ module.exports = function(RED) {
 
 			svc.listControls(params,cb);
 		}
-			service.ListKeywordsForDataSource=function(svc,msg,cb){
+		
+		service.ListKeywordsForDataSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"source",params,undefined,false); 
@@ -668,7 +704,8 @@ module.exports = function(RED) {
 
 			svc.listKeywordsForDataSource(params,cb);
 		}
-			service.ListNotifications=function(svc,msg,cb){
+		
+		service.ListNotifications=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -681,7 +718,8 @@ module.exports = function(RED) {
 
 			svc.listNotifications(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -693,7 +731,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RegisterAccount=function(svc,msg,cb){
+		
+		service.RegisterAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -706,7 +745,8 @@ module.exports = function(RED) {
 
 			svc.registerAccount(params,cb);
 		}
-			service.RegisterOrganizationAdminAccount=function(svc,msg,cb){
+		
+		service.RegisterOrganizationAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"adminAccountId",params,undefined,false); 
@@ -718,7 +758,8 @@ module.exports = function(RED) {
 
 			svc.registerOrganizationAdminAccount(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -733,7 +774,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -748,7 +790,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAssessment=function(svc,msg,cb){
+		
+		service.UpdateAssessment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -771,7 +814,8 @@ module.exports = function(RED) {
 
 			svc.updateAssessment(params,cb);
 		}
-			service.UpdateAssessmentControl=function(svc,msg,cb){
+		
+		service.UpdateAssessmentControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -793,7 +837,8 @@ module.exports = function(RED) {
 
 			svc.updateAssessmentControl(params,cb);
 		}
-			service.UpdateAssessmentControlSetStatus=function(svc,msg,cb){
+		
+		service.UpdateAssessmentControlSetStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -814,7 +859,8 @@ module.exports = function(RED) {
 
 			svc.updateAssessmentControlSetStatus(params,cb);
 		}
-			service.UpdateAssessmentFramework=function(svc,msg,cb){
+		
+		service.UpdateAssessmentFramework=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"frameworkId",params,undefined,false); 
@@ -836,7 +882,8 @@ module.exports = function(RED) {
 
 			svc.updateAssessmentFramework(params,cb);
 		}
-			service.UpdateAssessmentStatus=function(svc,msg,cb){
+		
+		service.UpdateAssessmentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"assessmentId",params,undefined,false); 
@@ -851,7 +898,8 @@ module.exports = function(RED) {
 
 			svc.updateAssessmentStatus(params,cb);
 		}
-			service.UpdateControl=function(svc,msg,cb){
+		
+		service.UpdateControl=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"controlId",params,undefined,false); 
@@ -877,7 +925,8 @@ module.exports = function(RED) {
 
 			svc.updateControl(params,cb);
 		}
-			service.UpdateSettings=function(svc,msg,cb){
+		
+		service.UpdateSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -894,7 +943,8 @@ module.exports = function(RED) {
 
 			svc.updateSettings(params,cb);
 		}
-			service.ValidateAssessmentReportIntegrity=function(svc,msg,cb){
+		
+		service.ValidateAssessmentReportIntegrity=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"s3RelativePath",params,undefined,false); 
@@ -906,6 +956,7 @@ module.exports = function(RED) {
 
 			svc.validateAssessmentReportIntegrity(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS AuditManager", AmazonAPINode);

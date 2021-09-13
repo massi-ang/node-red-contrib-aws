@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchMeterUsage=function(svc,msg,cb){
+		service.BatchMeterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"UsageRecords",params,undefined,true); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.batchMeterUsage(params,cb);
 		}
-			service.MeterUsage=function(svc,msg,cb){
+		
+		service.MeterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductCode",params,undefined,false); 
@@ -132,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.meterUsage(params,cb);
 		}
-			service.RegisterUsage=function(svc,msg,cb){
+		
+		service.RegisterUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductCode",params,undefined,false); 
@@ -149,7 +151,8 @@ module.exports = function(RED) {
 
 			svc.registerUsage(params,cb);
 		}
-			service.ResolveCustomer=function(svc,msg,cb){
+		
+		service.ResolveCustomer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RegistrationToken",params,undefined,false); 
@@ -161,6 +164,7 @@ module.exports = function(RED) {
 
 			svc.resolveCustomer(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MarketplaceMetering", AmazonAPINode);

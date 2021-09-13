@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateAnomalyMonitor=function(svc,msg,cb){
+		service.CreateAnomalyMonitor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyMonitor",params,undefined,true); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.createAnomalyMonitor(params,cb);
 		}
-			service.CreateAnomalySubscription=function(svc,msg,cb){
+		
+		service.CreateAnomalySubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalySubscription",params,undefined,true); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.createAnomalySubscription(params,cb);
 		}
-			service.CreateCostCategoryDefinition=function(svc,msg,cb){
+		
+		service.CreateCostCategoryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -139,7 +141,8 @@ module.exports = function(RED) {
 
 			svc.createCostCategoryDefinition(params,cb);
 		}
-			service.DeleteAnomalyMonitor=function(svc,msg,cb){
+		
+		service.DeleteAnomalyMonitor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MonitorArn",params,undefined,false); 
@@ -151,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.deleteAnomalyMonitor(params,cb);
 		}
-			service.DeleteAnomalySubscription=function(svc,msg,cb){
+		
+		service.DeleteAnomalySubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionArn",params,undefined,false); 
@@ -163,7 +167,8 @@ module.exports = function(RED) {
 
 			svc.deleteAnomalySubscription(params,cb);
 		}
-			service.DeleteCostCategoryDefinition=function(svc,msg,cb){
+		
+		service.DeleteCostCategoryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CostCategoryArn",params,undefined,false); 
@@ -175,7 +180,8 @@ module.exports = function(RED) {
 
 			svc.deleteCostCategoryDefinition(params,cb);
 		}
-			service.DescribeCostCategoryDefinition=function(svc,msg,cb){
+		
+		service.DescribeCostCategoryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CostCategoryArn",params,undefined,false); 
@@ -189,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.describeCostCategoryDefinition(params,cb);
 		}
-			service.GetAnomalies=function(svc,msg,cb){
+		
+		service.GetAnomalies=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DateInterval",params,undefined,false); 
@@ -211,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.getAnomalies(params,cb);
 		}
-			service.GetAnomalyMonitors=function(svc,msg,cb){
+		
+		service.GetAnomalyMonitors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -226,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.getAnomalyMonitors(params,cb);
 		}
-			service.GetAnomalySubscriptions=function(svc,msg,cb){
+		
+		service.GetAnomalySubscriptions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -243,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.getAnomalySubscriptions(params,cb);
 		}
-			service.GetCostAndUsage=function(svc,msg,cb){
+		
+		service.GetCostAndUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -267,7 +277,8 @@ module.exports = function(RED) {
 
 			svc.getCostAndUsage(params,cb);
 		}
-			service.GetCostAndUsageWithResources=function(svc,msg,cb){
+		
+		service.GetCostAndUsageWithResources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -291,7 +302,8 @@ module.exports = function(RED) {
 
 			svc.getCostAndUsageWithResources(params,cb);
 		}
-			service.GetCostCategories=function(svc,msg,cb){
+		
+		service.GetCostCategories=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -315,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.getCostCategories(params,cb);
 		}
-			service.GetCostForecast=function(svc,msg,cb){
+		
+		service.GetCostForecast=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -337,7 +350,8 @@ module.exports = function(RED) {
 
 			svc.getCostForecast(params,cb);
 		}
-			service.GetDimensionValues=function(svc,msg,cb){
+		
+		service.GetDimensionValues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -364,7 +378,8 @@ module.exports = function(RED) {
 
 			svc.getDimensionValues(params,cb);
 		}
-			service.GetReservationCoverage=function(svc,msg,cb){
+		
+		service.GetReservationCoverage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -390,7 +405,8 @@ module.exports = function(RED) {
 
 			svc.getReservationCoverage(params,cb);
 		}
-			service.GetReservationPurchaseRecommendation=function(svc,msg,cb){
+		
+		service.GetReservationPurchaseRecommendation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Service",params,undefined,false); 
@@ -420,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.getReservationPurchaseRecommendation(params,cb);
 		}
-			service.GetReservationUtilization=function(svc,msg,cb){
+		
+		service.GetReservationUtilization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -444,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.getReservationUtilization(params,cb);
 		}
-			service.GetRightsizingRecommendation=function(svc,msg,cb){
+		
+		service.GetRightsizingRecommendation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Service",params,undefined,false); 
@@ -464,7 +482,8 @@ module.exports = function(RED) {
 
 			svc.getRightsizingRecommendation(params,cb);
 		}
-			service.GetSavingsPlansCoverage=function(svc,msg,cb){
+		
+		service.GetSavingsPlansCoverage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -490,7 +509,8 @@ module.exports = function(RED) {
 
 			svc.getSavingsPlansCoverage(params,cb);
 		}
-			service.GetSavingsPlansPurchaseRecommendation=function(svc,msg,cb){
+		
+		service.GetSavingsPlansPurchaseRecommendation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SavingsPlansType",params,undefined,false); 
@@ -519,7 +539,8 @@ module.exports = function(RED) {
 
 			svc.getSavingsPlansPurchaseRecommendation(params,cb);
 		}
-			service.GetSavingsPlansUtilization=function(svc,msg,cb){
+		
+		service.GetSavingsPlansUtilization=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -537,7 +558,8 @@ module.exports = function(RED) {
 
 			svc.getSavingsPlansUtilization(params,cb);
 		}
-			service.GetSavingsPlansUtilizationDetails=function(svc,msg,cb){
+		
+		service.GetSavingsPlansUtilizationDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -559,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.getSavingsPlansUtilizationDetails(params,cb);
 		}
-			service.GetTags=function(svc,msg,cb){
+		
+		service.GetTags=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -583,7 +606,8 @@ module.exports = function(RED) {
 
 			svc.getTags(params,cb);
 		}
-			service.GetUsageForecast=function(svc,msg,cb){
+		
+		service.GetUsageForecast=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TimePeriod",params,undefined,true); 
@@ -605,7 +629,8 @@ module.exports = function(RED) {
 
 			svc.getUsageForecast(params,cb);
 		}
-			service.ListCostCategoryDefinitions=function(svc,msg,cb){
+		
+		service.ListCostCategoryDefinitions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -620,7 +645,8 @@ module.exports = function(RED) {
 
 			svc.listCostCategoryDefinitions(params,cb);
 		}
-			service.ProvideAnomalyFeedback=function(svc,msg,cb){
+		
+		service.ProvideAnomalyFeedback=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AnomalyId",params,undefined,false); 
@@ -635,7 +661,8 @@ module.exports = function(RED) {
 
 			svc.provideAnomalyFeedback(params,cb);
 		}
-			service.UpdateAnomalyMonitor=function(svc,msg,cb){
+		
+		service.UpdateAnomalyMonitor=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"MonitorArn",params,undefined,false); 
@@ -649,7 +676,8 @@ module.exports = function(RED) {
 
 			svc.updateAnomalyMonitor(params,cb);
 		}
-			service.UpdateAnomalySubscription=function(svc,msg,cb){
+		
+		service.UpdateAnomalySubscription=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubscriptionArn",params,undefined,false); 
@@ -671,7 +699,8 @@ module.exports = function(RED) {
 
 			svc.updateAnomalySubscription(params,cb);
 		}
-			service.UpdateCostCategoryDefinition=function(svc,msg,cb){
+		
+		service.UpdateCostCategoryDefinition=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CostCategoryArn",params,undefined,false); 
@@ -693,6 +722,7 @@ module.exports = function(RED) {
 
 			svc.updateCostCategoryDefinition(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CostExplorer", AmazonAPINode);

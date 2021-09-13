@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateChannel=function(svc,msg,cb){
+		service.CreateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -115,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.createChannel(params,cb);
 		}
-			service.CreateProgram=function(svc,msg,cb){
+		
+		service.CreateProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -141,7 +142,8 @@ module.exports = function(RED) {
 
 			svc.createProgram(params,cb);
 		}
-			service.CreateSourceLocation=function(svc,msg,cb){
+		
+		service.CreateSourceLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -162,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.createSourceLocation(params,cb);
 		}
-			service.CreateVodSource=function(svc,msg,cb){
+		
+		service.CreateVodSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -182,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.createVodSource(params,cb);
 		}
-			service.DeleteChannel=function(svc,msg,cb){
+		
+		service.DeleteChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -194,7 +198,8 @@ module.exports = function(RED) {
 
 			svc.deleteChannel(params,cb);
 		}
-			service.DeleteChannelPolicy=function(svc,msg,cb){
+		
+		service.DeleteChannelPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -206,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.deleteChannelPolicy(params,cb);
 		}
-			service.DeletePlaybackConfiguration=function(svc,msg,cb){
+		
+		service.DeletePlaybackConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -218,7 +224,8 @@ module.exports = function(RED) {
 
 			svc.deletePlaybackConfiguration(params,cb);
 		}
-			service.DeleteProgram=function(svc,msg,cb){
+		
+		service.DeleteProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -233,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.deleteProgram(params,cb);
 		}
-			service.DeleteSourceLocation=function(svc,msg,cb){
+		
+		service.DeleteSourceLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -245,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.deleteSourceLocation(params,cb);
 		}
-			service.DeleteVodSource=function(svc,msg,cb){
+		
+		service.DeleteVodSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -260,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.deleteVodSource(params,cb);
 		}
-			service.DescribeChannel=function(svc,msg,cb){
+		
+		service.DescribeChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -272,7 +282,8 @@ module.exports = function(RED) {
 
 			svc.describeChannel(params,cb);
 		}
-			service.DescribeProgram=function(svc,msg,cb){
+		
+		service.DescribeProgram=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -287,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.describeProgram(params,cb);
 		}
-			service.DescribeSourceLocation=function(svc,msg,cb){
+		
+		service.DescribeSourceLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -299,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.describeSourceLocation(params,cb);
 		}
-			service.DescribeVodSource=function(svc,msg,cb){
+		
+		service.DescribeVodSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -314,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.describeVodSource(params,cb);
 		}
-			service.GetChannelPolicy=function(svc,msg,cb){
+		
+		service.GetChannelPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -326,7 +340,8 @@ module.exports = function(RED) {
 
 			svc.getChannelPolicy(params,cb);
 		}
-			service.GetChannelSchedule=function(svc,msg,cb){
+		
+		service.GetChannelSchedule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -344,7 +359,8 @@ module.exports = function(RED) {
 
 			svc.getChannelSchedule(params,cb);
 		}
-			service.GetPlaybackConfiguration=function(svc,msg,cb){
+		
+		service.GetPlaybackConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -356,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.getPlaybackConfiguration(params,cb);
 		}
-			service.ListAlerts=function(svc,msg,cb){
+		
+		service.ListAlerts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -372,7 +389,8 @@ module.exports = function(RED) {
 
 			svc.listAlerts(params,cb);
 		}
-			service.ListChannels=function(svc,msg,cb){
+		
+		service.ListChannels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -385,7 +403,8 @@ module.exports = function(RED) {
 
 			svc.listChannels(params,cb);
 		}
-			service.ListPlaybackConfigurations=function(svc,msg,cb){
+		
+		service.ListPlaybackConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -398,7 +417,8 @@ module.exports = function(RED) {
 
 			svc.listPlaybackConfigurations(params,cb);
 		}
-			service.ListSourceLocations=function(svc,msg,cb){
+		
+		service.ListSourceLocations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -411,7 +431,8 @@ module.exports = function(RED) {
 
 			svc.listSourceLocations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -423,7 +444,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListVodSources=function(svc,msg,cb){
+		
+		service.ListVodSources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -439,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.listVodSources(params,cb);
 		}
-			service.PutChannelPolicy=function(svc,msg,cb){
+		
+		service.PutChannelPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -454,7 +477,8 @@ module.exports = function(RED) {
 
 			svc.putChannelPolicy(params,cb);
 		}
-			service.PutPlaybackConfiguration=function(svc,msg,cb){
+		
+		service.PutPlaybackConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -491,7 +515,8 @@ module.exports = function(RED) {
 
 			svc.putPlaybackConfiguration(params,cb);
 		}
-			service.StartChannel=function(svc,msg,cb){
+		
+		service.StartChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -503,7 +528,8 @@ module.exports = function(RED) {
 
 			svc.startChannel(params,cb);
 		}
-			service.StopChannel=function(svc,msg,cb){
+		
+		service.StopChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -515,7 +541,8 @@ module.exports = function(RED) {
 
 			svc.stopChannel(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -530,7 +557,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -545,7 +573,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateChannel=function(svc,msg,cb){
+		
+		service.UpdateChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -560,7 +589,8 @@ module.exports = function(RED) {
 
 			svc.updateChannel(params,cb);
 		}
-			service.UpdateSourceLocation=function(svc,msg,cb){
+		
+		service.UpdateSourceLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -579,7 +609,8 @@ module.exports = function(RED) {
 
 			svc.updateSourceLocation(params,cb);
 		}
-			service.UpdateVodSource=function(svc,msg,cb){
+		
+		service.UpdateVodSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationName",params,undefined,false); 
@@ -597,6 +628,7 @@ module.exports = function(RED) {
 
 			svc.updateVodSource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MediaTailor", AmazonAPINode);

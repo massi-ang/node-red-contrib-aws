@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.ActivateEventSource=function(svc,msg,cb){
+		service.ActivateEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.activateEventSource(params,cb);
 		}
-			service.CancelReplay=function(svc,msg,cb){
+		
+		service.CancelReplay=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplayName",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.cancelReplay(params,cb);
 		}
-			service.CreateApiDestination=function(svc,msg,cb){
+		
+		service.CreateApiDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -142,7 +144,8 @@ module.exports = function(RED) {
 
 			svc.createApiDestination(params,cb);
 		}
-			service.CreateArchive=function(svc,msg,cb){
+		
+		service.CreateArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ArchiveName",params,undefined,false); 
@@ -163,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.createArchive(params,cb);
 		}
-			service.CreateConnection=function(svc,msg,cb){
+		
+		service.CreateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -183,7 +187,8 @@ module.exports = function(RED) {
 
 			svc.createConnection(params,cb);
 		}
-			service.CreateEventBus=function(svc,msg,cb){
+		
+		service.CreateEventBus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -199,7 +204,8 @@ module.exports = function(RED) {
 
 			svc.createEventBus(params,cb);
 		}
-			service.CreatePartnerEventSource=function(svc,msg,cb){
+		
+		service.CreatePartnerEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -214,7 +220,8 @@ module.exports = function(RED) {
 
 			svc.createPartnerEventSource(params,cb);
 		}
-			service.DeactivateEventSource=function(svc,msg,cb){
+		
+		service.DeactivateEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -226,7 +233,8 @@ module.exports = function(RED) {
 
 			svc.deactivateEventSource(params,cb);
 		}
-			service.DeauthorizeConnection=function(svc,msg,cb){
+		
+		service.DeauthorizeConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -238,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.deauthorizeConnection(params,cb);
 		}
-			service.DeleteApiDestination=function(svc,msg,cb){
+		
+		service.DeleteApiDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -250,7 +259,8 @@ module.exports = function(RED) {
 
 			svc.deleteApiDestination(params,cb);
 		}
-			service.DeleteArchive=function(svc,msg,cb){
+		
+		service.DeleteArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ArchiveName",params,undefined,false); 
@@ -262,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.deleteArchive(params,cb);
 		}
-			service.DeleteConnection=function(svc,msg,cb){
+		
+		service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -274,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-			service.DeleteEventBus=function(svc,msg,cb){
+		
+		service.DeleteEventBus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -286,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.deleteEventBus(params,cb);
 		}
-			service.DeletePartnerEventSource=function(svc,msg,cb){
+		
+		service.DeletePartnerEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -301,7 +314,8 @@ module.exports = function(RED) {
 
 			svc.deletePartnerEventSource(params,cb);
 		}
-			service.DeleteRule=function(svc,msg,cb){
+		
+		service.DeleteRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -317,7 +331,8 @@ module.exports = function(RED) {
 
 			svc.deleteRule(params,cb);
 		}
-			service.DescribeApiDestination=function(svc,msg,cb){
+		
+		service.DescribeApiDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -329,7 +344,8 @@ module.exports = function(RED) {
 
 			svc.describeApiDestination(params,cb);
 		}
-			service.DescribeArchive=function(svc,msg,cb){
+		
+		service.DescribeArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ArchiveName",params,undefined,false); 
@@ -341,7 +357,8 @@ module.exports = function(RED) {
 
 			svc.describeArchive(params,cb);
 		}
-			service.DescribeConnection=function(svc,msg,cb){
+		
+		service.DescribeConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -353,7 +370,8 @@ module.exports = function(RED) {
 
 			svc.describeConnection(params,cb);
 		}
-			service.DescribeEventBus=function(svc,msg,cb){
+		
+		service.DescribeEventBus=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -364,7 +382,8 @@ module.exports = function(RED) {
 
 			svc.describeEventBus(params,cb);
 		}
-			service.DescribeEventSource=function(svc,msg,cb){
+		
+		service.DescribeEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -376,7 +395,8 @@ module.exports = function(RED) {
 
 			svc.describeEventSource(params,cb);
 		}
-			service.DescribePartnerEventSource=function(svc,msg,cb){
+		
+		service.DescribePartnerEventSource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -388,7 +408,8 @@ module.exports = function(RED) {
 
 			svc.describePartnerEventSource(params,cb);
 		}
-			service.DescribeReplay=function(svc,msg,cb){
+		
+		service.DescribeReplay=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplayName",params,undefined,false); 
@@ -400,7 +421,8 @@ module.exports = function(RED) {
 
 			svc.describeReplay(params,cb);
 		}
-			service.DescribeRule=function(svc,msg,cb){
+		
+		service.DescribeRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -414,7 +436,8 @@ module.exports = function(RED) {
 
 			svc.describeRule(params,cb);
 		}
-			service.DisableRule=function(svc,msg,cb){
+		
+		service.DisableRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -428,7 +451,8 @@ module.exports = function(RED) {
 
 			svc.disableRule(params,cb);
 		}
-			service.EnableRule=function(svc,msg,cb){
+		
+		service.EnableRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -442,7 +466,8 @@ module.exports = function(RED) {
 
 			svc.enableRule(params,cb);
 		}
-			service.ListApiDestinations=function(svc,msg,cb){
+		
+		service.ListApiDestinations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -459,7 +484,8 @@ module.exports = function(RED) {
 
 			svc.listApiDestinations(params,cb);
 		}
-			service.ListArchives=function(svc,msg,cb){
+		
+		service.ListArchives=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -478,7 +504,8 @@ module.exports = function(RED) {
 
 			svc.listArchives(params,cb);
 		}
-			service.ListConnections=function(svc,msg,cb){
+		
+		service.ListConnections=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -495,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.listConnections(params,cb);
 		}
-			service.ListEventBuses=function(svc,msg,cb){
+		
+		service.ListEventBuses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -510,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.listEventBuses(params,cb);
 		}
-			service.ListEventSources=function(svc,msg,cb){
+		
+		service.ListEventSources=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -525,7 +554,8 @@ module.exports = function(RED) {
 
 			svc.listEventSources(params,cb);
 		}
-			service.ListPartnerEventSourceAccounts=function(svc,msg,cb){
+		
+		service.ListPartnerEventSourceAccounts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EventSourceName",params,undefined,false); 
@@ -541,7 +571,8 @@ module.exports = function(RED) {
 
 			svc.listPartnerEventSourceAccounts(params,cb);
 		}
-			service.ListPartnerEventSources=function(svc,msg,cb){
+		
+		service.ListPartnerEventSources=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"NamePrefix",params,undefined,false); 
@@ -557,7 +588,8 @@ module.exports = function(RED) {
 
 			svc.listPartnerEventSources(params,cb);
 		}
-			service.ListReplays=function(svc,msg,cb){
+		
+		service.ListReplays=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -576,7 +608,8 @@ module.exports = function(RED) {
 
 			svc.listReplays(params,cb);
 		}
-			service.ListRuleNamesByTarget=function(svc,msg,cb){
+		
+		service.ListRuleNamesByTarget=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TargetArn",params,undefined,false); 
@@ -594,7 +627,8 @@ module.exports = function(RED) {
 
 			svc.listRuleNamesByTarget(params,cb);
 		}
-			service.ListRules=function(svc,msg,cb){
+		
+		service.ListRules=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -611,7 +645,8 @@ module.exports = function(RED) {
 
 			svc.listRules(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -623,7 +658,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTargetsByRule=function(svc,msg,cb){
+		
+		service.ListTargetsByRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Rule",params,undefined,false); 
@@ -641,7 +677,8 @@ module.exports = function(RED) {
 
 			svc.listTargetsByRule(params,cb);
 		}
-			service.PutEvents=function(svc,msg,cb){
+		
+		service.PutEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Entries",params,undefined,false); 
@@ -653,7 +690,8 @@ module.exports = function(RED) {
 
 			svc.putEvents(params,cb);
 		}
-			service.PutPartnerEvents=function(svc,msg,cb){
+		
+		service.PutPartnerEvents=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Entries",params,undefined,false); 
@@ -665,7 +703,8 @@ module.exports = function(RED) {
 
 			svc.putPartnerEvents(params,cb);
 		}
-			service.PutPermission=function(svc,msg,cb){
+		
+		service.PutPermission=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -686,7 +725,8 @@ module.exports = function(RED) {
 
 			svc.putPermission(params,cb);
 		}
-			service.PutRule=function(svc,msg,cb){
+		
+		service.PutRule=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -712,7 +752,8 @@ module.exports = function(RED) {
 
 			svc.putRule(params,cb);
 		}
-			service.PutTargets=function(svc,msg,cb){
+		
+		service.PutTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Rule",params,undefined,false); 
@@ -729,7 +770,8 @@ module.exports = function(RED) {
 
 			svc.putTargets(params,cb);
 		}
-			service.RemovePermission=function(svc,msg,cb){
+		
+		service.RemovePermission=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -744,7 +786,8 @@ module.exports = function(RED) {
 
 			svc.removePermission(params,cb);
 		}
-			service.RemoveTargets=function(svc,msg,cb){
+		
+		service.RemoveTargets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Rule",params,undefined,false); 
@@ -763,7 +806,8 @@ module.exports = function(RED) {
 
 			svc.removeTargets(params,cb);
 		}
-			service.StartReplay=function(svc,msg,cb){
+		
+		service.StartReplay=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReplayName",params,undefined,false); 
@@ -789,7 +833,8 @@ module.exports = function(RED) {
 
 			svc.startReplay(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -804,7 +849,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TestEventPattern=function(svc,msg,cb){
+		
+		service.TestEventPattern=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EventPattern",params,undefined,false); 
@@ -819,7 +865,8 @@ module.exports = function(RED) {
 
 			svc.testEventPattern(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -834,7 +881,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateApiDestination=function(svc,msg,cb){
+		
+		service.UpdateApiDestination=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -856,7 +904,8 @@ module.exports = function(RED) {
 
 			svc.updateApiDestination(params,cb);
 		}
-			service.UpdateArchive=function(svc,msg,cb){
+		
+		service.UpdateArchive=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ArchiveName",params,undefined,false); 
@@ -874,7 +923,8 @@ module.exports = function(RED) {
 
 			svc.updateArchive(params,cb);
 		}
-			service.UpdateConnection=function(svc,msg,cb){
+		
+		service.UpdateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -892,6 +942,7 @@ module.exports = function(RED) {
 
 			svc.updateConnection(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudWatchEvents", AmazonAPINode);

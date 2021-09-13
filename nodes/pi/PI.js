@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeDimensionKeys=function(svc,msg,cb){
+		service.DescribeDimensionKeys=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -130,7 +130,8 @@ module.exports = function(RED) {
 
 			svc.describeDimensionKeys(params,cb);
 		}
-			service.GetDimensionKeyDetails=function(svc,msg,cb){
+		
+		service.GetDimensionKeyDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -153,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.getDimensionKeyDetails(params,cb);
 		}
-			service.GetResourceMetrics=function(svc,msg,cb){
+		
+		service.GetResourceMetrics=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceType",params,undefined,false); 
@@ -183,6 +185,7 @@ module.exports = function(RED) {
 
 			svc.getResourceMetrics(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS PI", AmazonAPINode);

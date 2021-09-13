@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelCluster=function(svc,msg,cb){
+		service.CancelCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelCluster(params,cb);
 		}
-			service.CancelJob=function(svc,msg,cb){
+		
+		service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-			service.CreateAddress=function(svc,msg,cb){
+		
+		service.CreateAddress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Address",params,undefined,true); 
@@ -129,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.createAddress(params,cb);
 		}
-			service.CreateCluster=function(svc,msg,cb){
+		
+		service.CreateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobType",params,undefined,false); 
@@ -170,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.createCluster(params,cb);
 		}
-			service.CreateJob=function(svc,msg,cb){
+		
+		service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -213,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-			service.CreateLongTermPricing=function(svc,msg,cb){
+		
+		service.CreateLongTermPricing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LongTermPricingType",params,undefined,false); 
@@ -229,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.createLongTermPricing(params,cb);
 		}
-			service.CreateReturnShippingLabel=function(svc,msg,cb){
+		
+		service.CreateReturnShippingLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -243,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.createReturnShippingLabel(params,cb);
 		}
-			service.DescribeAddress=function(svc,msg,cb){
+		
+		service.DescribeAddress=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AddressId",params,undefined,false); 
@@ -255,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.describeAddress(params,cb);
 		}
-			service.DescribeAddresses=function(svc,msg,cb){
+		
+		service.DescribeAddresses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -268,7 +276,8 @@ module.exports = function(RED) {
 
 			svc.describeAddresses(params,cb);
 		}
-			service.DescribeCluster=function(svc,msg,cb){
+		
+		service.DescribeCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -280,7 +289,8 @@ module.exports = function(RED) {
 
 			svc.describeCluster(params,cb);
 		}
-			service.DescribeJob=function(svc,msg,cb){
+		
+		service.DescribeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -292,7 +302,8 @@ module.exports = function(RED) {
 
 			svc.describeJob(params,cb);
 		}
-			service.DescribeReturnShippingLabel=function(svc,msg,cb){
+		
+		service.DescribeReturnShippingLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -304,7 +315,8 @@ module.exports = function(RED) {
 
 			svc.describeReturnShippingLabel(params,cb);
 		}
-			service.GetJobManifest=function(svc,msg,cb){
+		
+		service.GetJobManifest=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -316,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.getJobManifest(params,cb);
 		}
-			service.GetJobUnlockCode=function(svc,msg,cb){
+		
+		service.GetJobUnlockCode=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -328,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.getJobUnlockCode(params,cb);
 		}
-			service.GetSnowballUsage=function(svc,msg,cb){
+		
+		service.GetSnowballUsage=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -337,7 +351,8 @@ module.exports = function(RED) {
 
 			svc.getSnowballUsage(params,cb);
 		}
-			service.GetSoftwareUpdates=function(svc,msg,cb){
+		
+		service.GetSoftwareUpdates=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -349,7 +364,8 @@ module.exports = function(RED) {
 
 			svc.getSoftwareUpdates(params,cb);
 		}
-			service.ListClusterJobs=function(svc,msg,cb){
+		
+		service.ListClusterJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -365,7 +381,8 @@ module.exports = function(RED) {
 
 			svc.listClusterJobs(params,cb);
 		}
-			service.ListClusters=function(svc,msg,cb){
+		
+		service.ListClusters=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -378,7 +395,8 @@ module.exports = function(RED) {
 
 			svc.listClusters(params,cb);
 		}
-			service.ListCompatibleImages=function(svc,msg,cb){
+		
+		service.ListCompatibleImages=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -391,7 +409,8 @@ module.exports = function(RED) {
 
 			svc.listCompatibleImages(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -404,7 +423,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListLongTermPricing=function(svc,msg,cb){
+		
+		service.ListLongTermPricing=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -417,7 +437,8 @@ module.exports = function(RED) {
 
 			svc.listLongTermPricing(params,cb);
 		}
-			service.UpdateCluster=function(svc,msg,cb){
+		
+		service.UpdateCluster=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClusterId",params,undefined,false); 
@@ -445,7 +466,8 @@ module.exports = function(RED) {
 
 			svc.updateCluster(params,cb);
 		}
-			service.UpdateJob=function(svc,msg,cb){
+		
+		service.UpdateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -475,7 +497,8 @@ module.exports = function(RED) {
 
 			svc.updateJob(params,cb);
 		}
-			service.UpdateJobShipmentState=function(svc,msg,cb){
+		
+		service.UpdateJobShipmentState=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -490,7 +513,8 @@ module.exports = function(RED) {
 
 			svc.updateJobShipmentState(params,cb);
 		}
-			service.UpdateLongTermPricing=function(svc,msg,cb){
+		
+		service.UpdateLongTermPricing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LongTermPricingId",params,undefined,false); 
@@ -506,6 +530,7 @@ module.exports = function(RED) {
 
 			svc.updateLongTermPricing(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Snowball", AmazonAPINode);

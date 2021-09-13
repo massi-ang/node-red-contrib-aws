@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateCustomerGateway=function(svc,msg,cb){
+		service.AssociateCustomerGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CustomerGatewayArn",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.associateCustomerGateway(params,cb);
 		}
-			service.AssociateLink=function(svc,msg,cb){
+		
+		service.AssociateLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -131,7 +132,8 @@ module.exports = function(RED) {
 
 			svc.associateLink(params,cb);
 		}
-			service.AssociateTransitGatewayConnectPeer=function(svc,msg,cb){
+		
+		service.AssociateTransitGatewayConnectPeer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -151,7 +153,8 @@ module.exports = function(RED) {
 
 			svc.associateTransitGatewayConnectPeer(params,cb);
 		}
-			service.CreateConnection=function(svc,msg,cb){
+		
+		service.CreateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -177,7 +180,8 @@ module.exports = function(RED) {
 
 			svc.createConnection(params,cb);
 		}
-			service.CreateDevice=function(svc,msg,cb){
+		
+		service.CreateDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -207,7 +211,8 @@ module.exports = function(RED) {
 
 			svc.createDevice(params,cb);
 		}
-			service.CreateGlobalNetwork=function(svc,msg,cb){
+		
+		service.CreateGlobalNetwork=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -220,7 +225,8 @@ module.exports = function(RED) {
 
 			svc.createGlobalNetwork(params,cb);
 		}
-			service.CreateLink=function(svc,msg,cb){
+		
+		service.CreateLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -246,7 +252,8 @@ module.exports = function(RED) {
 
 			svc.createLink(params,cb);
 		}
-			service.CreateSite=function(svc,msg,cb){
+		
+		service.CreateSite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -264,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.createSite(params,cb);
 		}
-			service.DeleteConnection=function(svc,msg,cb){
+		
+		service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -279,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-			service.DeleteDevice=function(svc,msg,cb){
+		
+		service.DeleteDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -294,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.deleteDevice(params,cb);
 		}
-			service.DeleteGlobalNetwork=function(svc,msg,cb){
+		
+		service.DeleteGlobalNetwork=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -306,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.deleteGlobalNetwork(params,cb);
 		}
-			service.DeleteLink=function(svc,msg,cb){
+		
+		service.DeleteLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -321,7 +332,8 @@ module.exports = function(RED) {
 
 			svc.deleteLink(params,cb);
 		}
-			service.DeleteSite=function(svc,msg,cb){
+		
+		service.DeleteSite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -336,7 +348,8 @@ module.exports = function(RED) {
 
 			svc.deleteSite(params,cb);
 		}
-			service.DeregisterTransitGateway=function(svc,msg,cb){
+		
+		service.DeregisterTransitGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -351,7 +364,8 @@ module.exports = function(RED) {
 
 			svc.deregisterTransitGateway(params,cb);
 		}
-			service.DescribeGlobalNetworks=function(svc,msg,cb){
+		
+		service.DescribeGlobalNetworks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -366,7 +380,8 @@ module.exports = function(RED) {
 
 			svc.describeGlobalNetworks(params,cb);
 		}
-			service.DisassociateCustomerGateway=function(svc,msg,cb){
+		
+		service.DisassociateCustomerGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -381,7 +396,8 @@ module.exports = function(RED) {
 
 			svc.disassociateCustomerGateway(params,cb);
 		}
-			service.DisassociateLink=function(svc,msg,cb){
+		
+		service.DisassociateLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -399,7 +415,8 @@ module.exports = function(RED) {
 
 			svc.disassociateLink(params,cb);
 		}
-			service.DisassociateTransitGatewayConnectPeer=function(svc,msg,cb){
+		
+		service.DisassociateTransitGatewayConnectPeer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -414,7 +431,8 @@ module.exports = function(RED) {
 
 			svc.disassociateTransitGatewayConnectPeer(params,cb);
 		}
-			service.GetConnections=function(svc,msg,cb){
+		
+		service.GetConnections=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -434,7 +452,8 @@ module.exports = function(RED) {
 
 			svc.getConnections(params,cb);
 		}
-			service.GetCustomerGatewayAssociations=function(svc,msg,cb){
+		
+		service.GetCustomerGatewayAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -452,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.getCustomerGatewayAssociations(params,cb);
 		}
-			service.GetDevices=function(svc,msg,cb){
+		
+		service.GetDevices=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -472,7 +492,8 @@ module.exports = function(RED) {
 
 			svc.getDevices(params,cb);
 		}
-			service.GetLinkAssociations=function(svc,msg,cb){
+		
+		service.GetLinkAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -492,7 +513,8 @@ module.exports = function(RED) {
 
 			svc.getLinkAssociations(params,cb);
 		}
-			service.GetLinks=function(svc,msg,cb){
+		
+		service.GetLinks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -516,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.getLinks(params,cb);
 		}
-			service.GetSites=function(svc,msg,cb){
+		
+		service.GetSites=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -534,7 +557,8 @@ module.exports = function(RED) {
 
 			svc.getSites(params,cb);
 		}
-			service.GetTransitGatewayConnectPeerAssociations=function(svc,msg,cb){
+		
+		service.GetTransitGatewayConnectPeerAssociations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -552,7 +576,8 @@ module.exports = function(RED) {
 
 			svc.getTransitGatewayConnectPeerAssociations(params,cb);
 		}
-			service.GetTransitGatewayRegistrations=function(svc,msg,cb){
+		
+		service.GetTransitGatewayRegistrations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -570,7 +595,8 @@ module.exports = function(RED) {
 
 			svc.getTransitGatewayRegistrations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -582,7 +608,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.RegisterTransitGateway=function(svc,msg,cb){
+		
+		service.RegisterTransitGateway=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -597,7 +624,8 @@ module.exports = function(RED) {
 
 			svc.registerTransitGateway(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -612,7 +640,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -627,7 +656,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateConnection=function(svc,msg,cb){
+		
+		service.UpdateConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -648,7 +678,8 @@ module.exports = function(RED) {
 
 			svc.updateConnection(params,cb);
 		}
-			service.UpdateDevice=function(svc,msg,cb){
+		
+		service.UpdateDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -679,7 +710,8 @@ module.exports = function(RED) {
 
 			svc.updateDevice(params,cb);
 		}
-			service.UpdateGlobalNetwork=function(svc,msg,cb){
+		
+		service.UpdateGlobalNetwork=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -693,7 +725,8 @@ module.exports = function(RED) {
 
 			svc.updateGlobalNetwork(params,cb);
 		}
-			service.UpdateLink=function(svc,msg,cb){
+		
+		service.UpdateLink=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -716,7 +749,8 @@ module.exports = function(RED) {
 
 			svc.updateLink(params,cb);
 		}
-			service.UpdateSite=function(svc,msg,cb){
+		
+		service.UpdateSite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GlobalNetworkId",params,undefined,false); 
@@ -735,6 +769,7 @@ module.exports = function(RED) {
 
 			svc.updateSite(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS NetworkManager", AmazonAPINode);

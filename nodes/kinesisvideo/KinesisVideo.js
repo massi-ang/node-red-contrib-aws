@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateSignalingChannel=function(svc,msg,cb){
+		service.CreateSignalingChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelName",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.createSignalingChannel(params,cb);
 		}
-			service.CreateStream=function(svc,msg,cb){
+		
+		service.CreateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamName",params,undefined,false); 
@@ -133,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.createStream(params,cb);
 		}
-			service.DeleteSignalingChannel=function(svc,msg,cb){
+		
+		service.DeleteSignalingChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelARN",params,undefined,false); 
@@ -147,7 +149,8 @@ module.exports = function(RED) {
 
 			svc.deleteSignalingChannel(params,cb);
 		}
-			service.DeleteStream=function(svc,msg,cb){
+		
+		service.DeleteStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"StreamARN",params,undefined,false); 
@@ -161,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.deleteStream(params,cb);
 		}
-			service.DescribeSignalingChannel=function(svc,msg,cb){
+		
+		service.DescribeSignalingChannel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -174,7 +178,8 @@ module.exports = function(RED) {
 
 			svc.describeSignalingChannel(params,cb);
 		}
-			service.DescribeStream=function(svc,msg,cb){
+		
+		service.DescribeStream=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -187,7 +192,8 @@ module.exports = function(RED) {
 
 			svc.describeStream(params,cb);
 		}
-			service.GetDataEndpoint=function(svc,msg,cb){
+		
+		service.GetDataEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"APIName",params,undefined,false); 
@@ -203,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.getDataEndpoint(params,cb);
 		}
-			service.GetSignalingChannelEndpoint=function(svc,msg,cb){
+		
+		service.GetSignalingChannelEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelARN",params,undefined,false); 
@@ -217,7 +224,8 @@ module.exports = function(RED) {
 
 			svc.getSignalingChannelEndpoint(params,cb);
 		}
-			service.ListSignalingChannels=function(svc,msg,cb){
+		
+		service.ListSignalingChannels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -232,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.listSignalingChannels(params,cb);
 		}
-			service.ListStreams=function(svc,msg,cb){
+		
+		service.ListStreams=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -247,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.listStreams(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -261,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTagsForStream=function(svc,msg,cb){
+		
+		service.ListTagsForStream=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -276,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForStream(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -291,7 +303,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TagStream=function(svc,msg,cb){
+		
+		service.TagStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Tags",params,undefined,true); 
@@ -307,7 +320,8 @@ module.exports = function(RED) {
 
 			svc.tagStream(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -322,7 +336,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UntagStream=function(svc,msg,cb){
+		
+		service.UntagStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TagKeyList",params,undefined,true); 
@@ -338,7 +353,8 @@ module.exports = function(RED) {
 
 			svc.untagStream(params,cb);
 		}
-			service.UpdateDataRetention=function(svc,msg,cb){
+		
+		service.UpdateDataRetention=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CurrentVersion",params,undefined,false); 
@@ -360,7 +376,8 @@ module.exports = function(RED) {
 
 			svc.updateDataRetention(params,cb);
 		}
-			service.UpdateSignalingChannel=function(svc,msg,cb){
+		
+		service.UpdateSignalingChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ChannelARN",params,undefined,false); 
@@ -377,7 +394,8 @@ module.exports = function(RED) {
 
 			svc.updateSignalingChannel(params,cb);
 		}
-			service.UpdateStream=function(svc,msg,cb){
+		
+		service.UpdateStream=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"CurrentVersion",params,undefined,false); 
@@ -397,6 +415,7 @@ module.exports = function(RED) {
 
 			svc.updateStream(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS KinesisVideo", AmazonAPINode);

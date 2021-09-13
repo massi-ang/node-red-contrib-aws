@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AddTagsToResource=function(svc,msg,cb){
+		service.AddTagsToResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.addTagsToResource(params,cb);
 		}
-			service.CreateHapg=function(svc,msg,cb){
+		
+		service.CreateHapg=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Label",params,undefined,false); 
@@ -120,7 +121,8 @@ module.exports = function(RED) {
 
 			svc.createHapg(params,cb);
 		}
-			service.CreateHsm=function(svc,msg,cb){
+		
+		service.CreateHsm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SubnetId",params,undefined,false); 
@@ -149,7 +151,8 @@ module.exports = function(RED) {
 
 			svc.createHsm(params,cb);
 		}
-			service.CreateLunaClient=function(svc,msg,cb){
+		
+		service.CreateLunaClient=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Certificate",params,undefined,false); 
@@ -163,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.createLunaClient(params,cb);
 		}
-			service.DeleteHapg=function(svc,msg,cb){
+		
+		service.DeleteHapg=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HapgArn",params,undefined,false); 
@@ -175,7 +179,8 @@ module.exports = function(RED) {
 
 			svc.deleteHapg(params,cb);
 		}
-			service.DeleteHsm=function(svc,msg,cb){
+		
+		service.DeleteHsm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmArn",params,undefined,false); 
@@ -187,7 +192,8 @@ module.exports = function(RED) {
 
 			svc.deleteHsm(params,cb);
 		}
-			service.DeleteLunaClient=function(svc,msg,cb){
+		
+		service.DeleteLunaClient=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientArn",params,undefined,false); 
@@ -199,7 +205,8 @@ module.exports = function(RED) {
 
 			svc.deleteLunaClient(params,cb);
 		}
-			service.DescribeHapg=function(svc,msg,cb){
+		
+		service.DescribeHapg=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HapgArn",params,undefined,false); 
@@ -211,7 +218,8 @@ module.exports = function(RED) {
 
 			svc.describeHapg(params,cb);
 		}
-			service.DescribeHsm=function(svc,msg,cb){
+		
+		service.DescribeHsm=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -224,7 +232,8 @@ module.exports = function(RED) {
 
 			svc.describeHsm(params,cb);
 		}
-			service.DescribeLunaClient=function(svc,msg,cb){
+		
+		service.DescribeLunaClient=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -237,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.describeLunaClient(params,cb);
 		}
-			service.GetConfig=function(svc,msg,cb){
+		
+		service.GetConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientArn",params,undefined,false); 
@@ -255,7 +265,8 @@ module.exports = function(RED) {
 
 			svc.getConfig(params,cb);
 		}
-			service.ListAvailableZones=function(svc,msg,cb){
+		
+		service.ListAvailableZones=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -264,7 +275,8 @@ module.exports = function(RED) {
 
 			svc.listAvailableZones(params,cb);
 		}
-			service.ListHapgs=function(svc,msg,cb){
+		
+		service.ListHapgs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -275,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.listHapgs(params,cb);
 		}
-			service.ListHsms=function(svc,msg,cb){
+		
+		service.ListHsms=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -286,7 +299,8 @@ module.exports = function(RED) {
 
 			svc.listHsms(params,cb);
 		}
-			service.ListLunaClients=function(svc,msg,cb){
+		
+		service.ListLunaClients=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -297,7 +311,8 @@ module.exports = function(RED) {
 
 			svc.listLunaClients(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -309,7 +324,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ModifyHapg=function(svc,msg,cb){
+		
+		service.ModifyHapg=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HapgArn",params,undefined,false); 
@@ -325,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.modifyHapg(params,cb);
 		}
-			service.ModifyHsm=function(svc,msg,cb){
+		
+		service.ModifyHsm=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"HsmArn",params,undefined,false); 
@@ -347,7 +364,8 @@ module.exports = function(RED) {
 
 			svc.modifyHsm(params,cb);
 		}
-			service.ModifyLunaClient=function(svc,msg,cb){
+		
+		service.ModifyLunaClient=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientArn",params,undefined,false); 
@@ -362,7 +380,8 @@ module.exports = function(RED) {
 
 			svc.modifyLunaClient(params,cb);
 		}
-			service.RemoveTagsFromResource=function(svc,msg,cb){
+		
+		service.RemoveTagsFromResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -377,6 +396,7 @@ module.exports = function(RED) {
 
 			svc.removeTagsFromResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS CloudHSM", AmazonAPINode);

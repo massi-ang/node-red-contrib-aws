@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateCertificate=function(svc,msg,cb){
+		service.AssociateCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.associateCertificate(params,cb);
 		}
-			service.CancelJob=function(svc,msg,cb){
+		
+		service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-			service.CreateJob=function(svc,msg,cb){
+		
+		service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Role",params,undefined,false); 
@@ -154,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-			service.CreateJobTemplate=function(svc,msg,cb){
+		
+		service.CreateJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Settings",params,undefined,true); 
@@ -185,7 +188,8 @@ module.exports = function(RED) {
 
 			svc.createJobTemplate(params,cb);
 		}
-			service.CreatePreset=function(svc,msg,cb){
+		
+		service.CreatePreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Settings",params,undefined,true); 
@@ -206,7 +210,8 @@ module.exports = function(RED) {
 
 			svc.createPreset(params,cb);
 		}
-			service.CreateQueue=function(svc,msg,cb){
+		
+		service.CreateQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -228,7 +233,8 @@ module.exports = function(RED) {
 
 			svc.createQueue(params,cb);
 		}
-			service.DeleteJobTemplate=function(svc,msg,cb){
+		
+		service.DeleteJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -240,7 +246,8 @@ module.exports = function(RED) {
 
 			svc.deleteJobTemplate(params,cb);
 		}
-			service.DeletePreset=function(svc,msg,cb){
+		
+		service.DeletePreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -252,7 +259,8 @@ module.exports = function(RED) {
 
 			svc.deletePreset(params,cb);
 		}
-			service.DeleteQueue=function(svc,msg,cb){
+		
+		service.DeleteQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -264,7 +272,8 @@ module.exports = function(RED) {
 
 			svc.deleteQueue(params,cb);
 		}
-			service.DescribeEndpoints=function(svc,msg,cb){
+		
+		service.DescribeEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -279,7 +288,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpoints(params,cb);
 		}
-			service.DisassociateCertificate=function(svc,msg,cb){
+		
+		service.DisassociateCertificate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -291,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.disassociateCertificate(params,cb);
 		}
-			service.GetJob=function(svc,msg,cb){
+		
+		service.GetJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Id",params,undefined,false); 
@@ -303,7 +314,8 @@ module.exports = function(RED) {
 
 			svc.getJob(params,cb);
 		}
-			service.GetJobTemplate=function(svc,msg,cb){
+		
+		service.GetJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -315,7 +327,8 @@ module.exports = function(RED) {
 
 			svc.getJobTemplate(params,cb);
 		}
-			service.GetPreset=function(svc,msg,cb){
+		
+		service.GetPreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -327,7 +340,8 @@ module.exports = function(RED) {
 
 			svc.getPreset(params,cb);
 		}
-			service.GetQueue=function(svc,msg,cb){
+		
+		service.GetQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -339,7 +353,8 @@ module.exports = function(RED) {
 
 			svc.getQueue(params,cb);
 		}
-			service.ListJobTemplates=function(svc,msg,cb){
+		
+		service.ListJobTemplates=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -358,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.listJobTemplates(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -377,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListPresets=function(svc,msg,cb){
+		
+		service.ListPresets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -396,7 +413,8 @@ module.exports = function(RED) {
 
 			svc.listPresets(params,cb);
 		}
-			service.ListQueues=function(svc,msg,cb){
+		
+		service.ListQueues=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -413,7 +431,8 @@ module.exports = function(RED) {
 
 			svc.listQueues(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -425,7 +444,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -440,7 +460,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Arn",params,undefined,false); 
@@ -454,7 +475,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateJobTemplate=function(svc,msg,cb){
+		
+		service.UpdateJobTemplate=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -482,7 +504,8 @@ module.exports = function(RED) {
 
 			svc.updateJobTemplate(params,cb);
 		}
-			service.UpdatePreset=function(svc,msg,cb){
+		
+		service.UpdatePreset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -500,7 +523,8 @@ module.exports = function(RED) {
 
 			svc.updatePreset(params,cb);
 		}
-			service.UpdateQueue=function(svc,msg,cb){
+		
+		service.UpdateQueue=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -518,6 +542,7 @@ module.exports = function(RED) {
 
 			svc.updateQueue(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS MediaConvert", AmazonAPINode);

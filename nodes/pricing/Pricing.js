@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeServices=function(svc,msg,cb){
+		service.DescribeServices=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.describeServices(params,cb);
 		}
-			service.GetAttributeValues=function(svc,msg,cb){
+		
+		service.GetAttributeValues=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServiceCode",params,undefined,false); 
@@ -129,7 +130,8 @@ module.exports = function(RED) {
 
 			svc.getAttributeValues(params,cb);
 		}
-			service.GetProducts=function(svc,msg,cb){
+		
+		service.GetProducts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -148,6 +150,7 @@ module.exports = function(RED) {
 
 			svc.getProducts(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Pricing", AmazonAPINode);

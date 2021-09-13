@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AcceptGrant=function(svc,msg,cb){
+		service.AcceptGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GrantArn",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.acceptGrant(params,cb);
 		}
-			service.CheckInLicense=function(svc,msg,cb){
+		
+		service.CheckInLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConsumptionToken",params,undefined,false); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.checkInLicense(params,cb);
 		}
-			service.CheckoutBorrowLicense=function(svc,msg,cb){
+		
+		service.CheckoutBorrowLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -144,7 +146,8 @@ module.exports = function(RED) {
 
 			svc.checkoutBorrowLicense(params,cb);
 		}
-			service.CheckoutLicense=function(svc,msg,cb){
+		
+		service.CheckoutLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProductSKU",params,undefined,false); 
@@ -172,7 +175,8 @@ module.exports = function(RED) {
 
 			svc.checkoutLicense(params,cb);
 		}
-			service.CreateGrant=function(svc,msg,cb){
+		
+		service.CreateGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -199,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.createGrant(params,cb);
 		}
-			service.CreateGrantVersion=function(svc,msg,cb){
+		
+		service.CreateGrantVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ClientToken",params,undefined,false); 
@@ -224,7 +229,8 @@ module.exports = function(RED) {
 
 			svc.createGrantVersion(params,cb);
 		}
-			service.CreateLicense=function(svc,msg,cb){
+		
+		service.CreateLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseName",params,undefined,false); 
@@ -265,7 +271,8 @@ module.exports = function(RED) {
 
 			svc.createLicense(params,cb);
 		}
-			service.CreateLicenseConfiguration=function(svc,msg,cb){
+		
+		service.CreateLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -294,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.createLicenseConfiguration(params,cb);
 		}
-			service.CreateLicenseManagerReportGenerator=function(svc,msg,cb){
+		
+		service.CreateLicenseManagerReportGenerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ReportGeneratorName",params,undefined,false); 
@@ -322,7 +330,8 @@ module.exports = function(RED) {
 
 			svc.createLicenseManagerReportGenerator(params,cb);
 		}
-			service.CreateLicenseVersion=function(svc,msg,cb){
+		
+		service.CreateLicenseVersion=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -365,7 +374,8 @@ module.exports = function(RED) {
 
 			svc.createLicenseVersion(params,cb);
 		}
-			service.CreateToken=function(svc,msg,cb){
+		
+		service.CreateToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -386,7 +396,8 @@ module.exports = function(RED) {
 
 			svc.createToken(params,cb);
 		}
-			service.DeleteGrant=function(svc,msg,cb){
+		
+		service.DeleteGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GrantArn",params,undefined,false); 
@@ -403,7 +414,8 @@ module.exports = function(RED) {
 
 			svc.deleteGrant(params,cb);
 		}
-			service.DeleteLicense=function(svc,msg,cb){
+		
+		service.DeleteLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -418,7 +430,8 @@ module.exports = function(RED) {
 
 			svc.deleteLicense(params,cb);
 		}
-			service.DeleteLicenseConfiguration=function(svc,msg,cb){
+		
+		service.DeleteLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -430,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.deleteLicenseConfiguration(params,cb);
 		}
-			service.DeleteLicenseManagerReportGenerator=function(svc,msg,cb){
+		
+		service.DeleteLicenseManagerReportGenerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseManagerReportGeneratorArn",params,undefined,false); 
@@ -442,7 +456,8 @@ module.exports = function(RED) {
 
 			svc.deleteLicenseManagerReportGenerator(params,cb);
 		}
-			service.DeleteToken=function(svc,msg,cb){
+		
+		service.DeleteToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TokenId",params,undefined,false); 
@@ -454,7 +469,8 @@ module.exports = function(RED) {
 
 			svc.deleteToken(params,cb);
 		}
-			service.ExtendLicenseConsumption=function(svc,msg,cb){
+		
+		service.ExtendLicenseConsumption=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConsumptionToken",params,undefined,false); 
@@ -468,7 +484,8 @@ module.exports = function(RED) {
 
 			svc.extendLicenseConsumption(params,cb);
 		}
-			service.GetAccessToken=function(svc,msg,cb){
+		
+		service.GetAccessToken=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Token",params,undefined,false); 
@@ -482,7 +499,8 @@ module.exports = function(RED) {
 
 			svc.getAccessToken(params,cb);
 		}
-			service.GetGrant=function(svc,msg,cb){
+		
+		service.GetGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GrantArn",params,undefined,false); 
@@ -496,7 +514,8 @@ module.exports = function(RED) {
 
 			svc.getGrant(params,cb);
 		}
-			service.GetLicense=function(svc,msg,cb){
+		
+		service.GetLicense=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -510,7 +529,8 @@ module.exports = function(RED) {
 
 			svc.getLicense(params,cb);
 		}
-			service.GetLicenseConfiguration=function(svc,msg,cb){
+		
+		service.GetLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -522,7 +542,8 @@ module.exports = function(RED) {
 
 			svc.getLicenseConfiguration(params,cb);
 		}
-			service.GetLicenseManagerReportGenerator=function(svc,msg,cb){
+		
+		service.GetLicenseManagerReportGenerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseManagerReportGeneratorArn",params,undefined,false); 
@@ -534,7 +555,8 @@ module.exports = function(RED) {
 
 			svc.getLicenseManagerReportGenerator(params,cb);
 		}
-			service.GetLicenseUsage=function(svc,msg,cb){
+		
+		service.GetLicenseUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -546,7 +568,8 @@ module.exports = function(RED) {
 
 			svc.getLicenseUsage(params,cb);
 		}
-			service.GetServiceSettings=function(svc,msg,cb){
+		
+		service.GetServiceSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -555,7 +578,8 @@ module.exports = function(RED) {
 
 			svc.getServiceSettings(params,cb);
 		}
-			service.ListAssociationsForLicenseConfiguration=function(svc,msg,cb){
+		
+		service.ListAssociationsForLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -571,7 +595,8 @@ module.exports = function(RED) {
 
 			svc.listAssociationsForLicenseConfiguration(params,cb);
 		}
-			service.ListDistributedGrants=function(svc,msg,cb){
+		
+		service.ListDistributedGrants=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -588,7 +613,8 @@ module.exports = function(RED) {
 
 			svc.listDistributedGrants(params,cb);
 		}
-			service.ListFailuresForLicenseConfigurationOperations=function(svc,msg,cb){
+		
+		service.ListFailuresForLicenseConfigurationOperations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -604,7 +630,8 @@ module.exports = function(RED) {
 
 			svc.listFailuresForLicenseConfigurationOperations(params,cb);
 		}
-			service.ListLicenseConfigurations=function(svc,msg,cb){
+		
+		service.ListLicenseConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -621,7 +648,8 @@ module.exports = function(RED) {
 
 			svc.listLicenseConfigurations(params,cb);
 		}
-			service.ListLicenseManagerReportGenerators=function(svc,msg,cb){
+		
+		service.ListLicenseManagerReportGenerators=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -636,7 +664,8 @@ module.exports = function(RED) {
 
 			svc.listLicenseManagerReportGenerators(params,cb);
 		}
-			service.ListLicenseSpecificationsForResource=function(svc,msg,cb){
+		
+		service.ListLicenseSpecificationsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -652,7 +681,8 @@ module.exports = function(RED) {
 
 			svc.listLicenseSpecificationsForResource(params,cb);
 		}
-			service.ListLicenseVersions=function(svc,msg,cb){
+		
+		service.ListLicenseVersions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseArn",params,undefined,false); 
@@ -668,7 +698,8 @@ module.exports = function(RED) {
 
 			svc.listLicenseVersions(params,cb);
 		}
-			service.ListLicenses=function(svc,msg,cb){
+		
+		service.ListLicenses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -685,7 +716,8 @@ module.exports = function(RED) {
 
 			svc.listLicenses(params,cb);
 		}
-			service.ListReceivedGrants=function(svc,msg,cb){
+		
+		service.ListReceivedGrants=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -702,7 +734,8 @@ module.exports = function(RED) {
 
 			svc.listReceivedGrants(params,cb);
 		}
-			service.ListReceivedLicenses=function(svc,msg,cb){
+		
+		service.ListReceivedLicenses=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -719,7 +752,8 @@ module.exports = function(RED) {
 
 			svc.listReceivedLicenses(params,cb);
 		}
-			service.ListResourceInventory=function(svc,msg,cb){
+		
+		service.ListResourceInventory=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -734,7 +768,8 @@ module.exports = function(RED) {
 
 			svc.listResourceInventory(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -746,7 +781,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTokens=function(svc,msg,cb){
+		
+		service.ListTokens=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -763,7 +799,8 @@ module.exports = function(RED) {
 
 			svc.listTokens(params,cb);
 		}
-			service.ListUsageForLicenseConfiguration=function(svc,msg,cb){
+		
+		service.ListUsageForLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -781,7 +818,8 @@ module.exports = function(RED) {
 
 			svc.listUsageForLicenseConfiguration(params,cb);
 		}
-			service.RejectGrant=function(svc,msg,cb){
+		
+		service.RejectGrant=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"GrantArn",params,undefined,false); 
@@ -793,7 +831,8 @@ module.exports = function(RED) {
 
 			svc.rejectGrant(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -808,7 +847,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -823,7 +863,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateLicenseConfiguration=function(svc,msg,cb){
+		
+		service.UpdateLicenseConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseConfigurationArn",params,undefined,false); 
@@ -851,7 +892,8 @@ module.exports = function(RED) {
 
 			svc.updateLicenseConfiguration(params,cb);
 		}
-			service.UpdateLicenseManagerReportGenerator=function(svc,msg,cb){
+		
+		service.UpdateLicenseManagerReportGenerator=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LicenseManagerReportGeneratorArn",params,undefined,false); 
@@ -880,7 +922,8 @@ module.exports = function(RED) {
 
 			svc.updateLicenseManagerReportGenerator(params,cb);
 		}
-			service.UpdateLicenseSpecificationsForResource=function(svc,msg,cb){
+		
+		service.UpdateLicenseSpecificationsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -896,7 +939,8 @@ module.exports = function(RED) {
 
 			svc.updateLicenseSpecificationsForResource(params,cb);
 		}
-			service.UpdateServiceSettings=function(svc,msg,cb){
+		
+		service.UpdateServiceSettings=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -913,6 +957,7 @@ module.exports = function(RED) {
 
 			svc.updateServiceSettings(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS LicenseManager", AmazonAPINode);

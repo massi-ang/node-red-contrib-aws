@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DescribeAcceleratorOfferings=function(svc,msg,cb){
+		service.DescribeAcceleratorOfferings=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"locationType",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.describeAcceleratorOfferings(params,cb);
 		}
-			service.DescribeAcceleratorTypes=function(svc,msg,cb){
+		
+		service.DescribeAcceleratorTypes=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -116,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.describeAcceleratorTypes(params,cb);
 		}
-			service.DescribeAccelerators=function(svc,msg,cb){
+		
+		service.DescribeAccelerators=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -133,7 +135,8 @@ module.exports = function(RED) {
 
 			svc.describeAccelerators(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -145,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -160,7 +164,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -175,6 +180,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ElasticInference", AmazonAPINode);

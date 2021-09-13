@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateDataset=function(svc,msg,cb){
+		service.CreateDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -115,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.createDataset(params,cb);
 		}
-			service.CreateInferenceScheduler=function(svc,msg,cb){
+		
+		service.CreateInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ModelName",params,undefined,false); 
@@ -151,7 +152,8 @@ module.exports = function(RED) {
 
 			svc.createInferenceScheduler(params,cb);
 		}
-			service.CreateModel=function(svc,msg,cb){
+		
+		service.CreateModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ModelName",params,undefined,false); 
@@ -189,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.createModel(params,cb);
 		}
-			service.DeleteDataset=function(svc,msg,cb){
+		
+		service.DeleteDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -201,7 +204,8 @@ module.exports = function(RED) {
 
 			svc.deleteDataset(params,cb);
 		}
-			service.DeleteInferenceScheduler=function(svc,msg,cb){
+		
+		service.DeleteInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -213,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.deleteInferenceScheduler(params,cb);
 		}
-			service.DeleteModel=function(svc,msg,cb){
+		
+		service.DeleteModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ModelName",params,undefined,false); 
@@ -225,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.deleteModel(params,cb);
 		}
-			service.DescribeDataIngestionJob=function(svc,msg,cb){
+		
+		service.DescribeDataIngestionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -237,7 +243,8 @@ module.exports = function(RED) {
 
 			svc.describeDataIngestionJob(params,cb);
 		}
-			service.DescribeDataset=function(svc,msg,cb){
+		
+		service.DescribeDataset=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -249,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.describeDataset(params,cb);
 		}
-			service.DescribeInferenceScheduler=function(svc,msg,cb){
+		
+		service.DescribeInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -261,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.describeInferenceScheduler(params,cb);
 		}
-			service.DescribeModel=function(svc,msg,cb){
+		
+		service.DescribeModel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ModelName",params,undefined,false); 
@@ -273,7 +282,8 @@ module.exports = function(RED) {
 
 			svc.describeModel(params,cb);
 		}
-			service.ListDataIngestionJobs=function(svc,msg,cb){
+		
+		service.ListDataIngestionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -290,7 +300,8 @@ module.exports = function(RED) {
 
 			svc.listDataIngestionJobs(params,cb);
 		}
-			service.ListDatasets=function(svc,msg,cb){
+		
+		service.ListDatasets=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -305,7 +316,8 @@ module.exports = function(RED) {
 
 			svc.listDatasets(params,cb);
 		}
-			service.ListInferenceExecutions=function(svc,msg,cb){
+		
+		service.ListInferenceExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -327,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.listInferenceExecutions(params,cb);
 		}
-			service.ListInferenceSchedulers=function(svc,msg,cb){
+		
+		service.ListInferenceSchedulers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -344,7 +357,8 @@ module.exports = function(RED) {
 
 			svc.listInferenceSchedulers(params,cb);
 		}
-			service.ListModels=function(svc,msg,cb){
+		
+		service.ListModels=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -363,7 +377,8 @@ module.exports = function(RED) {
 
 			svc.listModels(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -375,7 +390,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.StartDataIngestionJob=function(svc,msg,cb){
+		
+		service.StartDataIngestionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DatasetName",params,undefined,false); 
@@ -396,7 +412,8 @@ module.exports = function(RED) {
 
 			svc.startDataIngestionJob(params,cb);
 		}
-			service.StartInferenceScheduler=function(svc,msg,cb){
+		
+		service.StartInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -408,7 +425,8 @@ module.exports = function(RED) {
 
 			svc.startInferenceScheduler(params,cb);
 		}
-			service.StopInferenceScheduler=function(svc,msg,cb){
+		
+		service.StopInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -420,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.stopInferenceScheduler(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -435,7 +454,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -450,7 +470,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateInferenceScheduler=function(svc,msg,cb){
+		
+		service.UpdateInferenceScheduler=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InferenceSchedulerName",params,undefined,false); 
@@ -472,6 +493,7 @@ module.exports = function(RED) {
 
 			svc.updateInferenceScheduler(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS LookoutEquipment", AmazonAPINode);

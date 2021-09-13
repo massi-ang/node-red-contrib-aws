@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateAccessPoint=function(svc,msg,cb){
+		service.CreateAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -115,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.createAccessPoint(params,cb);
 		}
-			service.CreateAccessPointForObjectLambda=function(svc,msg,cb){
+		
+		service.CreateAccessPointForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -133,7 +134,8 @@ module.exports = function(RED) {
 
 			svc.createAccessPointForObjectLambda(params,cb);
 		}
-			service.CreateBucket=function(svc,msg,cb){
+		
+		service.CreateBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Bucket",params,undefined,false); 
@@ -163,7 +165,8 @@ module.exports = function(RED) {
 
 			svc.createBucket(params,cb);
 		}
-			service.CreateJob=function(svc,msg,cb){
+		
+		service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -199,7 +202,8 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-			service.CreateMultiRegionAccessPoint=function(svc,msg,cb){
+		
+		service.CreateMultiRegionAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -217,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.createMultiRegionAccessPoint(params,cb);
 		}
-			service.DeleteAccessPoint=function(svc,msg,cb){
+		
+		service.DeleteAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -232,7 +237,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccessPoint(params,cb);
 		}
-			service.DeleteAccessPointForObjectLambda=function(svc,msg,cb){
+		
+		service.DeleteAccessPointForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -247,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccessPointForObjectLambda(params,cb);
 		}
-			service.DeleteAccessPointPolicy=function(svc,msg,cb){
+		
+		service.DeleteAccessPointPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -262,7 +269,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccessPointPolicy(params,cb);
 		}
-			service.DeleteAccessPointPolicyForObjectLambda=function(svc,msg,cb){
+		
+		service.DeleteAccessPointPolicyForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -277,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.deleteAccessPointPolicyForObjectLambda(params,cb);
 		}
-			service.DeleteBucket=function(svc,msg,cb){
+		
+		service.DeleteBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -292,7 +301,8 @@ module.exports = function(RED) {
 
 			svc.deleteBucket(params,cb);
 		}
-			service.DeleteBucketLifecycleConfiguration=function(svc,msg,cb){
+		
+		service.DeleteBucketLifecycleConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -307,7 +317,8 @@ module.exports = function(RED) {
 
 			svc.deleteBucketLifecycleConfiguration(params,cb);
 		}
-			service.DeleteBucketPolicy=function(svc,msg,cb){
+		
+		service.DeleteBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -322,7 +333,8 @@ module.exports = function(RED) {
 
 			svc.deleteBucketPolicy(params,cb);
 		}
-			service.DeleteBucketTagging=function(svc,msg,cb){
+		
+		service.DeleteBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -337,7 +349,8 @@ module.exports = function(RED) {
 
 			svc.deleteBucketTagging(params,cb);
 		}
-			service.DeleteJobTagging=function(svc,msg,cb){
+		
+		service.DeleteJobTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -352,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.deleteJobTagging(params,cb);
 		}
-			service.DeleteMultiRegionAccessPoint=function(svc,msg,cb){
+		
+		service.DeleteMultiRegionAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -370,7 +384,8 @@ module.exports = function(RED) {
 
 			svc.deleteMultiRegionAccessPoint(params,cb);
 		}
-			service.DeletePublicAccessBlock=function(svc,msg,cb){
+		
+		service.DeletePublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -382,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.deletePublicAccessBlock(params,cb);
 		}
-			service.DeleteStorageLensConfiguration=function(svc,msg,cb){
+		
+		service.DeleteStorageLensConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -397,7 +413,8 @@ module.exports = function(RED) {
 
 			svc.deleteStorageLensConfiguration(params,cb);
 		}
-			service.DeleteStorageLensConfigurationTagging=function(svc,msg,cb){
+		
+		service.DeleteStorageLensConfigurationTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -412,7 +429,8 @@ module.exports = function(RED) {
 
 			svc.deleteStorageLensConfigurationTagging(params,cb);
 		}
-			service.DescribeJob=function(svc,msg,cb){
+		
+		service.DescribeJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -427,7 +445,8 @@ module.exports = function(RED) {
 
 			svc.describeJob(params,cb);
 		}
-			service.DescribeMultiRegionAccessPointOperation=function(svc,msg,cb){
+		
+		service.DescribeMultiRegionAccessPointOperation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -442,7 +461,8 @@ module.exports = function(RED) {
 
 			svc.describeMultiRegionAccessPointOperation(params,cb);
 		}
-			service.GetAccessPoint=function(svc,msg,cb){
+		
+		service.GetAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -457,7 +477,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPoint(params,cb);
 		}
-			service.GetAccessPointConfigurationForObjectLambda=function(svc,msg,cb){
+		
+		service.GetAccessPointConfigurationForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -472,7 +493,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointConfigurationForObjectLambda(params,cb);
 		}
-			service.GetAccessPointForObjectLambda=function(svc,msg,cb){
+		
+		service.GetAccessPointForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -487,7 +509,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointForObjectLambda(params,cb);
 		}
-			service.GetAccessPointPolicy=function(svc,msg,cb){
+		
+		service.GetAccessPointPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -502,7 +525,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointPolicy(params,cb);
 		}
-			service.GetAccessPointPolicyForObjectLambda=function(svc,msg,cb){
+		
+		service.GetAccessPointPolicyForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -517,7 +541,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointPolicyForObjectLambda(params,cb);
 		}
-			service.GetAccessPointPolicyStatus=function(svc,msg,cb){
+		
+		service.GetAccessPointPolicyStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -532,7 +557,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointPolicyStatus(params,cb);
 		}
-			service.GetAccessPointPolicyStatusForObjectLambda=function(svc,msg,cb){
+		
+		service.GetAccessPointPolicyStatusForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -547,7 +573,8 @@ module.exports = function(RED) {
 
 			svc.getAccessPointPolicyStatusForObjectLambda(params,cb);
 		}
-			service.GetBucket=function(svc,msg,cb){
+		
+		service.GetBucket=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -562,7 +589,8 @@ module.exports = function(RED) {
 
 			svc.getBucket(params,cb);
 		}
-			service.GetBucketLifecycleConfiguration=function(svc,msg,cb){
+		
+		service.GetBucketLifecycleConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -577,7 +605,8 @@ module.exports = function(RED) {
 
 			svc.getBucketLifecycleConfiguration(params,cb);
 		}
-			service.GetBucketPolicy=function(svc,msg,cb){
+		
+		service.GetBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -592,7 +621,8 @@ module.exports = function(RED) {
 
 			svc.getBucketPolicy(params,cb);
 		}
-			service.GetBucketTagging=function(svc,msg,cb){
+		
+		service.GetBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -607,7 +637,8 @@ module.exports = function(RED) {
 
 			svc.getBucketTagging(params,cb);
 		}
-			service.GetJobTagging=function(svc,msg,cb){
+		
+		service.GetJobTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -622,7 +653,8 @@ module.exports = function(RED) {
 
 			svc.getJobTagging(params,cb);
 		}
-			service.GetMultiRegionAccessPoint=function(svc,msg,cb){
+		
+		service.GetMultiRegionAccessPoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -637,7 +669,8 @@ module.exports = function(RED) {
 
 			svc.getMultiRegionAccessPoint(params,cb);
 		}
-			service.GetMultiRegionAccessPointPolicy=function(svc,msg,cb){
+		
+		service.GetMultiRegionAccessPointPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -652,7 +685,8 @@ module.exports = function(RED) {
 
 			svc.getMultiRegionAccessPointPolicy(params,cb);
 		}
-			service.GetMultiRegionAccessPointPolicyStatus=function(svc,msg,cb){
+		
+		service.GetMultiRegionAccessPointPolicyStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -667,7 +701,8 @@ module.exports = function(RED) {
 
 			svc.getMultiRegionAccessPointPolicyStatus(params,cb);
 		}
-			service.GetPublicAccessBlock=function(svc,msg,cb){
+		
+		service.GetPublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -679,7 +714,8 @@ module.exports = function(RED) {
 
 			svc.getPublicAccessBlock(params,cb);
 		}
-			service.GetStorageLensConfiguration=function(svc,msg,cb){
+		
+		service.GetStorageLensConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -694,7 +730,8 @@ module.exports = function(RED) {
 
 			svc.getStorageLensConfiguration(params,cb);
 		}
-			service.GetStorageLensConfigurationTagging=function(svc,msg,cb){
+		
+		service.GetStorageLensConfigurationTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -709,7 +746,8 @@ module.exports = function(RED) {
 
 			svc.getStorageLensConfigurationTagging(params,cb);
 		}
-			service.ListAccessPoints=function(svc,msg,cb){
+		
+		service.ListAccessPoints=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -727,7 +765,8 @@ module.exports = function(RED) {
 
 			svc.listAccessPoints(params,cb);
 		}
-			service.ListAccessPointsForObjectLambda=function(svc,msg,cb){
+		
+		service.ListAccessPointsForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -743,7 +782,8 @@ module.exports = function(RED) {
 
 			svc.listAccessPointsForObjectLambda(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -761,7 +801,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.ListMultiRegionAccessPoints=function(svc,msg,cb){
+		
+		service.ListMultiRegionAccessPoints=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -777,7 +818,8 @@ module.exports = function(RED) {
 
 			svc.listMultiRegionAccessPoints(params,cb);
 		}
-			service.ListRegionalBuckets=function(svc,msg,cb){
+		
+		service.ListRegionalBuckets=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -795,7 +837,8 @@ module.exports = function(RED) {
 
 			svc.listRegionalBuckets(params,cb);
 		}
-			service.ListStorageLensConfigurations=function(svc,msg,cb){
+		
+		service.ListStorageLensConfigurations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -809,7 +852,8 @@ module.exports = function(RED) {
 
 			svc.listStorageLensConfigurations(params,cb);
 		}
-			service.PutAccessPointConfigurationForObjectLambda=function(svc,msg,cb){
+		
+		service.PutAccessPointConfigurationForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -827,7 +871,8 @@ module.exports = function(RED) {
 
 			svc.putAccessPointConfigurationForObjectLambda(params,cb);
 		}
-			service.PutAccessPointPolicy=function(svc,msg,cb){
+		
+		service.PutAccessPointPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -845,7 +890,8 @@ module.exports = function(RED) {
 
 			svc.putAccessPointPolicy(params,cb);
 		}
-			service.PutAccessPointPolicyForObjectLambda=function(svc,msg,cb){
+		
+		service.PutAccessPointPolicyForObjectLambda=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -863,7 +909,8 @@ module.exports = function(RED) {
 
 			svc.putAccessPointPolicyForObjectLambda(params,cb);
 		}
-			service.PutBucketLifecycleConfiguration=function(svc,msg,cb){
+		
+		service.PutBucketLifecycleConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -880,7 +927,8 @@ module.exports = function(RED) {
 
 			svc.putBucketLifecycleConfiguration(params,cb);
 		}
-			service.PutBucketPolicy=function(svc,msg,cb){
+		
+		service.PutBucketPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -900,7 +948,8 @@ module.exports = function(RED) {
 
 			svc.putBucketPolicy(params,cb);
 		}
-			service.PutBucketTagging=function(svc,msg,cb){
+		
+		service.PutBucketTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -918,7 +967,8 @@ module.exports = function(RED) {
 
 			svc.putBucketTagging(params,cb);
 		}
-			service.PutJobTagging=function(svc,msg,cb){
+		
+		service.PutJobTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -936,7 +986,8 @@ module.exports = function(RED) {
 
 			svc.putJobTagging(params,cb);
 		}
-			service.PutMultiRegionAccessPointPolicy=function(svc,msg,cb){
+		
+		service.PutMultiRegionAccessPointPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -954,7 +1005,8 @@ module.exports = function(RED) {
 
 			svc.putMultiRegionAccessPointPolicy(params,cb);
 		}
-			service.PutPublicAccessBlock=function(svc,msg,cb){
+		
+		service.PutPublicAccessBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PublicAccessBlockConfiguration",params,undefined,true); 
@@ -969,7 +1021,8 @@ module.exports = function(RED) {
 
 			svc.putPublicAccessBlock(params,cb);
 		}
-			service.PutStorageLensConfiguration=function(svc,msg,cb){
+		
+		service.PutStorageLensConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -989,7 +1042,8 @@ module.exports = function(RED) {
 
 			svc.putStorageLensConfiguration(params,cb);
 		}
-			service.PutStorageLensConfigurationTagging=function(svc,msg,cb){
+		
+		service.PutStorageLensConfigurationTagging=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConfigId",params,undefined,false); 
@@ -1007,7 +1061,8 @@ module.exports = function(RED) {
 
 			svc.putStorageLensConfigurationTagging(params,cb);
 		}
-			service.UpdateJobPriority=function(svc,msg,cb){
+		
+		service.UpdateJobPriority=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1025,7 +1080,8 @@ module.exports = function(RED) {
 
 			svc.updateJobPriority(params,cb);
 		}
-			service.UpdateJobStatus=function(svc,msg,cb){
+		
+		service.UpdateJobStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AccountId",params,undefined,false); 
@@ -1045,6 +1101,7 @@ module.exports = function(RED) {
 
 			svc.updateJobStatus(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS S3Control", AmazonAPINode);

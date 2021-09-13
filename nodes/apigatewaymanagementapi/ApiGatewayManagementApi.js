@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DeleteConnection=function(svc,msg,cb){
+		service.DeleteConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.deleteConnection(params,cb);
 		}
-			service.GetConnection=function(svc,msg,cb){
+		
+		service.GetConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionId",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.getConnection(params,cb);
 		}
-			service.PostToConnection=function(svc,msg,cb){
+		
+		service.PostToConnection=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ConnectionId",params,undefined,false); 
@@ -132,6 +134,7 @@ module.exports = function(RED) {
 
 			svc.postToConnection(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ApiGatewayManagementApi", AmazonAPINode);

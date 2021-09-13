@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.AssociateAdminAccount=function(svc,msg,cb){
+		service.AssociateAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AdminAccount",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.associateAdminAccount(params,cb);
 		}
-			service.DeleteAppsList=function(svc,msg,cb){
+		
+		service.DeleteAppsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ListId",params,undefined,false); 
@@ -117,7 +118,8 @@ module.exports = function(RED) {
 
 			svc.deleteAppsList(params,cb);
 		}
-			service.DeleteNotificationChannel=function(svc,msg,cb){
+		
+		service.DeleteNotificationChannel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -126,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.deleteNotificationChannel(params,cb);
 		}
-			service.DeletePolicy=function(svc,msg,cb){
+		
+		service.DeletePolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -140,7 +143,8 @@ module.exports = function(RED) {
 
 			svc.deletePolicy(params,cb);
 		}
-			service.DeleteProtocolsList=function(svc,msg,cb){
+		
+		service.DeleteProtocolsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ListId",params,undefined,false); 
@@ -152,7 +156,8 @@ module.exports = function(RED) {
 
 			svc.deleteProtocolsList(params,cb);
 		}
-			service.DisassociateAdminAccount=function(svc,msg,cb){
+		
+		service.DisassociateAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -161,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.disassociateAdminAccount(params,cb);
 		}
-			service.GetAdminAccount=function(svc,msg,cb){
+		
+		service.GetAdminAccount=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -170,7 +176,8 @@ module.exports = function(RED) {
 
 			svc.getAdminAccount(params,cb);
 		}
-			service.GetAppsList=function(svc,msg,cb){
+		
+		service.GetAppsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ListId",params,undefined,false); 
@@ -184,7 +191,8 @@ module.exports = function(RED) {
 
 			svc.getAppsList(params,cb);
 		}
-			service.GetComplianceDetail=function(svc,msg,cb){
+		
+		service.GetComplianceDetail=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -199,7 +207,8 @@ module.exports = function(RED) {
 
 			svc.getComplianceDetail(params,cb);
 		}
-			service.GetNotificationChannel=function(svc,msg,cb){
+		
+		service.GetNotificationChannel=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -208,7 +217,8 @@ module.exports = function(RED) {
 
 			svc.getNotificationChannel(params,cb);
 		}
-			service.GetPolicy=function(svc,msg,cb){
+		
+		service.GetPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -220,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.getPolicy(params,cb);
 		}
-			service.GetProtectionStatus=function(svc,msg,cb){
+		
+		service.GetProtectionStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -242,7 +253,8 @@ module.exports = function(RED) {
 
 			svc.getProtectionStatus(params,cb);
 		}
-			service.GetProtocolsList=function(svc,msg,cb){
+		
+		service.GetProtocolsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ListId",params,undefined,false); 
@@ -256,7 +268,8 @@ module.exports = function(RED) {
 
 			svc.getProtocolsList(params,cb);
 		}
-			service.GetViolationDetails=function(svc,msg,cb){
+		
+		service.GetViolationDetails=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -277,7 +290,8 @@ module.exports = function(RED) {
 
 			svc.getViolationDetails(params,cb);
 		}
-			service.ListAppsLists=function(svc,msg,cb){
+		
+		service.ListAppsLists=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Number(n),"MaxResults",params,undefined,false); 
@@ -293,7 +307,8 @@ module.exports = function(RED) {
 
 			svc.listAppsLists(params,cb);
 		}
-			service.ListComplianceStatus=function(svc,msg,cb){
+		
+		service.ListComplianceStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"PolicyId",params,undefined,false); 
@@ -309,7 +324,8 @@ module.exports = function(RED) {
 
 			svc.listComplianceStatus(params,cb);
 		}
-			service.ListMemberAccounts=function(svc,msg,cb){
+		
+		service.ListMemberAccounts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -322,7 +338,8 @@ module.exports = function(RED) {
 
 			svc.listMemberAccounts(params,cb);
 		}
-			service.ListPolicies=function(svc,msg,cb){
+		
+		service.ListPolicies=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -335,7 +352,8 @@ module.exports = function(RED) {
 
 			svc.listPolicies(params,cb);
 		}
-			service.ListProtocolsLists=function(svc,msg,cb){
+		
+		service.ListProtocolsLists=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Number(n),"MaxResults",params,undefined,false); 
@@ -351,7 +369,8 @@ module.exports = function(RED) {
 
 			svc.listProtocolsLists(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -363,7 +382,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.PutAppsList=function(svc,msg,cb){
+		
+		service.PutAppsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AppsList",params,undefined,true); 
@@ -377,7 +397,8 @@ module.exports = function(RED) {
 
 			svc.putAppsList(params,cb);
 		}
-			service.PutNotificationChannel=function(svc,msg,cb){
+		
+		service.PutNotificationChannel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnsTopicArn",params,undefined,false); 
@@ -392,7 +413,8 @@ module.exports = function(RED) {
 
 			svc.putNotificationChannel(params,cb);
 		}
-			service.PutPolicy=function(svc,msg,cb){
+		
+		service.PutPolicy=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Policy",params,undefined,true); 
@@ -406,7 +428,8 @@ module.exports = function(RED) {
 
 			svc.putPolicy(params,cb);
 		}
-			service.PutProtocolsList=function(svc,msg,cb){
+		
+		service.PutProtocolsList=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ProtocolsList",params,undefined,true); 
@@ -420,7 +443,8 @@ module.exports = function(RED) {
 
 			svc.putProtocolsList(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -435,7 +459,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -450,6 +475,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS FMS", AmazonAPINode);

@@ -79,7 +79,7 @@ module.exports = {
 		function genSingleOperation(operations, name) {
 			const operation = operations[name];
 			const operationCode =  `
-			service.${name}=function(svc,msg,cb){
+		service.${name}=function(svc,msg,cb){
 			var params={};
 			${(operation.input && operation.input.required) ? mapKeys(operation.input.required, input => `
 			copyArgs(${getAttribute(operation.input.members, operation.input.required[input])},"${operation.input.required[input]==='type'?'_type':operation.input.required[input]}",params,${operation.input.required[input]==='type'?'"type"':'undefined'},${typeof operation.input.members[operation.input.required[input]].shape !== "undefined"}); `) : ''}
@@ -91,7 +91,8 @@ module.exports = {
 			copyArgs(msg,"${input}",params,undefined,true); `) : ''}
 
 			svc.${firstLetterLowercase(name)}(params,cb);
-		}`
+		}
+		`
 		return operationCode;
 		}
 

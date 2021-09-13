@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelJob=function(svc,msg,cb){
+		service.CancelJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.cancelJob(params,cb);
 		}
-			service.CreateJob=function(svc,msg,cb){
+		
+		service.CreateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobType",params,undefined,false); 
@@ -129,7 +130,8 @@ module.exports = function(RED) {
 
 			svc.createJob(params,cb);
 		}
-			service.GetShippingLabel=function(svc,msg,cb){
+		
+		service.GetShippingLabel=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"jobIds",params,undefined,false); 
@@ -163,7 +165,8 @@ module.exports = function(RED) {
 
 			svc.getShippingLabel(params,cb);
 		}
-			service.GetStatus=function(svc,msg,cb){
+		
+		service.GetStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -177,7 +180,8 @@ module.exports = function(RED) {
 
 			svc.getStatus(params,cb);
 		}
-			service.ListJobs=function(svc,msg,cb){
+		
+		service.ListJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -192,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.listJobs(params,cb);
 		}
-			service.UpdateJob=function(svc,msg,cb){
+		
+		service.UpdateJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -215,6 +220,7 @@ module.exports = function(RED) {
 
 			svc.updateJob(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS ImportExport", AmazonAPINode);

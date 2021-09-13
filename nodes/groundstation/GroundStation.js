@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelContact=function(svc,msg,cb){
+		service.CancelContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"contactId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelContact(params,cb);
 		}
-			service.CreateConfig=function(svc,msg,cb){
+		
+		service.CreateConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"configData",params,undefined,true); 
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.createConfig(params,cb);
 		}
-			service.CreateDataflowEndpointGroup=function(svc,msg,cb){
+		
+		service.CreateDataflowEndpointGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endpointDetails",params,undefined,true); 
@@ -136,7 +138,8 @@ module.exports = function(RED) {
 
 			svc.createDataflowEndpointGroup(params,cb);
 		}
-			service.CreateMissionProfile=function(svc,msg,cb){
+		
+		service.CreateMissionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dataflowEdges",params,undefined,true); 
@@ -163,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.createMissionProfile(params,cb);
 		}
-			service.DeleteConfig=function(svc,msg,cb){
+		
+		service.DeleteConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"configId",params,undefined,false); 
@@ -178,7 +182,8 @@ module.exports = function(RED) {
 
 			svc.deleteConfig(params,cb);
 		}
-			service.DeleteDataflowEndpointGroup=function(svc,msg,cb){
+		
+		service.DeleteDataflowEndpointGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dataflowEndpointGroupId",params,undefined,false); 
@@ -190,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.deleteDataflowEndpointGroup(params,cb);
 		}
-			service.DeleteMissionProfile=function(svc,msg,cb){
+		
+		service.DeleteMissionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"missionProfileId",params,undefined,false); 
@@ -202,7 +208,8 @@ module.exports = function(RED) {
 
 			svc.deleteMissionProfile(params,cb);
 		}
-			service.DescribeContact=function(svc,msg,cb){
+		
+		service.DescribeContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"contactId",params,undefined,false); 
@@ -214,7 +221,8 @@ module.exports = function(RED) {
 
 			svc.describeContact(params,cb);
 		}
-			service.GetConfig=function(svc,msg,cb){
+		
+		service.GetConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"configId",params,undefined,false); 
@@ -229,7 +237,8 @@ module.exports = function(RED) {
 
 			svc.getConfig(params,cb);
 		}
-			service.GetDataflowEndpointGroup=function(svc,msg,cb){
+		
+		service.GetDataflowEndpointGroup=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"dataflowEndpointGroupId",params,undefined,false); 
@@ -241,7 +250,8 @@ module.exports = function(RED) {
 
 			svc.getDataflowEndpointGroup(params,cb);
 		}
-			service.GetMinuteUsage=function(svc,msg,cb){
+		
+		service.GetMinuteUsage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(Number(n),"month",params,undefined,false); 
@@ -256,7 +266,8 @@ module.exports = function(RED) {
 
 			svc.getMinuteUsage(params,cb);
 		}
-			service.GetMissionProfile=function(svc,msg,cb){
+		
+		service.GetMissionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"missionProfileId",params,undefined,false); 
@@ -268,7 +279,8 @@ module.exports = function(RED) {
 
 			svc.getMissionProfile(params,cb);
 		}
-			service.GetSatellite=function(svc,msg,cb){
+		
+		service.GetSatellite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"satelliteId",params,undefined,false); 
@@ -280,7 +292,8 @@ module.exports = function(RED) {
 
 			svc.getSatellite(params,cb);
 		}
-			service.ListConfigs=function(svc,msg,cb){
+		
+		service.ListConfigs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -293,7 +306,8 @@ module.exports = function(RED) {
 
 			svc.listConfigs(params,cb);
 		}
-			service.ListContacts=function(svc,msg,cb){
+		
+		service.ListContacts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endTime",params,undefined,false); 
@@ -321,7 +335,8 @@ module.exports = function(RED) {
 
 			svc.listContacts(params,cb);
 		}
-			service.ListDataflowEndpointGroups=function(svc,msg,cb){
+		
+		service.ListDataflowEndpointGroups=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -334,7 +349,8 @@ module.exports = function(RED) {
 
 			svc.listDataflowEndpointGroups(params,cb);
 		}
-			service.ListGroundStations=function(svc,msg,cb){
+		
+		service.ListGroundStations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -349,7 +365,8 @@ module.exports = function(RED) {
 
 			svc.listGroundStations(params,cb);
 		}
-			service.ListMissionProfiles=function(svc,msg,cb){
+		
+		service.ListMissionProfiles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -362,7 +379,8 @@ module.exports = function(RED) {
 
 			svc.listMissionProfiles(params,cb);
 		}
-			service.ListSatellites=function(svc,msg,cb){
+		
+		service.ListSatellites=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -375,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.listSatellites(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -387,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ReserveContact=function(svc,msg,cb){
+		
+		service.ReserveContact=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"endTime",params,undefined,false); 
@@ -413,7 +433,8 @@ module.exports = function(RED) {
 
 			svc.reserveContact(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -428,7 +449,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -443,7 +465,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateConfig=function(svc,msg,cb){
+		
+		service.UpdateConfig=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"configData",params,undefined,true); 
@@ -464,7 +487,8 @@ module.exports = function(RED) {
 
 			svc.updateConfig(params,cb);
 		}
-			service.UpdateMissionProfile=function(svc,msg,cb){
+		
+		service.UpdateMissionProfile=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"missionProfileId",params,undefined,false); 
@@ -488,6 +512,7 @@ module.exports = function(RED) {
 
 			svc.updateMissionProfile(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS GroundStation", AmazonAPINode);

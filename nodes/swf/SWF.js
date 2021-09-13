@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CountClosedWorkflowExecutions=function(svc,msg,cb){
+		service.CountClosedWorkflowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -117,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.countClosedWorkflowExecutions(params,cb);
 		}
-			service.CountOpenWorkflowExecutions=function(svc,msg,cb){
+		
+		service.CountOpenWorkflowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -138,7 +139,8 @@ module.exports = function(RED) {
 
 			svc.countOpenWorkflowExecutions(params,cb);
 		}
-			service.CountPendingActivityTasks=function(svc,msg,cb){
+		
+		service.CountPendingActivityTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -153,7 +155,8 @@ module.exports = function(RED) {
 
 			svc.countPendingActivityTasks(params,cb);
 		}
-			service.CountPendingDecisionTasks=function(svc,msg,cb){
+		
+		service.CountPendingDecisionTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -168,7 +171,8 @@ module.exports = function(RED) {
 
 			svc.countPendingDecisionTasks(params,cb);
 		}
-			service.DeprecateActivityType=function(svc,msg,cb){
+		
+		service.DeprecateActivityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -183,7 +187,8 @@ module.exports = function(RED) {
 
 			svc.deprecateActivityType(params,cb);
 		}
-			service.DeprecateDomain=function(svc,msg,cb){
+		
+		service.DeprecateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -195,7 +200,8 @@ module.exports = function(RED) {
 
 			svc.deprecateDomain(params,cb);
 		}
-			service.DeprecateWorkflowType=function(svc,msg,cb){
+		
+		service.DeprecateWorkflowType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -210,7 +216,8 @@ module.exports = function(RED) {
 
 			svc.deprecateWorkflowType(params,cb);
 		}
-			service.DescribeActivityType=function(svc,msg,cb){
+		
+		service.DescribeActivityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -225,7 +232,8 @@ module.exports = function(RED) {
 
 			svc.describeActivityType(params,cb);
 		}
-			service.DescribeDomain=function(svc,msg,cb){
+		
+		service.DescribeDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -237,7 +245,8 @@ module.exports = function(RED) {
 
 			svc.describeDomain(params,cb);
 		}
-			service.DescribeWorkflowExecution=function(svc,msg,cb){
+		
+		service.DescribeWorkflowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -252,7 +261,8 @@ module.exports = function(RED) {
 
 			svc.describeWorkflowExecution(params,cb);
 		}
-			service.DescribeWorkflowType=function(svc,msg,cb){
+		
+		service.DescribeWorkflowType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -267,7 +277,8 @@ module.exports = function(RED) {
 
 			svc.describeWorkflowType(params,cb);
 		}
-			service.GetWorkflowExecutionHistory=function(svc,msg,cb){
+		
+		service.GetWorkflowExecutionHistory=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -288,7 +299,8 @@ module.exports = function(RED) {
 
 			svc.getWorkflowExecutionHistory(params,cb);
 		}
-			service.ListActivityTypes=function(svc,msg,cb){
+		
+		service.ListActivityTypes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -311,7 +323,8 @@ module.exports = function(RED) {
 
 			svc.listActivityTypes(params,cb);
 		}
-			service.ListClosedWorkflowExecutions=function(svc,msg,cb){
+		
+		service.ListClosedWorkflowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -341,7 +354,8 @@ module.exports = function(RED) {
 
 			svc.listClosedWorkflowExecutions(params,cb);
 		}
-			service.ListDomains=function(svc,msg,cb){
+		
+		service.ListDomains=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"registrationStatus",params,undefined,false); 
@@ -359,7 +373,8 @@ module.exports = function(RED) {
 
 			svc.listDomains(params,cb);
 		}
-			service.ListOpenWorkflowExecutions=function(svc,msg,cb){
+		
+		service.ListOpenWorkflowExecutions=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -386,7 +401,8 @@ module.exports = function(RED) {
 
 			svc.listOpenWorkflowExecutions(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -398,7 +414,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListWorkflowTypes=function(svc,msg,cb){
+		
+		service.ListWorkflowTypes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -421,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.listWorkflowTypes(params,cb);
 		}
-			service.PollForActivityTask=function(svc,msg,cb){
+		
+		service.PollForActivityTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -438,7 +456,8 @@ module.exports = function(RED) {
 
 			svc.pollForActivityTask(params,cb);
 		}
-			service.PollForDecisionTask=function(svc,msg,cb){
+		
+		service.PollForDecisionTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -461,7 +480,8 @@ module.exports = function(RED) {
 
 			svc.pollForDecisionTask(params,cb);
 		}
-			service.RecordActivityTaskHeartbeat=function(svc,msg,cb){
+		
+		service.RecordActivityTaskHeartbeat=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskToken",params,undefined,false); 
@@ -475,7 +495,8 @@ module.exports = function(RED) {
 
 			svc.recordActivityTaskHeartbeat(params,cb);
 		}
-			service.RegisterActivityType=function(svc,msg,cb){
+		
+		service.RegisterActivityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -507,7 +528,8 @@ module.exports = function(RED) {
 
 			svc.registerActivityType(params,cb);
 		}
-			service.RegisterDomain=function(svc,msg,cb){
+		
+		service.RegisterDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -526,7 +548,8 @@ module.exports = function(RED) {
 
 			svc.registerDomain(params,cb);
 		}
-			service.RegisterWorkflowType=function(svc,msg,cb){
+		
+		service.RegisterWorkflowType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -558,7 +581,8 @@ module.exports = function(RED) {
 
 			svc.registerWorkflowType(params,cb);
 		}
-			service.RequestCancelWorkflowExecution=function(svc,msg,cb){
+		
+		service.RequestCancelWorkflowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -575,7 +599,8 @@ module.exports = function(RED) {
 
 			svc.requestCancelWorkflowExecution(params,cb);
 		}
-			service.RespondActivityTaskCanceled=function(svc,msg,cb){
+		
+		service.RespondActivityTaskCanceled=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskToken",params,undefined,false); 
@@ -589,7 +614,8 @@ module.exports = function(RED) {
 
 			svc.respondActivityTaskCanceled(params,cb);
 		}
-			service.RespondActivityTaskCompleted=function(svc,msg,cb){
+		
+		service.RespondActivityTaskCompleted=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskToken",params,undefined,false); 
@@ -603,7 +629,8 @@ module.exports = function(RED) {
 
 			svc.respondActivityTaskCompleted(params,cb);
 		}
-			service.RespondActivityTaskFailed=function(svc,msg,cb){
+		
+		service.RespondActivityTaskFailed=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskToken",params,undefined,false); 
@@ -619,7 +646,8 @@ module.exports = function(RED) {
 
 			svc.respondActivityTaskFailed(params,cb);
 		}
-			service.RespondDecisionTaskCompleted=function(svc,msg,cb){
+		
+		service.RespondDecisionTaskCompleted=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"taskToken",params,undefined,false); 
@@ -635,7 +663,8 @@ module.exports = function(RED) {
 
 			svc.respondDecisionTaskCompleted(params,cb);
 		}
-			service.SignalWorkflowExecution=function(svc,msg,cb){
+		
+		service.SignalWorkflowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -657,7 +686,8 @@ module.exports = function(RED) {
 
 			svc.signalWorkflowExecution(params,cb);
 		}
-			service.StartWorkflowExecution=function(svc,msg,cb){
+		
+		service.StartWorkflowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -691,7 +721,8 @@ module.exports = function(RED) {
 
 			svc.startWorkflowExecution(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -706,7 +737,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.TerminateWorkflowExecution=function(svc,msg,cb){
+		
+		service.TerminateWorkflowExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -729,7 +761,8 @@ module.exports = function(RED) {
 
 			svc.terminateWorkflowExecution(params,cb);
 		}
-			service.UndeprecateActivityType=function(svc,msg,cb){
+		
+		service.UndeprecateActivityType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -744,7 +777,8 @@ module.exports = function(RED) {
 
 			svc.undeprecateActivityType(params,cb);
 		}
-			service.UndeprecateDomain=function(svc,msg,cb){
+		
+		service.UndeprecateDomain=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -756,7 +790,8 @@ module.exports = function(RED) {
 
 			svc.undeprecateDomain(params,cb);
 		}
-			service.UndeprecateWorkflowType=function(svc,msg,cb){
+		
+		service.UndeprecateWorkflowType=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"domain",params,undefined,false); 
@@ -771,7 +806,8 @@ module.exports = function(RED) {
 
 			svc.undeprecateWorkflowType(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -786,6 +822,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SWF", AmazonAPINode);

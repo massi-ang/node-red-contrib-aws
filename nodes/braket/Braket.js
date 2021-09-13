@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelQuantumTask=function(svc,msg,cb){
+		service.CancelQuantumTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"clientToken",params,undefined,false); 
@@ -108,7 +108,8 @@ module.exports = function(RED) {
 
 			svc.cancelQuantumTask(params,cb);
 		}
-			service.CreateQuantumTask=function(svc,msg,cb){
+		
+		service.CreateQuantumTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"action",params,undefined,false); 
@@ -139,7 +140,8 @@ module.exports = function(RED) {
 
 			svc.createQuantumTask(params,cb);
 		}
-			service.GetDevice=function(svc,msg,cb){
+		
+		service.GetDevice=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"deviceArn",params,undefined,false); 
@@ -151,7 +153,8 @@ module.exports = function(RED) {
 
 			svc.getDevice(params,cb);
 		}
-			service.GetQuantumTask=function(svc,msg,cb){
+		
+		service.GetQuantumTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"quantumTaskArn",params,undefined,false); 
@@ -163,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.getQuantumTask(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -175,7 +179,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.SearchDevices=function(svc,msg,cb){
+		
+		service.SearchDevices=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filters",params,undefined,false); 
@@ -191,7 +196,8 @@ module.exports = function(RED) {
 
 			svc.searchDevices(params,cb);
 		}
-			service.SearchQuantumTasks=function(svc,msg,cb){
+		
+		service.SearchQuantumTasks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"filters",params,undefined,false); 
@@ -207,7 +213,8 @@ module.exports = function(RED) {
 
 			svc.searchQuantumTasks(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -222,7 +229,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"resourceArn",params,undefined,false); 
@@ -237,6 +245,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Braket", AmazonAPINode);

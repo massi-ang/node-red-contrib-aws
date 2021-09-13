@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateOrder=function(svc,msg,cb){
+		service.CreateOrder=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutpostIdentifier",params,undefined,false); 
@@ -113,7 +113,8 @@ module.exports = function(RED) {
 
 			svc.createOrder(params,cb);
 		}
-			service.CreateOutpost=function(svc,msg,cb){
+		
+		service.CreateOutpost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Name",params,undefined,false); 
@@ -136,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.createOutpost(params,cb);
 		}
-			service.DeleteOutpost=function(svc,msg,cb){
+		
+		service.DeleteOutpost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutpostId",params,undefined,false); 
@@ -148,7 +150,8 @@ module.exports = function(RED) {
 
 			svc.deleteOutpost(params,cb);
 		}
-			service.DeleteSite=function(svc,msg,cb){
+		
+		service.DeleteSite=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SiteId",params,undefined,false); 
@@ -160,7 +163,8 @@ module.exports = function(RED) {
 
 			svc.deleteSite(params,cb);
 		}
-			service.GetOutpost=function(svc,msg,cb){
+		
+		service.GetOutpost=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutpostId",params,undefined,false); 
@@ -172,7 +176,8 @@ module.exports = function(RED) {
 
 			svc.getOutpost(params,cb);
 		}
-			service.GetOutpostInstanceTypes=function(svc,msg,cb){
+		
+		service.GetOutpostInstanceTypes=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"OutpostId",params,undefined,false); 
@@ -188,7 +193,8 @@ module.exports = function(RED) {
 
 			svc.getOutpostInstanceTypes(params,cb);
 		}
-			service.ListOutposts=function(svc,msg,cb){
+		
+		service.ListOutposts=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -207,7 +213,8 @@ module.exports = function(RED) {
 
 			svc.listOutposts(params,cb);
 		}
-			service.ListSites=function(svc,msg,cb){
+		
+		service.ListSites=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -220,7 +227,8 @@ module.exports = function(RED) {
 
 			svc.listSites(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -232,7 +240,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -247,7 +256,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -262,6 +272,7 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Outposts", AmazonAPINode);

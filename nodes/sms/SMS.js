@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateApp=function(svc,msg,cb){
+		service.CreateApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -114,7 +114,8 @@ module.exports = function(RED) {
 
 			svc.createApp(params,cb);
 		}
-			service.CreateReplicationJob=function(svc,msg,cb){
+		
+		service.CreateReplicationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"serverId",params,undefined,false); 
@@ -145,7 +146,8 @@ module.exports = function(RED) {
 
 			svc.createReplicationJob(params,cb);
 		}
-			service.DeleteApp=function(svc,msg,cb){
+		
+		service.DeleteApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -160,7 +162,8 @@ module.exports = function(RED) {
 
 			svc.deleteApp(params,cb);
 		}
-			service.DeleteAppLaunchConfiguration=function(svc,msg,cb){
+		
+		service.DeleteAppLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -171,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.deleteAppLaunchConfiguration(params,cb);
 		}
-			service.DeleteAppReplicationConfiguration=function(svc,msg,cb){
+		
+		service.DeleteAppReplicationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -182,7 +186,8 @@ module.exports = function(RED) {
 
 			svc.deleteAppReplicationConfiguration(params,cb);
 		}
-			service.DeleteAppValidationConfiguration=function(svc,msg,cb){
+		
+		service.DeleteAppValidationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -194,7 +199,8 @@ module.exports = function(RED) {
 
 			svc.deleteAppValidationConfiguration(params,cb);
 		}
-			service.DeleteReplicationJob=function(svc,msg,cb){
+		
+		service.DeleteReplicationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationJobId",params,undefined,false); 
@@ -206,7 +212,8 @@ module.exports = function(RED) {
 
 			svc.deleteReplicationJob(params,cb);
 		}
-			service.DeleteServerCatalog=function(svc,msg,cb){
+		
+		service.DeleteServerCatalog=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -215,7 +222,8 @@ module.exports = function(RED) {
 
 			svc.deleteServerCatalog(params,cb);
 		}
-			service.DisassociateConnector=function(svc,msg,cb){
+		
+		service.DisassociateConnector=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"connectorId",params,undefined,false); 
@@ -227,7 +235,8 @@ module.exports = function(RED) {
 
 			svc.disassociateConnector(params,cb);
 		}
-			service.GenerateChangeSet=function(svc,msg,cb){
+		
+		service.GenerateChangeSet=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -240,7 +249,8 @@ module.exports = function(RED) {
 
 			svc.generateChangeSet(params,cb);
 		}
-			service.GenerateTemplate=function(svc,msg,cb){
+		
+		service.GenerateTemplate=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -253,7 +263,8 @@ module.exports = function(RED) {
 
 			svc.generateTemplate(params,cb);
 		}
-			service.GetApp=function(svc,msg,cb){
+		
+		service.GetApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -264,7 +275,8 @@ module.exports = function(RED) {
 
 			svc.getApp(params,cb);
 		}
-			service.GetAppLaunchConfiguration=function(svc,msg,cb){
+		
+		service.GetAppLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -275,7 +287,8 @@ module.exports = function(RED) {
 
 			svc.getAppLaunchConfiguration(params,cb);
 		}
-			service.GetAppReplicationConfiguration=function(svc,msg,cb){
+		
+		service.GetAppReplicationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -286,7 +299,8 @@ module.exports = function(RED) {
 
 			svc.getAppReplicationConfiguration(params,cb);
 		}
-			service.GetAppValidationConfiguration=function(svc,msg,cb){
+		
+		service.GetAppValidationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -298,7 +312,8 @@ module.exports = function(RED) {
 
 			svc.getAppValidationConfiguration(params,cb);
 		}
-			service.GetAppValidationOutput=function(svc,msg,cb){
+		
+		service.GetAppValidationOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -310,7 +325,8 @@ module.exports = function(RED) {
 
 			svc.getAppValidationOutput(params,cb);
 		}
-			service.GetConnectors=function(svc,msg,cb){
+		
+		service.GetConnectors=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -323,7 +339,8 @@ module.exports = function(RED) {
 
 			svc.getConnectors(params,cb);
 		}
-			service.GetReplicationJobs=function(svc,msg,cb){
+		
+		service.GetReplicationJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -338,7 +355,8 @@ module.exports = function(RED) {
 
 			svc.getReplicationJobs(params,cb);
 		}
-			service.GetReplicationRuns=function(svc,msg,cb){
+		
+		service.GetReplicationRuns=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationJobId",params,undefined,false); 
@@ -354,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.getReplicationRuns(params,cb);
 		}
-			service.GetServers=function(svc,msg,cb){
+		
+		service.GetServers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -369,7 +388,8 @@ module.exports = function(RED) {
 
 			svc.getServers(params,cb);
 		}
-			service.ImportAppCatalog=function(svc,msg,cb){
+		
+		service.ImportAppCatalog=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -380,7 +400,8 @@ module.exports = function(RED) {
 
 			svc.importAppCatalog(params,cb);
 		}
-			service.ImportServerCatalog=function(svc,msg,cb){
+		
+		service.ImportServerCatalog=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -389,7 +410,8 @@ module.exports = function(RED) {
 
 			svc.importServerCatalog(params,cb);
 		}
-			service.LaunchApp=function(svc,msg,cb){
+		
+		service.LaunchApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -400,7 +422,8 @@ module.exports = function(RED) {
 
 			svc.launchApp(params,cb);
 		}
-			service.ListApps=function(svc,msg,cb){
+		
+		service.ListApps=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -415,7 +438,8 @@ module.exports = function(RED) {
 
 			svc.listApps(params,cb);
 		}
-			service.NotifyAppValidationOutput=function(svc,msg,cb){
+		
+		service.NotifyAppValidationOutput=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -429,7 +453,8 @@ module.exports = function(RED) {
 
 			svc.notifyAppValidationOutput(params,cb);
 		}
-			service.PutAppLaunchConfiguration=function(svc,msg,cb){
+		
+		service.PutAppLaunchConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -446,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.putAppLaunchConfiguration(params,cb);
 		}
-			service.PutAppReplicationConfiguration=function(svc,msg,cb){
+		
+		service.PutAppReplicationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -459,7 +485,8 @@ module.exports = function(RED) {
 
 			svc.putAppReplicationConfiguration(params,cb);
 		}
-			service.PutAppValidationConfiguration=function(svc,msg,cb){
+		
+		service.PutAppValidationConfiguration=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -475,7 +502,8 @@ module.exports = function(RED) {
 
 			svc.putAppValidationConfiguration(params,cb);
 		}
-			service.StartAppReplication=function(svc,msg,cb){
+		
+		service.StartAppReplication=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -486,7 +514,8 @@ module.exports = function(RED) {
 
 			svc.startAppReplication(params,cb);
 		}
-			service.StartOnDemandAppReplication=function(svc,msg,cb){
+		
+		service.StartOnDemandAppReplication=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"appId",params,undefined,false); 
@@ -500,7 +529,8 @@ module.exports = function(RED) {
 
 			svc.startOnDemandAppReplication(params,cb);
 		}
-			service.StartOnDemandReplicationRun=function(svc,msg,cb){
+		
+		service.StartOnDemandReplicationRun=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationJobId",params,undefined,false); 
@@ -514,7 +544,8 @@ module.exports = function(RED) {
 
 			svc.startOnDemandReplicationRun(params,cb);
 		}
-			service.StopAppReplication=function(svc,msg,cb){
+		
+		service.StopAppReplication=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -525,7 +556,8 @@ module.exports = function(RED) {
 
 			svc.stopAppReplication(params,cb);
 		}
-			service.TerminateApp=function(svc,msg,cb){
+		
+		service.TerminateApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -536,7 +568,8 @@ module.exports = function(RED) {
 
 			svc.terminateApp(params,cb);
 		}
-			service.UpdateApp=function(svc,msg,cb){
+		
+		service.UpdateApp=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -557,7 +590,8 @@ module.exports = function(RED) {
 
 			svc.updateApp(params,cb);
 		}
-			service.UpdateReplicationJob=function(svc,msg,cb){
+		
+		service.UpdateReplicationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"replicationJobId",params,undefined,false); 
@@ -585,6 +619,7 @@ module.exports = function(RED) {
 
 			svc.updateReplicationJob(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SMS", AmazonAPINode);

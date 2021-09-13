@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.GetRoleCredentials=function(svc,msg,cb){
+		service.GetRoleCredentials=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"roleName",params,undefined,false); 
@@ -111,7 +111,8 @@ module.exports = function(RED) {
 
 			svc.getRoleCredentials(params,cb);
 		}
-			service.ListAccountRoles=function(svc,msg,cb){
+		
+		service.ListAccountRoles=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessToken",params,undefined,true); 
@@ -130,7 +131,8 @@ module.exports = function(RED) {
 
 			svc.listAccountRoles(params,cb);
 		}
-			service.ListAccounts=function(svc,msg,cb){
+		
+		service.ListAccounts=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessToken",params,undefined,true); 
@@ -146,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.listAccounts(params,cb);
 		}
-			service.Logout=function(svc,msg,cb){
+		
+		service.Logout=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"accessToken",params,undefined,true); 
@@ -158,6 +161,7 @@ module.exports = function(RED) {
 
 			svc.logout(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS SSO", AmazonAPINode);

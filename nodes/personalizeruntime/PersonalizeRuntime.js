@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.GetPersonalizedRanking=function(svc,msg,cb){
+		service.GetPersonalizedRanking=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"campaignArn",params,undefined,false); 
@@ -117,7 +117,8 @@ module.exports = function(RED) {
 
 			svc.getPersonalizedRanking(params,cb);
 		}
-			service.GetRecommendations=function(svc,msg,cb){
+		
+		service.GetRecommendations=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"campaignArn",params,undefined,false); 
@@ -141,6 +142,7 @@ module.exports = function(RED) {
 
 			svc.getRecommendations(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS PersonalizeRuntime", AmazonAPINode);

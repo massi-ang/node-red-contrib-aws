@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.DeleteThingShadow=function(svc,msg,cb){
+		service.DeleteThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -107,7 +107,8 @@ module.exports = function(RED) {
 
 			svc.deleteThingShadow(params,cb);
 		}
-			service.GetRetainedMessage=function(svc,msg,cb){
+		
+		service.GetRetainedMessage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"topic",params,undefined,false); 
@@ -119,7 +120,8 @@ module.exports = function(RED) {
 
 			svc.getRetainedMessage(params,cb);
 		}
-			service.GetThingShadow=function(svc,msg,cb){
+		
+		service.GetThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -133,7 +135,8 @@ module.exports = function(RED) {
 
 			svc.getThingShadow(params,cb);
 		}
-			service.ListNamedShadowsForThing=function(svc,msg,cb){
+		
+		service.ListNamedShadowsForThing=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -149,7 +152,8 @@ module.exports = function(RED) {
 
 			svc.listNamedShadowsForThing(params,cb);
 		}
-			service.ListRetainedMessages=function(svc,msg,cb){
+		
+		service.ListRetainedMessages=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -162,7 +166,8 @@ module.exports = function(RED) {
 
 			svc.listRetainedMessages(params,cb);
 		}
-			service.Publish=function(svc,msg,cb){
+		
+		service.Publish=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"topic",params,undefined,false); 
@@ -180,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.publish(params,cb);
 		}
-			service.UpdateThingShadow=function(svc,msg,cb){
+		
+		service.UpdateThingShadow=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"thingName",params,undefined,false); 
@@ -197,6 +203,7 @@ module.exports = function(RED) {
 
 			svc.updateThingShadow(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS IotData", AmazonAPINode);

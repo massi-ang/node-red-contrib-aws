@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.BatchDetectDominantLanguage=function(svc,msg,cb){
+		service.BatchDetectDominantLanguage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TextList",params,undefined,true); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.batchDetectDominantLanguage(params,cb);
 		}
-			service.BatchDetectEntities=function(svc,msg,cb){
+		
+		service.BatchDetectEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TextList",params,undefined,true); 
@@ -120,7 +121,8 @@ module.exports = function(RED) {
 
 			svc.batchDetectEntities(params,cb);
 		}
-			service.BatchDetectKeyPhrases=function(svc,msg,cb){
+		
+		service.BatchDetectKeyPhrases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TextList",params,undefined,true); 
@@ -135,7 +137,8 @@ module.exports = function(RED) {
 
 			svc.batchDetectKeyPhrases(params,cb);
 		}
-			service.BatchDetectSentiment=function(svc,msg,cb){
+		
+		service.BatchDetectSentiment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TextList",params,undefined,true); 
@@ -150,7 +153,8 @@ module.exports = function(RED) {
 
 			svc.batchDetectSentiment(params,cb);
 		}
-			service.BatchDetectSyntax=function(svc,msg,cb){
+		
+		service.BatchDetectSyntax=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TextList",params,undefined,true); 
@@ -165,7 +169,8 @@ module.exports = function(RED) {
 
 			svc.batchDetectSyntax(params,cb);
 		}
-			service.ClassifyDocument=function(svc,msg,cb){
+		
+		service.ClassifyDocument=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -180,7 +185,8 @@ module.exports = function(RED) {
 
 			svc.classifyDocument(params,cb);
 		}
-			service.ContainsPiiEntities=function(svc,msg,cb){
+		
+		service.ContainsPiiEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -195,7 +201,8 @@ module.exports = function(RED) {
 
 			svc.containsPiiEntities(params,cb);
 		}
-			service.CreateDocumentClassifier=function(svc,msg,cb){
+		
+		service.CreateDocumentClassifier=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentClassifierName",params,undefined,false); 
@@ -230,7 +237,8 @@ module.exports = function(RED) {
 
 			svc.createDocumentClassifier(params,cb);
 		}
-			service.CreateEndpoint=function(svc,msg,cb){
+		
+		service.CreateEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointName",params,undefined,false); 
@@ -254,7 +262,8 @@ module.exports = function(RED) {
 
 			svc.createEndpoint(params,cb);
 		}
-			service.CreateEntityRecognizer=function(svc,msg,cb){
+		
+		service.CreateEntityRecognizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"RecognizerName",params,undefined,false); 
@@ -285,7 +294,8 @@ module.exports = function(RED) {
 
 			svc.createEntityRecognizer(params,cb);
 		}
-			service.DeleteDocumentClassifier=function(svc,msg,cb){
+		
+		service.DeleteDocumentClassifier=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentClassifierArn",params,undefined,false); 
@@ -297,7 +307,8 @@ module.exports = function(RED) {
 
 			svc.deleteDocumentClassifier(params,cb);
 		}
-			service.DeleteEndpoint=function(svc,msg,cb){
+		
+		service.DeleteEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -309,7 +320,8 @@ module.exports = function(RED) {
 
 			svc.deleteEndpoint(params,cb);
 		}
-			service.DeleteEntityRecognizer=function(svc,msg,cb){
+		
+		service.DeleteEntityRecognizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EntityRecognizerArn",params,undefined,false); 
@@ -321,7 +333,8 @@ module.exports = function(RED) {
 
 			svc.deleteEntityRecognizer(params,cb);
 		}
-			service.DescribeDocumentClassificationJob=function(svc,msg,cb){
+		
+		service.DescribeDocumentClassificationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -333,7 +346,8 @@ module.exports = function(RED) {
 
 			svc.describeDocumentClassificationJob(params,cb);
 		}
-			service.DescribeDocumentClassifier=function(svc,msg,cb){
+		
+		service.DescribeDocumentClassifier=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentClassifierArn",params,undefined,false); 
@@ -345,7 +359,8 @@ module.exports = function(RED) {
 
 			svc.describeDocumentClassifier(params,cb);
 		}
-			service.DescribeDominantLanguageDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeDominantLanguageDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -357,7 +372,8 @@ module.exports = function(RED) {
 
 			svc.describeDominantLanguageDetectionJob(params,cb);
 		}
-			service.DescribeEndpoint=function(svc,msg,cb){
+		
+		service.DescribeEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -369,7 +385,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpoint(params,cb);
 		}
-			service.DescribeEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -381,7 +398,8 @@ module.exports = function(RED) {
 
 			svc.describeEntitiesDetectionJob(params,cb);
 		}
-			service.DescribeEntityRecognizer=function(svc,msg,cb){
+		
+		service.DescribeEntityRecognizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EntityRecognizerArn",params,undefined,false); 
@@ -393,7 +411,8 @@ module.exports = function(RED) {
 
 			svc.describeEntityRecognizer(params,cb);
 		}
-			service.DescribeEventsDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeEventsDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -405,7 +424,8 @@ module.exports = function(RED) {
 
 			svc.describeEventsDetectionJob(params,cb);
 		}
-			service.DescribeKeyPhrasesDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeKeyPhrasesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -417,7 +437,8 @@ module.exports = function(RED) {
 
 			svc.describeKeyPhrasesDetectionJob(params,cb);
 		}
-			service.DescribePiiEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.DescribePiiEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -429,7 +450,8 @@ module.exports = function(RED) {
 
 			svc.describePiiEntitiesDetectionJob(params,cb);
 		}
-			service.DescribeSentimentDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeSentimentDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -441,7 +463,8 @@ module.exports = function(RED) {
 
 			svc.describeSentimentDetectionJob(params,cb);
 		}
-			service.DescribeTopicsDetectionJob=function(svc,msg,cb){
+		
+		service.DescribeTopicsDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -453,7 +476,8 @@ module.exports = function(RED) {
 
 			svc.describeTopicsDetectionJob(params,cb);
 		}
-			service.DetectDominantLanguage=function(svc,msg,cb){
+		
+		service.DetectDominantLanguage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -465,7 +489,8 @@ module.exports = function(RED) {
 
 			svc.detectDominantLanguage(params,cb);
 		}
-			service.DetectEntities=function(svc,msg,cb){
+		
+		service.DetectEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -481,7 +506,8 @@ module.exports = function(RED) {
 
 			svc.detectEntities(params,cb);
 		}
-			service.DetectKeyPhrases=function(svc,msg,cb){
+		
+		service.DetectKeyPhrases=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -496,7 +522,8 @@ module.exports = function(RED) {
 
 			svc.detectKeyPhrases(params,cb);
 		}
-			service.DetectPiiEntities=function(svc,msg,cb){
+		
+		service.DetectPiiEntities=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,false); 
@@ -511,7 +538,8 @@ module.exports = function(RED) {
 
 			svc.detectPiiEntities(params,cb);
 		}
-			service.DetectSentiment=function(svc,msg,cb){
+		
+		service.DetectSentiment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -526,7 +554,8 @@ module.exports = function(RED) {
 
 			svc.detectSentiment(params,cb);
 		}
-			service.DetectSyntax=function(svc,msg,cb){
+		
+		service.DetectSyntax=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Text",params,undefined,true); 
@@ -541,7 +570,8 @@ module.exports = function(RED) {
 
 			svc.detectSyntax(params,cb);
 		}
-			service.ListDocumentClassificationJobs=function(svc,msg,cb){
+		
+		service.ListDocumentClassificationJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -556,7 +586,8 @@ module.exports = function(RED) {
 
 			svc.listDocumentClassificationJobs(params,cb);
 		}
-			service.ListDocumentClassifiers=function(svc,msg,cb){
+		
+		service.ListDocumentClassifiers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -571,7 +602,8 @@ module.exports = function(RED) {
 
 			svc.listDocumentClassifiers(params,cb);
 		}
-			service.ListDominantLanguageDetectionJobs=function(svc,msg,cb){
+		
+		service.ListDominantLanguageDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -586,7 +618,8 @@ module.exports = function(RED) {
 
 			svc.listDominantLanguageDetectionJobs(params,cb);
 		}
-			service.ListEndpoints=function(svc,msg,cb){
+		
+		service.ListEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -601,7 +634,8 @@ module.exports = function(RED) {
 
 			svc.listEndpoints(params,cb);
 		}
-			service.ListEntitiesDetectionJobs=function(svc,msg,cb){
+		
+		service.ListEntitiesDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -616,7 +650,8 @@ module.exports = function(RED) {
 
 			svc.listEntitiesDetectionJobs(params,cb);
 		}
-			service.ListEntityRecognizers=function(svc,msg,cb){
+		
+		service.ListEntityRecognizers=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -631,7 +666,8 @@ module.exports = function(RED) {
 
 			svc.listEntityRecognizers(params,cb);
 		}
-			service.ListEventsDetectionJobs=function(svc,msg,cb){
+		
+		service.ListEventsDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -646,7 +682,8 @@ module.exports = function(RED) {
 
 			svc.listEventsDetectionJobs(params,cb);
 		}
-			service.ListKeyPhrasesDetectionJobs=function(svc,msg,cb){
+		
+		service.ListKeyPhrasesDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -661,7 +698,8 @@ module.exports = function(RED) {
 
 			svc.listKeyPhrasesDetectionJobs(params,cb);
 		}
-			service.ListPiiEntitiesDetectionJobs=function(svc,msg,cb){
+		
+		service.ListPiiEntitiesDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -676,7 +714,8 @@ module.exports = function(RED) {
 
 			svc.listPiiEntitiesDetectionJobs(params,cb);
 		}
-			service.ListSentimentDetectionJobs=function(svc,msg,cb){
+		
+		service.ListSentimentDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -691,7 +730,8 @@ module.exports = function(RED) {
 
 			svc.listSentimentDetectionJobs(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -703,7 +743,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTopicsDetectionJobs=function(svc,msg,cb){
+		
+		service.ListTopicsDetectionJobs=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -718,7 +759,8 @@ module.exports = function(RED) {
 
 			svc.listTopicsDetectionJobs(params,cb);
 		}
-			service.StartDocumentClassificationJob=function(svc,msg,cb){
+		
+		service.StartDocumentClassificationJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentClassifierArn",params,undefined,false); 
@@ -749,7 +791,8 @@ module.exports = function(RED) {
 
 			svc.startDocumentClassificationJob(params,cb);
 		}
-			service.StartDominantLanguageDetectionJob=function(svc,msg,cb){
+		
+		service.StartDominantLanguageDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -777,7 +820,8 @@ module.exports = function(RED) {
 
 			svc.startDominantLanguageDetectionJob(params,cb);
 		}
-			service.StartEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.StartEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -810,7 +854,8 @@ module.exports = function(RED) {
 
 			svc.startEntitiesDetectionJob(params,cb);
 		}
-			service.StartEventsDetectionJob=function(svc,msg,cb){
+		
+		service.StartEventsDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -840,7 +885,8 @@ module.exports = function(RED) {
 
 			svc.startEventsDetectionJob(params,cb);
 		}
-			service.StartKeyPhrasesDetectionJob=function(svc,msg,cb){
+		
+		service.StartKeyPhrasesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -871,7 +917,8 @@ module.exports = function(RED) {
 
 			svc.startKeyPhrasesDetectionJob(params,cb);
 		}
-			service.StartPiiEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.StartPiiEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -903,7 +950,8 @@ module.exports = function(RED) {
 
 			svc.startPiiEntitiesDetectionJob(params,cb);
 		}
-			service.StartSentimentDetectionJob=function(svc,msg,cb){
+		
+		service.StartSentimentDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -934,7 +982,8 @@ module.exports = function(RED) {
 
 			svc.startSentimentDetectionJob(params,cb);
 		}
-			service.StartTopicsDetectionJob=function(svc,msg,cb){
+		
+		service.StartTopicsDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"InputDataConfig",params,undefined,true); 
@@ -964,7 +1013,8 @@ module.exports = function(RED) {
 
 			svc.startTopicsDetectionJob(params,cb);
 		}
-			service.StopDominantLanguageDetectionJob=function(svc,msg,cb){
+		
+		service.StopDominantLanguageDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -976,7 +1026,8 @@ module.exports = function(RED) {
 
 			svc.stopDominantLanguageDetectionJob(params,cb);
 		}
-			service.StopEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.StopEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -988,7 +1039,8 @@ module.exports = function(RED) {
 
 			svc.stopEntitiesDetectionJob(params,cb);
 		}
-			service.StopEventsDetectionJob=function(svc,msg,cb){
+		
+		service.StopEventsDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -1000,7 +1052,8 @@ module.exports = function(RED) {
 
 			svc.stopEventsDetectionJob(params,cb);
 		}
-			service.StopKeyPhrasesDetectionJob=function(svc,msg,cb){
+		
+		service.StopKeyPhrasesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -1012,7 +1065,8 @@ module.exports = function(RED) {
 
 			svc.stopKeyPhrasesDetectionJob(params,cb);
 		}
-			service.StopPiiEntitiesDetectionJob=function(svc,msg,cb){
+		
+		service.StopPiiEntitiesDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -1024,7 +1078,8 @@ module.exports = function(RED) {
 
 			svc.stopPiiEntitiesDetectionJob(params,cb);
 		}
-			service.StopSentimentDetectionJob=function(svc,msg,cb){
+		
+		service.StopSentimentDetectionJob=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"JobId",params,undefined,false); 
@@ -1036,7 +1091,8 @@ module.exports = function(RED) {
 
 			svc.stopSentimentDetectionJob(params,cb);
 		}
-			service.StopTrainingDocumentClassifier=function(svc,msg,cb){
+		
+		service.StopTrainingDocumentClassifier=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"DocumentClassifierArn",params,undefined,false); 
@@ -1048,7 +1104,8 @@ module.exports = function(RED) {
 
 			svc.stopTrainingDocumentClassifier(params,cb);
 		}
-			service.StopTrainingEntityRecognizer=function(svc,msg,cb){
+		
+		service.StopTrainingEntityRecognizer=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EntityRecognizerArn",params,undefined,false); 
@@ -1060,7 +1117,8 @@ module.exports = function(RED) {
 
 			svc.stopTrainingEntityRecognizer(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1075,7 +1133,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -1090,7 +1149,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateEndpoint=function(svc,msg,cb){
+		
+		service.UpdateEndpoint=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EndpointArn",params,undefined,false); 
@@ -1105,6 +1165,7 @@ module.exports = function(RED) {
 
 			svc.updateEndpoint(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Comprehend", AmazonAPINode);

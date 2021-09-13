@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateEnvironmentEC2=function(svc,msg,cb){
+		service.CreateEnvironmentEC2=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"name",params,undefined,false); 
@@ -126,7 +126,8 @@ module.exports = function(RED) {
 
 			svc.createEnvironmentEC2(params,cb);
 		}
-			service.CreateEnvironmentMembership=function(svc,msg,cb){
+		
+		service.CreateEnvironmentMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -144,7 +145,8 @@ module.exports = function(RED) {
 
 			svc.createEnvironmentMembership(params,cb);
 		}
-			service.DeleteEnvironment=function(svc,msg,cb){
+		
+		service.DeleteEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -156,7 +158,8 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironment(params,cb);
 		}
-			service.DeleteEnvironmentMembership=function(svc,msg,cb){
+		
+		service.DeleteEnvironmentMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -171,7 +174,8 @@ module.exports = function(RED) {
 
 			svc.deleteEnvironmentMembership(params,cb);
 		}
-			service.DescribeEnvironmentMemberships=function(svc,msg,cb){
+		
+		service.DescribeEnvironmentMemberships=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -190,7 +194,8 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentMemberships(params,cb);
 		}
-			service.DescribeEnvironmentStatus=function(svc,msg,cb){
+		
+		service.DescribeEnvironmentStatus=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -202,7 +207,8 @@ module.exports = function(RED) {
 
 			svc.describeEnvironmentStatus(params,cb);
 		}
-			service.DescribeEnvironments=function(svc,msg,cb){
+		
+		service.DescribeEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentIds",params,undefined,false); 
@@ -214,7 +220,8 @@ module.exports = function(RED) {
 
 			svc.describeEnvironments(params,cb);
 		}
-			service.ListEnvironments=function(svc,msg,cb){
+		
+		service.ListEnvironments=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -227,7 +234,8 @@ module.exports = function(RED) {
 
 			svc.listEnvironments(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -239,7 +247,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -254,7 +263,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceARN",params,undefined,false); 
@@ -269,7 +279,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateEnvironment=function(svc,msg,cb){
+		
+		service.UpdateEnvironment=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -287,7 +298,8 @@ module.exports = function(RED) {
 
 			svc.updateEnvironment(params,cb);
 		}
-			service.UpdateEnvironmentMembership=function(svc,msg,cb){
+		
+		service.UpdateEnvironmentMembership=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"environmentId",params,undefined,false); 
@@ -305,6 +317,7 @@ module.exports = function(RED) {
 
 			svc.updateEnvironmentMembership(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Cloud9", AmazonAPINode);

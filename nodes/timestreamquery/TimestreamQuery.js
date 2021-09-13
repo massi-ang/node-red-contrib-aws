@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelQuery=function(svc,msg,cb){
+		service.CancelQuery=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryId",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelQuery(params,cb);
 		}
-			service.DescribeEndpoints=function(svc,msg,cb){
+		
+		service.DescribeEndpoints=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -114,7 +115,8 @@ module.exports = function(RED) {
 
 			svc.describeEndpoints(params,cb);
 		}
-			service.Query=function(svc,msg,cb){
+		
+		service.Query=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"QueryString",params,undefined,false); 
@@ -132,6 +134,7 @@ module.exports = function(RED) {
 
 			svc.query(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS TimestreamQuery", AmazonAPINode);

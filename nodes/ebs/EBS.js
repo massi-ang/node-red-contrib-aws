@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CompleteSnapshot=function(svc,msg,cb){
+		service.CompleteSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -114,7 +114,8 @@ module.exports = function(RED) {
 
 			svc.completeSnapshot(params,cb);
 		}
-			service.GetSnapshotBlock=function(svc,msg,cb){
+		
+		service.GetSnapshotBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -132,7 +133,8 @@ module.exports = function(RED) {
 
 			svc.getSnapshotBlock(params,cb);
 		}
-			service.ListChangedBlocks=function(svc,msg,cb){
+		
+		service.ListChangedBlocks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SecondSnapshotId",params,undefined,false); 
@@ -152,7 +154,8 @@ module.exports = function(RED) {
 
 			svc.listChangedBlocks(params,cb);
 		}
-			service.ListSnapshotBlocks=function(svc,msg,cb){
+		
+		service.ListSnapshotBlocks=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -170,7 +173,8 @@ module.exports = function(RED) {
 
 			svc.listSnapshotBlocks(params,cb);
 		}
-			service.PutSnapshotBlock=function(svc,msg,cb){
+		
+		service.PutSnapshotBlock=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SnapshotId",params,undefined,false); 
@@ -199,7 +203,8 @@ module.exports = function(RED) {
 
 			svc.putSnapshotBlock(params,cb);
 		}
-			service.StartSnapshot=function(svc,msg,cb){
+		
+		service.StartSnapshot=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"VolumeSize",params,undefined,false); 
@@ -225,6 +230,7 @@ module.exports = function(RED) {
 
 			svc.startSnapshot(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS EBS", AmazonAPINode);

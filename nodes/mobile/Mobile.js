@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CreateProject=function(svc,msg,cb){
+		service.CreateProject=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -110,7 +110,8 @@ module.exports = function(RED) {
 
 			svc.createProject(params,cb);
 		}
-			service.DeleteProject=function(svc,msg,cb){
+		
+		service.DeleteProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -122,7 +123,8 @@ module.exports = function(RED) {
 
 			svc.deleteProject(params,cb);
 		}
-			service.DescribeBundle=function(svc,msg,cb){
+		
+		service.DescribeBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bundleId",params,undefined,false); 
@@ -134,7 +136,8 @@ module.exports = function(RED) {
 
 			svc.describeBundle(params,cb);
 		}
-			service.DescribeProject=function(svc,msg,cb){
+		
+		service.DescribeProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -148,7 +151,8 @@ module.exports = function(RED) {
 
 			svc.describeProject(params,cb);
 		}
-			service.ExportBundle=function(svc,msg,cb){
+		
+		service.ExportBundle=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"bundleId",params,undefined,false); 
@@ -164,7 +168,8 @@ module.exports = function(RED) {
 
 			svc.exportBundle(params,cb);
 		}
-			service.ExportProject=function(svc,msg,cb){
+		
+		service.ExportProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -176,7 +181,8 @@ module.exports = function(RED) {
 
 			svc.exportProject(params,cb);
 		}
-			service.ListBundles=function(svc,msg,cb){
+		
+		service.ListBundles=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -189,7 +195,8 @@ module.exports = function(RED) {
 
 			svc.listBundles(params,cb);
 		}
-			service.ListProjects=function(svc,msg,cb){
+		
+		service.ListProjects=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -202,7 +209,8 @@ module.exports = function(RED) {
 
 			svc.listProjects(params,cb);
 		}
-			service.UpdateProject=function(svc,msg,cb){
+		
+		service.UpdateProject=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"projectId",params,undefined,false); 
@@ -216,6 +224,7 @@ module.exports = function(RED) {
 
 			svc.updateProject(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS Mobile", AmazonAPINode);

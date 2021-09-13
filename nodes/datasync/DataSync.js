@@ -93,7 +93,7 @@ module.exports = function(RED) {
 
 		var service={};
 		
-			service.CancelTaskExecution=function(svc,msg,cb){
+		service.CancelTaskExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskExecutionArn",params,undefined,false); 
@@ -105,7 +105,8 @@ module.exports = function(RED) {
 
 			svc.cancelTaskExecution(params,cb);
 		}
-			service.CreateAgent=function(svc,msg,cb){
+		
+		service.CreateAgent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ActivationKey",params,undefined,false); 
@@ -127,7 +128,8 @@ module.exports = function(RED) {
 
 			svc.createAgent(params,cb);
 		}
-			service.CreateLocationEfs=function(svc,msg,cb){
+		
+		service.CreateLocationEfs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"EfsFilesystemArn",params,undefined,false); 
@@ -146,7 +148,8 @@ module.exports = function(RED) {
 
 			svc.createLocationEfs(params,cb);
 		}
-			service.CreateLocationFsxWindows=function(svc,msg,cb){
+		
+		service.CreateLocationFsxWindows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"FsxFilesystemArn",params,undefined,false); 
@@ -173,7 +176,8 @@ module.exports = function(RED) {
 
 			svc.createLocationFsxWindows(params,cb);
 		}
-			service.CreateLocationNfs=function(svc,msg,cb){
+		
+		service.CreateLocationNfs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Subdirectory",params,undefined,false); 
@@ -195,7 +199,8 @@ module.exports = function(RED) {
 
 			svc.createLocationNfs(params,cb);
 		}
-			service.CreateLocationObjectStorage=function(svc,msg,cb){
+		
+		service.CreateLocationObjectStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ServerHostname",params,undefined,false); 
@@ -225,7 +230,8 @@ module.exports = function(RED) {
 
 			svc.createLocationObjectStorage(params,cb);
 		}
-			service.CreateLocationS3=function(svc,msg,cb){
+		
+		service.CreateLocationS3=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"S3BucketArn",params,undefined,false); 
@@ -248,7 +254,8 @@ module.exports = function(RED) {
 
 			svc.createLocationS3(params,cb);
 		}
-			service.CreateLocationSmb=function(svc,msg,cb){
+		
+		service.CreateLocationSmb=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"Subdirectory",params,undefined,false); 
@@ -278,7 +285,8 @@ module.exports = function(RED) {
 
 			svc.createLocationSmb(params,cb);
 		}
-			service.CreateTask=function(svc,msg,cb){
+		
+		service.CreateTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"SourceLocationArn",params,undefined,false); 
@@ -307,7 +315,8 @@ module.exports = function(RED) {
 
 			svc.createTask(params,cb);
 		}
-			service.DeleteAgent=function(svc,msg,cb){
+		
+		service.DeleteAgent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AgentArn",params,undefined,false); 
@@ -319,7 +328,8 @@ module.exports = function(RED) {
 
 			svc.deleteAgent(params,cb);
 		}
-			service.DeleteLocation=function(svc,msg,cb){
+		
+		service.DeleteLocation=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -331,7 +341,8 @@ module.exports = function(RED) {
 
 			svc.deleteLocation(params,cb);
 		}
-			service.DeleteTask=function(svc,msg,cb){
+		
+		service.DeleteTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskArn",params,undefined,false); 
@@ -343,7 +354,8 @@ module.exports = function(RED) {
 
 			svc.deleteTask(params,cb);
 		}
-			service.DescribeAgent=function(svc,msg,cb){
+		
+		service.DescribeAgent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AgentArn",params,undefined,false); 
@@ -355,7 +367,8 @@ module.exports = function(RED) {
 
 			svc.describeAgent(params,cb);
 		}
-			service.DescribeLocationEfs=function(svc,msg,cb){
+		
+		service.DescribeLocationEfs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -367,7 +380,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationEfs(params,cb);
 		}
-			service.DescribeLocationFsxWindows=function(svc,msg,cb){
+		
+		service.DescribeLocationFsxWindows=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -379,7 +393,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationFsxWindows(params,cb);
 		}
-			service.DescribeLocationNfs=function(svc,msg,cb){
+		
+		service.DescribeLocationNfs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -391,7 +406,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationNfs(params,cb);
 		}
-			service.DescribeLocationObjectStorage=function(svc,msg,cb){
+		
+		service.DescribeLocationObjectStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -403,7 +419,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationObjectStorage(params,cb);
 		}
-			service.DescribeLocationS3=function(svc,msg,cb){
+		
+		service.DescribeLocationS3=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -415,7 +432,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationS3(params,cb);
 		}
-			service.DescribeLocationSmb=function(svc,msg,cb){
+		
+		service.DescribeLocationSmb=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -427,7 +445,8 @@ module.exports = function(RED) {
 
 			svc.describeLocationSmb(params,cb);
 		}
-			service.DescribeTask=function(svc,msg,cb){
+		
+		service.DescribeTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskArn",params,undefined,false); 
@@ -439,7 +458,8 @@ module.exports = function(RED) {
 
 			svc.describeTask(params,cb);
 		}
-			service.DescribeTaskExecution=function(svc,msg,cb){
+		
+		service.DescribeTaskExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskExecutionArn",params,undefined,false); 
@@ -451,7 +471,8 @@ module.exports = function(RED) {
 
 			svc.describeTaskExecution(params,cb);
 		}
-			service.ListAgents=function(svc,msg,cb){
+		
+		service.ListAgents=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -464,7 +485,8 @@ module.exports = function(RED) {
 
 			svc.listAgents(params,cb);
 		}
-			service.ListLocations=function(svc,msg,cb){
+		
+		service.ListLocations=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -479,7 +501,8 @@ module.exports = function(RED) {
 
 			svc.listLocations(params,cb);
 		}
-			service.ListTagsForResource=function(svc,msg,cb){
+		
+		service.ListTagsForResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -495,7 +518,8 @@ module.exports = function(RED) {
 
 			svc.listTagsForResource(params,cb);
 		}
-			service.ListTaskExecutions=function(svc,msg,cb){
+		
+		service.ListTaskExecutions=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -510,7 +534,8 @@ module.exports = function(RED) {
 
 			svc.listTaskExecutions(params,cb);
 		}
-			service.ListTasks=function(svc,msg,cb){
+		
+		service.ListTasks=function(svc,msg,cb){
 			var params={};
 			
 			
@@ -525,7 +550,8 @@ module.exports = function(RED) {
 
 			svc.listTasks(params,cb);
 		}
-			service.StartTaskExecution=function(svc,msg,cb){
+		
+		service.StartTaskExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskArn",params,undefined,false); 
@@ -543,7 +569,8 @@ module.exports = function(RED) {
 
 			svc.startTaskExecution(params,cb);
 		}
-			service.TagResource=function(svc,msg,cb){
+		
+		service.TagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -558,7 +585,8 @@ module.exports = function(RED) {
 
 			svc.tagResource(params,cb);
 		}
-			service.UntagResource=function(svc,msg,cb){
+		
+		service.UntagResource=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"ResourceArn",params,undefined,false); 
@@ -573,7 +601,8 @@ module.exports = function(RED) {
 
 			svc.untagResource(params,cb);
 		}
-			service.UpdateAgent=function(svc,msg,cb){
+		
+		service.UpdateAgent=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"AgentArn",params,undefined,false); 
@@ -587,7 +616,8 @@ module.exports = function(RED) {
 
 			svc.updateAgent(params,cb);
 		}
-			service.UpdateLocationNfs=function(svc,msg,cb){
+		
+		service.UpdateLocationNfs=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -605,7 +635,8 @@ module.exports = function(RED) {
 
 			svc.updateLocationNfs(params,cb);
 		}
-			service.UpdateLocationObjectStorage=function(svc,msg,cb){
+		
+		service.UpdateLocationObjectStorage=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -629,7 +660,8 @@ module.exports = function(RED) {
 
 			svc.updateLocationObjectStorage(params,cb);
 		}
-			service.UpdateLocationSmb=function(svc,msg,cb){
+		
+		service.UpdateLocationSmb=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"LocationArn",params,undefined,false); 
@@ -653,7 +685,8 @@ module.exports = function(RED) {
 
 			svc.updateLocationSmb(params,cb);
 		}
-			service.UpdateTask=function(svc,msg,cb){
+		
+		service.UpdateTask=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskArn",params,undefined,false); 
@@ -677,7 +710,8 @@ module.exports = function(RED) {
 
 			svc.updateTask(params,cb);
 		}
-			service.UpdateTaskExecution=function(svc,msg,cb){
+		
+		service.UpdateTaskExecution=function(svc,msg,cb){
 			var params={};
 			
 			copyArgs(n,"TaskExecutionArn",params,undefined,false); 
@@ -692,6 +726,7 @@ module.exports = function(RED) {
 
 			svc.updateTaskExecution(params,cb);
 		}
+		
 	
 	}
 	RED.nodes.registerType("AWS DataSync", AmazonAPINode);
